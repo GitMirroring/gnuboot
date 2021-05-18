@@ -1,3 +1,4 @@
 *.html
 /news/index*
 *feed.xml
+*.sha1sum
