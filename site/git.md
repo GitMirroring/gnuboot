@@ -77,9 +77,9 @@ repository:
 Make whatever changes you like. See notes below about how to send patches.
 
 The entire website is written in Markdown, specifically the Pandoc version of
-it. The static HTML pages are generated with [Panbash](https://panbash.org/).
-Leah Rowe, the founder of Libreboot, is also the founder of the Panbash
-project.
+it. The static HTML pages are generated with [Untitled](https://untitled.vimuser.org/).
+Leah Rowe, the founder of Libreboot, is also the founder of the Untitled static
+site generator project.
 
 If you like, you can set up a local HTTP server and build your own local
 version of the website. Please note that images will still link to the ones
@@ -96,12 +96,12 @@ When it is merged on the libreboot website, your images will appear live.
 For development purposes, you might make your images local links first, and
 then adjust the URLs when you submit your documentation/website patches.
 
-Instructions are on the Panbash website, for how to set up your local version
-of the website. Download panbash, and inside your panbash directory, create
+Instructions are on the Untitled website, for how to set up your local version
+of the website. Download untitled, and inside your `untitled` directory, create
 a directory named `www/` then go inside the www directory, and clone the `lbwww`
 repository there. Configure your local HTTP server accordingly.
 
-Again, instructions are available on the Panbash website for this purpose.
+Again, instructions are available on the Untitled website for this purpose.
 
 Name not required
 -----------------

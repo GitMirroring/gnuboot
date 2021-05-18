@@ -57,9 +57,9 @@ Alyssa wrote the original static site generator (bash scripts converting
 markdown to html, via pandoc) for libreboot.org. This static site generator has
 now been heavily modified and forked into a formal project, by Leah Rowe:
 
-<https://panbash.org/> (panbash is Leah's work, not Alyssa's, but it's based on
+<https://untitled.vimuser.org/> (untitled is Leah's work, not Alyssa's, but it's based on
 Alyssa's original work on the static site generator that Libreboot used to use;
-the Libreboot website is now built with Panbash)
+the Libreboot website is now built with Untitled)
 
 Andrew Robbins
 --------------
