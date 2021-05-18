@@ -1,0 +1,171 @@
+html {
+	background-color: #eee;
+	padding-bottom:7em;
+	text-align:left;
+}
+
+div.title {
+	background:url("https://av.libreboot.org/logo/logo_light.svg");
+	background-repeat:no-repeat;
+	background-size: auto 100%;
+	background-attachment:absolute;
+	background-position: right;
+}
+
+h1.title {
+	text-shadow: 0px 0px 5px #FFFFFF;
+	text-align:center;
+	background:url("https://av.libreboot.org/logo/logo_light.svg");
+	background-size: auto 100%;
+	background-repeat:no-repeat;
+	min-height:3.5em;
+	margin:0;
+	display:block;
+}
+
+body {
+	line-height: 1.6;
+	font-family: Cantarell, sans-serif;
+	font-size: 1em;
+	color: #222;
+}
+
+div.page {
+	box-shadow: 0 0 6px;
+	background-color:#fff;
+	max-width:70em;
+	margin:0 auto;
+	padding: 0.2em 1em;
+}
+
+div.warning{
+	background:#fcc;
+	font-size:1.1em;
+	border:solid 1px #666;
+	padding-left:1em;
+	padding-right:1em;
+}
+
+pre {
+	padding: 0.3em;
+}
+
+pre,table {
+	overflow-x: auto;
+	display: block;
+}
+
+table {
+	border-collapse: collapse;
+	width:100%;
+}
+th{
+	background:#cdcdcd;
+}
+th, td {
+	border: solid 1px #888;
+}
+tr:nth-child(even) {
+	background-color: #eee;
+}
+
+code, pre, nav#TOC {
+	background-color: #ececec;
+}
+
+img {
+	max-width: 100%;
+}
+
+a {
+	text-decoration: none;
+	color: #22D;
+}
+
+a.uri {
+	word-wrap: break-word;
+}
+
+a:hover {
+	color: #008;
+}
+
+.date {
+	display: block;
+}
+
+h1, h2, h3, .h:hover a {
+	display: inline;
+}
+
+.h a {
+	display: none;
+}
+
+p.author, p.date {
+	display:none;
+}
+div.nav {
+	text-align:center;
+}
+header ul:first-of-type,
+div.nav ul:first-of-type,
+div#footer ul:last-of-type {
+	padding:0;
+	margin:0;
+	text-align:center;
+}
+header ul:first-of-type > li,
+div.nav ul:first-of-type > li,
+div#footer ul:last-of-type li {
+	padding:0;
+	margin:0;
+	display:inline;
+	padding-left:0.5em;
+	padding-right:0.5em;
+	border-right:solid 1px #000;
+}
+header ul:first-of-type > li:first-child,
+div.nav ul:first-of-type > li:first-child,
+div#footer ul:last-of-type > li:first-child {
+	padding-left:0;
+}
+header ul:first-of-type > li:last-child,
+div.nav ul:first-of-type > li:last-child,
+div#footer ul:last-of-type > li:last-child {
+	padding-right:0;
+	border:none;
+}
+
+nav#TOC {
+	min-width:25%;
+	max-width:100%;
+	float:left;
+	margin:1em;
+	padding: 0.2em 1em;
+}
+nav#TOC h1 {
+	font-size:1em;
+}
+nav#TOC li > ul {
+	margin-left:0;
+	padding-left:0.5em;
+}
+
+img.imgleft, img.imgright {
+	max-width: 25%;
+	height: auto;
+	padding: 2em;
+	padding-top:0.5em;
+	padding-bottom:0.5em;
+}
+
+img.imgright {
+	float: right;
+	padding-right:0;
+}
+
+img.imgleft {
+	float: left;
+	padding-left:0;
+}
