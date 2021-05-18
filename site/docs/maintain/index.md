@@ -1,3 +1,8 @@
+% TODO
+% TODO
+% TODO
+
+````
 resources/
 resources/coreboot
 resources/coreboot/default
@@ -249,3 +254,4 @@ resources/seabios/config/libgfxinit
 resources/seabios/config/vgarom
 resources/tianocore
 resources/tianocore/dummy.coreboot.config
+````

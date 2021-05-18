@@ -107,14 +107,14 @@ Installing OpenBSD with full disk encryption
 Not working. You can modify the above procedure (installation w/o
 encryption) to install OpenBSD using full disk encryption, and it
 appears to work, except that it's not yet clear how to actually *boot* an
-OpenBSD+FDE installation using osboot+Grub2. If you get it working,
+OpenBSD+FDE installation using Libreboot+Grub2. If you get it working,
 please let us know.
 
 If booting in text mode (framebuffer mode might also work), it might be
 possible to chainload the OpenBSD or LibertyBSD bootloader from the MBR
 section on the internal storage device. This way, it would be possible
 to boot with an encrypted OpenBSD or LibertyBSD installation. Please let
-us know (contact details are on the osboot homepage) if you get it
+us know (contact details are on the Libreboot homepage) if you get it
 working this way.
 
 Alternatively, it would be good to port OpenBSD either natively as a
@@ -145,10 +145,10 @@ Configuring Grub
 If you don't want to drop to the GRUB command line and type in a
 command to boot OpenBSD every time, you can create a GRUB configuration
 that's aware of your OpenBSD installation and that will automatically
-be used by osboot.
+be used by Libreboot.
 
 On your OpenBSD root partition, create the `/grub` directory and add the file
-`osboot_grub.cfg` to it. Inside the `osboot_grub.cfg` add these lines:
+`libreboot_grub.cfg` to it. Inside the `libreboot_grub.cfg` add these lines:
 
     default=0
     timeout=3
@@ -167,7 +167,7 @@ seconds OpenBSD will boot, or you can hit enter to boot.
 Troubleshooting
 ===============
 
-Most of these issues occur when using osboot with coreboot's 'text
+Most of these issues occur when using Libreboot with coreboot's 'text
 mode' instead of the coreboot framebuffer. This mode is useful for
 booting payloads like memtest86+ which expect text-mode, but for OpenBSD
 it can be problematic when they are trying to switch to a framebuffer

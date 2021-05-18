@@ -65,7 +65,7 @@ My own work is focused on:
   though I myself added ThinkPad T400 support to coreboot many years ago and
   huge improvements were made to it by other people in that project. I've also
   commissioned work on new coreboot ports in the past, and paid for such work)
-* Work on the Libreboot and osboot build systems (lbmk and rbmk, not paper)
+* Work on the Libreboot and osboot build systems (lbmk and osbmk, not paper)
 * Generally running the project, coordinating development and handling releases
 * I also provide user support on IRC
 
