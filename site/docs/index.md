@@ -24,7 +24,7 @@ Installing operating systems
 Information for developers
 ==========================
 
--   [How to compile the libreboot source code](git/)
+-   [How to compile the libreboot source code](build/)
 -   [Depthcharge payload](depthcharge/) (OBSOLETE in current Libreboot releases)
 -   [GRUB payload](grub/)
 
