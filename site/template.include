@@ -91,7 +91,9 @@ $endif$
 </div>
 <div style="position:fixed; bottom:0; left:0; right:0; background:#fcc; color:#222">
 <p>
-New libreboot release coming out soon! This is a work-in-progress of the new website. The work is being done on <a href="https://notabug.org/osboot/osbmk/commits/libre">osboot-libre</a> and will be copied over to libreboot, in a new git repository (for libreboot), when it's ready. osboot-libre and libreboot both have the same policy: 100% free software. both projects are lead by Leah Rowe
+New libreboot release coming soon! This is the new libreboot site. The docs no
+longer reflect Libreboot 20160907, but the *new* release that's coming. For now,
+please download from git and build from source if you want to use Libreboot.
 </p>
 </div>
 </body>

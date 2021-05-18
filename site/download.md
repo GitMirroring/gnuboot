@@ -3,21 +3,6 @@ title: Downloads
 x-toc-enable: true
 ...
 
-**The latest stable release is still Libreboot 20160907. However, rapid progress
-is being made on a new testing release, which will be available soon. Check the
-work being done in <https://notabug.org/osboot/osbmk/commits/libre> which is
-osboot-libre (deblobbed version of osboot). I'm working on that first, and it's
-nearly ready; osboot-libre will soon be forked, and a new git repository for
-libreboot will be created based on it. At that point, a new beta release will
-be uploaded to libreboot.org. I, Leah Rowe, am the founder and lead developer
-of both osboot and libreboot. osboot-libre is a special branch of osboot, with
-the same criteria as libreboot (only free software, no binary blobs), but with
-one difference: after the libreboot release is out, osboot and osboot-libre will
-both focus on being bleeding edge, rolling release coreboot distros (with
-osboot-libre being similar to libreboot), while libreboot will focus on stable
-releases. this is why i'm doing the work in osboot-libre. the upcoming libreboot
-release will literally be a copy/paste of osboot-libre, renamed to libreboot**
-
 Information about each Libreboot release can be found
 at [/docs/release.md](docs/release.md)
 
