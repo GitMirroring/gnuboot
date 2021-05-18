@@ -81,11 +81,11 @@ Now, simply build the coreboot images like so:
 This single command will build ROM images for *every* board integrated in
 Libreboot. If you only wish to build a limited set, you can use `lbmk` directly:
 
-    ./build libreboot roms x200_8mb
+    ./build boot roms x200_8mb
 
 You can specify more than one argument:
 
-    ./build libreboot roms x200_8mb x60
+    ./build boot roms x200_8mb x60
 
 ROM images appear under the newly created `bin/` directory in the build system.
 
@@ -135,11 +135,11 @@ required utilities for GRUB are not built, to produce payloads.
 As a result, you can now (after installing the correct build dependencies) run
 just a single command, from a fresh Git clone, to build the ROM images:
 
-    ./build libreboot roms
+    ./build boot roms
 
 or even just build specific ROM images, e.g.:
 
-    ./build libreboot roms x60
+    ./build boot roms x60
 
 If you wish to build payloads, you can also do that. For example:
 
@@ -158,7 +158,7 @@ please continue reading!
 Second, download all of the required software components
 --------------------------------------------------------
 
-If you didn't simply run `./build libreboot roms` (with or without extra
+If you didn't simply run `./build boot roms` (with or without extra
 arguments), you can still perform the rest of the build process manually. Read
 on! You can read about all available scripts in `lbmk` by reading
 the [Libreboot maintenance manual](../maintain/); lbmk is designed to be modular
@@ -251,7 +251,7 @@ Fifth, build the ROMs!
 
 Run this command:
 
-    ./build libreboot roms
+    ./build boot roms
 
 Each board has its own configuration in `lbmk` under `resources/coreboot/`
 which specifies which payloads are supported.
@@ -260,7 +260,7 @@ By default, all ROM images are built, for all boards. If you wish to build just
 a specific board, you can specify the board name based on the directory name
 for it under `resources/coreboot/`. For example:
 
-    ./build libreboot roms x60
+    ./build boot roms x60
 
 Board names, like above, are the same as the directory names for each board,
 under `resources/coreboot/` in the build system.
