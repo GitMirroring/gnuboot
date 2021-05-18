@@ -88,7 +88,7 @@ Libreboot gives *you* control over *your* computing.
 Project goals
 -------------
 
-[![](https://retrofreedom.com/glugluglug/wp-content/uploads/2020/12/EoSFxYyXEAAjOEz-300x400.jpeg){.imgleft}](https://retrofreedom.com/glugluglug/wp-content/uploads/2020/12/EoSFxYyXEAAjOEz.jpeg)
+[![](https://av.vimuser.org/EoSFxYyXEAAjOEz-300x400.jpeg){.imgleft}](https://av.vimuser.org/EoSFxYyXEAAjOEz.jpeg)
 
 -   *Recommend and distribute only free software*. Coreboot
     distributes certain pieces of proprietary software which is needed
@@ -127,7 +127,7 @@ easy to do so.
 Not a coreboot fork!
 --------------------
 
-[![](https://osboot.org/nogit/homepage.jpg){.imgright}](https://osboot.org/nogit/homepage.jpg)
+[![](https://av.vimuser.org/homepage.jpg){.imgright}](https://av.vimuser.org/homepage.jpg)
 
 Libreboot is not a fork of coreboot. Every so often, the project
 re-bases on the latest version of coreboot, with the number of custom
