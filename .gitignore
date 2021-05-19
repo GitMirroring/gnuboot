@@ -1,4 +1,6 @@
 *.html
-/news/index*
+/site/news/index*
+/site/sitemap.md
 *feed.xml
 *.sha1sum
+
