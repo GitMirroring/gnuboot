@@ -149,13 +149,3 @@ at a later date, when it updates itself.
 
 The deblobbed coreboot tree used in libreboot is referred to as
 *coreboot-libre*, to distinguish it as a component of *libreboot*.
-
-A coreboot *fork* is planned for the future. Nowadays, coreboot drops support
-for boards that are "unmaintained", which in some cases just means that nobody
-submitted a new status update (to the *board-status* repository), so nowadays
-Libreboot must maintain multiple versions of coreboot. This is unsustainable,
-so a fork is planned, re-adding all of the deleted boards, backporting newer
-coreboot features and, possibly, having support for those boards re-merged
-upstream, where coreboot and the fork will share code back and forth. As of
-27 April 2021, work on this fork has not yet begun.
-
