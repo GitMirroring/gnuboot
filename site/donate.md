@@ -68,17 +68,3 @@ My own work is focused on:
 * Work on the Libreboot and osboot build systems (lbmk and osbmk, not paper)
 * Generally running the project, coordinating development and handling releases
 * I also provide user support on IRC
-
-TODO: COREBOOT FORK
--------------------
-
-Fork coreboot. For years, Libreboot has simply applied deblob scripts on the
-upstream coreboot repository, but this is no longer feasible; coreboot has
-deleted many boards over the years, and maintaining these scripts has become
-much harder because multiple coreboot revisions have to be used.
-
-So, on the agenda is this: fork coreboot, and re-add those deleted boards.
-Maintain a proper fork of coreboot, while trying to stay as close to upstream
-as possible (to make development easier), while making decisions that are more
-optimal for Libreboot. Then Libreboot can use that fork, instead of deblobbing
-upstream.
