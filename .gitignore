@@ -3,4 +3,4 @@
 /site/sitemap.md
 *feed.xml
 *.sha1sum
-
+*.hash
