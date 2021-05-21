@@ -1,4 +1,4 @@
-% Statement regarding the recent freenode/libera split
+% Statement regarding Freenode/Libera IRC
 % Leah Rowe
 % 20 May 2021
 
