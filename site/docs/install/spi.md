@@ -206,6 +206,36 @@ Under the Interface section, you can enable SPI.
 
 The device for communicating via SPI as at `/dev/spidev0.0`
 
+Caution about RPi
+-----------------
+
+On 20 May 2021, someone on IRC brought to my attention the following video:
+<https://odysee.com/@Lunduke:e/RaspberryPiMicrosoftRepo:8>
+
+Basically, the Raspbian project, now called Raspberry Pi OS, put in their repo
+an update that added a new "trusted" repository, which just so happened to be
+a Microsoft software repository. They seem to have done this for VS Code, but
+the problem here is that it gave Microsoft free reign to define whatever
+dependencies they liked (as per apt-get rules), and every time you updated,
+you would be pinging Microsoft servers. Do you think that is strange?
+
+Microsoft shouldn't have *any* access to your GNU+Linux system! This was the
+commit that Raspbian added to their distro, which added this what should rightly
+be called a security vulnerability, intentaionally:
+
+* <https://github.com/RPi-Distro/raspberrypi-sys-mods/commit/655cad5aee6457b94fc2336b1ff3c1104ccb4351>
+
+They then removed it, after a public backlash, via the following commits:
+
+* <https://github.com/RPi-Distro/raspberrypi-sys-mods/commit/ed96790e6de281bc393b575c38aa8071ce39b555>
+* <https://github.com/RPi-Distro/raspberrypi-sys-mods/commit/4d1afece91008f3787495b520ac03b53fef754c6>
+
+For now, Raspbian / Raspberry Pi OS (which is based on Debian) should be safe,
+but this whole episode proves that the distro can no longer be trusted to
+respect its users. Therefore, it's now on the [tasks page](../../tasks/)
+a TODO entry for recommending and documenting alternative GNU+Linux distros
+on the Raspberry Pi, for the purposes of SPI flashing.
+
 Install flashrom
 ----------------
 
