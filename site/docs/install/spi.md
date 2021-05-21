@@ -221,7 +221,7 @@ you would be pinging Microsoft servers. Do you think that is strange?
 
 Microsoft shouldn't have *any* access to your GNU+Linux system! This was the
 commit that Raspbian added to their distro, which added this what should rightly
-be called a security vulnerability, intentaionally:
+be called a security vulnerability, intentionally:
 
 * <https://github.com/RPi-Distro/raspberrypi-sys-mods/commit/655cad5aee6457b94fc2336b1ff3c1104ccb4351>
 
