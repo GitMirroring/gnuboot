@@ -73,6 +73,11 @@ Useful for mirroring Libreboot's entire set of release archives. You can put
 an rsync command into crontab and pull the files into a directory on your
 web server.
 
+If you are going to mirror the entire set, it is recommended that you allocate
+at least 25GiB. Libreboot's rsync is currently about 12GiB, so allocating 25GiB
+will afford you plenty of space for the future. At minimum, you should ensure
+that at least 15-20GiB of space is available, for your Libreboot mirror.
+
 *It is highly recommended that you use the libreboot.org mirror*, if you wish
 to host an official mirror. Otherwise, if you simply want to create your own
 local mirror, you should use one of the other mirrors, which sync from
