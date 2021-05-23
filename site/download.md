@@ -17,6 +17,8 @@ GPG signing key
 
 ![](https://av.libreboot.org/logo/logo_light.svg){.imgright}
 
+**The latest release is Libreboot 20210522, under the `testing` directory.**
+
 ### NEW KEY
 
 Full key fingerprint: `98CC DDF8 E560 47F4 75C0  44BD D0C6 2464 FA8B 4856`
@@ -53,6 +55,8 @@ HTTPS mirrors {#https}
 -------------
 
 ![](https://av.libreboot.org/logo/logo.svg){.imgright}
+
+**The latest release is Libreboot 20210522, under the `testing` directory.**
 
 These mirrors are recommended, since they use TLS (https://) encryption.
 
@@ -132,6 +136,8 @@ HTTP mirrors {#http}
 
 ![](https://av.libreboot.org/logo/logo.svg){.imgright}
 
+**The latest release is Libreboot 20210522, under the `testing` directory.**
+
 WARNING: these mirrors are non-HTTPS which means that they are
 unencrypted. Your traffic could be subject to interference by
 adversaries. Make especially sure to check the GPG signatures, assuming
@@ -143,6 +149,8 @@ if using HTTPS.
 
 FTP mirrors {#ftp}
 -----------
+
+**The latest release is Libreboot 20210522, under the `testing` directory.**
 
 WARNING: FTP is also unencrypted, like HTTP. The same risks are present.
 

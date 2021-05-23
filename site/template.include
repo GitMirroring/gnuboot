@@ -91,9 +91,8 @@ $endif$
 </div>
 <div style="position:fixed; bottom:0; left:0; right:0; background:#fcc; color:#222">
 <p>
-New libreboot release coming soon! This is the new libreboot site. The docs no
-longer reflect Libreboot 20160907, but the *new* release that's coming. For now,
-please download from git and build from source if you want to use Libreboot.
+<a href="/download.html">Libreboot 20210522 has been released! Download it here</a> - 
+release announcement <a href="/news/libreboot20210522.html">here</a>
 </p>
 </div>
 </body>
