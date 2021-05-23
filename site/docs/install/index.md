@@ -192,6 +192,30 @@ How to erase and rewrite the chip contents:
 
     sudo flashrom -p internal:laptop=force_I_want_a_brick,boardmismatch=force -w libreboot.rom
 
+If flashing GM45 laptops such as Thinkpad X200/T400/T500/R400/W500/R500, you
+might consider doing this instead:
+
+    sudo flashrom -p internal:laptop=force_I_want_a_brick,boardmismatch=force --ifd -i bios -w libreboot.rom
+
+The `--ifd -i bios` option, when you use a ROM for GM45 machine, will only flash
+the BIOS region. On those machines, the boot flash is split into IFD, GbE and
+BIOS region. The GbE region contains your MAC address. If you already ran
+the `ich9gen` program before, you can use these options to skip flashing over
+those sections. Otherwise, without these options in flashrom, you will just
+flash the entire chip. If you're flashing the entire chip, make sure that the new
+ROM has a MAC address set correctly in the GbE region. To learn more about this,
+please read the ich9utils documentation: [/docs/install/ich9utils.html](/docs/install/ich9utils.html)
+
+NOTE: `force_I_want_a_brick` is not scary. Do not be scared! This merely disables
+the safety checks in flashrom. Flashrom and coreboot change a lot, over the years,
+and sometimes it's necessary to use this option. If you're scared, then just
+follow the above instructions, but remove that option. So, just use `-p internal`.
+If that doesn't work, next try `-p internal:boardmismatch=force`. If that doesn't
+work, try `-p internal:boardmismatch=force,laptop=force_I_want_a_brick`. So long
+as you *ensure* you're using the correct ROM for your machine, it will be safe
+to run flashrom. These extra options just disable the safetyl checks in flashrom.
+There is nothing to worry about.
+
 If successful, it will either say `VERIFIED` or it will say that the chip
 contents are identical to the requested image.
 
