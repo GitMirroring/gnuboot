@@ -347,6 +347,13 @@ The following patch in coreboot allowed that (shortly after the Libreboot
 Quad-core CPU mod on T500/T400/W400 etc
 =======================================
 
+NOTE: Hardware modifications are required to make quad-core CPUs work. You have
+to cut/disable a few signals and solder 1 wire. Look online for ThinkPad T500
+quad core mod. Alongside this hardware mod, the boot firmware also must be
+configured to allow for quad core CPUs. This new Libreboot release has such
+configuration already enabled, so if you've already performed the modifications
+to your hardware then it should Just Work.
+
 The option `MAX_CPUS=4` is now the default, on these machines in coreboot:
 
 * ThinkPad R400
