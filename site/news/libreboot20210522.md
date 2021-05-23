@@ -344,7 +344,7 @@ The following patch in coreboot allowed that (shortly after the Libreboot
 
 <https://review.coreboot.org/c/coreboot/+/16831>
 
-Quad-core CPU mod on ThinkPad T500, T400, R500, W500, R400 etc
+Quad-core CPU mod on ThinkPad T500 etc
 =======================================
 
 NOTE: The actual modification (to the hardware) is only documented for T500,
