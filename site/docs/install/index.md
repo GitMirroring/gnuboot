@@ -21,6 +21,98 @@ If you're already running libre firmware on your board, you should decide for
 sure whether you wish to risk it. See changelogs on
 the [release logs](../release.md) and decide for yourself.
 
+About ROM image file names
+==========================
+
+Init types and display mode
+---------------------------
+
+NOTE: On Libreboot 20210522, `libgfxinit` in the only init type provided on
+the pre-compiled ROM images, but the build system does support other types
+defined below.
+
+NOTE: regardless of init type, on desktops, an external/add-on GPU can always
+be used. On laptop hardware in Libreboot, libgfxinit will always be used. On
+desktop/server hardware, if available, libgfxinit will also always be used by
+default (but in that setup, SeaBIOS can be used if you want to use an add-on
+graphics card, e.g. on KCMA-D8, KGPE-D16, GA-G41M-ES2L)
+
+### libgfxinit
+
+In this setup, on supported systems, coreboot's own native video initialization
+code is used. This is referred to generically as libgfxinit, which is coreboot's
+library in `3rdparty/libgfxinit` but not all boards with native video
+initialization use libgfxinit; some of them are using coreboot's older style
+of video initialization method, written purely in C.
+
+#### corebootfb (libgfxinit)
+
+high resolution coreboot framebuffer used on startup
+
+#### txtmode (libgfxinit)
+
+int10h text mode is used on startup.
+
+### vgarom
+
+NOTE: no configs in libreboot are currently available that use this method.
+
+With this method, coreboot is finding, loading and executing a VGA option ROM
+for your graphics hardware. This would not be done on laptops, because that
+implies supplying non-free binary blobs in Libreboot, so this setup would only
+ever be provided on desktop hardware where no GPU exists or where it is
+desirable for you to use an external/add-on graphics card
+
+#### vesafb (vgarom)
+
+high resolution VESA framebuffer used on startup
+
+#### txtmode (vgarom)
+
+int10h text mode is used on startup
+
+### normal
+
+int10h text mode startup is implied here.
+
+In this setup, coreboot is neither implementing libgfxinit / native graphics
+initialization nor is it finding/loading/executing VGA option ROMs. In this
+setup, SeaBIOS would most likely be used for that.
+
+The `normal` setup is supported in the Libreboot 20210522 build system, but not
+currently used. It is there for desktop hardware that will be added in the
+future, where those desktop boards do not have an onboard GPU and therefore an
+add-on GPU is always used..
+
+Payload names
+-------------
+
+### grub
+
+ROM images with just `grub` in the file name will start first with the GNU GRUB
+payload. They may or may not also provide other payloads in the menu, such as
+memtest86+, SeaBIOS, Tianacore and so on.
+
+### seabios
+
+ROM images with just `seabios` in the file name will start first with the
+SeaBIOS payload. They will only contain SeaBIOS, but may also contain memtest as
+an option in the boot menu.
+
+### seabios\_withgrub
+
+ROM images that have `seabios_withgrub` in the file name start with SeaBIOS
+first, but also have GNU GRUB available in the boot menu when you press ESC.
+
+### seabios\_grubfirst
+
+ROM images that have `seabios_grubfirst` in the file name start with SeaBIOS,
+but SeaBIOS is configured via special `bootorder` file in CBFS so as to ONLY
+load GNU GRUB. This setup would be most useful on desktops, where you wish to
+only have GNU GRUB available, but want to use an add-on GPU while also having
+the option to use libgfxinit, if a supported GPU/framebuffer chip is present
+on your board.
+
 Which systems are supported?
 ============================
 
