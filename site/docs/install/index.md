@@ -184,6 +184,14 @@ example of the push pin as a proof of concept:
 
 #### ThinkPad X60/X60S/X60T/T60 with Lenovo BIOS {#flashrom_lenovobios}
 
+**I forgot to actually add the flashrom patches in the Libreboot 20210522
+release. When you see the notes below about `_sst` and `_mx`, for now just use
+the `util` archive from Libreboot 20160907. That release has a utils archive
+with pre-compiled flashrom binaries, including patches binaries for Macronix
+and SST flash chips on these machines. Bucts is also included, pre compiled.
+They are statically linked binaries, so they should work on any distro. Use
+those binaries, but with the ROM images from the Libreboot 20210522 release!**
+
 Here are a list of targets:
 
 * ThinkPad X60/X60S/X60T: flash the X60 ROM
