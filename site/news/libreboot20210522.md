@@ -344,8 +344,12 @@ The following patch in coreboot allowed that (shortly after the Libreboot
 
 <https://review.coreboot.org/c/coreboot/+/16831>
 
-Quad-core CPU mod on T500/T400/W400 etc
+Quad-core CPU mod on ThinkPad T500, T400, R500, W500, R400 etc
 =======================================
+
+NOTE: The actual modification (to the hardware) is only documented for T500,
+but it should be possible to adapt those instructions for similar GM45 laptops
+that have a socketed CPU.
 
 NOTE: Hardware modifications are required to make quad-core CPUs work. You have
 to cut/disable a few signals and solder 1 wire. Look online for ThinkPad T500
