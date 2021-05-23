@@ -19,26 +19,22 @@ GPG signing key
 
 ### NEW KEY
 
-Download the key in GNU+Linux:
-
-    gpg --recv-keys 0xD0C62464FA8B4856
-
 Full key fingerprint: `98CC DDF8 E560 47F4 75C0  44BD D0C6 2464 FA8B 4856`
 
 The above key is for Libreboot 20210522, and subsequent releases.
+
+Download the key here: [lbkey.asc](lbkey.asc)
+
+Libreboot releases are signed using GPG.
 
 ### OLD KEY:
 
 This key is for Libreboot 20160907 and all older releases:
 
-Releases are signed with GPG.
-
-    gpg --recv-keys 0x969A979505E8C5B2
-
 Full key fingerprint: CDC9 CAE3 2CB4 B7FC 84FD  C804 969A 9795 05E8 C5B2
 
 The GPG key can also be downloaded with this exported dump of the
-pubkey: [lbkey.asc](lbkey.asc).
+pubkey: [lbkeyold.asc](lbkeyold.asc).
 
     sha512sum -c sha512sum.txt
     gpg --verify sha512sum.txt.sig
