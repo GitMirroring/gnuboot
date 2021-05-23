@@ -88,6 +88,8 @@ Visit the [tasks page](/tasks/) to know which machines are on the TODO list.
 
 ### Laptops (Intel, x86)
 
+-   ThinkPad X60 / X60S / X60 Tablet
+-   ThinkPad T60 (with Intel GPU)
 -   Lenovo ThinkPad X200
 -   Lenovo ThinkPad R400
 -   Lenovo ThinkPad T400
