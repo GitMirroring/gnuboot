@@ -62,14 +62,6 @@ already supports.
 This is another Intel GM45 target, similar to the ThinkPad X200 that Libreboot
 already supports.
 
-Desktops
---------
-
-### Intel G43T-AM3
-
-This is another Intel X4X target, similar to the Gigabyte GA-G41M-ES2L that
-Libreboot already supports.
-
 List of supported boards
 ------------------------
 
