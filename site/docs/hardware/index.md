@@ -40,9 +40,9 @@ Libreboot supports the following systems in this release:
 
 -   ThinkPad X60 / X60S / X60 Tablet
 -   ThinkPad T60 (with Intel GPU)
--   [Lenovo ThinkPad X200](x200.md)
+-   [Lenovo ThinkPad X200 / X200S / X200 Tablet](x200.md)
 -   [Lenovo ThinkPad R400](r400.md)
--   [Lenovo ThinkPad T400](t400.md)
+-   [Lenovo ThinkPad T400 / T400S](t400.md)
 -   [Lenovo ThinkPad T500](t500.md)
 -   [Lenovo ThinkPad W500](t500.md)
 -   [Lenovo ThinkPad R500](r500.md)

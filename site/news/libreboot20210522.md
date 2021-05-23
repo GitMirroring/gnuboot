@@ -90,9 +90,9 @@ Visit the [tasks page](/tasks/) to know which machines are on the TODO list.
 
 -   ThinkPad X60 / X60S / X60 Tablet
 -   ThinkPad T60 (with Intel GPU)
--   Lenovo ThinkPad X200
+-   Lenovo ThinkPad X200 / X200S / X200 Tablet
 -   Lenovo ThinkPad R400
--   Lenovo ThinkPad T400
+-   Lenovo ThinkPad T400 / T400S
 -   Lenovo ThinkPad T500
 -   Lenovo ThinkPad W500
 -   Lenovo ThinkPad R500
