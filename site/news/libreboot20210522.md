@@ -1,7 +1,6 @@
----
-title: Libreboot 20210522 released!
-x-toc-enable: true
-...
+% Libreboot 20210522 released!
+% Leah Rowe
+% 22 May 2021
 
 Join us now and flash the firmware!
 ===================================
