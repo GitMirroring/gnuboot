@@ -1,7 +1,6 @@
----
-title: Change logs for Libreboot 20160907 and older
-x-toc-enable: true
-...
+% Change logs for Libreboot 20160907 and older
+% Leah Rowe
+% 9 September 2016
 
 Updated versions of libreboot can be found at
 [libreboot.org](/). Announcements of new Libreboot releases can be found in
