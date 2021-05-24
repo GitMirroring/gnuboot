@@ -4,7 +4,7 @@ x-toc-enable: true
 ...
 
 Information about each Libreboot release can be found
-at [/docs/release.md](docs/release.md)
+at [/docs/release/](docs/release/)
 
 If you're more interested in libreboot development, go to the
 [libreboot development page](../git.md), which also includes links to the
