@@ -37,6 +37,15 @@ desktop/server hardware, if available, libgfxinit will also always be used by
 default (but in that setup, SeaBIOS can be used if you want to use an add-on
 graphics card, e.g. on KCMA-D8, KGPE-D16, GA-G41M-ES2L)
 
+**This means that on desktop hardware such as KCMA-D8, KGPE-D16, G43T-AM3,
+GA-G41M-ES2L and others, you can use either the internal GPU or an add-on
+PCI-E graphics card. Simply use a ROM image that starts with SeaBIOS, and you
+can use both. On desktop/server hardware, libgfxinit simply means that you
+CAN use the internal graphics chip, but you don't have to; external add-on
+GPUs will also still work! However, if libgfxinit is enabled, that disables
+coreboot from loading/executing PCI option ROMs which means you MUST use SeaBIOS
+if you wish to use the add-on cards!**
+
 ### libgfxinit
 
 In this setup, on supported systems, coreboot's own native video initialization
