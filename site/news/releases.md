@@ -2,18 +2,17 @@
 % Leah Rowe
 % 24 May 2021
 
-Previously, [/docs/release.md](/docs/release.md) was used to show change logs
-for releases. The static site
-generator ([untitled](https://untitled.vimuser.org/)) that libreboot.org uses,
-now supports *unlimited* news sections! The older incarnation of that static
-site generator had it hardcoded to `news/` and only 1 section was supported.
+The static site generator used on Libreboot's website now supports *unlimited*
+news/blog sections, so a dedicated news feed (complete with RSS) has been
+created, for release announcements.
 
-There is now a new section:
+Here it is:
 [/docs/release/](/docs/release/)
 
-The old `release.html` page is now obsolete. The *new* news section linked above
+The old `docs/release.html` page is obsolete. The *new* news section above
 is where you shall now find change logs. Information from `release.html` has
-been transferred to this new sectio.
+been transferred to this new section, for older Libreboot releases. The recent
+Libreboot 20210522 release announcement has been moved to this new section.
 
 *This* news post is in the main section at [/news/](/news/), which from now on
 will not be used for release announcements. Release announcements will now be
