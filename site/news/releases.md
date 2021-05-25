@@ -28,5 +28,5 @@ for its website, see:
 
 PS:
 
-I'm the developer of Untitled! The project was officially released on 20 May
-2021, and the website (shown above) was launched on 22 May 2021.
+I'm the developer of Untitled! The software was officially released on 18 May
+2021, and the project website (shown above) was launched on 20 May 2021.
