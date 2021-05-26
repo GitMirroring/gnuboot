@@ -34,6 +34,16 @@ repository, mailing list and (very likely) a SourceHut instance directly on
 `git.libreboot.org`. However, self-hosted Git is not currently a high priority
 due to the decentralized nature of Git.
 
+An IRC bot will be erected, bridging the 3 channels (freenode, libera and the
+one hosted on `irc.libreboot.org`) such that messages are relayed between them.
+This way, it won't matter which one you join. You can use any of the servers!
+I have also registered an OFTC channel. Right now, the future of IRC networks
+is rather precious, so I'm taking every precaution to protect the Libreboot in
+the future. It is my intention that all users on all `#libreboot` channels will
+be able to talk to each other. This *bridging* solution is one that I have
+concluded is best, to mitigate current political instabilities that exist. I
+do not wish for my projects to be involved in anyway. Libreboot is neutral!
+
 About the Freenode controversies
 ================================
 
