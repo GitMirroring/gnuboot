@@ -15,8 +15,8 @@ proprietary BIOS/UEFI firmware typically found on a computer. Libreboot is
 compatible with [specific computer models that use the Intel/AMD x86
 architecture](docs/hardware/). Libreboot works well with GNU+Linux and BSD
 operating systems. User support is available
-at [\#libreboot](https://webchat.freenode.net/?channels=libreboot) on Freenode
-IRC.
+at [\#libreboot](https://kiwiirc.com/nextclient/irc.libera.chat:6697/#libreboot)
+on Libera Chat network.
 
 ![](https://av.libreboot.org/logo/logo.svg){.imgright}
 

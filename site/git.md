@@ -164,7 +164,7 @@ have your own Git repository with the patches.
 
 Once you have issued a Pull Request, the Libreboot maintainers will be notified
 via email. If you do not receive a fast enough response from the project, then
-you could also notify the project via the #libreboot channel on Freenode.
+you could also notify the project via the #libreboot channel on Libera Chat.
 
 Another way to submit patches is to email Leah Rowe directly:
 [leah@libreboot.org](mailto:leah@libreboot.org) is Leah's project email address.

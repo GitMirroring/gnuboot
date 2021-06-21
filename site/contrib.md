@@ -86,8 +86,7 @@ Merged a patch from coreboot into libreboot, enabling C3 and C4 power
 states to work correctly on GM45 laptops. This was a long-standing issue
 before Athur's contribution. Arthur also fixed VRAM size on i945 on
 GM45 systems, allowing maximum VRAM allocation for the onboard GPUs on
-these systems, another longstanding issue in libreboot. Contact **apvh**
-in the \#libreboot IRC channel. **Former libreboot project maintainer**.
+these systems, another longstanding issue in libreboot.
 
 Arthur also did work on the Libreboot build system, when he was a member of the
 project. He still works on coreboot, to this day, and Libreboot greatly
@@ -99,9 +98,7 @@ Damien Zammit
 
 Maintains the Gigabyte GA-G41M-ES2L coreboot port, which is integrated
 in libreboot. Also works on other hardware for the benefit of the
-libreboot project. Contact **damo22** on the freenode IRC network. This
-person's website is [zammit.org](http://www.zammit.org/). **Former libreboot
-project maintainer.**
+libreboot project.
 
 Damien didn't work directly on Libreboot itself, but he worked heavily with
 Leah Rowe, integrating patches and new board ports into Libreboot, based on
@@ -113,9 +110,7 @@ Denis Carikli
 Based on the work done by Peter Stuge, Vladimir Serbineko and others in
 the coreboot project, got native graphics initialization to work on the
 ThinkPad X60, allowing it to be supported in libreboot. Denis gave
-a lot of advice and helped found the libreboot project. Contact
-**GNUtoo-irssi** in the \#libreboot IRC channel. Denis is also one of
-the founders of the [Replicant](http://replicant.us/) project.
+a lot of advice and helped found the libreboot project.
 
 Denis was a mentor to Leah Rowe in the early days, when she founded the
 Libreboot project. A lot of the decision decisions taken, especially with the
@@ -136,7 +131,6 @@ Jeroen Quint
 
 Contributed several fixes to the libreboot documentation, relating to
 installing Parabola with full disk encryption on libreboot systems.
-Contact **Jezza** in the \#libreboot IRC channel.
 
 Joshua Gay
 ----------
@@ -181,8 +175,7 @@ Klemens Nanni
 -------------
 
 Made many fixes and improvements to the GRUB configuration used in
-libreboot, and several tweaks to the build system. Contact **kl3** in
-the \#libreboot IRC channel.
+libreboot, and several tweaks to the build system.
 
 Leah Rowe initially helped Klemens get his project, autoboot, off the ground.
 Autoboot (website autoboot.org) is no longer online, but was a fork of Libreboot
@@ -200,7 +193,7 @@ Lisa Marie Maginnis
 
 Lisa is a former sysadmin at the Free Software Foundation. In the early days of
 the project, she provided Leah with a lot of technical advice. She initially
-created the Libreboot IRC channel on Freenode, when Leah did not know how to
+created Libreboot IRC channel, when Leah did not know how to
 use IRC, and also handed +F founder status to Leah for the channel. As an FSF
 sysadmin, it was Lisa's job to maintain a lot of the infrastructure used by
 Libreboot; at the time, mailing lists on the GNU Savannah website were used by
@@ -277,9 +270,7 @@ Paul Kocialkowski
 
 Ported the ARM (Rockchip RK3288 SoC) based *Chromebook* laptops to
 libreboot. Also one of the main [Replicant](http://www.replicant.us/)
-developers. Contact Paul on the libreboot IRC channel by the alias
-**paulk** or **paulk-&lt;hostname&gt;** (hostname is variable). **Former
-libreboot project maintainer.**
+developers.
 
 Paul Menzel
 -----------
@@ -293,8 +284,7 @@ had the same bug. When Linux fixed it, it exposed the same bug in coreboot.
 
 Paul worked with Libreboot on
 this, sending patches to test periodically until the bug was fixed
-in coreboot, and then helped her integrate the fix in libreboot. Contact
-**PaulePanter** in the \#libreboot IRC channel.
+in coreboot, and then helped her integrate the fix in libreboot.
 
 Peter Stuge
 -----------
@@ -369,8 +359,7 @@ Libreboot is made possible because of the work he did, back in 2014.
 Swift Geek
 ----------
 
-Contributed a patch for ich9gen to generate 16MiB descriptors. Contact
-**swiftgeek** in the IRC channel. **Former libreboot project maintainer.**
+Contributed a patch for ich9gen to generate 16MiB descriptors.
 
 After that, Swift Geek slowly became more involved until he became a full time
 developer. Swift Geeks contributions were never really in the form of *code*,
@@ -406,14 +395,13 @@ Engineering of which Timothy is the CEO.
 Timothy maintains this code in coreboot,
 helping the project with the libreboot integration for it. This person's
 contact details are on the raptor site, or you can ping **tpearson** on
-the freenode IRC network.
+the Libera IRC network.
 
 Vladimir Serbinenko
 -------------------
 
 Ported many of the thinkpads supported in libreboot, to coreboot, and
 made many fixes in coreboot which benefited the libreboot project.
-Contact **phcoder** in the \#coreboot IRC channel on freenode.
 
 Vladimir wrote a lot of the original video initialization code used by various
 Intel platforms in Libreboot, when flashing it (now rewritten

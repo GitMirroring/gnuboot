@@ -24,55 +24,33 @@ IRC chatroom
 
 ![](https://av.libreboot.org/logo/logo.svg){.imgright}
 
-IRC is the main way to contact the Libreboot project. `#libreboot` on Freenode
+IRC is the main way to contact the Libreboot project. `#libreboot` on Libera
 IRC.
 
 Webchat:
-<https://webchat.freenode.net/?channels=libreboot>
+<https://kiwiirc.com/nextclient/irc.libera.chat:6697/#libreboot>
 
-Freenode is one of the oldest IRC networks, used for Free Software projects.
-Find more about them here: <https://freenode.net/>
+Libera is one of the largest IRC networks, used for Free Software projects.
+Find more about them here: <https://libera.chat/>
 
 If you wish to connect using your preferred client (such as weechat or irssi),
 the connection info is as follows:
 
-* Server: `chat.freenode.net`
+* Server: `irc.libera.chat`
 * Channel: `#libreboot`
 * Port (TLS): `6697`
 * Port (non-TLS): `6667`
 
 We recommend that you use port `6697` with TLS encryption enabled.  
 
-Here are some guides for various IRC clients:
+It is recommend that you use SASL for authentication. These pages on the Libera
+website tells you how:
 
-Weechat
--------
+* WeeChat SASL guide: <https://libera.chat/guides/weechat>
+* Irssi SASL guide: <https://libera.chat/guides/irssi>
+* HexChat SASL guide: <https://libera.chat/guides/hexchat>
 
-<https://weechat.org/files/doc/stable/weechat_quickstart.en.html>
-
-Irssi
------
-
-Couldn't find any guides on Freenode's website. Just use the above info.
-
-Here is a guide for configuring SASL:
-<https://freenode.net/kb/answer/irssi>
-
-Hexchat
--------
-
-Couldn't find any guides on Freenode's website, but this is a useful guide for
-configuring SASL:
-
-<https://freenode.net/kb/answer/hexchat>
-
-Tor
----
-
-You can use Tor, when connecting to Freenode. This may be beneficial, because
-Freenode is censored in some countries. Read this article:
-
-<https://freenode.net/kb/answer/chat>
+In general, you should check the documentation provided by your IRC software.
 
 Social media
 ============

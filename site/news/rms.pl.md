@@ -506,9 +506,6 @@ go.
 
 Ja osobiście wierze w wolność! Chce wolności dla *wszystkich*, nawet dla tych
 z którymi nie zgadzam się politycznie!
-(Notatka tłumacza: Leah nie kłamie. Na wiele tematów się nie zgadzamy a nadal
-jest osobą pełną szacunku i chętną debaty! Zapraszamy na kanał *freenode* IRC
-\#free-rms)
 
 Dyskryminacja bazowana na czyiś wierzeniach jest zawsze zła. Żadnych „ale”, ja
 chce aby moi *przeciwnicy polityczni* posiadali wolność, ponieważ:

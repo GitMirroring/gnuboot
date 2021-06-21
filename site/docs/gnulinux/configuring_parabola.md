@@ -99,9 +99,6 @@ old packages are deleted from the repositories quickly, once they are updated.
 A system that hasn't been updated for quite a while will mean potentially more
 reading of previous posts through the website, and more maintenance work.
 
-The Arch forum can also be useful, if others have the same issue as you.
-The *Parabola* IRC channel ([**\#parabola**](https://webchat.freenode.net/) on freenode) can also help you.
-
 Due to this, and the volatile nature of Parabola/Arch, you should only
 update when you have at least a couple hours of spare time, in case of
 issues that need to be resolved. You should never update, for example,
