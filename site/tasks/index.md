@@ -13,6 +13,41 @@ or you could submit new tasks to this page!
 Current tasks (more will be added soon)
 =======================================
 
+Move all distro FDE+/boot/ guides to distro wiki/manuals
+--------------------------------------------------------
+
+The Guix, Fedora, Parabola and Trisquel guides were outdated and therefore
+deleted. The Debian guide should also be deleted, even though it's up to date.
+The hyperbola one is actually a link to a guide on the Hyperbola site.
+
+These are guides for fully encrypted GNU+Linux systems, including /boot, but
+it's desirable for these to be documented instead by each distro, because then
+they will more likely be properly maintained.
+
+We constantly have to update them, on libreboot.org. It is unsustainable. Move
+them to other projects and let them deal with it. Libreboot's only job is to
+boot you into a payload. The rest is up to you!
+
+This concerns GRUB payload on x86 targets. For SeaBIOS, it's fairly easy to
+just push a button and the distro installer boots, or the installed distro
+just boots up as normal.
+
+Here are links to the guides that were deleted:
+
+* <https://notabug.org/libreboot/lbwww/src/8844c201ef0d1ab856fed2aa5148b89100fffe0d/site/docs/gnulinux/guix_system.md>
+* <https://notabug.org/libreboot/lbwww/src/8844c201ef0d1ab856fed2aa5148b89100fffe0d/site/docs/gnulinux/encrypted_trisquel.md>
+* <https://notabug.org/libreboot/lbwww/src/8844c201ef0d1ab856fed2aa5148b89100fffe0d/site/docs/gnulinux/encrypted_parabola.md>
+* <https://notabug.org/libreboot/lbwww/src/8844c201ef0d1ab856fed2aa5148b89100fffe0d/site/docs/gnulinux/configuring_parabola.md>
+
+The Trisquel one will be almost identical to the Debian one, with perhaps a few
+extra considerations taken. It's recommended to focus on Debian first, and
+then adapt that to Trisquel. However, Trisquel is based on Ubuntu, so the
+guide can also be adapted for the Ubuntu site. This will cover most Ubuntu and
+Debian based distros.
+
+The remaining Debian guide is here:
+<https://notabug.org/libreboot/lbwww/src/8844c201ef0d1ab856fed2aa5148b89100fffe0d/site/docs/gnulinux/encrypted_debian.md>
+
 Document other RPi GNU+Linux distros for SPI flashing
 -----------------------------------------------------
 
