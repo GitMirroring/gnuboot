@@ -23,11 +23,7 @@ Refer to the following pages:
 
 * [How to Prepare and Boot a USB Installer in Libreboot Systems](grub_boot_installer.md)
 * [Modifying the GRUB Configuration in Libreboot Systems](grub_cbfs.md)
-* [Guix System with Full-Disk Encryption on Libreboot](guix_system.md)
-* [Installing Parabola or Arch GNU+Linux-Libre, with Full-Disk Encryption (including /boot)](encrypted_parabola.md)
-* Follow-Up Tutorial: [Configuring Parabola (Post-Install)](configuring_parabola.md)
 * [Installing Hyperbola GNU+Linux, with Full-Disk Encryption (including /boot)](https://wiki.hyperbola.info/en:guide:encrypted_installation)
-* [Installing Trisquel GNU+Linux-Libre, with Full-Disk Encryption (including /boot)](encrypted_trisquel.md)
 * [Installing Debian or Devuan GNU+Linux-Libre, with Full-Disk Encryption (including /boot)](encrypted_debian.md)
 * [How to Harden Your GRUB Configuration, for Security](grub_hardening.md)
 

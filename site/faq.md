@@ -700,17 +700,6 @@ Refer to:\
 It's possible to use a 16-pin SOIC test clip on an 8-pin SOIC chip, if you
 align the pins properly. The connection is generally more sturdy.
 
-How do I set a boot password?
--------------------------------------------------------------------
-
-If you are using the GRUB payload, you can add a username and password
-(salted, hashed) to your GRUB configuration that resides inside the
-flash chip. The following guides (which also cover full disk encryption,
-including the /boot/ directory) show how to set a boot password in GRUB:
-[(Installing Debian or Devuan with FDE)](../docs/gnulinux/encrypted_debian.md)
-and
-[(Installing Parabola or Arch GNU+Linux-Libre, with FDE)](../docs/gnulinux/encrypted_parabola.md)
-
 How do I write-protect the flash chip?
 ----------------------------------------------------------------------------
 
