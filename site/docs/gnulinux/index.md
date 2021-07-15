@@ -1,5 +1,5 @@
 ---
-title: GNU+Linux installation guides
+title: GNU+Linux guides
 x-toc-enable: true
 ...
 
@@ -47,3 +47,21 @@ directory.
 TODO: Nuke *all* distro-specific guides on libreboot.org. Instead, move these
 instructions to the wiki pages of these projects, on their websites. The reasons
 are explained in the above issue page.
+
+Rebooting system in case of freeze
+===================================
+
+Linux kernel has a feature to do actions to the system any time, even
+with it freezes, this is called a
+[Magic SysRq keys](https://en.wikipedia.org/wiki/Reisub). You can do these
+actions with Alt + Sysrq + Command. These are the actions:
+
+* Alt + SysRq + B: Reboot the system
+* Alt + SysRq + I: Send SIGKILL to every process except PID 1
+* Alt + SysRq + O: Shut off the system
+
+If some of them don't work, you have to enable it in the kernel
+command line paramter. So append `sysrq_always_enabled=1` to your
+`GRUB_CMDLINE_LINUX_DEFAULT` in `/etc/default/grub`
+
+You can also run `# sysctl kernel.sysrq=1` to enable them.

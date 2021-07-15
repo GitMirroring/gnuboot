@@ -15,10 +15,10 @@ Installing libreboot
 -   [What systems can I use libreboot on?](hardware/)
 -   [How to install libreboot](install/)
 
-Installing operating systems
+Documentation related to operating systems
 ============================
 
--   [How to install GNU+Linux on a libreboot system](gnulinux/)
+-   [GNU+Linux Guides](gnulinux/)
 -   [How to install BSD on a libreboot system](bsd/)
 
 Information for developers
