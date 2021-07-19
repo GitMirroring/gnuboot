@@ -207,10 +207,10 @@ ocurriendo.
 No me creas a mi, Stephen Fry, un conocido usuario de GNU Linux hizo
 un video en 2008 alabando el software libre:
 
-<https://yewtu.be/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 En caso de que no funcione:
-<https://invidious.snopyta.org/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 
 RMS NO es transfobo

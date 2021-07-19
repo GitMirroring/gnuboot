@@ -237,10 +237,10 @@ GNU, 리처드 스톨먼에 대해 말했을까요?  그건 바로 최근 아주
 사용자인 Stephen Fry 는 2008년에 GNU 프로젝트를 찬미하고 자유
 소프트웨어를 지지하는 다음 비디오를 올렸습니다:
 
-<https://yewtu.be/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 작동하지 않는 경우 다음 링크를 사용해보십시오:
-<https://invidious.snopyta.org/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 RMS 는 성전환자 혐오자가 아닙니다.
 ==================================

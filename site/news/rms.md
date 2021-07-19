@@ -207,10 +207,10 @@ happening.
 Don't just take my word for it. Stephen Fry, a well-known GNU+Linux user, did
 this video in 2008 praising the GNU project and supporting Free Software:
 
-<https://yewtu.be/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 in case it doesn't load, try this link:
-<https://invidious.snopyta.org/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 RMS is NOT transphobic
 ======================

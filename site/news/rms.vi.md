@@ -213,10 +213,10 @@ Stallman? Bởi vì có một điều vô cùng độc ác đang xảy ra.
 Đừng chỉ nghe lời tôi. Stephen Fry, một người dùng GNU+Linux nổi tiếng, đã quay
 video này vào năm 2008 để ca ngợi dự án GNU và ủng hộ Phần mềm Tự do:
 
-<https://yewtu.be/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 trong trường hợp đường dẫn trên không tải được, hay sử dụng đường dẫn này:
-<https://invidious.snopyta.org/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 RMS KHÔNG HỀ kỳ thị người chuyển giới
 =====================================

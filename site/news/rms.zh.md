@@ -109,10 +109,10 @@ Linux 自身确实有可能独立于其他 GNU 组件存在，但它会成为像
 
 不要只是听了我的话。Stephen Fry，一位著名的 GNU+Linux 用户，在 2008 年做了这个视频褒扬 GNU 计划并支持自由软件运动。
 
-<https://yewtu.be/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 如果视频无法正确加载，试试这个：
-<https://invidious.snopyta.org/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 RMS **不是** 恐跨人士
 ======================

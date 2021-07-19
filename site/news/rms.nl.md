@@ -198,10 +198,10 @@ Geloof me niet op m'n woord. Stephen Fry, een bekende GNU+Linux gebruiker, maakt
 2008 deze video waarin hij het GNU Project erkenning geeft en Vrije Software 
 ondersteund:
 
-<https://yewtu.be/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 Mocht deze link niet laden, probeer dit alternatief:
-<https://invidious.snopyta.org/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 RMS is GEEN transfoob
 =====================

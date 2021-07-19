@@ -117,10 +117,10 @@
 
 אל תאמינו למה שאני אומרת. למשל הינה סטיפן פרי, משתמש של גנו+לינוקס ממש מוכר לכולנו, הנה הוא בסרטון מ2008 מהלל את פרוייקט גנו ותומך בתנועת התוכנה החופשית:
 
-<https://yewtu.be/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 במקרה שהקישור לעיל לא עובד:
-<https://invidious.snopyta.org/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 ריצ'רד אינו טרנספוב
 ===============

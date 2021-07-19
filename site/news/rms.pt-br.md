@@ -241,10 +241,10 @@ GNU+Linux, fez este vídeo em 2008 elogiando o projeto GNU e apoiando
 o Software 
 Livre: 
 
-<https://yewtu.be/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 Se caso não carregar, utilize este link:
-<https://invidious.snopyta.org/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 RMS NÃO É TRANSFÓBICO
 =====================

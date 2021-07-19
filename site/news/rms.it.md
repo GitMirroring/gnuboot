@@ -240,10 +240,10 @@ Non dovete nemmeno credere a quel che vi dico io. Stephen Fry, un famoso
 utente GNU+Linux, ha prodotto questo video nel 2008 per lodare il progetto
 GNU e per sostenere il Software Libero.
 
-<https://yewtu.be/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 (se non si carica, provate questo link)
-<https://invidious.snopyta.org/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 
 RMS NON è transfobico

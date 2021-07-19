@@ -1180,30 +1180,30 @@ Where can I learn more about electronics
 
 * Basics of soldering and rework by PACE  
     Both series of videos are mandatory regardless of your soldering skill.
-    * [Basic Soldering](https://yewtu.be/watch?v=vIT4ra6Mo0s&list=PL926EC0F1F93C1837)
-    * [Rework and Repair](https://yewtu.be/watch?v=HKX-GBe_lUI&list=PL958FF32927823D12)
+    * [Basic Soldering](https://vid.puffyan.us/watch?v=vIT4ra6Mo0s&list=PL926EC0F1F93C1837)
+    * [Rework and Repair](https://vid.puffyan.us/watch?v=HKX-GBe_lUI&list=PL958FF32927823D12)
 * [edX course on basics of electronics](https://www.edx.org/course/circuits-and-electronics-1-basic-circuit-analysi-2)  
     In most countries contents of this course is covered during
     middle and high school. It will also serve well to refresh your memory
     if you haven't used that knowledge ever since.
 * Impedance intro
-    * [Similiarities of Wave Behavior](https://yewtu.be/watch?v=DovunOxlY1k)
-    * [Reflections in tranmission line](https://yewtu.be/watch?v=y8GMH7vMAsQ)
+    * [Similiarities of Wave Behavior](https://vid.puffyan.us/watch?v=DovunOxlY1k)
+    * [Reflections in tranmission line](https://vid.puffyan.us/watch?v=y8GMH7vMAsQ)
     * Stubs:
         * [Wikipedia article on stubs](https://en.wikipedia.org/wiki/Stub_(electronics))
         * [Polar Instruments article on stubs](http://www.polarinstruments.com/support/si/AP8166.html)  
         With external SPI flashing we only care about unintended PCB stubs
 * [How to accurately measure header/connector pitch](https://www.microcontrollertips.com/accurately-measure-headerconnector-pitch/)
 * Other YouTube channels with useful content about electronics
-    * [EEVblog](https://yewtu.be/channel/UC2DjFE7Xf11URZqWBigcVOQ)
-    * [Louis Rossmann](https://yewtu.be/channel/UCl2mFZoRqjw_ELax4Yisf6w)
-    * [mikeselectricstuff](https://yewtu.be/channel/UCcs0ZkP_as4PpHDhFcmCHyA)
-    * [bigclive](https://yewtu.be/channel/UCtM5z2gkrGRuWd0JQMx76qA)
-    * [ElectroBOOM](https://yewtu.be/channel/UCJ0-OtVpF0wOKEqT2Z1HEtA)
-    * [Jeri Ellsworth](https://yewtu.be/user/jeriellsworth/playlists)
+    * [EEVblog](https://vid.puffyan.us/channel/UC2DjFE7Xf11URZqWBigcVOQ)
+    * [Louis Rossmann](https://vid.puffyan.us/channel/UCl2mFZoRqjw_ELax4Yisf6w)
+    * [mikeselectricstuff](https://vid.puffyan.us/channel/UCcs0ZkP_as4PpHDhFcmCHyA)
+    * [bigclive](https://vid.puffyan.us/channel/UCtM5z2gkrGRuWd0JQMx76qA)
+    * [ElectroBOOM](https://vid.puffyan.us/channel/UCJ0-OtVpF0wOKEqT2Z1HEtA)
+    * [Jeri Ellsworth](https://vid.puffyan.us/user/jeriellsworth/playlists)
 * Boardview files can be open with [OpenBoardview](https://github.com/OpenBoardView/OpenBoardView),
 which is free software under MIT license.
 
 Use of youtube-dl with mpv would be recommended for youtube links
 
-Lastly the most important message to everybody gaining this wonderful new hobby - [Secret to Learning Electronics](https://yewtu.be/watch?v=xhQ7d3BK3KQ)
+Lastly the most important message to everybody gaining this wonderful new hobby - [Secret to Learning Electronics](https://vid.puffyan.us/watch?v=xhQ7d3BK3KQ)

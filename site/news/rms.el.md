@@ -243,10 +243,10 @@ FSF, το GNU και το Richard Stallman σήμερα; Εξαιτίας ενό
 γνωστός χρήστης GNU+Linux, έφτιαξε αυτό το βίντεο το 2008 επαινώντας το GNU
 project και υποστηρίζοντας το Ελεύθερο Λογισμικό:
 
-<https://yewtu.be/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 σε περίπτωση που δε φορτώνεται, δοκιμάστε αυτό το σύνδεσμο:
-<https://invidious.snopyta.org/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 ο RMS ΔΕΝ είναι τρανσφοβικός
 =============================

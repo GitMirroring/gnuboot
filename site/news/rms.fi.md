@@ -243,10 +243,10 @@ tänään? Koska tällä hetkellä tapahtuu jotakin todella synkkää.
 tunnettu GNU+Linux-käyttäjä teki vuonna 2008 tämän videon,
 jolla hän ylistää GNU-projektia ja tukee vapaita ohjelmistoja:
 
-<https://yewtu.be/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 jos linkki ei toimi, kokeile tätä linkkiä:
-<https://invidious.snopyta.org/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 RMS ei ole transfobinen
 =======================

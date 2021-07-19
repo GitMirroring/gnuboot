@@ -232,10 +232,10 @@ Ne me croyez pas sur parole. Stephen Fry, un utilisateur de GNU+Linux réputé,
 a réalisé la vidéo suivante en 2008 pour louer le projet GNU et soutenir le
 logiciel libre :
 
-<https://yewtu.be/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 si ça ne charge pas chez vous, essayez ce lien :
-<https://invidious.snopyta.org/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 RMS n'est PAS transphobe
 ========================

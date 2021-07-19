@@ -215,10 +215,10 @@ Nie bierzcie mnie za słowo. Stephen Fry, bardzo znany użytkownik GNU+Linux,
 stworzył w 2008 film chwalący projekt GNU jak i wspierający wolne
 oprogramowanie:
 
-<https://yewtu.be/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 W przypdaku gdy tamten link się nie załadował spróbuj ten:
-<https://invidious.snopyta.org/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 Richard Stallman NIE JEST transfobem
 ====================================

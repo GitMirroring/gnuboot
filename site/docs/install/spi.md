@@ -632,7 +632,7 @@ Here is a photo of a SOIC8 in 1.27mm 208mil SOP to DIP adapter:\
 ![](https://av.libreboot.org/dip8/sop8todip8.jpg)
 
 Here is a video of that SOIC8 (in socket) being flashed:\
-<https://yewtu.be/watch?v=tguch_iPBZQ>\
+<https://vid.puffyan.us/watch?v=tguch_iPBZQ>\
 NOTE: DIP8 and WSON8-in-socket, and SOIC16-in-socket, are basically the same,
 just adapt accordingly.
 
@@ -707,12 +707,12 @@ chip.
 
 A good choice of soldering iron would be a T12-D08 or T12-K tip, on a T12
 soldering station. KSGER makes nice soldering stations:\
-<https://yewtu.be/watch?v=w0nZCK7B-0U>
+<https://vid.puffyan.us/watch?v=w0nZCK7B-0U>
 
 The case on that KSGER station is not grounded by default, so you should
 modify it to ground the case, in case of an electrical fault. This is for your
 safety. This video shows how to do it:\
-<https://yewtu.be/watch?v=-6IZ_sBgw8I>
+<https://vid.puffyan.us/watch?v=-6IZ_sBgw8I>
 
 Use quality 60/40 or 63/37 lead+tin solder. Do not use lead-free! Lead-free is
 not suitable for hobbyist use such as this. Use quality *rosin* flux. Fluxes
@@ -741,7 +741,7 @@ In case you're not comfortable with soldering, we have some excellent videos
 linked on the [FAQ page](../../faq.md) which you can watch.
 
 Here is a video example for ThinkPad X200 Tablet:\
-<https://yewtu.be/watch?v=oUYHzOQXx80>\
+<https://vid.puffyan.us/watch?v=oUYHzOQXx80>\
 (X200S and T400S also require this)
 
 Alternatively, here are photos:

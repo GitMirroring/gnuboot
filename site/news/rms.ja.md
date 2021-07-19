@@ -61,9 +61,9 @@ Librebootに精通している人は、おそらく上記のすべてをすで�
 
 私の言葉を鵜呑みにしないで下さい。よく知られたGNU+Linuxユーザであるスティーヴン・フライ(Stephen Fry)は、2008年にGNUプロジェクトを賞賛し、自由ソフトウェアを支持するこのビデオを作成しました。
 
-<https://yewtu.be/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
-読み込みができない場合は、次のリンクを試して下さい: <https://invidious.snopyta.org/watch?v=P_mS4CIXcLY>
+読み込みができない場合は、次のリンクを試して下さい: <https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 RMSはトランスフォビアではない
 ===========================

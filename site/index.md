@@ -59,7 +59,7 @@ All children and adults alike should be entitled to a good education.
 Knowledge begs to be free! In the context of computing, this means that the
 source code should be fully available to study, and use in whatever way you
 see fit. In the context of computer hardware, this means that
-[Right to Repair](https://yewtu.be/watch?v=Npd_xDuNi9k)
+[Right to Repair](https://vid.puffyan.us/watch?v=Npd_xDuNi9k)
 should be universal, with full access to documents such as the schematics and
 boardview files.
 

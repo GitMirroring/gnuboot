@@ -61,10 +61,10 @@
 
 আমার কথা হয়তো বিশ্বাস হবে না। স্টিফেন ফ্রাই, বহুল পরিচিত একজন গনু+লিনাক্স ব্যবহারকারী, ২০০৮ সালে গনু প্রজেক্টের প্রশংসা করে এবং ফ্রি সফটওয়্যারের সমর্থন করে এই ভিডিওটি তৈরি করেছেন:
 
-<https://yewtu.be/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 যদি লোড করতে সমস্যা হয়, তাহলে এখানে দেখুন:
-<https://invidious.snopyta.org/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 আরএমএস হিজড়াভীতু নন
 ======================

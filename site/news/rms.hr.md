@@ -199,10 +199,10 @@ vrlo zlobnog što se trenutno događa.
 Nemojte meni vjerovati. Stephen Fry, poznati korisnik GNU+Linuxa je u 2008. 
 napravio ovaj video u kojem slavi GNU projekt i slobodan softver:
 
-<https://yewtu.be/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 Ako se ta poveznica ne učita, pokušajte ovu:
-<https://invidious.snopyta.org/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 RMS NIJE transfobičan
 =====================

@@ -211,10 +211,10 @@ Yalnızca benim sözüme güvenmeyin. Tanınmış bir GNU+Linux kullanıcısı o
 Stephen Fry; 2008'de GNU projesini öven ve Özgür Yazılım'ı destekleyen bu
 videoyu yaptı:
 
-<https://yewtu.be/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 Yüklenmezse bu bağlantıyı deneyin:
-<https://invidious.snopyta.org/watch?v=P_mS4CIXcLY>
+<https://vid.puffyan.us/watch?v=P_mS4CIXcLY>
 
 RMS transfobik DEĞİLDİR
 ======================
