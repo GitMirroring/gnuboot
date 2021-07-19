@@ -4,6 +4,10 @@ html {
 	text-align:left;
 }
 
+p.title-logo {
+display:none;
+}
+
 div.title {
 	background:url("https://av.libreboot.org/logo/logo_light.svg");
 	background-repeat:no-repeat;
@@ -21,7 +25,10 @@ h1.title {
 	min-height:3.5em;
 	margin:0;
 	display:block;
+	padding-left:4em;
+	padding-right:4em;
 }
+
 
 body {
 	line-height: 1.6;
@@ -107,6 +114,7 @@ p.author, p.date {
 }
 div.nav {
 	text-align:center;
+	clear:right;
 }
 header ul:first-of-type,
 div.nav ul:first-of-type,
@@ -168,4 +176,28 @@ img.imgright {
 img.imgleft {
 	float: left;
 	padding-left:0;
+}
+
+@media (max-width: 50em) {	
+	div.title, h1.title {background:none;}
+	nav#TOC {width:100% !important; padding:0; margin:0;}
+	h1.title{min-height:0em; padding-left:0; padding-right:0;}
+	p.title-logo {
+		display:block;
+		text-align:center;
+	}
+	img.title-logo {
+		max-width: 20%;
+		height: auto;
+	}
+}
+@media (max-width: 49em) {
+	img.title-logo {
+		max-width: 25%;
+	}
+}
+@media (max-width: 30em) {
+	img.title-logo {
+		max-width: 33%;
+	}
 }

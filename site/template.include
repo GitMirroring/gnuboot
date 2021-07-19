@@ -41,6 +41,9 @@ $endfor$
 $if(title)$
 <header>
 <div class="title">
+<p class="title-logo">
+<img class="title-logo" alt="" src="https://av.libreboot.org/logo/logo_light.svg" />
+</p>
 <h1 class="title">$title$</h1>
 </div>
 $if(subtitle)$
