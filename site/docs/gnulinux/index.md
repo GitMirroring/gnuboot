@@ -28,7 +28,7 @@ Refer to the following pages:
 * [How to Harden Your GRUB Configuration, for Security](grub_hardening.md)
 
 Guix, Parabola, Trisquel
-------------------------
+========================
 
 These guides were outdated, so they were deleted. You can find links to them
 here: <https://notabug.org/libreboot/lbwww/issues/4>
@@ -65,3 +65,38 @@ command line paramter. So append `sysrq_always_enabled=1` to your
 `GRUB_CMDLINE_LINUX_DEFAULT` in `/etc/default/grub`
 
 You can also run `# sysctl kernel.sysrq=1` to enable them.
+
+Fedora won't boot?
+==================
+
+This may also apply to CentOS or Redhat. Chroot guide can be found on
+[fedora website](https://docs.fedoraproject.org/en-US/quick-docs/bootloading-with-grub2/#restoring-bootloader-using-live-disk)
+
+linux16 issue
+-------------
+
+When you use Libreboot's default GRUB config, and libreboot's grub uses fedora's
+default `grub.cfg` (in `/boot/grub2/grub.cfg`), fedora by default makes use of the
+`linux16` command, whereas it should be saying `linux`
+
+Do this in fedora:
+
+Open `/etc/grub.d/10_linux`
+
+Set the `sixteenbit` variable to an empty string, then run:
+
+    grub2-mkconfig -o /boot/grub2/grub.cfg
+
+BLS issue
+---------
+
+With [newer versions of fedora](https://fedoraproject.org/wiki/Changes/BootLoaderSpecByDefault),
+scripts from grub package default to generating [BLS](https://www.freedesktop.org/wiki/Specifications/BootLoaderSpec/)
+instead of `grub.cfg`. To change that behaviour add following line
+to `/etc/default/grub` (or modify existing one if it already exists):
+
+    GRUB_ENABLE_BLSCFG=false
+
+Then generate `grub.cfg` with:
+
+    grub2-mkconfig -o /boot/grub2/grub.cfg
