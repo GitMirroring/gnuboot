@@ -22,11 +22,6 @@ Libreboot currently documents how to use these SPI programmers:
 Many other SPI programmers exist. More of them will be documented on this page,
 at a date in the future.
 
-TODO: document the following SPI flashers:
-
-* A64-OLinuXino
-* STM32 Blue Pill
-
 Most systems in Libreboot have to be re-flashed externally, using instructions
 on this and similar guides, the first time you flash. However, on all currently
 supported systems, it's possible that you can re-flash *internally* when
@@ -172,19 +167,9 @@ Caution about BBB
 BeagleBone Black is not recommended, because it's very slow and unstable for
 SPI flashing, and nowadays much better options exist. We used to mainly
 recommend the BBB, because of the fact that it can be used with entirely Free
-Software on it, but nowadays there are superior options such as:
+Software on it, but nowadays there are superior options.
 
-* [A64-OlinuXino](https://www.olimex.com/Products/OLinuXino/A64/A64-OLinuXino/open-source-hardware)
-* STM32 Blue Pill
-* Teensy
-
-In particular, the A64-OlinuXino works as reliably as the Raspberry Pi, and it
-is a full SBC (single-board computer), but unlike the Raspberry Pi, the
-A64-OlinuXino has full schematics available and it can be used with entirely
-Free Software on it. Unlike the BeagleBone Black, the A64-OlinuXino is highly
-reliable and *fast* when you use it for SPI flashing.
-
-These other programmers will be documented at a future date.
+TODO: document other SPI flashers
 
 Rasberry Pi (RPi)
 -----------------

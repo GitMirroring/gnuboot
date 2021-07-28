@@ -700,16 +700,6 @@ but those notes should be improved
 * x200s/x200t/w700 - 25xx flash Vcc is hardwired :( (to be confirmed on production board)
 * t400/t400s/t500/x301 - 25xx flash Vcc is hardwired, as everything else on UCI/lenovo boards
 
-Document bluepill SPI flasher (SMT32 dongle)
---------------------------------------------
-
-also document how to use a UART dongle (such as FT232H) to replace the default
-software with stm32-vserprog
-
-bluepill can be used for many things, not just SPI flashing. it is a general
-purpose board with an STM32 MCU on it. basically an arduion, but it's STM32
-based
-
 Document alternative external flashing method for X200S/X200T
 -------------------------------------------------------------
 
