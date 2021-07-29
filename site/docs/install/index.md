@@ -413,6 +413,23 @@ You'll see a lot of errors. This is normal. You should see something like:
 If you see this, rejoice! It means that the flash was successful. Please do not
 panic. Shut down now, and wait a few seconds, then turn back on again.
 
+**WARNING: if flashrom complains about `/dev/mem` access, please
+run `sudo ./bucts 0`. If flashrom is complaining about `/dev/mem`, it means
+that you have `CONFIG_STRICT_DEVMEM` enabled in your kernel. Reboot with the
+following kernel parameter added in your bootloader: `iomem=relaxed` and try
+again with the above instructions. DO NOT continue until the above works, and
+you see the expected flashrom output as indicated above.**
+
+If you *did* run flashrom and it failed to flash, but you set bucts to 1 and
+shut down, don't worry. Just remove the yellow coin-cell battery (it's underneath
+the keyboard, connected to the mainboard), wait a minute or two, reconnect the
+coin-cell and try again from scratch. In this instance, if flashrom didn't do
+anything, and didn't flash anything, it means you still have Lenovo BIOS but
+if bucts is set to 1, you can flush it and set it back to 0. BUC.TS is stored in
+volatile memory, powered by that CR2032 coin-cell battery.
+
+Assuming that everything went well:
+
 Flash the ROM for a second time. For this second flashing attempt, the upper
 64KiB bootblock is now read-write. Use the *unpatched* flashrom binary:
 
