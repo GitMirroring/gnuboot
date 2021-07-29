@@ -639,7 +639,7 @@ SOIC8/SOIC16 soldered to a mainboard
 This is an example of *in-system programming* or *ISP* for short.
 
 SOIC8:\
-Pomona 5252 is a SOIC8 test clip. There are others available, but this is the
+Pomona 5250 is a SOIC8 test clip. There are others available, but this is the
 best one. Use that. Use the SOIC8 diagram (see above) to wire up your Raspberry
 Pi.
 Your mainboard likely already pulls WP/HOLD (pins 3 and 7) high, so don't
@@ -647,7 +647,7 @@ connect these. 3.3v VCC on SOIC8's pin 8 probably already has decoupling
 capacitors on the mainboard, so just hook that up without using a capacitor.
 
 SOIC16:\
-Pomona 5250 is a SOIC16 test clip. There are others available, but this is the
+Pomona 5252 is a SOIC16 test clip. There are others available, but this is the
 best one. Use that. Use the SOIC16 diagram (see above) to wire up your Raspberry
 Pi. WP/HOLD pins are pins 1 and 9, and likely already held high, so no pull-up
 resistors needed. You do not need a decoupling capacitor for pin 2 (VCC) either
