@@ -130,8 +130,8 @@ Stay tuned! The new site and new project will be much better.
 
 PS:
 
-Codes of conduct are stupid
----------------------------
+Code of Conduct abolished
+-------------------------
 
 Libreboot has abolished its Code of Conduct. I no longer believe that a CoC is
 effective; in reality, it does not prevent bad behaviour and it discourages
@@ -140,27 +140,4 @@ obvious when someone is behaving badly; common sense will prevail!
 
 All I want is code. Your code.
 
-The particular code of conduct that Libreboot adopted was the Contributor
-Covenant by Coraline Ada Ehmke. At the time, I did not know of her. Recently,
-I *have* learned about her. She is pure evil. She regularly harasses people on
-the internet, while hiding behind her minority status as a transgender person
-so that people are less likely to criticize her. She acts like a total fascist,
-going around the internet looking for people that disagree with her political
-views; she then attempts to *cancel* those people. See: cancel culture.
-
-Coraline: I am transgender, and I'm deeply saddened by your views. You do not
-represent us, and I reject your ideas entirely. Your so-called *Ethical Source*
-movement pushes non-free licenses; specifically, these licenses, so-called
-Ethical licenses, place huge restrictions on the usage of the software. If a
-person uses a program under such licensing, the author can literally deny you
-access if they happen to disagree with your political views. I believe that all
-people should have freedom in their computing, even if I dislike their views.
-
-This is why I revoked the code of conduct (Contributor Covenant) on
-libreboot.org. I do not wish for *Libreboot* to be associated with her. Every
-time someone reads a copy of the Contributor Covenant, Coraline's influence to
-distribute non-free software licenses becomes stronger.
-
-I, Leah Rowe, oppose non-free software and I *reject* Coraline Ada's ideology.
-Libreboot will not be implementing another code of conduct. I initially was
-going to, but there is no need.
+Just try to behave yourself on IRC, OK?
