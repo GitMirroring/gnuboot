@@ -155,8 +155,8 @@ whatever changes you like to it and then push to your repository, in your
 account on NotABug. You can also do this on a new branch, if you wish.
 
 In your Notabug account, you can then navigate to the official Libreboot
-repository and submit a Pull Request. The way it works is very similar to other
-platforms like GitHub or GitLab.
+repository and submit a Pull Request. The way it works is similar to other
+popular web-based Git platforms that people use these days.
 
 You can submit your patches there. Alternative, you can log onto the Libreboot
 IRC channel and notify the channel of which patches you want reviewed, if you
@@ -171,8 +171,3 @@ Another way to submit patches is to email Leah Rowe directly:
 
 However, for transparency of the code review process, it's recommended that you
 use Notabug, for the time being.
-
-In the future, Libreboot plans to integrate Sourcehut code forge on a separate
-subdomain of libreboot.org, with a mailing list also hosted for accepting
-patches. However, for the time being, the Notabug pages are what you should
-use.

@@ -95,8 +95,7 @@ they were (are) the right decisions to make, for the good of the project.
 
 When I bring that new release out, I will be re-opening the Libreboot
 infrastructure for new outside contributors, including those who wish to have
-review/push/pull access. I intend to move away from the current notabug.org
-Git hosting and switch to a self-hosted GitLab CE instance.
+review/push/pull access.
 
 Needless to say, I reject Andrew's calls for me to hand over control of the
 Libreboot project. I'm back, and I have great plans for the project. I intend

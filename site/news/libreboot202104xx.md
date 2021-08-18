@@ -124,8 +124,7 @@ This splitting of the repositories will make each part of Libreboot much more
 easily maintainable by contributors. This splitting up of the repository has
 already been implemented in osboot!
 
-**The entire `libreboot.org` website will be -->nuked<-- as will the account on 
-notabug.org. I intend to set up a self-hosted GitLab CE on libreboot.org.**
+**The entire `libreboot.org` website will be -->nuked<--
 
 Stay tuned! The new site and new project will be much better.
 
