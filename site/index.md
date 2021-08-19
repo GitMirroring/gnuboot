@@ -16,7 +16,7 @@ compatible with [specific computer models that use the Intel/AMD x86
 architecture](docs/hardware/). Libreboot works well with GNU+Linux and BSD
 operating systems. User support is available
 at [\#libreboot](https://kiwiirc.com/nextclient/irc.libera.chat:6697/#libreboot)
-on Libera Chat network.
+on the *[Libera](https://libera.chat/)* IRC network.
 
 ![](https://av.libreboot.org/logo/logo.svg){.imgright}
 
