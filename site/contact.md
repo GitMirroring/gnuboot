@@ -28,7 +28,7 @@ IRC is the main way to contact the Libreboot project. `#libreboot` on Libera
 IRC.
 
 Webchat:
-<https://kiwiirc.com/nextclient/irc.libera.chat:6697/#libreboot>
+<https://web.libera.chat/#libreboot>
 
 Libera is one of the largest IRC networks, used for Free Software projects.
 Find more about them here: <https://libera.chat/>
