@@ -278,7 +278,7 @@ about the events that took place:
 
 This video by *DistroTube* provides an excellent account of events aswell:
 
-<https://odysee.com/@DistroTube:2/mob-mentality-threatens-the-free:b>
+<https://vid.puffyan.us/watch?v=Uun2YhnUNGc>
 
 Exposing our opponents for who they are
 =======================================
@@ -408,7 +408,7 @@ Ada Ehmke (leader of Ethical Source movement) were trying to influence the OSI
 so as to re-write the *Open Source Definition*. This video provides some nice
 introductory information:
 
-<https://odysee.com/@DistroTube:2/founder-of-open-source-is-banned-by-open:7>
+<https://vid.puffyan.us/watch?v=gkhmwr6O2W4>
 
 In the OSI's case, they probably won't let Eric back in; though even if I
 disagree with Open Source (I'm a Free Software activist), Open Source isn't at

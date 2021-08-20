@@ -194,9 +194,6 @@ The device for communicating via SPI as at `/dev/spidev0.0`
 Caution about RPi
 -----------------
 
-On 20 May 2021, someone on IRC brought to my attention the following video:
-<https://odysee.com/@Lunduke:e/RaspberryPiMicrosoftRepo:8>
-
 Basically, the Raspbian project, now called Raspberry Pi OS, put in their repo
 an update that added a new "trusted" repository, which just so happened to be
 a Microsoft software repository. They seem to have done this for VS Code, but

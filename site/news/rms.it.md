@@ -322,7 +322,7 @@ singoli eventi:
 Anche questo video di *DistroTube* dà un'ottima panoramica di
 cosa è successo:
 
-<https://odysee.com/@DistroTube:2/mob-mentality-threatens-the-free:b>
+<https://vid.puffyan.us/watch?v=Uun2YhnUNGc>
 
 
 Smarcherare i nostri avversari
@@ -467,7 +467,7 @@ l'uso. Questo non va bene! Gente come Coraline Ada Ehmke (a capo del
 movimento Ethical Source) tentevano di influenzare l'OSI per riscrivere
 la *definizione di Open Source*. Questo video ha più informazioni:
 
-<https://odysee.com/@DistroTube:2/founder-of-open-source-is-banned-by-open:7>
+<https://vid.puffyan.us/watch?v=gkhmwr6O2W4>
 
 Nel caso dell'OSI, non credo permetteranno a Eric di tornare.
 Anche se non sono d'accordo con la filosofia Open Source (sono

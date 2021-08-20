@@ -316,7 +316,7 @@ per/perse 를 사용할 것을 결정했을 때, 저는 좀 짜증은 났지만 
 
 *DistroTube* 의 이 비디오는 훌륭히 많은 양의 사건들을 제공하고 있습니다:
 
-<https://odysee.com/@DistroTube:2/mob-mentality-threatens-the-free:b>
+<https://vid.puffyan.us/watch?v=Uun2YhnUNGc>
 
 적들이 누구를 위해 일하는지에 대한 폭로
 =======================================
@@ -468,7 +468,7 @@ Definition)* 를 고치기 위해, OSI 에 그 영향력을 행사하려고 하�
 있습니다.  이 일에 대해서 잘 설명하고 있는 다음 비디오도 참고
 하십시오:
 
-<https://odysee.com/@DistroTube:2/founder-of-open-source-is-banned-by-open:7>
+<https://vid.puffyan.us/watch?v=gkhmwr6O2W4>
 
 이 OSI 의 경우, 그들은 아마 에릭을 복귀시키진 않을 것입니다.  저는
 오픈 소스에 대해서는 동의하지 않지만 (저는 자유 소프트웨어

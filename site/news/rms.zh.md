@@ -159,7 +159,7 @@ RMS **不是** 恐跨人士
 
 这段来自 *DistroTube* 的视频也给出了对这些事件一个很好的总结
 
-<https://odysee.com/@DistroTube:2/mob-mentality-threatens-the-free:b>
+<https://vid.puffyan.us/watch?v=Uun2YhnUNGc>
 
 揭开我们对手的假面具
 =======================================
@@ -236,7 +236,7 @@ OSI 不久之前刚把它自己的发起人之一，Eric S Raymond 从邮件列�
 尽管道德源码运动名字长这样，他们的软件许可方式可*不是自由的许可*，因为其中对使用做出了一些限制。
 如果这类软件的作者不喜欢你的政治观点，他们就可以拒绝你使用他们的软件。这是不对的！像 Coraline Ada Ehmke（道德软件运动的领导者）这样的人尝试去腐化 OSI，从而重新定义*开源软件*，下面的视频给出了一些介绍性的信息：
 
-<https://odysee.com/@DistroTube:2/founder-of-open-source-is-banned-by-open:7>
+<https://vid.puffyan.us/watch?v=gkhmwr6O2W4>
 
 在 OSI 这案例里，他们大概不会让 Eric 再回来了。 就算我不赞同开源运动（我是个自由软件活动者），开源本身也不是一件那么糟糕的事，只是有些思想上不够进步而已。而像 Coraline Ada Ehmke 这样的道德源码支持者如果得逞了，将会造成极大的损失。他们已经渗透到几个知名的自由软件和开源联盟项目中，让他们引入行为准则。Libreboot 最近认识到了行为准则的害处而取消掉了它。被取消的这个行为准则正是 Coraline 的贡献者公约。
 

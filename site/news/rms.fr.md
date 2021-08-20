@@ -307,7 +307,7 @@ détails à propos des évènements :
 
 Cette vidéo de *DistroTube* fournit également un excellent récit des faits :
 
-<https://odysee.com/@DistroTube:2/mob-mentality-threatens-the-free:b>
+<https://vid.puffyan.us/watch?v=Uun2YhnUNGc>
 
 Dénoncer nos opposants pour ce qu'ils sont vraiment
 ===================================================
@@ -449,7 +449,7 @@ Coraline Ada Ehmke (dirigeante du mouvement Ethical Source) essayaient
 d'influencer l'OSI pour réécrire *la définition d'open source*. La vidéo
 suivante fournit plus d'informations :
 
-<https://odysee.com/@DistroTube:2/founder-of-open-source-is-banned-by-open:7>
+<https://vid.puffyan.us/watch?v=gkhmwr6O2W4>
 
 Dans le cas de l'OSI, ils ne laisseront probablement jamais Eric revenir ; mais
 même si je désapprouve l'open source (je suis une activiste du logiciel libre),

@@ -322,7 +322,7 @@ tapahtuneista asioista:
 
 Tämä *DistroTube*-käyttäjän tekemä video antaa myös loistavan kuvauksen tapahtumista:
 
-<https://odysee.com/@DistroTube:2/mob-mentality-threatens-the-free:b>
+<https://vid.puffyan.us/watch?v=Uun2YhnUNGc>
 
 Vastustajiemme todellisen luonteen paljastaminen
 ================================================
@@ -478,7 +478,7 @@ yrittivät vaikuttaa OSI:n, jotta *Avoimen Lähdekoodin Määritelmä*
 uudelleenkirjoitettaisiin.
 Tämä video antaa hyviä alustavia tietoja:
 
-<https://odysee.com/@DistroTube:2/founder-of-open-source-is-banned-by-open:7>
+<https://vid.puffyan.us/watch?v=gkhmwr6O2W4>
 
 OSI:n tapauksessa he eivät luultavasti päästä Ericiä takaisin;
 vaikka olen eri mieltä Avoimen Lähdekoodin kanssa

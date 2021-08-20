@@ -291,7 +291,7 @@ detale co do wcześniejszych wydarzeń:
 Ten film zrobiony przez *DistroTube* również pokazuje niesamowity raport tych
 samych wydarzeń:
 
-<https://odysee.com/@DistroTube:2/mob-mentality-threatens-the-free:b>
+<https://vid.puffyan.us/watch?v=Uun2YhnUNGc>
 
 Ujawnienie naszych przeciwników za to kim naprawdę są
 =====================================================
@@ -425,7 +425,7 @@ jest okropne! Osoby jak Coaline Ada Ehmke (lider ruchu etycznego
 oprogramowania) próbowali nawet wpłynąć na OSI zmieniono treść *definicji open
 source*. Ten film przedstawia dobrze wprowadzające w temat informacje:
 
-<https://odysee.com/@DistroTube:2/founder-of-open-source-is-banned-by-open:7>
+<https://vid.puffyan.us/watch?v=gkhmwr6O2W4>
 
 W przypadku OSI, pewnie nie pozwolą Ericowi wrócić; nawet jeżeli nie zgadzam
 się z open source (jestem aktywistą wolnego oprogramowania), to nie jest ono

@@ -286,7 +286,7 @@ olaylarla ilgili ayrıntılar var:
 *DistroTube*'un hazırladığı bu video, olayların yanı sıra mükemmel bir anlatım
 sunar:
 
-<https://odysee.com/@DistroTube:2/mob-mentality-threatens-the-free:b>
+<https://vid.puffyan.us/watch?v=Uun2YhnUNGc>
 
 Muhaliflerimizin kim olduklarını açığa çıkarmak
 =======================================
@@ -419,7 +419,7 @@ sakıncalı! Coraline Ada Ehmke (Etik Kaynak hareketinin önderi) gibi insanlar,
 *Açık Kaynak Tanımı*'nı yeniden yazmak için OSI'ı etkilemeye çalışıyorlardı. Bu
 video, kimi güzel giriş bilgileri sağlar:
 
-<https://odysee.com/@DistroTube:2/founder-of-open-source-is-banned-by-open:7>
+<https://vid.puffyan.us/watch?v=gkhmwr6O2W4>
 
 OSI'ın durumunda Eric'in yeniden içeri girmesine büyük olasılıkla izin
 vermeyecekler: Açık Kaynak ile aynı görüşte olmasam bile (Ben bir Özgür Yazılım

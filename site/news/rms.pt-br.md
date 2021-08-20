@@ -315,7 +315,7 @@ sobre os eventos ocorridos:
 
 Este vídeo do *DistroTube* também oferece um excelente relato de eventos: 
 
-<https://odysee.com/@DistroTube:2/mob-mentality-threatens-the-free:b>
+<https://vid.puffyan.us/watch?v=Uun2YhnUNGc>
 
 
 Expondo nossos oponentes por quem eles são
@@ -459,7 +459,7 @@ Ada Ehmke (líder do movimento Fonte Ética) estava tentando influenciar o OSI
 de modo a reescrever a *Definição de código aberto*. Este vídeo fornece algumas boas
 informações introdutórias: 
 
-<https://odysee.com/@DistroTube:2/founder-of-open-source-is-banned-by-open:7>
+<https://vid.puffyan.us/watch?v=gkhmwr6O2W4>
 
 No caso do OSI, eles provavelmente não deixarão Eric voltar; embora mesmo se eu
 discordo do Código Aberto (sou um ativista do Software Livre), Código Aberto não 

@@ -285,7 +285,7 @@ những sự kiện đã xảy ra:
 
 Video này bởi DistroTube cũng cung cấp nhũng thông tin cụ thể về sự kiện này:
 
-<https://odysee.com/@DistroTube:2/mob-mentality-threatens-the-free:b>
+<https://vid.puffyan.us/watch?v=Uun2YhnUNGc>
 
 Bản chất của những kẻ thù
 =========================
@@ -413,7 +413,7 @@ này hoàn toàn sai trái! Những người như Coraline Ada Ehmke (đứng đ
 Mã nguồn Hợp đạo lý) muốn gây ảnh hưởng tới OSI để viết lại *Định nghĩa Mã nguồn
 Mở*. Video này cung cấp một số thông tin cơ bản về nó:
 
-<https://odysee.com/@DistroTube:2/founder-of-open-source-is-banned-by-open:7>
+<https://vid.puffyan.us/watch?v=gkhmwr6O2W4>
 
 Trong trường hợp của OSI, họ có thể sẽ không để Eric quay lại; cho dù tôi có bất
 đồng quan điểm với Mã nguồn Mở (tôi là một người hoạt động phong trào Phần mềm

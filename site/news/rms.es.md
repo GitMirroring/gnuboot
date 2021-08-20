@@ -282,7 +282,7 @@ Aqui hay uno que apoya a RMS y tiene detalles de que paso
 
 Este video de *DistroTube* tiene muchos detalles:
 
-<https://odysee.com/@DistroTube:2/mob-mentality-threatens-the-free:b>
+<https://vid.puffyan.us/watch?v=Uun2YhnUNGc>
 
 Nuestros oponentes
 ==================
@@ -414,7 +414,7 @@ esta mal! Personas como Coraline Ada Ehmke (lider del Ethical Source)
 estaba intentando reescribir *La definicion de Open Source*. Este
 video provee informacion:
 
-<https://odysee.com/@DistroTube:2/founder-of-open-source-is-banned-by-open:7>
+<https://vid.puffyan.us/watch?v=gkhmwr6O2W4>
 
 En este caso, no creo que Eric vuelva, incluso si estoy en desacuerdo
 con el Open Source (Soy activista del software libre) Open source no

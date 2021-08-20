@@ -271,7 +271,7 @@ heeft plaatsgevonden:
 
 Deze video van *DistroTube* geeft een perfecte weergave van wat er heeft plaatsgevonden:
 
-<https://odysee.com/@DistroTube:2/mob-mentality-threatens-the-free:b>
+<https://vid.puffyan.us/watch?v=Uun2YhnUNGc>
 
 De echte intentie van onze tegenstanders
 ========================================
@@ -400,7 +400,7 @@ Mensen zoals Coraline Ada Ehmke (leider van de Ethische Broncode beweging) hebbe
 geprobeerd om de OSI te overtuigen om de *Open Source Definitie* te herschrijven. Deze 
 video geeft een mooie introductie:
 
-<https://odysee.com/@DistroTube:2/founder-of-open-source-is-banned-by-open:7>
+<https://vid.puffyan.us/watch?v=gkhmwr6O2W4>
 
 Ze zullen in het geval van OSI Eric niet weer aan laten treden. Al ben ik het niet eens
 met Open Source (omdat ik een Vrije Software activist ben), is Open Source niet perse 

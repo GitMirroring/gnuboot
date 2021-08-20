@@ -269,7 +269,7 @@ o događajima koji su se dogodili:
 
 Ovaj video od strane *DistroTubea* također ima savršenu kroniku događaja:
 
-<https://odysee.com/@DistroTube:2/mob-mentality-threatens-the-free:b>
+<https://vid.puffyan.us/watch?v=Uun2YhnUNGc>
 
 Otkrivanje tko su zapravo naši protivnici
 =========================================
@@ -397,7 +397,7 @@ taj softver. Ovo nije u redu! Ljudi poput Coraline Ada Ehmke (voditeljica
 Ethical Source pokreta) su pokušali nagovoriti OSI da prerade *definiciju
 otvorenog koda*. Sljedeći video sadržava dobar uvod u ovaj događaj:
 
-<https://odysee.com/@DistroTube:2/founder-of-open-source-is-banned-by-open:7>
+<https://vid.puffyan.us/watch?v=gkhmwr6O2W4>
 
 U OSI-evom slučaju, vjerovatno neće poništiti Ericovu zabranu; čak i ako se
 ne slažem s otvorenim kodom (ja sam aktivistica za slobodan softver), otvoren
