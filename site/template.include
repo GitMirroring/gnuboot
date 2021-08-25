@@ -92,11 +92,5 @@ $if(toc)$
 </div>
 $endif$
 </div>
-<div style="position:fixed; bottom:0; left:0; right:0; background:#fcc; color:#222">
-<p>
-<a href="https://rsync.libreboot.org/testing/20210522/">Libreboot 20210522 has been released! Download it here</a> - 
-release announcement <a href="/docs/release/libreboot20210522.html">here</a>
-</p>
-</div>
 </body>
 </html>
