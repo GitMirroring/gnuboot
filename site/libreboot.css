@@ -178,6 +178,9 @@ img.imgleft {
 	padding-left:0;
 }
 
+@media (min-width: 51em) {
+	body {font-size: 0.9em !important;}
+}
 @media (max-width: 50em) {	
 	div.title, h1.title {background:none;}
 	nav#TOC {width:100% !important; padding:0; margin:0;}
