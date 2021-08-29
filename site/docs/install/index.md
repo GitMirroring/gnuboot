@@ -201,19 +201,11 @@ How to erase and rewrite the chip contents:
 
     sudo flashrom -p internal:laptop=force_I_want_a_brick,boardmismatch=force -w libreboot.rom
 
-If flashing GM45 laptops such as Thinkpad X200/T400/T500/R400/W500/R500, you
-might consider doing this instead:
-
-    sudo flashrom -p internal:laptop=force_I_want_a_brick,boardmismatch=force --ifd -i bios -w libreboot.rom
-
-The `--ifd -i bios` option, when you use a ROM for GM45 machine, will only flash
-the BIOS region. On those machines, the boot flash is split into IFD, GbE and
-BIOS region. The GbE region contains your MAC address. If you already ran
-the `ich9gen` program before, you can use these options to skip flashing over
-those sections. Otherwise, without these options in flashrom, you will just
-flash the entire chip. If you're flashing the entire chip, make sure that the new
-ROM has a MAC address set correctly in the GbE region. To learn more about this,
-please read the ich9utils documentation: [/docs/install/ich9utils.html](/docs/install/ich9utils.html)
+If you are re-flashing a GM45+ICH9M laptop (e.g. ThinkPad X200/X200S/X200T,
+T400, T500, R400, W500 etc - but not R500), you should run the ich9gen utility
+to preserve your mac address.
+Please read the ich9utils documentation:
+[/docs/install/ich9utils.html](/docs/install/ich9utils.html)
 
 NOTE: `force_I_want_a_brick` is not scary. Do not be scared! This merely disables
 the safety checks in flashrom. Flashrom and coreboot change a lot, over the years,
