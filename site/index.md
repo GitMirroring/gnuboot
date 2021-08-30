@@ -18,7 +18,7 @@ operating systems. User support is available
 via [\#libreboot](https://web.libera.chat/#libreboot)
 on the *[Libera](https://libera.chat/)* IRC network.
 
-![](https://av.libreboot.org/logo/logo.svg){.imgright}
+![](https://av.libreboot.org/logo/logo_light.svg){.imgright}
 
 Libreboot is a *Free Software* project, but can be considered Open Source.
 [The GNU website](https://www.gnu.org/philosophy/open-source-misses-the-point.en.html)
@@ -50,8 +50,6 @@ found on the [who.md](who.md) page.
 
 Why use Libreboot?
 ==================
-
-[![](https://retrofreedom.com/glugluglug/wp-content/uploads/2018/04/0001-300x225.jpg){.imgright}](https://minifree.org/glugluglug/wp-content/uploads/2018/04/0001.jpg)
 
 [Free software](https://www.gnu.org/philosophy/free-sw.html) is important for
 the same reason that education is important.
@@ -87,8 +85,6 @@ Libreboot gives *you* control over *your* computing.
 
 Project goals
 -------------
-
-[![](https://av.vimuser.org/EoSFxYyXEAAjOEz-300x400.jpeg){.imgleft}](https://av.vimuser.org/EoSFxYyXEAAjOEz.jpeg)
 
 -   *Recommend and distribute only free software*. Coreboot
     distributes certain pieces of proprietary software which is needed
@@ -126,8 +122,6 @@ easy to do so.
 
 Not a coreboot fork!
 --------------------
-
-[![](https://av.vimuser.org/homepage.jpg){.imgright}](https://av.vimuser.org/homepage.jpg)
 
 Libreboot is not a fork of coreboot. Every so often, the project
 re-bases on the latest version of coreboot, with the number of custom

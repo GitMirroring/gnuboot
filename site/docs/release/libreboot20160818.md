@@ -106,7 +106,7 @@ cstates now being supported (thanks Arthur Heymans). C4 power states
 also supported.
 
 Higher battery life on i945 (X60, T60, MacBook2,1) due to better CPU
-C-state settings. (Deep C4, Dynamicl L2 shrinking, C2E).
+C-state settings. (Deep C4, Dynamic L2 shrinking, C2E).
 
 Text mode on GM45 (X200, T400, T500, R400) now works, making it possible
 to use MemTest86+ comfortably. (thanks to Nick High from coreboot)
