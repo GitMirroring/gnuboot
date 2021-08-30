@@ -2,4 +2,4 @@
 title: Libreboot releases
 ...
 
-This page has moved. Go to: [Libreboot release announcements](release/)
+This page has [merged with the main news section](/news/)

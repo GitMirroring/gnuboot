@@ -42,7 +42,7 @@ $if(title)$
 <header>
 <div class="title">
 <p class="title-logo">
-<img class="title-logo" alt="" src="https://av.libreboot.org/logo/logo_light.svg" />
+<img class="title-logo" alt="" src="https://av.libreboot.org/logo/sl.png" />
 </p>
 <h1 class="title">$title$</h1>
 </div>
@@ -62,12 +62,11 @@ $endif$
 <li><a href="/docs/install/">Install</a></li>
 <li><a href="/docs/">Docs</a></li>
 <li><a href="/news/">News</a></li>
-<li><a href="https://notabug.org/libreboot/lbmk/issues">Report bugs</a></li>
+<li><a href="https://notabug.org/libreboot/lbmk/issues">Bugs</a></li>
 <li><a href="/tasks/">TODO</a></li>
-<li><a href="/git.html">Send patches</a></li>
-<li><strong><a href="/contact.html">Contact</a></strong></li>
-<li><strong><a href="/donate.html">Donate</a></strong></li>
-<li><strong><a href="/suppliers.html">Buy preinstalled</a></strong></li>
+<li><a href="/git.html">Send patch</a></li>
+<li><a href="/contact.html">Contact</a></li>
+<li><a href="/suppliers.html">Buy preinstalled</a></li>
 </ul>
 <hr/>
 </header>

@@ -15,4 +15,4 @@ A copy of this license (CC-0 1.0) can be found at:
 The font on the sticker designs is `lato`. Install this, otherwise the vectors
 won't look correct for the text.
 
-You can see the logo files here: <https://libreboot.org/logo/>
+You can see the logo files here: <https://av.libreboot.org/logo/>

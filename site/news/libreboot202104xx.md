@@ -8,7 +8,7 @@ of bugs fixed, new features added and the latest coreboot/GRUB/SeaBIOS versions
 used on all boards. The Libreboot website will be massively overhauled.
 
 I, Leah Rowe, have re-taken full control of the Libreboot project after 4 years
-delay in bringing out a new release. Long story in short, Libreboot began a new
+delay in bringing out a new release. Long story short, Libreboot began a new
 and ambitious re-write of its build system in 2017; as of 2021, that build
 system is still not ready; the design is fundamentally flawed and the code is
 unmaintainable so I have scrapped the rewrite entirely. The work will be

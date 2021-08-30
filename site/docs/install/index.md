@@ -19,7 +19,7 @@ they have bug fixes for your board, and/or new security fixes.
 
 If you're already running libre firmware on your board, you should decide for
 sure whether you wish to risk it. See changelogs on
-the [release logs](../release.md) and decide for yourself.
+the [release announcements via the news page](/news/) and decide for yourself.
 
 About ROM image file names
 ==========================

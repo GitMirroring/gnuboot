@@ -25,8 +25,8 @@ own petition and a campaign urging the FSF to publicly endorse Richard
 Stallman, to exonerate him and defend him from the hate campaigns; to hold
 their ground and keep Richard in his post.
 
-I, Leah Rowe, submitted the following defense of Richard Stallman on 31 March
-2021: [https://libreboot.org/news/rms.html](rms.md)
+[I, Leah Rowe, submitted the following defense of Richard Stallman on 31 March
+2021](rms.md)
 
 **We won. The FSF issued this news post on 12 April 2021, defending Richard
 Stallman and protecting his legacy:

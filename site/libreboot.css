@@ -1,206 +1,138 @@
 html {
-	background-color: #eee;
-	padding-bottom:7em;
-	text-align:left;
+	background:#fff
 }
 
-p.title-logo {
-display:none;
+.title {
+	background:url("https://av.libreboot.org/logo/sl.png") no-repeat;
+	background-size: auto 99%;
 }
 
 div.title {
-	background:url("https://av.libreboot.org/logo/logo_light.svg");
-	background-repeat:no-repeat;
-	background-size: auto 100%;
-	background-attachment:absolute;
-	background-position: right;
+	background-position: right
 }
 
 h1.title {
-	text-shadow: 0px 0px 5px #FFFFFF;
 	text-align:center;
-	background:url("https://av.libreboot.org/logo/logo_light.svg");
-	background-size: auto 100%;
-	background-repeat:no-repeat;
-	min-height:3.5em;
+	min-height:2em;
 	margin:0;
-	display:block;
-	padding-left:4em;
-	padding-right:4em;
+	padding:0 4em
 }
 
+a.title{background:none}
 
-body {
-	line-height: 1.6;
-	font-family: Cantarell, sans-serif;
-	font-size: 1em;
+body,a:hover {
+	font: 1em sans-serif;
 	color: #222;
+	line-height: 1.4
+}
+h1,h2,h3,h4 {
+	line-height: 1.2
 }
 
 div.page {
-	box-shadow: 0 0 6px;
-	background-color:#fff;
-	max-width:70em;
+	max-width:60em;
 	margin:0 auto;
-	padding: 0.2em 1em;
+	padding: 0.2em 1em
 }
 
-div.warning{
-	background:#fcc;
-	font-size:1.1em;
-	border:solid 1px #666;
-	padding-left:1em;
-	padding-right:1em;
-}
-
-pre {
-	padding: 0.3em;
-}
-
-pre,table {
+pre,table,.title,.date {
 	overflow-x: auto;
-	display: block;
+	display:block
 }
 
 table {
 	border-collapse: collapse;
-	width:100%;
+	width:100%
 }
 th{
-	background:#cdcdcd;
+	background:#cdcdcd
 }
-th, td {
-	border: solid 1px #888;
+th,td {
+	border: solid 1px #888
 }
 tr:nth-child(even) {
-	background-color: #eee;
+	background-color: #eee
 }
 
-code, pre, nav#TOC {
-	background-color: #ececec;
+code,pre,#TOC {
+	background-color: #ececec
 }
 
-img {
-	max-width: 100%;
+img,#TOC {
+	max-width:100%
 }
 
 a {
-	text-decoration: none;
-	color: #22D;
+	color: #22D
 }
 
 a.uri {
-	word-wrap: break-word;
-}
-
-a:hover {
-	color: #008;
-}
-
-.date {
-	display: block;
+	word-wrap: break-word
 }
 
 h1, h2, h3, .h:hover a {
-	display: inline;
+	display: inline
 }
 
-.h a {
-	display: none;
-}
-
-p.author, p.date {
-	display:none;
+p.author, p.date,.h a,p.title-logo {
+	display:none
 }
 div.nav {
 	text-align:center;
-	clear:right;
+	clear:right
 }
 header ul:first-of-type,
 div.nav ul:first-of-type,
 div#footer ul:last-of-type {
 	padding:0;
 	margin:0;
-	text-align:center;
+	text-align:center
 }
 header ul:first-of-type > li,
 div.nav ul:first-of-type > li,
 div#footer ul:last-of-type li {
-	padding:0;
 	margin:0;
 	display:inline;
-	padding-left:0.5em;
-	padding-right:0.5em;
-	border-right:solid 1px #000;
+	padding:0 .5em
 }
 header ul:first-of-type > li:first-child,
 div.nav ul:first-of-type > li:first-child,
 div#footer ul:last-of-type > li:first-child {
-	padding-left:0;
+	padding-left:0
 }
 header ul:first-of-type > li:last-child,
 div.nav ul:first-of-type > li:last-child,
 div#footer ul:last-of-type > li:last-child {
 	padding-right:0;
-	border:none;
+	border:none
 }
 
-nav#TOC {
+#TOC {
 	min-width:25%;
-	max-width:100%;
 	float:left;
 	margin:1em;
-	padding: 0.2em 1em;
+	padding: .2em 1em
 }
-nav#TOC h1 {
-	font-size:1em;
+#TOC h1 {
+	font-size:1em
 }
-nav#TOC li > ul {
+#TOC li > ul {
 	margin-left:0;
-	padding-left:0.5em;
+	padding-left:.5em
 }
 
-img.imgleft, img.imgright {
-	max-width: 25%;
-	height: auto;
-	padding: 2em;
-	padding-top:0.5em;
-	padding-bottom:0.5em;
-}
-
-img.imgright {
-	float: right;
-	padding-right:0;
-}
-
-img.imgleft {
-	float: left;
-	padding-left:0;
-}
-
-@media (min-width: 51em) {
-	body {font-size: 0.9em !important;}
-}
 @media (max-width: 50em) {	
-	div.title, h1.title {background:none;}
-	nav#TOC {width:100% !important; padding:0; margin:0;}
-	h1.title{min-height:0em; padding-left:0; padding-right:0;}
+	.title {background:none}
+	h1.title{
+		min-height:0em;
+		padding:0 0
+	}
 	p.title-logo {
 		display:block;
-		text-align:center;
+		text-align:center
 	}
 	img.title-logo {
-		max-width: 20%;
-		height: auto;
-	}
-}
-@media (max-width: 49em) {
-	img.title-logo {
-		max-width: 25%;
-	}
-}
-@media (max-width: 30em) {
-	img.title-logo {
-		max-width: 33%;
+		max-width: 50%;
+		height: auto
 	}
 }

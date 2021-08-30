@@ -3,8 +3,7 @@ title: Downloads
 x-toc-enable: true
 ...
 
-Information about each Libreboot release can be found
-at [/docs/release/](docs/release/)
+New releases are announced in the [main news section](news/).
 
 If you're more interested in libreboot development, go to the
 [libreboot development page](../git.md), which also includes links to the
@@ -14,8 +13,6 @@ Libreboot from source, [read this page](docs/build/).
 
 GPG signing key
 ---------------
-
-![](https://av.libreboot.org/logo/logo_light.svg){.imgright}
 
 **The latest release is Libreboot 20210522, under the `testing` directory.**
 
@@ -54,8 +51,6 @@ there is a Git repository that you can download from. Go here:
 HTTPS mirrors {#https}
 -------------
 
-![](https://av.libreboot.org/logo/logo.svg){.imgright}
-
 **The latest release is Libreboot 20210522, under the `testing` directory.**
 
 These mirrors are recommended, since they use TLS (https://) encryption.
@@ -80,8 +75,6 @@ university, USA)
 
 RSYNC mirrors {#rsync}
 -------------
-
-![](https://av.libreboot.org/logo/logo_light.svg){.imgright}
 
 Useful for mirroring Libreboot's entire set of release archives. You can put
 an rsync command into crontab and pull the files into a directory on your
@@ -133,8 +126,6 @@ that show you how to set up an rsync server.
 
 HTTP mirrors {#http}
 ------------
-
-![](https://av.libreboot.org/logo/logo.svg){.imgright}
 
 **The latest release is Libreboot 20210522, under the `testing` directory.**
 

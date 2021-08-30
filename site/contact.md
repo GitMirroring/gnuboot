@@ -22,8 +22,6 @@ Instructions are also on that page for sending patches (via pull requests).
 IRC chatroom
 ============
 
-![](https://av.libreboot.org/logo/logo.svg){.imgright}
-
 IRC is the main way to contact the Libreboot project. `#libreboot` on Libera
 IRC.
 

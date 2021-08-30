@@ -3,9 +3,8 @@ title: Documentation
 ...
 
 Always check [libreboot.org](https://libreboot.org/) for the latest updates to
-Libreboot. General news can be found in the [main news section](../news/).
-News specifically about Libreboot releases can be found in
-the [release logs](release/).
+Libreboot. News, including release announcements, can be found in
+the [main news section](../news/).
 
 [Answers to Frequently Asked Questions about Libreboot](../faq.md).
 
@@ -81,7 +80,7 @@ For pre-built images distributed by the libreboot project, this is a
 rough approximation of what version you have, because the version
 numbers are dated, and the release archives are typically built on the
 same day as the release; you can correlate that with the release
-information in [release.md](release.md).
+information in [release announcements on the news page](/news/).
 
 For 20160818, note that the lbversion file was missing from CBFS on GRUB
 images. You can still find out what libreboot version you have by
@@ -91,10 +90,3 @@ on a GM45 laptop).
 
 There may also be a ChangeLog file included in your release archive, so
 that you can look in there to figure out what version you have.
-
-You can also check the documentation that came with your archives, and
-in *docs/release.html* will be the information about the version of
-libreboot that you are using.
-
-Generally speaking, it is advisable to use the latest version of
-libreboot.
