@@ -1,138 +1,94 @@
-html {
-	background:#fff
-}
+html {background:#fff}
 
 .title {
-	background:url("https://av.libreboot.org/logo/sl.png") no-repeat;
-	background-size: auto 99%;
+background:url("https://av.libreboot.org/logo/sl.png") no-repeat;
+background-size:auto 99%;
 }
 
-div.title {
-	background-position: right
-}
+div.title {background-position:right}
 
 h1.title {
-	text-align:center;
-	min-height:2em;
-	margin:0;
-	padding:0 4em
+text-align:center;
+min-height:2em;
+margin:0;
+padding:0 4em
 }
 
 a.title{background:none}
 
-body,a:hover {
-	font: 1em sans-serif;
-	color: #222;
-	line-height: 1.4
-}
-h1,h2,h3,h4 {
-	line-height: 1.2
+body,a:hover,#TOC h1 {
+font:1em sans-serif;
+color:#222;
+line-height:1.4
 }
 
 div.page {
-	max-width:60em;
-	margin:0 auto;
-	padding: 0.2em 1em
+max-width:60em;
+margin:0 auto;
+padding:.2em 1em
 }
 
 pre,table,.title,.date {
-	overflow-x: auto;
-	display:block
+overflow-x:auto;
+display:block
 }
 
 table {
-	border-collapse: collapse;
-	width:100%
+border-collapse:collapse;
+width:100%
 }
-th{
-	background:#cdcdcd
-}
-th,td {
-	border: solid 1px #888
-}
-tr:nth-child(even) {
-	background-color: #eee
-}
+th{background:#cdcdcd}
+th,td {border:solid 1px #888}
+tr:nth-child(even) {background-color:#eee}
+code,pre,#TOC {background-color:#ececec}
+img,#TOC {max-width:100%}
+a {color:#22D}
+a.uri {word-wrap:break-word}
+h1, h2, h3, .h:hover a {display:inline}
 
-code,pre,#TOC {
-	background-color: #ececec
-}
-
-img,#TOC {
-	max-width:100%
-}
-
-a {
-	color: #22D
-}
-
-a.uri {
-	word-wrap: break-word
-}
-
-h1, h2, h3, .h:hover a {
-	display: inline
-}
-
-p.author, p.date,.h a,p.title-logo {
-	display:none
-}
+p.author, p.date,.h a,p.title-logo {display:none}
 div.nav {
-	text-align:center;
-	clear:right
+text-align:center;
+clear:right
 }
 header ul:first-of-type,
 div.nav ul:first-of-type,
 div#footer ul:last-of-type {
-	padding:0;
-	margin:0;
-	text-align:center
+padding:0;
+margin:0;
+text-align:center
 }
 header ul:first-of-type > li,
 div.nav ul:first-of-type > li,
 div#footer ul:last-of-type li {
-	margin:0;
-	display:inline;
-	padding:0 .5em
-}
-header ul:first-of-type > li:first-child,
-div.nav ul:first-of-type > li:first-child,
-div#footer ul:last-of-type > li:first-child {
-	padding-left:0
-}
-header ul:first-of-type > li:last-child,
-div.nav ul:first-of-type > li:last-child,
-div#footer ul:last-of-type > li:last-child {
-	padding-right:0;
-	border:none
+display:inline;
+padding:0 .5em
 }
 
 #TOC {
-	min-width:25%;
-	float:left;
-	margin:1em;
-	padding: .2em 1em
-}
-#TOC h1 {
-	font-size:1em
+min-width:25%;
+float:left;
+margin:1em;
+padding:.2em 1em
 }
 #TOC li > ul {
-	margin-left:0;
-	padding-left:.5em
+margin-left:0;
+padding-left:.5em
 }
 
-@media (max-width: 50em) {	
+@media (max-width:50em) {
 	.title {background:none}
 	h1.title{
-		min-height:0em;
-		padding:0 0
+	min-height:0em;
+	padding:0 0
 	}
 	p.title-logo {
-		display:block;
-		text-align:center
+	display:block;
+	text-align:center;
+	margin:0 auto
 	}
 	img.title-logo {
-		max-width: 50%;
-		height: auto
+	max-width:50%;
+	height:auto
 	}
 }
