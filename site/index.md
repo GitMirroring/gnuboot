@@ -20,8 +20,8 @@ only basic initialization and jumps to a separate
 [GRUB](https://www.gnu.org/software/grub/),
 [Tianocore](https://www.tianocore.org/)), which must also be configured.
 *Libreboot solves this problem*; it is a *coreboot distribution* with
-an [automated build system](docs/build/) that builds complete *ROM images* for
-easy installation, and user-friendly documentation is provided.
+an [automated build system](docs/build/) that builds complete *ROM images*, for
+easy installation. User-friendly documentation is provided.
 
 Libreboot has advanced features like
 [encrypted /boot/](docs/gnulinux/encrypted_debian.md) and [GPG support](docs/gnulinux/grub_hardening.html).
