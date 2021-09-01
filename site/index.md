@@ -28,9 +28,9 @@ jumping to a separate [payload](https://doc.coreboot.org/payloads.html) program
 [Tianocore](https://www.tianocore.org/)), which the user must also configure.
 
 Libreboot solves this problem. It is a *coreboot distribution* with
-an [automated build system](docs/build/) that downloads,
-patches and builds complete *ROM images* for easy installation, with regular
-releases and user-friendly documentation.
+an [automated build system](docs/build/) that configures and builds
+complete *ROM images* for easy installation, with regular releases and
+user-friendly documentation.
 
 Libreboot has advanced features like
 [encrypted /boot/](docs/gnulinux/encrypted_debian.md) and [GPG support](docs/gnulinux/grub_hardening.html).
