@@ -3,42 +3,34 @@ title: Libreboot project
 ...
 
 Libreboot is
-[freedom-respecting](https://www.gnu.org/philosophy/free-sw.html)
-*boot firmware* that initializes the hardware (e.g. memory controller, CPU,
-peripherals) in your computer and starts a bootloader for your operating
-system. It replaces proprietary BIOS/UEFI firmware. Libreboot works
-on [specific Intel/AMD x86 platforms](docs/hardware/), with decent
-[GNU+Linux](docs/gnulinux/) and [BSD](docs/bsd/) support. Help is available
-via [\#libreboot](https://web.libera.chat/#libreboot) on
-[Libera](https://libera.chat/) IRC. *The latest release is Libreboot
-20210522, from 22 May 2021.*
+[freedom-respecting](https://www.gnu.org/philosophy/free-sw.html) *boot
+firmware* that initializes the hardware (e.g. memory controller, CPU,
+peripherals) on [specific Intel/AMD x86 computers](docs/hardware/) and starts
+a bootloader for your operating system. [GNU+Linux](docs/gnulinux/)
+and [BSD](docs/bsd/) are well-supported. It replaces proprietary BIOS/UEFI
+firmware. Help is available
+via [\#libreboot](https://web.libera.chat/#libreboot)
+on [Libera](https://libera.chat/) IRC.
 
-Libreboot is a [Free software](https://www.gnu.org/philosophy/free-sw.html)
+Libreboot is a [free software](https://www.gnu.org/philosophy/free-sw.html)
 project, but can be considered Open Source.
 [GNU teaches
 us](https://www.gnu.org/philosophy/open-source-misses-the-point.en.html)
 why you should call it *free software* or *libre software*. Free software
-matters. [Right to Repair](https://vid.puffyan.us/watch?v=Npd_xDuNi9k) matters.
+matters. [Right to repair](https://vid.puffyan.us/watch?v=Npd_xDuNi9k) matters.
 
 Libreboot uses [coreboot](https://www.coreboot.org/) for
 [hardware initialization](https://doc.coreboot.org/getting_started/architecture.html).
-However, *coreboot* is notoriously difficult to configure by non-technical
-users. There are many complicated steps, and coreboot only handles basic
-hardware initialization before jumping to a
-separate [payload](https://doc.coreboot.org/payloads.html) program, which
-could be anything (e.g.
-[Linux](https://www.fsfla.org/ikiwiki/selibre/linux-libre/),
-[GRUB](https://www.gnu.org/software/grub/),
-[SeaBIOS](https://www.seabios.org/SeaBIOS),
-[Tianocore](https://www.tianocore.org/)).
+However, *coreboot* is notoriously difficult to configure and compile for
+non-technical users. coreboot only handles basic hardware initialization before
+jumping to a separate [payload](https://doc.coreboot.org/payloads.html) program
+(e.g. [GRUB](https://www.gnu.org/software/grub/),
+[Tianocore](https://www.tianocore.org/)), which the user must also configure.
 
-Libreboot solves this problem. It is a *coreboot distribution*,
-just like [Parabola](https://www.parabola.nu/) is a *GNU+Linux distribution*.
-Libreboot has an [automated build system](docs/build/) that downloads,
-patches and builds software like coreboot, GRUB and SeaBIOS to build a
-complete *ROM image* for firmware installation, just like a GNU+Linux
-distribution provides an ISO image for OS installation. Libreboot regularly
-re-bases on the latest versions of coreboot and other upstream projects.
+Libreboot solves this problem. It is a *coreboot distribution* with
+an [automated build system](docs/build/) that downloads,
+patches and builds complete *ROM images* for easy installation, with regular
+releases and user-friendly documentation.
 
 Libreboot has advanced features like
 [encrypted /boot/](docs/gnulinux/encrypted_debian.md) and [GPG support](docs/gnulinux/grub_hardening.html).
