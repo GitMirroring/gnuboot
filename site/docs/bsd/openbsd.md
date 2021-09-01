@@ -104,30 +104,13 @@ process for installing OpenBSD.
 Installing OpenBSD with full disk encryption
 --------------------------------------------
 
-Not working. You can modify the above procedure (installation w/o
-encryption) to install OpenBSD using full disk encryption, and it
-appears to work, except that it's not yet clear how to actually *boot* an
-OpenBSD+FDE installation using Libreboot+Grub2. If you get it working,
-please let us know.
-
-If booting in text mode (framebuffer mode might also work), it might be
-possible to chainload the OpenBSD or LibertyBSD bootloader from the MBR
-section on the internal storage device. This way, it would be possible
-to boot with an encrypted OpenBSD or LibertyBSD installation. Please let
-us know (contact details are on the Libreboot homepage) if you get it
-working this way.
+If you are using SeaBIOS, OpenBSD's bootloader will be
+chainloaded automatically and everything will just work.
 
 Alternatively, it would be good to port OpenBSD either natively as a
 coreboot payload, or port it to libpayload (payload library in coreboot;
 it has a basic C library and a few functions for certain operations e.g.
-text/bitmap). *This would be ideal, because then it would be possible
-to boot a truly fully encrypted OpenBSD or LibertyBSD installation, by
-putting everything in the flash chip.*
-
-Alternatively, modifying GRUB to support booting fully encrypted OpenBSD
-installations would be possible, but probably not feasible; it's an
-alien codebase to the OpenBSD project, not tightly integrated and the
-OpenBSD bootloader already works.
+text/bitmap).
 
 Booting
 -------
