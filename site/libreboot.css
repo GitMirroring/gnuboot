@@ -1,94 +1,38 @@
-html {background:#fff}
-
-.title {
-background:url("https://av.libreboot.org/logo/sl.png") no-repeat;
-background-size:auto 99%;
+html{background:#fff}
+html,ul,#TOC{padding:1em}
+body,a:hover{
+	font:1em sans-serif;
+	color:#222;
+	line-height:1.4
 }
-
-div.title {background-position:right}
-
-h1.title {
-text-align:center;
-min-height:2em;
-margin:0;
-padding:0 4em
-}
-
-a.title{background:none}
-
-body,a:hover,#TOC h1 {
-font:1em sans-serif;
-color:#222;
-line-height:1.4
-}
-
-div.page {
-max-width:60em;
-margin:0 auto;
-padding:.2em 1em
-}
-
-pre,table,.title,.date {
-overflow-x:auto;
-display:block
-}
-
-table {
-border-collapse:collapse;
-width:100%
-}
-th{background:#cdcdcd}
-th,td {border:solid 1px #888}
-tr:nth-child(even) {background-color:#eee}
-code,pre,#TOC {background-color:#ececec}
-img,#TOC {max-width:100%}
-a {color:#22D}
-a.uri {word-wrap:break-word}
-h1, h2, h3, .h:hover a {display:inline}
-
-p.author, p.date,.h a,p.title-logo {display:none}
-div.nav {
-text-align:center;
-clear:right
-}
-header ul:first-of-type,
-div.nav ul:first-of-type,
-div#footer ul:last-of-type {
-padding:0;
-margin:0;
-text-align:center
-}
-header ul:first-of-type > li,
-div.nav ul:first-of-type > li,
-div#footer ul:last-of-type li {
-display:inline;
-padding:0 .5em
-}
-
-#TOC {
-min-width:25%;
-float:left;
-margin:1em;
-padding:.2em 1em
-}
-#TOC li > ul {
-margin-left:0;
-padding-left:.5em
-}
-
-@media (max-width:50em) {
-	.title {background:none}
-	h1.title{
-	min-height:0em;
-	padding:0 0
-	}
-	p.title-logo {
-	display:block;
-	text-align:center;
+a{color:#22d}
+.date,.author,.h a{display:none}
+:not(p) {
+	max-width:60em; 
 	margin:0 auto
+}
+code,pre,#TOC{
+	background:#eee;
+	margin:0
+}
+.title > *, header ul > li, .nav ul > li, #footer ul > li, .h:hover>*
+{
+	display:inline;
+	margin:1%;
+	text-align:center
+}
+.title>* {display:block}
+#TOC{
+	min-width:25%;
+	float:left;
+	margin:1em
+}
+@media (min-width:60em) {
+	.title-logo{display:none}
+	div.title,h1.title {
+		background:url("https://av.libreboot.org/logo/sl.png") no-repeat;
+		background-size:auto 99%;
 	}
-	img.title-logo {
-	max-width:50%;
-	height:auto
-	}
+	div.title {background-position:right}
+	h1.title {padding:0 4em}
 }
