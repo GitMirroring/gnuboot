@@ -2,15 +2,6 @@
 title: Libreboot project
 ...
 
-<div class="left">
-<video controls="controls" poster="//static.fsf.org/nosvn/rms-photos/20140407-geneva-01.png" style="width:300px; padding:0; margin:0;" src="https://audio-video.gnu.org/video/TEDxGE2014_Stallman05_LQ.webm" type="video/webm">
-RMS video
-</video>
-</div>
-
-Free your BIOS today! GNU GPL style
------------------------------------
-
 Libreboot is
 [freedom-respecting](https://www.gnu.org/philosophy/free-sw.html) *boot
 firmware* that initializes the hardware (e.g. memory controller, CPU,
@@ -21,7 +12,17 @@ firmware. Help is available
 via [\#libreboot](https://web.libera.chat/#libreboot)
 on [Libera](https://libera.chat/) IRC.
 
-[![](https://av.vimuser.org/0001-300x225.jpg){.right}](https://av.vimuser.org/0001.jpg)
+The latest version is [Libreboot 20210522](news/libreboot20210522.md), released
+on 22 May 2021. It is a testing release.
+
+Free your BIOS today! GNU GPL style
+-----------------------------------
+
+<div class="left">
+<video controls="controls" poster="//static.fsf.org/nosvn/rms-photos/20140407-geneva-01.png" style="width:300px; padding:0; margin:0;" src="https://audio-video.gnu.org/video/TEDxGE2014_Stallman05_LQ.webm" type="video/webm">
+RMS video
+</video>
+</div>
 
 Libreboot uses [coreboot](https://www.coreboot.org/) for [hardware
 initialization](https://doc.coreboot.org/getting_started/architecture.html).
@@ -33,6 +34,8 @@ only basic initialization and jumps to a separate
 *Libreboot solves this problem*; it is a *coreboot distribution* with
 an [automated build system](docs/build/) that builds complete *ROM images*, for
 easy installation. User-friendly documentation is provided.
+
+[![](https://av.vimuser.org/0001-300x225.jpg){.right}](https://av.vimuser.org/0001.jpg)
 
 Libreboot has advanced features like
 [encrypted /boot/](docs/gnulinux/encrypted_debian.md) and [GPG support](docs/gnulinux/grub_hardening.html).

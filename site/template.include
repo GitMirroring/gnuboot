@@ -47,6 +47,7 @@ img,video{max-width:100%}
 }
 html,ul,#TOC{padding:1em}
 #TOC{margin:1em}
+#footer{clear:both}
 </style>
 $if(quotes)$
   <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
