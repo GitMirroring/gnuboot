@@ -35,6 +35,7 @@ code,pre,#TOC,a:hover{background:#eee}
 	text-align:center
 }
 .title>*{display:block}
+img{max-width:100%}
 </style>
 $if(quotes)$
   <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
