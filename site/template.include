@@ -14,6 +14,28 @@ $if(keywords)$
   <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$">
 $endif$
   <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+<style type="text/css">
+.date,.author,.h a{display:none}
+html{padding:1em}
+body{
+	font:1em sans-serif;
+	line-height:1.4
+}
+a{color:#22d}
+code,pre,#TOC,a:hover{background:#eee}
+:not(p) {
+	max-width:60em;
+	margin:0 auto
+}
+.title>*, header ul>li, .nav ul>li,
+#footer ul>li, .h:hover>*, pre, table
+{
+	display:inline;
+	margin:.7%;
+	text-align:center
+}
+.title>*{display:block}
+</style>
 $if(quotes)$
   <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
 $endif$
