@@ -447,7 +447,7 @@ inclined to believe that they published their names independently, without
 direction. No sane Microsoft boss would want Microsoft listed on that page, in
 any capacity!
 
-Gnome Foundation (has been deeply connected to Microsoft)
+Gnome Foundation (affiliated to Microsoft)
 ---------------------------------------------------------
 
 NOTE: Do not confused the Gnome *community* with the Gnome *Foundation*. They
@@ -477,8 +477,8 @@ the people with push/pull/review rights on the anti-RMS github site. I feel the
 need to mention their names; see also that they are both members of the Debian
 project.
 
-Coraline Ada Ehmke (Founder, Organization for Ethical Source)
--------------------------------------------------------------
+Coraline Ada Ehmke
+------------------
 
 Coraline is the founder of the *Ethical source* movement. Despite the name, it
 is actually distributing *non-free* licenses; non-free because they put

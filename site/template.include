@@ -48,6 +48,20 @@ img,video{max-width:100%}
 html,ul,#TOC{padding:1em}
 #TOC{margin:1em}
 #footer{clear:both}
+@media (min-width:60em) {
+	.title-logo{display:none}
+	div.title,h1.title {
+		background:url("https://av.libreboot.org/logo/sl.png") no-repeat;
+		background-size:auto 99%;
+	}
+	div.title {background-position:right}
+	h1.title {padding:0 4em}
+	#TOC{
+		min-width:25%;
+		float:left;
+		margin:1em
+	}
+}
 </style>
 $if(quotes)$
   <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
