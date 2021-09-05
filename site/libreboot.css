@@ -1,3 +1,4 @@
+.date,.author,.h a{display:none}
 html{padding:1em}
 body{
 	font:1em sans-serif;
@@ -17,4 +18,3 @@ code,pre,#TOC,a:hover{background:#eee}
 	text-align:center
 }
 .title>*{display:block}
-.date,.author,.h a{display:none}
