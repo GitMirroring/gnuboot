@@ -53,6 +53,7 @@ html,ul,#TOC{padding:1em}
 	div.title,h1.title {
 		background:url("https://av.libreboot.org/logo/sl.png") no-repeat;
 		background-size:auto 99%;
+		min-height:2em
 	}
 	div.title {background-position:right}
 	h1.title {padding:0 4em}
