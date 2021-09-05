@@ -65,7 +65,7 @@ $if(title)$
 <header>
 <div class="title">
 <p class="title-logo">
-<img class="title-logo" alt="" src="https://av.libreboot.org/logo/sl.png" />
+<img class="title-logo" alt="Libreboot logo" src="/favicon.ico" />
 </p>
 <h1 class="title">$title$</h1>
 </div>
