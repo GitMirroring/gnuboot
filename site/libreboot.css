@@ -10,7 +10,7 @@ code,pre,#TOC,a:hover{background:#eee}
 	margin:0 auto
 }
 .title>*, header ul>li, .nav ul>li,
-#footer ul>li, .h:hover>*, pre
+#footer ul>li, .h:hover>*, pre, table
 {
 	display:inline;
 	margin:.7%;
