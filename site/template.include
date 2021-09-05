@@ -37,7 +37,7 @@ code,pre,#TOC,a:hover{background:#eee}
 }
 .title>*{display:block}
 img,video{max-width:100%}
-.left{
+.left,#TOC{
 	float:left;
 	margin:1em 1em 1em 0
 }
@@ -51,17 +51,13 @@ html,ul,#TOC{padding:1em}
 @media (min-width:60em) {
 	.title-logo{display:none}
 	div.title,h1.title {
-		background:url("https://av.libreboot.org/logo/sl.png") no-repeat;
+		background:url("/favicon.ico") no-repeat;
 		background-size:auto 99%;
 		min-height:2em
 	}
 	div.title {background-position:right}
 	h1.title {padding:0 4em}
-	#TOC{
-		min-width:25%;
-		float:left;
-		margin:1em
-	}
+	#TOC{min-width:25%}
 }
 </style>
 $if(quotes)$
