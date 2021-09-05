@@ -2,6 +2,15 @@
 title: Libreboot project
 ...
 
+<div class="left">
+<video controls="controls" poster="//static.fsf.org/nosvn/rms-photos/20140407-geneva-01.png" style="width:300px; padding:0; margin:0;" src="https://audio-video.gnu.org/video/TEDxGE2014_Stallman05_LQ.webm" type="video/webm">
+RMS video
+</video>
+</div>
+
+Free your BIOS today! GNU GPL style
+-----------------------------------
+
 Libreboot is
 [freedom-respecting](https://www.gnu.org/philosophy/free-sw.html) *boot
 firmware* that initializes the hardware (e.g. memory controller, CPU,
@@ -11,6 +20,8 @@ and [BSD](docs/bsd/) are well-supported. It replaces proprietary BIOS/UEFI
 firmware. Help is available
 via [\#libreboot](https://web.libera.chat/#libreboot)
 on [Libera](https://libera.chat/) IRC.
+
+[![](https://av.vimuser.org/0001-300x225.jpg){.right}](https://av.vimuser.org/0001.jpg)
 
 Libreboot uses [coreboot](https://www.coreboot.org/) for [hardware
 initialization](https://doc.coreboot.org/getting_started/architecture.html).

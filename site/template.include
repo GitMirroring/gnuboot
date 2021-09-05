@@ -15,11 +15,12 @@ $if(keywords)$
 $endif$
   <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
 <style type="text/css">
+html{background:#fff}
 .date,.author,.h a{display:none}
-html{padding:1em}
-body{
+body,a:hover{
 	font:1em sans-serif;
-	line-height:1.4
+	line-height:1.4;
+	color:#222
 }
 a{color:#22d}
 code,pre,#TOC,a:hover{background:#eee}
@@ -35,7 +36,17 @@ code,pre,#TOC,a:hover{background:#eee}
 	text-align:center
 }
 .title>*{display:block}
-img{max-width:100%}
+img,video{max-width:100%}
+.left{
+	float:left;
+	margin:1em 1em 1em 0
+}
+.right{
+	float:right;
+	margin:1em 0 1em 1em
+}
+html,ul,#TOC{padding:1em}
+#TOC{margin:1em}
 </style>
 $if(quotes)$
   <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
