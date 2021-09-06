@@ -26,14 +26,14 @@ RMS video
 
 Libreboot uses [coreboot](https://www.coreboot.org/) for [hardware
 initialization](https://doc.coreboot.org/getting_started/architecture.html).
-Coreboot is difficult to configure for most non-technical users; it handles
+Coreboot is notoriously difficult to install for most non-technical users; it handles
 only basic initialization and jumps to a separate
 [payload](https://doc.coreboot.org/payloads.html) program (e.g.
 [GRUB](https://www.gnu.org/software/grub/),
 [Tianocore](https://www.tianocore.org/)), which must also be configured.
 *Libreboot solves this problem*; it is a *coreboot distribution* with
 an [automated build system](docs/build/) that builds complete *ROM images*, for
-easy installation. User-friendly documentation is provided.
+more robust installation. Documentation is provided.
 
 [![](https://av.vimuser.org/0001-300x225.jpg){.right}](https://av.vimuser.org/0001.jpg)
 
