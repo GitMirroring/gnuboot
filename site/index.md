@@ -24,10 +24,21 @@ RMS video
 </video>
 </div>
 
+You have rights. The right to privacy, freedom of thought, freedom of speech
+and the right to read. [Free
+software](https://www.gnu.org/philosophy/free-sw.html) matters.
+[Right to repair](https://vid.puffyan.us/watch?v=Npd_xDuNi9k) matters.
+Many people use [proprietary](https://www.gnu.org/proprietary/proprietary.html)
+boot firmware, even if they use [GNU+Linux](https://www.gnu.org/distros/).
+Non-free firmware often [contains](faq.html#intel) [backdoors](faq.html#amd),
+and can be buggy. Libreboot was founded in in December 2013, with the express
+purpose of making Free Software accessible for non-technical users at the
+firmware level.
+
 Libreboot uses [coreboot](https://www.coreboot.org/) for [hardware
 initialization](https://doc.coreboot.org/getting_started/architecture.html).
-Coreboot is notoriously difficult to install for most non-technical users; it handles
-only basic initialization and jumps to a separate
+Coreboot is notoriously difficult to install for most non-technical users; it
+handles only basic initialization and jumps to a separate
 [payload](https://doc.coreboot.org/payloads.html) program (e.g.
 [GRUB](https://www.gnu.org/software/grub/),
 [Tianocore](https://www.tianocore.org/)), which must also be configured.
