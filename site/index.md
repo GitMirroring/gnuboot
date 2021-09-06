@@ -26,14 +26,18 @@ RMS video
 
 You have rights. The right to privacy, freedom of thought, freedom of speech
 and the right to read. [Free
-software](https://www.gnu.org/philosophy/free-sw.html) matters.
+software](https://www.gnu.org/philosophy/free-sw.html) gives you these rights.
+Your freedom matters.
 [Right to repair](https://vid.puffyan.us/watch?v=Npd_xDuNi9k) matters.
 Many people use [proprietary](https://www.gnu.org/proprietary/proprietary.html)
 boot firmware, even if they use [GNU+Linux](https://www.gnu.org/distros/).
 Non-free firmware often [contains](faq.html#intel) [backdoors](faq.html#amd),
 and can be buggy. Libreboot was founded in in December 2013, with the express
 purpose of making Free Software accessible for non-technical users at the
-firmware level.
+firmware level. Libreboot can be called Open Source, [but you should call it
+Free
+Software](https://www.gnu.org/philosophy/open-source-misses-the-point.en.html).
+
 
 Libreboot uses [coreboot](https://www.coreboot.org/) for [hardware
 initialization](https://doc.coreboot.org/getting_started/architecture.html).
@@ -58,8 +62,6 @@ It has
 many people, [including the FSF, GNU
 project](https://www.fsf.org/bulletin/2017/fall/six-months-of-equipment-upgrades-at-the-fsf)
 and [even Richard Stallman](https://stallman.org/stallman-computing.html).
-Libreboot can be called Open Source,
-[but you should call it Free Software](https://www.gnu.org/philosophy/open-source-misses-the-point.en.html).
 
 How to help
 -----------
