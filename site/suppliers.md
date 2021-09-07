@@ -2,11 +2,14 @@
 title: Buy Libreboot pre-installed
 ...
 
-For your convenience, Libreboot systems are provided pre-configured. If you
-wish, you can also send your system in and have it flashed. The company listed
-below is owned and operated by me, Leah Rowe, founder and lead developer of
-Libreboot. The Libreboot website and software are provided as a public service,
-free for all; I conduct these sales to fund my work. **Shipping worldwide!**
+These sales fund Libreboot development
+--------------------------------------
+
+For your convenience, laptops are provided with Libreboot preinstalled.
+My name is Leah Rowe, and I'm the founder of the Libreboot project. I work
+on it every day, provide user support on IRC and generally coordinate
+all work on the project. This is a lot of work. I fund my work by selling
+systems that come with Libreboot already on them. I ship worldwide.
 
 ### Laptops
 
