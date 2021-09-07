@@ -8,7 +8,8 @@ These sales fund Libreboot development
 For your convenience, laptops are provided with Libreboot preinstalled.
 My name is Leah Rowe, and I'm the founder of the Libreboot project. I work
 on it every day, provide user support on IRC and generally coordinate
-all work on the project. This is a lot of work. I fund my work by selling
+all work on the project. I enjoy doing it, but this is a lot of work.
+I fund my work by selling
 systems that come with Libreboot already on them. I ship worldwide.
 
 ### Laptops
