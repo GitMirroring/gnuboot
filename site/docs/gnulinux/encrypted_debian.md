@@ -95,9 +95,7 @@ well. Having ecryptfs on top of it will add noticeable performance penalty, for
 little security gain in most use cases. This is therefore optional, and not
 recommended. Choose 'no'.*
 
-*Your user password should be different from the LUKS password which
-you will set later on. Your LUKS password should, like the user
-password, be secure.*
+*Your user password should be different from the LUKS password which you will set later on. Your LUKS password should, like the user password, be secure.* 
 
 Partitioning
 ============
@@ -105,7 +103,8 @@ Partitioning
 Choose 'Manual' partitioning:
 
 -   Select drive and create new partition table
--   Single large partition. The following are mostly defaults:
+-   Single large partition, but not with all the free space, let more than 512MB left (prevent an installer loop on Debian 11 netinst with the bootloader question on the same encrypted device).
+-   The following are mostly defaults:
     -   Use as: physical volume for encryption
     -   Encryption: aes
     -   key size: whatever default is given to you
@@ -250,12 +249,11 @@ LUKSv2 is fully supported nowadays, in recent Libreboot releases. The old
 Libreboot release, version 20160907 (and earlier releases), did not support
 LUKSv2 in GNU GRUB. By default, modern Debian distributions will use LUKSv2.
 
-You do not need to downgrade LUKSv2 to v1, but you shouldn't use any of the
-special features that LUKSv2 offers. Basically, the partitioning should be
-done exactly the same way as with LUKSv1 (but with newer encryption/hashing
-algorithms used by LUKSv2 partitions). This is because of limitations in the
-implementation of LUKSv2 in GNU GRUB. GRUB uses its own custom implementation,
-instead of directly adapting the Linux kernel implementation.
+You do not need to downgrade LUKSv2 to v1, but you shouldn't use any of the special features that LUKSv2 offers. Basically, the partitioning should be done exactly the same way as with LUKSv1 (but with newer encryption/hashing algorithms used by LUKSv2 partitions). This is because of limitations in the implementation of LUKSv2 in GNU GRUB. GRUB uses its own custom implementation, instead of directly adapting the Linux kernel implementation. At the moment it is [only the PBKDF2](https://www.gnu.org/software/grub/manual/grub/grub.html#cryptomount) key derivation function supported. Argon2i, is not yet supported. That's the point, you must convert it from Argon2i to PBKDF2, if you wish to use LUKSv2. Therefor you can use any live distribution with the package, that include dm-crypt. 
+
+If the installation is finished, boot with a live CD and change it with:
+
+    cryptsetup luksConvertKey --pbkdf pbkdf2 /dev/sdX 
 
 Generate distro's grub.cfg
 ==========================
