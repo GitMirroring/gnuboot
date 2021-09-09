@@ -63,6 +63,7 @@ of Kent, UK)
 * <https://mirrors.mit.edu/libreboot/> (MIT university, USA)
 * <https://mirror.math.princeton.edu/pub/libreboot/> (Princeton
 university, USA)
+* <https://mirror.libremind.org/libreboot/> (libremind.org, Iceland)
 * <https://mirror.splentity.com/libreboot/> (Splentity Software, USA)
 * <https://mirror.sugol.org/libreboot/> (sugol.org)
 (formerly nephelai.zanity.net/mirror/libreboot)
@@ -112,6 +113,7 @@ The following rsync mirrors are available:
 * <rsync://rsync.mirrorservice.org/libreboot.org/release/> (University of Kent,
 UK)
 * <rsync://mirror.math.princeton.edu/pub/libreboot/> (Princeton university, USA)
+* <rsync://rsync.libremind.org/libreboot/> (libremind.org, Iceland)
 * <rsync://qorg11.net/mirrors/libreboot/> (qorg11.net, Spain)
 * <rsync://ftp.linux.ro/libreboot/> (linux.ro, Romania)
 * <rsync://mirror.koddos.net/libreboot/> (koddos.net, Netherlands)
