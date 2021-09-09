@@ -17,18 +17,18 @@ my work.
 
 ### Laptops
 
--   [Libreboot X200 laptop](https://retrofreedom.com/product/libreboot-x200/)
--   [Libreboot T400 laptop](https://retrofreedom.com/product/libreboot-t400/)
--   [Libreboot X200 Tablet laptop](https://retrofreedom.com/product/libreboot-x200-tablet/)
--   [Libreboot W500 laptop with 1680x1050 screen](https://retrofreedom.com/product/libreboot-w500/)
+-   [Libreboot X200 laptop](https://minifree.org/product/libreboot-x200/)
+-   [Libreboot T400 laptop](https://minifree.org/product/libreboot-t400/)
+-   [Libreboot X200 Tablet laptop](https://minifree.org/product/libreboot-x200-tablet/)
+-   [Libreboot W500 laptop with 1680x1050 screen](https://minifree.org/product/libreboot-w500/)
 
 ### Services
 
--   [Libreboot installation service](https://retrofreedom.com/product/libreboot-installation-service/)
+-   [Libreboot installation service](https://minifree.org/product/libreboot-installation-service/)
 
 ### Home page
 
-<https://retrofreedom.com/>
+<https://minifree.org/> (Ministry of Freedom)
 
 If you don't want to buy one of these machines but you like Libreboot, consider
 helping me (Leah Rowe) by sending money via
