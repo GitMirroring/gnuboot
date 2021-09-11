@@ -466,10 +466,15 @@ Refer to the following article:\
 ASUS KFSN4-DRE
 --------------
 
-TODO: Document PLCC32 (LPC) flashing. The only Libreboot target that uses this
-is ASUS KFSN4-DRE. On that one, internal flashing is possible from the vendor
-firmware, with flashrom running on the host CPU (it is recommended to hotswap
-a new chip and flash the new chip, after booting into a GNU+Linux system).
+The KFSN4-DRE has an LPC chip.  Most people have been flashing these
+internally, hot-swapping the chip out after boot, preserving the original chip,
+and using flashrom on a new chip as described above.
+
+TODO: Document PLCC32 (LPC) flashing.
+The [FlexyICE](https://www.coreboot.org/FlexyICE) has been used to flash these
+chips, but it is hard to find now.  A custom flasher may be made such as
+[flashrom serprog stm32](https://github.com/wosk/stm32-vserprog-lpc) or
+[teensy flasher](https://www.flashrom.org/Teensy_3.1_SPI_%2B_LPC/FWH_Flasher)
 
 TARGET: Apple Macbook2,1, Macbook1,1 and iMac5,2 (i945 platform)
 ----------------------------------------------------------------
