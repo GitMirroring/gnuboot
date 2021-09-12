@@ -35,7 +35,7 @@ code,pre,#TOC,a:hover{background:#eee}
 	margin:.7%;
 	text-align:center
 }
-.title>*{display:block}
+.title>*,span.date{display:block}
 img,video{max-width:100%}
 .left,#TOC{
 	float:left;
