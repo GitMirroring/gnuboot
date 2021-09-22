@@ -64,20 +64,12 @@ the Libreboot website is now built with Untitled)
 Andrew Robbins
 --------------
 
-Worked on large parts of Libreboot's build system and related documentation.
-Andrew joined the Libreboot project as a full time developer during June 2017.
-IRC nick `and_who` on #libreboot IRC. **Former libreboot project maintainer.**
+Worked on large parts of Libreboot's old build system and related documentation.
+Andrew joined the Libreboot project as a full time developer during June 2017,
+until his departure in March 2021.
 
-Andrew was in charge of development for a rewrite of the Libreboot build system
-which was later scrapped, but a lot of features were implemented in that build
-system. The fundamental design of that new build system was no good, but aspects
-of it are now being implemented in the old one; development resumed on the old
-build system in late 2020, after the rewrite, which started in 2016, failed to
-produce releases. The work on that rewrite has been *archived* for reference.
-
-Andrew initially contributed a few fixes to Libreboot, and I, Leah Rowe, later
-recruited him to be a full time developer. I greatly appreciate his contributions
-to the Libreboot project.
+I, Leah Rowe, am very grateful to Andrew Robbins for his numerous contributions
+over the years.
 
 Arthur Heymans
 --------------
@@ -376,16 +368,9 @@ and helped her to improve her soldering skills in addition to teaching her
 some repair skills, to the point where she can now repair most faults on
 ThinkPad mainboards (while looking at the schematics and boardview).
 
-Working alongside Andrew Robbins, Swift Geek oversaw the development of a
-rewritten Libreboot build system
-which was later scrapped, but a lot of features were implemented in that build
-system. The fundamental design of that new build system was no good, but aspects
-of it are now being implemented in the old one; development resumed on the old
-build system in late 2020, after the rewrite, which started in 2016, failed to
-produce releases. The work on that rewrite has been *archived* for reference.
-
-I, Leah Rowe, greatly appreciate Swift Geek's contributions to the Libreboot
-project.
+Swiftgeek left the project in March 2021. I, Leah Rowe, wish him all the best
+in his endeavours, and I'm very grateful to his numerous contributions over the
+years.
 
 Timothy Pearson
 ---------------
