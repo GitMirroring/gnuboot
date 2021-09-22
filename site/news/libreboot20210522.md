@@ -124,15 +124,6 @@ the previous Libreboot release, this build system had no name. It was simply
 called "the build system" or just "libreboot". It was scrapped, shortly after
 the 20160907 release and an ambitious new re-write began.
 
-I stepped down in early 2017, and other people took over the project. However,
-they failed to produce new releases and were taking the project in a direction
-I didn't like. The most fundamental disagreement here was the new build system
-itself, which I felt was too complicated and a liability for the project.
-I felt like the project was going nowhere, so I completely took over development
-and removed the other developers. The Libreboot project is now alive and well,
-under my firm hand. I have many plans. I resumed my own full-time work on
-Libreboot, during December 2020.
-
 The build system in Libreboot 20160907 was very conservative, focusing on
 stability rather than features. That build system was designed to be easily
 maintained, but it was highly monolithic and not very configurable. Also, that
@@ -141,21 +132,11 @@ build system was largely centered around x86 hardware (Intel/AMD).
 The intention behind the re-write was to create a much more configurable, and
 highly advanced build system, with many new features. However, that re-write
 failed and the result was that there were no more regular Libreboot releases.
-Moving forward, ideas/features that were implemented (whether on not they were
-completed) will be implemented in lbmk instead. The design of lbmk is
-intentionally much simpler. The focus of lbmk is purely to provide releases of
-pre-compiled ROM images that the user can easily flash on their machine, with
-simple and clear guidance provided on the Libreboot website.
+I scrapped the re-write in December 2020, and continued with my development on
+the Libreboot 20160907 build system. 
 
-Moving forward, lbmk will be incrementally improved over time. One of the flaws
-it has (at this point in time) is that it still only supports Intel/AMD targets
-from coreboot. It is planned that future releases will support ARM and RISCV
-targets aswell, which means that the lbmk build system will need to support
-integrating other projects (such as uboot).
-
-The re-write was scrapped. Work on the old build system resumed in late 2020.
 Fundamental design flaws were fixed, and it is much more configurable these
-days. It started in the form of a Libreboot *fork* named osboot, which you can
+days. It first started as an experimental fork named *osboot*, which you can
 see here: <https://osboot.org/> (I, Leah Rowe, am the founder and lead developer
 of both libreboot *and* osboot. osboot is the younger sibling of libreboot)
 
@@ -163,6 +144,12 @@ The osboot Git repository was then forked into osboot-libre, available in the
 branch named `libre`. *That* branch was then forked to create this Libreboot
 release. The osboot build system is named osbmk (osboot-make) and the one in
 the libre branch is named osboot-libre.
+
+Moving forward, ideas/features that were implemented (whether on not they were
+completed) in the re-write will be implemented in lbmk. The design of lbmk is
+intentionally much simpler. The focus of lbmk is purely to provide releases of
+pre-compiled ROM images that the user can easily flash on their machine, with
+simple and clear guidance provided on the Libreboot website.
 
 Here is a summary of the improvements made in lbmk (based on osbmk-libre), when
 compared to the Libreboot 20160907 build system:
