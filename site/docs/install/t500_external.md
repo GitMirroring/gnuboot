@@ -46,6 +46,11 @@ channel
 - [Coreboot mailing list post](https://mail.coreboot.org/pipermail/coreboot/2016-November/082463.html)
 - [German forum post about install Core Quad on T500](https://thinkpad-forum.de/threads/199129)
 
+This video from FrostKiwi (Libera IRC) does a nice illustration and explains
+everything nicely:
+
+<https://vid.puffyan.us/watch?v=Fs4GjDiOie8>
+
 A note about GPUs
 =================
 
