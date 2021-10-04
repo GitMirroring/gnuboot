@@ -613,8 +613,6 @@ Here is a photo of a DIP8 IC:\
 Here is a photo of a SOIC8 in 1.27mm 208mil SOP to DIP adapter:\
 ![](https://av.libreboot.org/dip8/sop8todip8.jpg)
 
-Here is a video of that SOIC8 (in socket) being flashed:\
-<https://vid.puffyan.us/watch?v=tguch_iPBZQ>\
 NOTE: DIP8 and WSON8-in-socket, and SOIC16-in-socket, are basically the same,
 just adapt accordingly.
 
@@ -721,12 +719,6 @@ joint.
 
 In case you're not comfortable with soldering, we have some excellent videos
 linked on the [FAQ page](../../faq.md) which you can watch.
-
-Here is a video example for ThinkPad X200 Tablet:\
-<https://vid.puffyan.us/watch?v=oUYHzOQXx80>\
-(X200S and T400S also require this)
-
-Alternatively, here are photos:
 
 WSON8 IC:\
 ![](https://av.libreboot.org/rpi/wson8/0001.jpg)
