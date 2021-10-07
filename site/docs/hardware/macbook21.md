@@ -113,10 +113,29 @@ There is one mouse button only, however multiple finger tapping
 works. Battery life is poor compared to X60/T60. The Apple logo on the
 back is a hole, exposing the backlight, which means that it glows. You
 should [cover it up](http://cweiske.de/tagebuch/tuxbook.htm).
+The MacBook2,1 consumes more power with libreboot than with the Apple EFI firmware, which means it overheats a lot.
 
 *The MacBook2,1 comes with a webcam which does not work with free
 software. Webcams are a privacy and security risk; cover it up! Or
 remove it.*
+
+Make it overheat less
+---------------------
+
+The MacBook2,1 overheats a lot with libreboot, we still don't know why but a simple workaround is to install macfanctld.
+
+Macfanctld is available on the default repos of many distributions.
+
+For example, to install macfanctld on an Arch-based distro (Parabola, ...), you would run as root
+
+   pacman -S macfanctld
+
+and don't forget to enable it by using `systemctl` or by a script that will run macfanctld if using runit.
+
+The MacBook will still overheat, just less.
+PowerTop might help too but that's untested.
+
+Vitali64 on irc is planning to make a linux kernel that would be optimized expecially for the MacBook2,1.
 
 Enable AltGr
 ------------
