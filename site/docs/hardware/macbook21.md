@@ -128,33 +128,31 @@ Macfanctld is available on the default repos of many distributions.
 
 For example, to install macfanctld on an Arch-based distro (Parabola, ...), you would run as root
 
-   pacman -S macfanctld
+    pacman -S macfanctld
 
 and don't forget to enable it by using `systemctl` or by a script that will run macfanctld if using runit.
 
 Then, you want to install powertop and tlp.
 And then, run the following on battery
 
-   sudo tlp start && sudo powertop --calibrate
+    sudo tlp start && sudo powertop --calibrate
 
 Then, after quitting powertop, run :
 
-   sudo powertop --auto-tune
+    sudo powertop --auto-tune
 
 Now, configure tlp, edit the `/etc/tlp.conf` and uncomment/add/modify the following:
 
-   CPU_BOOST_ON_AC=1
-   CPU_BOOST_ON_BAT=0
+    CPU_BOOST_ON_AC=1
+    CPU_BOOST_ON_BAT=0
 
-   SCHED_POWERSAVE_ON_AC=0
-   SCHED_POWERSAVE_ON_BAT=1
+    SCHED_POWERSAVE_ON_AC=0
+    SCHED_POWERSAVE_ON_BAT=1
 
-   PLATFORM_PROFILE_ON_AC=performance
-   PLATFORM_PROFILE_ON_BAT=low-power
+    PLATFORM_PROFILE_ON_AC=performance
+    PLATFORM_PROFILE_ON_BAT=low-power
 
 The MacBook will still overheat, just less.
-
-Vitali64 on irc is planning to make a linux kernel that would be optimized expecially for the MacBook2,1.
 
 Enable AltGr
 ------------
