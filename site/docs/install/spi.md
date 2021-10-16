@@ -52,6 +52,8 @@ In practise, most people will not fix their ch341a and instead just risk it,
 so no documentation will be provided for ch341a on this website. It is best
 to discourage use of that device.
 
+**Not covered on that eevblog page: the WP/HOLD pins (pins 3 and 7) must be held high via pull-up resistors, but on CH341A dongles, they are directly connected to 3.3V DC (continuity with pin 8). It is advisable to cut these two connections, to the WP and HOLD pins, and jump the cuts using pull-up resistors instead. A value between 1k to 10k (ohms) should be fine.**
+
 In case it's not clear:
 
 Please do not buy the ch341a! It is incorrectly engineered for the purpose of
