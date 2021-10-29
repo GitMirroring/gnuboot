@@ -25,6 +25,7 @@ Refer to the following pages:
 * [Modifying the GRUB Configuration in Libreboot Systems](grub_cbfs.md)
 * [Installing Hyperbola GNU+Linux, with Full-Disk Encryption (including /boot)](https://wiki.hyperbola.info/en:guide:encrypted_installation)
 * [Installing Debian or Devuan GNU+Linux-Libre, with Full-Disk Encryption (including /boot)](encrypted_debian.md)
+* [Installing Guix System, with Full-Disk Encryption (including /boot)](guix.md)
 * [How to Harden Your GRUB Configuration, for Security](grub_hardening.md)
 
 Guix, Parabola, Trisquel
