@@ -382,6 +382,12 @@ helping the project with the libreboot integration for it. This person's
 contact details are on the raptor site, or you can ping **tpearson** on
 the Libera IRC network.
 
+vitali64
+--------
+
+Added cstate 3 support on macbook21, enabling higher battery life and cooler
+CPU temperatures on idle usage. vitali64 on irc
+
 Vladimir Serbinenko
 -------------------
 
