@@ -363,7 +363,7 @@ BE CAREFUL that you are indeed supplying 3.3V DC to the chip. All SPI flashes
 on all currently supported Libreboot hardware run on 3.3V DC and logic at that
 level too.
 
-It is important to CHECK that you are running on the current voltage, when you
+It is important to CHECK that you are running on the correct voltage, when you
 do anything with these chips. Lower than 3.3V won't damage anything, but higher
 will fry your chip (on most chips, the tolerated voltage range is between 2.7V
 and 3.6V, but 3.3V is the most ideal level).
