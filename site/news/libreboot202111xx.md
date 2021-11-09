@@ -127,3 +127,7 @@ Oreboot is a special fork of coreboot, re-written in Rust. Coreboot without C,
 hence Oreboot. It focuses on RISC-V hardware:
 
 <https://github.com/oreboot>
+
+However, coreboot will still be used for most targets, including the current
+x86 targets. I plan to integrate oreboot at a future date, separately, for
+a few boards.
