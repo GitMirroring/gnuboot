@@ -1,5 +1,5 @@
 ---
-title: Libreboot project
+title: Free your BIOS today!
 ...
 
 Libreboot is
@@ -13,9 +13,10 @@ via [\#libreboot](https://web.libera.chat/#libreboot)
 on [Libera](https://libera.chat/) IRC.
 
 The latest version is [Libreboot 20210522](news/libreboot20210522.md), released
-on 22 May 2021. It is a testing release.
+on 22 May 2021.
+[A new stable release is planned for 2021-11-15.](news/libreboot202111xx.html)
 
-Free your BIOS today! GNU GPL style
+Join us now and flash the firmware!
 -----------------------------------
 
 <div class="left">
@@ -38,7 +39,6 @@ firmware level. Libreboot can be called Open Source, [but you should call it
 Free
 Software](https://www.gnu.org/philosophy/open-source-misses-the-point.en.html).
 
-
 Libreboot uses [coreboot](https://www.coreboot.org/) for [hardware
 initialization](https://doc.coreboot.org/getting_started/architecture.html).
 Coreboot is notoriously difficult to install for most non-technical users; it
@@ -49,8 +49,6 @@ handles only basic initialization and jumps to a separate
 *Libreboot solves this problem*; it is a *coreboot distribution* with
 an [automated build system](docs/build/) that builds complete *ROM images*, for
 more robust installation. Documentation is provided.
-
-[![](https://av.vimuser.org/0001-300x225.jpg){.right}](https://av.vimuser.org/0001.jpg)
 
 Libreboot has advanced features like
 [encrypted /boot/](docs/gnulinux/encrypted_debian.md) and [GPG support](docs/gnulinux/grub_hardening.html).
