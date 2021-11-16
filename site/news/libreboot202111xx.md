@@ -2,6 +2,12 @@
 % Leah Rowe
 % 9 November 2021
 
+**UPDATE2 on 16 November 2021**
+
+**I've decided to abandon the stable release, and do a new testing release (one that is more or less stable in practise) once this bug is fixed. The new testing release will have a newer coreboot release, from November 2021, for all boards.**
+
+**Stable releases must not be rushed.**
+
 **UPDATE on 16 November 2021:**
 
 **I've received reports on IRC that SpeedStep is broken in the Libreboot 20210522 release, on some GM45 laptops; W500 and T400 have been reported.**
