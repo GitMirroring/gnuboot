@@ -14,7 +14,6 @@ on [Libera](https://libera.chat/) IRC.
 
 The latest version is [Libreboot 20210522](news/libreboot20210522.md), released
 on 22 May 2021.
-[A new stable release is planned for 2021-11-15.](news/libreboot202111xx.html)
 
 Join us now and flash the firmware!
 -----------------------------------
