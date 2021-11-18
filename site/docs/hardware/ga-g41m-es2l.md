@@ -35,3 +35,13 @@ You can learn more about using the build system, lbmk, here:\
 
 Flashing instructions can be found at
 [../install/](../install/)
+
+RAM
+---
+
+Kingston 8 GiB Kit  KVR800D2N6/8G with Elpida Chips E2108ABSE-8G-E
+
+this is a 2x4GB setup and these work quite well, according to a user on IRC.
+
+Many other modules will probably work just fine, but raminit is very picky on
+this board.
