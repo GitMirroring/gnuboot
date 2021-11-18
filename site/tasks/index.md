@@ -291,6 +291,10 @@ to begin with)
 NOTE: this is the same platform used by Gigabyte GA-G41M-ES2L which Libreboot
 already supports. that one uses an ICH7 southbridge
 
+#### Dell Optiplex 760
+
+vitali64 on IRC is porting this to coreboot, and has it almost fully working
+
 #### asrock/g41c-gs
 
 Variants:
