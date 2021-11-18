@@ -6,6 +6,9 @@ x-toc-enable: true
 Libreboot repositories
 ======================
 
+Information about who works on Libreboot and who runs the project can be
+found on [who.md](who.md)
+
 Libreboot has 5 Git repositories:
 
 * Build system: <https://notabug.org/libreboot/lbmk>
