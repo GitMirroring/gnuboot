@@ -74,6 +74,14 @@ Ubuntu or similar distribution (Debian, Trisquel, etc) you can do this:
 
     sudo make install-dependencies-ubuntu
 
+One exists specifically for Debian:
+
+    sudo make install-dependencies-debian
+
+Another exists for Arch:
+
+    sudo make install-dependencies-arch
+
 Now, simply build the coreboot images like so:
 
     make
@@ -123,6 +131,12 @@ in Ubuntu 20.04. It works well in other apt-get distros (such as Trisquel and
 Debian):
     
     sudo ./build dependencies ubuntu2004
+
+Separate scripts also exist:
+
+    sudo ./build dependencies debian
+
+    sudo ./build dependencies arch
 
 Technically, any GNU+Linux distribution can be used to build Libreboot.
 However, you will have to write your own script for installing build
