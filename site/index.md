@@ -18,12 +18,6 @@ on 22 May 2021.
 Join us now and flash the firmware!
 -----------------------------------
 
-<div class="left">
-<video controls="controls" poster="//static.fsf.org/nosvn/rms-photos/20140407-geneva-01.png" style="width:300px; padding:0; margin:0;" src="https://audio-video.gnu.org/video/TEDxGE2014_Stallman05_LQ.webm" type="video/webm">
-RMS video
-</video>
-</div>
-
 You have rights. The right to privacy, freedom of thought, freedom of speech
 and the right to read. [Free
 software](https://www.gnu.org/philosophy/free-sw.html) gives you these rights.
@@ -51,14 +45,11 @@ more robust installation. Documentation is provided.
 
 Libreboot has advanced features like
 [encrypted /boot/](docs/gnulinux/encrypted_debian.md) and [GPG support](docs/gnulinux/grub_hardening.html).
-Binary blobs are excluded, making Libreboot *100% free
-software*, [endorsed by the Free Software
-Foundation](https://www.fsf.org/blogs/licensing/replace-your-proprietary-bios-with-libreboot).
-It has
-[helped](https://www.gnu.org/education/how-i-fought-to-graduate-without-using-non-free-software.html)
-many people, [including the FSF, GNU
-project](https://www.fsf.org/bulletin/2017/fall/six-months-of-equipment-upgrades-at-the-fsf)
-and [even Richard Stallman](https://stallman.org/stallman-computing.html).
+Binary blobs are excluded, making Libreboot compliant with
+the [Free System Distribution Guidelines (GNU
+FSDG)](https://www.gnu.org/distros/free-system-distribution-guidelines.en.html).
+
+Join the federation of freedom that is the free software movement!
 
 How to help
 -----------
