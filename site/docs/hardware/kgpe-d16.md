@@ -118,10 +118,9 @@ The information here is adapted, from the ASUS website.
     -   AMD Opteron 6200 series (Fam15h, with full IOMMU support in
         libreboot - *highly recommended - fast, and works well without
         microcode updates, including virtualization*)
-    -   AMD Opteron 6300 series: these CPUs have higher performance and are
-		more power efficient, but require microcode updates for stable
-		virtualization. You can get these by adding them to the coreboot
-		image, or by loading it from your linux kernel
+    -   AMD Opteron 6300 series (Fam15h, with full IOMMU support in
+        libreboot. *AVOID LIKE THE PLAGUE - virtualization is broken
+        without microcode updates.*
     -   NOTE: 6300 series CPUs have buggy microcode built-in, and
         libreboot recommends avoiding the updates. The 6200 series CPUs
         have more reliable microcode. Look at this errata datasheet:
