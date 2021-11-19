@@ -3,13 +3,12 @@ title: Depthcharge payload
 x-toc-enable: true
 ...
 
-TODO: NUKE. depthcharge was dropped in recent releases.
+**Libreboot 20160907 only. This board was dropped in subsequent releases, but
+may be added again in the future.**
 
-TODO: replace with uboot information. ARM has been dropped for now
-
-NOTE: this only applies to the older Libreboot 20160907 release
-
-TODO: NUKE! (this info is in the documentation provided by Libreboot 20160907)
+**This documentation is retained from Libreboot 20160907, but it may also be
+prudent to check documentation from Libreboot 20160907 itself. It is included
+in the source code archive, for that release.**
 
 This section relates to the depthcharge payload used in libreboot.
 

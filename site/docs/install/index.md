@@ -229,15 +229,11 @@ the sections below:
 
 [You must flash it externally](spi.md)
 
-#### ASUS Chromebook C201 (regardless of firmware)
+#### ASUS Chromebook C201 (Libreboot 20160907 only)
 
 Ignore this section. Instead, refer to the following guide:
 
 [ASUS Chromebook C201 installation guide](c201.md)
-
-NOTE: C201 is dropped in recent Libreboot releases, but will be added later
-with u-boot instead of the depthcharge bootloader. For now, use Libreboot
-20160907 on this machine.
 
 #### Lenovo ThinkPad X200/X200S/X200T/T400/T400S/T500/W500/R400/R500 running non-free Lenovo BIOS
 

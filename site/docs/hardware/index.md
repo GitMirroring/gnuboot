@@ -34,7 +34,7 @@ Libreboot supports the following systems in this release:
 
 ### Laptops (ARM)
 
--   [ASUS Chromebook C201](c201.md)
+-   [ASUS Chromebook C201](c201.md) (**Libreboot 20160907 only**)
 
 ### Laptops (Intel, x86)
 
