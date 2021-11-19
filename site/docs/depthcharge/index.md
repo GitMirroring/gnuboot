@@ -3,9 +3,6 @@ title: Depthcharge payload
 x-toc-enable: true
 ...
 
-**Libreboot 20160907 only. This board was dropped in subsequent releases, but
-may be added again in the future.**
-
 **This documentation is retained from Libreboot 20160907, but it may also be
 prudent to check documentation from Libreboot 20160907 itself. It is included
 in the source code archive, for that release.**
