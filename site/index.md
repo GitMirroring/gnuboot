@@ -43,12 +43,6 @@ handles only basic initialization and jumps to a separate
 an [automated build system](docs/build/) that builds complete *ROM images*, for
 more robust installation. Documentation is provided.
 
-Libreboot has advanced features like
-[encrypted /boot/](docs/gnulinux/encrypted_debian.md) and [GPG support](docs/gnulinux/grub_hardening.html).
-Binary blobs are excluded, making Libreboot compliant with
-the [Free System Distribution Guidelines (GNU
-FSDG)](https://www.gnu.org/distros/free-system-distribution-guidelines.en.html).
-
 Join the federation of freedom that is the free software movement!
 
 How to help
