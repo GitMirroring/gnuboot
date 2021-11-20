@@ -43,8 +43,6 @@ handles only basic initialization and jumps to a separate
 an [automated build system](docs/build/) that builds complete *ROM images*, for
 more robust installation. Documentation is provided.
 
-Join the federation of freedom that is the free software movement!
-
 How to help
 -----------
 
