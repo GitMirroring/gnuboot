@@ -234,6 +234,10 @@ install flashrom. Do this after downloading the
 
     cd lbmk
     sudo ./build dependencies ubuntu2004
+
+NOTE: debian, arch or void can be written instead of ubuntu2004. the debian
+script is also applicable to newer ubuntu versions
+
     ./download flashrom
     ./build module flashrom
 

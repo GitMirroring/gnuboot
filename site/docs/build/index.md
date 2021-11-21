@@ -138,6 +138,8 @@ Separate scripts also exist:
 
     sudo ./build dependencies arch
 
+    sudo ./build dependencies void
+
 Technically, any GNU+Linux distribution can be used to build Libreboot.
 However, you will have to write your own script for installing build
 dependencies. 
