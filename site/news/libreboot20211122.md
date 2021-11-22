@@ -66,7 +66,8 @@ Work done since the 20210522 release:
   GRUB will stall a lot less often, and feel more responsive, when dealing with
   LUKS-encrypted setups.
 * `coreboot`: cstate 3 now supported on MacBook2,1 and Macbook1,1. This results
-  in lower CPU temperatures and higher battery life on idle.
+  in lower CPU temperatures and higher battery life on idle. Thanks go to
+  vitali64 on IRC for this fix
 * Reset bug fixed, on GM45 platforms (ThinkPad X200/T400/T500 and so on). These
   laptops did not reliably reboot, on the Libreboot 20210522 testing release.
   They now reboot reliably, with this fix. See:
