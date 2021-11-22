@@ -2,11 +2,8 @@
 % Leah Rowe
 % 22 November 2021
 
-Join us now and flash the firmware!
-===================================
-
-You'll be free!
----------------
+Free your BIOS today!
+=====================
 
 Libreboot is free (as in freedom) boot firmware, which initializes the hardware
 (e.g. memory controller, CPU, peripherals) in your computer so that software
