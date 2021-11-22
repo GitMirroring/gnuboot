@@ -12,8 +12,8 @@ firmware. Help is available
 via [\#libreboot](https://web.libera.chat/#libreboot)
 on [Libera](https://libera.chat/) IRC.
 
-The latest version is [Libreboot 20210522](news/libreboot20210522.md), released
-on 22 May 2021.
+The latest version is [Libreboot 20211122](news/libreboot20211122.md), released
+on 22 November 2021.
 
 Join us now and flash the firmware!
 -----------------------------------
