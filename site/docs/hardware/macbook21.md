@@ -122,6 +122,12 @@ remove it.*
 Make it overheat less
 ---------------------
 
+*This section is less relevant for Libreboot 20211122 and newer, because cstate
+level 3 support was added, thanks to vitali64 on IRC. This means that the CPU
+temperature is much lower most of the time, as is power consumption. However,
+you might still benefit from the steps below, just not as much as you would have
+previously benefited.*
+
 The MacBook2,1 overheats a lot with libreboot, we still don't know why but a simple workaround is to install macfanctld.
 
 Macfanctld is available on the default repos of many distributions.
