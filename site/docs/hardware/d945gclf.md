@@ -6,6 +6,8 @@ x-toc-enable: true
 If you just want flashing instructions, go to
 [../install/d945gclf.md](../install/d945gclf.md)
 
+D945GCLF2D also reported working by a user.
+
 Introduction
 ============
 
