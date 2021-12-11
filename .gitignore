@@ -4,3 +4,4 @@
 *feed.xml
 *.sha1sum
 *.hash
+*.date
