@@ -42,6 +42,23 @@ configure Untitled for it, using the instructions on the Untitled website. This
 will make it easier to see what your translated website looks like, before it
 goes live.
 
+**It is recommended that you install a firewall, if you're running Nginx,
+unless you actually want it to be publicly accessible. The `ufw` software is
+quite nice:**
+
+    sudo apt-get install ufw
+    sudo ufw enable
+
+This will block all unsolicited incoming traffic. It's good practise anyway,
+for workstations. You don't have to use ufw, but it's a nice frontend for
+iptables/ip6tables on systems that use the Linux kernel. More information
+about `ufw` available here:
+
+<https://help.ubuntu.com/community/UFW>
+
+When viewing your local website, you can just type `http://localhost/` in your
+browser. This will resolve to your local loopback address.
+
 In general, you will be working with `*.*md` files and `*.*include` files.
 Keep an eye out for files with `template`, `footer` and `nav` in the name.
 More information about how Untitled works is available on the Untitled
