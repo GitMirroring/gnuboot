@@ -59,7 +59,7 @@ about `ufw` available here:
 When viewing your local website, you can just type `http://localhost/` in your
 browser. This will resolve to your local loopback address.
 
-In general, you will be working with `*.*md` files and `*.*include` files.
+In general, you will be working with `md` files and `include` files.
 Keep an eye out for files with `template`, `footer` and `nav` in the name.
 More information about how Untitled works is available on the Untitled
 website. You should also add a translated `strings.cfg` file to Untitled, for
