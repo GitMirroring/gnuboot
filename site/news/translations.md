@@ -2,16 +2,17 @@
 % Leah Rowe
 % 11 December 2021
 
-Introduction
-============
+The libreboot website is currently only available in English.
 
-The libreboot website is currently only available in English. I've recently
-added support for translations to
+I've recently added support for translations to
 the [Untitled Static Site Generator](https://untitled.vimuser.org/), which the
 Libreboot website uses. Pages on libreboot.org are written in Markdown, and
 this software generates HTML pages.
 
 This very page that you are reading was created this way!
+
+Getting started
+===============
 
 The Libreboot website is available, in Markdown, from a Git repository:\
 <https://notabug.org/libreboot/lbwww>
