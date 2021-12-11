@@ -1,4 +1,4 @@
-% Translations wanted!
+% Translations wanted
 % Leah Rowe
 % 11 December 2021
 
