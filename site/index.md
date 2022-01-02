@@ -43,6 +43,32 @@ handles only basic initialization and jumps to a separate
 an [automated build system](docs/build/) that builds complete *ROM images*, for
 more robust installation. Documentation is provided.
 
+How does Libreboot differ from regular coreboot?
+------------------------------------------------
+
+Contrary to popular opinion, Libreboot's primary purpose is not to provide a
+de-blobbed coreboot setup; it is merely one of Libreboot's policies, and an
+important one, but it is nonetheless a minor aspect of Libreboot.
+
+In the same way that Trisquel is a GNU+Linux distribution, Libreboot is
+a *coreboot distribution*. If you want to build a ROM image from scratch, you
+otherwise have to perform expert-level configuration of coreboot, GRUB and
+whatever other software you need, to prepare the ROM image. With *Libreboot*,
+you can literally download from Git or a source archive, and run `make`, and it
+will build entire ROM images. Libreboot's automated build system, named `lbmk`
+(Libreboot MaKe), builds these ROM images automatically, without any user input
+or intervention required. Configuration has already been performed in advance.
+
+If you were to build regular coreboot, without using Libreboot's automated
+build system, it would require a lot more intervention and decent technical
+knowledge to produce a working configuration.
+
+Reguar binary releases of Libreboot provide these
+ROM images pre-compiled, and you can simply install them, with no special
+knowledge or skill except the ability to
+follow [simplified instructions, written for non-technical
+users](docs/install/).
+
 How to help
 -----------
 
