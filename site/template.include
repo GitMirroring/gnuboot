@@ -22,7 +22,7 @@ html{
 .date,.author,.h a{display:none}
 code,pre,#TOC,a:hover{background:#eee}
 :not(p),a:hover {
-	max-width:50em;
+	max-width:60em;
 	margin:0 auto;
 	font-family:sans-serif;
 	line-height:1.4
