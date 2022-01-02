@@ -15,39 +15,34 @@ $if(keywords)$
 $endif$
   <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
 <style type="text/css">
-html{background:#fff}
+html{
+	background:#fff;
+	color:#222;
+}
 .date,.author,.h a{display:none}
-body,a:hover{
-	font:1em sans-serif;
-	line-height:1.4;
-	color:#222
+code,pre,#TOC,a:hover{background:#eee}
+:not(p),a:hover {
+	max-width:50em;
+	margin:0 auto;
+	font-family:sans-serif;
+	line-height:1.4
 }
 a{color:#22d}
-code,pre,#TOC,a:hover{background:#eee}
-:not(p) {
-	max-width:60em;
-	margin:0 auto
-}
 .title>*, header ul>li, .nav ul>li,
-#footer ul>li, .h:hover>*, pre, table
+#footer ul>li, .h:hover>*
+ul>li
 {
 	display:inline;
 	margin:.7%;
-	text-align:center
+	text-align:center;
 }
 .title>*,span.date{display:block}
-img,video{max-width:100%}
-.left,#TOC{
+img,video,iframe{max-width:100%}
+#TOC{
 	float:left;
-	margin:1em 1em 1em 0
-}
-.right{
-	float:right;
-	margin:1em 0 1em 1em
+	margin:1em
 }
 html,ul,#TOC{padding:1em}
-#TOC{margin:1em}
-#footer{clear:both}
 @media (min-width:60em) {
 	.title-logo{display:none}
 	div.title,h1.title {
