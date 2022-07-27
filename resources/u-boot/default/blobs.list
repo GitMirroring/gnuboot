@@ -85,6 +85,11 @@ doc/board/freescale/imx8qxp_mek.rst
 doc/board/freescale/imx8mm_evk.rst
 # nonfree imx-sc-firmware-1.1.bin and firmware-imx-8.0.bin firmwares
 doc/board/advantech/imx8qm-rom7720-a1.rst
+# Firmware without source code. Also removed by Debian in their u-boot[1] in
+# commit: 14947286a0 Add Files-Excluded: to debian/copyright to document files
+# to remove from upstream source tarball.
+# [1]https://salsa.debian.org/debian/u-boot.git
+drivers/dma/MCD_tasks.c
 # TODO
 doc/board/verdin-imx8mm.rst
 doc/board/toradex/colibri-imx8x.rst
