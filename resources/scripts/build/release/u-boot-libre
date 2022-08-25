@@ -102,7 +102,7 @@ release_deblobbed_uboot()
 	   "${tarball}.xz"
 
 	mkdir -p "$(dirname ${tmpdir})"
-	cp -R "u-boot/u-boot/" "${tmpdir}"
+	cp -R "u-boot/v${version}/" "${tmpdir}"
 
 	rm -rf ${tmpdir}/.git ${tmpdir}/.gitignore
 	make -C ${tmpdir} distclean

@@ -4,6 +4,7 @@
 #
 #	Copyright (C) 2014, 2015, 2016, 2020, 2021 Leah Rowe <info@minifree.org>
 #	Copyright (C) 2021 Denis 'GNUtoo' Carikli  <GNUtoo@cyberdimension.org>
+#	Copyright (C) 2022 Alper Nebi Yasak <alpernebiyasak@gmail.com>
 #
 #	This program is free software: you can redistribute it and/or modify
 #	it under the terms of the GNU General Public License as published by
@@ -32,33 +33,38 @@ deleteblobs="true"
 # This script handles the internet, and Git. Both are inherently unreliable.
 [[ -f build_error ]] && rm -f build_error
 
-# Make sure that older revision are first as code uses that order to
-# find the latest supported revision.
-supported_uboot_revisions=" \
-	v2021.07 \
-"
+list_supported_boards() {
+	for board in resources/u-boot/*; do
+		if [ -d ${board} ]; then
+			echo "${board#resources/u-boot/}"
+		fi
+	done
+}
 
 downloadfor() {
+	board="${1}"
+
+	ubtree="u-boot/${board}"
 	uboot_revision="v2021.07"
-	uboot_dir="u-boot/u-boot"
-	if [ -d "${uboot_dir}" ]; then
+	if [ -d "${ubtree}" ]; then
 	    printf \
 		"REMARK: '%s' directory already exists. Skipping setup.\n" \
-		"${uboot_dir}"
+		"${ubtree}"
 		return 0
 	fi
 
-	if [ ! -d "${uboot_dir}" ]; then
-		mkdir -p "${uboot_dir}"
+	if [ ! -d "u-boot" ]; then
+		mkdir -p "u-boot"
 	fi
 
-	if [ ! -d "${uboot_dir}" ]; then
-	    printf \
-		"ERROR: '%s' directory not created. Check file system permissions\n" \
-		"${uboot_dir}"
+	if [ ! -d "u-boot" ]; then
+		printf \
+			"ERROR: '%s' directory not created. Check file system permissions\n" \
+			"u-boot"
 		return 1
 	fi
 
+	uboot_dir="u-boot/u-boot"
 	if [ ! -d "${uboot_dir}/.git" ] && [ -d "${uboot_dir}" ]; then
 		rm -Rf "${uboot_dir}"
 	fi
@@ -84,12 +90,20 @@ downloadfor() {
 		fi
 	fi
 
-	git -C "${uboot_dir}" reset --hard ${uboot_revision} || \
+	cp -R "${uboot_dir}" "${ubtree}" || touch build_error
+	if [ -f build_error ]; then
+		printf "ERROR: %s: Unable to copy directory. Check file system permissions or free space.\n" \
+			"download/u-boot"
+		rm -Rf "${ubtree}/"
+		return 1
+	fi
+
+	git -C "${ubtree}" reset --hard ${uboot_revision} || \
 	    touch build_error
 	if [ -f build_error ]; then
 	    printf \
 		"ERROR: %s: Unable to reset to commit ID/tag '%s' for board '%s' on tree '%s'\n" \
-		"download/u-boot" "${uboot_revision}" "${1}" "${uboot_dir}"
+		"download/u-boot" "${uboot_revision}" "${1}" "${ubtree}"
 		return 1
 	fi
 }
@@ -162,53 +176,54 @@ usage()
 	printf "Usage:\n"
 	printf "\t%s                                # %s\n" \
 	       "${progname}" \
-	       "Download latest u-boot git revision and deblob it"
-	printf "\t%s [revision]                     # %s\n" \
+	       "Download and deblob u-boot for all boards"
+	printf "\t%s [board]                        # %s\n" \
 	       "${progname}" \
-	       "Download given u-boot git revision and deblob it"
+	       "Download and deblob u-boot for the given board"
 	printf "\t%s --blobs-list                   # %s\n" \
 	       "${progname}" \
-	       "Print the path of the blobs.list file for the latest supported u-boot revision"
-	printf "\t%s --blobs-list [revision]        # %s\n" \
+	       "Print the path of the generic blobs.list file"
+	printf "\t%s --blobs-list [board]           # %s\n" \
 	       "${progname}" \
-	       "Print the path of the blobs.list file for the given u-boot revision"
+	       "Print the path of the blobs.list file for the given board"
 	printf "\t%s --gen-deblob-script            # %s\n" \
 	       "${progname}" \
-	       "Print the path of the generated deblob script for the latest supported u-boot revision"
-	printf "\t%s --gen-deblob-script [revision] # %s\n" \
+	       "Print the path of a generated generic deblob script"
+	printf "\t%s --gen-deblob-script [board]    # %s\n" \
 	       "${progname}" \
-	       "Print the path of the generated deblob script for the given u-boot revision"
-	printf "\t%s --list-revisions               # %s\n" \
+	       "Print the path of a generated deblob script for the given board"
+	printf "\t%s --list-boards                  # %s\n" \
 	       "${progname}" \
-	       "List supported u-boot revisions"
+	       "List supported boards"
 	printf "\t%s --help                         # %s\n" \
 	       "${progname}" \
 	       "Prints this help"
 }
 
-download_uboot_revision()
+download_uboot_board()
 {
-	git_revision="$1"
+	board="${1}"
+	ubtree="u-boot/${board}"
 
 	printf "Downloading u-boot "
 	printf "and (if exist in build system) applying patches\n"
-	downloadfor "${git_revision}"
+	downloadfor "${board}"
 
 	rm -f "build_error"
 	printf "\n\n"
 
 	if [ "${deleteblobs}" = "true" ]; then
-		blobslist="resources/u-boot/default/blobs.list"
+		blobslist="$(print_blobs_list_path "${board}")"
 		for blob_path in $(strip_comments "${blobslist}"); do
 		    if echo "${blob_path}" | \
 			    grep '/$' 2>&1 >/dev/null ; then
 				printf "Deleting blob directory: '%s/%s'\n" \
-				       "${uboot_dir}" "${blob_path}"
-				rm -rf "${uboot_dir}/${blob_path}"
+				       "${ubtree}" "${blob_path}"
+				rm -rf "${ubtree}/${blob_path}"
 			else
 				printf "Deleting blob file: '%s/%s'\n" \
-				       "${uboot_dir}" "${blob_path}"
-				rm -f "${uboot_dir}/${blob_path}"
+				       "${ubtree}" "${blob_path}"
+				rm -f "${ubtree}/${blob_path}"
 			fi
 		done
 	fi
@@ -216,72 +231,74 @@ download_uboot_revision()
 
 print_blobs_list_path()
 {
-	printf "resources/u-boot/default/blobs.list\n"
+	board="$1"
+
+	if [ -f "resources/u-boot/${board}/blobs.list" ]; then
+		printf "resources/u-boot/${board}/blobs.list\n"
+	else
+		printf "resources/u-boot/default/blobs.list\n"
+	fi
 }
 
 print_deblob_script_path()
 {
-	version="$1"
+	board="$1"
 	path="$(mktemp)"
 
-	generate_deblob_script "$(print_blobs_list_path ${version})" "${path}"
+	generate_deblob_script "$(print_blobs_list_path ${board})" "${path}"
 	printf "%s\n" ${path}
 }
 
 if [ $# -eq 0 ] ; then
-	latest_revision="$(echo ${supported_uboot_revisions} | tail -n1)"
-	download_uboot_revision "${latest_revision}"
+	for board in $(list_supported_boards); do
+		download_uboot_board "${board}"
+	done
 	exit 0
 elif [ $# -eq 1 -a "$1" == "--help" ] ; then
 	usage
 	exit 0
-elif [ $# -eq 1 -a "$1" == "--list-revisions" ] ; then
-	for revision in ${supported_uboot_revisions} ; do
-		printf "${revision}\n"
-	done
+elif [ $# -eq 1 -a "$1" == "--list-boards" ] ; then
+	list_supported_boards
 	exit 0
 elif [ $# -eq 1 -a "$1" == "--blobs-list" ] ; then
-	latest_revision="$(echo ${supported_uboot_revisions} | tail -n1)"
-	print_blobs_list_path "${latest_revision}"
+	print_blobs_list_path "default"
 	exit 0
 elif [ $# -eq 2 -a "$1" == "--blobs-list" ] ; then
 	found=0
-	for revision in ${supported_uboot_revisions} ; do
-		if [ "${revision}" = "$2" ] ; then
+	for board in $(list_supported_boards) ; do
+		if [ "${board}" = "$2" ] ; then
 			print_blobs_list_path "$2"
 			exit 0
 		fi
 	done
 
-	printf "Error: Revision '${1}' is not supported\n"
+	printf "Error: Board '${2}' is not supported\n"
 
 	exit 1
 elif [ $# -eq 1 -a "$1" == "--gen-deblob-script" ] ; then
-	latest_revision="$(echo ${supported_uboot_revisions} | tail -n1)"
-	print_deblob_script_path "${latest_revision}"
+	print_deblob_script_path "default"
 	exit 0
 elif [ $# -eq 2 -a "$1" == "--gen-deblob-script" ] ; then
 	found=0
-	for revision in ${supported_uboot_revisions} ; do
-		if [ "${revision}" = "$2" ] ; then
+	for board in $(list_supported_boards) ; do
+		if [ "$board" = "$2" ] ; then
 			print_deblob_script_path "$2"
 			exit 0
 		fi
 	done
 
-	printf "Error: Revision '${1}' is not supported\n"
+	printf "Error: Board '${2}' is not supported\n"
 
 	exit 1
 elif [ $# -eq 1 ] ; then
-	found=0
-	for revision in ${supported_uboot_revisions} ; do
-		if [ "${revision}" = "$1" ] ; then
-			download_uboot_revision "$1"
+	for board in $(list_supported_boards) ; do
+		if [ "$board" = "$1" ] ; then
+			download_uboot_board "$1"
 			exit 0
 		fi
 	done
 
-	printf "Error: Revision '${1}' is not supported\n"
+	printf "Error: Board '${1}' is not supported\n"
 
 	exit 1
 fi
