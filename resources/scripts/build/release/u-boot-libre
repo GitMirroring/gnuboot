@@ -28,6 +28,7 @@ revision="r2"
 
 supported_uboot_versions=" \
 	2021.07 \
+	2022.07 \
 "
 
 topdir="$(realpath $(dirname $(realpath $0))/../../../../)"
