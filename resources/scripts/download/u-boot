@@ -169,6 +169,20 @@ downloadfor() {
 			"${ubtree}"
 		return 1
 	fi
+
+	for patch in resources/u-boot/${board}/patches/*.patch; do
+		if [ ! -f "${patch}" ]; then
+			continue
+		fi
+
+		git -C "${ubtree}" am "$(pwd)/${patch}" || touch build_error
+		if [ -f build_error ]; then
+			printf "ERROR: %s: Unable to apply patch '%s' for board '%s' on tree '%s'" \
+				"download/u-boot" "${patch}" "${board}" "${ubtree}"
+			git -C "${ubtree}" am --abort
+			return 1
+		fi
+	done
 }
 
 strip_comments()
