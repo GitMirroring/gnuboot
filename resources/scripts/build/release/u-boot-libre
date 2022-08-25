@@ -113,7 +113,7 @@ release_deblobbed_uboot()
 	    --format=gnu \
 	    --sort=name \
 	    --owner=0 --group=0 --numeric-owner \
-	    --mtime="1970-01-01 UTC+01:00" \
+	    --mtime="@${SOURCE_DATE_EPOCH:-0}" \
 
 	lzip -9 --keep -vv "${tarball}"
 	xz   -9 --keep -vv "${tarball}"
