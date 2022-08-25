@@ -183,6 +183,21 @@ downloadfor() {
 			return 1
 		fi
 	done
+
+	# extra.sh could be used to patch submodules, if you wanted to
+	# It's impossible to predict what submodules will be available, and
+	# it's rare that you'd want to patch them, so this is handled by
+	# extra.sh on a per-board basis
+	# In fact, extra.sh can be used for anything you want.
+	if [ -f "resources/u-boot/${board}/extra.sh" ]; then
+		"resources/u-boot/${board}/extra.sh" || touch build_error
+		if [ -f build_error ]; then
+			return 1
+		fi
+		return 0
+	else
+		return 0
+	fi
 }
 
 strip_comments()
