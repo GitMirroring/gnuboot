@@ -44,12 +44,62 @@ list_supported_boards() {
 downloadfor() {
 	board="${1}"
 
-	ubtree="u-boot/${board}"
-	uboot_revision="v2021.07"
+	# The loop will always exit, but this while loop is crafted
+	# such that a tree referencing a tree that references another tree is possible
+	# (and so on)
+	while true; do
+		ubrevision="undefined"
+		ubtree="undefined"
+
+		if [ ! -f "resources/u-boot/${board}/board.cfg" ]; then
+			printf "ERROR: %s: board.cfg does not exist for '%s'\n" \
+				"download/u-boot" "${board}"
+			return 1
+		fi
+
+		if [ -f "resources/u-boot/${board}/seen" ]; then
+			printf "ERROR: %s: logical loop; '%s' board.cfg refers to another tree, which ultimately refers back to '%s'.\n" \
+				"download/u-boot" "${board}" "${board}"
+			return 1
+		fi
+
+		# This is to override $ubrevision and $ubtree
+		source "resources/u-boot/${board}/board.cfg" || touch build_error
+		if [ -f build_error ]; then
+			printf "ERROR: %s: problem sourcing %s/board.cfg\n" \
+				"download/u-boot" "${board}"
+			return 1
+		fi
+		touch "resources/u-boot/${board}/seen"
+
+		if [ "${board}" != "${ubtree}" ]; then
+			board="${ubtree}"
+		else
+			if [ "${ubtree}" = "undefined" ]; then
+				printf "ERROR: %s: tree name undefined for '%s\n'" \
+					"download/u-boot" "${board}"
+				return 1
+			fi
+
+			if [ "${ubrevision}" = "undefined" ]; then
+				printf "ERROR: %s: commit ID undefined for '%s'\n" \
+					"download/u-boot" "${board}"
+				return 1
+			fi
+			break
+		fi
+	done
+
+	rm -f resources/u-boot/*/seen
+
+	ubtree="u-boot/${ubtree}"
 	if [ -d "${ubtree}" ]; then
 	    printf \
 		"REMARK: '%s' directory already exists. Skipping setup.\n" \
 		"${ubtree}"
+		if [ "${ubtree}" != "u-boot/${board}" ]; then
+			printf "(for board: '${board}')\n"
+		fi
 		return 0
 	fi
 
@@ -98,12 +148,12 @@ downloadfor() {
 		return 1
 	fi
 
-	git -C "${ubtree}" reset --hard ${uboot_revision} || \
+	git -C "${ubtree}" reset --hard ${ubrevision} || \
 	    touch build_error
 	if [ -f build_error ]; then
 	    printf \
 		"ERROR: %s: Unable to reset to commit ID/tag '%s' for board '%s' on tree '%s'\n" \
-		"download/u-boot" "${uboot_revision}" "${1}" "${ubtree}"
+		"download/u-boot" "${ubrevision}" "${board}" "${ubtree}"
 		return 1
 	fi
 }
