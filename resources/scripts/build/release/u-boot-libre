@@ -171,7 +171,7 @@ release_uboot_deblob_script()
 	   "${destination}.xz"
 
 	install -m 755 -d "${release_version_dir}"
-	install -m 644 -T "${blobs_list}" "${destination}"
+	install -m 644 -T "${deblob_script}" "${destination}"
 
 	lzip -9 --keep -vv "${destination}"
 	xz   -9 --keep -vv "${destination}"
