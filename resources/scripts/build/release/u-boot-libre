@@ -5,6 +5,7 @@
 #
 #	Copyright (C) 2020,2021 Leah Rowe <info@minifree.org>
 #	Copyright (C) 2022 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+#	Copyright (C) 2022 Alper Nebi Yasak <alpernebiyasak@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -112,7 +113,7 @@ release_deblobbed_uboot()
 	    --format=gnu \
 	    --sort=name \
 	    --owner=0 --group=0 --numeric-owner \
-	    --mtime="1970-01-01" \
+	    --mtime="1970-01-01 UTC+01:00" \
 
 	lzip -9 --keep -vv "${tarball}"
 	xz   -9 --keep -vv "${tarball}"
