@@ -162,6 +162,13 @@ downloadfor() {
 		"download/u-boot" "${ubrevision}" "${board}" "${ubtree}"
 		return 1
 	fi
+
+	git -C "${ubtree}" submodule update --init || touch build_error
+	if [ -f build_error ]; then
+		printf "ERROR: %s: Unable to update submodules for tree '%s'\n" \
+			"${ubtree}"
+		return 1
+	fi
 }
 
 strip_comments()
