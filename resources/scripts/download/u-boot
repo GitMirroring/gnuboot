@@ -125,6 +125,12 @@ downloadfor() {
 		    "${uboot_dir}" || \
 		    rm -Rf "${uboot_dir}"
 		if [ ! -d "${uboot_dir}" ]; then
+			printf "WARNING: Upstream failed. Trying backup github repository:\n"
+			git clone https://github.com/u-boot/u-boot.git \
+				"${uboot_dir}" || \
+				rm -Rf coreboot
+		fi
+		if [ ! -d "${uboot_dir}" ]; then
 		    printf \
 			"ERROR: %s: Problem with git-clone. Network issue?\n" \
 			"download/u-boot"
