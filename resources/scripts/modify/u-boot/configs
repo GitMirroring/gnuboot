@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+
+#
+#  helper script: modify U-Boot configs (run make menuconfig)
+#
+#	Copyright (C) 2021 Leah Rowe <info@minifree.org>
+#	Copyright (C) 2022 Alper Nebi Yasak <alpernebiyasak@gmail.com>
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+# This script assumes that the working directory is the root
+# of git or release archive
+
+[ "x${DEBUG+set}" = 'xset' ] && set -v
+set -u -e
+
+printf "Modifying U-Boot configs\n"
+
+# Build ROM images for supported boards
+modifyconf() {
+	board="$1"
+	if [ -f "resources/u-boot/${board}/board.cfg" ]; then
+        ubtree="undefined"
+        source "resources/u-boot/${board}/board.cfg"
+        if [ "${ubtree}" = "undefined" ]; then
+            return 0
+        fi
+        if [ ! -d "u-boot/${ubtree}" ]; then
+            ./download u-boot ${ubtree}
+        fi
+        for ubcfg in resources/u-boot/${board}/config/*; do
+            if [ ! -f ${ubcfg} ]; then
+                continue
+            fi
+            (
+                cd u-boot/${ubtree}/
+                rm -f .config*
+                make distclean
+            )
+            mv $ubcfg u-boot/${ubtree}/.config
+            (
+                cd u-boot/${ubtree}/
+                make menuconfig
+            )
+            mv u-boot/${ubtree}/.config $ubcfg
+            rm -f u-boot/${ubtree}/.config*
+            (
+                cd u-boot/${ubtree}/
+                make distclean
+            )
+        done
+    else
+        printf "\nmodify/config/u-boot: no board.cfg for: %s\n" "${board}"
+    fi
+}
+
+if [ $# -gt 0 ]; then
+	for board in "${@}"; do
+	    modifyconf "${board}"
+	done
+else
+	for board in resources/u-boot/*; do
+        if [ ! -d "${board}" ]; then
+            continue
+        fi
+	    modifyconf "${board##*/}"
+	done
+fi
+
+printf "\n\n"
+
