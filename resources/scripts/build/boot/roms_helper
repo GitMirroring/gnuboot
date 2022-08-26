@@ -4,6 +4,7 @@
 #
 #	Copyright (C) 2020,2021 Leah Rowe <info@minifree.org>
 #	Copyright (C) 2021 Vitali64 <vitali64pmemail@protonmail.com>
+#	Copyright (C) 2022 Alper Nebi Yasak <alpernebiyasak@gmail.com>
 #
 #	This program is free software: you can redistribute it and/or modify
 #	it under the terms of the GNU General Public License as published by
@@ -150,13 +151,17 @@ if [ "${arch}" = "x86_32" ] || [ "${arch}" = "x86_64" ]; then
 		)
 	fi
 elif [ "${arch}" = "ARMv7" ]; then
-	cat version > "${cbdir}/.coreboot-version"
-	cd "${cbdir}"
-	make crossgcc-arm CPUS=$(nproc) # This is for armv7, doesn't apply to aarch64
+	(
+		cat version > "${cbdir}/.coreboot-version"
+		cd "${cbdir}"
+		make crossgcc-arm CPUS=$(nproc) # This is for armv7, doesn't apply to aarch64
+	)
 elif [ "${arch}" = "AArch64" ]; then
-	cat version > "${cbdir}/.coreboot-version"
-	cd "${cbdir}"
-	make crossgcc-aarch64 CPUS=$(nproc) # This is for aarch64, doesn't apply to armv7
+	(
+		cat version > "${cbdir}/.coreboot-version"
+		cd "${cbdir}"
+		make crossgcc-aarch64 CPUS=$(nproc) # This is for aarch64, doesn't apply to armv7
+	)
 fi
 
 if [ ! -f "${cbfstool}" ]; then
