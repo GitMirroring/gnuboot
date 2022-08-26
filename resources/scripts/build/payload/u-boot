@@ -1,0 +1,146 @@
+#!/usr/bin/env bash
+
+#  helper script: builds U-Boot source code
+#
+#	Copyright (C) 2020, 2021 Leah Rowe <info@minifree.org>
+#	Copyright (C) 2021 Vitali64 <vitali64pmemail@protonmail.com>
+#	Copyright (C) 2022 Alper Nebi Yasak <alpernebiyasak@gmail.com>
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+[ "x${DEBUG+set}" = 'xset' ] && set -v
+set -u -e
+
+RET=0
+
+# Build U-Boot
+# ---------------------------------------------------------------------
+
+printf "Building U-Boot payloads\n"
+
+# Build for all boards if no argument is given
+if [ "$#" -eq 0 ]; then
+	for board_dir in resources/u-boot/*; do
+		if [ -d "${board_dir}/config/" ]; then
+			set -- "$@" "${board_dir#resources/u-boot/}"
+		fi
+	done
+fi
+
+[ ! -d "payload/" ] && mkdir -p payload/
+[ ! -d "payload/u-boot" ] && mkdir -p payload/u-boot/
+
+# Appends additional version info to U-Boot
+our_version="$(cat version)"
+projectname="$(cat projectname)"
+export LOCALVERSION="-${projectname}-${our_version}"
+
+for board in "$@"; do
+	board_dir="resources/u-boot/${board}"
+	rm -rf "payload/u-boot/${board}"
+	mkdir -p "payload/u-boot/${board}"
+
+	ubtree="undefined"
+	arch="undefined"
+
+	if [ ! -f "${board_dir}/board.cfg" ]; then
+		printf "%s: Target %s does not have a board.cfg. Skipping build.\n" \
+			"build/payload/u-boot" "${board}"
+		RET=1
+		continue
+	fi
+
+	# Override the above defaults using board.cfg
+	source "${board_dir}/board.cfg"
+
+	if [ "${ubtree}" = "undefined" ]; then
+		printf "%s: Target %s does not define a U-Boot tree. Skipping build.\n" \
+			"build/payload/u-boot" "${board}"
+		RET=1
+		continue
+	fi
+	if [ "${arch}" = "undefined" ]; then
+		printf "%s: Target %s does not define a CPU type. Skipping build.\n" \
+			"build/payload/u-boot" "${board}"
+		RET=1
+		continue
+	fi
+
+	ubdir="u-boot/${board}"
+	if [ "${board}" != "${ubtree}" ]; then
+		ubdir="u-boot/${ubtree}"
+	fi
+
+	if [ ! -d "${ubdir}" ]; then
+		./download u-boot "$board"
+	fi
+
+	if [ ! -d "${ubdir}" ]; then
+		printf "%s: Failed to download U-Boot for target %s. Skipping build.\n" \
+			"build/payload/u-boot" "${board}"
+		RET=1
+		continue
+	fi
+
+	if [ "${arch}" = "x86_32" ] || [ "${arch}" = "x86_64" ]; then
+		export CROSS_COMPILE=x86_64-linux-
+	elif [ "${arch}" = "ARMv7" ]; then
+		export CROSS_COMPILE=arm-linux-gnueabi-
+	elif [ "${arch}" = "AArch64" ]; then
+		export CROSS_COMPILE=aarch64-linux-gnu-
+	fi
+
+	for config in "${board_dir}/config"/*; do
+		if [ ! -f "${config}" ]; then
+			printf "%s: Target %s has no configs to build for. Skipping build.\n" \
+				"build/payload/u-boot" "${board}"
+			RET=1
+			continue
+		fi
+
+		config_name="${config#$board_dir/config/}"
+		if [ "$config_name" = "default" ]; then
+			dest_dir="payload/u-boot/${board}"
+		else
+			dest_dir="payload/u-boot/${board}/${config_name}"
+		fi
+		mkdir -p "${dest_dir}"
+
+		printf "%s: Building for target %s (config %s).\n" \
+			"build/payload/u-boot" "${board}" "${config_name}"
+
+		make -C "${ubdir}" distclean
+
+		cp "${config}" "${ubdir}/.config"
+		make -C "${ubdir}" olddefconfig
+		make -C "${ubdir}" -j"$(nproc)" all
+
+		for f in "${ubdir}"/u-boot{,.bin,.dtb,.img,.itb,.elf}; do
+			if [ -f "$f" ]; then
+				mv "$f" "${dest_dir}/"
+			fi
+		done
+
+		make -C "${ubdir}" distclean
+
+		printf "%s: Built for target %s (config %s).\n" \
+			"build/payload/u-boot" "${board}" "${config_name}"
+	done
+done
+
+printf "Done! U-Boot files are in payload/u-boot/\n\n"
+exit $RET
+
+# ------------------- DONE ----------------------
