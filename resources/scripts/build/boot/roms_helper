@@ -64,6 +64,8 @@ payload_seabios="n"
 payload_seabios_withgrub="n" # i386-coreboot grub accessible from SeaBIOS boot menu
 seabios_opromloadonly="0"
 payload_memtest="n"
+payload_uboot="n"
+uboot_config="undefined"
 # Override the above defaults using board.cfg
 source "resources/coreboot/${board}/board.cfg"
 
@@ -110,7 +112,7 @@ fi
 # NOTE: reverse logic must not be applied. If SeaBIOS-with-GRUB works, that doesn't
 # necessarily mean GRUB-with-SeaBIOS will work nicely. for example, the board might
 # only have an add-on GPU available, where it's recommended to boot SeaBIOS first
-if [ "${payload_grub}" != "y" ] && [ "${payload_seabios}" != "y" ]; then
+if [ "${payload_grub}" != "y" ] && [ "${payload_seabios}" != "y" ] && [ "${payload_uboot}" != "y" ]; then
 	while true; do
 		for configfile in "resources/coreboot/${board}/config/"*; do
 			if [ -f "${configfile}" ]; then
@@ -120,6 +122,16 @@ if [ "${payload_grub}" != "y" ] && [ "${payload_seabios}" != "y" ]; then
 		done
 		break
 	done
+fi
+
+if [ "${payload_uboot}" != "n" ] && \
+		[ "${payload_uboot}" != "y" ]; then
+	payload_uboot="n"
+fi
+
+if [ "${payload_uboot}" = "y" ] && \
+		[ "${uboot_config}" = "undefined" ]; then
+	uboot_config="default"
 fi
 
 if [ "${payload_memtest}" = "y" ]; then
@@ -214,6 +226,21 @@ if [ "${payload_grub}" = "y" ] || [ "${payload_seabios_withgrub}" = "y" ]; then
 			./build payload grub
 		fi
 	done
+fi
+
+if [ "${payload_uboot}" = "y" ]; then
+	if [ "${uboot_config}" = "default" ] && \
+		[ -f "payload/u-boot/${board}/u-boot.elf" ]; then
+			ubootelf="payload/u-boot/${board}/u-boot.elf"
+	else
+		ubootelf="payload/u-boot/${board}/${uboot_config}/u-boot.elf"
+	fi
+
+	if [ ! -f "${ubootelf}" ]; then
+		printf "Required U-Boot payloads not yet built. Building now:\n"
+		rm -Rf "payload/u-boot/${board}" # just in case
+		./build payload u-boot "${board}"
+	fi
 fi
 
 # it is assumed that no other work will be done on the ROM
@@ -321,6 +348,28 @@ make_seabios_rom() {
 	if [ "${target_initmode}" = "libgfxinit" ]; then
 		"${cbfstool_path}" "${tmprom}" add -f "${target_seavgabios_rom}" -n vgaroms/seavgabios.bin -t raw
 	fi
+
+	printf "%s\n" "${tmprom}"
+}
+
+# make a rom in /tmp/ and then print the path of that ROM
+make_uboot_payload_rom() {
+	target_cbrom="${1}" # rom to insert u-boot in. this rom won't be touched
+		# a tmpfile will be made instead
+	target_uboot_cbfs_path="${2}" # e.g. fallback/payload
+	target_uboot_config="${3}"
+	cbfstool_path="${4}"
+
+	if [ "${target_uboot_config}" = "default" ]; then
+		target_ubootelf="payload/u-boot/${board}/u-boot.elf"
+	else
+		target_ubootelf="payload/u-boot/${board}/${target_uboot_config}/u-boot.elf"
+	fi
+
+	tmprom=$(mktemp -t coreboot_rom.XXXXXXXXXX)
+
+	cp "${target_cbrom}" "${tmprom}"
+	"${cbfstool}" "${tmprom}" add-payload -f "${target_ubootelf}" -n ${target_uboot_cbfs_path} -c lzma
 
 	printf "%s\n" "${tmprom}"
 }
@@ -454,6 +503,17 @@ mkRoms() {
 
 	if [ "${payload_grub}" = "y" ]; then
 		mkRomsWithGrub "${corebootrom}" "${initmode}" "${displaymode}" "grub"
+	fi
+
+	if [ "${payload_uboot}" = "y" ]; then
+		tmpubootrom="$(make_uboot_payload_rom "${corebootrom}" "fallback/payload" "${uboot_config}" "${cbfstool}")"
+		if [ "${initmode}" = "normal" ]; then
+			newrompath="${romdir}/uboot_payload_${board}_${initmode}.rom"
+		else
+			newrompath="${romdir}/uboot_payload_${board}_${initmode}_${displaymode}.rom"
+		fi
+		moverom "${tmpubootrom}" "${newrompath}" "${romtype}"
+		rm -f "${tmpubootrom}"
 	fi
 }
 
