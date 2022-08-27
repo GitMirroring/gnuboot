@@ -25,9 +25,13 @@ set -u -e
 
 # set this when you want to modify each u-boot tree
 # for example, you want to test custom patches
-# NODELETE= ./download coreboot
+# NODELETE= ./download u-boot
+deletegit="true"
 deleteblobs="true"
-[ "x${NODELETE+set}" = 'xset' ] && deleteblobs="false"
+if [ "x${NODELETE+set}" = 'xset' ]; then
+	[ "x${NODELETE:-all}" = "xgit" ] && deletegit="false"
+	[ "x${NODELETE:-all}" = "xall" ] && deleteblobs="false" && deletegit="false"
+fi
 
 # Error handling is extreme in this script.
 # This script handles the internet, and Git. Both are inherently unreliable.
@@ -305,7 +309,9 @@ download_uboot_board()
 	printf "\n\n"
 
 	if [ "${deleteblobs}" = "true" ]; then
-		rm -rf "${ubtree}"/.git* "${ubtree}"/*/.git*
+		if [ "${deletegit}" = "true" ]; then
+			rm -rf "${ubtree}"/.git* "${ubtree}"/*/.git*
+		fi
 		blobslist="$(print_blobs_list_path "${board}")"
 		for blob_path in $(strip_comments "${blobslist}"); do
 		    if echo "${blob_path}" | \
@@ -347,7 +353,7 @@ if [ $# -eq 0 ] ; then
 		download_uboot_board "${board}"
 	done
 
-	if [ "${deleteblobs}" = "true" ]; then
+	if [ "${deletegit}" = "true" ]; then
 		rm -rf u-boot/u-boot/ u-boot/.git*
 	fi
 
@@ -396,7 +402,7 @@ elif [ $# -eq 1 ] ; then
 		fi
 	done
 
-	if [ "${deleteblobs}" = "true" ]; then
+	if [ "${deletegit}" = "true" ]; then
 		rm -rf u-boot/u-boot/ u-boot/.git*
 	fi
 

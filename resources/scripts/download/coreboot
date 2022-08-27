@@ -3,6 +3,7 @@
 #  helper script: download coreboot
 #
 #	Copyright (C) 2014, 2015, 2016, 2020, 2021 Leah Rowe <info@minifree.org>
+#	Copyright (C) 2022 Alper Nebi Yasak <alpernebiyasak@gmail.com>
 #
 #	This program is free software: you can redistribute it and/or modify
 #	it under the terms of the GNU General Public License as published by
@@ -64,8 +65,12 @@ fi
 # set this when you want to modify each coreboot tree
 # for example, you want to test custom patches
 # NODELETE= ./download coreboot
+deletegit="true"
 deleteblobs="true"
-[ "x${NODELETE+set}" = 'xset' ] && deleteblobs="false"
+if [ "x${NODELETE+set}" = 'xset' ]; then
+	[ "x${NODELETE:-all}" = "xgit" ] && deletegit="false"
+	[ "x${NODELETE:-all}" = "xall" ] && deleteblobs="false" && deletegit="false"
+fi
 
 # Error handling is extreme in this script.
 # This script handles the internet, and Git. Both are inherently unreliable.
@@ -239,9 +244,11 @@ rm -f resources/coreboot/*/seen
 rm -f "build_error"
 printf "\n\n"
 if [ "${deleteblobs}" = "true" ]; then
-	rm -Rf coreboot/coreboot/
-	rm -Rf coreboot/.git* coreboot/*/.git* coreboot/*/3rdparty/*/.git*
-	rm -Rf coreboot/*/util/nvidia/cbootimage/.git*
+	if [ "${deletegit}" = "true" ]; then
+		rm -Rf coreboot/coreboot/
+		rm -Rf coreboot/.git* coreboot/*/.git* coreboot/*/3rdparty/*/.git*
+		rm -Rf coreboot/*/util/nvidia/cbootimage/.git*
+	fi
 	for cbdir in coreboot/*; do
 		if [ ! -d "${cbdir}" ]; then continue; fi
 		cbtree="${cbdir##coreboot/}"

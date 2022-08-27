@@ -6,6 +6,7 @@
 #	Copyright (C) 2015 Patrick "P. J." McDermott <pj@pehjota.net>
 #	Copyright (C) 2015, 2016 Klemens Nanni <contact@autoboot.org>
 #	Copyright (C) 2022, Caleb La Grange <thonkpeasant@protonmail.com>
+#	Copyright (C) 2022 Alper Nebi Yasak <alpernebiyasak@gmail.com>
 #
 #	This program is free software: you can redistribute it and/or modify
 #	it under the terms of the GNU General Public License as published by
@@ -31,8 +32,12 @@ set -u -e
 # set this when you want to modify each coreboot tree
 # for example, you want to test custom patches
 # NODELETE= ./download coreboot
+deletegit="true"
 deleteblobs="true"
-[ "x${NODELETE+set}" = 'xset' ] && deleteblobs="false"
+if [ "x${NODELETE+set}" = 'xset' ]; then
+	[ "x${NODELETE:-all}" = "xgit" ] && deletegit="false"
+	[ "x${NODELETE:-all}" = "xall" ] && deleteblobs="false" && deletegit="false"
+fi
 
 rm -f "build_error"
 
@@ -89,6 +94,8 @@ if [ "${program}" = "all" ]; then
 		if [ -f "${downloadProgram}" ]; then
 			if [ "${deleteblobs}" = "false" ]; then
 				NODELETE= "${downloadProgram}"
+			elif [ "${deletegit}" = "false" ]; then
+				NODELETE=git "${downloadProgram}"
 			else
 				"${downloadProgram}"
 			fi
@@ -103,12 +110,16 @@ fi
 if [ $# -lt 1 ]; then	
 	if [ "${deleteblobs}" = "false" ]; then
 		NODELETE= "${download}/${program}"
+	elif [ "${deletegit}" = "false" ]; then
+		NODELETE=git "${download}/${program}"
 	else
 		"${download}/${program}"
 	fi
 else	
 	if [ "${deleteblobs}" = "false" ]; then
 		NODELETE= "${download}/${program}" $@
+	elif [ "${deletegit}" = "false" ]; then
+		NODELETE=git "${download}/${program}" $@
 	else
 		"${download}/${program}" $@
 	fi
