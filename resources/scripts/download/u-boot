@@ -125,12 +125,12 @@ downloadfor() {
 
 	if [ ! -d "${uboot_dir}" ]; then
 		printf "Download u-boot from upstream:\n"
-		git clone https://source.denx.de/u-boot/u-boot.git \
+		git clone --depth=1 https://source.denx.de/u-boot/u-boot.git \
 		    "${uboot_dir}" || \
 		    rm -Rf "${uboot_dir}"
 		if [ ! -d "${uboot_dir}" ]; then
 			printf "WARNING: Upstream failed. Trying backup github repository:\n"
-			git clone https://github.com/u-boot/u-boot.git \
+			git clone --depth=1 https://github.com/u-boot/u-boot.git \
 				"${uboot_dir}" || \
 				rm -Rf coreboot
 		fi
@@ -140,14 +140,14 @@ downloadfor() {
 			"download/u-boot"
 			return 1
 		fi
-	else
-		git -C "${uboot_dir}" pull || touch build_error
-		if [ -f build_error ]; then
-		    printf \
-			"ERROR: %s: Problem with git-pull. Network issue?\n" \
-			"download/u-boot"
-			return 1
-		fi
+	fi
+
+	git -C "${uboot_dir}" fetch --depth=1 origin "${ubrevision}" || touch build_error
+	if [ -f build_error ]; then
+	    printf \
+		"ERROR: %s: Problem with git-fetch. Network issue?\n" \
+		"download/u-boot"
+		return 1
 	fi
 
 	cp -R "${uboot_dir}" "${ubtree}" || touch build_error
@@ -167,7 +167,7 @@ downloadfor() {
 		return 1
 	fi
 
-	git -C "${ubtree}" submodule update --init || touch build_error
+	git -C "${ubtree}" submodule update --init --depth=1 || touch build_error
 	if [ -f build_error ]; then
 		printf "ERROR: %s: Unable to update submodules for tree '%s'\n" \
 			"${ubtree}"

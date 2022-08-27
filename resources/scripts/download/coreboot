@@ -152,21 +152,21 @@ downloadfor() {
 
 	if [ ! -d coreboot ]; then
 		printf "Download coreboot from upstream:\n"
-		git clone https://review.coreboot.org/coreboot || rm -Rf coreboot
+		git clone --depth=1 https://review.coreboot.org/coreboot || rm -Rf coreboot
 		if [ ! -d coreboot ]; then
 			printf "WARNING: Upstream failed. Trying backup github repository:\n"
-			git clone https://github.com/coreboot/coreboot.git || rm -Rf coreboot
+			git clone --depth=1 https://github.com/coreboot/coreboot.git || rm -Rf coreboot
 		fi
 		if [ ! -d coreboot ]; then 
 			printf "ERROR: download/coreboot: Problem with git-clone. Network issue?\n"
 			cd ../; return 1
 		fi
-	else
-		( cd coreboot/; git pull || touch ../build_error )
-		if [ -f ../build_error ]; then
-			printf "ERROR: download/coreboot: Problem with git-pull. Network issue?\n"
-			cd ../; return 1
-		fi
+	fi
+
+	( cd coreboot/; git fetch --depth=1 origin "${cbrevision}" || touch ../build_error )
+	if [ -f ../build_error ]; then
+		printf "ERROR: download/coreboot: Problem with git-fetch. Network issue?\n"
+		cd ../; return 1
 	fi
 
 	cp -R coreboot "${cbtree}" || touch ../build_error
@@ -184,7 +184,7 @@ downloadfor() {
 		cd ../../; return 1
 	fi
 
-	git submodule update --init || touch ../../build_error
+	git submodule update --init --depth=1 || touch ../../build_error
 	if [ -f ../../build_error ]; then
 		printf "ERROR: download/coreboot: Unable to update submodules for tree '%s'\n" "${cbtree}"
 		cd ../../; return 1
