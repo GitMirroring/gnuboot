@@ -15,7 +15,7 @@ Leah Rowe (founder, lead developer)
 Leah Rowe is the founder of the Libreboot project, and currently the only
 full-time developer. Leah oversees all development of Libreboot, reviewing
 outside contributions, and has the final say over all decisions. Leah owns and
-operates the libreboot.org servers from her lab in the UK. The servers are
+operates the libreboot.srht.site servers from her lab in the UK. The servers are
 running Libreboot of course!
 
 You can learn more about Leah's involvement with Libreboot, by reading her

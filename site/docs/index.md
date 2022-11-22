@@ -2,7 +2,7 @@
 title: Documentation
 ...
 
-Always check [libreboot.org](https://libreboot.org/) for the latest updates to
+Always check [libreboot.srht.site](https://libreboot.srht.site/) for the latest updates to
 Libreboot. News, including release announcements, can be found in
 the [main news section](../news/).
 

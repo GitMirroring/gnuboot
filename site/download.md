@@ -57,8 +57,8 @@ These mirrors are recommended, since they use TLS (https://) encryption.
 
 You can download Libreboot from these mirrors:
 
-* <https://rsync.libreboot.org/> (Libreboot project official mirror, UK)
-* <https://www.mirrorservice.org/sites/libreboot.org/release/> (University
+* <https://rsync.libreboot.srht.site/> (Libreboot project official mirror, UK)
+* <https://www.mirrorservice.org/sites/libreboot.srht.site/release/> (University
 of Kent, UK)
 * <https://mirrors.mit.edu/libreboot/> (MIT university, USA)
 * <https://mirror.math.princeton.edu/pub/libreboot/> (Princeton
@@ -86,10 +86,10 @@ at least 25GiB. Libreboot's rsync is currently about 12GiB, so allocating 25GiB
 will afford you plenty of space for the future. At minimum, you should ensure
 that at least 15-20GiB of space is available, for your Libreboot mirror.
 
-*It is highly recommended that you use the libreboot.org mirror*, if you wish
+*It is highly recommended that you use the libreboot.srht.site mirror*, if you wish
 to host an official mirror. Otherwise, if you simply want to create your own
 local mirror, you should use one of the other mirrors, which sync from
-libreboot.org.
+libreboot.srht.site.
 
 Before you create the mirror, make a directory on your web server. For 
 example:
@@ -98,7 +98,7 @@ example:
 
 Now you can run rsync, for instance:
 
-    rsync -avz --delete-after rsync://rsync.libreboot.org/mirrormirror/ /var/www/html/libreboot/
+    rsync -avz --delete-after rsync://rsync.libreboot.srht.site/mirrormirror/ /var/www/html/libreboot/
 
 **It's extremely important to have the final forward slash (/) at the end of each path,
 in the above rsync command. Otherwise, rsync will behave very strangely.**
@@ -109,8 +109,8 @@ crontab. This page tells you how to use crontab:
 
 The following rsync mirrors are available:
 
-* <rsync://rsync.libreboot.org/mirrormirror/> (Libreboot project official mirror)
-* <rsync://rsync.mirrorservice.org/libreboot.org/release/> (University of Kent,
+* <rsync://rsync.libreboot.srht.site/mirrormirror/> (Libreboot project official mirror)
+* <rsync://rsync.mirrorservice.org/libreboot.srht.site/release/> (University of Kent,
 UK)
 * <rsync://mirror.math.princeton.edu/pub/libreboot/> (Princeton university, USA)
 * <rsync://rsync.libremind.org/libreboot/> (libremind.org, Iceland)
@@ -147,7 +147,7 @@ FTP mirrors {#ftp}
 
 WARNING: FTP is also unencrypted, like HTTP. The same risks are present.
 
-* <ftp://ftp.mirrorservice.org/sites/libreboot.org/release/> (University
+* <ftp://ftp.mirrorservice.org/sites/libreboot.srht.site/release/> (University
 of Kent, UK)
 * <ftp://ftp.linux.ro/libreboot/> (linux.ro, Romania)
 

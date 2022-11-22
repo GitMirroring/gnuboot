@@ -6,7 +6,7 @@ x-toc-enable: true
 Libreboot's build system is named `lbmk`, short for `Libreboot Make`, and this
 document describes how to use it. With this guide, you can know how to compile
 Libreboot from the available source code.
-This version, if hosted live on libreboot.org, assumes that you are using
+This version, if hosted live on libreboot.srht.site, assumes that you are using
 the `lbmk` git repository, which
 you can download using the instructions on [the code review page](../../git.md).
 

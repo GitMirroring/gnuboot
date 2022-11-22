@@ -66,7 +66,7 @@ The founder and lead developer, Leah Rowe, is also on Twitter and Mastodon:
 * <https://mas.to/@libreleah>
 
 Leah can also be contacted by her email address:
-[leah@libreboot.org](mailto:leah@libreboot.org)
+[leah@libreboot.srht.site](mailto:leah@libreboot.srht.site)
 
 Reddit
 ------

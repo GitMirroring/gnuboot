@@ -24,7 +24,7 @@ These are guides for fully encrypted GNU+Linux systems, including /boot, but
 it's desirable for these to be documented instead by each distro, because then
 they will more likely be properly maintained.
 
-We constantly have to update them, on libreboot.org. It is unsustainable. Move
+We constantly have to update them, on libreboot.srht.site. It is unsustainable. Move
 them to other projects and let them deal with it. Libreboot's only job is to
 boot you into a payload. The rest is up to you!
 
@@ -162,7 +162,7 @@ license. for now see these photos that i pulled from a search engine:
 
 For flashing instructions:
 
-* Refer to <https://av.libreboot.org/g43t-am3/soic8.jpg> - a proper photo is
+* Refer to <https://av.libreboot.srht.site/g43t-am3/soic8.jpg> - a proper photo is
   not available under a free license, or could not be found, so this diagram
   was made
 * NOTE: It might not be possible to do ISP flashing. Several other X4X desktop
@@ -661,7 +661,7 @@ currently hosted on the same network as the website)
 i2p site
 --------
 
-I probably won't, but someone is welcome to do this and libreboot.org will
+I probably won't, but someone is welcome to do this and libreboot.srht.site will
 link to it
 
 Fix GRUB bugs

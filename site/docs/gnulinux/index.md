@@ -45,7 +45,7 @@ In general, it is recommended that you use SeaBIOS but if you want extra securit
 GRUB payload is recommended where you can then have a fully encrypted /boot
 directory.
 
-TODO: Nuke *all* distro-specific guides on libreboot.org. Instead, move these
+TODO: Nuke *all* distro-specific guides on libreboot.srht.site. Instead, move these
 instructions to the wiki pages of these projects, on their websites. The reasons
 are explained in the above issue page.
 

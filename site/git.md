@@ -69,7 +69,7 @@ Download it like so:
 
     git clone https://notabug.org/libreboot/lbwww
 
-Images are hosted on <https://av.libreboot.org/> and available in a separate
+Images are hosted on <https://av.libreboot.srht.site/> and available in a separate
 repository:
 
     git clone https://notabug.org/libreboot/lbwww-img
@@ -83,14 +83,14 @@ site generator project.
 
 If you like, you can set up a local HTTP server and build your own local
 version of the website. Please note that images will still link to the ones
-hosted on <https://av.libreboot.org/>, so any images that you add to `lbwww-img`
+hosted on <https://av.libreboot.srht.site/>, so any images that you add to `lbwww-img`
 will not show up on your local `lbwww` site if you make the image links (for
-images that you add) link to av.libreboot.org. However, it is required that such
-images be hosted on av.libreboot.org.
+images that you add) link to av.libreboot.srht.site. However, it is required that such
+images be hosted on av.libreboot.srht.site.
 
 Therefore, if you wish to add images to the website, please also submit to the
 `lbwww-img` repository, with the links to them being
-<https://av.libreboot.org/path/to/your/new/image/in/lbwww-img> for each one.
+<https://av.libreboot.srht.site/path/to/your/new/image/in/lbwww-img> for each one.
 When it is merged on the libreboot website, your images will appear live.
 
 For development purposes, you might make your images local links first, and
@@ -112,7 +112,7 @@ contributor.
 
 In Git, for author name and email address, you do not have to use identifying
 data. You can use Libreboot Contributor and your email address could be
-specified as contributor@libreboot.org. You are permitted to do this, if
+specified as contributor@libreboot.srht.site. You are permitted to do this, if
 you wish to maintain privacy. We believe in privacy. If you choose to remain
 anonymous, we will honour this.
 
@@ -167,7 +167,7 @@ via email. If you do not receive a fast enough response from the project, then
 you could also notify the project via the #libreboot channel on Libera Chat.
 
 Another way to submit patches is to email Leah Rowe directly:
-[leah@libreboot.org](mailto:leah@libreboot.org) is Leah's project email address.
+[leah@libreboot.srht.site](mailto:leah@libreboot.srht.site) is Leah's project email address.
 
 However, for transparency of the code review process, it's recommended that you
 use Notabug, for the time being.

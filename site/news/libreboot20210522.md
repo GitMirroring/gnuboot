@@ -114,7 +114,7 @@ in coreboot), and there already are a few boards added.
 
 The next Libreboot release will likely just be a few more ROM images, but while
 referencing this release (Libreboot 20210522) for the source code. See the
-tasks page on libreboot.org for a list of the boards I plan to add.
+tasks page on libreboot.srht.site for a list of the boards I plan to add.
 
 lbmk
 ====

@@ -25,7 +25,7 @@ works on all aspects of Libreboot, such as:
 
 * General management. Leah handles all outside contributions to Libreboot,
   reviews pull requests, deals with bug reports, delegates tasks when necessary
-  or desirable. Leah controls the libreboot.org server infrastructure, hosted
+  or desirable. Leah controls the libreboot.srht.site server infrastructure, hosted
   in her lab (of course it runs Libreboot!)
 * Leah has the final say on all decisions, taking input via discussion with
   members of the public, mostly on IRC. Leah oversees releases of Libreboot,
@@ -51,10 +51,10 @@ Alyssa Rosenzweig
 -----------------
 
 Switched the website to use markdown in lieu of handwritten HTML and custom
-PHP. **Former libreboot project maintainer (sysadmin for libreboot.org).**
+PHP. **Former libreboot project maintainer (sysadmin for libreboot.srht.site).**
 
 Alyssa wrote the original static site generator (bash scripts converting
-markdown to html, via pandoc) for libreboot.org. This static site generator has
+markdown to html, via pandoc) for libreboot.srht.site. This static site generator has
 now been heavily modified and forked into a formal project, by Leah Rowe:
 
 <https://untitled.vimuser.org/> (untitled is Leah's work, not Alyssa's, but it's based on
@@ -156,7 +156,7 @@ on December 13th, 2013, the Libreboot project was born (but not called that).
 Joshua made sure that everyone knew what I was doing!
 
 A few months later, the name *Libreboot* was coined, and the domain name
-*libreboot.org* was registered. At that point, the Libreboot project (in early
+*libreboot.srht.site* was registered. At that point, the Libreboot project (in early
 2014) was officially born. Once again, Joshua provided every bit of help he
 could, heavily promoting the project and he even wrote this article on the FSF
 website, announcing it:

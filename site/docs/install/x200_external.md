@@ -13,7 +13,7 @@ underneath the palm rest. You will then connect an external SPI programmer, to
 re-flash the chip externally while it is powered off with the battery removed.
 
 NOTE: This guide only applies to the regular X200. For X200S and X200 Tablet
-flashing, please read other guides available on libreboot.org.
+flashing, please read other guides available on libreboot.srht.site.
 
 Flash chip size
 ===============
@@ -35,25 +35,25 @@ Tablet (for those systems, you have to remove the motherboard
 completely, since the flash chip is on the other side of the board).
 
 Remove these screws:\
-![](https://av.libreboot.org/x200/disassembly/0003.jpg)
+![](https://av.libreboot.srht.site/x200/disassembly/0003.jpg)
 
 Gently push the keyboard towards the screen, then lift it off, and optionally
 disconnect it from the board:\
-![](https://av.libreboot.org/x200/disassembly/0004.jpg)
-![](https://av.libreboot.org/x200/disassembly/0005.jpg)
+![](https://av.libreboot.srht.site/x200/disassembly/0004.jpg)
+![](https://av.libreboot.srht.site/x200/disassembly/0005.jpg)
 
 Disconnect the cable of the fingerpring reader, and then pull up the palm rest,
 lifting up the left and right side of it:\
-![](https://av.libreboot.org/x200/disassembly/0006.1.jpg)
-![](https://av.libreboot.org/x200/disassembly/0006.jpg)
+![](https://av.libreboot.srht.site/x200/disassembly/0006.1.jpg)
+![](https://av.libreboot.srht.site/x200/disassembly/0006.jpg)
 
 This shows the location of the flash chip, for both SOIC-8 and SOIC-16:\
-![](https://av.libreboot.org/x200/x200_soic16.jpg)
-![](https://av.libreboot.org/x200/x200_soic8.jpg)
+![](https://av.libreboot.srht.site/x200/x200_soic16.jpg)
+![](https://av.libreboot.srht.site/x200/x200_soic8.jpg)
 
 Lift back the tape that covers a part of the flash chip, and then
 connect the clip:\
-![](https://av.libreboot.org/x200/disassembly/0008.jpg)
+![](https://av.libreboot.srht.site/x200/disassembly/0008.jpg)
 
 Now, you should be ready to install libreboot.
 
@@ -78,14 +78,14 @@ Make sure that the RAM you buy is the 2Rx8 configuration when buying 4GiB sticks
 
 In this photo, 8GiB of RAM (2x4GiB) is installed:
 
-![](https://av.libreboot.org/x200/disassembly/0018.jpg)
+![](https://av.libreboot.srht.site/x200/disassembly/0018.jpg)
 
 Boot it!
 --------
 
 You should see something like this:
 
-![](https://av.libreboot.org/x200/disassembly/0019.jpg)
+![](https://av.libreboot.srht.site/x200/disassembly/0019.jpg)
 
 Now [install GNU+Linux](../gnulinux/).
 
@@ -99,7 +99,7 @@ was proven correct; however, it is still useless in practise.
 
 Look just above the 7 in TP37 (that's GPIO33):
 
-![](https://av.libreboot.org/x200/gpio33_location.jpg)
+![](https://av.libreboot.srht.site/x200/gpio33_location.jpg)
 
 By default we would see this in lenovobios, when trying flashrom -p
 internal -w rom.rom:

@@ -16,4 +16,4 @@ Flashing instructions {#clip}
 Refer to [spi.md](spi.md) for how to re-flash externally.
 
 Here is an image of the flash chip:\
-![](https://av.libreboot.org/d945gclf/d945gclf_spi.jpg)
+![](https://av.libreboot.srht.site/d945gclf/d945gclf_spi.jpg)

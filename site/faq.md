@@ -188,7 +188,7 @@ See the following bug reports for more info:
 - [T400 Machine check: Processor context corrupt](http://web.archive.org/web/20210325195107/https://notabug.org/libreboot/libreboot/issues/493)
 - [X200 Machine check: Processor context corrupt](http://web.archive.org/web/20210128161939/https://notabug.org/libreboot/libreboot/issues/289)
 
-- [Unrelated, RAM incompatibility and suspend-to-ram issues on X200](https://libreboot.org/docs/hardware/x200.html#ram_s3_microcode)
+- [Unrelated, RAM incompatibility and suspend-to-ram issues on X200](https://libreboot.srht.site/docs/hardware/x200.html#ram_s3_microcode)
 
 
 Hardware compatibility
@@ -837,18 +837,18 @@ You can find photos of various chip types on the following page:\
 Who did the logo?
 ----------------------------------------------------------------
 
-See the [license information](https://av.libreboot.org/logo/license.md).
+See the [license information](https://av.libreboot.srht.site/logo/license.md).
 
-The Libreboot logo is available as a [bitmap](https://av.libreboot.org/logo/logo.png), a
-[vector](https://av.libreboot.org/logo/logo.svg), or a [greyscale vector](https://av.libreboot.org/logo/logo_grey.svg).
+The Libreboot logo is available as a [bitmap](https://av.libreboot.srht.site/logo/logo.png), a
+[vector](https://av.libreboot.srht.site/logo/logo.svg), or a [greyscale vector](https://av.libreboot.srht.site/logo/logo_grey.svg).
 
 Libreboot Inside stickers are available as a
-[PDF](https://av.libreboot.org/logo/stickers/libreboot-inside-simple-bold-1.60cmx2.00cm-diecut-3.pdf) or
+[PDF](https://av.libreboot.srht.site/logo/stickers/libreboot-inside-simple-bold-1.60cmx2.00cm-diecut-3.pdf) or
 a
-[vector](https://av.libreboot.org/logo/stickers/libreboot-inside-simple-bold-1.60cmx2.00cm-diecut-3.svg)
+[vector](https://av.libreboot.srht.site/logo/stickers/libreboot-inside-simple-bold-1.60cmx2.00cm-diecut-3.svg)
 
 You can find all of the available logos by browsing this directory:\
-<https://av.libreboot.org/logo/>
+<https://av.libreboot.srht.site/logo/>
 
 What other firmware exists outside of libreboot?
 ==================================================
