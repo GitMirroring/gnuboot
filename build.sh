@@ -26,7 +26,7 @@ fi
 cd untitled  && mkdir -p www && cd www
 
 if [ ! -d lbwww ] ; then
-	git clone https://notabug.org/libreboot/lbwww.git
+	git clone https://git.sr.ht/~gnutoo/lbwww
 else
 	git -C lbwww clean -dfx
 	git -C lbwww pull --rebase
