@@ -1,6 +1,18 @@
 == Introduction ==
 This project enables to easily build and deploy the Libreboot website.
 
+== Local deployments ==
+For local deployments you just need to extract the tarball in a
+webroot and have a web server serve that content.
+
+== Deployment on Sourcehut ==
+Sourcehut has a way to setup a static website by uploading a tarball
+of the content. Users that want to deploy a website there are expected
+to follow the official documentation[1] to generate a token and add
+this token to the id_oauth2_bearer file in the current directory.
+
+[1]https://srht.site/quickstart
+
 == License ==
 This project is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

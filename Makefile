@@ -12,7 +12,9 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
-.PHONY: all build website.tar.gz
+DOMAIN := gnutoo.srht.site
+
+.PHONY: all build help upload website.tar.gz
 
 all: website.tar.gz
 
@@ -31,6 +33,19 @@ build:
 		sed \
 		-- \
 		./build.sh
+
+help:
+	@printf "%s\n\t%s\n\t%s\n\t%s\n" \
+		"Available commands:" \
+		"help           # Print this help" \
+		"upload         # Upload the website to https://$(DOMAIN)" \
+		"website.tar.gz # Create a tarball of the website"
+
+upload: website.tar.gz
+	curl \
+		--oauth2-bearer `cat id_oauth2_bearer` \
+		-Fcontent=@website.tar.gz \
+		https://pages.sr.ht/publish/$(DOMAIN)
 
 # See https://reproducible-builds.org/docs/archives/ for more details
 website.tar.gz: build
