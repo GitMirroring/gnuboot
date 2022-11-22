@@ -47,8 +47,12 @@ upload: website.tar.gz
 		-Fcontent=@website.tar.gz \
 		https://pages.sr.ht/publish/$(DOMAIN)
 
+index.html: index.html.tmpl
+	sed 's/DOMAIN/$(DOMAIN)/' $? > $@
+
 # See https://reproducible-builds.org/docs/archives/ for more details
-website.tar.gz: build
+website.tar.gz: build index.html
+	sed 's/DOMAIN/$(DOMAIN)/' index.html.tmpl > index.html
 	tar \
 		--format=gnu \
 		--mtime='1970-01-01 00:00Z' \
@@ -57,4 +61,5 @@ website.tar.gz: build
 		-czf \
 		website.tar.gz \
 		untitled/www/lbwww/site/ \
-		 --transform="s#untitled/www/lbwww/site/##" \
+		index.html \
+		 --transform="s#untitled/www/lbwww/site/#libreboot/#" \
