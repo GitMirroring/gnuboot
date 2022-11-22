@@ -12,9 +12,11 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
-.PHONY: all
+.PHONY: all build website.tar.gz
 
-all:
+all: website.tar.gz
+
+build:
 	guix shell \
 		--container \
 		--network \
@@ -29,3 +31,15 @@ all:
 		sed \
 		-- \
 		./build.sh
+
+# See https://reproducible-builds.org/docs/archives/ for more details
+website.tar.gz: build
+	tar \
+		--format=gnu \
+		--mtime='1970-01-01 00:00Z' \
+		--owner=0 --group=0 --numeric-owner \
+		--sort=name \
+		-czf \
+		website.tar.gz \
+		untitled/www/lbwww/site/ \
+		 --transform="s#untitled/www/lbwww/site/##" \
