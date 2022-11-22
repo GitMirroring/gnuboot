@@ -82,94 +82,94 @@ The procedure
 -------------
 
 Remove *all* screws, placing them in the order that you removed them:\
-![](https://av.libreboot.srht.site/t400/0001.jpg) ![](https://av.libreboot.srht.site/t400/0002.jpg)
+![](https://libreboot.srht.site/img/t400/0001.jpg) ![](https://libreboot.srht.site/img/t400/0002.jpg)
 
 Remove those three screws then remove the rear bezel:\
-![](https://av.libreboot.srht.site/t400/0003.jpg) ![](https://av.libreboot.srht.site/t400/0004.jpg)
-![](https://av.libreboot.srht.site/t400/0005.jpg) ![](https://av.libreboot.srht.site/t400/0006.jpg)
+![](https://libreboot.srht.site/img/t400/0003.jpg) ![](https://libreboot.srht.site/img/t400/0004.jpg)
+![](https://libreboot.srht.site/img/t400/0005.jpg) ![](https://libreboot.srht.site/img/t400/0006.jpg)
 
 Remove the speakers:\
-![](https://av.libreboot.srht.site/t400/0007.jpg) ![](https://av.libreboot.srht.site/t400/0008.jpg)
-![](https://av.libreboot.srht.site/t400/0009.jpg) ![](https://av.libreboot.srht.site/t400/0010.jpg)
-![](https://av.libreboot.srht.site/t400/0011.jpg)
+![](https://libreboot.srht.site/img/t400/0007.jpg) ![](https://libreboot.srht.site/img/t400/0008.jpg)
+![](https://libreboot.srht.site/img/t400/0009.jpg) ![](https://libreboot.srht.site/img/t400/0010.jpg)
+![](https://libreboot.srht.site/img/t400/0011.jpg)
 
 Remove the wifi:\
-![](https://av.libreboot.srht.site/t400/0012.jpg) ![](https://av.libreboot.srht.site/t400/0013.jpg)
+![](https://libreboot.srht.site/img/t400/0012.jpg) ![](https://libreboot.srht.site/img/t400/0013.jpg)
 
 Remove this cable:\
-![](https://av.libreboot.srht.site/t400/0014.jpg) ![](https://av.libreboot.srht.site/t400/0015.jpg)
-![](https://av.libreboot.srht.site/t400/0016.jpg) ![](https://av.libreboot.srht.site/t400/0017.jpg)
-![](https://av.libreboot.srht.site/t400/0018.jpg)
+![](https://libreboot.srht.site/img/t400/0014.jpg) ![](https://libreboot.srht.site/img/t400/0015.jpg)
+![](https://libreboot.srht.site/img/t400/0016.jpg) ![](https://libreboot.srht.site/img/t400/0017.jpg)
+![](https://libreboot.srht.site/img/t400/0018.jpg)
 
 Unroute those antenna wires:\
-![](https://av.libreboot.srht.site/t400/0019.jpg) ![](https://av.libreboot.srht.site/t400/0020.jpg)
-![](https://av.libreboot.srht.site/t400/0021.jpg) ![](https://av.libreboot.srht.site/t400/0022.jpg)
-![](https://av.libreboot.srht.site/t400/0023.jpg)
+![](https://libreboot.srht.site/img/t400/0019.jpg) ![](https://libreboot.srht.site/img/t400/0020.jpg)
+![](https://libreboot.srht.site/img/t400/0021.jpg) ![](https://libreboot.srht.site/img/t400/0022.jpg)
+![](https://libreboot.srht.site/img/t400/0023.jpg)
 
 Remove the LCD assembly:\
-![](https://av.libreboot.srht.site/t400/0024.jpg) ![](https://av.libreboot.srht.site/t400/0025.jpg)
-![](https://av.libreboot.srht.site/t400/0026.jpg) ![](https://av.libreboot.srht.site/t400/0027.jpg)
-![](https://av.libreboot.srht.site/t400/0028.jpg) ![](https://av.libreboot.srht.site/t400/0029.jpg)
-![](https://av.libreboot.srht.site/t400/0030.jpg) ![](https://av.libreboot.srht.site/t400/0031.jpg)
+![](https://libreboot.srht.site/img/t400/0024.jpg) ![](https://libreboot.srht.site/img/t400/0025.jpg)
+![](https://libreboot.srht.site/img/t400/0026.jpg) ![](https://libreboot.srht.site/img/t400/0027.jpg)
+![](https://libreboot.srht.site/img/t400/0028.jpg) ![](https://libreboot.srht.site/img/t400/0029.jpg)
+![](https://libreboot.srht.site/img/t400/0030.jpg) ![](https://libreboot.srht.site/img/t400/0031.jpg)
 
 Disconnect the NVRAM battery:\
-![](https://av.libreboot.srht.site/t400/0033.jpg)
+![](https://libreboot.srht.site/img/t400/0033.jpg)
 
 Disconnect the fan:\
-![](https://av.libreboot.srht.site/t400/0034.jpg)
+![](https://libreboot.srht.site/img/t400/0034.jpg)
 
 Unscrew these:\
-![](https://av.libreboot.srht.site/t400/0035.jpg) ![](https://av.libreboot.srht.site/t400/0036.jpg)
-![](https://av.libreboot.srht.site/t400/0037.jpg) ![](https://av.libreboot.srht.site/t400/0038.jpg)
+![](https://libreboot.srht.site/img/t400/0035.jpg) ![](https://libreboot.srht.site/img/t400/0036.jpg)
+![](https://libreboot.srht.site/img/t400/0037.jpg) ![](https://libreboot.srht.site/img/t400/0038.jpg)
 
 Unscrew the heatsink, then lift it off:\
-![](https://av.libreboot.srht.site/t400/0039.jpg) ![](https://av.libreboot.srht.site/t400/0040.jpg)
+![](https://libreboot.srht.site/img/t400/0039.jpg) ![](https://libreboot.srht.site/img/t400/0040.jpg)
 
 Disconnect the power jack:\
-![](https://av.libreboot.srht.site/t400/0041.jpg) ![](https://av.libreboot.srht.site/t400/0042.jpg)
+![](https://libreboot.srht.site/img/t400/0041.jpg) ![](https://libreboot.srht.site/img/t400/0042.jpg)
 
 Loosen this:\
-![](https://av.libreboot.srht.site/t400/0043.jpg)
+![](https://libreboot.srht.site/img/t400/0043.jpg)
 
 Remove this:\
-![](https://av.libreboot.srht.site/t400/0044.jpg) ![](https://av.libreboot.srht.site/t400/0045.jpg)
-![](https://av.libreboot.srht.site/t400/0046.jpg) ![](https://av.libreboot.srht.site/t400/0047.jpg)
-![](https://av.libreboot.srht.site/t400/0048.jpg)
+![](https://libreboot.srht.site/img/t400/0044.jpg) ![](https://libreboot.srht.site/img/t400/0045.jpg)
+![](https://libreboot.srht.site/img/t400/0046.jpg) ![](https://libreboot.srht.site/img/t400/0047.jpg)
+![](https://libreboot.srht.site/img/t400/0048.jpg)
 
 Unscrew these:\
-![](https://av.libreboot.srht.site/t400/0049.jpg) ![](https://av.libreboot.srht.site/t400/0050.jpg)
+![](https://libreboot.srht.site/img/t400/0049.jpg) ![](https://libreboot.srht.site/img/t400/0050.jpg)
 
 Remove this:\
-![](https://av.libreboot.srht.site/t400/0051.jpg) ![](https://av.libreboot.srht.site/t400/0052.jpg)
+![](https://libreboot.srht.site/img/t400/0051.jpg) ![](https://libreboot.srht.site/img/t400/0052.jpg)
 
 Unscrew this:\
-![](https://av.libreboot.srht.site/t400/0053.jpg)
+![](https://libreboot.srht.site/img/t400/0053.jpg)
 
 Remove the motherboard (the cage is still attached) from the right hand
 side, then lift it out:\
-![](https://av.libreboot.srht.site/t400/0054.jpg) ![](https://av.libreboot.srht.site/t400/0055.jpg)
-![](https://av.libreboot.srht.site/t400/0056.jpg)
+![](https://libreboot.srht.site/img/t400/0054.jpg) ![](https://libreboot.srht.site/img/t400/0055.jpg)
+![](https://libreboot.srht.site/img/t400/0056.jpg)
 
 Remove these screws, placing the screws in the same layout and marking
 each screw hole (so that you know what ones to put the screws back into
-later): ![](https://av.libreboot.srht.site/t400/0057.jpg) ![](https://av.libreboot.srht.site/t400/0058.jpg)
-![](https://av.libreboot.srht.site/t400/0059.jpg) ![](https://av.libreboot.srht.site/t400/0060.jpg)
-![](https://av.libreboot.srht.site/t400/0061.jpg) ![](https://av.libreboot.srht.site/t400/0062.jpg)
+later): ![](https://libreboot.srht.site/img/t400/0057.jpg) ![](https://libreboot.srht.site/img/t400/0058.jpg)
+![](https://libreboot.srht.site/img/t400/0059.jpg) ![](https://libreboot.srht.site/img/t400/0060.jpg)
+![](https://libreboot.srht.site/img/t400/0061.jpg) ![](https://libreboot.srht.site/img/t400/0062.jpg)
 
 Separate the motherboard:\
-![](https://av.libreboot.srht.site/t400/0063.jpg) ![](https://av.libreboot.srht.site/t400/0064.jpg)
+![](https://libreboot.srht.site/img/t400/0063.jpg) ![](https://libreboot.srht.site/img/t400/0064.jpg)
 
 Connect your programmer, then connect GND and 3.3V\
-![](https://av.libreboot.srht.site/t400/0065.jpg) ![](https://av.libreboot.srht.site/t400/0066.jpg)
-![](https://av.libreboot.srht.site/t400/0067.jpg) ![](https://av.libreboot.srht.site/t400/0069.jpg)
-![](https://av.libreboot.srht.site/t400/0070.jpg) ![](https://av.libreboot.srht.site/t400/0071.jpg)
+![](https://libreboot.srht.site/img/t400/0065.jpg) ![](https://libreboot.srht.site/img/t400/0066.jpg)
+![](https://libreboot.srht.site/img/t400/0067.jpg) ![](https://libreboot.srht.site/img/t400/0069.jpg)
+![](https://libreboot.srht.site/img/t400/0070.jpg) ![](https://libreboot.srht.site/img/t400/0071.jpg)
 
 A dedicated 3.3V PSU was used to create this guide, but at ATX PSU is
 also fine:\
-![](https://av.libreboot.srht.site/t400/0072.jpg)
+![](https://libreboot.srht.site/img/t400/0072.jpg)
 
 Of course, make sure to turn on your PSU:\
-![](https://av.libreboot.srht.site/x200/disassembly/0013.jpg)
+![](https://libreboot.srht.site/img/x200/disassembly/0013.jpg)
 
 Now, you should be ready to install libreboot.
 
@@ -187,7 +187,7 @@ When re-installing the heatsink, you must first clean off all old paste
 with the alcohol/cloth. Then apply new paste. Arctic MX-4 is also much
 better than the default paste used on these systems.
 
-![](https://av.libreboot.srht.site/t400/paste.jpg)
+![](https://libreboot.srht.site/img/t400/paste.jpg)
 
 NOTE: the photo above is for illustration purposes only, and does not
 show how to properly apply the thermal paste. Other guides online detail
@@ -212,13 +212,13 @@ be useful for RAM compatibility info (note: coreboot raminit is
 different, so this page might be BS)
 
 The following photo shows 8GiB (2x4GiB) of RAM installed:\
-![](https://av.libreboot.srht.site/t400/memory.jpg)
+![](https://libreboot.srht.site/img/t400/memory.jpg)
 
 Boot it!
 --------
 
 You should see something like this:
 
-![](https://av.libreboot.srht.site/t400/boot0.jpg) ![](https://av.libreboot.srht.site/t400/boot1.jpg)
+![](https://libreboot.srht.site/img/t400/boot0.jpg) ![](https://libreboot.srht.site/img/t400/boot1.jpg)
 
 Now [install GNU+Linux](../gnulinux/).

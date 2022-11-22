@@ -119,109 +119,109 @@ The procedure
 -------------
 
 Remove all screws:\
-![](https://av.libreboot.srht.site/t500/0000.jpg)\
+![](https://libreboot.srht.site/img/t500/0000.jpg)\
 It is also advisable to, throughout the disassembly, place any screws
 and/or components that you removed in the same layout or arrangement.
 The follow photos demonstrate this:\
-![](https://av.libreboot.srht.site/t500/0001.jpg) ![](https://av.libreboot.srht.site/t500/0002.jpg)
+![](https://libreboot.srht.site/img/t500/0001.jpg) ![](https://libreboot.srht.site/img/t500/0002.jpg)
 
 Remove the HDD/SSD and optical drive:\
-![](https://av.libreboot.srht.site/t500/0003.jpg) ![](https://av.libreboot.srht.site/t500/0004.jpg)
+![](https://libreboot.srht.site/img/t500/0003.jpg) ![](https://libreboot.srht.site/img/t500/0004.jpg)
 
 Remove the palm rest:\
-![](https://av.libreboot.srht.site/t500/0005.jpg) ![](https://av.libreboot.srht.site/t500/0006.jpg)
+![](https://libreboot.srht.site/img/t500/0005.jpg) ![](https://libreboot.srht.site/img/t500/0006.jpg)
 
 Remove the keyboard and rear bezel:\
-![](https://av.libreboot.srht.site/t500/0007.jpg) ![](https://av.libreboot.srht.site/t500/0008.jpg)
-![](https://av.libreboot.srht.site/t500/0009.jpg) ![](https://av.libreboot.srht.site/t500/0010.jpg)
-![](https://av.libreboot.srht.site/t500/0011.jpg) ![](https://av.libreboot.srht.site/t500/0012.jpg)
+![](https://libreboot.srht.site/img/t500/0007.jpg) ![](https://libreboot.srht.site/img/t500/0008.jpg)
+![](https://libreboot.srht.site/img/t500/0009.jpg) ![](https://libreboot.srht.site/img/t500/0010.jpg)
+![](https://libreboot.srht.site/img/t500/0011.jpg) ![](https://libreboot.srht.site/img/t500/0012.jpg)
 
 If you have a WWAN/3G card and/or sim card reader, remove them
 permanently. The WWAN-3G card has proprietary firmware inside; the
 technology is identical to what is used in mobile phones, so it can also
 track your movements:\
-![](https://av.libreboot.srht.site/t500/0013.jpg) ![](https://av.libreboot.srht.site/t500/0017.jpg)
-![](https://av.libreboot.srht.site/t500/0018.jpg)
+![](https://libreboot.srht.site/img/t500/0013.jpg) ![](https://libreboot.srht.site/img/t500/0017.jpg)
+![](https://libreboot.srht.site/img/t500/0018.jpg)
 
 Remove this frame, and then remove the wifi chip:\
-![](https://av.libreboot.srht.site/t500/0014.jpg) ![](https://av.libreboot.srht.site/t500/0015.jpg)
-![](https://av.libreboot.srht.site/t500/0016.jpg)
+![](https://libreboot.srht.site/img/t500/0014.jpg) ![](https://libreboot.srht.site/img/t500/0015.jpg)
+![](https://libreboot.srht.site/img/t500/0016.jpg)
 
 Remove the speakers:\
-![](https://av.libreboot.srht.site/t500/0019.jpg) ![](https://av.libreboot.srht.site/t500/0020.jpg)
-![](https://av.libreboot.srht.site/t500/0021.jpg) ![](https://av.libreboot.srht.site/t500/0022.jpg)
-![](https://av.libreboot.srht.site/t500/0023.jpg) ![](https://av.libreboot.srht.site/t500/0024.jpg)
-![](https://av.libreboot.srht.site/t500/0025.jpg)
+![](https://libreboot.srht.site/img/t500/0019.jpg) ![](https://libreboot.srht.site/img/t500/0020.jpg)
+![](https://libreboot.srht.site/img/t500/0021.jpg) ![](https://libreboot.srht.site/img/t500/0022.jpg)
+![](https://libreboot.srht.site/img/t500/0023.jpg) ![](https://libreboot.srht.site/img/t500/0024.jpg)
+![](https://libreboot.srht.site/img/t500/0025.jpg)
 
 Remove the NVRAM battery (already removed in this photo):\
-![](https://av.libreboot.srht.site/t500/0026.jpg)
+![](https://libreboot.srht.site/img/t500/0026.jpg)
 
 When you re-assemble, you will be replacing the wifi chip with another.
 These two screws don't hold anything together, but they are included in
 your system because the screw holes for half-height cards are a
 different size, so use these if you will be installing a half-height
 card:\
-![](https://av.libreboot.srht.site/t500/0027.jpg)
+![](https://libreboot.srht.site/img/t500/0027.jpg)
 
 Unroute the antenna wires:\
-![](https://av.libreboot.srht.site/t500/0028.jpg) ![](https://av.libreboot.srht.site/t500/0029.jpg)
-![](https://av.libreboot.srht.site/t500/0030.jpg) ![](https://av.libreboot.srht.site/t500/0031.jpg)
+![](https://libreboot.srht.site/img/t500/0028.jpg) ![](https://libreboot.srht.site/img/t500/0029.jpg)
+![](https://libreboot.srht.site/img/t500/0030.jpg) ![](https://libreboot.srht.site/img/t500/0031.jpg)
 
 Disconnect the LCD cable from the motherboard:\
-![](https://av.libreboot.srht.site/t500/0032.jpg) ![](https://av.libreboot.srht.site/t500/0033.jpg)
+![](https://libreboot.srht.site/img/t500/0032.jpg) ![](https://libreboot.srht.site/img/t500/0033.jpg)
 
 Remove the LCD assembly hinge screws, and then remove the LCD assembly:\
-![](https://av.libreboot.srht.site/t500/0034.jpg) ![](https://av.libreboot.srht.site/t500/0035.jpg)
-![](https://av.libreboot.srht.site/t500/0036.jpg)
+![](https://libreboot.srht.site/img/t500/0034.jpg) ![](https://libreboot.srht.site/img/t500/0035.jpg)
+![](https://libreboot.srht.site/img/t500/0036.jpg)
 
 Remove the fan and heatsink:\
-![](https://av.libreboot.srht.site/t500/0037.jpg) ![](https://av.libreboot.srht.site/t500/0038.jpg)
-![](https://av.libreboot.srht.site/t500/0039.jpg)
+![](https://libreboot.srht.site/img/t500/0037.jpg) ![](https://libreboot.srht.site/img/t500/0038.jpg)
+![](https://libreboot.srht.site/img/t500/0039.jpg)
 
 Remove this screw:\
-![](https://av.libreboot.srht.site/t500/0040.jpg)
+![](https://libreboot.srht.site/img/t500/0040.jpg)
 
 Remove these cables, keeping note of how and in what arrangement they
 are connected:\
-![](https://av.libreboot.srht.site/t500/0041.jpg) ![](https://av.libreboot.srht.site/t500/0042.jpg)
-![](https://av.libreboot.srht.site/t500/0043.jpg) ![](https://av.libreboot.srht.site/t500/0044.jpg)
-![](https://av.libreboot.srht.site/t500/0045.jpg) ![](https://av.libreboot.srht.site/t500/0046.jpg)
-![](https://av.libreboot.srht.site/t500/0047.jpg) ![](https://av.libreboot.srht.site/t500/0048.jpg)
-![](https://av.libreboot.srht.site/t500/0049.jpg)
+![](https://libreboot.srht.site/img/t500/0041.jpg) ![](https://libreboot.srht.site/img/t500/0042.jpg)
+![](https://libreboot.srht.site/img/t500/0043.jpg) ![](https://libreboot.srht.site/img/t500/0044.jpg)
+![](https://libreboot.srht.site/img/t500/0045.jpg) ![](https://libreboot.srht.site/img/t500/0046.jpg)
+![](https://libreboot.srht.site/img/t500/0047.jpg) ![](https://libreboot.srht.site/img/t500/0048.jpg)
+![](https://libreboot.srht.site/img/t500/0049.jpg)
 
 Disconnect the power jack:\
-![](https://av.libreboot.srht.site/t500/0050.jpg) ![](https://av.libreboot.srht.site/t500/0051.jpg)
+![](https://libreboot.srht.site/img/t500/0050.jpg) ![](https://libreboot.srht.site/img/t500/0051.jpg)
 
 Remove the motherboard and cage from the base (the marked hole is where
 those cables were routed through):\
-![](https://av.libreboot.srht.site/t500/0052.jpg) ![](https://av.libreboot.srht.site/t500/0053.jpg)
+![](https://libreboot.srht.site/img/t500/0052.jpg) ![](https://libreboot.srht.site/img/t500/0053.jpg)
 
 Remove all screws, arranging them in the same layout when placing the
 screws on a surface and marking each screw hole (this is to reduce the
 possibility of putting them back in the wrong holes):\
-![](https://av.libreboot.srht.site/t500/0054.jpg) ![](https://av.libreboot.srht.site/t500/0055.jpg)
+![](https://libreboot.srht.site/img/t500/0054.jpg) ![](https://libreboot.srht.site/img/t500/0055.jpg)
 
 Also remove this:\
-![](https://av.libreboot.srht.site/t500/0056.jpg) ![](https://av.libreboot.srht.site/t500/0057.jpg)
+![](https://libreboot.srht.site/img/t500/0056.jpg) ![](https://libreboot.srht.site/img/t500/0057.jpg)
 
 Separate the motherboard from the cage:\
-![](https://av.libreboot.srht.site/t500/0058.jpg) ![](https://av.libreboot.srht.site/t500/0059.jpg)
+![](https://libreboot.srht.site/img/t500/0058.jpg) ![](https://libreboot.srht.site/img/t500/0059.jpg)
 
 The flash chip is next to the memory slots. On this system, it was a
 SOIC-8 (4MiB or 32Mb) flash chip:\
-![](https://av.libreboot.srht.site/t500/0060.jpg)
+![](https://libreboot.srht.site/img/t500/0060.jpg)
 
 Connect your programmer, then connect GND and 3.3V\
-![](https://av.libreboot.srht.site/t500/0061.jpg)\
-![](https://av.libreboot.srht.site/t400/0067.jpg) ![](https://av.libreboot.srht.site/t400/0069.jpg)
-![](https://av.libreboot.srht.site/t400/0070.jpg) ![](https://av.libreboot.srht.site/t400/0071.jpg)
+![](https://libreboot.srht.site/img/t500/0061.jpg)\
+![](https://libreboot.srht.site/img/t400/0067.jpg) ![](https://libreboot.srht.site/img/t400/0069.jpg)
+![](https://libreboot.srht.site/img/t400/0070.jpg) ![](https://libreboot.srht.site/img/t400/0071.jpg)
 
 A dedicated 3.3V PSU was used to create this guide, but at ATX PSU is
 also fine:\
-![](https://av.libreboot.srht.site/t400/0072.jpg)
+![](https://libreboot.srht.site/img/t400/0072.jpg)
 
 Of course, make sure to turn on your PSU:\
-![](https://av.libreboot.srht.site/x200/disassembly/0013.jpg)
+![](https://libreboot.srht.site/img/x200/disassembly/0013.jpg)
 
 Now, you should be ready to install libreboot.
 
@@ -281,7 +281,7 @@ Now flash it:
 
     ./flashrom -p linux_spi:dev=/dev/spidev1.0,spispeed=512 -w path/to/libreboot/rom/image.rom -V
 
-![](https://av.libreboot.srht.site/x200/disassembly/0015.jpg)
+![](https://libreboot.srht.site/img/x200/disassembly/0015.jpg)
 
 You might see errors, but if it says `Verifying flash... VERIFIED` at
 the end, then it's flashed and should boot. If you see errors, try
@@ -313,7 +313,7 @@ When re-installing the heatsink, you must first clean off all old paste
 with the alcohol/cloth. Then apply new paste. Arctic MX-4 is also much
 better than the default paste used on these systems.
 
-![](https://av.libreboot.srht.site/t400/paste.jpg)
+![](https://libreboot.srht.site/img/t400/paste.jpg)
 
 NOTE: the photo above is for illustration purposes only, and does not
 show how to properly apply the thermal paste. Other guides online detail
@@ -337,7 +337,7 @@ whitelist of approved chips, and it will refuse to boot if you use an
 
 The following photos show an Atheros AR5B95 being installed, to replace
 the Intel chip that this T500 came with:\
-![](https://av.libreboot.srht.site/t400/0012.jpg) ![](https://av.libreboot.srht.site/t400/ar5b95.jpg)
+![](https://libreboot.srht.site/img/t400/0012.jpg) ![](https://libreboot.srht.site/img/t400/ar5b95.jpg)
 
 WWAN
 ====
@@ -368,13 +368,13 @@ be useful for RAM compatibility info (note: coreboot raminit is
 different, so this page might be BS)
 
 The following photo shows 8GiB (2x4GiB) of RAM installed:\
-![](https://av.libreboot.srht.site/t400/memory.jpg)
+![](https://libreboot.srht.site/img/t400/memory.jpg)
 
 Boot it!
 --------
 
 You should see something like this:
 
-![](https://av.libreboot.srht.site/t500/0062.jpg)
+![](https://libreboot.srht.site/img/t500/0062.jpg)
 
 Now [install GNU+Linux](../gnulinux/).

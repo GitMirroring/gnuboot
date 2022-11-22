@@ -38,7 +38,7 @@ you re-flash a second time and set it back to 0.
 In this case, unbricking is easy: reset BUC.TS to 0 by removing that
 yellow cmos coin (it's a battery) and putting it back after a minute or
 two:\
-![](https://av.libreboot.srht.site/x60t_unbrick/0008.JPG)\
+![](https://libreboot.srht.site/img/x60t_unbrick/0008.JPG)\
 
 \*Those dd commands should be applied to all newly compiled X60 ROM
 images (the ROM images in libreboot binary archives already have this
@@ -70,43 +70,43 @@ you can't boot the system, making this difficult. In this situation,
 external hardware (see hardware requirements above) is needed which can
 flash the SPI chip (where libreboot resides).
 
-![](https://av.libreboot.srht.site/x60t_unbrick/0000.JPG)
+![](https://libreboot.srht.site/img/x60t_unbrick/0000.JPG)
 
 Remove those screws:\
-![](https://av.libreboot.srht.site/x60t_unbrick/0001.JPG)
+![](https://libreboot.srht.site/img/x60t_unbrick/0001.JPG)
 
 Remove the HDD:\
-![](https://av.libreboot.srht.site/x60t_unbrick/0002.JPG)
+![](https://libreboot.srht.site/img/x60t_unbrick/0002.JPG)
 
 Push keyboard forward to loosen it:\
-![](https://av.libreboot.srht.site/x60t_unbrick/0003.JPG)
+![](https://libreboot.srht.site/img/x60t_unbrick/0003.JPG)
 
 Lift:\
-![](https://av.libreboot.srht.site/x60t_unbrick/0004.JPG)
+![](https://libreboot.srht.site/img/x60t_unbrick/0004.JPG)
 
 Remove those:\
-![](https://av.libreboot.srht.site/x60t_unbrick/0005.JPG)
+![](https://libreboot.srht.site/img/x60t_unbrick/0005.JPG)
 
-![](https://av.libreboot.srht.site/x60t_unbrick/0006.JPG)
+![](https://libreboot.srht.site/img/x60t_unbrick/0006.JPG)
 
 Also remove that (marked) and unroute the antenna cables:\
-![](https://av.libreboot.srht.site/x60t_unbrick/0007.JPG)
+![](https://libreboot.srht.site/img/x60t_unbrick/0007.JPG)
 
 For some X60T laptops, you have to unroute those too:\
-![](https://av.libreboot.srht.site/x60t_unbrick/0010.JPG)
+![](https://libreboot.srht.site/img/x60t_unbrick/0010.JPG)
 
 Remove the LCD extend board screws. Also remove those screws (see blue
 marks) and remove/unroute the cables and remove the metal plate:\
-![](https://av.libreboot.srht.site/x60t_unbrick/0008.JPG)
+![](https://libreboot.srht.site/img/x60t_unbrick/0008.JPG)
 
 Remove that screw and then remove the board:\
-![](https://av.libreboot.srht.site/x60t_unbrick/0009.JPG)
+![](https://libreboot.srht.site/img/x60t_unbrick/0009.JPG)
 
 This photo shows the flash location:\
-![](https://av.libreboot.srht.site/x60t_unbrick/0011.JPG)
+![](https://libreboot.srht.site/img/x60t_unbrick/0011.JPG)
 
 This photo shows an SPI flasher used, with SOIC8 test clip:\
-![](https://av.libreboot.srht.site/x60/th_bbb_flashing.jpg)
+![](https://libreboot.srht.site/img/x60/th_bbb_flashing.jpg)
 
 Refer to the external flashing guide:
 

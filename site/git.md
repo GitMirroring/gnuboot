@@ -69,7 +69,7 @@ Download it like so:
 
     git clone https://notabug.org/libreboot/lbwww
 
-Images are hosted on <https://av.libreboot.srht.site/> and available in a separate
+Images are hosted on <https://libreboot.srht.site/img/> and available in a separate
 repository:
 
     git clone https://notabug.org/libreboot/lbwww-img
@@ -83,14 +83,14 @@ site generator project.
 
 If you like, you can set up a local HTTP server and build your own local
 version of the website. Please note that images will still link to the ones
-hosted on <https://av.libreboot.srht.site/>, so any images that you add to `lbwww-img`
+hosted on <https://libreboot.srht.site/img/>, so any images that you add to `lbwww-img`
 will not show up on your local `lbwww` site if you make the image links (for
-images that you add) link to av.libreboot.srht.site. However, it is required that such
-images be hosted on av.libreboot.srht.site.
+images that you add) link to libreboot.srht.site/img. However, it is required that such
+images be hosted on libreboot.srht.site/img.
 
 Therefore, if you wish to add images to the website, please also submit to the
 `lbwww-img` repository, with the links to them being
-<https://av.libreboot.srht.site/path/to/your/new/image/in/lbwww-img> for each one.
+<https://libreboot.srht.site/img/path/to/your/new/image/in/lbwww-img> for each one.
 When it is merged on the libreboot website, your images will appear live.
 
 For development purposes, you might make your images local links first, and

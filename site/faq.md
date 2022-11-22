@@ -837,18 +837,18 @@ You can find photos of various chip types on the following page:\
 Who did the logo?
 ----------------------------------------------------------------
 
-See the [license information](https://av.libreboot.srht.site/logo/license.md).
+See the [license information](https://libreboot.srht.site/img/logo/license.md).
 
-The Libreboot logo is available as a [bitmap](https://av.libreboot.srht.site/logo/logo.png), a
-[vector](https://av.libreboot.srht.site/logo/logo.svg), or a [greyscale vector](https://av.libreboot.srht.site/logo/logo_grey.svg).
+The Libreboot logo is available as a [bitmap](https://libreboot.srht.site/img/logo/logo.png), a
+[vector](https://libreboot.srht.site/img/logo/logo.svg), or a [greyscale vector](https://libreboot.srht.site/img/logo/logo_grey.svg).
 
 Libreboot Inside stickers are available as a
-[PDF](https://av.libreboot.srht.site/logo/stickers/libreboot-inside-simple-bold-1.60cmx2.00cm-diecut-3.pdf) or
+[PDF](https://libreboot.srht.site/img/logo/stickers/libreboot-inside-simple-bold-1.60cmx2.00cm-diecut-3.pdf) or
 a
-[vector](https://av.libreboot.srht.site/logo/stickers/libreboot-inside-simple-bold-1.60cmx2.00cm-diecut-3.svg)
+[vector](https://libreboot.srht.site/img/logo/stickers/libreboot-inside-simple-bold-1.60cmx2.00cm-diecut-3.svg)
 
 You can find all of the available logos by browsing this directory:\
-<https://av.libreboot.srht.site/logo/>
+<https://libreboot.srht.site/img/logo/>
 
 What other firmware exists outside of libreboot?
 ==================================================
