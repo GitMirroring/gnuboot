@@ -35,11 +35,26 @@ build:
 		./build.sh
 
 help:
-	@printf "%s\n\t%s\n\t%s\n\t%s\n" \
+	@printf "%s\n\t%s\n\t%s\n\t%s\n\t%s\n" \
 		"Available commands:" \
 		"help           # Print this help" \
+		"test           # run lighttpd on localhost:8080" \
 		"upload         # Upload the website to https://$(DOMAIN)" \
 		"website.tar.gz # Create a tarball of the website"
+
+test: website.tar.gz
+	guix shell \
+		--container \
+		--network \
+		--emulate-fhs \
+		bash \
+		coreutils \
+		gzip \
+		lighttpd \
+		sed \
+		tar \
+		-- \
+		./serve.sh website.tar.gz
 
 upload: website.tar.gz
 	curl \
@@ -54,6 +69,8 @@ index.html: index.html.tmpl
 website.tar.gz: build index.html
 	sed 's/DOMAIN/$(DOMAIN)/' index.html.tmpl > index.html
 	tar \
+		--exclude-vcs \
+		--exclude-vcs-ignores \
 		--format=gnu \
 		--mtime='1970-01-01 00:00Z' \
 		--owner=0 --group=0 --numeric-owner \
