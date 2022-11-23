@@ -32,6 +32,13 @@ else
 	git -C lbwww pull --rebase
 fi
 
+if [ ! -d lbwww-img ] ; then
+	git clone https://git.sr.ht/~gnutoo/lbwww-img
+else
+	git -C lbwww-img clean -dfx
+	git -C lbwww-img pull --rebase
+fi
+
 cd ../
 
 ./build sites lbwww

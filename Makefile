@@ -70,13 +70,13 @@ website.tar.gz: build index.html
 	sed 's/DOMAIN/$(DOMAIN)/' index.html.tmpl > index.html
 	tar \
 		--exclude-vcs \
-		--exclude-vcs-ignores \
 		--format=gnu \
 		--mtime='1970-01-01 00:00Z' \
 		--owner=0 --group=0 --numeric-owner \
 		--sort=name \
 		-czf \
 		website.tar.gz \
-		untitled/www/lbwww/site/ \
+		untitled/www/ \
 		index.html \
-		 --transform="s#untitled/www/lbwww/site/#libreboot/#" \
+		--transform="s#untitled/www/lbwww/site/#libreboot/#" \
+		--transform="s#untitled/www/lbwww-img/www/#libreboot/img/#"
