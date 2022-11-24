@@ -17,7 +17,7 @@
 set -e
 
 if [ ! -d untitled ] ; then
-	git clone https://notabug.org/untitled/untitled
+	git clone https://git.sr.ht/~gnutoo/untitled
 else
 	git -C untitled clean -dfx
 	git -C untitled pull --rebase
