@@ -11,9 +11,9 @@ found on [who.md](who.md)
 
 Libreboot has 5 Git repositories:
 
-* Build system: <https://notabug.org/libreboot/lbmk>
-* Website (+docs): <https://notabug.org/libreboot/lbwww>
-* Images (for website): <https://notabug.org/libreboot/lbwww-img>
+* Build system: <https://git.sr.ht/~libreboot/lbmk>
+* Website (+docs): <https://git.sr.ht/~libreboot/lbwww>
+* Images (for website): <https://git.sr.ht/~libreboot/lbwww-img>
 * Bucts (utility): <https://notabug.org/libreboot/bucts>
 * ich9utils (utility): <https://notabug.org/libreboot/ich9utils>
 
@@ -48,7 +48,7 @@ lbmk (libreboot-make)
 This is the core build system in Libreboot. You could say that `lbmk` *is*
 Libreboot! Download the Git repository:
 
-    git clone https://notabug.org/libreboot/lbmk
+    git clone https://git.sr.ht/~libreboot/lbmk
 
 The `git` command, seen above, will download the Libreboot build system `lbmk`.
 You can then go into it like so:
@@ -67,12 +67,12 @@ lbwww and lbwww-img
 The *entire* Libreboot website and documentation is hosted in a Git repository.
 Download it like so:
 
-    git clone https://notabug.org/libreboot/lbwww
+    git clone https://git.sr.ht/~libreboot/lbwww
 
 Images are hosted on <https://libreboot.srht.site/img/> and available in a separate
 repository:
 
-    git clone https://notabug.org/libreboot/lbwww-img
+    git clone https://git.sr.ht/~libreboot/lbwww-img
 
 Make whatever changes you like. See notes below about how to send patches.
 
