@@ -11,6 +11,12 @@ of the content. Users that want to deploy a website there are expected
 to follow the official documentation[1] to generate a token and add
 this token to the id_oauth2_bearer file in the current directory.
 
+To generate the token, you need to log in and then go on the
+https://meta.sr.ht/oauth2/personal-token page. Once there you need to
+go in "Limit scope of access grant" and to select at least SITES,
+otherwise it won't work (it would fail with the "The specified key
+does not exist." message).
+
 [1]https://srht.site/quickstart
 
 == License ==
