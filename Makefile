@@ -12,7 +12,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
-DOMAIN := gnutoo.srht.site
+DOMAIN := libreboot.srht.site
 
 .PHONY: all build help upload website.tar.gz
 
@@ -62,12 +62,8 @@ upload: website.tar.gz
 		-Fcontent=@website.tar.gz \
 		https://pages.sr.ht/publish/$(DOMAIN)
 
-index.html: index.html.tmpl
-	sed 's/DOMAIN/$(DOMAIN)/' $? > $@
-
 # See https://reproducible-builds.org/docs/archives/ for more details
-website.tar.gz: build index.html
-	sed 's/DOMAIN/$(DOMAIN)/' index.html.tmpl > index.html
+website.tar.gz: build
 	tar \
 		--exclude-vcs \
 		--format=gnu \
@@ -77,6 +73,5 @@ website.tar.gz: build index.html
 		-czf \
 		website.tar.gz \
 		untitled/www/ \
-		index.html \
-		--transform="s#untitled/www/lbwww/site/#libreboot/#" \
-		--transform="s#untitled/www/lbwww-img/www/#libreboot/img/#"
+		--transform="s#untitled/www/lbwww/site/##" \
+		--transform="s#untitled/www/lbwww-img/www/#img/#"

@@ -17,7 +17,7 @@
 set -e
 
 if [ ! -d untitled ] ; then
-	git clone https://git.sr.ht/~gnutoo/untitled
+	git clone https://git.sr.ht/~libreboot/untitled
 else
 	git -C untitled clean -dfx
 	git -C untitled pull --rebase
@@ -26,14 +26,14 @@ fi
 cd untitled  && mkdir -p www && cd www
 
 if [ ! -d lbwww ] ; then
-	git clone https://git.sr.ht/~gnutoo/lbwww
+	git clone https://git.sr.ht/~libreboot/lbwww
 else
 	git -C lbwww clean -dfx
 	git -C lbwww pull --rebase
 fi
 
 if [ ! -d lbwww-img ] ; then
-	git clone https://git.sr.ht/~gnutoo/lbwww-img
+	git clone https://git.sr.ht/~libreboot/lbwww-img
 else
 	git -C lbwww-img clean -dfx
 	git -C lbwww-img pull --rebase
