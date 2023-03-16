@@ -2,83 +2,62 @@
 title: Free your BIOS today!
 ...
 
-Libreboot is
-[freedom-respecting](https://www.gnu.org/philosophy/free-sw.html) *boot
-firmware* that initializes the hardware (e.g. memory controller, CPU,
-peripherals) on [specific Intel/AMD x86 computers](docs/hardware/) and starts
-a bootloader for your operating system. [GNU+Linux](docs/gnulinux/)
-and [BSD](docs/bsd/) are well-supported. It replaces proprietary BIOS/UEFI
-firmware. Help is available
-via [\#libreboot](https://web.libera.chat/#libreboot)
-on [Libera](https://libera.chat/) IRC.
+### What is this? ####
 
-The latest version is [Libreboot 20211122](news/libreboot20211122.md), released
-on 22 November 2021.
+Libreboot is a free software project aimed at replacing the proprietary
+BIOS firmware with an entirely free version.
 
-Join us now and flash the firmware!
------------------------------------
+### How this project came to exist ####
 
-You have rights. The right to privacy, freedom of thought, freedom of speech
-and the right to read. [Free
-software](https://www.gnu.org/philosophy/free-sw.html) gives you these rights.
-Your freedom matters.
-[Right to repair](https://vid.puffyan.us/watch?v=Npd_xDuNi9k) matters.
-Many people use [proprietary](https://www.gnu.org/proprietary/proprietary.html)
-boot firmware, even if they use [GNU+Linux](https://www.gnu.org/distros/).
-Non-free firmware often [contains](faq.html#intel) [backdoors](faq.html#amd),
-and can be buggy. Libreboot was founded in in December 2013, with the express
-purpose of making Free Software accessible for non-technical users at the
-firmware level. Libreboot can be called Open Source, [but you should call it
-Free
-Software](https://www.gnu.org/philosophy/open-source-misses-the-point.en.html).
+We believe all computer users deserve to control all the software they
+run. This belief is the foundation of a social movement called the
+*free software movement*, which consists of a large community of
+software users and developers. We believe computer user freedom is a
+vitally important goal.
 
-Libreboot uses [coreboot](https://www.coreboot.org/) for [hardware
-initialization](https://doc.coreboot.org/getting_started/architecture.html).
-Coreboot is notoriously difficult to install for most non-technical users; it
-handles only basic initialization and jumps to a separate
-[payload](https://doc.coreboot.org/payloads.html) program (e.g.
-[GRUB](https://www.gnu.org/software/grub/),
-[Tianocore](https://www.tianocore.org/)), which must also be configured.
-*Libreboot solves this problem*; it is a *coreboot distribution* with
-an [automated build system](docs/build/) that builds complete *ROM images*, for
-more robust installation. Documentation is provided.
+In order to achieve our goal, it is important that when we call a
+program free or libre, it is actually free in its entirety. That may
+seem like a lot to ask, but it would undermine our goal if we were
+flexible on our core belief: freedom.
 
-How does Libreboot differ from regular coreboot?
-------------------------------------------------
+There are free software programs that are important to the community
+and our cause. Sometimes the development team of one of these programs
+changes direction and creates the unfortunate situation where a free
+program that is used by many begins to include nonfree software. This
+is what is currently happening with the formerly free BIOS replacement
+Libreboot.
 
-Contrary to popular opinion, Libreboot's primary purpose is not to provide a
-de-blobbed coreboot setup; it is merely one of Libreboot's policies, and an
-important one, but it is nonetheless a minor aspect of Libreboot.
+Libreboot was first released in 2009. It has been widely recommended in the
+free software community for the last thirteen years. In November 2022,
+Libreboot upstream began to include nonfree software. We have made
+multiple attempts to work with upstream to keep Libreboot fully free,
+but unfortunately our efforts were not successful. As such, we've
+taken it upon ourselves to stand up for our principles and the
+freedom of the wider community, releasing our own version of a
+genuinely libre libreboot.
 
-In the same way that Trisquel is a GNU+Linux distribution, Libreboot is
-a *coreboot distribution*. If you want to build a ROM image from scratch, you
-otherwise have to perform expert-level configuration of coreboot, GRUB and
-whatever other software you need, to prepare the ROM image. With *Libreboot*,
-you can literally download from Git or a source archive, and run `make`, and it
-will build entire ROM images. Libreboot's automated build system, named `lbmk`
-(Libreboot MaKe), builds these ROM images automatically, without any user input
-or intervention required. Configuration has already been performed in advance.
+### Our short term plans and need for help ###
 
-If you were to build regular coreboot, without using Libreboot's automated
-build system, it would require a lot more intervention and decent technical
-knowledge to produce a working configuration.
+We are seeking contributors for various jobs, both simple and technical.
 
-Reguar binary releases of Libreboot provide these
-ROM images pre-compiled, and you can simply install them, with no special
-knowledge or skill except the ability to
-follow [simplified instructions, written for non-technical
-users](docs/install/).
+The Libreboot name has a long history in the free software
+community. We will continue to publish the genuinely free boot
+software by the name Libreboot. You can help our project by informing
+people about this genuinely free version. Another way to help this
+project and take a stand for fully free software is to change URLs
+across the web from <libreboot.org> to <libreboot.at>, and to let them
+know that no other version of Libreboot is reliably free software.
 
-How to help
------------
+While there is some documentation in our git repositories, we also
+need help adding explanations on how to contribute, build and test
+this website.
 
-Check the [tasks](tasks/) page and pick a task to work on. You can also check
-bugs listed on the [bug tracker](https://notabug.org/libreboot/lbmk/issues).
+Denis 'GNUtoo' Carikli and Adrien 'neox' Bourmault are the interim
+maintainers of this genuine Libreboot. They will also review patches
+sent to the mailing list. Technoethical (an online shop that sells
+hardware compatible with FSF certified distributions) and Libre en
+Communs (a French nonprofit that acts and advocates for free software
+and the commons) have offered help for testing releases.
 
-If you spot a bug and have a fix, [here are instructions for how to send
-patches](git.md), and you can also report it. Also, this entire website is
-written in Markdown and hosted in a [separate
-repository](https://notabug.org/libreboot/lbwww) where you can send patches.
-
-Libreboot development discussion and user support are all done on the IRC
-channel. More information is on the [contact page](contact.md).
+We are taking steps to ensure that our genuine Libreboot will remain
+free and continue to be maintained over time.
