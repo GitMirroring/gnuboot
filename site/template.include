@@ -95,11 +95,11 @@ $endif$
 <li><a href="/docs/install/">Install</a></li>
 <li><a href="/docs/">Docs</a></li>
 <li><a href="/news/">News</a></li>
-<li><a href="https://notabug.org/libreboot/lbmk/issues">Bugs</a></li>
+<li><a href="https://todo.sr.ht/~libreboot/Libreboot">Bugs</a></li>
 <li><a href="/tasks/">TODO</a></li>
 <li><a href="/git.html">Send patch</a></li>
 <li><a href="/contact.html">Contact</a></li>
-<li><strong><a href="https://minifree.org/">Buy preinstalled</a></strong></li>
+<li><strong><a href="https://ryf.fsf.org/categories/laptops">Buy preinstalled</a></strong></li>
 </ul>
 <hr/>
 </header>
