@@ -19,7 +19,9 @@ DOMAIN := libreboot.srht.site
 all: website.tar.gz
 
 build:
-	guix shell \
+	guix time-machine \
+	--commit=07f19ef04b5a8f4d7a12a8940333e67db8da81c0 \
+	-- shell \
 		--container \
 		--network \
 		--emulate-fhs \
