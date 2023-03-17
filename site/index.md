@@ -31,7 +31,8 @@ Libreboot was first released in 2009. It has been widely recommended
 in the free software community for the last thirteen years. In
 November 2022, "Libreboot" began to include non-libre code.  We have
 made repeated efforts to continue collaboration with those developers
-on a Libreboot which is libre, but that was not succeessful.
+on to help their version of Libreboot remain libre, but that was not
+successful.
 
 Now we've stepped forward to stand up for freedom, ours and that of
 the wider community, by maintaining our own version -- a genuinely libre
