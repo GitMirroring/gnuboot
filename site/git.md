@@ -148,26 +148,14 @@ development. However, BSD operating systems also boot on Libreboot machines.
 Send patches
 ------------
 
-Make an account on <https://notabug.org/> and navigate (while logged in) to the
-repository that you wish to work on. Click *Fork* and in your account,
-you will have your own repository of Libreboot. Clone your repository, make
-whatever changes you like to it and then push to your repository, in your
-account on NotABug. You can also do this on a new branch, if you wish.
+You can submit your patches to the 
+[libreboot-devel mailing list](https://lists.sr.ht/~libreboot/libreboot-devel),
+preferably by using [git send-email](https://git-scm.com/docs/git-send-email).
 
-In your Notabug account, you can then navigate to the official Libreboot
-repository and submit a Pull Request. The way it works is similar to other
-popular web-based Git platforms that people use these days.
+A simple guide to properly configure your git installation to send emails has
+been made by [sourcehut](https://git-send-email.io/) or you can use the 
+[sourcehut interface](https://man.sr.ht/git.sr.ht/#sending-patches-upstream) to create patches.
 
-You can submit your patches there. Alternative, you can log onto the Libreboot
-IRC channel and notify the channel of which patches you want reviewed, if you
-have your own Git repository with the patches.
-
-Once you have issued a Pull Request, the Libreboot maintainers will be notified
-via email. If you do not receive a fast enough response from the project, then
-you could also notify the project via the #libreboot channel on Libera Chat.
-
-Another way to submit patches is to email Leah Rowe directly:
-[leah@libreboot.srht.site](mailto:leah@libreboot.srht.site) is Leah's project email address.
-
-However, for transparency of the code review process, it's recommended that you
-use Notabug, for the time being.
+Once you have submitted your patch, the genuine Libreboot maintainers will be notified
+via the mailing list and will start reviewing it. You can see the status of you patch via the
+[patch tracker](https://lists.sr.ht/~libreboot/libreboot-devel/patches).
