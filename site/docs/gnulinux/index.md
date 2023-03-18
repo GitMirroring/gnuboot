@@ -3,7 +3,7 @@ title: GNU+Linux guides
 x-toc-enable: true
 ...
 
-This page is useful for those who wish to use the GRUB GRUB payload directly.
+This page is useful for those who wish to use the GNU GRUB payload directly.
 If you're using SeaBIOS, the boot process will work similarly to traditional
 BIOS systems; refer to the SeaBIOS documentation
 on <https://seabios.org/SeaBIOS>
