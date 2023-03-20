@@ -30,7 +30,7 @@ added nonfree code to it, but continued to refer to it misleadingly as
 Libreboot was first released in 2013. It has been widely recommended
 in the free software community for the last nine years. In November
 2022, "Libreboot" began to include non-libre code.  We have made
-repeated efforts to continue collaboration with those developers on to
+repeated efforts to continue collaboration with those developers to
 help their version of Libreboot remain libre, but that was not
 successful.
 
