@@ -17,6 +17,9 @@
 # For compatibility with sysexits.h (see man 3 sysexits.h for more details)
 EX_USAGE=64
 
+lbwww_uri="https://git.sr.ht/~libreboot/lbwww"
+lbwww_path=""
+
 help()
 {
 	echo "Usage: $0 [options]"
@@ -24,11 +27,17 @@ help()
 	echo "Available options:"
 	echo -e "\t-h, --help"
 	echo -e "\t\tDisplay this help and exit."
+	echo -e "\t--with-lbwww-path PATH"
+	echo -e "\t\tUse a local lbwww directory from PATH\n" \
+	     "\t\tinstead of downloading the latest version from\n" \
+	     "\t\t${lbwww_uri}"
 }
 
 if [ $# -eq 1 ] && [ "$1" = "-h" -o "$1" == "--help" ] ; then
 	help
 	exit 0
+elif [ $# -eq 2 ] && [ "$1" = "--with-lbwww-path" ] ; then
+	lbwww_path="$(realpath $2)"
 elif [ $# -ne 0 ] ; then
 	help
 	exit ${EX_USAGE}
@@ -45,11 +54,17 @@ fi
 
 cd untitled  && mkdir -p www && cd www
 
-if [ ! -d lbwww ] ; then
-	git clone https://git.sr.ht/~libreboot/lbwww
-else
+if [ -z "${lbwww_path}" ] && [ ! -d lbwww ] ; then
+	git clone "${lbwww_uri}"
+elif [ ! -d lbwww ] ; then
+	cp -a "${lbwww_path}" lbwww
+elif [ -z "${lbwww_path}" ] ; then
+	git -C lbwww remote set-url origin "${lbwww_uri}"
 	git -C lbwww clean -dfx
 	git -C lbwww pull --rebase
+else
+	rm -rf lbwww
+	cp -a "${lbwww_path}" lbwww
 fi
 
 if [ ! -d lbwww-img ] ; then
