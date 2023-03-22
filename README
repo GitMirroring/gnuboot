@@ -20,6 +20,8 @@ does not exist." message).
 [1]https://srht.site/quickstart
 
 == Dependencies ==
+* autoconf
+* automake
 * coreutils
 * curl: for uploading the website to sourcehut
 * guix

@@ -1,4 +1,4 @@
-# Copyright (C) 2022 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+# Copyright (C) 2022-2023 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,6 +18,14 @@ DOMAIN := libreboot.at
 
 all: website.tar.gz
 
+if WANT_LBWWW_PATH
+BUILD_OPTIONS := --with-lbwww-path $(LBWWW_PATH)
+GUIX_SHARE_LBWWW_OPTION := --share=`realpath $(LBWWW_PATH)`
+else
+BUILD_OPTIONS :=
+GUIX_SHARE_LBWWW_OPTION :=
+endif
+
 build:
 	guix time-machine \
 	--commit=07f19ef04b5a8f4d7a12a8940333e67db8da81c0 \
@@ -25,6 +33,7 @@ build:
 		--container \
 		--network \
 		--emulate-fhs \
+		$(GUIX_SHARE_LBWWW_OPTION) \
 		bash \
 		coreutils \
 		findutils \
@@ -34,7 +43,7 @@ build:
 		pandoc \
 		sed \
 		-- \
-		./build.sh
+		./build.sh $(BUILD_OPTIONS)
 
 help:
 	@printf "%s\n\t%s\n\t%s\n\t%s\n\t%s\n" \
