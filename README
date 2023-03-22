@@ -19,6 +19,13 @@ does not exist." message).
 
 [1]https://srht.site/quickstart
 
+== Dependencies ==
+* coreutils
+* curl: for uploading the website to sourcehut
+* guix
+* make
+* tar
+
 == License ==
 This project is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
