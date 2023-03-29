@@ -254,9 +254,9 @@ Intel NIC.
 [You must flash it externally](spi.md)
 
 D410PT is more or less the same board as D510MO, but we would like more info
-about this board. If you have a D410PT mainboard, please contact the Libreboot
-project via IRC and ping `leah` before you flash it. When you do so, please
-reference this paragraph on this web page.
+about this board. If you have a D410PT mainboard, please [contact the Libreboot
+project](../../contact.md) before you flash it. When you do so, please reference this
+paragraph on this web page.
 
 #### Gigabyte GA-G41M-ES2l (any firmware)
 
