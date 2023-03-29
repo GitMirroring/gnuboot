@@ -69,7 +69,7 @@ Download it like so:
 
     git clone https://git.sr.ht/~libreboot/lbwww
 
-Images are hosted on <https://libreboot.srht.site/img/> and available in a separate
+Images are hosted on <https://libreboot.at/img/> and available in a separate
 repository:
 
     git clone https://git.sr.ht/~libreboot/lbwww-img
@@ -83,14 +83,14 @@ site generator project.
 
 If you like, you can set up a local HTTP server and build your own local
 version of the website. Please note that images will still link to the ones
-hosted on <https://libreboot.srht.site/img/>, so any images that you add to `lbwww-img`
+hosted on <https://libreboot.at/img/>, so any images that you add to `lbwww-img`
 will not show up on your local `lbwww` site if you make the image links (for
-images that you add) link to libreboot.srht.site/img. However, it is required that such
-images be hosted on libreboot.srht.site/img.
+images that you add) link to libreboot.at/img. However, it is required that such
+images be hosted on libreboot.at/img.
 
 Therefore, if you wish to add images to the website, please also submit to the
 `lbwww-img` repository, with the links to them being
-<https://libreboot.srht.site/img/path/to/your/new/image/in/lbwww-img> for each one.
+<https://libreboot.at/img/path/to/your/new/image/in/lbwww-img> for each one.
 When it is merged on the libreboot website, your images will appear live.
 
 For development purposes, you might make your images local links first, and
@@ -112,7 +112,7 @@ contributor.
 
 In Git, for author name and email address, you do not have to use identifying
 data. You can use Libreboot Contributor and your email address could be
-specified as contributor@libreboot.srht.site. You are permitted to do this, if
+specified as contributor@libreboot.at. You are permitted to do this, if
 you wish to maintain privacy. We believe in privacy. If you choose to remain
 anonymous, we will honour this.
 
@@ -145,7 +145,7 @@ non-free.
 GNU+Linux is generally recommended as the OS of choice, for Libreboot
 development. However, BSD operating systems also boot on Libreboot machines.
 
-Send patches
+Send patches & contribute
 ------------
 
 You can submit your patches to the 
@@ -155,6 +155,18 @@ preferably by using [git send-email](https://git-scm.com/docs/git-send-email).
 A simple guide to properly configure your git installation to send emails has
 been made by [sourcehut](https://git-send-email.io/) or you can use the 
 [sourcehut interface](https://man.sr.ht/git.sr.ht/#sending-patches-upstream) to create patches.
+
+You'll have to specify the mailing list address:
+
+	git config --local sendemail.to ~libreboot/libreboot-devel@lists.sr.ht
+
+Since the mailing list accepts patches for all the repositories we manage, please specify which repository your patch is for. To do this, you'll need to use:
+
+	git config format.subjectPrefix "name_of_the_repo][PATCH"
+
+Please also sign-off your patches, which you can configure with:
+
+	git config format.signOff yes
 
 Once you have submitted your patch, the genuine Libreboot maintainers will be notified
 via the mailing list and will start reviewing it. You can see the status of you patch via the
