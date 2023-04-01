@@ -20,6 +20,9 @@ EX_USAGE=64
 lbwww_uri="https://git.sr.ht/~libreboot/lbwww"
 lbwww_path=""
 
+lbwww_img_uri="https://git.sr.ht/~libreboot/lbwww-img"
+lbwww_img_path=""
+
 help()
 {
 	echo "Usage: $0 [options]"
@@ -31,6 +34,31 @@ help()
 	echo -e "\t\tUse a local lbwww directory from PATH\n" \
 	     "\t\tinstead of downloading the latest version from\n" \
 	     "\t\t${lbwww_uri}"
+	echo -e "\t--with-lbwww-img-path PATH"
+	echo -e "\t\tUse a local lbwww-img directory from PATH\n" \
+	     "\t\tinstead of downloading the latest version from\n" \
+	     "\t\t${lbwww_img_uri}"
+}
+
+sync_repo()
+{
+	dst_path="$1"
+	src_uri="$2"
+	src_path="$3"
+
+	if [ -z "${src_path}" ] && [ ! -d "${dst_path}" ] ; then
+		git clone "${src_uri}" "${dst_path}"
+	elif [ ! -d "${dst_path}" ] ; then
+		mkdir -p "$(dirname ${dst_path})"
+		cp -a "${src_path}" "${dst_path}"
+	elif [ -z "${src_path}" ] ; then
+		git -C "${dst_path}" remote set-url origin "${src_uri}"
+		git -C "${dst_path}" clean -dfx
+		git -C "${dst_path}" pull --rebase
+	else
+		rm -rf "${dst_path}"
+		cp -a "${src_path}" "${dst_path}"
+	fi
 }
 
 if [ $# -eq 1 ] && [ "$1" = "-h" -o "$1" == "--help" ] ; then
@@ -38,6 +66,16 @@ if [ $# -eq 1 ] && [ "$1" = "-h" -o "$1" == "--help" ] ; then
 	exit 0
 elif [ $# -eq 2 ] && [ "$1" = "--with-lbwww-path" ] ; then
 	lbwww_path="$(realpath $2)"
+elif [ $# -eq 2 ] && [ "$1" = "--with-lbwww-img-path" ] ; then
+	lbwww_img_path="$(realpath $2)"
+elif [ $# -eq 4 ] && [ "$1" = "--with-lbwww-path" ]  && \
+	 [ "$3" = "--with-lbwww-img-path" ] ; then
+	lbwww_path="$(realpath $2)"
+	lbwww_img_path="$(realpath $4)"
+elif [ $# -eq 4 ] && [ "$1" = "--with-lbwww-img-path" ] && \
+	 [ "$3" = "--with-lbwww-path" ] ; then
+	lbwww_img_path="$(realpath $2)"
+	lbwww_path="$(realpath $4)"
 elif [ $# -ne 0 ] ; then
 	help
 	exit ${EX_USAGE}
@@ -52,28 +90,8 @@ else
 	git -C untitled pull --rebase
 fi
 
-cd untitled  && mkdir -p www && cd www
+sync_repo "untitled/www/lbwww" "${lbwww_uri}" "${lbwww_path}"
+sync_repo "untitled/www/lbwww-img" "${lbwww_img_uri}" "${lbwww_img_path}"
 
-if [ -z "${lbwww_path}" ] && [ ! -d lbwww ] ; then
-	git clone "${lbwww_uri}"
-elif [ ! -d lbwww ] ; then
-	cp -a "${lbwww_path}" lbwww
-elif [ -z "${lbwww_path}" ] ; then
-	git -C lbwww remote set-url origin "${lbwww_uri}"
-	git -C lbwww clean -dfx
-	git -C lbwww pull --rebase
-else
-	rm -rf lbwww
-	cp -a "${lbwww_path}" lbwww
-fi
-
-if [ ! -d lbwww-img ] ; then
-	git clone https://git.sr.ht/~libreboot/lbwww-img
-else
-	git -C lbwww-img clean -dfx
-	git -C lbwww-img pull --rebase
-fi
-
-cd ../
-
+cd untitled
 ./build sites lbwww

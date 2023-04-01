@@ -18,12 +18,17 @@ DOMAIN := libreboot.at
 
 all: website.tar.gz
 
-if WANT_LBWWW_PATH
-BUILD_OPTIONS := --with-lbwww-path $(LBWWW_PATH)
-GUIX_SHARE_LBWWW_OPTION := --share=`realpath $(LBWWW_PATH)`
-else
 BUILD_OPTIONS :=
-GUIX_SHARE_LBWWW_OPTION :=
+GUIX_SHARE_OPTIONS :=
+
+if WANT_LBWWW_PATH
+BUILD_OPTIONS += --with-lbwww-path $(LBWWW_PATH)
+GUIX_SHARE_OPTIONS += --share=`realpath $(LBWWW_PATH)`
+endif
+
+if WANT_LBWWW_IMG_PATH
+BUILD_OPTIONS += --with-lbwww-img-path $(LBWWW_IMG_PATH)
+GUIX_SHARE_OPTIONS += --share=`realpath $(LBWWW_IMG_PATH)`
 endif
 
 build:
@@ -33,7 +38,7 @@ build:
 		--container \
 		--network \
 		--emulate-fhs \
-		$(GUIX_SHARE_LBWWW_OPTION) \
+		$(GUIX_SHARE_OPTIONS) \
 		bash \
 		coreutils \
 		findutils \

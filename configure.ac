@@ -19,6 +19,8 @@ AC_CONFIG_FILES([Makefile])
 
 AC_SUBST([LBWWW_PATH], [])
 AC_SUBST([LBWWW_GIT_FOUND], [])
+AC_SUBST([LBWWW_IMG_PATH], [])
+AC_SUBST([LBWWW_IMG_GIT_FOUND], [])
 
 # Check dependencies
 AC_CHECK_PROG([CAT], [cat], [cat])
@@ -29,6 +31,7 @@ AC_CHECK_PROG([PRINTF], [printf], [printf])
 AC_CHECK_PROG([REALPATH], [realpath], [realpath])
 AC_CHECK_PROG([TAR], [tar], [tar])
 
+# --with-lbwww-path
 AC_ARG_WITH([lbwww-path],
   [AS_HELP_STRING([--with-lbwww-path=PATH],
                   [Use a local lbwww directory from PATH instead of downloading
@@ -38,9 +41,24 @@ AC_ARG_WITH([lbwww-path],
 
 AM_CONDITIONAL( [WANT_LBWWW_PATH], [test x"$LBWWW_PATH" != x""])
 
+# --with-lbwww-img-path
+AC_ARG_WITH([lbwww-img-path],
+  [AS_HELP_STRING([--with-lbwww-img-path=PATH],
+                  [Use a local lbwww-img directory from PATH instead of downloading
+		   the latest version from https://git.sr.ht/~libreboot/lbwww-img])],
+  [LBWWW_IMG_PATH=$withval],
+  [])
+
+AM_CONDITIONAL( [WANT_LBWWW_IMG_PATH], [test x"$LBWWW_IMG_PATH" != x""])
+
 AC_OUTPUT
 
-AS_IF([test x"$LBWWW_PATH" != x""],
+AS_IF([test x"$LBWWW_PATH" != x"" || test x"$LBWWW_IMG_PATH" != x""],
       [AS_ECHO(["Configuration options:"])
-       AS_ECHO([])
-       AS_ECHO(["    LBWWW_PATH: $LBWWW_PATH"])])
+       AS_ECHO([])])
+
+AS_IF([test x"$LBWWW_PATH" != x""],
+      [AS_ECHO(["    LBWWW_PATH: $LBWWW_PATH"])])
+
+AS_IF([test x"$LBWWW_IMG_PATH" != x""],
+      [AS_ECHO(["    LBWWW_IMG_PATH: $LBWWW_IMG_PATH"])])
