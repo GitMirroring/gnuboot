@@ -14,7 +14,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 DOMAIN := libreboot.at
 
-.PHONY: all build help upload website.tar.gz
+.PHONY: all build check help upload website.tar.gz
 
 all: website.tar.gz
 
@@ -45,11 +45,25 @@ build:
 		-- \
 		./build.sh $(BUILD_OPTIONS)
 
+check: website.tar.gz
+	guix shell \
+		--container \
+		--network \
+		--emulate-fhs \
+		bash \
+		coreutils \
+		grep \
+		gzip \
+		tar \
+		-- \
+		./check.sh --tarball website.tar.gz
+
 help:
 	@printf "%s\n\t%s\n\t%s\n\t%s\n\t%s\n" \
 		"Available commands:" \
 		"help           # Print this help" \
 		"test           # run lighttpd on localhost:8080" \
+		"check          # Run automatic tests" \
 		"upload         # Upload the website to https://$(DOMAIN)" \
 		"website.tar.gz # Create a tarball of the website"
 
