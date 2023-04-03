@@ -61,25 +61,45 @@ sync_repo()
 	fi
 }
 
-if [ $# -eq 1 ] && [ "$1" = "-h" -o "$1" == "--help" ] ; then
+help_missing_arg()
+{
+	printf "Error: Argument of %s is missing.\n\n" "$1"
 	help
-	exit 0
-elif [ $# -eq 2 ] && [ "$1" = "--with-lbwww-path" ] ; then
-	lbwww_path="$(realpath $2)"
-elif [ $# -eq 2 ] && [ "$1" = "--with-lbwww-img-path" ] ; then
-	lbwww_img_path="$(realpath $2)"
-elif [ $# -eq 4 ] && [ "$1" = "--with-lbwww-path" ]  && \
-	 [ "$3" = "--with-lbwww-img-path" ] ; then
-	lbwww_path="$(realpath $2)"
-	lbwww_img_path="$(realpath $4)"
-elif [ $# -eq 4 ] && [ "$1" = "--with-lbwww-img-path" ] && \
-	 [ "$3" = "--with-lbwww-path" ] ; then
-	lbwww_img_path="$(realpath $2)"
-	lbwww_path="$(realpath $4)"
-elif [ $# -ne 0 ] ; then
-	help
-	exit ${EX_USAGE}
-fi
+}
+
+i=1
+while [ $i -le $# ] ; do
+	opt="$(eval echo \$$i)"
+
+	case "${opt}" in
+		-h|--help)
+			help
+			exit 0
+			;;
+		--with-lbwww-path)
+			if [ $i -ge $# ] ; then
+				help_missing_arg "--with-lbwww-path"
+				exit ${EX_USAGE}
+			fi
+			lbwww_path="$(eval echo \$$(expr $i + 1))"
+			i="$(expr $i + 1)"
+			;;
+		--with-lbwww-img-path)
+			if [ $i -ge $# ] ; then
+				help_missing_arg "--with-lbwww-img-path"
+				exit ${EX_USAGE}
+			fi
+			lbwww_img_path="$(eval echo \$$(expr $i + 1))"
+			i="$(expr $i + 1)"
+			;;
+		*)
+			help
+			exit ${EX_USAGE}
+			;;
+	esac
+
+	i="$(expr $i + 1)"
+done
 
 set -e
 
