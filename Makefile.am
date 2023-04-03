@@ -31,6 +31,11 @@ BUILD_OPTIONS += --with-lbwww-img-path $(LBWWW_IMG_PATH)
 GUIX_SHARE_OPTIONS += --share=`realpath $(LBWWW_IMG_PATH)`
 endif
 
+if WANT_UNTITLED_PATH
+BUILD_OPTIONS += --with-untitled-path $(UNTITLED_PATH)
+GUIX_SHARE_OPTIONS += --share=`realpath $(UNTITLED_PATH)`
+endif
+
 build:
 	guix time-machine \
 	--commit=07f19ef04b5a8f4d7a12a8940333e67db8da81c0 \

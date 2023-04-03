@@ -23,6 +23,9 @@ lbwww_path=""
 lbwww_img_uri="https://git.sr.ht/~libreboot/lbwww-img"
 lbwww_img_path=""
 
+untitled_uri="https://git.sr.ht/~libreboot/untitled"
+untitled_path=""
+
 help()
 {
 	echo "Usage: $0 [options]"
@@ -38,6 +41,10 @@ help()
 	echo -e "\t\tUse a local lbwww-img directory from PATH\n" \
 	     "\t\tinstead of downloading the latest version from\n" \
 	     "\t\t${lbwww_img_uri}"
+	echo -e "\t--with-untitled-path PATH"
+	echo -e "\t\tUse a local untitled directory from PATH\n" \
+	     "\t\tinstead of downloading the latest version from\n" \
+	     "\t\t${untitled_uri}"
 }
 
 sync_repo()
@@ -92,6 +99,14 @@ while [ $i -le $# ] ; do
 			lbwww_img_path="$(eval echo \$$(expr $i + 1))"
 			i="$(expr $i + 1)"
 			;;
+		--with-untitled-path)
+			if [ $i -ge $# ] ; then
+				help_missing_arg "--with-untitled-path"
+				exit ${EX_USAGE}
+			fi
+			untitled_path="$(eval echo \$$(expr $i + 1))"
+			i="$(expr $i + 1)"
+			;;
 		*)
 			help
 			exit ${EX_USAGE}
@@ -103,13 +118,7 @@ done
 
 set -e
 
-if [ ! -d untitled ] ; then
-	git clone https://git.sr.ht/~libreboot/untitled
-else
-	git -C untitled clean -dfx
-	git -C untitled pull --rebase
-fi
-
+sync_repo "untitled" "${untitled_uri}" "${untitled_path}"
 sync_repo "untitled/www/lbwww" "${lbwww_uri}" "${lbwww_path}"
 sync_repo "untitled/www/lbwww-img" "${lbwww_img_uri}" "${lbwww_img_path}"
 
