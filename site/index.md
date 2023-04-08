@@ -59,7 +59,7 @@ While there is some documentation in our git repositories, we also
 need help adding explanations on how to contribute, build and test
 this website.
 
-Denis 'GNUtoo' Carikli and Adrien 'neox' Bourmault are the interim
+Adrien 'neox' Bourmault and Denis 'GNUtoo' Carikli are the interim
 maintainers of this genuine Libreboot.  They will also review patches
 sent to the mailing list. Technoethical (an online shop that sells
 hardware compatible with FSF certified distributions) and Libre en
