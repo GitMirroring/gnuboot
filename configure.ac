@@ -51,6 +51,14 @@ AC_ARG_WITH([lbwww-img-path],
 
 AM_CONDITIONAL( [WANT_LBWWW_IMG_PATH], [test x"$LBWWW_IMG_PATH" != x""])
 
+# --enable-lighttpd
+AC_ARG_ENABLE(lighttpd,
+  [AS_HELP_STRING([--enable-lighttpd],
+                  [Use lighttpd to run the scripts (default=enabled)])],
+  [lighttpd=$enableval],
+  [lighttpd="yes"])
+AM_CONDITIONAL( [WANT_LIGHTTPD], [test x"$lighttpd" = x"yes"])
+
 # --with-untitled-path
 AC_ARG_WITH([untitled-path],
   [AS_HELP_STRING([--with-untitled-path=PATH],
@@ -112,10 +120,15 @@ AS_IF([test x"$guix" = x"yes"],
              [AC_MSG_ERROR(
               [gzip was not found in PATH ($PATH)])])
 
-       AC_CHECK_PROG([FOUND_LIGHTTPD], [lighttpd], [lighttpd])
-       AS_IF([test x"$FOUND_LIGHTTPD" = x""],
-             [AC_MSG_ERROR(
-              [lighttpd was not found in PATH ($PATH)])])
+       AS_IF([test x"$lighttpd" = x"yes"],
+             [AC_CHECK_PROG([FOUND_LIGHTTPD], [lighttpd], [lighttpd])
+              AS_IF([test x"$FOUND_LIGHTTPD" = x""],
+                    [AC_MSG_ERROR(
+                    [lighttpd was not found in PATH ($PATH)])])],
+             [AC_CHECK_PROG([FOUND_FALSE], [false], [false])
+              AS_IF([test x"$FOUND_FALSE" = x""],
+                    [AC_MSG_ERROR(
+                    [false was not found in PATH ($PATH)])])])
 
        AC_CHECK_PROG([FOUND_MKDIR], [mkdir], [mkdir])
        AS_IF([test x"$FOUND_MKDIR" = x""],

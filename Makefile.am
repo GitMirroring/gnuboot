@@ -101,8 +101,16 @@ test: website.tar.gz
 		-- \
 		./serve.sh website.tar.gz
 else
+if WANT_LIGHTTPD
 test: website.tar.gz
 		./serve.sh website.tar.gz
+else
+test:
+	@printf "%s %s\n" \
+		"The test target is disabled." \
+		"To enable it, run './configure --enable-lighttpd'."
+	@false
+endif
 endif
 
 upload: website.tar.gz
