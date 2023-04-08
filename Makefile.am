@@ -69,7 +69,7 @@ check: website.tar.gz
 		./check.sh --tarball website.tar.gz
 
 help:
-	@printf "%s\n\t%s\n\t%s\n\t%s\n\t%s\n" \
+	@printf "%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n" \
 		"Available commands:" \
 		"help           # Print this help" \
 		"test           # run lighttpd on localhost:8080" \
