@@ -33,6 +33,13 @@ AC_CHECK_PROG([PRINTF], [printf], [printf])
 AC_CHECK_PROG([REALPATH], [realpath], [realpath])
 AC_CHECK_PROG([TAR], [tar], [tar])
 
+# --enable-guix
+AC_ARG_ENABLE(guix,
+  [AS_HELP_STRING([--enable-guix], [Use guix to run the scripts (default=enabled)])],
+  [guix=$enableval],
+  [guix="yes"])
+AM_CONDITIONAL( [WANT_GUIX], [test x"$guix" = x"yes"])
+
 # --with-lbwww-path
 AC_ARG_WITH([lbwww-path],
   [AS_HELP_STRING([--with-lbwww-path=PATH],

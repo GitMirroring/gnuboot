@@ -36,6 +36,7 @@ BUILD_OPTIONS += --with-untitled-path $(UNTITLED_PATH)
 GUIX_SHARE_OPTIONS += --share=`realpath $(UNTITLED_PATH)`
 endif
 
+if WANT_GUIX
 build:
 	guix time-machine \
 	--commit=07f19ef04b5a8f4d7a12a8940333e67db8da81c0 \
@@ -54,7 +55,11 @@ build:
 		sed \
 		-- \
 		./build.sh $(BUILD_OPTIONS)
+else
+		./build.sh $(BUILD_OPTIONS)
+endif
 
+if WANT_GUIX
 check: website.tar.gz
 	guix shell \
 		--container \
@@ -67,6 +72,10 @@ check: website.tar.gz
 		tar \
 		-- \
 		./check.sh --tarball website.tar.gz
+else
+check: website.tar.gz
+		./check.sh --tarball website.tar.gz
+endif
 
 help:
 	@printf "%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n" \
@@ -77,6 +86,7 @@ help:
 		"upload         # Upload the website to https://$(DOMAIN)" \
 		"website.tar.gz # Create a tarball of the website"
 
+if WANT_GUIX
 test: website.tar.gz
 	guix shell \
 		--container \
@@ -90,6 +100,10 @@ test: website.tar.gz
 		tar \
 		-- \
 		./serve.sh website.tar.gz
+else
+test: website.tar.gz
+		./serve.sh website.tar.gz
+endif
 
 upload: website.tar.gz
 	curl \
