@@ -49,7 +49,7 @@ usage()
 	       "Release deblobbed u-boot tarballs for all supported versions"
 	printf "\t%s [version]        # %s\n" \
 	       "${progname}" \
-	       "Release deblobbed u-boot tarballs for the given versions"
+	       "Release deblobbed u-boot tarballs for the given version"
 	printf "\t%s --list-versions  # %s\n" \
 	       "${progname}" \
 	       "List supported u-boot versions"
