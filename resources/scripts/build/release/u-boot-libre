@@ -189,10 +189,10 @@ if [ $# -eq 0 ] ; then
 		print_release_files "${version}"
 	done
 	exit 0
-elif [ $# -eq 1 ] && [ "$1" == "--help" ] ; then
+elif [ $# -eq 1 ] && [ "$1" = "--help" ] ; then
 	usage
 	exit 0
-elif [ $# -eq 1 ] && [ "$1" == "--list-versions" ] ; then
+elif [ $# -eq 1 ] && [ "$1" = "--list-versions" ] ; then
 	for version in ${supported_uboot_versions} ; do
 		printf "${version}\n"
 	done
