@@ -42,9 +42,6 @@ usage()
 	       "Download and deblob Coreboot for the given boards"
 	printf "\t%s --list-boards       # %s\n" \
 	       "${progname}" \
-	       "Prints this help"
-	printf "\t%s --help              # %s\n" \
-	       "${progname}" \
 	       "List supported boards"
 	printf "\t%s --help              # %s\n" \
 	       "${progname}" \
