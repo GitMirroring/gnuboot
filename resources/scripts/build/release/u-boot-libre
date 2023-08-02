@@ -199,8 +199,8 @@ elif [ $# -eq 1 ] && [ "$1" == "--list-versions" ] ; then
 	exit 0
 elif [ $# -eq 1 ] ; then
 	found=0
-	for revision in ${supported_uboot_revisions} ; do
-		if [ "${revision}" = "$1" ] ; then
+	for version in ${supported_uboot_versions} ; do
+		if [ "${version}" = "$1" ] ; then
 			release_deblobbed_uboot "$1"
 			release_uboot_blobs_list "$1"
 			release_uboot_deblob_script "$1"
