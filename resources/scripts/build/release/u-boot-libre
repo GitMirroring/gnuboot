@@ -65,18 +65,21 @@ usage()
 	fi
 
 	printf "Usage:\n"
-	printf "\t%s                  # %s\n" \
+	printf "\t%s [--with-guix]           # %s\n" \
 	       "${progname}" \
 	       "Release deblobbed u-boot tarballs for all supported versions"
-	printf "\t%s <version>        # %s\n" \
+	printf "\t%s <version> [--with-guix] # %s\n" \
 	       "${progname}" \
 	       "Release deblobbed u-boot tarballs for the given version"
-	printf "\t%s --list-versions  # %s\n" \
+	printf "\t%s --list-versions         # %s\n" \
 	       "${progname}" \
 	       "List supported u-boot versions"
-	printf "\t%s --help           # %s\n" \
+	printf "\t%s --help                  # %s\n" \
 	       "${progname}" \
 	       "Prints this help"
+
+	printf "\nOptions:\n\t%s\n" \
+	       "--with-guix # Use Guix to build the tarballs"
 }
 
 append_release_file()
@@ -207,7 +210,43 @@ release_uboot_deblob_script()
 	    "${destination}.xz"
 }
 
-if [ $# -eq 0 ] ; then
+guix_shell() {
+	# We use the guix v1.4.0 commit hash instead of the tag name
+	# as this way we don't need extra work to implement more
+	# robust integrity checking.
+	guix time-machine \
+		--commit="8e2f32cee982d42a79e53fc1e9aa7b8ff0514714" \
+		-- \
+		shell \
+		--container \
+		--emulate-fhs \
+		--network \
+		bash \
+		coreutils \
+		findutils \
+		gcc-toolchain \
+		gawk \
+		git \
+		grep \
+		lzip \
+		make \
+		nss-certs \
+		sed \
+		tar \
+		xz \
+		-- \
+		"$@"
+}
+
+if [ $# -eq 1 ] && [ "$1" = "--help" ] ; then
+	usage
+	exit 0
+elif [ $# -eq 1 ] && [ "$1" = "--list-versions" ] ; then
+	for version in ${supported_uboot_versions} ; do
+		printf "${version}\n"
+	done
+	exit 0
+elif [ $# -eq 0 ] ; then
 	for version in ${supported_uboot_versions} ; do
 		release_deblobbed_uboot "${version}"
 		release_uboot_blobs_list "${version}"
@@ -215,13 +254,8 @@ if [ $# -eq 0 ] ; then
 		print_release_files "${version}"
 	done
 	exit 0
-elif [ $# -eq 1 ] && [ "$1" = "--help" ] ; then
-	usage
-	exit 0
-elif [ $# -eq 1 ] && [ "$1" = "--list-versions" ] ; then
-	for version in ${supported_uboot_versions} ; do
-		printf "${version}\n"
-	done
+elif [ $# -eq 1 ] && [ "$1" = "--with-guix" ] ; then
+	guix_shell "$0"
 	exit 0
 elif [ $# -eq 1 ] ; then
 	found=0
@@ -238,6 +272,9 @@ elif [ $# -eq 1 ] ; then
 	printf "Error: Version '${1}' is not supported\n"
 
 	exit 1
+elif [ $# -eq 2 ] && [ "$2" = "--with-guix" ] ; then
+	guix_shell "$0" "$1"
+	exit 0
 fi
 
 exit 0
