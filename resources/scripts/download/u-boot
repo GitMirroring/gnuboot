@@ -36,10 +36,14 @@ deleteblobs="true"
 # find the latest supported revision.
 supported_uboot_revisions=" \
 	v2021.07 \
+	v2022.07 \
+	v2022.10 \
+	v2023.01 \
+	v2023.04 \
 "
 
 downloadfor() {
-	uboot_revision="v2021.07"
+	uboot_revision="$1"
 	uboot_dir="u-boot/u-boot"
 	if [ -d "${uboot_dir}" ]; then
 	    printf \
