@@ -20,7 +20,6 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-
 [ "x${DEBUG+set}" = 'xset' ] && set -v
 set -u -e
 
@@ -39,9 +38,31 @@ uboot_release_topdir="${topdir}/release/u-boot-libre"
 
 release_files=""
 
+# This detects if this script is called by the ./build script like
+# that: ./build release u-boot-libre [arguments]
+runs_from_build()
+{
+	i=0
+	for arg in $(strings /proc/$PPID/cmdline) ; do
+		if [ $i -eq 1 ] && [ "${arg}" != "./build" ] ; then
+			return 1
+		elif [ $i -eq 2 ] && [ "${arg}" != "release" ] ; then
+			return 1
+		elif [ $i -eq 3 ] && [ "${arg}" != "u-boot-libre" ] ; then
+			return 1
+		fi
+		i=$(expr $i + 1)
+	done
+
+	return 0
+}
+
 usage()
 {
 	progname="resources/scripts/build/release/u-boot-libre"
+	if runs_from_build ; then
+		progname="./build release u-boot-libre"
+	fi
 
 	printf "Usage:\n"
 	printf "\t%s                  # %s\n" \
