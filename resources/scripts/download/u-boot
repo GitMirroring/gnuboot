@@ -73,7 +73,8 @@ downloadfor() {
 			return 1
 		fi
 	else
-		git -C "${uboot_dir}" pull || touch build_error
+	    git -C "${uboot_dir}" fetch origin "${uboot_revision}" --tags || \
+		touch build_error
 		if [ -f build_error ]; then
 		    printf \
 			"ERROR: %s: Problem with git-pull. Network issue?\n" \
