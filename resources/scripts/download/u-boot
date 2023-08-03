@@ -45,12 +45,6 @@ supported_uboot_revisions=" \
 downloadfor() {
 	uboot_revision="$1"
 	uboot_dir="u-boot/u-boot"
-	if [ -d "${uboot_dir}" ]; then
-	    printf \
-		"REMARK: '%s' directory already exists. Skipping setup.\n" \
-		"${uboot_dir}"
-		return 0
-	fi
 
 	if [ ! -d "${uboot_dir}" ]; then
 		mkdir -p "${uboot_dir}"
