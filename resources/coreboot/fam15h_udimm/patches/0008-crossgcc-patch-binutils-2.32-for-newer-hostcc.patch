@@ -1,0 +1,29 @@
+From 4b4b2bdc2cedb3e219c6f90809e5684441b1dafa Mon Sep 17 00:00:00 2001
+From: Adrien 'neox' Bourmault <neox@gnu.org>
+Date: Sun, 8 Aug 2023 15:31:32 +0200
+Subject: [PATCH 1/1] crossgcc: patch binutils 2.32 for newer hostcc
+
+Signed-off-by: Adrien 'neox' Bourmault <neox@gnu.org>
+---
+ util/crossgcc/patches/binutils-2.32_stringfix.patch | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+ create mode 100644 util/crossgcc/patches/binutils-2.32_stringfix.patch
+
+diff --git a/util/crossgcc/patches/binutils-2.32_stringfix.patch b/util/crossgcc/patches/binutils-2.32_stringfix.patch
+new file mode 100644
+index 0000000000..de27a2752a
+--- /dev/null
++++ b/util/crossgcc/patches/binutils-2.32_stringfix.patch
+@@ -0,0 +1,10 @@
++diff -u binutils-2.32/gold/errors.h binutils-2.32.patched/gold/errors.h
++--- binutils-2.32/gold/errors.h
+++++ binutils-2.32.patched/gold/errors.h
++@@ -24,6 +24,7 @@
++ #define GOLD_ERRORS_H
++
++ #include <cstdarg>
+++#include <string>
++
++ #include "gold-threads.h"
+-- 
+2.40.1
