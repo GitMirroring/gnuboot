@@ -1,7 +1,7 @@
 From 319bd622e033aa585ca90692581bb5fe69c45ceb Mon Sep 17 00:00:00 2001
-From: Leah Rowe <leah@libreboot.org>
-Date: Sun, 31 Oct 2021 03:49:26 +0000
-Subject: [PATCH 2/3] say the name libreboot, in the grub menu
+From: Adrien 'neox' Bourmault <neox@gnu.org>
+Date: Tue, 8 Aug 2023 12:38:25 +0000
+Subject: [PATCH 3/3] say the name gnuboot, in the grub menu
 
 ---
  grub-core/normal/main.c | 2 +-
@@ -16,7 +16,7 @@ index c4ebe9e22..3b7a4fc58 100644
    grub_term_cls (term);
  
 -  msg_formatted = grub_xasprintf (_("GNU GRUB  version %s"), PACKAGE_VERSION);
-+  msg_formatted = grub_xasprintf (_("libreboot firmware, based on coreboot.    https://libreboot.org/"));
++  msg_formatted = grub_xasprintf (_("GNUBoot firmware, based on coreboot.    https://gnu.org/software/gnuboot/"));
    if (!msg_formatted)
      return;
   
