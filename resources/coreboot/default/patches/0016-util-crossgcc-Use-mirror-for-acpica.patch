@@ -1,0 +1,32 @@
+From 548e802bd59a3a3a972117ca3ddc52141bb6ceb1 Mon Sep 17 00:00:00 2001
+From: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+Date: Wed, 19 Jul 2023 02:14:01 +0200
+Subject: [PATCH] util/crossgcc: Use mirror for acpica
+
+The file is gone from upstream[1], so with guix-time-machine and guix
+build --source, I recovered it and I will publish it at the address in
+this patch.
+
+[1]https://github.com/acpica/acpica/issues/883
+
+Signed-off-by: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+---
+ util/crossgcc/buildgcc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/util/crossgcc/buildgcc b/util/crossgcc/buildgcc
+index 6c1a7a59dc2..dd32ee6ba83 100755
+--- a/util/crossgcc/buildgcc
++++ b/util/crossgcc/buildgcc
+@@ -53,7 +53,7 @@ MPFR_ARCHIVE="https://ftpmirror.gnu.org/mpfr/mpfr-${MPFR_VERSION}.tar.xz"
+ MPC_ARCHIVE="https://ftpmirror.gnu.org/mpc/mpc-${MPC_VERSION}.tar.gz"
+ GCC_ARCHIVE="https://ftpmirror.gnu.org/gcc/gcc-${GCC_VERSION}/gcc-${GCC_VERSION}.tar.xz"
+ BINUTILS_ARCHIVE="https://ftpmirror.gnu.org/binutils/binutils-${BINUTILS_VERSION}.tar.xz"
+-IASL_ARCHIVE="https://acpica.org/sites/acpica/files/acpica-unix2-${IASL_VERSION}.tar.gz"
++IASL_ARCHIVE="https://ftp.gnu.org/pub/gnu/gnuboot/mirrors/acpica.org/acpica-unix2-${IASL_VERSION}.tar.gz"
+ # CLANG toolchain archive locations
+ LLVM_ARCHIVE="https://github.com/llvm/llvm-project/releases/download/llvmorg-${CLANG_VERSION}/llvm-${CLANG_VERSION}.src.tar.xz"
+ CLANG_ARCHIVE="https://github.com/llvm/llvm-project/releases/download/llvmorg-${CLANG_VERSION}/clang-${CLANG_VERSION}.src.tar.xz"
+-- 
+2.41.0
+
