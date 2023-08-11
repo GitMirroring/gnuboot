@@ -19,3 +19,4 @@ src/vendorcode/amd/agesa/f16kb/Proc/CPU/Family/0x16/KB/F16KbId7001MicrocodePatch
 src/vendorcode/amd/agesa/f16kb/Proc/GNB/Modules/GnbInitKB/AlibSsdtKB.h
 src/vendorcode/amd/agesa/f16kb/Proc/GNB/Modules/GnbInitKB/GnbSamuPatchKB.h
 src/vendorcode/amd/agesa/f16kb/Proc/GNB/Modules/GnbInitKB/GnbSmuFirmwareKB.h
+src/vendorcode/cavium/bdk/libbdk-hal/if/bdk-if-phy-vetesse.c
