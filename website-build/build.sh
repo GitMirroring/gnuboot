@@ -17,12 +17,14 @@
 # For compatibility with sysexits.h (see man 3 sysexits.h for more details)
 EX_USAGE=64
 
-lbwww_uri="https://git.savannah.gnu.org/git/gnuboot.git"
+lbwww_uri="https://git.sr.ht/~libreboot/lbwww"
 lbwww_path=""
 
-untitled_uri="https://notabug.org/untitled/untitled.git"
+lbwww_img_uri="https://git.sr.ht/~libreboot/lbwww-img"
+lbwww_img_path=""
+
+untitled_uri="https://git.sr.ht/~libreboot/untitled"
 untitled_path=""
-untitled_commit="6941ffefe04375296732565a4628b549eea54a64"
 
 help()
 {
@@ -35,6 +37,10 @@ help()
 	echo -e "\t\tUse a local lbwww directory from PATH\n" \
 	     "\t\tinstead of downloading the latest version from\n" \
 	     "\t\t${lbwww_uri}"
+	echo -e "\t--with-lbwww-img-path PATH"
+	echo -e "\t\tUse a local lbwww-img directory from PATH\n" \
+	     "\t\tinstead of downloading the latest version from\n" \
+	     "\t\t${lbwww_img_uri}"
 	echo -e "\t--with-untitled-path PATH"
 	echo -e "\t\tUse a local untitled directory from PATH\n" \
 	     "\t\tinstead of downloading the latest version from\n" \
@@ -62,9 +68,7 @@ sync_repo()
 		    git -C "${dst_path}" remote add origin "${src_uri}"
 		git -C "${dst_path}" remote set-url origin "${src_uri}"
 		git -C "${dst_path}" clean -dfx
-		git -C "${dst_path}" fetch origin
-		git -C "${dst_path}" checkout "${src_revision}"
-
+		git -C "${dst_path}" pull --rebase
 	else
 		rm -rf "${dst_path}"
 		cp -a "${src_path}" "${dst_path}"
@@ -97,6 +101,14 @@ while [ "$i" -le $# ] ; do
 			lbwww_path="$(eval echo \$$(expr $i + 1))"
 			i="$(expr "$i" + 1)"
 			;;
+		--with-lbwww-img-path)
+			if [ $i -ge $# ] ; then
+				help_missing_arg "--with-lbwww-img-path"
+				exit ${EX_USAGE}
+			fi
+			lbwww_img_path="$(eval echo \$$(expr $i + 1))"
+			i="$(expr $i + 1)"
+			;;
 		--with-untitled-path)
 			if [ "$i" -ge $# ] ; then
 				help_missing_arg "--with-untitled-path"
@@ -116,10 +128,9 @@ done
 
 set -e
 
-sync_repo "untitled" \
-	  "${untitled_uri}" "${untitled_path}" "${untitled_commit}"
-sync_repo "untitled/www/lbwww" \
-	  "${lbwww_uri}" "${lbwww_path}" "origin/main"
+sync_repo "untitled" "${untitled_uri}" "${untitled_path}"
+sync_repo "untitled/www/lbwww" "${lbwww_uri}" "${lbwww_path}"
+sync_repo "untitled/www/lbwww/site/img" "${lbwww_img_uri}" "${lbwww_img_path}"
 
 cd untitled
 ./build sites lbwww
