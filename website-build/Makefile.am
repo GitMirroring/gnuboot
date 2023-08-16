@@ -124,5 +124,7 @@ website.tar.gz: build
 		--sort=name \
 		-czf \
 		website.tar.gz \
-		untitled/www/ \
-		--transform="s#untitled/www/lbwww/site/##"
+		untitled/www/lbwww/site \
+		index.html \
+		test/index.html \
+		--transform="s#untitled/www/lbwww/site#test/web#"

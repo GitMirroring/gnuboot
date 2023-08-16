@@ -17,11 +17,12 @@
 # For compatibility with sysexits.h (see man 3 sysexits.h for more details)
 EX_USAGE=64
 
-lbwww_uri="https://git.sr.ht/~libreboot/lbwww"
+lbwww_uri="https://git.savannah.gnu.org/git/gnuboot.git"
 lbwww_path=""
 
-untitled_uri="https://git.sr.ht/~libreboot/untitled"
+untitled_uri="https://notabug.org/untitled/untitled.git"
 untitled_path=""
+untitled_commit="e69c0d0748b8fc58d1548ea4249b93b1bbd2c6aa"
 
 help()
 {
@@ -61,7 +62,9 @@ sync_repo()
 		    git -C "${dst_path}" remote add origin "${src_uri}"
 		git -C "${dst_path}" remote set-url origin "${src_uri}"
 		git -C "${dst_path}" clean -dfx
-		git -C "${dst_path}" pull --rebase
+		git -C "${dst_path}" fetch origin
+		git -C "${dst_path}" checkout "${src_revision}"
+
 	else
 		rm -rf "${dst_path}"
 		cp -a "${src_path}" "${dst_path}"
@@ -113,8 +116,10 @@ done
 
 set -e
 
-sync_repo "untitled" "${untitled_uri}" "${untitled_path}"
-sync_repo "untitled/www/lbwww" "${lbwww_uri}" "${lbwww_path}"
+sync_repo "untitled" \
+	  "${untitled_uri}" "${untitled_path}" "${untitled_commit}"
+sync_repo "untitled/www/lbwww" \
+	  "${lbwww_uri}" "${lbwww_path}" "origin/main"
 
 cd untitled
 ./build sites lbwww

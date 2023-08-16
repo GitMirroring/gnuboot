@@ -2,8 +2,12 @@
 This project enables to easily build and deploy the Libreboot website.
 
 == Local deployments ==
-For local deployments you just need to extract the tarball in a
-webroot and have a web server serve that content.
+Here's how to deploy the website in a local webserver:
+$ ./autogen.sh
+$ ./configure
+$ make test
+
+Then you can point a browser to http://localhost:8080/software/gnuboot/test/web/
 
 == Deployment on Sourcehut ==
 Sourcehut has a way to setup a static website by uploading a tarball

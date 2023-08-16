@@ -31,8 +31,9 @@ basedir="$(dirname $(realpath $0))"
 tarball="$1"
 
 tmpdir="$(mktemp -d)"
+mkdir -p "${tmpdir}/software/gnuboot/"
 
-tar xf "${tarball}" -C "${tmpdir}"
+tar xf "${tarball}" -C "${tmpdir}/software/gnuboot/"
 
 sed "s#TMPDIR#${tmpdir}#g" \
     "${basedir}/lighttpd.conf.tmpl" > \
