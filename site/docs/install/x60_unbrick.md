@@ -38,7 +38,7 @@ you re-flash a second time and set it back to 0.
 In this case, unbricking is easy: reset BUC.TS to 0 by removing that
 yellow cmos coin (it's a battery) and putting it back after a minute or
 two:\
-![](https://libreboot.srht.site/img/x60_unbrick/0004.jpg)\
+![](/img/www/x60_unbrick/0004.jpg)\
 
 \*Those dd commands should be applied to all newly compiled X60 ROM
 images (the ROM images in libreboot binary archives already have this
@@ -71,63 +71,63 @@ external hardware (see hardware requirements above) is needed which can
 flash the SPI chip (where libreboot resides).
 
 Remove those screws:\
-![](https://libreboot.srht.site/img/x60_unbrick/0000.jpg)
+![](/img/www/x60_unbrick/0000.jpg)
 
 Push the keyboard forward (carefully):\
-![](https://libreboot.srht.site/img/x60_unbrick/0001.jpg)
+![](/img/www/x60_unbrick/0001.jpg)
 
 Lift the keyboard up and disconnect it from the board:\
-![](https://libreboot.srht.site/img/x60_unbrick/0002.jpg)
+![](/img/www/x60_unbrick/0002.jpg)
 
 Grab the right-hand side of the chassis and force it off (gently) and
 pry up the rest of the chassis:\
-![](https://libreboot.srht.site/img/x60_unbrick/0003.jpg)
+![](/img/www/x60_unbrick/0003.jpg)
 
 You should now have this:\
-![](https://libreboot.srht.site/img/x60_unbrick/0004.jpg)
+![](/img/www/x60_unbrick/0004.jpg)
 
 Disconnect the wifi antenna cables, the modem cable and the speaker:\
-![](https://libreboot.srht.site/img/x60_unbrick/0005.jpg)
+![](/img/www/x60_unbrick/0005.jpg)
 
 Unroute the cables along their path, carefully lifting the tape that
 holds them in place. Then, disconnect the modem cable (other end) and
 power connection and unroute all the cables so that they dangle by the
 monitor hinge on the right-hand side:\
-![](https://libreboot.srht.site/img/x60_unbrick/0006.jpg)
+![](/img/www/x60_unbrick/0006.jpg)
 
 Disconnect the monitor from the motherboard, and unroute the grey
 antenna cable, carefully lifting the tape that holds it into place:\
-![](https://libreboot.srht.site/img/x60_unbrick/0008.jpg)
+![](/img/www/x60_unbrick/0008.jpg)
 
 Carefully lift the remaining tape and unroute the left antenna cable so
 that it is loose:\
-![](https://libreboot.srht.site/img/x60_unbrick/0009.jpg)
+![](/img/www/x60_unbrick/0009.jpg)
 
 Remove the screw that is highlighted (do NOT remove the other one; it
 holds part of the heatsink (other side) into place):\
-![](https://libreboot.srht.site/img/x60_unbrick/0011.jpg)
+![](/img/www/x60_unbrick/0011.jpg)
 
 Remove those screws:\
-![](https://libreboot.srht.site/img/x60_unbrick/0012.jpg)
+![](/img/www/x60_unbrick/0012.jpg)
 
 Carefully remove the plate, like so:\
-![](https://libreboot.srht.site/img/x60_unbrick/0013.jpg)
+![](/img/www/x60_unbrick/0013.jpg)
 
 Remove the SATA connector:\
-![](https://libreboot.srht.site/img/x60_unbrick/0014.jpg)
+![](/img/www/x60_unbrick/0014.jpg)
 
 Now remove the motherboard (gently) and cast the lcd/chassis aside:\
-![](https://libreboot.srht.site/img/x60_unbrick/0015.jpg)
+![](/img/www/x60_unbrick/0015.jpg)
 
 Lift back that tape and hold it with something. Highlighted is the SPI
 flash chip:\
-![](https://libreboot.srht.site/img/x60_unbrick/0016.jpg)
+![](/img/www/x60_unbrick/0016.jpg)
 
 Here is another photo, with the numbers of the pins written:\
-![](https://libreboot.srht.site/img/x60_unbrick/0017.jpg)\
+![](/img/www/x60_unbrick/0017.jpg)\
 
 This photo shows an SPI flasher used, with SOIC8 test clip:\
-![](https://libreboot.srht.site/img/x60/th_bbb_flashing.jpg)
+![](/img/www/x60/th_bbb_flashing.jpg)
 
 Refer to the following guide:\
 [Externally rewrite 25xx NOR flash via SPI protocol](spi.md)
@@ -156,74 +156,74 @@ one of them following the instructions in the output.
 
 Remove the programmer and put it away somewhere. Put back the tape and
 press firmly over it:\
-![](https://libreboot.srht.site/img/x60_unbrick/0026.jpg)
+![](/img/www/x60_unbrick/0026.jpg)
 
 Your empty chassis:\
-![](https://libreboot.srht.site/img/x60_unbrick/0027.jpg)
+![](/img/www/x60_unbrick/0027.jpg)
 
 Put the motherboard back in:\
-![](https://libreboot.srht.site/img/x60_unbrick/0028.jpg)
+![](/img/www/x60_unbrick/0028.jpg)
 
 Reconnect SATA:\
-![](https://libreboot.srht.site/img/x60_unbrick/0029.jpg)
+![](/img/www/x60_unbrick/0029.jpg)
 
 Put the plate back and re-insert those screws:\
-![](https://libreboot.srht.site/img/x60_unbrick/0030.jpg)
+![](/img/www/x60_unbrick/0030.jpg)
 
 Re-route that antenna cable around the fan and apply the tape:\
-![](https://libreboot.srht.site/img/x60_unbrick/0031.jpg)
+![](/img/www/x60_unbrick/0031.jpg)
 
 Route the cable here and then (not shown, due to error on my part)
 reconnect the monitor cable to the motherboard and re-insert the
 screws:\
-![](https://libreboot.srht.site/img/x60_unbrick/0032.jpg)
+![](/img/www/x60_unbrick/0032.jpg)
 
 Re-insert that screw:\
-![](https://libreboot.srht.site/img/x60_unbrick/0033.jpg)
+![](/img/www/x60_unbrick/0033.jpg)
 
 Route the black antenna cable like so:\
-![](https://libreboot.srht.site/img/x60_unbrick/0034.jpg)
+![](/img/www/x60_unbrick/0034.jpg)
 
 Tuck it in neatly like so:\
-![](https://libreboot.srht.site/img/x60_unbrick/0035.jpg)
+![](/img/www/x60_unbrick/0035.jpg)
 
 Route the modem cable like so:\
-![](https://libreboot.srht.site/img/x60_unbrick/0036.jpg)
+![](/img/www/x60_unbrick/0036.jpg)
 
 Connect modem cable to board and tuck it in neatly like so:\
-![](https://libreboot.srht.site/img/x60_unbrick/0037.jpg)
+![](/img/www/x60_unbrick/0037.jpg)
 
 Route the power connection and connect it to the board like so:\
-![](https://libreboot.srht.site/img/x60_unbrick/0038.jpg)
+![](/img/www/x60_unbrick/0038.jpg)
 
 Route the antenna and modem cables neatly like so:\
-![](https://libreboot.srht.site/img/x60_unbrick/0039.jpg)
+![](/img/www/x60_unbrick/0039.jpg)
 
 Connect the wifi antenna cables. At the start of the tutorial, this
 system had an Intel wifi chip. Here you see I've replaced it with an
 Atheros AR5B95 (supports 802.11n and can be used without blobs):\
-![](https://libreboot.srht.site/img/x60_unbrick/0040.jpg)
+![](/img/www/x60_unbrick/0040.jpg)
 
 Connect the modem cable:\
-![](https://libreboot.srht.site/img/x60_unbrick/0041.jpg)
+![](/img/www/x60_unbrick/0041.jpg)
 
 Connect the speaker:\
-![](https://libreboot.srht.site/img/x60_unbrick/0042.jpg)
+![](/img/www/x60_unbrick/0042.jpg)
 
 You should now have this:\
-![](https://libreboot.srht.site/img/x60_unbrick/0043.jpg)
+![](/img/www/x60_unbrick/0043.jpg)
 
 Re-connect the upper chassis:\
-![](https://libreboot.srht.site/img/x60_unbrick/0044.jpg)
+![](/img/www/x60_unbrick/0044.jpg)
 
 Re-connect the keyboard:\
-![](https://libreboot.srht.site/img/x60_unbrick/0045.jpg)
+![](/img/www/x60_unbrick/0045.jpg)
 
 Re-insert the screws that you removed earlier:\
-![](https://libreboot.srht.site/img/x60_unbrick/0046.jpg)
+![](/img/www/x60_unbrick/0046.jpg)
 
 Power on!\
-![](https://libreboot.srht.site/img/x60_unbrick/0047.jpg)
+![](/img/www/x60_unbrick/0047.jpg)
 
 Operating system:\
-![](https://libreboot.srht.site/img/x60_unbrick/0049.jpg)
+![](/img/www/x60_unbrick/0049.jpg)

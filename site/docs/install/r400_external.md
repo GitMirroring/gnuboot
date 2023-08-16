@@ -81,82 +81,82 @@ Disassembly
 -----------
 
 Remove all screws:\
-![](https://libreboot.srht.site/img/r400/0000.jpg)\
+![](/img/www/r400/0000.jpg)\
 Remove the HDD and optical drive:\
-![](https://libreboot.srht.site/img/r400/0001.jpg)\
+![](/img/www/r400/0001.jpg)\
 Remove the hinge screws:\
-![](https://libreboot.srht.site/img/r400/0002.jpg) ![](https://libreboot.srht.site/img/r400/0003.jpg)
+![](/img/www/r400/0002.jpg) ![](/img/www/r400/0003.jpg)
 
 Remove the palm rest and keyboard:\
-![](https://libreboot.srht.site/img/r400/0004.jpg) ![](https://libreboot.srht.site/img/r400/0005.jpg)
+![](/img/www/r400/0004.jpg) ![](/img/www/r400/0005.jpg)
 
 Remove these screws, and then remove the bezel:\
-![](https://libreboot.srht.site/img/r400/0006.jpg) ![](https://libreboot.srht.site/img/r400/0007.jpg)
+![](/img/www/r400/0006.jpg) ![](/img/www/r400/0007.jpg)
 
 Remove the speaker screws, but don't remove the speakers yet (just set
 them loose):\
-![](https://libreboot.srht.site/img/r400/0008.jpg) ![](https://libreboot.srht.site/img/r400/0009.jpg)
-![](https://libreboot.srht.site/img/r400/0010.jpg)
+![](/img/www/r400/0008.jpg) ![](/img/www/r400/0009.jpg)
+![](/img/www/r400/0010.jpg)
 
 Remove these screws, and then remove the metal plate:\
-![](https://libreboot.srht.site/img/r400/0011.jpg) ![](https://libreboot.srht.site/img/r400/0012.jpg)
-![](https://libreboot.srht.site/img/r400/0013.jpg)
+![](/img/www/r400/0011.jpg) ![](/img/www/r400/0012.jpg)
+![](/img/www/r400/0013.jpg)
 
 Remove the antennas from the wifi card, and then start unrouting them:\
-![](https://libreboot.srht.site/img/r400/0014.jpg) ![](https://libreboot.srht.site/img/r400/0015.jpg)
-![](https://libreboot.srht.site/img/r400/0016.jpg) ![](https://libreboot.srht.site/img/r400/0017.jpg)
-![](https://libreboot.srht.site/img/r400/0018.jpg) ![](https://libreboot.srht.site/img/r400/0019.jpg)
+![](/img/www/r400/0014.jpg) ![](/img/www/r400/0015.jpg)
+![](/img/www/r400/0016.jpg) ![](/img/www/r400/0017.jpg)
+![](/img/www/r400/0018.jpg) ![](/img/www/r400/0019.jpg)
 
 Disconnect the LCD cable from the motherboard:\
-![](https://libreboot.srht.site/img/r400/0020.jpg) ![](https://libreboot.srht.site/img/r400/0021.jpg)
-![](https://libreboot.srht.site/img/r400/0022.jpg) ![](https://libreboot.srht.site/img/r400/0023.jpg)
+![](/img/www/r400/0020.jpg) ![](/img/www/r400/0021.jpg)
+![](/img/www/r400/0022.jpg) ![](/img/www/r400/0023.jpg)
 
 Remove the hinge screws, and then remove the LCD panel:\
-![](https://libreboot.srht.site/img/r400/0024.jpg) ![](https://libreboot.srht.site/img/r400/0025.jpg)
-![](https://libreboot.srht.site/img/r400/0026.jpg) ![](https://libreboot.srht.site/img/r400/0027.jpg)
+![](/img/www/r400/0024.jpg) ![](/img/www/r400/0025.jpg)
+![](/img/www/r400/0026.jpg) ![](/img/www/r400/0027.jpg)
 
 Remove this:\
-![](https://libreboot.srht.site/img/r400/0028.jpg) ![](https://libreboot.srht.site/img/r400/0029.jpg)
+![](/img/www/r400/0028.jpg) ![](/img/www/r400/0029.jpg)
 
 Remove this long cable (there are 3 connections):\
-![](https://libreboot.srht.site/img/r400/0030.jpg) ![](https://libreboot.srht.site/img/r400/0031.jpg)
-![](https://libreboot.srht.site/img/r400/0032.jpg) ![](https://libreboot.srht.site/img/r400/0033.jpg)
+![](/img/www/r400/0030.jpg) ![](/img/www/r400/0031.jpg)
+![](/img/www/r400/0032.jpg) ![](/img/www/r400/0033.jpg)
 
 Disconnect the speaker cable, and remove the speakers:\
-![](https://libreboot.srht.site/img/r400/0034.jpg)
+![](/img/www/r400/0034.jpg)
 
 Remove the heatsink screws, remove the fan and then remove the
 heatsink/fan:\
-![](https://libreboot.srht.site/img/r400/0035.jpg) ![](https://libreboot.srht.site/img/r400/0036.jpg)
-![](https://libreboot.srht.site/img/r400/0037.jpg) ![](https://libreboot.srht.site/img/r400/0038.jpg)
+![](/img/www/r400/0035.jpg) ![](/img/www/r400/0036.jpg)
+![](/img/www/r400/0037.jpg) ![](/img/www/r400/0038.jpg)
 
 Remove the NVRAM battery:\
-![](https://libreboot.srht.site/img/r400/0039.jpg) ![](https://libreboot.srht.site/img/r400/0040.jpg)
+![](/img/www/r400/0039.jpg) ![](/img/www/r400/0040.jpg)
 
 Remove this screw:\
-![](https://libreboot.srht.site/img/r400/0041.jpg) ![](https://libreboot.srht.site/img/r400/0042.jpg)
+![](/img/www/r400/0041.jpg) ![](/img/www/r400/0042.jpg)
 
 Disconnect the AC jack:\
-![](https://libreboot.srht.site/img/r400/0043.jpg) ![](https://libreboot.srht.site/img/r400/0044.jpg)
+![](/img/www/r400/0043.jpg) ![](/img/www/r400/0044.jpg)
 
 Remove this screw and then remove what is under it:\
-![](https://libreboot.srht.site/img/r400/0045.jpg)
+![](/img/www/r400/0045.jpg)
 
 Remove this:\
-![](https://libreboot.srht.site/img/r400/0046.jpg)
+![](/img/www/r400/0046.jpg)
 
 Lift the motherboard (which is still inside the cage) from the side on
 the right, removing it completely:\
-![](https://libreboot.srht.site/img/r400/0047.jpg) ![](https://libreboot.srht.site/img/r400/0048.jpg)
+![](/img/www/r400/0047.jpg) ![](/img/www/r400/0048.jpg)
 
 Remove all screws, marking each hole so that you know where to re-insert
 them. You should place the screws in a layout corresponding to the order
-that they were in before removal: ![](https://libreboot.srht.site/img/r400/0049.jpg)
-![](https://libreboot.srht.site/img/r400/0050.jpg)
+that they were in before removal: ![](/img/www/r400/0049.jpg)
+![](/img/www/r400/0050.jpg)
 
 Remove the motherboard from the cage, and the SPI flash chip will be
 next to the memory slots:\
-![](https://libreboot.srht.site/img/r400/0051.jpg) ![](https://libreboot.srht.site/img/r400/0052.jpg)
+![](/img/www/r400/0051.jpg) ![](/img/www/r400/0052.jpg)
 
 Now, you should be ready to install libreboot.
 
@@ -174,7 +174,7 @@ When re-installing the heatsink, you must first clean off all old paste
 with the alcohol/cloth. Then apply new paste. Arctic MX-4 is also much
 better than the default paste used on these systems.
 
-![](https://libreboot.srht.site/img/t400/paste.jpg)
+![](/img/www/t400/paste.jpg)
 
 NOTE: the photo above is for illustration purposes only, and does not
 show how to properly apply the thermal paste. Other guides online detail
@@ -199,13 +199,13 @@ be useful for RAM compatibility info (note: coreboot raminit is
 different, so this page might be BS)
 
 The following photo shows 8GiB (2x4GiB) of RAM installed:\
-![](https://libreboot.srht.site/img/t400/memory.jpg)
+![](/img/www/t400/memory.jpg)
 
 Boot it!
 --------
 
 You should see something like this:
 
-![](https://libreboot.srht.site/img/t400/boot0.jpg) ![](https://libreboot.srht.site/img/t400/boot1.jpg)
+![](/img/www/t400/boot0.jpg) ![](/img/www/t400/boot1.jpg)
 
 Now [install GNU+Linux](../gnulinux/).

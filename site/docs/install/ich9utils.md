@@ -307,7 +307,7 @@ Early notes {#early_notes}
     of disabling the descriptor.
 -   **and the location of GPIO33 on the x200s: (was an external link.
     Putting it here instead)**
-    [https://libreboot.srht.site/img/x200/gpio33_location.jpg](https://libreboot.srht.site/img/x200/gpio33_location.jpg) -
+    [/img/www/x200/gpio33_location.jpg](/img/www/x200/gpio33_location.jpg) -
     it's above the number 7 on TP37 (which is above the big intel chip
     at the bottom)
 -   The ME datasheet may not be for the mobile chipsets but it doesn't
