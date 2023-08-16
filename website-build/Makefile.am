@@ -51,6 +51,7 @@ build:
 		-- \
 		./build.sh $(BUILD_OPTIONS)
 else
+build:
 		./build.sh $(BUILD_OPTIONS)
 endif
 
