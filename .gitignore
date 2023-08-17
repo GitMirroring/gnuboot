@@ -1,7 +1,7 @@
+*.date
+*feed.xml
+*.hash
 *.html
+*.sha1sum
 /site/news/index*
 /site/sitemap.md
-*feed.xml
-*.sha1sum
-*.hash
-*.date
