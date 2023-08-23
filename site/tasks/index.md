@@ -599,12 +599,6 @@ default is 500ms. setting it higher like 1000s might make USB drives work in
 SeaBIOS on KFSN4-DRE. see notes
 on <https://www.seabios.org/Runtime_config#Option_ROMs>
 
-SST+macronix patches for flashrom on X60/T60
-------------------------------------------------------
-
-These binaries are referenced in the documentation currently not actually
-available and the build system (lbmk) does not produce them.
-
 Warnings about option ROMs
 --------------------------
 

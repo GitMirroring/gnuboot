@@ -48,7 +48,10 @@ run_shellcheck \
     update \
     resources/packages/coreboot/distclean \
     resources/packages/descriptors/distclean \
-    resources/packages/flashrom/distclean \
+    resources/packages/i945-thinkpads-install-utilities/clean \
+    resources/packages/i945-thinkpads-install-utilities/distclean \
+    resources/packages/i945-thinkpads-install-utilities/download \
+    resources/packages/i945-thinkpads-install-utilities/module \
     resources/packages/grub/distclean \
     resources/packages/ich9utils/distclean \
     resources/packages/memtest86plus/distclean \

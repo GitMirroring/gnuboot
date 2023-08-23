@@ -104,6 +104,56 @@ Change the name and email address to whatever you want, when doing this.
 You may also want to follow more of the steps here:
 <https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup>
 
+Guix
+====
+While GNU Boot doesn't build yet on top of Guix, it started using some
+Guix packages to build part of GNU Boot. While this provides many
+benefits, you will need to install Guix on top of a supported
+distribution to build GNU Boot binaries.
+
+There are many ways to install Guix, and they are well documented in
+the [Guix manual](https://guix.gnu.org/en/manual/) especially in the
+[Installation](https://guix.gnu.org/en/manual/en/html_node/Installation.html)
+chapter.
+
+It is also a good idea to "enable substitutes" not to have to build
+every packages and dependencies from source. If the installation
+instructions you followed don't mention that, you can still find
+documentation on it in the [Substitutes
+chapter](https://guix.gnu.org/en/manual/en/guix.html#Substitutes) in
+the Guix manual.
+
+Once Guix is installed, users are advised to update it with guix pull
+as explained in the [Invoking guix
+pull](https://guix.gnu.org/en/manual/en/html_node/Invoking-guix-pull.html)
+manual section to avoid any potential security issues.
+
+In some cases (especially if you don't enable substitutes, and that
+you have many CPU cores and not enough RAM per cores), building with
+Guix can fail.
+
+At the time of writing, Guix can use about 2GiB per core for
+updates. Building packages can also use some RAM but the types of
+packages that GNU Boot will build are unlikely to require that much
+RAM per core.
+
+If even with substitutes enabled the build still fails due to the lack
+of RAM, or if you don't want to enable substitutes, it is also
+possible to limit the amount of RAM used by limiting the number of
+cores used by Guix by passing --with-guix-build-cores=1 to the GNU
+boot ./configure script. This will pass the '-c 1' and '-M 1' options
+to guix build.
+
+Finally Guix keeps the files it downloads or builds (in /gnu/store) in
+order to speed up things, but if you use Guix extensively, at some
+point it might use too much storage space.
+
+Guix users are able to to decide when to free up space by running the
+'guix gc' command manually, but they can also control what to remove
+with various criteria. The [Invoking guix gc Guix manual
+section](https://guix.gnu.org/en/manual/devel/en/html_node/Invoking-guix-gc.html)
+has more details on how to do that.
+
 Building GNU Boot binaries
 ==========================
 
@@ -265,7 +315,7 @@ Example of downloading an individual module:
 
     ./download grub
 
-    ./download flashrom
+    ./download i945-thinkpads-install-utilities
 
 Third, build all of the modules:
 --------------------------------
@@ -291,7 +341,7 @@ Example of building specific modules:
 
     ./build module seabios
 
-    ./build module flashrom
+    ./build module i945-thinkpads-install-utilities
 
 Commands are available to *clean* a module, which basically runs make-clean.
 You can list these commands:

@@ -293,9 +293,7 @@ with Lenovo BIOS present, it's possible to flash everything except the main
 bootblock, but Intel platforms have 2 bootblocks, and you specify which one is
 to be used by setting the TS bit. You then boot with only one bootblock flashed
 (by the coreboot project's bootblock on that machine), and afterwards you reset
-bucts before flashing the ROM again, to flash the main bootblock. Libreboot
-hosts a copy of his work, because his website hosting bucts is no longer
-responsive.
+bucts before flashing the ROM again, to flash the main bootblock.
 
 Steve Shenton
 -------------

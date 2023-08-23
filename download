@@ -31,7 +31,7 @@ set -u -e
 
 . resources/scripts/misc/sysexits.sh
 
-# Some scripts like the ones in resources/packages/flashrom need
+# Some scripts like the ones in resources/packages/i945-thinkpads-install-utilities need
 # Makefiles to be generated
 . resources/scripts/misc/generate-configure-makefiles.sh
 
@@ -66,7 +66,7 @@ help() {
 	possible values for 'package':
 	$(list_packages)
 
-	Example:	./download flashrom
+	Example:	./download i945-thinkpads-install-utilities
 	Example:	./download coreboot
 
 	Some package options allow for additional parameters:

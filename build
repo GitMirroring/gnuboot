@@ -29,7 +29,7 @@ projectname="$(cat projectname)"
 
 . resources/scripts/misc/sysexits.sh
 
-# Some scripts like the ones in resources/packages/flashrom need
+# Some scripts like the ones in resources/packages/i945-thinkpads-install-utilities need
 # Makefiles to be generated
 . resources/scripts/misc/generate-configure-makefiles.sh
 
@@ -83,7 +83,7 @@ help() {
 	$(list_tasks)
 
 	Example:	./build module all
-	Example:	./build module flashrom [static]
+	Example:	./build module i945-thinkpads-install-utilities
 	Example:	./build roms withgrub
 	Example:	./build clean all
 

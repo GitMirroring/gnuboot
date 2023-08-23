@@ -15,5 +15,34 @@
 
 AC_INIT([gnuboot],[0.1],[gnuboot@gnu.org])
 AM_INIT_AUTOMAKE([foreign])
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([
+    Makefile
+    resources/packages/i945-thinkpads-install-utilities/Makefile
+])
+
+AC_SUBST([GUIX_BUILD_CORES], [])
+
+# --with-guix-build-cores
+AC_ARG_WITH([guix-build-cores],
+    [AS_HELP_STRING([--with-guix-build-cores=N],
+                  [Force guix build the use of up to N CPU cores for the build.
+                   Lowering the number of cores used can help when there is not
+                   enough RAM per core.])],
+    [GUIX_BUILD_CORES=$withval],
+    [GUIX_BUILD_CORES=0])
+
+AC_CHECK_PROG([FOUND_GUIX], [guix], [guix])
+AS_IF([test x"$FOUND_GUIX" = x""],
+      [AC_MSG_ERROR(
+      [guix was not found in PATH ($PATH)])])
+
+AC_CHECK_PROG([FOUND_GUIX], [guix], [guix])
+AS_IF([test x"$FOUND_GUIX" = x""],
+      [AC_MSG_ERROR(
+      [guix was not found in PATH ($PATH)])])
+
 AC_OUTPUT
+
+AS_ECHO(["Configuration options:"])
+
+AS_ECHO(["    GUIX_BUILD_CORES: $GUIX_BUILD_CORES"])
