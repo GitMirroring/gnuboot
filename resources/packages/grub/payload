@@ -3,6 +3,7 @@
 #   generate GRUB ELF files (coreboot payload) and configuration files
 #
 #	Copyright (C) 2014, 2015, 2020, 2021 Leah Rowe <info@minifree.org>
+#	Copyright (C) 2023 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 #
 #	This program is free software: you can redistribute it and/or modify
 #	it under the terms of the GNU General Public License as published by
@@ -27,11 +28,7 @@ source "resources/grub/modules.list"
 
 printf "Creating GRUB payloads and configuration files\n"
 
-if [ ! -d "grub/" ]; then
-	./download grub
-fi
-
-if [ ! -f "grub/grub-mkstandalone" ]; then
+if [ ! -f "grub/bin/bin/grub-mkstandalone" ]; then
 	./build module grub
 fi
 
@@ -50,11 +47,11 @@ for keylayoutfile in resources/grub/keymap/*.gkb; do
 	keymap="${keylayoutfile##resources/grub/keymap/}"
 	keymap="${keymap%.gkb}"
 
-	grub/grub-mkstandalone \
-		--grub-mkimage="grub/grub-mkimage" \
+	grub/bin/bin/grub-mkstandalone \
+		--grub-mkimage="grub/bin/bin/grub-mkimage" \
 		-O i386-coreboot \
-		-o payload/grub/grub_${keymap}.elf \
-		-d grub/grub-core/ \
+		-o payload/grub/grub_"${keymap}".elf \
+		-d grub/bin/lib/grub/i386-coreboot/ \
 		--fonts= --themes= --locales=  \
 		--modules="${grub_modules}" \
 		--install-modules="${grub_install_modules}" \
@@ -78,4 +75,4 @@ for keylayoutfile in resources/grub/keymap/*.gkb; do
 	       "${keymap}"
 done
 
-printf "Done! Check payload/grub/ to see the files.\n\n"
+printf "Done! Check payload/grub/bin/ to see the files.\n\n"

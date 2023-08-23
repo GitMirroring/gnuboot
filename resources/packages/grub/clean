@@ -29,11 +29,4 @@ printf "Cleaning the previous build of GRUB\n"
 
 [ ! -d "grub/" ] && exit 0
 
-(
-    cd grub/
-    if [ -f Makefile ]; then
-        make distclean
-    fi
-)
-
-printf "\n\n"
+rm -rf grub/

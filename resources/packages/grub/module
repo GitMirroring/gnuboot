@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-#  helper script: builds GRUB2 source code
+#  helper script: Downloads GRUB and patches it.
 #
-#	Copyright (C) 2014, 2015, 2020 Leah Rowe <info@minifree.org>
-#   Copyright (C) 2015, 2016 Klemens Nanni <contact@autoboot.org>
+#    Copyright (C) 2014, 2015, 2016, 2020, 2021 Leah Rowe <info@minifree.org>
+#    Copyright (C) 2023 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -19,31 +19,151 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-# This script assumes that the working directory is the root
-# of git or release archive
+guix_revision="v1.4.0"
+gnuboot_package_name=$(dirname "$0")
+guix_package_name="grub-coreboot"
 
 [ "x${DEBUG+set}" = 'xset' ] && set -v
 set -u -e
 
-# Build GRUB2 as coreboot payload
+usage()
+{
+    if is_download ; then
+        progname="./download ${gnuboot_package_name}"
+    elif is_build_module ; then
+        progname="./build module ${gnuboot_package_name}"
+    else
+        progname="$0"
+    fi
 
-printf "Building GRUB\n"
+    printf "Usage:\n"
+    printf "\t%s         # %s\n" \
+           "${progname}" \
+           "Download ${gnuboot_package_name}"
+    printf "\t%s --help  # %s\n" \
+           "${progname}" \
+           "Prints this help"
+}
 
-if [ ! -d "grub/" ]; then
-    ./download grub
+is_download()
+{
+    [ "$(basename $0)" = "download" ]
+}
+
+is_build_module()
+{
+    [ "$(basename $0)" = "module" ]
+}
+
+guix_command()
+{
+    guix time-machine --commit="${guix_revision}" -- "$@"
+}
+
+install_guix_build_package_source()
+{
+    destination="$1"
+
+    printf \
+        "Downloading %s complete and corresponding source code with Guix\n" \
+        "${gnuboot_package_name}"
+
+    # Here we want to show the download process if there is one, not to
+    # panick the user if nothing happens. What is going on will be self
+    # explanatory as the user will see GRUB's download process.
+    guix_command \
+        build \
+	-L resources/guix/packages \
+	-L resources/guix/patches \
+        --sources=transitive \
+        "${guix_package_name}" 1>/dev/null
+
+    # We also want to show the /gnu/store path but with a proper
+    # explanation as otherwise that could confuse users.
+    printf \
+        "Copying the following %s source code and dependencies in %s:\n" \
+        "${gnuboot_package_name}" \
+        "${destination}"
+
+    guix_command \
+        build \
+        -L resources/guix/packages \
+        -L resources/guix/patches \
+        --sources=transitive \
+        "${guix_package_name}" | while IFS='' read -r path
+    do
+        printf '%s %s\n' '-' "${path}"
+    done
+
+    guix_command \
+        build \
+        -L resources/guix/packages \
+        -L resources/guix/patches \
+        --sources=transitive \
+        "${guix_package_name}" | while IFS='' read -r path
+    do
+        cp -a "${path}" "${destination}"
+    done
+
+    printf "Copying package definition and patch(es) in %s:\n" \
+           "${destination}"
+
+    printf '%s %s\n' '-' \
+           resources/guix/"${guix_package_name}".scm
+
+    cp \
+        resources/guix/"${guix_package_name}".scm \
+        "${destination}"
+}
+
+install_guix_build_package()
+{
+    destination="$1"
+
+    # Here too we want to show the build process if there is one, not to
+    # panick the user if nothing happens. What is going on will be self
+    # explanatory as the user will see GRUB's build process.
+    guix_command build \
+                 -L resources/guix/packages \
+                 -L resources/guix/patches \
+                 "${guix_package_name}" 1>/dev/null
+
+    # Here too we also want to show the /gnu/store path but with a proper
+    # explanation as otherwise that could confuse users.
+    printf "Using GRUB binaries from %s\n" \
+           "$(guix_command build \
+                           -L resources/guix/packages \
+                           -L resources/guix/patches \
+                           "${guix_package_name}")"
+
+    cp -a "$(guix_command build \
+                -L resources/guix/packages \
+                -L resources/guix/patches \
+                "${guix_package_name}")"/* \
+       "${destination}"
+}
+
+if [ $# -ne 0 ] ; then
+    usage
+    exit 0
 fi
 
-# use a subshell to not end up in grub/ in case of build issues
-(
-cd grub/
+# Remove the old version that may still exist
+# ------------------------------------------------------------------------------
 
-# clean up first
-[ -d Makefile ] && make distclean
+printf "+---------------------------------------------------+\n"
+printf "| Downloading and/or building the package with Guix |\n"
+printf "+---------------------------------------------------+\n"
 
-./bootstrap --gnulib-srcdir=gnulib/ --no-git 
+# Files in the Guix store don't have write permissions set, so if we
+# don't add them we can't delete grub/.
+if [ -d "grub/" ] ; then
+    chmod +w -R grub/
+    rm -Rf "grub/"
+fi
 
-# build
-./autogen.sh
-./configure --with-platform=coreboot
-make -j$(nproc)
-)
+install -d grub/bin
+install -d grub/src
+
+install_guix_build_package_source grub/src
+install_guix_build_package grub/bin
