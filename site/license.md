@@ -4,7 +4,7 @@ x-reviewed: true
 ...
 
 Unless otherwise stated, every page and image (e.g. JPG/PNG files) on
-libreboot.srht.site or in the repository that it is built on, is released under the
+GNU Boot or in the repository that it is built on, is released under the
 terms of the GNU Free Documentation License, either version 1.3 or (at your
 option) any newer version as published by the [Free Software
 Foundation](https://www.fsf.org/), with no Invariant Sections, no Front Cover
