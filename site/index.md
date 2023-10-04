@@ -48,13 +48,13 @@ to libre boot software by a different name.  Therefore, we need help
 from the wider community to inform people about the inclusion of
 nonfree software in the Libreboot releases.
 
-You can also help our project by informing people about this genuinely
-free version of Libreboot.
-
 Another way to help this project and take a stand for fully free
 software is to change URLs across the web from <libreboot.org> to
 <gnu.org/software/gnuboot>, to make sure that the mentioned software
 is reliably free software.
+
+You can also help our project by informing people about GNU boot or
+other 100% free boot software.
 
 While there is some documentation in our git repositories, we also
 need help adding explanations on how to contribute, build and test
