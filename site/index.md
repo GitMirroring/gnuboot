@@ -63,10 +63,10 @@ this website.
 
 Adrien 'neox' Bourmault and Denis 'GNUtoo' Carikli are the interim
 maintainers of this GNU Boot project.  They will also review patches
-sent to the mailing list. Technoethical (an online shop that sells
-hardware compatible with FSF certified distributions) and Libre en
-Communs (a French nonprofit that acts and advocates for free software
-and the commons) have offered help for testing releases.
+sent to the mailing list.
+
+Several organizations and people have already offered help for testing
+the first release candidate.
 
 Making this project part of GNU is part of our work to ensure that our
 genuine Libreboot version remains free and continue to be maintained
