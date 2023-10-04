@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html$if(lang)$ lang="$lang$"$endif$$if(dir)$ dir="$dir$"$endif$>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+$for(author-meta)$
+  <meta name="author" content="$author-meta$">
+$endfor$
+$if(date-meta)$
+  <meta name="dcterms.date" content="$date-meta$">
+$endif$
+$if(keywords)$
+  <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$">
+$endif$
+  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+<style type="text/css">
+html{
+	background:#fff;
+	color:#222;
+}
+.date,.author,.h a{display:none}
+code,pre,#TOC,a:hover{background:#eee}
+:not(p),a:hover {
+	max-width:60em;
+	margin:0 auto;
+	font-family:sans-serif;
+	line-height:1.4
+}
+a{color:#22d}
+.title>*, header ul>li, .nav ul>li,
+#footer ul>li, .h:hover>*
+ul>li
+{
+	display:inline;
+	margin:.7%;
+	text-align:center;
+}
+.title>*,span.date{display:block}
+img,video,iframe{max-width:100%}
+#TOC{
+	float:left;
+	margin:1em
+}
+html,ul,#TOC{padding:1em}
+@media (min-width:60em) {
+	.title-logo{display:none}
+	div.title {background-position:right}
+	h1.title {padding:0 4em}
+	#TOC{min-width:25%}
+}
+</style>
+$if(quotes)$
+  <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
+$endif$
+$if(highlighting-css)$
+  <style type="text/css">
+$highlighting-css$
+  </style>
+$endif$
+$for(css)$
+  <link rel="stylesheet" href="$css$">
+$endfor$
+$if(math)$
+  $math$
+$endif$
+$for(header-includes)$
+  $header-includes$
+$endfor$
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml"/>
+</head>
+<body>
+<div class="page">
+$for(include-before)$
+$include-before$
+$endfor$
+$if(title)$
+<header>
+<div class="title">
+<h1 class="title">$title$</h1>
+</div>
+$if(subtitle)$
+<p class="subtitle">$subtitle$</p>
+$endif$
+$for(author)$
+<p class="author">$author$</p>
+$endfor$
+$if(date)$
+<p class="date">$date$</p>
+$endif$
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/faq.html">FAQ</a></li>
+<li><a href="/download.html">Download</a></li>
+<li><a href="/docs/install/">Install</a></li>
+<li><a href="/docs/">Docs</a></li>
+<li><a href="/news/">News</a></li>
+<li><a href="https://todo.sr.ht/~libreboot/Libreboot">Bugs</a></li>
+<li><a href="/tasks/">TODO</a></li>
+<li><a href="/git.html">Send patch</a></li>
+<li><a href="/contact.html">Contact</a></li>
+<li><strong><a href="https://ryf.fsf.org/categories/laptops">Buy preinstalled</a></strong></li>
+</ul>
+<hr/>
+$if(x-reviewed)$
+$else$
+<p>
+  The information on this page could be outdated or refer to other
+  boot software related projects instead of GNU Boot. We also need
+  help (ideally in the form of patches sent to the GNU Boot mailing
+  list) to fix this website.
+</p>
+<hr/>
+$endif$
+</header>
+$endif$
+$if(return)$
+$return$
+$endif$
+$if(toc)$
+<nav id="$idprefix$TOC">
+<h1>Navigate this page:</h1>
+$toc$
+</nav>
+$endif$
+$if(toc)$
+<div class="pagetext">
+$endif$
+$body$
+$for(include-after)$
+$include-after$
+$endfor$
+$if(toc)$
+</div>
+$endif$
+</div>
+</body>
+</html>

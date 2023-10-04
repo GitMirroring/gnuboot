@@ -5,12 +5,16 @@
 /build_error
 /coreboot/
 /crossgcc/
+*.date
 /depthcharge/
 /descriptors/
 /docs/version
 /*.elf
+*feed.xml
 /flashrom/
 /grub/
+*.hash
+*.html
 /ich9utils/
 /me_cleaner/
 /memtest86plus/
@@ -21,6 +25,9 @@
 /*.rom
 *.s[a-w]?
 /seabios/
+*.sha1sum
+/site/news/index*
+/site/sitemap.md
 /tmp/
 /TODO
 /TODO/
