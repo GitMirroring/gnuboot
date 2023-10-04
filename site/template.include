@@ -102,6 +102,16 @@ $endif$
 <li><strong><a href="https://ryf.fsf.org/categories/laptops">Buy preinstalled</a></strong></li>
 </ul>
 <hr/>
+$if(x-reviewed)$
+$else$
+<p>
+  The information on this page could be outdated or refer to other
+  boot software related projects instead of GNU Boot. We also need
+  help (ideally in the form of patches sent to the GNU Boot mailing
+  list) to fix this website.
+</p>
+<hr/>
+$endif$
 </header>
 $endif$
 $if(return)$

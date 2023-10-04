@@ -1,5 +1,6 @@
 ---
 title: Free your BIOS today!
+x-reviewed: true
 ...
 
 ### What is this? ####

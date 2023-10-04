@@ -1,6 +1,7 @@
 ---
 title: License
 x-toc-enable: true
+x-reviewed: true
 ...
 
 Unless otherwise stated, every page and image (e.g. JPG/PNG files) on
