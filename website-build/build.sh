@@ -52,19 +52,29 @@ sync_repo()
 	dst_path="$1"
 	src_uri="$2"
 	src_path="$3"
+	src_revision="$4"
 
 	if [ -z "${src_path}" ] && [ ! -d "${dst_path}" ] ; then
 		git clone "${src_uri}" "${dst_path}"
+		git -C "${dst_path}" checkout "${src_revision}"
 	elif [ ! -d "${dst_path}" ] ; then
 		mkdir -p "$(dirname ${dst_path})"
 		cp -a "${src_path}" "${dst_path}"
+		if [ -n "${src_revision}" ] ; then
+			git -C "${dst_path}" checkout "${src_revision}"
+		fi
 	elif [ -z "${src_path}" ] ; then
+		git -C "${dst_path}" remote get-url origin || \
+		    git -C "${dst_path}" remote add origin "${src_uri}"
 		git -C "${dst_path}" remote set-url origin "${src_uri}"
 		git -C "${dst_path}" clean -dfx
 		git -C "${dst_path}" pull --rebase
 	else
 		rm -rf "${dst_path}"
 		cp -a "${src_path}" "${dst_path}"
+		if [ -n "${src_revision}" ] ; then
+			git -C "${dst_path}" checkout "${src_revision}"
+		fi
 	fi
 }
 
