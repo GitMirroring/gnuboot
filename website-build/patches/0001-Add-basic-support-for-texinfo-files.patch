@@ -1,0 +1,52 @@
+From 9a4ca3519f5081d21e80c7e57046080138baf3fe Mon Sep 17 00:00:00 2001
+From: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+Date: Wed, 16 Aug 2023 19:25:53 +0200
+Subject: [PATCH] Add basic support for texinfo files
+
+This enables a progressive migration toward texi to better integrate
+with the GNU standards.
+
+Signed-off-by: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+---
+ build | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
+diff --git a/build b/build
+index 40587ff..55d8521 100755
+--- a/build
++++ b/build
+@@ -194,6 +194,20 @@ getlangname() {
+ 	return 0
+ }
+ 
++# convert pandoc-markdown file into html, using a template file
++mkmarkdown() {
++	FILE=${1%.texi}
++	SITEDIR="www/${2}"
++
++	printf "Generating '%s.md'\n" "${FILE}"
++
++	texi2any --no-validate --no-warn --force --docbook \
++		"${FILE}.texi" -o "${FILE}.xml"
++
++	pandoc --from docbook --to markdown \
++		"${FILE}.xml" -o "${FILE}.md"
++}
++
+ # convert pandoc-markdown file into html, using a template file
+ mkhtml() {
+ 	FILE=${1%.md}
+@@ -818,6 +832,10 @@ buildsite() {
+ 	fi
+ 	TESTDIR="${TESTDIR##$(pwd)/${SITEDIR}/site/}"
+ 
++	for texifile in $(find -L ${SITEDIR}/site/ -name '*.texi'); do
++		mkmarkdown "${texifile}" "${SITEDIR##*/}"
++	done
++
+ 	for mdfile in $(find -L ${SITEDIR}/site/ -name '*.md'); do
+ 		mkhtml "${mdfile}" "${SITEDIR##*/}" "${TITLE}" "${CSS}" \
+ 			"${DEFAULTLANG}" "${LAZY}"
+-- 
+2.41.0
+

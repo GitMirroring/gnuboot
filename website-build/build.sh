@@ -20,6 +20,9 @@ EX_USAGE=64
 untitled_uri="https://notabug.org/untitled/untitled.git"
 untitled_path=""
 untitled_commit="6941ffefe04375296732565a4628b549eea54a64"
+untitled_patches="\
+	patches/0001-Add-basic-support-for-texinfo-files.patch \
+"
 
 help()
 {
@@ -40,6 +43,7 @@ sync_repo()
 	src_uri="$2"
 	src_path="$3"
 	src_revision="$4"
+	src_patches="$5"
 
 	if [ -z "${src_path}" ] && [ ! -d "${dst_path}" ] ; then
 		git clone "${src_uri}" "${dst_path}"
@@ -65,6 +69,18 @@ sync_repo()
 			git -C "${dst_path}" checkout "${src_revision}"
 		fi
 	fi
+
+	if git -C "${dst_path}"  status | \
+	       grep '^rebase in progress;' > /dev/null ; then
+		git -C "${dst_path}" am --abort
+	fi
+
+
+	for patch in ${src_patches} ; do
+		GIT_COMMITTER_EMAIL="noreply@gnuboot.gnu.org" \
+		GIT_COMMITTER_NAME="website-build" \
+			git -C "${dst_path}" am $(realpath ${patch})
+	done
 }
 
 copy_website()
@@ -112,7 +128,8 @@ done
 set -e
 
 sync_repo "untitled" \
-	  "${untitled_uri}" "${untitled_path}" "${untitled_commit}"
+	  "${untitled_uri}" "${untitled_path}" \
+	  "${untitled_commit}" "${untitled_patches}"
 copy_website "untitled/www/lbwww/"
 
 cd untitled
