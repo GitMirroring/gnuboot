@@ -1,0 +1,7 @@
+Released under the terms of:
+Creative Commons Attribution 4.0 International license (CC-BY-4.0)
+
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+Given to Leah Rowe by Michael Büchler <michael.buechler@posteo.net> on 11 May 2021.
+This version has the soic8 pinout annotated by Leah Rowe, and that is the only modification.
