@@ -131,6 +131,4 @@ website.tar.gz: build
 		-czf \
 		website.tar.gz \
 		untitled/www/lbwww/site \
-		index.html \
-		test/index.html \
-		--transform="s#untitled/www/lbwww/site#test/web#"
+		--transform="s#untitled/www/lbwww/site/##"
