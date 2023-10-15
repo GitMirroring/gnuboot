@@ -12,7 +12,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
-DOMAIN := libreboot.at
+DOMAIN := gnu.org/software/gnuboot
 
 .PHONY: all build check help deploy website.tar.gz
 
@@ -131,4 +131,6 @@ website.tar.gz: build
 		-czf \
 		website.tar.gz \
 		untitled/www/lbwww/site \
-		--transform="s#untitled/www/lbwww/site/##"
+		index.html \
+		test/index.html \
+		--transform="s#untitled/www/lbwww/site#test/web#"
