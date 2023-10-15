@@ -19,6 +19,8 @@ AC_CONFIG_FILES([Makefile])
 
 AC_SUBST([LBWWW_PATH], [])
 AC_SUBST([LBWWW_GIT_FOUND], [])
+AC_SUBST([LBWWW_IMG_PATH], [])
+AC_SUBST([LBWWW_IMG_GIT_FOUND], [])
 AC_SUBST([RSYNC_DESTINATION], [])
 AC_SUBST([UNTITLED_PATH], [])
 AC_SUBST([UNTITLED_GIT_FOUND], [])
@@ -40,6 +42,17 @@ AC_ARG_WITH([lbwww-path],
   [])
 
 AM_CONDITIONAL( [WANT_LBWWW_PATH], [test x"$LBWWW_PATH" != x""])
+
+# --with-lbwww-img-path
+AC_ARG_WITH([lbwww-img-path],
+  [AS_HELP_STRING([--with-lbwww-img-path=PATH],
+                  [Use a local lbwww-img directory from PATH instead of downloading
+		   the latest version from
+		   https://git.savannah.gnu.org/git/gnuboot.git])],
+  [LBWWW_IMG_PATH=$withval],
+  [])
+
+AM_CONDITIONAL( [WANT_LBWWW_IMG_PATH], [test x"$LBWWW_IMG_PATH" != x""])
 
 # --enable-lighttpd
 AC_ARG_ENABLE(lighttpd,
@@ -73,6 +86,7 @@ AC_ARG_WITH([untitled-path],
 AM_CONDITIONAL( [WANT_UNTITLED_PATH], [test x"$UNTITLED_PATH" != x""])
 
 # Check dependencies
+AC_CHECK_PROG([CURL], [curl], [curl])
 AC_CHECK_PROG([REALPATH], [realpath], [realpath])
 AC_CHECK_PROG([TAR], [tar], [tar])
 
@@ -173,7 +187,11 @@ AS_ECHO(["Configuration options:"])
 AS_IF([test x"$LBWWW_PATH" != x""],
       [AS_ECHO(["    LBWWW_PATH: $LBWWW_PATH"])])
 
+AS_IF([test x"$LBWWW_IMG_PATH" != x""],
+      [AS_ECHO(["    LBWWW_IMG_PATH: $LBWWW_IMG_PATH"])])
+
 AS_ECHO(["    RSYNC_DESTINATION: $RSYNC_DESTINATION"])
+
 
 AS_IF([test x"$UNTITLED_PATH" != x""],
       [AS_ECHO(["    UNTITLED_PATH: $UNTITLED_PATH"])])
