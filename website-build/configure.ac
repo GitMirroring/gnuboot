@@ -13,12 +13,13 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-AC_INIT([lbwww-build],[0.1],[GNUtoo@cyberdimension.org])
+AC_INIT([gnuboot],[0.1],[gnuboot@gnu.org])
 AM_INIT_AUTOMAKE([foreign])
 AC_CONFIG_FILES([Makefile])
 
 AC_SUBST([LBWWW_PATH], [])
 AC_SUBST([LBWWW_GIT_FOUND], [])
+AC_SUBST([RSYNC_DESTINATION], [])
 AC_SUBST([UNTITLED_PATH], [])
 AC_SUBST([UNTITLED_GIT_FOUND], [])
 
@@ -33,7 +34,8 @@ AM_CONDITIONAL( [WANT_GUIX], [test x"$guix" = x"yes"])
 AC_ARG_WITH([lbwww-path],
   [AS_HELP_STRING([--with-lbwww-path=PATH],
                   [Use a local lbwww directory from PATH instead of downloading
-		   the latest version from https://git.sr.ht/~libreboot/lbwww])],
+		   the latest version from
+		   https://git.savannah.gnu.org/git/gnuboot.git])],
   [LBWWW_PATH=$withval],
   [])
 
@@ -47,18 +49,30 @@ AC_ARG_ENABLE(lighttpd,
   [lighttpd="yes"])
 AM_CONDITIONAL( [WANT_LIGHTTPD], [test x"$lighttpd" = x"yes"])
 
+# --with-rsync-destination
+AC_ARG_WITH([rsync-destination],
+  [AS_HELP_STRING([--with-rsync-destination=DESTINATION],
+                  [Use a custom rsync destination (DEST in rsync manual)
+		   instead of the default one
+		   (wwwcvs@gnu.org:/var/www/software/gnuboot).])],
+  [RSYNC_DESTINATION=$withval],
+  [RSYNC_DESTINATION=wwwcvs@gnu.org:/var/www/software/gnuboot])
+
+AM_CONDITIONAL( [WANT_UNTITLED_PATH], [test x"$UNTITLED_PATH" != x""])
+
+
 # --with-untitled-path
 AC_ARG_WITH([untitled-path],
   [AS_HELP_STRING([--with-untitled-path=PATH],
                   [Use a local untitled directory from PATH instead of downloading
-		   the latest version from https://git.sr.ht/~libreboot/untitled])],
+		   a specific version from
+		   https://git.sr.ht/~libreboot/untitled .])],
   [UNTITLED_PATH=$withval],
   [])
 
 AM_CONDITIONAL( [WANT_UNTITLED_PATH], [test x"$UNTITLED_PATH" != x""])
 
 # Check dependencies
-AC_CHECK_PROG([CURL], [curl], [curl])
 AC_CHECK_PROG([REALPATH], [realpath], [realpath])
 AC_CHECK_PROG([TAR], [tar], [tar])
 
@@ -154,14 +168,12 @@ AS_IF([test x"$guix" = x"yes"],
               [test was not found in PATH ($PATH)])])])
 
 AC_OUTPUT
-
-AS_IF([test x"$LBWWW_PATH" != x"" ||
-       test x"$UNTITLED_PATH" != x""],
-      [AS_ECHO(["Configuration options:"])
-       AS_ECHO([])])
+AS_ECHO(["Configuration options:"])
 
 AS_IF([test x"$LBWWW_PATH" != x""],
       [AS_ECHO(["    LBWWW_PATH: $LBWWW_PATH"])])
+
+AS_ECHO(["    RSYNC_DESTINATION: $RSYNC_DESTINATION"])
 
 AS_IF([test x"$UNTITLED_PATH" != x""],
       [AS_ECHO(["    UNTITLED_PATH: $UNTITLED_PATH"])])

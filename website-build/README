@@ -1,5 +1,5 @@
 == Introduction ==
-This project enables to easily build and deploy the Libreboot website.
+This project enables to easily build and deploy the GNU Boot website.
 
 == Local deployments ==
 Here's how to deploy the website in a local webserver:
@@ -9,26 +9,87 @@ $ make test
 
 Then you can point a browser to http://localhost:8080/software/gnuboot/test/web/
 
-== Deployment on Sourcehut ==
-Sourcehut has a way to setup a static website by uploading a tarball
-of the content. Users that want to deploy a website there are expected
-to follow the official documentation[1] to generate a token and add
-this token to the id_oauth2_bearer file in the current directory.
+== Deployment on https://gnu.org/software/gnuboot/ ==
 
-To generate the token, you need to log in and then go on the
-https://meta.sr.ht/oauth2/personal-token page. Once there you need to
-go in "Limit scope of access grant" and to select at least SITES,
-otherwise it won't work (it would fail with the "The specified key
-does not exist." message).
+The deployment to https://gnu.org/software/gnuboot/ uses rsync. As
+gnu.org machine is behind a firewall, so you need to workaround
+that.
 
-[1]https://srht.site/quickstart
+A way to do that is to get a shell account on fencepost.gnu.org, and
+use SSH to forward the connection to gnu.org. This can be done with
+something like that in your SSH configuration:
+
+    Host gnu.org
+      User wwwcvs
+      Port 2224
+      HostName 127.0.0.1
+    Host fencepost.gnu.org
+      LocalForward 127.0.0.1:2224 gnu.org:22
+      User gnutoo
+
+In the example above you will need to adjust the fencepost username,
+and modify it to suit your SSH setup if needed (for instance if you
+use keys in different locations, or if the port 2224 is already taken,
+etc).
+
+See https://www.gnu.org/software/README.accounts.html for more details
+about Fencepost accounts, the SSH fingerprints, etc.
+
+For gnu.org, it's easier if you use an ED25519 key for gnu.org as I
+have the fingerprints below. See [1] for other options.
+
+Once everything is setup you can then SSH into fencepost:
+    $ ssh fencepost.gnu.org
+    [...]
+    gnutoo@fencepost:~$
+
+Once this is done you can then open a new shell and add the SSH
+fingerprint. Here's the ED25519 SSH fingerprints:
+    $ ssh gnu.org
+    The authenticity of host '[127.0.0.1]:2224 ([127.0.0.1]:2224)' can't be established.
+    ED25519 key fingerprint is SHA256:pmCf0NrBzSSYfg6DdgmlMzPWZzGpXXcPEz6LP1+o5Jc.
+    This host key is known by the following other names/addresses:
+        ~/.ssh/known_hosts:306: [127.0.0.1]:4444
+    Are you sure you want to continue connecting (yes/no/[fingerprint])?
+
+You can then confirm by pasting the fingerprint like that[2]:
+    Are you sure you want to continue connecting (yes/no/[fingerprint])? SHA256:pmCf0NrBzSSYfg6DdgmlMzPWZzGpXXcPEz6LP1+o5Jc
+    Warning: Permanently added '[127.0.0.1]:2224' (ED25519) to the list of known hosts.
+
+Note that it is normal for the connection to gnu.org to block at this
+point. You can exit it with the Ctrl+D or Ctrl+C key combinations.
+
+At this point everything is setup.
+
+To deploy the website you then need to make sure that you still have
+an SSH connection to fencepost.gnu.org and you can then deploy the
+website with the following commands:
+    $ ./autogen.sh
+    $ ./configure
+    $ make deploy
+
+Then you can point a browser to https://gnu.org/software/gnuboot/test/web/
+
+References:
+-----------
+[1]If you want to use RSA the easiest way is probably to contact the
+   FSF system administrator that will install your key on #fsfsys and
+   also ask that person for the server fingerprint. In that case it
+   would be a good idea to also contribute a patch to add the
+   fingerprint here.
+[2]The 'SHA256:pmCf0NrBzSSYfg6DdgmlMzPWZzGpXXcPEz6LP1+o5Jc'
+   fingerprint was confirmed to me the 24 October 2023 on the #fsfsys
+   IRC channel on liberachat by Ian Kelling, a system administrator
+   that has access to the gnu.org machine: "18:07 < iank> i see that
+   SHA256:pmCf0NrBzSSYfg6DdgmlMzPWZzGpXXcPEz6LP1+o5Jc exists on the
+   server".
 
 == Dependencies ==
 * autoconf
 * automake
 * coreutils
-* curl: for uploading the website to sourcehut
 * guix
+* lighttpd: optional: for testing the website if you don't have Guix.
 * make
 * tar
 

@@ -108,18 +108,23 @@ test:
 endif
 endif
 
+# The rsync options are hardcoded here because some options are known
+# not to work. For instance --delete results in rsync hanging. Also
+# note that it's possible to rsync some files to gnu.org but not from
+# gnu.org.
+RSYNC_OPTIONS := -av --progress
 deploy: website.tar.gz
-	curl \
-		--oauth2-bearer `cat id_oauth2_bearer` \
-		-Fcontent=@website.tar.gz \
-		https://pages.sr.ht/publish/$(DOMAIN)
+	rm -rf deploy
+	mkdir -p deploy
+	tar xf website.tar.gz -C deploy
+	rsync $(RSYNC_OPTIONS) \
+		deploy/ \
+		$(RSYNC_DESTINATION)/
 
-# See https://reproducible-builds.org/docs/archives/ for more details
 website.tar.gz: build
 	tar \
 		--exclude-vcs \
 		--format=gnu \
-		--mtime='1970-01-01 00:00Z' \
 		--owner=0 --group=0 --numeric-owner \
 		--sort=name \
 		-czf \
