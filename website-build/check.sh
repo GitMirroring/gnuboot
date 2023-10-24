@@ -48,10 +48,28 @@ test_pattern()
 	fi
 }
 
+test_savannah_cvs_constraints()
+{
+	name="$1"
+	tarball="$2"
+
+	nr_files=$(tar tf "${tarball}" | grep -v '/' | wc -l)
+
+	if [ ${nr_files} -eq 1 ] ; then
+		echo "[ OK ] ${name}"
+	else
+		echo "[ !! ] ${name} failed"
+		exit 1
+	fi
+}
+
+
 run_tests()
 {
 	test_pattern "html test" "${tarball}" '\.html$'
 	test_pattern "jpg test" "${tarball}" '\.jpg$'
+	test_savannah_cvs_constraints "Savannah CVS: Only /index.html in root directory" \
+				      "${tarball}"
 }
 
 if [ $# -eq 1 ] && [ "$1" = "-h" -o "$1" == "--help" ] ; then
