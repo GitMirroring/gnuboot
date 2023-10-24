@@ -4,10 +4,15 @@
 /config.log
 /config.status
 /configure
+/guix-commit.txt
 /id_oauth2_bearer
 /install-sh
+/lbwww-img-path-sha1sum.txt
+/lbwww-path-sha1sum.txt
 /lighttpd.conf
 /Makefile
 /Makefile.in
 /missing
+/untitled-path-sha1sum.txt
+/website-commits.txt
 /website.tar.gz

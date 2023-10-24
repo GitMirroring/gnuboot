@@ -12,9 +12,11 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
+GUIX_COMMIT ?= 07f19ef04b5a8f4d7a12a8940333e67db8da81c0
+
 DOMAIN := gnu.org/software/gnuboot
 
-.PHONY: all build check help deploy website.tar.gz
+.PHONY: all check help deploy
 
 all: website.tar.gz
 
@@ -31,10 +33,86 @@ BUILD_OPTIONS += --with-untitled-path $(UNTITLED_PATH)
 GUIX_SHARE_OPTIONS += --share=`realpath $(UNTITLED_PATH)`
 endif
 
+# We want to update the tarball when guix commit changes. The trick to
+# make that work is to only create or update a file when the revision
+# changes.
 if WANT_GUIX
-build:
+guix-commit.txt: Makefile
+	if [ ! -f $@ ] || [ "$(cat $@)" != "$(GUIX_COMMIT)" ] ; then \
+		echo -n "$(GUIX_COMMIT)" > $@ ; \
+	fi
+else
+guix-commit.txt: Makefile
+	if [ ! -f $@ ] || [ "$(cat $@)" != "" ] ; then \
+		echo -n "" > $@ ; \
+	fi
+endif
+
+# When we use an external lbwww repository, we don't want to rebuild
+# the tarball each time in case something changes. Since Make uses
+# timestamps, we store the hash of the timestamps and compare that to
+# the hash of the last build to see if we need to rebuild the tarball.
+if WANT_LBWWW_PATH
+LBWWW_PATH_HASH := `ls -alR --full-time $(LBWWW_PATH) | sha1sum`
+lbwww-path-sha1sum.txt: Makefile
+	if [ ! -f $@ ] || [ "$(cat $@)" != "$(LBWWW_PATH_HASH)" ] ; then \
+		echo -n "$(LBWWW_PATH_HASH)" > $@ ; \
+	fi
+else
+lbwww-path-sha1sum.txt: Makefile
+	if [ ! -f $@ ] || [ "$(cat $@)" != "" ] ; then \
+		echo -n "" > $@ ; \
+	fi
+endif
+
+# When we use an external lbwww-img repository, we don't want to
+# rebuild the tarball each time in case something changes. Since Make
+# uses timestamps, we store the hash of the timestamps and compare
+# that to the hash of the last build to see if we need to rebuild the
+# tarball.
+if WANT_LBWWW_IMG_PATH
+LBWWW_IMG_PATH_HASH := `ls -alR --full-time $(LBWWW_IMG_PATH) | sha1sum`
+lbwww-img-path-sha1sum.txt: Makefile
+	if [ ! -f $@ ] || [ "$(cat $@)" != "$(LBWWW_IMG_PATH_HASH)" ] ; then \
+		echo -n "$(LBWWW_PATH_HASH)" > $@ ; \
+	fi
+else
+lbwww-img-path-sha1sum.txt: Makefile
+	if [ ! -f $@ ] || [ "$(cat $@)" != "" ] ; then \
+		echo -n "" > $@ ; \
+	fi
+endif
+
+# When we use an external untitled repository, we don't want to
+# rebuild the tarball each time in case something changes. Since Make
+# uses timestamps, we store the hash of the timestamps and compare
+# that to the hash of the last build to see if we need to rebuild the
+# tarball.
+if WANT_UNTITLED_PATH
+UNTITLED_PATH_HASH := `ls -alR --full-time $(UNTITLED_PATH) | sha1sum`
+untitled-path-sha1sum.txt: Makefile
+	if [ ! -f $@ ] || [ "$(cat $@)" != "$(UNTITLED_PATH_HASH)" ] ; then \
+		echo -n "$(UNTITLED_PATH_HASH)" > $@ ; \
+	fi
+else
+untitled-path-sha1sum.txt: Makefile
+	if [ ! -f $@ ] || [ "$(cat $@)" != "" ] ; then \
+		echo -n "" > $@ ; \
+	fi
+endif
+
+WEBSITE_BUILD_DEPENDENCIES = \
+	build.sh \
+	guix-commit.txt \
+	lbwww-path-sha1sum.txt \
+	lbwww-img-path-sha1sum.txt \
+	Makefile \
+	untitled-path-sha1sum.txt
+
+if WANT_GUIX
+website-commits.txt: $(WEBSITE_BUILD_DEPENDENCIES)
 	guix time-machine \
-	--commit=07f19ef04b5a8f4d7a12a8940333e67db8da81c0 \
+	--commit=$(GUIX_COMMIT) \
 	-- shell \
 		--container \
 		--network \
@@ -50,9 +128,11 @@ build:
 		sed \
 		-- \
 		./build.sh $(BUILD_OPTIONS)
+	cat $(WEBSITE_BUILD_DEPENDENCIES) > $@
 else
-build:
-		./build.sh $(BUILD_OPTIONS)
+website-commits.txt: $(WEBSITE_BUILD_DEPENDENCIES)
+	./build.sh $(BUILD_OPTIONS)
+	cat $(WEBSITE_BUILD_DEPENDENCIES) > $@
 endif
 
 if WANT_GUIX
@@ -110,7 +190,7 @@ endif
 endif
 
 RSYNC_OPTIONS := -av --progress
-deploy: build
+deploy: website.tar.gz
 	rm -rf deploy
 	mkdir -p deploy
 	tar xf website.tar.gz -C deploy
@@ -119,7 +199,7 @@ deploy: build
 		$(RSYNC_DESTINATION)/
 
 # See https://reproducible-builds.org/docs/archives/ for more details
-website.tar.gz: build
+website.tar.gz: website-commits.txt
 	tar \
 		--exclude-vcs \
 		--format=gnu \

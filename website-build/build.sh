@@ -19,9 +19,11 @@ EX_USAGE=64
 
 lbwww_uri="https://git.savannah.gnu.org/git/gnuboot.git"
 lbwww_path=""
+lbwww_commit="4383810adf1b01c408c266e87d526282cf8cd635"
 
 lbwww_img_uri="https://git.savannah.gnu.org/git/gnuboot.git"
 lbwww_img_path=""
+lbwww_img_commit="4383810adf1b01c408c266e87d526282cf8cd635"
 
 untitled_uri="https://notabug.org/untitled/untitled.git"
 untitled_path=""
@@ -134,9 +136,9 @@ set -e
 sync_repo "untitled" \
 	  "${untitled_uri}" "${untitled_path}" "${untitled_commit}"
 sync_repo "untitled/www/lbwww" \
-	  "${lbwww_uri}" "${lbwww_path}" "origin/main"
+	  "${lbwww_uri}" "${lbwww_path}" "${lbwww_commit}"
 sync_repo "untitled/www/lbwww/site/img" \
-	  "${lbwww_img_uri}" "${lbwww_img_path}" "origin/main"
+	  "${lbwww_img_uri}" "${lbwww_img_path}" "${lbwww_img_commit}"
 
 cd untitled
 ./build sites lbwww
