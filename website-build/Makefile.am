@@ -14,7 +14,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 DOMAIN := libreboot.at
 
-.PHONY: all build check help upload website.tar.gz
+.PHONY: all build check help deploy website.tar.gz
 
 all: website.tar.gz
 
@@ -78,7 +78,7 @@ help:
 		"help           # Print this help" \
 		"test           # run lighttpd on localhost:8080" \
 		"check          # Run automatic tests" \
-		"upload         # Upload the website to https://$(DOMAIN)" \
+		"deploy         # Deploy the website to https://$(DOMAIN)" \
 		"website.tar.gz # Create a tarball of the website"
 
 if WANT_GUIX
@@ -108,7 +108,7 @@ test:
 endif
 endif
 
-upload: website.tar.gz
+deploy: website.tar.gz
 	curl \
 		--oauth2-bearer `cat id_oauth2_bearer` \
 		-Fcontent=@website.tar.gz \
