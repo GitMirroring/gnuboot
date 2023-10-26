@@ -33,7 +33,7 @@ NOTE: You should use a resistor in series, between 1K to 10K ohms, for the 3.3v
 connection to the CS pin. This is to protect from over-current.
 
 Here is an image of the flash chip:\
-![](/test/web/img/ga-g41m-es2l/ga-g41m-es2l.jpg)
+![](/software/gnuboot/test/web/img/ga-g41m-es2l/ga-g41m-es2l.jpg)
 
 Internal flashing is possible. Boot with the proprietary BIOS and
 GNU+Linux. There are 2 flash chips (one is backup).

@@ -58,7 +58,7 @@ The existing MAC address may be obtained by the following methods:
 
 2.  Otherwise you can read the white label that is often found on the
     motherboard under the memory sticks:
-    ![](/test/web/img/t400/macaddress1.jpg)
+    ![](/software/gnuboot/test/web/img/t400/macaddress1.jpg)
 
 3.  The MAC address is usually listed on the laptop chassis as well. This one
     will be incorrect if the motherboard was changed and the stickers were not

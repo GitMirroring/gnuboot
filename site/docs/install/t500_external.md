@@ -119,109 +119,109 @@ The procedure
 -------------
 
 Remove all screws:\
-![](/test/web/img/t500/0000.jpg)\
+![](/software/gnuboot/test/web/img/t500/0000.jpg)\
 It is also advisable to, throughout the disassembly, place any screws
 and/or components that you removed in the same layout or arrangement.
 The follow photos demonstrate this:\
-![](/test/web/img/t500/0001.jpg) ![](/test/web/img/t500/0002.jpg)
+![](/software/gnuboot/test/web/img/t500/0001.jpg) ![](/software/gnuboot/test/web/img/t500/0002.jpg)
 
 Remove the HDD/SSD and optical drive:\
-![](/test/web/img/t500/0003.jpg) ![](/test/web/img/t500/0004.jpg)
+![](/software/gnuboot/test/web/img/t500/0003.jpg) ![](/software/gnuboot/test/web/img/t500/0004.jpg)
 
 Remove the palm rest:\
-![](/test/web/img/t500/0005.jpg) ![](/test/web/img/t500/0006.jpg)
+![](/software/gnuboot/test/web/img/t500/0005.jpg) ![](/software/gnuboot/test/web/img/t500/0006.jpg)
 
 Remove the keyboard and rear bezel:\
-![](/test/web/img/t500/0007.jpg) ![](/test/web/img/t500/0008.jpg)
-![](/test/web/img/t500/0009.jpg) ![](/test/web/img/t500/0010.jpg)
-![](/test/web/img/t500/0011.jpg) ![](/test/web/img/t500/0012.jpg)
+![](/software/gnuboot/test/web/img/t500/0007.jpg) ![](/software/gnuboot/test/web/img/t500/0008.jpg)
+![](/software/gnuboot/test/web/img/t500/0009.jpg) ![](/software/gnuboot/test/web/img/t500/0010.jpg)
+![](/software/gnuboot/test/web/img/t500/0011.jpg) ![](/software/gnuboot/test/web/img/t500/0012.jpg)
 
 If you have a WWAN/3G card and/or sim card reader, remove them
 permanently. The WWAN-3G card has proprietary firmware inside; the
 technology is identical to what is used in mobile phones, so it can also
 track your movements:\
-![](/test/web/img/t500/0013.jpg) ![](/test/web/img/t500/0017.jpg)
-![](/test/web/img/t500/0018.jpg)
+![](/software/gnuboot/test/web/img/t500/0013.jpg) ![](/software/gnuboot/test/web/img/t500/0017.jpg)
+![](/software/gnuboot/test/web/img/t500/0018.jpg)
 
 Remove this frame, and then remove the wifi chip:\
-![](/test/web/img/t500/0014.jpg) ![](/test/web/img/t500/0015.jpg)
-![](/test/web/img/t500/0016.jpg)
+![](/software/gnuboot/test/web/img/t500/0014.jpg) ![](/software/gnuboot/test/web/img/t500/0015.jpg)
+![](/software/gnuboot/test/web/img/t500/0016.jpg)
 
 Remove the speakers:\
-![](/test/web/img/t500/0019.jpg) ![](/test/web/img/t500/0020.jpg)
-![](/test/web/img/t500/0021.jpg) ![](/test/web/img/t500/0022.jpg)
-![](/test/web/img/t500/0023.jpg) ![](/test/web/img/t500/0024.jpg)
-![](/test/web/img/t500/0025.jpg)
+![](/software/gnuboot/test/web/img/t500/0019.jpg) ![](/software/gnuboot/test/web/img/t500/0020.jpg)
+![](/software/gnuboot/test/web/img/t500/0021.jpg) ![](/software/gnuboot/test/web/img/t500/0022.jpg)
+![](/software/gnuboot/test/web/img/t500/0023.jpg) ![](/software/gnuboot/test/web/img/t500/0024.jpg)
+![](/software/gnuboot/test/web/img/t500/0025.jpg)
 
 Remove the NVRAM battery (already removed in this photo):\
-![](/test/web/img/t500/0026.jpg)
+![](/software/gnuboot/test/web/img/t500/0026.jpg)
 
 When you re-assemble, you will be replacing the wifi chip with another.
 These two screws don't hold anything together, but they are included in
 your system because the screw holes for half-height cards are a
 different size, so use these if you will be installing a half-height
 card:\
-![](/test/web/img/t500/0027.jpg)
+![](/software/gnuboot/test/web/img/t500/0027.jpg)
 
 Unroute the antenna wires:\
-![](/test/web/img/t500/0028.jpg) ![](/test/web/img/t500/0029.jpg)
-![](/test/web/img/t500/0030.jpg) ![](/test/web/img/t500/0031.jpg)
+![](/software/gnuboot/test/web/img/t500/0028.jpg) ![](/software/gnuboot/test/web/img/t500/0029.jpg)
+![](/software/gnuboot/test/web/img/t500/0030.jpg) ![](/software/gnuboot/test/web/img/t500/0031.jpg)
 
 Disconnect the LCD cable from the motherboard:\
-![](/test/web/img/t500/0032.jpg) ![](/test/web/img/t500/0033.jpg)
+![](/software/gnuboot/test/web/img/t500/0032.jpg) ![](/software/gnuboot/test/web/img/t500/0033.jpg)
 
 Remove the LCD assembly hinge screws, and then remove the LCD assembly:\
-![](/test/web/img/t500/0034.jpg) ![](/test/web/img/t500/0035.jpg)
-![](/test/web/img/t500/0036.jpg)
+![](/software/gnuboot/test/web/img/t500/0034.jpg) ![](/software/gnuboot/test/web/img/t500/0035.jpg)
+![](/software/gnuboot/test/web/img/t500/0036.jpg)
 
 Remove the fan and heatsink:\
-![](/test/web/img/t500/0037.jpg) ![](/test/web/img/t500/0038.jpg)
-![](/test/web/img/t500/0039.jpg)
+![](/software/gnuboot/test/web/img/t500/0037.jpg) ![](/software/gnuboot/test/web/img/t500/0038.jpg)
+![](/software/gnuboot/test/web/img/t500/0039.jpg)
 
 Remove this screw:\
-![](/test/web/img/t500/0040.jpg)
+![](/software/gnuboot/test/web/img/t500/0040.jpg)
 
 Remove these cables, keeping note of how and in what arrangement they
 are connected:\
-![](/test/web/img/t500/0041.jpg) ![](/test/web/img/t500/0042.jpg)
-![](/test/web/img/t500/0043.jpg) ![](/test/web/img/t500/0044.jpg)
-![](/test/web/img/t500/0045.jpg) ![](/test/web/img/t500/0046.jpg)
-![](/test/web/img/t500/0047.jpg) ![](/test/web/img/t500/0048.jpg)
-![](/test/web/img/t500/0049.jpg)
+![](/software/gnuboot/test/web/img/t500/0041.jpg) ![](/software/gnuboot/test/web/img/t500/0042.jpg)
+![](/software/gnuboot/test/web/img/t500/0043.jpg) ![](/software/gnuboot/test/web/img/t500/0044.jpg)
+![](/software/gnuboot/test/web/img/t500/0045.jpg) ![](/software/gnuboot/test/web/img/t500/0046.jpg)
+![](/software/gnuboot/test/web/img/t500/0047.jpg) ![](/software/gnuboot/test/web/img/t500/0048.jpg)
+![](/software/gnuboot/test/web/img/t500/0049.jpg)
 
 Disconnect the power jack:\
-![](/test/web/img/t500/0050.jpg) ![](/test/web/img/t500/0051.jpg)
+![](/software/gnuboot/test/web/img/t500/0050.jpg) ![](/software/gnuboot/test/web/img/t500/0051.jpg)
 
 Remove the motherboard and cage from the base (the marked hole is where
 those cables were routed through):\
-![](/test/web/img/t500/0052.jpg) ![](/test/web/img/t500/0053.jpg)
+![](/software/gnuboot/test/web/img/t500/0052.jpg) ![](/software/gnuboot/test/web/img/t500/0053.jpg)
 
 Remove all screws, arranging them in the same layout when placing the
 screws on a surface and marking each screw hole (this is to reduce the
 possibility of putting them back in the wrong holes):\
-![](/test/web/img/t500/0054.jpg) ![](/test/web/img/t500/0055.jpg)
+![](/software/gnuboot/test/web/img/t500/0054.jpg) ![](/software/gnuboot/test/web/img/t500/0055.jpg)
 
 Also remove this:\
-![](/test/web/img/t500/0056.jpg) ![](/test/web/img/t500/0057.jpg)
+![](/software/gnuboot/test/web/img/t500/0056.jpg) ![](/software/gnuboot/test/web/img/t500/0057.jpg)
 
 Separate the motherboard from the cage:\
-![](/test/web/img/t500/0058.jpg) ![](/test/web/img/t500/0059.jpg)
+![](/software/gnuboot/test/web/img/t500/0058.jpg) ![](/software/gnuboot/test/web/img/t500/0059.jpg)
 
 The flash chip is next to the memory slots. On this system, it was a
 SOIC-8 (4MiB or 32Mb) flash chip:\
-![](/test/web/img/t500/0060.jpg)
+![](/software/gnuboot/test/web/img/t500/0060.jpg)
 
 Connect your programmer, then connect GND and 3.3V\
-![](/test/web/img/t500/0061.jpg)\
-![](/test/web/img/t400/0067.jpg) ![](/test/web/img/t400/0069.jpg)
-![](/test/web/img/t400/0070.jpg) ![](/test/web/img/t400/0071.jpg)
+![](/software/gnuboot/test/web/img/t500/0061.jpg)\
+![](/software/gnuboot/test/web/img/t400/0067.jpg) ![](/software/gnuboot/test/web/img/t400/0069.jpg)
+![](/software/gnuboot/test/web/img/t400/0070.jpg) ![](/software/gnuboot/test/web/img/t400/0071.jpg)
 
 A dedicated 3.3V PSU was used to create this guide, but at ATX PSU is
 also fine:\
-![](/test/web/img/t400/0072.jpg)
+![](/software/gnuboot/test/web/img/t400/0072.jpg)
 
 Of course, make sure to turn on your PSU:\
-![](/test/web/img/x200/disassembly/0013.jpg)
+![](/software/gnuboot/test/web/img/x200/disassembly/0013.jpg)
 
 Now, you should be ready to install libreboot.
 
@@ -281,7 +281,7 @@ Now flash it:
 
     ./flashrom -p linux_spi:dev=/dev/spidev1.0,spispeed=512 -w path/to/libreboot/rom/image.rom -V
 
-![](/test/web/img/x200/disassembly/0015.jpg)
+![](/software/gnuboot/test/web/img/x200/disassembly/0015.jpg)
 
 You might see errors, but if it says `Verifying flash... VERIFIED` at
 the end, then it's flashed and should boot. If you see errors, try
@@ -313,7 +313,7 @@ When re-installing the heatsink, you must first clean off all old paste
 with the alcohol/cloth. Then apply new paste. Arctic MX-4 is also much
 better than the default paste used on these systems.
 
-![](/test/web/img/t400/paste.jpg)
+![](/software/gnuboot/test/web/img/t400/paste.jpg)
 
 NOTE: the photo above is for illustration purposes only, and does not
 show how to properly apply the thermal paste. Other guides online detail
@@ -337,7 +337,7 @@ whitelist of approved chips, and it will refuse to boot if you use an
 
 The following photos show an Atheros AR5B95 being installed, to replace
 the Intel chip that this T500 came with:\
-![](/test/web/img/t400/0012.jpg) ![](/test/web/img/t400/ar5b95.jpg)
+![](/software/gnuboot/test/web/img/t400/0012.jpg) ![](/software/gnuboot/test/web/img/t400/ar5b95.jpg)
 
 WWAN
 ====
@@ -368,13 +368,13 @@ be useful for RAM compatibility info (note: coreboot raminit is
 different, so this page might be BS)
 
 The following photo shows 8GiB (2x4GiB) of RAM installed:\
-![](/test/web/img/t400/memory.jpg)
+![](/software/gnuboot/test/web/img/t400/memory.jpg)
 
 Boot it!
 --------
 
 You should see something like this:
 
-![](/test/web/img/t500/0062.jpg)
+![](/software/gnuboot/test/web/img/t500/0062.jpg)
 
 Now [install GNU+Linux](../gnulinux/).

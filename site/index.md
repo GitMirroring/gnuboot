@@ -51,7 +51,7 @@ nonfree software in the Libreboot releases.
 
 Another way to help this project and take a stand for fully free
 software is to change URLs across the web from <libreboot.org> to
-<gnu.org>, to make sure that the mentioned software
+<gnu.org/software/gnuboot>, to make sure that the mentioned software
 is reliably free software.
 
 You can also help our project by informing people about GNU boot or

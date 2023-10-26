@@ -81,82 +81,82 @@ Disassembly
 -----------
 
 Remove all screws:\
-![](/test/web/img/r400/0000.jpg)\
+![](/software/gnuboot/test/web/img/r400/0000.jpg)\
 Remove the HDD and optical drive:\
-![](/test/web/img/r400/0001.jpg)\
+![](/software/gnuboot/test/web/img/r400/0001.jpg)\
 Remove the hinge screws:\
-![](/test/web/img/r400/0002.jpg) ![](/test/web/img/r400/0003.jpg)
+![](/software/gnuboot/test/web/img/r400/0002.jpg) ![](/software/gnuboot/test/web/img/r400/0003.jpg)
 
 Remove the palm rest and keyboard:\
-![](/test/web/img/r400/0004.jpg) ![](/test/web/img/r400/0005.jpg)
+![](/software/gnuboot/test/web/img/r400/0004.jpg) ![](/software/gnuboot/test/web/img/r400/0005.jpg)
 
 Remove these screws, and then remove the bezel:\
-![](/test/web/img/r400/0006.jpg) ![](/test/web/img/r400/0007.jpg)
+![](/software/gnuboot/test/web/img/r400/0006.jpg) ![](/software/gnuboot/test/web/img/r400/0007.jpg)
 
 Remove the speaker screws, but don't remove the speakers yet (just set
 them loose):\
-![](/test/web/img/r400/0008.jpg) ![](/test/web/img/r400/0009.jpg)
-![](/test/web/img/r400/0010.jpg)
+![](/software/gnuboot/test/web/img/r400/0008.jpg) ![](/software/gnuboot/test/web/img/r400/0009.jpg)
+![](/software/gnuboot/test/web/img/r400/0010.jpg)
 
 Remove these screws, and then remove the metal plate:\
-![](/test/web/img/r400/0011.jpg) ![](/test/web/img/r400/0012.jpg)
-![](/test/web/img/r400/0013.jpg)
+![](/software/gnuboot/test/web/img/r400/0011.jpg) ![](/software/gnuboot/test/web/img/r400/0012.jpg)
+![](/software/gnuboot/test/web/img/r400/0013.jpg)
 
 Remove the antennas from the wifi card, and then start unrouting them:\
-![](/test/web/img/r400/0014.jpg) ![](/test/web/img/r400/0015.jpg)
-![](/test/web/img/r400/0016.jpg) ![](/test/web/img/r400/0017.jpg)
-![](/test/web/img/r400/0018.jpg) ![](/test/web/img/r400/0019.jpg)
+![](/software/gnuboot/test/web/img/r400/0014.jpg) ![](/software/gnuboot/test/web/img/r400/0015.jpg)
+![](/software/gnuboot/test/web/img/r400/0016.jpg) ![](/software/gnuboot/test/web/img/r400/0017.jpg)
+![](/software/gnuboot/test/web/img/r400/0018.jpg) ![](/software/gnuboot/test/web/img/r400/0019.jpg)
 
 Disconnect the LCD cable from the motherboard:\
-![](/test/web/img/r400/0020.jpg) ![](/test/web/img/r400/0021.jpg)
-![](/test/web/img/r400/0022.jpg) ![](/test/web/img/r400/0023.jpg)
+![](/software/gnuboot/test/web/img/r400/0020.jpg) ![](/software/gnuboot/test/web/img/r400/0021.jpg)
+![](/software/gnuboot/test/web/img/r400/0022.jpg) ![](/software/gnuboot/test/web/img/r400/0023.jpg)
 
 Remove the hinge screws, and then remove the LCD panel:\
-![](/test/web/img/r400/0024.jpg) ![](/test/web/img/r400/0025.jpg)
-![](/test/web/img/r400/0026.jpg) ![](/test/web/img/r400/0027.jpg)
+![](/software/gnuboot/test/web/img/r400/0024.jpg) ![](/software/gnuboot/test/web/img/r400/0025.jpg)
+![](/software/gnuboot/test/web/img/r400/0026.jpg) ![](/software/gnuboot/test/web/img/r400/0027.jpg)
 
 Remove this:\
-![](/test/web/img/r400/0028.jpg) ![](/test/web/img/r400/0029.jpg)
+![](/software/gnuboot/test/web/img/r400/0028.jpg) ![](/software/gnuboot/test/web/img/r400/0029.jpg)
 
 Remove this long cable (there are 3 connections):\
-![](/test/web/img/r400/0030.jpg) ![](/test/web/img/r400/0031.jpg)
-![](/test/web/img/r400/0032.jpg) ![](/test/web/img/r400/0033.jpg)
+![](/software/gnuboot/test/web/img/r400/0030.jpg) ![](/software/gnuboot/test/web/img/r400/0031.jpg)
+![](/software/gnuboot/test/web/img/r400/0032.jpg) ![](/software/gnuboot/test/web/img/r400/0033.jpg)
 
 Disconnect the speaker cable, and remove the speakers:\
-![](/test/web/img/r400/0034.jpg)
+![](/software/gnuboot/test/web/img/r400/0034.jpg)
 
 Remove the heatsink screws, remove the fan and then remove the
 heatsink/fan:\
-![](/test/web/img/r400/0035.jpg) ![](/test/web/img/r400/0036.jpg)
-![](/test/web/img/r400/0037.jpg) ![](/test/web/img/r400/0038.jpg)
+![](/software/gnuboot/test/web/img/r400/0035.jpg) ![](/software/gnuboot/test/web/img/r400/0036.jpg)
+![](/software/gnuboot/test/web/img/r400/0037.jpg) ![](/software/gnuboot/test/web/img/r400/0038.jpg)
 
 Remove the NVRAM battery:\
-![](/test/web/img/r400/0039.jpg) ![](/test/web/img/r400/0040.jpg)
+![](/software/gnuboot/test/web/img/r400/0039.jpg) ![](/software/gnuboot/test/web/img/r400/0040.jpg)
 
 Remove this screw:\
-![](/test/web/img/r400/0041.jpg) ![](/test/web/img/r400/0042.jpg)
+![](/software/gnuboot/test/web/img/r400/0041.jpg) ![](/software/gnuboot/test/web/img/r400/0042.jpg)
 
 Disconnect the AC jack:\
-![](/test/web/img/r400/0043.jpg) ![](/test/web/img/r400/0044.jpg)
+![](/software/gnuboot/test/web/img/r400/0043.jpg) ![](/software/gnuboot/test/web/img/r400/0044.jpg)
 
 Remove this screw and then remove what is under it:\
-![](/test/web/img/r400/0045.jpg)
+![](/software/gnuboot/test/web/img/r400/0045.jpg)
 
 Remove this:\
-![](/test/web/img/r400/0046.jpg)
+![](/software/gnuboot/test/web/img/r400/0046.jpg)
 
 Lift the motherboard (which is still inside the cage) from the side on
 the right, removing it completely:\
-![](/test/web/img/r400/0047.jpg) ![](/test/web/img/r400/0048.jpg)
+![](/software/gnuboot/test/web/img/r400/0047.jpg) ![](/software/gnuboot/test/web/img/r400/0048.jpg)
 
 Remove all screws, marking each hole so that you know where to re-insert
 them. You should place the screws in a layout corresponding to the order
-that they were in before removal: ![](/test/web/img/r400/0049.jpg)
-![](/test/web/img/r400/0050.jpg)
+that they were in before removal: ![](/software/gnuboot/test/web/img/r400/0049.jpg)
+![](/software/gnuboot/test/web/img/r400/0050.jpg)
 
 Remove the motherboard from the cage, and the SPI flash chip will be
 next to the memory slots:\
-![](/test/web/img/r400/0051.jpg) ![](/test/web/img/r400/0052.jpg)
+![](/software/gnuboot/test/web/img/r400/0051.jpg) ![](/software/gnuboot/test/web/img/r400/0052.jpg)
 
 Now, you should be ready to install libreboot.
 
@@ -174,7 +174,7 @@ When re-installing the heatsink, you must first clean off all old paste
 with the alcohol/cloth. Then apply new paste. Arctic MX-4 is also much
 better than the default paste used on these systems.
 
-![](/test/web/img/t400/paste.jpg)
+![](/software/gnuboot/test/web/img/t400/paste.jpg)
 
 NOTE: the photo above is for illustration purposes only, and does not
 show how to properly apply the thermal paste. Other guides online detail
@@ -199,13 +199,13 @@ be useful for RAM compatibility info (note: coreboot raminit is
 different, so this page might be BS)
 
 The following photo shows 8GiB (2x4GiB) of RAM installed:\
-![](/test/web/img/t400/memory.jpg)
+![](/software/gnuboot/test/web/img/t400/memory.jpg)
 
 Boot it!
 --------
 
 You should see something like this:
 
-![](/test/web/img/t400/boot0.jpg) ![](/test/web/img/t400/boot1.jpg)
+![](/software/gnuboot/test/web/img/t400/boot0.jpg) ![](/software/gnuboot/test/web/img/t400/boot1.jpg)
 
 Now [install GNU+Linux](../gnulinux/).

@@ -71,7 +71,7 @@ guides](https://www.ifixit.com/Device/MacBook_Core_2_Duo)
 
 Locate the flash. It'll be a SOIC8, which looks like this:
 
-![](/test/web/img/chip/soic8.jpg)
+![](/software/gnuboot/test/web/img/chip/soic8.jpg)
 
 motherboard. [How to remove the
 motherboard](https://www.ifixit.com/Guide/MacBook+Core+2+Duo+PRAM+Battery+Replacement/529).
