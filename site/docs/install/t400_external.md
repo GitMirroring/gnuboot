@@ -82,94 +82,94 @@ The procedure
 -------------
 
 Remove *all* screws, placing them in the order that you removed them:\
-![](/img/www/t400/0001.jpg) ![](/img/www/t400/0002.jpg)
+![](/test/web/img/t400/0001.jpg) ![](/test/web/img/t400/0002.jpg)
 
 Remove those three screws then remove the rear bezel:\
-![](/img/www/t400/0003.jpg) ![](/img/www/t400/0004.jpg)
-![](/img/www/t400/0005.jpg) ![](/img/www/t400/0006.jpg)
+![](/test/web/img/t400/0003.jpg) ![](/test/web/img/t400/0004.jpg)
+![](/test/web/img/t400/0005.jpg) ![](/test/web/img/t400/0006.jpg)
 
 Remove the speakers:\
-![](/img/www/t400/0007.jpg) ![](/img/www/t400/0008.jpg)
-![](/img/www/t400/0009.jpg) ![](/img/www/t400/0010.jpg)
-![](/img/www/t400/0011.jpg)
+![](/test/web/img/t400/0007.jpg) ![](/test/web/img/t400/0008.jpg)
+![](/test/web/img/t400/0009.jpg) ![](/test/web/img/t400/0010.jpg)
+![](/test/web/img/t400/0011.jpg)
 
 Remove the wifi:\
-![](/img/www/t400/0012.jpg) ![](/img/www/t400/0013.jpg)
+![](/test/web/img/t400/0012.jpg) ![](/test/web/img/t400/0013.jpg)
 
 Remove this cable:\
-![](/img/www/t400/0014.jpg) ![](/img/www/t400/0015.jpg)
-![](/img/www/t400/0016.jpg) ![](/img/www/t400/0017.jpg)
-![](/img/www/t400/0018.jpg)
+![](/test/web/img/t400/0014.jpg) ![](/test/web/img/t400/0015.jpg)
+![](/test/web/img/t400/0016.jpg) ![](/test/web/img/t400/0017.jpg)
+![](/test/web/img/t400/0018.jpg)
 
 Unroute those antenna wires:\
-![](/img/www/t400/0019.jpg) ![](/img/www/t400/0020.jpg)
-![](/img/www/t400/0021.jpg) ![](/img/www/t400/0022.jpg)
-![](/img/www/t400/0023.jpg)
+![](/test/web/img/t400/0019.jpg) ![](/test/web/img/t400/0020.jpg)
+![](/test/web/img/t400/0021.jpg) ![](/test/web/img/t400/0022.jpg)
+![](/test/web/img/t400/0023.jpg)
 
 Remove the LCD assembly:\
-![](/img/www/t400/0024.jpg) ![](/img/www/t400/0025.jpg)
-![](/img/www/t400/0026.jpg) ![](/img/www/t400/0027.jpg)
-![](/img/www/t400/0028.jpg) ![](/img/www/t400/0029.jpg)
-![](/img/www/t400/0030.jpg) ![](/img/www/t400/0031.jpg)
+![](/test/web/img/t400/0024.jpg) ![](/test/web/img/t400/0025.jpg)
+![](/test/web/img/t400/0026.jpg) ![](/test/web/img/t400/0027.jpg)
+![](/test/web/img/t400/0028.jpg) ![](/test/web/img/t400/0029.jpg)
+![](/test/web/img/t400/0030.jpg) ![](/test/web/img/t400/0031.jpg)
 
 Disconnect the NVRAM battery:\
-![](/img/www/t400/0033.jpg)
+![](/test/web/img/t400/0033.jpg)
 
 Disconnect the fan:\
-![](/img/www/t400/0034.jpg)
+![](/test/web/img/t400/0034.jpg)
 
 Unscrew these:\
-![](/img/www/t400/0035.jpg) ![](/img/www/t400/0036.jpg)
-![](/img/www/t400/0037.jpg) ![](/img/www/t400/0038.jpg)
+![](/test/web/img/t400/0035.jpg) ![](/test/web/img/t400/0036.jpg)
+![](/test/web/img/t400/0037.jpg) ![](/test/web/img/t400/0038.jpg)
 
 Unscrew the heatsink, then lift it off:\
-![](/img/www/t400/0039.jpg) ![](/img/www/t400/0040.jpg)
+![](/test/web/img/t400/0039.jpg) ![](/test/web/img/t400/0040.jpg)
 
 Disconnect the power jack:\
-![](/img/www/t400/0041.jpg) ![](/img/www/t400/0042.jpg)
+![](/test/web/img/t400/0041.jpg) ![](/test/web/img/t400/0042.jpg)
 
 Loosen this:\
-![](/img/www/t400/0043.jpg)
+![](/test/web/img/t400/0043.jpg)
 
 Remove this:\
-![](/img/www/t400/0044.jpg) ![](/img/www/t400/0045.jpg)
-![](/img/www/t400/0046.jpg) ![](/img/www/t400/0047.jpg)
-![](/img/www/t400/0048.jpg)
+![](/test/web/img/t400/0044.jpg) ![](/test/web/img/t400/0045.jpg)
+![](/test/web/img/t400/0046.jpg) ![](/test/web/img/t400/0047.jpg)
+![](/test/web/img/t400/0048.jpg)
 
 Unscrew these:\
-![](/img/www/t400/0049.jpg) ![](/img/www/t400/0050.jpg)
+![](/test/web/img/t400/0049.jpg) ![](/test/web/img/t400/0050.jpg)
 
 Remove this:\
-![](/img/www/t400/0051.jpg) ![](/img/www/t400/0052.jpg)
+![](/test/web/img/t400/0051.jpg) ![](/test/web/img/t400/0052.jpg)
 
 Unscrew this:\
-![](/img/www/t400/0053.jpg)
+![](/test/web/img/t400/0053.jpg)
 
 Remove the motherboard (the cage is still attached) from the right hand
 side, then lift it out:\
-![](/img/www/t400/0054.jpg) ![](/img/www/t400/0055.jpg)
-![](/img/www/t400/0056.jpg)
+![](/test/web/img/t400/0054.jpg) ![](/test/web/img/t400/0055.jpg)
+![](/test/web/img/t400/0056.jpg)
 
 Remove these screws, placing the screws in the same layout and marking
 each screw hole (so that you know what ones to put the screws back into
-later): ![](/img/www/t400/0057.jpg) ![](/img/www/t400/0058.jpg)
-![](/img/www/t400/0059.jpg) ![](/img/www/t400/0060.jpg)
-![](/img/www/t400/0061.jpg) ![](/img/www/t400/0062.jpg)
+later): ![](/test/web/img/t400/0057.jpg) ![](/test/web/img/t400/0058.jpg)
+![](/test/web/img/t400/0059.jpg) ![](/test/web/img/t400/0060.jpg)
+![](/test/web/img/t400/0061.jpg) ![](/test/web/img/t400/0062.jpg)
 
 Separate the motherboard:\
-![](/img/www/t400/0063.jpg) ![](/img/www/t400/0064.jpg)
+![](/test/web/img/t400/0063.jpg) ![](/test/web/img/t400/0064.jpg)
 
 Connect your programmer, then connect GND and 3.3V\
-![](/img/www/t400/0065.jpg) ![](/img/www/t400/0066.jpg)
-![](/img/www/t400/0067.jpg) ![](/img/www/t400/0069.jpg)
-![](/img/www/t400/0070.jpg) ![](/img/www/t400/0071.jpg)
+![](/test/web/img/t400/0065.jpg) ![](/test/web/img/t400/0066.jpg)
+![](/test/web/img/t400/0067.jpg) ![](/test/web/img/t400/0069.jpg)
+![](/test/web/img/t400/0070.jpg) ![](/test/web/img/t400/0071.jpg)
 
 A dedicated 3.3V PSU was used to create this guide, but at ATX PSU is
 also fine:\
-![](/img/www/t400/0072.jpg)
+![](/test/web/img/t400/0072.jpg)
 
 Of course, make sure to turn on your PSU:\
-![](/img/www/x200/disassembly/0013.jpg)
+![](/test/web/img/x200/disassembly/0013.jpg)
 
 Now, you should be ready to install libreboot.
 
@@ -187,7 +187,7 @@ When re-installing the heatsink, you must first clean off all old paste
 with the alcohol/cloth. Then apply new paste. Arctic MX-4 is also much
 better than the default paste used on these systems.
 
-![](/img/www/t400/paste.jpg)
+![](/test/web/img/t400/paste.jpg)
 
 NOTE: the photo above is for illustration purposes only, and does not
 show how to properly apply the thermal paste. Other guides online detail
@@ -212,13 +212,13 @@ be useful for RAM compatibility info (note: coreboot raminit is
 different, so this page might be BS)
 
 The following photo shows 8GiB (2x4GiB) of RAM installed:\
-![](/img/www/t400/memory.jpg)
+![](/test/web/img/t400/memory.jpg)
 
 Boot it!
 --------
 
 You should see something like this:
 
-![](/img/www/t400/boot0.jpg) ![](/img/www/t400/boot1.jpg)
+![](/test/web/img/t400/boot0.jpg) ![](/test/web/img/t400/boot1.jpg)
 
 Now [install GNU+Linux](../gnulinux/).

@@ -76,12 +76,12 @@ accomplish your goal, which is to read from and/or write to the boot flash.
 SOIC8
 -----
 
-![](/img/www/chip/soic8.jpg)
+![](/test/web/img/chip/soic8.jpg)
 
 SOIC16
 ------
 
-![](/img/www/chip/soic16.jpg)
+![](/test/web/img/chip/soic16.jpg)
 
 SOIC8 and SOIC16 are the most common types, but there are others:
 
@@ -90,16 +90,16 @@ WSON8
 
 It will be like this on an X200S or X200 Tablet:\
 
-![](/img/www/x200t_flash/X200T-flashchip-location.jpg)
+![](/test/web/img/x200t_flash/X200T-flashchip-location.jpg)
 
 On T400S, it is in this location near the RAM:\
-![](/img/www/t400s/soic8.jpg)\
+![](/test/web/img/t400s/soic8.jpg)\
 NOTE: in this photo, the chip has been replaced with SOIC8
 
 DIP8
 ----
 
-![](/img/www/dip8/dip8.jpg)
+![](/test/web/img/dip8/dip8.jpg)
 
 Software configuration
 ======================
@@ -439,7 +439,7 @@ GPIO pins on Raspberry Pi (RPi)
 Diagram of the 26 GPIO Pins of the Raspberry Pi Model B (for the Model
 B+ with 40 pins, start counting from the right and leave 14 pins):
 
-![](/img/www/rpi/0012.png) ![](/img/www/rpi/0013.png)
+![](/test/web/img/rpi/0012.png) ![](/test/web/img/rpi/0013.png)
 
 Use this as a reference for the other sections in this page, seen below:
 
@@ -475,8 +475,8 @@ SOIC16 wiring diagram (Raspberry Pi)
 ------------------------------------
 
 RPi GPIO header:\
-![](/img/www/rpi/0009.png)
-![](/img/www/rpi/0010.png)
+![](/test/web/img/rpi/0009.png)
+![](/test/web/img/rpi/0010.png)
 
 BBB P9 header:\
 <https://beagleboard.org/static/images/cape-headers.png>
@@ -611,13 +611,13 @@ SOIC8 is desirable; in that case, you might still want to dump the contents of
 the original WSON8.
 
 Here is a SOIC8 in a socket, mounted to a breadboard, for flashing:\
-![](/img/www/rpi/soic8_socket.jpg)
+![](/test/web/img/rpi/soic8_socket.jpg)
 
 Here is a photo of a DIP8 IC:\
-![](/img/www/dip8/dip8.jpg)
+![](/test/web/img/dip8/dip8.jpg)
 
 Here is a photo of a SOIC8 in 1.27mm 208mil SOP to DIP adapter:\
-![](/img/www/dip8/sop8todip8.jpg)
+![](/test/web/img/dip8/sop8todip8.jpg)
 
 NOTE: DIP8 and WSON8-in-socket, and SOIC16-in-socket, are basically the same,
 just adapt accordingly.
@@ -630,9 +630,9 @@ can just put the 2.54mm pins directly in the DIP8 socket and mount the SOIC8 +
 adapter onto that, and solder that. Use quality rosin flux (not acid based)
 and good 60/40 or 63/37 leaded solder (don't use lead-free):
 
-![](/img/www/dip8/adapter_breadboard.jpg)
-![](/img/www/dip8/adapter.jpg)
-![](/img/www/dip8/sop8todip8.jpg)
+![](/test/web/img/dip8/adapter_breadboard.jpg)
+![](/test/web/img/dip8/adapter.jpg)
+![](/test/web/img/dip8/sop8todip8.jpg)
 
 SOIC8/SOIC16 soldered to a mainboard
 ------------------------------------
@@ -655,10 +655,10 @@ resistors needed. You do not need a decoupling capacitor for pin 2 (VCC) either
 because the mainboard will already have one.
 
 Here is an example of a test clip connected for SOIC16:\
-![](/img/www/rpi/0002.jpg)
+![](/test/web/img/rpi/0002.jpg)
 
 And here is an example photo for SOIC8:\
-![](/img/www/x60/th_bbb_flashing.jpg)
+![](/test/web/img/x60/th_bbb_flashing.jpg)
 
 DIP8 soldered to the mainboard
 ------------------------------
@@ -727,13 +727,13 @@ In case you're not comfortable with soldering, we have some excellent videos
 linked on the [FAQ page](../../faq.md) which you can watch.
 
 WSON8 IC:\
-![](/img/www/rpi/wson8/0001.jpg)
+![](/test/web/img/rpi/wson8/0001.jpg)
 
 Surround a large area around the chip with layers of kapton tape, and then
 aluminium foil. This will act as a heat shield, to reduce the risk of re-flowing
 other solder joints (which can make them turn into cold joints, and you risk
 knocking them off of the board):\
-![](/img/www/rpi/wson8/0002.jpg)\
+![](/test/web/img/rpi/wson8/0002.jpg)\
 Notice that the kapton+foil does not cover the chip itself, or the solder pads.
 It's important that these are exposed to the heat.
 
@@ -751,16 +751,16 @@ move freely. While in this state, the solder is fully melted and the chip can
 be lifted off with ease.
 
 If you're doing it correctly, the chip will come off within 1 minute, like so:\
-![](/img/www/rpi/wson8/0003.jpg)
+![](/test/web/img/rpi/wson8/0003.jpg)
 
 Add fresh solder to the pads, including the thermal pad:\
-![](/img/www/rpi/wson8/0004.jpg)
+![](/test/web/img/rpi/wson8/0004.jpg)
 
 Now wick it out using a copper braid, dunked in rosin flux:\
-![](/img/www/rpi/wson8/0005.jpg)
+![](/test/web/img/rpi/wson8/0005.jpg)
 
 Ensure that all of the solder is removed:\
-![](/img/www/rpi/wson8/0006.jpg)\
+![](/test/web/img/rpi/wson8/0006.jpg)\
 You will notice that one of the pads doesn't have all of the solder removed.
 The pad on the top-left in this photo. This is intentional, to show you a
 comparison for reference. The other pads are free of solder.
@@ -773,13 +773,13 @@ SPI flasher.
 
 Align the new SOIC8, and tack it in the corner pins. Then solder it fully. Use
 lots of flux!\
-![](/img/www/rpi/wson8/0007.jpg)\
+![](/test/web/img/rpi/wson8/0007.jpg)\
 A T12-D08 tip is being used in this photo, but a mini chisel, mini hoof or
 knife (e.g. T12-K) tip would be ideal.
 
 Ensure that all the joints are perfect. A good solder joint is shiny, and with
 concave fillets where the solder has flowed. Observe:\
-![](/img/www/rpi/wson8/0008.jpg)
+![](/test/web/img/rpi/wson8/0008.jpg)
 
 After you're done, use a soft bristle brush and 99.9% isopropyl alcohol to
 break up the remaining flux, then soak up the flux using a cloth, while the

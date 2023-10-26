@@ -42,7 +42,7 @@ chip and re-flash it using external hardware.
 It has a 25XX NOR flash (SPI protocol) in a P-DIP 8 socket, which looks like
 this:
 
-![](/img/www/dip8/dip8.jpg)
+![](/test/web/img/dip8/dip8.jpg)
 
 The default chip is a 2MiB one, but we recommend upgrading it to a 16MiB chip.
 

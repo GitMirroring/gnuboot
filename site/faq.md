@@ -837,18 +837,18 @@ You can find photos of various chip types on the following page:\
 Who did the logo?
 ----------------------------------------------------------------
 
-See the [license information](/img/www/logo/license.md).
+See the [license information](/test/web/img/logo/license.md).
 
-The Libreboot logo is available as a [bitmap](/img/www/logo/logo.png), a
-[vector](/img/www/logo/logo.svg), or a [greyscale vector](/img/www/logo/logo_grey.svg).
+The Libreboot logo is available as a [bitmap](/test/web/img/logo/logo.png), a
+[vector](/test/web/img/logo/logo.svg), or a [greyscale vector](/test/web/img/logo/logo_grey.svg).
 
 Libreboot Inside stickers are available as a
-[PDF](/img/www/logo/stickers/libreboot-inside-simple-bold-1.60cmx2.00cm-diecut-3.pdf) or
+[PDF](/test/web/img/logo/stickers/libreboot-inside-simple-bold-1.60cmx2.00cm-diecut-3.pdf) or
 a
-[vector](/img/www/logo/stickers/libreboot-inside-simple-bold-1.60cmx2.00cm-diecut-3.svg)
+[vector](/test/web/img/logo/stickers/libreboot-inside-simple-bold-1.60cmx2.00cm-diecut-3.svg)
 
 You can find all of the available logos by browsing this directory:\
-</img/www/logo/>
+</test/web/img/logo/>
 
 What other firmware exists outside of libreboot?
 ==================================================

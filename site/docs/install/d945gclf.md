@@ -16,4 +16,4 @@ Flashing instructions {#clip}
 Refer to [spi.md](spi.md) for how to re-flash externally.
 
 Here is an image of the flash chip:\
-![](/img/www/d945gclf/d945gclf_spi.jpg)
+![](/test/web/img/d945gclf/d945gclf_spi.jpg)

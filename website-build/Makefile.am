@@ -26,11 +26,6 @@ BUILD_OPTIONS += --with-lbwww-path $(LBWWW_PATH)
 GUIX_SHARE_OPTIONS += --share=`realpath $(LBWWW_PATH)`
 endif
 
-if WANT_LBWWW_IMG_PATH
-BUILD_OPTIONS += --with-lbwww-img-path $(LBWWW_IMG_PATH)
-GUIX_SHARE_OPTIONS += --share=`realpath $(LBWWW_IMG_PATH)`
-endif
-
 if WANT_UNTITLED_PATH
 BUILD_OPTIONS += --with-untitled-path $(UNTITLED_PATH)
 GUIX_SHARE_OPTIONS += --share=`realpath $(UNTITLED_PATH)`
@@ -130,5 +125,4 @@ website.tar.gz: build
 		-czf \
 		website.tar.gz \
 		untitled/www/ \
-		--transform="s#untitled/www/lbwww/site/##" \
-		--transform="s#untitled/www/lbwww-img/www/#img/#"
+		--transform="s#untitled/www/lbwww/site/##"

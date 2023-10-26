@@ -41,7 +41,7 @@ you re-flash a second time and set it back to 0.
 In this case, unbricking is easy: reset BUC.TS to 0 by removing that
 yellow cmos coin (it's a battery) and putting it back after a minute or
 two:\
-![](/img/www/t60_dev/0006.JPG)
+![](/test/web/img/t60_dev/0006.JPG)
 
 \*Those dd commands should be applied to all newly compiled T60 ROM
 images (the ROM images in libreboot binary archives already have this
@@ -75,62 +75,62 @@ external hardware (see hardware requirements above) is needed which can
 flash the SPI chip (where libreboot resides).
 
 Remove those screws and remove the HDD:\
-![](/img/www/t60_dev/0001.JPG) ![](/img/www/t60_dev/0002.JPG)
+![](/test/web/img/t60_dev/0001.JPG) ![](/test/web/img/t60_dev/0002.JPG)
 
 Lift off the palm rest:\
-![](/img/www/t60_dev/0003.JPG)
+![](/test/web/img/t60_dev/0003.JPG)
 
 Lift up the keyboard, pull it back a bit, flip it over like that and
 then disconnect it from the board:\
-![](/img/www/t60_dev/0004.JPG) ![](/img/www/t60_dev/0005.JPG)
-![](/img/www/t60_dev/0006.JPG)
+![](/test/web/img/t60_dev/0004.JPG) ![](/test/web/img/t60_dev/0005.JPG)
+![](/test/web/img/t60_dev/0006.JPG)
 
 Gently wedge both sides loose:\
-![](/img/www/t60_dev/0007.JPG) ![](/img/www/t60_dev/0008.JPG)
+![](/test/web/img/t60_dev/0007.JPG) ![](/test/web/img/t60_dev/0008.JPG)
 
 Remove that cable from the position:\
-![](/img/www/t60_dev/0009.JPG) ![](/img/www/t60_dev/0010.JPG)
+![](/test/web/img/t60_dev/0009.JPG) ![](/test/web/img/t60_dev/0010.JPG)
 
 Now remove that bezel. Remove wifi, nvram battery and speaker connector
 (also remove 56k modem, on the left of wifi):\
-![](/img/www/t60_dev/0011.JPG)
+![](/test/web/img/t60_dev/0011.JPG)
 
 Remove those screws:\
-![](/img/www/t60_dev/0012.JPG)
+![](/test/web/img/t60_dev/0012.JPG)
 
 Disconnect the power jack:\
-![](/img/www/t60_dev/0013.JPG)
+![](/test/web/img/t60_dev/0013.JPG)
 
 Remove nvram battery:\
-![](/img/www/t60_dev/0014.JPG)
+![](/test/web/img/t60_dev/0014.JPG)
 
 Disconnect cable (for 56k modem) and disconnect the other cable:\
-![](/img/www/t60_dev/0015.JPG) ![](/img/www/t60_dev/0016.JPG)
+![](/test/web/img/t60_dev/0015.JPG) ![](/test/web/img/t60_dev/0016.JPG)
 
 Disconnect speaker cable:\
-![](/img/www/t60_dev/0017.JPG)
+![](/test/web/img/t60_dev/0017.JPG)
 
 Disconnect the other end of the 56k modem cable:\
-![](/img/www/t60_dev/0018.JPG)
+![](/test/web/img/t60_dev/0018.JPG)
 
 Make sure you removed it:\
-![](/img/www/t60_dev/0019.JPG)
+![](/test/web/img/t60_dev/0019.JPG)
 
 Unscrew those:\
-![](/img/www/t60_dev/0020.JPG)
+![](/test/web/img/t60_dev/0020.JPG)
 
 Make sure you removed those:\
-![](/img/www/t60_dev/0021.JPG)
+![](/test/web/img/t60_dev/0021.JPG)
 
 Disconnect LCD cable from board:\
-![](/img/www/t60_dev/0022.JPG)
+![](/test/web/img/t60_dev/0022.JPG)
 
 Remove those screws then remove the LCD assembly:\
-![](/img/www/t60_dev/0023.JPG) ![](/img/www/t60_dev/0024.JPG)
-![](/img/www/t60_dev/0025.JPG)
+![](/test/web/img/t60_dev/0023.JPG) ![](/test/web/img/t60_dev/0024.JPG)
+![](/test/web/img/t60_dev/0025.JPG)
 
 Once again, make sure you removed those:\
-![](/img/www/t60_dev/0026.JPG)
+![](/test/web/img/t60_dev/0026.JPG)
 
 Remove the shielding containing the motherboard, then flip it over.
 Remove these screws, placing them on a steady surface in the same layout
@@ -139,13 +139,13 @@ screw hole after removing the screw (a permanent marker pen will do),
 this is so that you have a point of reference when re-assembling the
 system:
 
-![](/img/www/t60_dev/0027.JPG) ![](/img/www/t60_dev/0028.JPG)
-![](/img/www/t60_dev/0029.JPG) ![](/img/www/t60_dev/0031.JPG)
-![](/img/www/t60_dev/0032.JPG) ![](/img/www/t60_dev/0033.JPG)
+![](/test/web/img/t60_dev/0027.JPG) ![](/test/web/img/t60_dev/0028.JPG)
+![](/test/web/img/t60_dev/0029.JPG) ![](/test/web/img/t60_dev/0031.JPG)
+![](/test/web/img/t60_dev/0032.JPG) ![](/test/web/img/t60_dev/0033.JPG)
 
 This photo shows the flash chip, near the RAM, with numbers of pins written:
 
-![](/img/www/t60_dev/0030.JPG)
+![](/test/web/img/t60_dev/0030.JPG)
 
 Refer to the external flashing guide:
 
@@ -174,48 +174,48 @@ complains about multiple flash chip definitions detected, then choose
 one of them following the instructions in the output.
 
 Put those screws back:\
-![](/img/www/t60_dev/0047.JPG)
+![](/test/web/img/t60_dev/0047.JPG)
 
 Put it back into lower chassis:\
-![](/img/www/t60_dev/0048.JPG)
+![](/test/web/img/t60_dev/0048.JPG)
 
 Attach LCD and insert screws (also, attach the lcd cable to the board):\
-![](/img/www/t60_dev/0049.JPG)
+![](/test/web/img/t60_dev/0049.JPG)
 
 Insert those screws:\
-![](/img/www/t60_dev/0050.JPG)
+![](/test/web/img/t60_dev/0050.JPG)
 
 On the CPU (and there is another chip south-east to it, sorry forgot to
 take pic) clean off the old thermal paste (with the alcohol) and apply
 new (Artic Silver 5 is good, others are good too) you should also clean
 the heatsink the same way\
-![](/img/www/t60_dev/0051.JPG)
+![](/test/web/img/t60_dev/0051.JPG)
 
 Attach the heatsink and install the screws (also, make sure to install
 the AC jack as highlighted):\
-![](/img/www/t60_dev/0052.JPG)
+![](/test/web/img/t60_dev/0052.JPG)
 
 Reinstall that upper bezel:\
-![](/img/www/t60_dev/0053.JPG)
+![](/test/web/img/t60_dev/0053.JPG)
 
 Do that:\
-![](/img/www/t60_dev/0054.JPG) ![](/img/www/t60_dev/0055.JPG)
+![](/test/web/img/t60_dev/0054.JPG) ![](/test/web/img/t60_dev/0055.JPG)
 
 Re-attach modem, wifi, (wwan?), and all necessary cables. Sorry, forgot
 to take pics. Look at previous removal steps to see where they go back
 to.
 
 Attach keyboard and install nvram battery:\
-![](/img/www/t60_dev/0056.JPG) ![](/img/www/t60_dev/0057.JPG)
+![](/test/web/img/t60_dev/0056.JPG) ![](/test/web/img/t60_dev/0057.JPG)
 
 Place keyboard and (sorry, forgot to take pics) reinstall the palmrest
 and insert screws on the underside:\
-![](/img/www/t60_dev/0058.JPG)
+![](/test/web/img/t60_dev/0058.JPG)
 
 It lives!\
-![](/img/www/t60_dev/0071.JPG) ![](/img/www/t60_dev/0072.JPG)
-![](/img/www/t60_dev/0073.JPG)
+![](/test/web/img/t60_dev/0071.JPG) ![](/test/web/img/t60_dev/0072.JPG)
+![](/test/web/img/t60_dev/0073.JPG)
 
 Always stress test ('stress -c 2' and xsensors. below 90C is ok) when
 replacing cpu paste/heatsink:\
-![](/img/www/t60_dev/0074.JPG)
+![](/test/web/img/t60_dev/0074.JPG)

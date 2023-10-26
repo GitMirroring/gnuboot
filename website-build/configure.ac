@@ -19,8 +19,6 @@ AC_CONFIG_FILES([Makefile])
 
 AC_SUBST([LBWWW_PATH], [])
 AC_SUBST([LBWWW_GIT_FOUND], [])
-AC_SUBST([LBWWW_IMG_PATH], [])
-AC_SUBST([LBWWW_IMG_GIT_FOUND], [])
 AC_SUBST([UNTITLED_PATH], [])
 AC_SUBST([UNTITLED_GIT_FOUND], [])
 
@@ -40,16 +38,6 @@ AC_ARG_WITH([lbwww-path],
   [])
 
 AM_CONDITIONAL( [WANT_LBWWW_PATH], [test x"$LBWWW_PATH" != x""])
-
-# --with-lbwww-img-path
-AC_ARG_WITH([lbwww-img-path],
-  [AS_HELP_STRING([--with-lbwww-img-path=PATH],
-                  [Use a local lbwww-img directory from PATH instead of downloading
-		   the latest version from https://git.sr.ht/~libreboot/lbwww-img])],
-  [LBWWW_IMG_PATH=$withval],
-  [])
-
-AM_CONDITIONAL( [WANT_LBWWW_IMG_PATH], [test x"$LBWWW_IMG_PATH" != x""])
 
 # --enable-lighttpd
 AC_ARG_ENABLE(lighttpd,
@@ -168,16 +156,12 @@ AS_IF([test x"$guix" = x"yes"],
 AC_OUTPUT
 
 AS_IF([test x"$LBWWW_PATH" != x"" ||
-       test x"$LBWWW_IMG_PATH" != x"" ||
        test x"$UNTITLED_PATH" != x""],
       [AS_ECHO(["Configuration options:"])
        AS_ECHO([])])
 
 AS_IF([test x"$LBWWW_PATH" != x""],
       [AS_ECHO(["    LBWWW_PATH: $LBWWW_PATH"])])
-
-AS_IF([test x"$LBWWW_IMG_PATH" != x""],
-      [AS_ECHO(["    LBWWW_IMG_PATH: $LBWWW_IMG_PATH"])])
 
 AS_IF([test x"$UNTITLED_PATH" != x""],
       [AS_ECHO(["    UNTITLED_PATH: $UNTITLED_PATH"])])
