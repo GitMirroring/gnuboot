@@ -1,107 +1,53 @@
 ---
 title: Code review
-x-toc-enable: true
+x-reviewed: true
 ...
 
-Libreboot repositories
-======================
+GNU Boot repositories
+---------------------
 
-Information about who works on Libreboot and who runs the project can be
-found on [who.md](who.md)
+GNU Boot development is done using the Git version control system.
+Refer to the [official Git documentation](https://git-scm.com/doc) if
+you don't know how to use Git.
 
-Libreboot has 5 Git repositories:
+The main GNU Boot repository is at
+<https://git.savannah.gnu.org/cgit/gnuboot.git>. It also contains the
+documentation/website and code to build it.
 
-* Build system: <https://git.sr.ht/~libreboot/lbmk>
-* Website (+docs): <https://git.sr.ht/~libreboot/lbwww>
-* Images (for website): <https://git.sr.ht/~libreboot/lbwww-img>
-* Bucts (utility): <https://notabug.org/libreboot/bucts>
-* ich9utils (utility): <https://notabug.org/libreboot/ich9utils>
+GNU Boot also has two additional repositories: one for [presentations
+done at
+conferences](https://git.savannah.gnu.org/cgit/gnuboot/presentations.git)
+or for [mirroring source code that
+disappeared](https://git.savannah.gnu.org/cgit/gnuboot/acpica.org-mirror.git).
 
 You can download any of these repositories, make whatever changes you like, and
 then submit your changes using the instructions below.
 
-It is recommended that you build Libreboot (all parts of it) in a GNU+Linux
-distribution. For example, the build system (lbmk) is untested on BSD systems.
-Install `git` in your GNU+Linux system, and download one of the repositories.
+Testing your modifications
+--------------------------
 
-Libreboot development is done using the Git version control system.
-Refer to the [official Git documentation](https://git-scm.com/doc) if you don't
-know how to use Git.
+For technical contributions or for contributing to the website, you
+might need to test your modifications.
 
-The `bucts` repository is hosted by the Libreboot project, because the original
-repository on `stuge.se` is no longer available, last time we checked. The
-`bucts` program was written by Peter Stuge. You need `bucts` if you're flashing
-internally a Libreboot ROM onto a ThinkPad X60 or T60 that is currently running
-the non-free Lenovo BIOS. Instructions for that are available here:\
-[Libreboot installation guides](docs/install/)
+This currently requires to use a GNU/Linux distribution as building
+GNU Boot or its website on other operating systems is completely
+untested.
 
-The `ich9utils` repository is used heavily, by the `lbmk` build system. However,
-you can also download `ich9utils` on its own and use it. It generates ICH9M
-descriptor+GbE images for GM45 ThinkPads that use the ICH9M southbridge. It may
-also work for other systems using the same platform/chipset.
-Documentation for `ich9utils` is available here:\
-[ich9utils documentation](docs/install/ich9utils.md)
+For instructions on building GNU Boot, you can refer to the [build
+instructions](docs/build/).
 
-lbmk (libreboot-make)
----------------------
+Website
+-------
 
-This is the core build system in Libreboot. You could say that `lbmk` *is*
-Libreboot! Download the Git repository:
+The website is in the GNU Boot source code inside the site/ directory.
 
-    git clone https://git.sr.ht/~libreboot/lbmk
+It is currently written in Markdown, specifically the Pandoc version
+of it and the static HTML pages are generated with
+[Untitled](https://untitled.vimuser.org/), a static website generator.
 
-The `git` command, seen above, will download the Libreboot build system `lbmk`.
-You can then go into it like so:
-
-    cd lbmk
-
-Make whatever changes you like, or simply build it. For instructions on how to
-build `lbmk`, refer to the [build instructions](docs/build/).
-
-Information about the build system itself, and how it works, is available in
-the [lbmk maintenance guide](docs/maintain/).
-
-lbwww and lbwww-img
--------------------
-
-The *entire* Libreboot website and documentation is hosted in a Git repository.
-Download it like so:
-
-    git clone https://git.sr.ht/~libreboot/lbwww
-
-Images are hosted on <https://libreboot.at/img/> and available in a separate
-repository:
-
-    git clone https://git.sr.ht/~libreboot/lbwww-img
-
-Make whatever changes you like. See notes below about how to send patches.
-
-The entire website is written in Markdown, specifically the Pandoc version of
-it. The static HTML pages are generated with [Untitled](https://untitled.vimuser.org/).
-Leah Rowe, the founder of Libreboot, is also the founder of the Untitled static
-site generator project.
-
-If you like, you can set up a local HTTP server and build your own local
-version of the website. Please note that images will still link to the ones
-hosted on <https://libreboot.at/img/>, so any images that you add to `lbwww-img`
-will not show up on your local `lbwww` site if you make the image links (for
-images that you add) link to libreboot.at/img. However, it is required that such
-images be hosted on libreboot.at/img.
-
-Therefore, if you wish to add images to the website, please also submit to the
-`lbwww-img` repository, with the links to them being
-<https://libreboot.at/img/path/to/your/new/image/in/lbwww-img> for each one.
-When it is merged on the libreboot website, your images will appear live.
-
-For development purposes, you might make your images local links first, and
-then adjust the URLs when you submit your documentation/website patches.
-
-Instructions are on the Untitled website, for how to set up your local version
-of the website. Download untitled, and inside your `untitled` directory, create
-a directory named `www/` then go inside the www directory, and clone the `lbwww`
-repository there. Configure your local HTTP server accordingly.
-
-Again, instructions are available on the Untitled website for this purpose.
+Its documentation is in the
+[README](https://git.savannah.gnu.org/cgit/gnuboot.git/tree/website-build/README)
+inside the website-build directory.
 
 Name not required
 -----------------
@@ -111,8 +57,8 @@ everyone can access. This includes the name and email address of the
 contributor.
 
 In Git, for author name and email address, you do not have to use identifying
-data. You can use Libreboot Contributor and your email address could be
-specified as contributor@libreboot.at. You are permitted to do this, if
+data. You can use GNU Boot Contributor and your email address could be
+specified as contributor@gnuboot. You are permitted to do this, if
 you wish to maintain privacy. We believe in privacy. If you choose to remain
 anonymous, we will honor this.
 
@@ -125,8 +71,8 @@ licenses are used - read more about that on this same page).
 
 If you use a different name and email address on your commits/patches,
 then you should be fairly anonymous. Use [git log git
---pretty=fuller](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)
-and [git show --pretty=fuller](https://git-scm.com/docs/git-show) to
+\-\-pretty=fuller](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)
+and [git show \-\-pretty=fuller](https://git-scm.com/docs/git-show) to
 confirm that before you push changes to a public Git repository.
 
 Licenses
@@ -142,14 +88,15 @@ We require all patches to be submitted under a free license:
 the default, restrictive copyright laws apply, which would make your work
 non-free.
 
-GNU+Linux is generally recommended as the OS of choice, for Libreboot
-development. However, BSD operating systems also boot on Libreboot machines.
+GNU/Linux is generally recommended as the OS of choice, for GNU Boot
+development. However, BSD operating systems also boot on GNU Boot
+machines.
 
 Send patches & contribute
-------------
+-------------------------
 
 You can submit your patches to the 
-[libreboot-devel mailing list](https://lists.sr.ht/~libreboot/libreboot-devel),
+[gnuboot-patches mailing list](https://lists.gnu.org/mailman/listinfo/gnuboot-patches),
 preferably by using [git send-email](https://git-scm.com/docs/git-send-email).
 
 A simple guide to properly configure your git installation to send emails has
@@ -158,16 +105,18 @@ been made by [sourcehut](https://git-send-email.io/) or you can use the
 
 You'll have to specify the mailing list address:
 
-	git config --local sendemail.to ~libreboot/libreboot-devel@lists.sr.ht
-
-Since the mailing list accepts patches for all the repositories we manage, please specify which repository your patch is for. To do this, you'll need to use:
-
-	git config format.subjectPrefix "name_of_the_repo][PATCH"
+	git config --local sendemail.to gnuboot-patches@gnu.org
 
 Please also sign-off your patches, which you can configure with:
 
 	git config format.signOff yes
 
-Once you have submitted your patch, the genuine Libreboot maintainers will be notified
-via the mailing list and will start reviewing it. You can see the status of you patch via the
-[patch tracker](https://lists.sr.ht/~libreboot/libreboot-devel/patches).
+Once you have submitted your patch, the GNU Boot maintainers will be
+notified via the mailing list and will start reviewing it.
+
+Maintainers
+-----------
+
+Adrien 'neox' Bourmault and Denis 'GNUtoo' Carikli are the interim
+maintainers of this GNU Boot project.  They will also review patches
+sent to the mailing list.
