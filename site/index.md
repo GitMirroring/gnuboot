@@ -38,36 +38,24 @@ Now we've stepped forward to stand up for freedom, ours and that of
 the wider community, by maintaining our own version -- a genuinely libre
 Libreboot, that after some hurdles gave birth to this project: GNU Boot.
 
-### Our short term plans and need for help ###
+### Project status and need for help ####
 
-We are seeking contributors for various jobs, both simple and technical.
+Right now GNU Boot is still in its early stage.
 
-The Libreboot name has a long history in the free software community.
-Most occurrences of the uses were intended to refer to boot software
-that was libre, and there is no way to edit those occurrences to refer
-to libre boot software by a different name.  Therefore, we need help
-from the wider community to inform people about the inclusion of
-nonfree software in the Libreboot releases.
+It should be relatively safe to use the [last release
+candidate](https://ftp.gnu.org/gnu/gnuboot/) (GNU Boot 0.1-rc1) as is
+has minimal changes on top of Libreboot 20220710 (the last 100% free
+release of Libreboot) and also because several people tested it and
+didn't report any blocking issue.
 
-Another way to help this project and take a stand for fully free
-software is to change URLs across the web from <libreboot.org> to
-<gnu.org/software/gnuboot>, to make sure that the mentioned software
-is reliably free software.
+However we need a lot of help for fixing the website as most pages are
+out of date or still refer to Libreboot or libreboot.at instead of GNU
+Boot.
 
-You can also help our project by informing people about GNU boot or
-other 100% free boot software.
+This is very important because the website also contains all the
+project documentation, including the installation instructions (we
+also need help testing them).
 
-While there is some documentation in our git repositories, we also
-need help adding explanations on how to contribute, build and test
-this website.
-
-Adrien 'neox' Bourmault and Denis 'GNUtoo' Carikli are the interim
-maintainers of this GNU Boot project.  They will also review patches
-sent to the mailing list.
-
-Several organizations and people have already offered help for testing
-the first release candidate.
-
-Making this project part of GNU is part of our work to ensure that our
-genuine Libreboot version remains free and continue to be maintained
-over time.
+See the [page about contributing to GNU
+Boot](/software/gnuboot/test/web/git.html) for more details on how to
+help GNU Boot.

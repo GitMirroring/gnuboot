@@ -3,6 +3,63 @@ title: Code review
 x-reviewed: true
 ...
 
+Our short term plans and need for help
+======================================
+
+GNU Boot is seeking contributors for various jobs, both simple and
+technical.
+
+Information
+-----------
+
+The Libreboot name has a long history in the free software community.
+Most occurrences of the uses were intended to refer to boot software
+that was libre, and there is no way to edit those occurrences to refer
+to libre boot software by a different name.  Therefore, we need help
+from the wider community to inform people about the inclusion of
+nonfree software in the Libreboot releases.
+
+Another way to help GNU Boot and take a stand for fully free software
+is to change URLs across the web from <libreboot.org> to
+<gnu.org/software/gnuboot>, to make sure that the mentioned software
+is reliably free software.
+
+You can also help our project by informing people about GNU boot or
+other 100% free boot software.
+
+Documentation and/or testing
+----------------------------
+
+We need help for reviewing and fixing this website (which also
+contains the documentation). Many pages are inherited from Libreboot
+and might be outdated or specific to Libreboot.
+
+In addition we also need help for testing releases and
+testing/updating the installation instructions.
+
+We currently have a list of what computers aren't tested yet in the
+[bug 64754](https://savannah.gnu.org/bugs/?64754).
+
+As for reporting what you tested, you can open a new bug or send a
+mail to the [gnuboot](http://lists.gnu.org/mailman/listinfo/gnuboot)
+or [gnuboot-patches]
+(http://lists.gnu.org/mailman/listinfo/gnuboot-patches) mailing list.
+
+Technical contributions
+-----------------------
+
+GNU Boot is currently using old versions of upstream software (like
+Coreboot, GRUB, etc) and so they need to be updated. Patches for that
+need to be sent on the [gnuboot-patches]
+(http://lists.gnu.org/mailman/listinfo/gnuboot-patches) mailing list.
+
+We also have a bug tracker at
+https://savannah.gnu.org/bugs/?group=gnuboot that contains a list of
+bugs that needs to be fixed.
+
+How to contribute
+=================
+
 GNU Boot repositories
 ---------------------
 
