@@ -114,7 +114,7 @@ In Git, for author name and email address, you do not have to use identifying
 data. You can use Libreboot Contributor and your email address could be
 specified as contributor@libreboot.at. You are permitted to do this, if
 you wish to maintain privacy. We believe in privacy. If you choose to remain
-anonymous, we will honour this.
+anonymous, we will honor this.
 
 Of course, you can use whichever name and/or email address you like.
 
