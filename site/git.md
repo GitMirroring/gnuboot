@@ -123,11 +123,11 @@ international copyright law. It does not matter which name, or indeed whether
 you even declare a copyright (but we do require that certain copyright
 licenses are used - read more about that on this same page).
 
-If you use a different name and email address on your commits/patches, then you
-should be fairly anonymous. Use
-[git log](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)
-and [git show](https://git-scm.com/docs/git-show) to confirm that before you
-push changes to a public Git repository.
+If you use a different name and email address on your commits/patches,
+then you should be fairly anonymous. Use [git log git
+--pretty=fuller](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)
+and [git show --pretty=fuller](https://git-scm.com/docs/git-show) to
+confirm that before you push changes to a public Git repository.
 
 Licenses
 --------
