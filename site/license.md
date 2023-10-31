@@ -1,6 +1,5 @@
 ---
 title: License
-x-toc-enable: true
 x-reviewed: true
 ...
 
