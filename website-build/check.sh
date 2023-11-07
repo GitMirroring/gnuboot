@@ -53,7 +53,7 @@ test_savannah_cvs_constraints()
 	name="$1"
 	tarball="$2"
 
-	nr_files=$(tar tf "${tarball}" | grep -v '/' | wc -l)
+	nr_files=$(tar tf "${tarball}" | grep -c -v '/')
 
 	if [ "${nr_files}" = "1" ] ; then
 		echo "[ OK ] ${name}"
