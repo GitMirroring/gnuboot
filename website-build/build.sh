@@ -95,7 +95,7 @@ while [ "$i" -le $# ] ; do
 				exit ${EX_USAGE}
 			fi
 			lbwww_path="$(eval echo \$$(expr $i + 1))"
-			i="$(expr $i + 1)"
+			i="$(expr "$i" + 1)"
 			;;
 		--with-untitled-path)
 			if [ "$i" -ge $# ] ; then
@@ -103,7 +103,7 @@ while [ "$i" -le $# ] ; do
 				exit ${EX_USAGE}
 			fi
 			untitled_path="$(eval echo \$$(expr $i + 1))"
-			i="$(expr $i + 1)"
+			i="$(expr "$i" + 1)"
 			;;
 		*)
 			help
@@ -111,7 +111,7 @@ while [ "$i" -le $# ] ; do
 			;;
 	esac
 
-	i="$(expr $i + 1)"
+	i="$(expr "$i" + 1)"
 done
 
 set -e
