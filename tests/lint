@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+#
+# Various code quality tests to avoid regressions in code quality.
+#
+# Copyright (C) 2023 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+report()
+{
+    ret=$?
+    message="$1"
+
+    if [ ${ret} -eq 0 ] ; then
+	echo "[ OK ] ${message}"
+    else
+	echo "[ !! ] ${message} failed"
+	exit ${ret}
+    fi
+}
+
+run_shellcheck()
+{
+    for path in "$@" ; do
+	shellcheck "${path}" ; report "${path}"
+    done
+}
+
+printf "+---------------------+\n"
+printf "| Running lint tests: |\n"
+printf "+---------------------+\n"
+run_shellcheck \
+    tests/lint
+
+printf "+---------------------+\n"
+printf "| Lint tests done     |\n"
+printf "+---------------------+\n"
