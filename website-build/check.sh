@@ -55,7 +55,7 @@ test_savannah_cvs_constraints()
 
 	nr_files=$(tar tf "${tarball}" | grep -v '/' | wc -l)
 
-	if [ ${nr_files} -eq 1 ] ; then
+	if [ "${nr_files}" = "1" ] ; then
 		echo "[ OK ] ${name}"
 	else
 		echo "[ !! ] ${name} failed"
