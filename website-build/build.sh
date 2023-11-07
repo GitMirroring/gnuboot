@@ -81,7 +81,7 @@ help_missing_arg()
 }
 
 i=1
-while [ $i -le $# ] ; do
+while [ "$i" -le $# ] ; do
 	opt="$(eval echo \$$i)"
 
 	case "${opt}" in
@@ -90,7 +90,7 @@ while [ $i -le $# ] ; do
 			exit 0
 			;;
 		--with-lbwww-path)
-			if [ $i -ge $# ] ; then
+			if [ "$i" -ge $# ] ; then
 				help_missing_arg "--with-lbwww-path"
 				exit ${EX_USAGE}
 			fi
@@ -98,7 +98,7 @@ while [ $i -le $# ] ; do
 			i="$(expr $i + 1)"
 			;;
 		--with-untitled-path)
-			if [ $i -ge $# ] ; then
+			if [ "$i" -ge $# ] ; then
 				help_missing_arg "--with-untitled-path"
 				exit ${EX_USAGE}
 			fi
