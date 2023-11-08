@@ -19,12 +19,7 @@ DOMAIN := libreboot.at
 all: website.tar.gz
 
 BUILD_OPTIONS :=
-GUIX_SHARE_OPTIONS :=
-
-if WANT_LBWWW_PATH
-BUILD_OPTIONS += --with-lbwww-path $(LBWWW_PATH)
-GUIX_SHARE_OPTIONS += --share=`realpath $(LBWWW_PATH)`
-endif
+GUIX_SHARE_OPTIONS := --share=`realpath ../`
 
 if WANT_UNTITLED_PATH
 BUILD_OPTIONS += --with-untitled-path $(UNTITLED_PATH)

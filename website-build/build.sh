@@ -17,9 +17,6 @@
 # For compatibility with sysexits.h (see man 3 sysexits.h for more details)
 EX_USAGE=64
 
-lbwww_uri="https://git.savannah.gnu.org/git/gnuboot.git"
-lbwww_path=""
-
 untitled_uri="https://notabug.org/untitled/untitled.git"
 untitled_path=""
 untitled_commit="e69c0d0748b8fc58d1548ea4249b93b1bbd2c6aa"
@@ -31,10 +28,6 @@ help()
 	echo "Available options:"
 	echo -e "\t-h, --help"
 	echo -e "\t\tDisplay this help and exit."
-	echo -e "\t--with-lbwww-path PATH"
-	echo -e "\t\tUse a local lbwww directory from PATH\n" \
-	     "\t\tinstead of downloading the latest version from\n" \
-	     "\t\t${lbwww_uri}"
 	echo -e "\t--with-untitled-path PATH"
 	echo -e "\t\tUse a local untitled directory from PATH\n" \
 	     "\t\tinstead of downloading the latest version from\n" \
@@ -74,6 +67,16 @@ sync_repo()
 	fi
 }
 
+copy_website()
+{
+	dst_path="$1"
+
+	rm -rf "${dst_path}"
+	mkdir -p "${dst_path}"
+	cp "../site.cfg" "${dst_path}"
+	cp -a "../site/" "${dst_path}"
+}
+
 help_missing_arg()
 {
 	printf "Error: Argument of %s is missing.\n\n" "$1"
@@ -88,14 +91,6 @@ while [ "$i" -le $# ] ; do
 		-h|--help)
 			help
 			exit 0
-			;;
-		--with-lbwww-path)
-			if [ "$i" -ge $# ] ; then
-				help_missing_arg "--with-lbwww-path"
-				exit ${EX_USAGE}
-			fi
-			lbwww_path="$(eval echo \$$(expr $i + 1))"
-			i="$(expr "$i" + 1)"
 			;;
 		--with-untitled-path)
 			if [ "$i" -ge $# ] ; then
@@ -118,8 +113,7 @@ set -e
 
 sync_repo "untitled" \
 	  "${untitled_uri}" "${untitled_path}" "${untitled_commit}"
-sync_repo "untitled/www/lbwww" \
-	  "${lbwww_uri}" "${lbwww_path}" "origin/main"
+copy_website "untitled/www/lbwww/"
 
 cd untitled
 ./build sites lbwww
