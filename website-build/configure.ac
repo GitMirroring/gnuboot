@@ -17,6 +17,8 @@ AC_INIT([gnuboot],[0.1],[gnuboot@gnu.org])
 AM_INIT_AUTOMAKE([foreign])
 AC_CONFIG_FILES([Makefile])
 
+AC_SUBST([LBWWW_PATH], [])
+AC_SUBST([LBWWW_GIT_FOUND], [])
 AC_SUBST([RSYNC_DESTINATION], [])
 AC_SUBST([UNTITLED_PATH], [])
 AC_SUBST([UNTITLED_GIT_FOUND], [])
@@ -27,6 +29,17 @@ AC_ARG_ENABLE(guix,
   [guix=$enableval],
   [guix="yes"])
 AM_CONDITIONAL( [WANT_GUIX], [test x"$guix" = x"yes"])
+
+# --with-lbwww-path
+AC_ARG_WITH([lbwww-path],
+  [AS_HELP_STRING([--with-lbwww-path=PATH],
+                  [Use a local lbwww directory from PATH instead of downloading
+		   the latest version from
+		   https://git.savannah.gnu.org/git/gnuboot.git])],
+  [LBWWW_PATH=$withval],
+  [])
+
+AM_CONDITIONAL( [WANT_LBWWW_PATH], [test x"$LBWWW_PATH" != x""])
 
 # --enable-lighttpd
 AC_ARG_ENABLE(lighttpd,
@@ -156,6 +169,9 @@ AS_IF([test x"$guix" = x"yes"],
 
 AC_OUTPUT
 AS_ECHO(["Configuration options:"])
+
+AS_IF([test x"$LBWWW_PATH" != x""],
+      [AS_ECHO(["    LBWWW_PATH: $LBWWW_PATH"])])
 
 AS_ECHO(["    RSYNC_DESTINATION: $RSYNC_DESTINATION"])
 
