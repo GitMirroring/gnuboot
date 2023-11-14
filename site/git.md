@@ -109,28 +109,40 @@ inside the website-build directory.
 Name not required
 -----------------
 
-Contributions that you make are publicly recorded, in a Git repository which
-everyone can access. This includes the name and email address of the
-contributor.
+Many projects using free software licenses do accept contributions
+from anyone but in many cases they also need to be able to track the
+copyright ownership of the contributions for various reasons.
 
-In Git, for author name and email address, you do not have to use identifying
-data. You can use GNU Boot Contributor and your email address could be
-specified as contributor@gnuboot. You are permitted to do this, if
-you wish to maintain privacy. We believe in privacy. If you choose to remain
-anonymous, we will honor this.
+This usually makes anonymous or pseudonymous contributions more
+complicated, but that doesn't make them impossible.
 
-Of course, you can use whichever name and/or email address you like.
+If you want to contribute anonymously or pseudonymously the best way
+is to contact us publicly (for instance on our mailing list, using a
+mail and name that you use only for that) so we could look into it and
+try to find ways that work for GNU Boot but also potentially for other
+upstream projects as well and this way enable you to contribute to a
+wide variety of projects under free licenses with way less friction.
 
-Legally speaking, all copyright is automatic under the Berne Convention of
-international copyright law. It does not matter which name, or indeed whether
-you even declare a copyright (but we do require that certain copyright
-licenses are used - read more about that on this same page).
+Note that for patches, the contributions that you make are publicly
+recorded, in a Git repository which everyone can access.
 
-If you use a different name and email address on your commits/patches,
-then you should be fairly anonymous. Use [git log git
+And these contributions include a name, an email address and even a
+precise date in which the contribution was made. It is relatively easy
+to change the name and email with the ones you want as the git commit
+command has options for that.
+
+If you do that, before sending patches make sure to use [git log git
 \-\-pretty=fuller](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)
 and [git show \-\-pretty=fuller](https://git-scm.com/docs/git-show) to
-confirm that before you push changes to a public Git repository.
+confirm that you used the right name and email before publishing your
+changes.
+
+Note that even if you do that, it might still be possible to link your
+contributions to your identity for instance with
+[stylometry](https://media.ccc.de/v/28c3-4781-en-deceiving_authorship_detection),
+by looking at network connections if you don't use
+[Tor](torproject.org), by looking at the time/timezone of the
+contribution, etc.
 
 Licenses
 --------
