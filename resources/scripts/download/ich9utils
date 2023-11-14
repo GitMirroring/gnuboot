@@ -45,9 +45,6 @@ if [ -d ich9utils ]; then
 	exit 0
 fi
 
-# Get flashrom
-# ------------------------------------------------------------------------------
-
 # download it using git
 git clone https://notabug.org/libreboot/ich9utils.git
 
