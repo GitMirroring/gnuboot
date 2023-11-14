@@ -1,6 +1,5 @@
-#!/usr/bin/env bash
-#
-# Copyright (C) 2023 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+#!/usr/bin/env sh
+# Copyright (C) 2022 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,25 +14,28 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# shellcheck source=resources/scripts/tasks/distclean.sh
-. "$(dirname "$0")"/../../scripts/tasks/distclean.sh
+set -e
 
-distclean_website()
+usage()
 {
-    rm -rf \
-    website/aclocal.m4 \
-    website/autom4te.cache/ \
-    website/config.log \
-    website/config.status \
-    website/configure \
-    website/deploy/ \
-    website/install-sh \
-    website/Makefile \
-    website/Makefile.in \
-    website/missing \
-    website/untitled/ \
-    website/website.tar.gz
+	echo "$0 [PORT]"
+	exit 1
 }
 
-# shellcheck disable=SC2068
-distclean_main distclean_website $@
+if [ $# -ne 0 ] && [ $# -ne 1 ] ; then
+	usage
+fi
+
+basedir="$(dirname $(realpath $0))"
+
+lighttpd_port=8086
+if [ $# -eq 1 ] ; then
+    lighttpd_port="$1"
+fi
+
+sed -e "s#TMPDIR#${tmpdir}#g" \
+    -e "s#LIGHTTPD_PORT#${lighttpd_port}#g" \
+    "${basedir}/lighttpd.conf.tmpl" > \
+    "${basedir}/lighttpd.conf"
+
+lighttpd -f lighttpd.conf -D
