@@ -8,6 +8,28 @@ x-reviewed: true
 GNU Boot is a free software project aimed at replacing the proprietary
 boot firmware that comes with computers with free boot software.
 
+### Project status and need for help ####
+
+Right now GNU Boot is still in its early stage.
+
+It should be relatively safe to use the [last release
+candidate](https://ftp.gnu.org/gnu/gnuboot/) (GNU Boot 0.1-rc1) as is
+has minimal changes on top of Libreboot 20220710 (the last 100% free
+release of Libreboot) and also because several people tested it and
+didn't report any blocking issue.
+
+However we need a lot of help for fixing the website as most pages are
+out of date or still refer to Libreboot or libreboot.at instead of GNU
+Boot.
+
+This is very important because the website also contains all the
+project documentation, including the installation instructions (we
+also need help testing them).
+
+See the [page about contributing to GNU
+Boot](/software/gnuboot/test/web/git.html) for more details on how to
+help GNU Boot.
+
 ### How this project came to exist ####
 
 We believe computer users deserve to control all the software they
@@ -37,25 +59,3 @@ successful.
 Now we've stepped forward to stand up for freedom, ours and that of
 the wider community, by maintaining our own version -- a genuinely libre
 Libreboot, that after some hurdles gave birth to this project: GNU Boot.
-
-### Project status and need for help ####
-
-Right now GNU Boot is still in its early stage.
-
-It should be relatively safe to use the [last release
-candidate](https://ftp.gnu.org/gnu/gnuboot/) (GNU Boot 0.1-rc1) as is
-has minimal changes on top of Libreboot 20220710 (the last 100% free
-release of Libreboot) and also because several people tested it and
-didn't report any blocking issue.
-
-However we need a lot of help for fixing the website as most pages are
-out of date or still refer to Libreboot or libreboot.at instead of GNU
-Boot.
-
-This is very important because the website also contains all the
-project documentation, including the installation instructions (we
-also need help testing them).
-
-See the [page about contributing to GNU
-Boot](/software/gnuboot/test/web/git.html) for more details on how to
-help GNU Boot.
