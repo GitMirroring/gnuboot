@@ -108,7 +108,9 @@ $else$
   The information on this page could be outdated or refer to other
   boot software related projects instead of GNU Boot. We also need
   help (ideally in the form of patches sent to the GNU Boot mailing
-  list) to fix this website.
+  list) to fix this website. See
+  the <a href="/software/gnuboot/test/web/git.html">Send patch</a>
+  page for more details on how to contribute to GNU Boot.
 </p>
 <hr/>
 $endif$

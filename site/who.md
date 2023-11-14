@@ -9,7 +9,8 @@ the project, how decisions are made, and in general how the project functions.
 You can find information about major contributions made to Libreboot, on this
 page which lists such people: [List of contributors](contrib.md)
 
-The interim maintainers of this project are Denis 'GNUtoo' Carikli and Adrien 'neox' Bourmault. They review patches sent to the mailing list.
+The current maintainers of this project are Denis 'GNUtoo' Carikli and
+Adrien 'neox' Bourmault. They review patches sent to the mailing list.
 
 Developers and maintainers wanted!
 ==================================

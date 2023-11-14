@@ -174,6 +174,6 @@ notified via the mailing list and will start reviewing it.
 Maintainers
 -----------
 
-Adrien 'neox' Bourmault and Denis 'GNUtoo' Carikli are the interim
+Adrien 'neox' Bourmault and Denis 'GNUtoo' Carikli are the current
 maintainers of this GNU Boot project.  They will also review patches
 sent to the mailing list.
