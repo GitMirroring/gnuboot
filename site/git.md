@@ -42,8 +42,8 @@ We currently have a list of what computers aren't tested yet in the
 
 As for reporting what you tested, you can open a new bug or send a
 mail to the [gnuboot](http://lists.gnu.org/mailman/listinfo/gnuboot)
-or [gnuboot-patches]
-(http://lists.gnu.org/mailman/listinfo/gnuboot-patches) mailing list.
+or [Bug-gnuboot]
+(https://lists.gnu.org/mailman/listinfo/bug-gnuboot) mailing list.
 
 Technical contributions
 -----------------------
