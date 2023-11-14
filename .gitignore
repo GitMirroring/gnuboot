@@ -27,11 +27,12 @@
 /release/
 /resources/coreboot/*/seen
 /seabios/
+/site/news/index*
+/site/sitemap.md
 /tmp/
 /version
 /versiondate
-/website/pages/news/index*
-/website/pages/sitemap.md
+/website/site/**
 Makefile
 Makefile.in
 aclocal.m4
@@ -41,3 +42,4 @@ config.status
 configure
 install-sh
 missing
+/web/

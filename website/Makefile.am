@@ -1,4 +1,4 @@
-# Copyright (C) 2022-2023 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+# Copyright (C) 2022-2024 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -16,73 +16,35 @@
 
 all: help
 
-BUILD_OPTIONS :=
-GUIX_SHARE_OPTIONS := --share=`realpath ../`
-
-if WANT_UNTITLED_PATH
-BUILD_OPTIONS += --with-untitled-path $(UNTITLED_PATH)
-GUIX_SHARE_OPTIONS += --share=`realpath $(UNTITLED_PATH)`
-endif
-
-index.html: index.html.tmpl
-	sed -e "s#WEBSITE_PREFIX#$(WEBSITE_PREFIX)#g" "$^" > "$@"
-
-site.cfg: site.cfg.tmpl
-	sed -e "s#WEBSITE_PREFIX#$(WEBSITE_PREFIX)#g" "$^" > "$@"
-
 if WANT_GUIX
-build: site.cfg
+build:
 	guix time-machine \
-	--commit=c15a1cd88f80a90437f4b0159f22dfc84b9e6851 \
+	--commit=v1.4.0 \
 	-- shell \
-		--container \
-		--network \
-		--emulate-fhs \
-		$(GUIX_SHARE_OPTIONS) \
-		bash \
-		coreutils \
-		findutils \
-		git \
-		grep \
-		nss-certs \
-		pandoc \
-		sed \
+		haunt
 		-- \
-		./build.sh $(BUILD_OPTIONS)
+		haunt build
 else
-build: site.cfg
-		./build.sh $(BUILD_OPTIONS)
+build:
+		haunt build
 endif
 
 if WANT_GUIX
-check: build website.tar.gz index.html
-	rm -rf site/
-	mkdir -p site/$(WEBSITE_PREFIX)
-	tar xf website.tar.gz -C site/$(WEBSITE_PREFIX)
-
+check: website.tar.gz
 	guix shell \
 		--container \
 		--network \
 		--emulate-fhs \
 		bash \
 		coreutils \
-		findutils \
 		grep \
 		gzip \
-		sed \
 		tar \
 		-- \
-		./check.sh --website-prefix $(WEBSITE_PREFIX) \
-			--directory site && \
-		./check.sh  --website-prefix $(WEBSITE_PREFIX) \
-			--tarball website.tar.gz
+		./check.sh --tarball website.tar.gz
 else
-check: build website.tar.gz index.html
-	rm -rf site/
-	mkdir -p site/$(WEBSITE_PREFIX)
-	tar xf website.tar.gz -C site/$(WEBSITE_PREFIX)
-	./check.sh --website-prefix $(WEBSITE_PREFIX) --directory site
-	./check.sh --website-prefix $(WEBSITE_PREFIX) --tarball website.tar.gz
+check: website.tar.gz
+		./check.sh --tarball website.tar.gz
 endif
 
 help:
@@ -91,34 +53,30 @@ help:
 		"help           # Print this help" \
 		"build          # Build the website" \
 		"serve          # run lighttpd on localhost:$(LIGHTTPD_PORT)" \
-		"publish        # Publish the website to https://gnu.org/$(WEBSITE_PREFIX)" \
+		"publish        # Publish the website to https://gnu.org/software/gnuboot" \
 		"check          # Run automatic tests" \
 		"website.tar.gz # Create a tarball of the website"
 
 if WANT_GUIX
-serve: website.tar.gz
+serve: build
 	guix shell \
 		--container \
 		--network \
 		--emulate-fhs \
 		bash \
 		coreutils \
-		gzip \
 		lighttpd \
 		sed \
-		tar \
 		-- \
-		./serve.sh --website-prefix $(WEBSITE_PREFIX) \
-			website.tar.gz $(LIGHTTPD_PORT)
+		./serve.sh $(LIGHTTPD_PORT)
 else
 if WANT_LIGHTTPD
-serve: website.tar.gz
-		./serve.sh --website-prefix $(WEBSITE_PREFIX) \
-			website.tar.gz $(LIGHTTPD_PORT)
+serve: build
+		./serve.sh $(LIGHTTPD_PORT)
 else
 serve:
 	@printf "%s %s\n" \
-		"The test target is disabled." \
+		"The serve target is disabled." \
 		"To enable it, run './configure --enable-lighttpd'."
 	@false
 endif
@@ -137,7 +95,7 @@ publish: website.tar.gz
 		deploy/ \
 		$(RSYNC_DESTINATION)/
 
-website.tar.gz: build index.html
+website.tar.gz: build
 	tar \
 		--exclude-vcs \
 		--format=gnu \
@@ -145,6 +103,4 @@ website.tar.gz: build index.html
 		--sort=name \
 		-czf \
 		website.tar.gz \
-		untitled/www/lbwww/site \
-		index.html \
-		--transform="s#untitled/www/lbwww/site#web#"
+		site

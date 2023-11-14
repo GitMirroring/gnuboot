@@ -18,30 +18,26 @@ set -e
 
 usage()
 {
-	progname="$1"
-
-	echo "${progname} --website-prefix PREFIX <path/to/tarball> [PORT]"
+	echo "$0 [PORT]"
 	exit 1
 }
 
-if [ $# -ne 3 ] && [ $# -ne 4 ] && [ "$1" != "--website-prefix" ] ; then
-	usage "serve.sh"
+if [ $# -ne 0 ] && [ $# -ne 1 ] ; then
+	usage
 fi
 
 basedir="$(dirname $(realpath $0))"
 
-prefix="$2"
-tarball="$3"
-
 lighttpd_port=8086
-if [ $# -eq 2 ] ; then
-    lighttpd_port="$4"
+if [ $# -eq 1 ] ; then
+    lighttpd_port="$1"
 fi
 
 mkdir -p "site/${prefix}"
 tar xf "${tarball}" -C "site/${prefix}"
 
 sed -e "s#LIGHTTPD_PORT#${lighttpd_port}#g" \
+    -e "s#LIGHTTPD_PORT#${lighttpd_port}#g" \
     "${basedir}/lighttpd.conf.tmpl" > \
     "${basedir}/lighttpd.conf"
 
