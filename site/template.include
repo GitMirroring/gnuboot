@@ -15,6 +15,15 @@ $if(keywords)$
 $endif$
   <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
 <style type="text/css">
+
+.warning_banner {
+	background:#000000;
+	color:#ffffff;
+	margin:0 auto;
+	font-family:sans-serif;
+	line-height:5
+}
+
 html{
 	background:#fff;
 	color:#222;
@@ -104,6 +113,7 @@ $endif$
 <hr/>
 $if(x-reviewed)$
 $else$
+<div class="warning_banner">
 <p>
   The information on this page could be outdated or refer to other
   boot software related projects instead of GNU Boot. We also need
@@ -113,6 +123,7 @@ $else$
   page for more details on how to contribute to GNU Boot.
 </p>
 <hr/>
+</div>
 $endif$
 </header>
 $endif$
