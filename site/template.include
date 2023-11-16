@@ -104,7 +104,7 @@ $endif$
 <li><a href="/software/gnuboot/web/docs/install/">Install</a></li>
 <li><a href="/software/gnuboot/web/docs/">Docs</a></li>
 <li><a href="/software/gnuboot/web/news/">News</a></li>
-<li><a href="https://todo.sr.ht/~libreboot/Libreboot">Bugs</a></li>
+<li><a href="https://savannah.gnu.org/bugs/?group=gnuboot">Bugs</a></li>
 <li><a href="/software/gnuboot/web/tasks/">TODO</a></li>
 <li><a href="/software/gnuboot/web/git.html">Send patch</a></li>
 <li><a href="/software/gnuboot/web/contact.html">Contact</a></li>
