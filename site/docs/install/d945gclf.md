@@ -16,4 +16,4 @@ Flashing instructions {#clip}
 Refer to [spi.md](spi.md) for how to re-flash externally.
 
 Here is an image of the flash chip:\
-![](/software/gnuboot/test/web/img/d945gclf/d945gclf_spi.jpg)
+![](/software/gnuboot/web/img/d945gclf/d945gclf_spi.jpg)

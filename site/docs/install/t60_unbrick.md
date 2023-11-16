@@ -41,7 +41,7 @@ you re-flash a second time and set it back to 0.
 In this case, unbricking is easy: reset BUC.TS to 0 by removing that
 yellow cmos coin (it's a battery) and putting it back after a minute or
 two:\
-![](/software/gnuboot/test/web/img/t60_dev/0006.JPG)
+![](/software/gnuboot/web/img/t60_dev/0006.JPG)
 
 \*Those dd commands should be applied to all newly compiled T60 ROM
 images (the ROM images in libreboot binary archives already have this
@@ -75,62 +75,62 @@ external hardware (see hardware requirements above) is needed which can
 flash the SPI chip (where libreboot resides).
 
 Remove those screws and remove the HDD:\
-![](/software/gnuboot/test/web/img/t60_dev/0001.JPG) ![](/software/gnuboot/test/web/img/t60_dev/0002.JPG)
+![](/software/gnuboot/web/img/t60_dev/0001.JPG) ![](/software/gnuboot/web/img/t60_dev/0002.JPG)
 
 Lift off the palm rest:\
-![](/software/gnuboot/test/web/img/t60_dev/0003.JPG)
+![](/software/gnuboot/web/img/t60_dev/0003.JPG)
 
 Lift up the keyboard, pull it back a bit, flip it over like that and
 then disconnect it from the board:\
-![](/software/gnuboot/test/web/img/t60_dev/0004.JPG) ![](/software/gnuboot/test/web/img/t60_dev/0005.JPG)
-![](/software/gnuboot/test/web/img/t60_dev/0006.JPG)
+![](/software/gnuboot/web/img/t60_dev/0004.JPG) ![](/software/gnuboot/web/img/t60_dev/0005.JPG)
+![](/software/gnuboot/web/img/t60_dev/0006.JPG)
 
 Gently wedge both sides loose:\
-![](/software/gnuboot/test/web/img/t60_dev/0007.JPG) ![](/software/gnuboot/test/web/img/t60_dev/0008.JPG)
+![](/software/gnuboot/web/img/t60_dev/0007.JPG) ![](/software/gnuboot/web/img/t60_dev/0008.JPG)
 
 Remove that cable from the position:\
-![](/software/gnuboot/test/web/img/t60_dev/0009.JPG) ![](/software/gnuboot/test/web/img/t60_dev/0010.JPG)
+![](/software/gnuboot/web/img/t60_dev/0009.JPG) ![](/software/gnuboot/web/img/t60_dev/0010.JPG)
 
 Now remove that bezel. Remove wifi, nvram battery and speaker connector
 (also remove 56k modem, on the left of wifi):\
-![](/software/gnuboot/test/web/img/t60_dev/0011.JPG)
+![](/software/gnuboot/web/img/t60_dev/0011.JPG)
 
 Remove those screws:\
-![](/software/gnuboot/test/web/img/t60_dev/0012.JPG)
+![](/software/gnuboot/web/img/t60_dev/0012.JPG)
 
 Disconnect the power jack:\
-![](/software/gnuboot/test/web/img/t60_dev/0013.JPG)
+![](/software/gnuboot/web/img/t60_dev/0013.JPG)
 
 Remove nvram battery:\
-![](/software/gnuboot/test/web/img/t60_dev/0014.JPG)
+![](/software/gnuboot/web/img/t60_dev/0014.JPG)
 
 Disconnect cable (for 56k modem) and disconnect the other cable:\
-![](/software/gnuboot/test/web/img/t60_dev/0015.JPG) ![](/software/gnuboot/test/web/img/t60_dev/0016.JPG)
+![](/software/gnuboot/web/img/t60_dev/0015.JPG) ![](/software/gnuboot/web/img/t60_dev/0016.JPG)
 
 Disconnect speaker cable:\
-![](/software/gnuboot/test/web/img/t60_dev/0017.JPG)
+![](/software/gnuboot/web/img/t60_dev/0017.JPG)
 
 Disconnect the other end of the 56k modem cable:\
-![](/software/gnuboot/test/web/img/t60_dev/0018.JPG)
+![](/software/gnuboot/web/img/t60_dev/0018.JPG)
 
 Make sure you removed it:\
-![](/software/gnuboot/test/web/img/t60_dev/0019.JPG)
+![](/software/gnuboot/web/img/t60_dev/0019.JPG)
 
 Unscrew those:\
-![](/software/gnuboot/test/web/img/t60_dev/0020.JPG)
+![](/software/gnuboot/web/img/t60_dev/0020.JPG)
 
 Make sure you removed those:\
-![](/software/gnuboot/test/web/img/t60_dev/0021.JPG)
+![](/software/gnuboot/web/img/t60_dev/0021.JPG)
 
 Disconnect LCD cable from board:\
-![](/software/gnuboot/test/web/img/t60_dev/0022.JPG)
+![](/software/gnuboot/web/img/t60_dev/0022.JPG)
 
 Remove those screws then remove the LCD assembly:\
-![](/software/gnuboot/test/web/img/t60_dev/0023.JPG) ![](/software/gnuboot/test/web/img/t60_dev/0024.JPG)
-![](/software/gnuboot/test/web/img/t60_dev/0025.JPG)
+![](/software/gnuboot/web/img/t60_dev/0023.JPG) ![](/software/gnuboot/web/img/t60_dev/0024.JPG)
+![](/software/gnuboot/web/img/t60_dev/0025.JPG)
 
 Once again, make sure you removed those:\
-![](/software/gnuboot/test/web/img/t60_dev/0026.JPG)
+![](/software/gnuboot/web/img/t60_dev/0026.JPG)
 
 Remove the shielding containing the motherboard, then flip it over.
 Remove these screws, placing them on a steady surface in the same layout
@@ -139,13 +139,13 @@ screw hole after removing the screw (a permanent marker pen will do),
 this is so that you have a point of reference when re-assembling the
 system:
 
-![](/software/gnuboot/test/web/img/t60_dev/0027.JPG) ![](/software/gnuboot/test/web/img/t60_dev/0028.JPG)
-![](/software/gnuboot/test/web/img/t60_dev/0029.JPG) ![](/software/gnuboot/test/web/img/t60_dev/0031.JPG)
-![](/software/gnuboot/test/web/img/t60_dev/0032.JPG) ![](/software/gnuboot/test/web/img/t60_dev/0033.JPG)
+![](/software/gnuboot/web/img/t60_dev/0027.JPG) ![](/software/gnuboot/web/img/t60_dev/0028.JPG)
+![](/software/gnuboot/web/img/t60_dev/0029.JPG) ![](/software/gnuboot/web/img/t60_dev/0031.JPG)
+![](/software/gnuboot/web/img/t60_dev/0032.JPG) ![](/software/gnuboot/web/img/t60_dev/0033.JPG)
 
 This photo shows the flash chip, near the RAM, with numbers of pins written:
 
-![](/software/gnuboot/test/web/img/t60_dev/0030.JPG)
+![](/software/gnuboot/web/img/t60_dev/0030.JPG)
 
 Refer to the external flashing guide:
 
@@ -174,48 +174,48 @@ complains about multiple flash chip definitions detected, then choose
 one of them following the instructions in the output.
 
 Put those screws back:\
-![](/software/gnuboot/test/web/img/t60_dev/0047.JPG)
+![](/software/gnuboot/web/img/t60_dev/0047.JPG)
 
 Put it back into lower chassis:\
-![](/software/gnuboot/test/web/img/t60_dev/0048.JPG)
+![](/software/gnuboot/web/img/t60_dev/0048.JPG)
 
 Attach LCD and insert screws (also, attach the lcd cable to the board):\
-![](/software/gnuboot/test/web/img/t60_dev/0049.JPG)
+![](/software/gnuboot/web/img/t60_dev/0049.JPG)
 
 Insert those screws:\
-![](/software/gnuboot/test/web/img/t60_dev/0050.JPG)
+![](/software/gnuboot/web/img/t60_dev/0050.JPG)
 
 On the CPU (and there is another chip south-east to it, sorry forgot to
 take pic) clean off the old thermal paste (with the alcohol) and apply
 new (Artic Silver 5 is good, others are good too) you should also clean
 the heatsink the same way\
-![](/software/gnuboot/test/web/img/t60_dev/0051.JPG)
+![](/software/gnuboot/web/img/t60_dev/0051.JPG)
 
 Attach the heatsink and install the screws (also, make sure to install
 the AC jack as highlighted):\
-![](/software/gnuboot/test/web/img/t60_dev/0052.JPG)
+![](/software/gnuboot/web/img/t60_dev/0052.JPG)
 
 Reinstall that upper bezel:\
-![](/software/gnuboot/test/web/img/t60_dev/0053.JPG)
+![](/software/gnuboot/web/img/t60_dev/0053.JPG)
 
 Do that:\
-![](/software/gnuboot/test/web/img/t60_dev/0054.JPG) ![](/software/gnuboot/test/web/img/t60_dev/0055.JPG)
+![](/software/gnuboot/web/img/t60_dev/0054.JPG) ![](/software/gnuboot/web/img/t60_dev/0055.JPG)
 
 Re-attach modem, wifi, (wwan?), and all necessary cables. Sorry, forgot
 to take pics. Look at previous removal steps to see where they go back
 to.
 
 Attach keyboard and install nvram battery:\
-![](/software/gnuboot/test/web/img/t60_dev/0056.JPG) ![](/software/gnuboot/test/web/img/t60_dev/0057.JPG)
+![](/software/gnuboot/web/img/t60_dev/0056.JPG) ![](/software/gnuboot/web/img/t60_dev/0057.JPG)
 
 Place keyboard and (sorry, forgot to take pics) reinstall the palmrest
 and insert screws on the underside:\
-![](/software/gnuboot/test/web/img/t60_dev/0058.JPG)
+![](/software/gnuboot/web/img/t60_dev/0058.JPG)
 
 It lives!\
-![](/software/gnuboot/test/web/img/t60_dev/0071.JPG) ![](/software/gnuboot/test/web/img/t60_dev/0072.JPG)
-![](/software/gnuboot/test/web/img/t60_dev/0073.JPG)
+![](/software/gnuboot/web/img/t60_dev/0071.JPG) ![](/software/gnuboot/web/img/t60_dev/0072.JPG)
+![](/software/gnuboot/web/img/t60_dev/0073.JPG)
 
 Always stress test ('stress -c 2' and xsensors. below 90C is ok) when
 replacing cpu paste/heatsink:\
-![](/software/gnuboot/test/web/img/t60_dev/0074.JPG)
+![](/software/gnuboot/web/img/t60_dev/0074.JPG)

@@ -35,25 +35,25 @@ Tablet (for those systems, you have to remove the motherboard
 completely, since the flash chip is on the other side of the board).
 
 Remove these screws:\
-![](/software/gnuboot/test/web/img/x200/disassembly/0003.jpg)
+![](/software/gnuboot/web/img/x200/disassembly/0003.jpg)
 
 Gently push the keyboard towards the screen, then lift it off, and optionally
 disconnect it from the board:\
-![](/software/gnuboot/test/web/img/x200/disassembly/0004.jpg)
-![](/software/gnuboot/test/web/img/x200/disassembly/0005.jpg)
+![](/software/gnuboot/web/img/x200/disassembly/0004.jpg)
+![](/software/gnuboot/web/img/x200/disassembly/0005.jpg)
 
 Disconnect the cable of the fingerpring reader, and then pull up the palm rest,
 lifting up the left and right side of it:\
-![](/software/gnuboot/test/web/img/x200/disassembly/0006.1.jpg)
-![](/software/gnuboot/test/web/img/x200/disassembly/0006.jpg)
+![](/software/gnuboot/web/img/x200/disassembly/0006.1.jpg)
+![](/software/gnuboot/web/img/x200/disassembly/0006.jpg)
 
 This shows the location of the flash chip, for both SOIC-8 and SOIC-16:\
-![](/software/gnuboot/test/web/img/x200/x200_soic16.jpg)
-![](/software/gnuboot/test/web/img/x200/x200_soic8.jpg)
+![](/software/gnuboot/web/img/x200/x200_soic16.jpg)
+![](/software/gnuboot/web/img/x200/x200_soic8.jpg)
 
 Lift back the tape that covers a part of the flash chip, and then
 connect the clip:\
-![](/software/gnuboot/test/web/img/x200/disassembly/0008.jpg)
+![](/software/gnuboot/web/img/x200/disassembly/0008.jpg)
 
 Now, you should be ready to install libreboot.
 
@@ -78,14 +78,14 @@ Make sure that the RAM you buy is the 2Rx8 configuration when buying 4GiB sticks
 
 In this photo, 8GiB of RAM (2x4GiB) is installed:
 
-![](/software/gnuboot/test/web/img/x200/disassembly/0018.jpg)
+![](/software/gnuboot/web/img/x200/disassembly/0018.jpg)
 
 Boot it!
 --------
 
 You should see something like this:
 
-![](/software/gnuboot/test/web/img/x200/disassembly/0019.jpg)
+![](/software/gnuboot/web/img/x200/disassembly/0019.jpg)
 
 Now [install GNU+Linux](../gnulinux/).
 
@@ -99,7 +99,7 @@ was proven correct; however, it is still useless in practise.
 
 Look just above the 7 in TP37 (that's GPIO33):
 
-![](/software/gnuboot/test/web/img/x200/gpio33_location.jpg)
+![](/software/gnuboot/web/img/x200/gpio33_location.jpg)
 
 By default we would see this in lenovobios, when trying flashrom -p
 internal -w rom.rom:

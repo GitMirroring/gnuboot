@@ -27,7 +27,7 @@ project documentation, including the installation instructions (we
 also need help testing them).
 
 See the [page about contributing to GNU
-Boot](/software/gnuboot/test/web/git.html) for more details on how to
+Boot](/software/gnuboot/web/git.html) for more details on how to
 help GNU Boot.
 
 ### How this project came to exist ####

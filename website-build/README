@@ -13,7 +13,7 @@ $ ./autogen.sh
 $ ./configure
 $ make test
 
-Then you can point a browser to http://localhost:8080/software/gnuboot/test/web/
+Then you can point a browser to http://localhost:8080/software/gnuboot/web/
 
 == Deployment on https://gnu.org/software/gnuboot/ ==
 
@@ -74,7 +74,7 @@ website with the following commands:
     $ ./configure
     $ make deploy
 
-Then you can point a browser to https://gnu.org/software/gnuboot/test/web/
+Then you can point a browser to https://gnu.org/software/gnuboot/web/
 
 References:
 -----------
