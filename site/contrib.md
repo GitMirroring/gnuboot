@@ -10,8 +10,8 @@ If we forgot to mention you here, let us know and we'll add you. (or if
 you don't want to be mentioned, let us know and we'll remove your
 entry)
 
-Information about who works on Libreboot, and how the project is run, can
-be found on this page: [who.md](who.md)
+Information about who maintains GNU Boot, and how the project is run,
+can be found on this page: [git.md](git.md).
 
 You can know the history of the Libreboot project, simply by reading this page.
 It goes into detail about all of the major contributions to the project, and in
