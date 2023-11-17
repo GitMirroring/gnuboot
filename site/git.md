@@ -183,6 +183,14 @@ Please also sign-off your patches, which you can configure with:
 Once you have submitted your patch, the GNU Boot maintainers will be
 notified via the mailing list and will start reviewing it.
 
+All the patches that are added to GNU Boot require the agreement of
+two maintainers. The maintainer agreement is often indicated with text
+like that:
+
+	Acked-by: <maintainer name> <maintainer email>.
+
+in an (email) reply form the given maintainer.
+
 Maintainers
 -----------
 
