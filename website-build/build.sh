@@ -51,12 +51,17 @@ sync_repo()
 			git -C "${dst_path}" checkout "${src_revision}"
 		fi
 	elif [ -z "${src_path}" ] ; then
+		localrev="$(git --no-pager log --oneline HEAD -1 --format='%H')"
+
 		git -C "${dst_path}" remote get-url origin || \
 		    git -C "${dst_path}" remote add origin "${src_uri}"
 		git -C "${dst_path}" remote set-url origin "${src_uri}"
 		git -C "${dst_path}" clean -dfx
-		git -C "${dst_path}" fetch origin
-		git -C "${dst_path}" checkout "${src_revision}"
+
+		if [ "${localrev}" != "${src_revision}" ] ; then
+			git -C "${dst_path}" fetch origin
+			git -C "${dst_path}" checkout "${src_revision}"
+		fi
 
 	else
 		rm -rf "${dst_path}"
