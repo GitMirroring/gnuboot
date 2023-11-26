@@ -84,7 +84,7 @@ if [ $# -gt 1 ]; then
 		list)
 			printf "Available options for mode '%s':\n\n" "${mode}"
 			listoptions "${mode}"
-			;;  
+			;;
 		all)
 			for option in $(listoptions "${mode}"); do
 				"${build}"/"${mode}"/"${option}" $@
@@ -96,11 +96,13 @@ if [ $# -gt 1 ]; then
 					"${build}"/"${mode}"/"${option}" $@
 				else
 					help
-					die "Invalid option for '${mode}'. See './build ${mode} list'."
+					die "Invalid option for '${mode}'." \
+					    " See './build ${mode} list'."
 				fi
 			else
 				help
-				die "Invalid mode '${mode}'. See './build help'."
+				die "Invalid mode '${mode}'." \
+				    " See './build help'."
 			fi
 	esac
 else
