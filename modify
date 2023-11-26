@@ -70,33 +70,34 @@ mode="${1}"
 
 if [ $# -gt 1 ]; then
 
-    option="${2}"
-    shift 2
+	option="${2}"
+	shift 2
 
-    case "${option}" in
-    	list)
-    		printf "Available options for mode '%s':\n\n" "${mode}"
-    		listoptions "${mode}"
-    		;;  
-    	all)
-    		for option in $(listoptions "${mode}"); do
-    			"${modify}"/"${mode}"/"${option}" $@
-    		done
-    		;;
-    	*)
-    		if [ -d "${modify}"/"${mode}"/ ]; then
-    			if [ -f "${modify}"/"${mode}"/"${option}" ]; then
-    				"${modify}"/"${mode}"/"${option}" $@
-    			else
-                    help
-    				die "Invalid option for '${mode}'. See './modify ${mode} list'."
-    			fi
-    		else
-                help
-    			die "Invalid mode '${mode}'. See './modify help'."
-    		fi
-    esac
+	case "${option}" in
+	list)
+		printf "Available options for mode '%s':\n\n" "${mode}"
+		listoptions "${mode}"
+		;;
+	all)
+		for option in $(listoptions "${mode}"); do
+			"${modify}"/"${mode}"/"${option}" $@
+		done
+		;;
+	*)
+		if [ -d "${modify}"/"${mode}"/ ]; then
+			if [ -f "${modify}"/"${mode}"/"${option}" ]; then
+				"${modify}"/"${mode}"/"${option}" $@
+			else
+				help
+				die "Invalid option for '${mode}'." \
+				    " See './modify ${mode} list'."
+			fi
+		else
+			help
+			die "Invalid mode '${mode}'. See './modify help'."
+		fi
+	esac
 else
-    help
-    exit 0
+	help
+	exit 0
 fi
