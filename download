@@ -60,8 +60,8 @@ help() {
 
 	Each program download script should work without extra paramaters, but
 	they can use them. For instance, './download coreboot' will download all
-	coreboot trees by default, but './download coreboot x60' will only download
-	the coreboot tree required for the target: x60
+	coreboot trees by default, but './download coreboot x60' will only
+	download the coreboot tree required for the target: x60
 
 	Each program download script should also accept the --help paramater to
 	display the usage of the script.
@@ -100,13 +100,13 @@ elif [ ! -f "${download}/${program}" ]; then
 	die "Invalid argument '${program}'. See: './download help'."
 fi
 
-if [ $# -lt 1 ]; then	
+if [ $# -lt 1 ]; then
 	if [ "${deleteblobs}" = "false" ]; then
 		NODELETE= "${download}/${program}"
 	else
 		"${download}/${program}"
 	fi
-else	
+else
 	if [ "${deleteblobs}" = "false" ]; then
 		NODELETE= "${download}/${program}" $@
 	else
