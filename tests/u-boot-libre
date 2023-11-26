@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-#  tests for resources/scripts/build/release/u-boot-stable-src-release
+#  tests for resources/packages/u-boot-libre/release
 #
 #	Copyright (C) 2022 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 #
@@ -25,5 +25,5 @@ set -u -e
 topdir="$(realpath $(dirname $(realpath $0))/../)"
 progname="$(basename $(realpath $0))"
 
-"${topdir}/resources/scripts/build/release/u-boot-libre"
+"${topdir}/resources/packages/u-boot-libre/release"
 sha512sum -c "${topdir}/tests/${progname}.sha512"

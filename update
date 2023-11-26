@@ -26,19 +26,17 @@ set -u -e
 projectname="$(cat projectname)"
 ./resources/scripts/misc/versioncheck
 
-update=./resources/scripts/update
-
 list_packages() {
-	for package in "${update}"/*; do
-		printf '%s\n' "${package##*/}"
-	done
+	ls -d resources/packages/*/update/ | \
+		sed 's#resources/packages/##' | \
+		sed 's#/.*##'
 }
 
 # Takes exactly one package as parameter
 listoptions() {
-	for option in "${update}"/"${1}"/*; do
-		printf '%s\n' "${option##*/}"
-	done
+	package="${1}"
+	ls -d resources/packages/"${package}"/update/* | \
+	    sed 's#resources/packages/'"${package}"'/update/##'
 }
 
 help() {
@@ -74,18 +72,24 @@ if [ $# -gt 1 ]; then
 
 	case "${option}" in
 	list)
-		printf "Available options for package '%s':\n\n" "${package}"
-		listoptions "${package}"
-		;;
+		if [ ! -d resources/packages/"${package}" ] ; then
+			die "Invalid package '${package}'." \
+			    " See './update help'."
+		else
+			printf "Available options for package '%s':\n\n" \
+			   "${package}"
+			listoptions "${package}"
+		fi
 	all)
 		for option in $(listoptions "${package}"); do
-			"${update}"/"${package}"/"${option}" $@
+			resources/packages/"${package}"/update/"${option}" $@
 		done
 		;;
 	*)
-		if [ -d "${update}"/"${package}"/ ]; then
-			if [ -f "${update}"/"${package}"/"${option}" ]; then
-				"${update}"/"${package}"/"${option}" $@
+		if [ -d resources/packages/"${package}"/update ]; then
+			pkg_dir=resources/packages/"${package}"
+			if [ -f "${pkg_dir}"/update/"${option}" ]; then
+				"${pkg_dir}"/update/"${option}" $@
 			else
 				help
 				die "Invalid option for '${package}'." \

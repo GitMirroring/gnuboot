@@ -36,7 +36,7 @@ release_files=""
 
 usage()
 {
-	progname="resources/scripts/build/release/u-boot-libre"
+	progname="resources/packages/u-boot-libre/release"
 
 	printf "Usage:\n"
 	printf "\t%s                  # %s\n" \

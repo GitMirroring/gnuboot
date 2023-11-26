@@ -36,12 +36,10 @@ deleteblobs="true"
 
 rm -f "build_error"
 
-download=resources/scripts/download
-
 list_packages() {
-	for package in "${download}"/*; do
-		printf '%s\n' "${package##*/}"
-	done
+	ls -d resources/packages/*/download | \
+	    sed 's#/download$##' | \
+	    sed 's#^resources/packages/##'
 }
 
 help() {
@@ -85,32 +83,30 @@ shift 1
 [ "${package}" = help ] && help && exit 0
 
 if [ "${package}" = "all" ]; then
-	for downloadPackage in ${download}/*; do
-		if [ -f "${downloadPackage}" ]; then
-			if [ "${deleteblobs}" = "false" ]; then
-				NODELETE= "${downloadPackage}"
-			else
-				"${downloadPackage}"
-			fi
+	for script in resources/packages/*/download; do
+		if [ "${deleteblobs}" = "false" ]; then
+			NODELETE= "${script}"
+		else
+			"${script}"
 		fi
 	done
 	exit 0
-elif [ ! -f "${download}/${package}" ]; then
+elif [ ! -f "resources/packages/${package}/download" ]; then
 	help
-	die "Invalid argument '${package}'. See: './download help'."
+	die "Invalid package '${package}'. See: './download help'."
 fi
 
 if [ $# -lt 1 ]; then
 	if [ "${deleteblobs}" = "false" ]; then
-		NODELETE= "${download}/${package}"
+		NODELETE= resources/packages/"${package}"/download
 	else
-		"${download}/${package}"
+		resources/packages/"${package}"/download
 	fi
 else
 	if [ "${deleteblobs}" = "false" ]; then
-		NODELETE= "${download}/${package}" $@
+		NODELETE= resources/packages/"${package}"/download $@
 	else
-		"${download}/${package}" $@
+		resources/packages/"${package}"/download $@
 	fi
 fi
 

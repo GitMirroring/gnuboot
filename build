@@ -27,19 +27,41 @@ set -u -e
 
 projectname="$(cat projectname)"
 
-build=./resources/scripts/build
+# This is for backward compatibility: before the list of "modes" was
+# auto-detected, but there isn't a 1:1 matching between modes and
+# packages tasks (build, clean, etc).
+tasks="\
+	boot \
+	clean \
+	dependencies \
+	descriptors \
+	module \
+	payload \
+	release \
+"
 
 list_tasks() {
-	for task in "${build}"/*; do
-		printf '%s\n' "${task##*/}"
+	for task in ${tasks} ; do
+		echo "${task}"
 	done
+}
+
+list_tasks_paths() {
+	task="${1}"
+
+	find resources/packages \
+		-mindepth 2 -maxdepth 2 \
+		-type f \
+		-name "${task}" \
+		-printf "%P\n"
 }
 
 # Takes exactly one task as parameter
 list_packages() {
-	for package in "${build}"/"${1}"/*; do
-		printf '%s\n' "${package##*/}"
-	done
+	task="${1}"
+
+	list_tasks_paths "${task}" | \
+		sed 's#/.*##'
 }
 
 help() {
@@ -82,18 +104,26 @@ if [ $# -gt 1 ]; then
 
 	case "${package}" in
 		list)
-			printf "Available packages for task '%s':\n\n" "${task}"
-			list_packages "${task}"
+			tasks_paths=$(list_tasks_paths "${task}")
+			if [ -z "${tasks_paths}" ] ; then
+				die "Invalid task '${task}'." \
+				    " See './build help'."
+			else
+				printf "Available packages for task '%s':\n\n" \
+				   "${task}"
+				list_packages "${task}"
+			fi
 			;;
 		all)
 			for package in $(list_packages "${task}"); do
-				"${build}"/"${task}"/"${package}" $@
+				resources/packages/"${package}"/"${task}" $@
 			done
 			;;
 		*)
-			if [ -d "${build}"/"${task}"/ ]; then
-				if [ -f "${build}"/"${task}"/"${package}" ]; then
-					"${build}"/"${task}"/"${package}" $@
+			if [ -d resources/packages/"${package}" ] ; then
+				pkg_dir=resources/packages/"${package}"
+				if [ -f "${pkg_dir}"/"${task}" ]; then
+					"${pkg_dir}"/"${task}" $@
 				else
 					help
 					die "Invalid package for '${task}'." \

@@ -26,19 +26,25 @@ set -u -e
 projectname="$(cat projectname)"
 ./resources/scripts/misc/versioncheck
 
-modify=./resources/scripts/modify
-
+list_modify_paths() {
+	find resources/packages \
+		-mindepth 2 -maxdepth 2 \
+		-type d \
+		-name "modify" \
+		-printf "%P\n"
+}
 list_packages() {
-	for package in "${modify}"/*; do
-		printf '%s\n' "${package##*/}"
-	done
+	list_modify_paths | \
+		sed 's#/.*##'
 }
 
 # Takes exactly one package as parameter
 listoptions() {
-	for option in "${modify}"/"${1}"/*; do
-		printf '%s\n' "${option##*/}"
-	done
+	package="${1}"
+	find resources/packages/"${package}/modify/" \
+		-mindepth 1 -maxdepth 1 \
+		-type f \
+	        -printf "%P\n"
 }
 
 help() {
@@ -75,18 +81,25 @@ if [ $# -gt 1 ]; then
 
 	case "${option}" in
 	list)
-		printf "Available options for package '%s':\n\n" "${package}"
-		listoptions "${package}"
+		if [ ! -d resources/packages/"${package}" ] ; then
+			die "Invalid package '${package}'." \
+			    " See './modify help'."
+		else
+			printf "Available options for package '%s':\n\n" \
+			   "${package}"
+			listoptions "${package}"
+		fi
 		;;
 	all)
 		for option in $(listoptions "${package}"); do
-			"${modify}"/"${package}"/"${option}" $@
+			resources/packages/"${package}"/modify/"${option}" $@
 		done
 		;;
 	*)
-		if [ -d "${modify}"/"${package}"/ ]; then
-			if [ -f "${modify}"/"${package}"/"${option}" ]; then
-				"${modify}"/"${package}"/"${option}" $@
+		if [ -d resources/packages/"${package}"/modify ]; then
+			pkg_dir=resources/packages/"${package}"
+			if [ -f "${pkg_dir}"/modify/"${option}" ]; then
+				"${pkg_dir}"/modify/"${option}" $@
 			else
 				help
 				die "Invalid option for '${package}'." \
