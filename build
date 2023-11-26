@@ -36,15 +36,15 @@ listmodes() {
 }
 
 # Takes exactly one mode as parameter
-listoptions() {
-	for option in "${build}"/"${1}"/*; do
-		printf '%s\n' "${option##*/}"
+list_packages() {
+	for package in "${build}"/"${1}"/*; do
+		printf '%s\n' "${package##*/}"
 	done
 }
 
 help() {
 	cat <<- EOF
-	USAGE:	./build <MODE> <OPTION>
+	USAGE:	./build <MODE> <PACKAGE>
 
 	possible values for 'mode':
 	$(listmodes)
@@ -77,26 +77,26 @@ fi
 
 if [ $# -gt 1 ]; then
 
-	option="${2}"
+	package="${2}"
 	shift 2
 
-	case "${option}" in
+	case "${package}" in
 		list)
-			printf "Available options for mode '%s':\n\n" "${mode}"
-			listoptions "${mode}"
+			printf "Available packages for mode '%s':\n\n" "${mode}"
+			list_packages "${mode}"
 			;;
 		all)
-			for option in $(listoptions "${mode}"); do
-				"${build}"/"${mode}"/"${option}" $@
+			for package in $(list_packages "${mode}"); do
+				"${build}"/"${mode}"/"${package}" $@
 			done
 			;;
 		*)
 			if [ -d "${build}"/"${mode}"/ ]; then
-				if [ -f "${build}"/"${mode}"/"${option}" ]; then
-					"${build}"/"${mode}"/"${option}" $@
+				if [ -f "${build}"/"${mode}"/"${package}" ]; then
+					"${build}"/"${mode}"/"${package}" $@
 				else
 					help
-					die "Invalid option for '${mode}'." \
+					die "Invalid package for '${mode}'." \
 					    " See './build ${mode} list'."
 				fi
 			else
