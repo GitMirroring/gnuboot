@@ -21,7 +21,8 @@
 [ "x${DEBUG+set}" = 'xset' ] && set -v
 set -u -e
 
-# This is where GRUB is expected to be (outside of the grub-assemble, instead in main checkout)
+# This is where GRUB is expected to be (outside of the grub-assemble,
+# instead in main checkout)
 source "resources/grub/modules.list"
 
 printf "Creating GRUB payloads and configuration files\n"
@@ -61,15 +62,20 @@ for keylayoutfile in resources/grub/keymap/*.gkb; do
 		/boot/grub/layouts/${keymap}.gkb=${keylayoutfile}
 
 
-	if [ "${keymap}" = "usqwerty" ]; then	
+	if [ "${keymap}" = "usqwerty" ]; then
 		cp resources/grub/config/grub.cfg payload/grub/grub_usqwerty.cfg
 	else
-		sed "s/usqwerty/${keymap}/" < resources/grub/config/grub.cfg > payload/grub/grub_${keymap}.cfg
+		sed "s/usqwerty/${keymap}/" \
+		    < resources/grub/config/grub.cfg \
+		    > payload/grub/grub_${keymap}.cfg
 	fi
 
-	sed "s/grubtest.cfg/grub.cfg/" < payload/grub/grub_${keymap}.cfg > payload/grub/grub_${keymap}_test.cfg
+	sed "s/grubtest.cfg/grub.cfg/" \
+	    < payload/grub/grub_${keymap}.cfg \
+	    > payload/grub/grub_${keymap}_test.cfg
 
-	printf "Generated: 'payload/grub/grub_%s.elf' and configs.'\n" "${keymap}"
+	printf "Generated: 'payload/grub/grub_%s.elf' and configs.'\n" \
+	       "${keymap}"
 done
 
 printf "Done! Check payload/grub/ to see the files.\n\n"
