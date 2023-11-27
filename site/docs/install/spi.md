@@ -233,7 +233,7 @@ install flashrom. Do this after downloading the
 [lbmk Git repository](https://git.sr.ht/~libreboot/lbmk):
 
     cd lbmk
-    sudo ./build dependencies ubuntu2004
+    sudo ./build install dependencies
 
 NOTE: debian, arch or void can be written instead of ubuntu2004. the debian
 script is also applicable to newer ubuntu versions
@@ -241,15 +241,14 @@ script is also applicable to newer ubuntu versions
     ./download flashrom
     ./build module flashrom
 
-If the `ubuntu2004` script complains about missing dependencies, just modify
-the script and remove those dependencies. The script is located
-at `resources/packages/ubuntu2004/dependencies` and it is written for
-Ubuntu 20.04, but it should work fine in other GNU+Linux distributions that use
-the `apt-get` package manager.
+If the script complains about missing dependencies, just modify the
+resources/dependencies/ubuntu2004 script and remove those dependencies.
+The script is written for Ubuntu 20.04, but it should work fine in other
+GNU/Linux distributions that use the `apt-get` package manager.
 
 A `flashrom/` directory will be present, with a `flashrom` executable inside
 of it. If you got an error about missing package when running the dependencies
-command above, tweak `resources/packages/ubuntu2004/dependencies`. That
+command above, tweak `resources/dependencies/ubuntu2004`. That
 script downloads and installs build dependencies in apt-get and it is intended
 for use on x86-64 systems running Ubuntu 20.04, but it should work in Raspbian
 on the Raspberry Pi.
@@ -265,9 +264,8 @@ argument in flashrom. This mitigates stability issues.
 
 If you downloaded the flashrom source code directly, you can go into the
 directory and simply type `make`. In the Libreboot build system, build
-dependencies are documented in script located
-at `resources/packages/*/dependencies` which you can install
-using the `apt-get` software.
+dependencies are documented in scripts located in `resources/dependencies/`
+which you can install using the `apt-get` software.
 
 How to use flashrom
 ===================

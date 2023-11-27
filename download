@@ -36,10 +36,17 @@ deleteblobs="true"
 
 rm -f "build_error"
 
+list_modify_paths() {
+	find resources/packages \
+		-mindepth 2 -maxdepth 2 \
+		-type f \
+		-name "download" \
+		-printf "%P\n"
+}
+
 list_packages() {
-	ls -d resources/packages/*/download | \
-	    sed 's#/download$##' | \
-	    sed 's#^resources/packages/##'
+	list_modify_paths | \
+		sed 's#/.*##'
 }
 
 help() {
