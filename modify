@@ -28,13 +28,13 @@ projectname="$(cat projectname)"
 
 modify=./resources/scripts/modify
 
-listmodes() {
-	for mode in "${modify}"/*; do
-		printf '%s\n' "${mode##*/}"
+list_packages() {
+	for package in "${modify}"/*; do
+		printf '%s\n' "${package##*/}"
 	done
 }
 
-# Takes exactly one mode as parameter
+# Takes exactly one package as parameter
 listoptions() {
 	for option in "${modify}"/"${1}"/*; do
 		printf '%s\n' "${option##*/}"
@@ -43,10 +43,10 @@ listoptions() {
 
 help() {
 	cat <<- EOF
-	USAGE:	./modify <MODE> <OPTION>
+	USAGE:	./modify <PACKAGE> <OPTION>
 
-	possible values for 'mode':
-	$(listmodes)
+	possible values for 'package':
+	$(list_packages)
 
 	Example:	./modify coreboot configs
 	Example:	./modify coreboot configs x60
@@ -64,9 +64,9 @@ if [ $# -lt 1 ]; then
 	die "Wrong number of arguments specified. See './modify help'."
 fi
 
-mode="${1}"
+package="${1}"
 
-[ "${mode}" = help ] && help && exit 0
+[ "${package}" = help ] && help && exit 0
 
 if [ $# -gt 1 ]; then
 
@@ -75,26 +75,26 @@ if [ $# -gt 1 ]; then
 
 	case "${option}" in
 	list)
-		printf "Available options for mode '%s':\n\n" "${mode}"
-		listoptions "${mode}"
+		printf "Available options for package '%s':\n\n" "${package}"
+		listoptions "${package}"
 		;;
 	all)
-		for option in $(listoptions "${mode}"); do
-			"${modify}"/"${mode}"/"${option}" $@
+		for option in $(listoptions "${package}"); do
+			"${modify}"/"${package}"/"${option}" $@
 		done
 		;;
 	*)
-		if [ -d "${modify}"/"${mode}"/ ]; then
-			if [ -f "${modify}"/"${mode}"/"${option}" ]; then
-				"${modify}"/"${mode}"/"${option}" $@
+		if [ -d "${modify}"/"${package}"/ ]; then
+			if [ -f "${modify}"/"${package}"/"${option}" ]; then
+				"${modify}"/"${package}"/"${option}" $@
 			else
 				help
-				die "Invalid option for '${mode}'." \
-				    " See './modify ${mode} list'."
+				die "Invalid option for '${package}'." \
+				    " See './modify ${package} list'."
 			fi
 		else
 			help
-			die "Invalid mode '${mode}'. See './modify help'."
+			die "Invalid package '${package}'. See './modify help'."
 		fi
 	esac
 else
