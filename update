@@ -28,13 +28,13 @@ projectname="$(cat projectname)"
 
 update=./resources/scripts/update
 
-listmodes() {
-	for mode in "${update}"/*; do
-		printf '%s\n' "${mode##*/}"
+list_packages() {
+	for package in "${update}"/*; do
+		printf '%s\n' "${package##*/}"
 	done
 }
 
-# Takes exactly one mode as parameter
+# Takes exactly one package as parameter
 listoptions() {
 	for option in "${update}"/"${1}"/*; do
 		printf '%s\n' "${option##*/}"
@@ -43,10 +43,10 @@ listoptions() {
 
 help() {
 	cat <<- EOF
-	USAGE:	./update <MODE> <OPTION>
+	USAGE:	./update <PACKAGE> <OPTION>
 
-	possible values for 'mode':
-	$(listmodes)
+	possible values for 'package':
+	$(list_packages)
 
 	Example:	./update coreboot configs
 	Example:	./update coreboot configs x60
@@ -64,9 +64,9 @@ if [ $# -lt 1 ]; then
 	die "Wrong number of arguments specified. See './update help'."
 fi
 
-mode="${1}"
+package="${1}"
 
-[ "${mode}" = help ] && help && exit 0
+[ "${package}" = help ] && help && exit 0
 
 if [ $# -gt 1 ]; then
 	option="${2}"
@@ -74,26 +74,26 @@ if [ $# -gt 1 ]; then
 
 	case "${option}" in
 	list)
-		printf "Available options for mode '%s':\n\n" "${mode}"
-		listoptions "${mode}"
+		printf "Available options for package '%s':\n\n" "${package}"
+		listoptions "${package}"
 		;;
 	all)
-		for option in $(listoptions "${mode}"); do
-			"${update}"/"${mode}"/"${option}" $@
+		for option in $(listoptions "${package}"); do
+			"${update}"/"${package}"/"${option}" $@
 		done
 		;;
 	*)
-		if [ -d "${update}"/"${mode}"/ ]; then
-			if [ -f "${update}"/"${mode}"/"${option}" ]; then
-				"${update}"/"${mode}"/"${option}" $@
+		if [ -d "${update}"/"${package}"/ ]; then
+			if [ -f "${update}"/"${package}"/"${option}" ]; then
+				"${update}"/"${package}"/"${option}" $@
 			else
 				help
-				die "Invalid option for '${mode}'." \
-				    " See './update ${mode} list'."
+				die "Invalid option for '${package}'." \
+				    " See './update ${package} list'."
 			fi
 		else
 			help
-			die "Invalid mode '${mode}'. See './update help'."
+			die "Invalid package '${package}'. See './update help'."
 		fi
 	esac
 else
