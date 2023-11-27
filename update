@@ -26,6 +26,8 @@ set -u -e
 projectname="$(cat projectname)"
 ./resources/scripts/misc/versioncheck
 
+. resources/scripts/misc/sysexits.sh
+
 list_packages() {
 	ls -d resources/packages/*/update/ | \
 		sed 's#resources/packages/##' | \
@@ -41,7 +43,9 @@ listoptions() {
 
 help() {
 	cat <<- EOF
-	USAGE:	./update <PACKAGE> <OPTION>
+	Usage:
+	        ./update <PACKAGE> <OPTION>
+	        ./update --help
 
 	possible values for 'package':
 	$(list_packages)
@@ -54,17 +58,21 @@ help() {
 }
 
 die() {
+	ret="$1"
+	shift 1
+
 	printf 'Error: %s\n' "${@}" 1>&2
-	exit 1
+	exit "${ret}"
 }
 
 if [ $# -lt 1 ]; then
-	die "Wrong number of arguments specified. See './update help'."
+    die "${EX_USAGE}" \
+	"Wrong number of arguments specified. See './update --help'."
 fi
 
 package="${1}"
 
-[ "${package}" = help ] && help && exit 0
+[ "${package}" = "--help" ] && help && exit 0
 
 if [ $# -gt 1 ]; then
 	option="${2}"
@@ -73,8 +81,9 @@ if [ $# -gt 1 ]; then
 	case "${option}" in
 	list)
 		if [ ! -d resources/packages/"${package}" ] ; then
-			die "Invalid package '${package}'." \
-			    " See './update help'."
+			die "${EX_USAGE}" \
+			    "Invalid package '${package}'." \
+			    " See './update --help'."
 		else
 			printf "Available options for package '%s':\n\n" \
 			   "${package}"
@@ -92,12 +101,15 @@ if [ $# -gt 1 ]; then
 				"${pkg_dir}"/update/"${option}" $@
 			else
 				help
-				die "Invalid option for '${package}'." \
+				die "${EX_USAGE}" \
+				    "Invalid option for '${package}'." \
 				    " See './update ${package} list'."
 			fi
 		else
 			help
-			die "Invalid package '${package}'. See './update help'."
+			die "${EX_USAGE}" \
+			    "Invalid package '${package}'." \
+			    " See './update --help'."
 		fi
 	esac
 else
