@@ -38,32 +38,32 @@ rm -f "build_error"
 
 download=resources/scripts/download
 
-listprograms() {
-	for program in "${download}"/*; do
-		printf '%s\n' "${program##*/}"
+list_packages() {
+	for package in "${download}"/*; do
+		printf '%s\n' "${package##*/}"
 	done
 }
 
 help() {
 	cat <<- EOF
-	USAGE:	./download <PROGRAM> <OPTIONS>
+	USAGE:	./download <PACKAGE> <OPTIONS>
 
-	possible values for 'program':
-	$(listprograms)
+	possible values for 'package':
+	$(list_packages)
 
 	Example:	./download flashrom
 	Example:	./download coreboot
 
-	Some program options allow for additional parameters:
+	Some package options allow for additional parameters:
 	Example:	./download coreboot default
 	Example:	./download coreboot x60
 
-	Each program download script should work without extra paramaters, but
+	Each package download script should work without extra paramaters, but
 	they can use them. For instance, './download coreboot' will download all
 	coreboot trees by default, but './download coreboot x60' will only
 	download the coreboot tree required for the target: x60
 
-	Each program download script should also accept the --help paramater to
+	Each package download script should also accept the --help paramater to
 	display the usage of the script.
 
 	Refer to the documentation for more information.
@@ -80,37 +80,37 @@ if [ $# -lt 1 ]; then
 	die "Please specify arguments."
 fi
 
-program="${1}"
+package="${1}"
 shift 1
-[ "${program}" = help ] && help && exit 0
+[ "${package}" = help ] && help && exit 0
 
-if [ "${program}" = "all" ]; then
-	for downloadProgram in ${download}/*; do
-		if [ -f "${downloadProgram}" ]; then
+if [ "${package}" = "all" ]; then
+	for downloadPackage in ${download}/*; do
+		if [ -f "${downloadPackage}" ]; then
 			if [ "${deleteblobs}" = "false" ]; then
-				NODELETE= "${downloadProgram}"
+				NODELETE= "${downloadPackage}"
 			else
-				"${downloadProgram}"
+				"${downloadPackage}"
 			fi
 		fi
 	done
 	exit 0
-elif [ ! -f "${download}/${program}" ]; then
+elif [ ! -f "${download}/${package}" ]; then
 	help
-	die "Invalid argument '${program}'. See: './download help'."
+	die "Invalid argument '${package}'. See: './download help'."
 fi
 
 if [ $# -lt 1 ]; then
 	if [ "${deleteblobs}" = "false" ]; then
-		NODELETE= "${download}/${program}"
+		NODELETE= "${download}/${package}"
 	else
-		"${download}/${program}"
+		"${download}/${package}"
 	fi
 else
 	if [ "${deleteblobs}" = "false" ]; then
-		NODELETE= "${download}/${program}" $@
+		NODELETE= "${download}/${package}" $@
 	else
-		"${download}/${program}" $@
+		"${download}/${package}" $@
 	fi
 fi
 
