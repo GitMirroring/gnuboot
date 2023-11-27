@@ -28,6 +28,8 @@ set -u -e
 
 ./resources/scripts/misc/versioncheck
 
+. resources/scripts/misc/sysexits.sh
+
 # set this when you want to modify each coreboot tree
 # for example, you want to test custom patches
 # NODELETE= ./download coreboot
@@ -51,7 +53,9 @@ list_packages() {
 
 help() {
 	cat <<- EOF
-	USAGE:	./download <PACKAGE> <OPTIONS>
+	Usage:
+	        ./download <PACKAGE> <OPTIONS>
+	        ./download --help
 
 	possible values for 'package':
 	$(list_packages)
@@ -76,18 +80,21 @@ help() {
 }
 
 die() {
+	ret="$1"
+	shift 1
+
 	printf 'Error: %s\n' "${@}" 1>&2
-	exit 1
+	exit "${ret}"
 }
 
 if [ $# -lt 1 ]; then
 	help
-	die "Please specify arguments."
+	die "${EX_USAGE}" "Please specify arguments."
 fi
 
 package="${1}"
 shift 1
-[ "${package}" = help ] && help && exit 0
+[ "${package}" = "--help" ] && help && exit 0
 
 if [ "${package}" = "all" ]; then
 	for script in resources/packages/*/download; do
@@ -100,7 +107,9 @@ if [ "${package}" = "all" ]; then
 	exit 0
 elif [ ! -f "resources/packages/${package}/download" ]; then
 	help
-	die "Invalid package '${package}'. See: './download help'."
+	die "${EX_USAGE}" \
+	    "Invalid package '${package}'." \
+	    " See: './download --help'."
 fi
 
 if [ $# -lt 1 ]; then
