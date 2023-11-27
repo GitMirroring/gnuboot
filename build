@@ -29,13 +29,13 @@ projectname="$(cat projectname)"
 
 build=./resources/scripts/build
 
-listmodes() {
-	for mode in "${build}"/*; do
-		printf '%s\n' "${mode##*/}"
+list_tasks() {
+	for task in "${build}"/*; do
+		printf '%s\n' "${task##*/}"
 	done
 }
 
-# Takes exactly one mode as parameter
+# Takes exactly one task as parameter
 list_packages() {
 	for package in "${build}"/"${1}"/*; do
 		printf '%s\n' "${package##*/}"
@@ -44,10 +44,10 @@ list_packages() {
 
 help() {
 	cat <<- EOF
-	USAGE:	./build <MODE> <PACKAGE>
+	USAGE:	./build <TASK> <PACKAGE>
 
-	possible values for 'mode':
-	$(listmodes)
+	possible values for 'task':
+	$(list_tasks)
 
 	Example:	./build module all
 	Example:	./build module flashrom [static]
@@ -67,13 +67,13 @@ if [ $# -lt 1 ]; then
 	die "Wrong number of arguments specified. See './build help'."
 fi
 
-mode="${1}"
+task="${1}"
 
-if [ "${mode}" != "dependencies" ]; then
+if [ "${task}" != "dependencies" ]; then
 	./resources/scripts/misc/versioncheck
 fi
 
-[ "${mode}" = help ] && help && exit 0
+[ "${task}" = help ] && help && exit 0
 
 if [ $# -gt 1 ]; then
 
@@ -82,26 +82,26 @@ if [ $# -gt 1 ]; then
 
 	case "${package}" in
 		list)
-			printf "Available packages for mode '%s':\n\n" "${mode}"
-			list_packages "${mode}"
+			printf "Available packages for task '%s':\n\n" "${task}"
+			list_packages "${task}"
 			;;
 		all)
-			for package in $(list_packages "${mode}"); do
-				"${build}"/"${mode}"/"${package}" $@
+			for package in $(list_packages "${task}"); do
+				"${build}"/"${task}"/"${package}" $@
 			done
 			;;
 		*)
-			if [ -d "${build}"/"${mode}"/ ]; then
-				if [ -f "${build}"/"${mode}"/"${package}" ]; then
-					"${build}"/"${mode}"/"${package}" $@
+			if [ -d "${build}"/"${task}"/ ]; then
+				if [ -f "${build}"/"${task}"/"${package}" ]; then
+					"${build}"/"${task}"/"${package}" $@
 				else
 					help
-					die "Invalid package for '${mode}'." \
-					    " See './build ${mode} list'."
+					die "Invalid package for '${task}'." \
+					    " See './build ${task} list'."
 				fi
 			else
 				help
-				die "Invalid mode '${mode}'." \
+				die "Invalid task '${task}'." \
 				    " See './build help'."
 			fi
 	esac
