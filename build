@@ -27,6 +27,8 @@ set -u -e
 
 projectname="$(cat projectname)"
 
+. resources/scripts/misc/sysexits.sh
+
 # This is for backward compatibility: before the list of "modes" was
 # auto-detected, but there isn't a 1:1 matching between modes and
 # packages tasks (build, clean, etc).
@@ -67,7 +69,9 @@ list_packages() {
 
 help() {
 	cat <<- EOF
-	USAGE:	./build <TASK> <PACKAGE>
+	Usage:
+	        ./build <TASK> <PACKAGE>
+	        ./build --help
 
 	possible values for 'task':
 	$(list_tasks)
@@ -82,12 +86,16 @@ help() {
 }
 
 die() {
+	ret="$1"
+	shift 1
+
 	printf 'Error: %s\n' "${@}" 1>&2
-	exit 1
+	exit "${ret}"
 }
 
 if [ $# -lt 1 ]; then
-	die "Wrong number of arguments specified. See './build help'."
+    die "${EX_USAGE}" \
+	"Wrong number of arguments specified. See './build --help'."
 fi
 
 task="${1}"
@@ -96,7 +104,7 @@ if [ "${task}" != "dependencies" ]; then
 	./resources/scripts/misc/versioncheck
 fi
 
-[ "${task}" = help ] && help && exit 0
+[ "${task}" = "--help" ] && help && exit 0
 
 if [ $# -gt 1 ]; then
 
@@ -107,8 +115,9 @@ if [ $# -gt 1 ]; then
 		list)
 			tasks_paths=$(list_tasks_paths "${task}")
 			if [ -z "${tasks_paths}" ] ; then
-				die "Invalid task '${task}'." \
-				    " See './build help'."
+				die "${EX_USAGE}" \
+				    "Invalid task '${task}'." \
+				    " See './build --help'."
 			else
 				printf "Available packages for task '%s':\n\n" \
 				   "${task}"
@@ -127,13 +136,15 @@ if [ $# -gt 1 ]; then
 					"${pkg_dir}"/"${task}" $@
 				else
 					help
-					die "Invalid package for '${task}'." \
+					die "${EX_USAGE}" \
+					    "Invalid package for '${task}'." \
 					    " See './build ${task} list'."
 				fi
 			else
 				help
-				die "Invalid task '${task}'." \
-				    " See './build help'."
+				die "${EX_USAGE}" \
+				    "Invalid task '${task}'." \
+				    " See './build --help'."
 			fi
 	esac
 else
