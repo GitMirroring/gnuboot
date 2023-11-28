@@ -5,6 +5,9 @@
 3rdparty/chromeec/test/legacy_nvmem_dump.h
 3rdparty/vboot/tests/futility/data/bios_link_mp.bin
 3rdparty/vboot/tests/futility/data/bios_peppy_mp.bin
+src/vendorcode/amd/agesa/f12/Proc/CPU/Family/0x12/F12MicrocodePatch03000002.c
+src/vendorcode/amd/agesa/f12/Proc/CPU/Family/0x12/F12MicrocodePatch0300000e.c
+src/vendorcode/amd/agesa/f12/Proc/CPU/Family/0x12/F12MicrocodePatch03000027.c
 src/vendorcode/amd/agesa/f14/Proc/CPU/Family/0x14/F14MicrocodePatch0500000B.c
 src/vendorcode/amd/agesa/f14/Proc/CPU/Family/0x14/F14MicrocodePatch0500001A.c
 src/vendorcode/amd/agesa/f14/Proc/CPU/Family/0x14/F14MicrocodePatch05000029.c
