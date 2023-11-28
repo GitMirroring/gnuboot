@@ -102,3 +102,8 @@ apt-get -y install libpci-dev pciutils zlib1g-dev libftdi-dev build-essential li
 
 # For cross-compiling i686 target on x86_64 host.
 [ "${arch}" -eq 0 ] && apt-get -y install lib32z1-dev
+
+# For running make check
+# ----------------------
+apt-get -y install shellcheck # lint
+apt-get -y install gawk git grep lzip make sed tar xz-utils # u-boot-libre

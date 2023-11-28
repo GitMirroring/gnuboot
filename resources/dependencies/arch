@@ -83,3 +83,8 @@ pacman -S --needed --noconfirm base-devel
 # ------------------------------------------------------------
 
 pacman -S --needed --noconfirm libpciaccess pciutils zlib libftdi base-devel libusb
+
+# For running make check
+# ----------------------
+pacman -S --needed shellcheck # lint
+pacman -S --needed awk git grep lzip make sed tar xz # u-boot-libre

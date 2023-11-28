@@ -89,3 +89,8 @@ dnf -y install gcc
 # ------------------------------------------------------------
 
 dnf -y install pciutils-devel zlib-devel libftdi-devel gcc libusb-devel
+
+# For running make check
+# ----------------------
+dnf -y install ShellCheck # lint
+dnf -y install gawk git grep lzip make sed tar xz # u-boot-libre

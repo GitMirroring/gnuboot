@@ -83,3 +83,8 @@ xbps-install -y base-devel
 # ------------------------------------------------------------
 
 xbps-install -y libpciaccess pciutils zlib libftdi1 base-devel libusb
+
+# For running make check
+# ----------------------
+xbps-install -y shellcheck # lint
+xbps-install -y gawk git grep lzip make sed tar xz # u-boot-libre
