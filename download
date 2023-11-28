@@ -21,9 +21,10 @@
 #	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+# shellcheck source=.gitcheck
 ./.gitcheck
 
-[ "x${DEBUG+set}" = 'xset' ] && set -v
+[ "${DEBUG+set}" = 'set' ] && set -v
 set -u -e
 
 ./resources/scripts/misc/versioncheck
@@ -32,9 +33,9 @@ set -u -e
 
 # set this when you want to modify each coreboot tree
 # for example, you want to test custom patches
-# NODELETE= ./download coreboot
+# NODELETE='' ./download coreboot
 deleteblobs="true"
-[ "x${NODELETE+set}" = 'xset' ] && deleteblobs="false"
+[ "${NODELETE+set}" = 'set' ] && deleteblobs="false"
 
 rm -f "build_error"
 
@@ -99,7 +100,7 @@ shift 1
 if [ "${package}" = "all" ]; then
 	for script in resources/packages/*/download; do
 		if [ "${deleteblobs}" = "false" ]; then
-			NODELETE= "${script}"
+			NODELETE='' "${script}"
 		else
 			"${script}"
 		fi
@@ -114,18 +115,21 @@ fi
 
 if [ $# -lt 1 ]; then
 	if [ "${deleteblobs}" = "false" ]; then
-		NODELETE= resources/packages/"${package}"/download
+		NODELETE='' resources/packages/"${package}"/download
 	else
 		resources/packages/"${package}"/download
 	fi
 else
 	if [ "${deleteblobs}" = "false" ]; then
-		NODELETE= resources/packages/"${package}"/download $@
+		# shellcheck disable=SC2068
+		NODELETE='' resources/packages/"${package}"/download $@
 	else
+		# shellcheck disable=SC2068
 		resources/packages/"${package}"/download $@
 	fi
 fi
 
-exit 0
-
+# shellcheck disable=SC2317
 ./.gitcheck clean
+
+exit 0

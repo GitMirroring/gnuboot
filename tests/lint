@@ -42,6 +42,7 @@ printf "| Running lint tests: |\n"
 printf "+---------------------+\n"
 run_shellcheck \
     build \
+    download \
     modify \
     resources/packages/descriptors/distclean \
     resources/packages/flashrom/distclean \
