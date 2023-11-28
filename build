@@ -22,7 +22,7 @@
 #
 ./.gitcheck
 
-[ "x${DEBUG+set}" = 'xset' ] && set -v
+[ "${DEBUG+set}" = 'set' ] && set -v
 set -u -e
 
 projectname="$(cat projectname)"
@@ -127,6 +127,7 @@ if [ $# -gt 1 ]; then
 			;;
 		all)
 			for package in $(list_packages "${task}"); do
+				# shellcheck disable=SC2068
 				resources/packages/"${package}"/"${task}" $@
 			done
 			;;
@@ -134,6 +135,7 @@ if [ $# -gt 1 ]; then
 			if [ -d resources/packages/"${package}" ] ; then
 				pkg_dir=resources/packages/"${package}"
 				if [ -f "${pkg_dir}"/"${task}" ]; then
+					# shellcheck disable=SC2068
 					"${pkg_dir}"/"${task}" $@
 				else
 					help
