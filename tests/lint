@@ -44,6 +44,7 @@ run_shellcheck \
     build \
     download \
     modify \
+    update \
     resources/packages/descriptors/distclean \
     resources/packages/flashrom/distclean \
     resources/packages/grub/distclean \
