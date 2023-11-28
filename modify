@@ -20,7 +20,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-[ "x${DEBUG+set}" = 'xset' ] && set -v
+[ "${DEBUG+set}" = 'set' ] && set -v
 set -u -e
 
 projectname="$(cat projectname)"
@@ -103,6 +103,7 @@ if [ $# -gt 1 ]; then
 		;;
 	all)
 		for option in $(listoptions "${package}"); do
+			# shellcheck disable=SC2068
 			resources/packages/"${package}"/modify/"${option}" $@
 		done
 		;;
@@ -110,6 +111,7 @@ if [ $# -gt 1 ]; then
 		if [ -d resources/packages/"${package}"/modify ]; then
 			pkg_dir=resources/packages/"${package}"
 			if [ -f "${pkg_dir}"/modify/"${option}" ]; then
+				# shellcheck disable=SC2068
 				"${pkg_dir}"/modify/"${option}" $@
 			else
 				help
