@@ -59,6 +59,9 @@ clean:
 crossgcc-clean:
 	./build clean crossgcc
 
+distclean:
+	./build distclean all
+
 install-dependencies-ubuntu:
 	./build dependencies ubuntu2004
 
@@ -72,4 +75,5 @@ install-dependencies-void:
 	./build dependencies void
 check:
 	./tests/lint
+	./tests/distclean
 	./tests/u-boot-libre

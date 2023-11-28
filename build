@@ -37,6 +37,7 @@ tasks="\
 	clean \
 	dependencies \
 	descriptors \
+	distclean \
 	install \
 	module \
 	payload \

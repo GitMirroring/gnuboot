@@ -33,7 +33,7 @@ report()
 run_shellcheck()
 {
     for path in "$@" ; do
-	shellcheck "${path}" ; report "${path}"
+	shellcheck -x "${path}" ; report "${path}"
     done
 }
 
@@ -41,6 +41,21 @@ printf "+---------------------+\n"
 printf "| Running lint tests: |\n"
 printf "+---------------------+\n"
 run_shellcheck \
+    resources/packages/descriptors/distclean \
+    resources/packages/flashrom/distclean \
+    resources/packages/grub/distclean \
+    resources/packages/ich9utils/distclean \
+    resources/packages/memtest86plus/distclean \
+    resources/packages/payloads/distclean \
+    resources/packages/rom_images/distclean \
+    resources/packages/roms/distclean \
+    resources/packages/seabios/distclean \
+    resources/packages/src/distclean \
+    resources/packages/u-boot-libre/distclean \
+    resources/packages/u-boot/distclean \
+    resources/packages/coreboot/distclean \
+    resources/scripts/tasks/distclean.sh \
+    tests/distclean \
     tests/lint
 
 printf "+---------------------+\n"
