@@ -1,4 +1,3 @@
-src/vendorcode/amd/agesa/f14/Proc/CPU/Family/0x14/F14MicrocodePatch05000119.c
 3rdparty/arm-trusted-firmware/plat/mediatek/mt8173/drivers/spm/spm_hotplug.c
 3rdparty/arm-trusted-firmware/plat/mediatek/mt8173/drivers/spm/spm_mcdi.c
 3rdparty/arm-trusted-firmware/plat/mediatek/mt8173/drivers/spm/spm_suspend.c
@@ -9,6 +8,7 @@ src/vendorcode/amd/agesa/f14/Proc/CPU/Family/0x14/F14MicrocodePatch05000119.c
 src/vendorcode/amd/agesa/f14/Proc/CPU/Family/0x14/F14MicrocodePatch0500000B.c
 src/vendorcode/amd/agesa/f14/Proc/CPU/Family/0x14/F14MicrocodePatch0500001A.c
 src/vendorcode/amd/agesa/f14/Proc/CPU/Family/0x14/F14MicrocodePatch05000029.c
+src/vendorcode/amd/agesa/f14/Proc/CPU/Family/0x14/F14MicrocodePatch05000119.c
 src/vendorcode/amd/agesa/f14/Proc/GNB/Nb/Family/0x14/F14NbSmuFirmware.h
 src/vendorcode/amd/agesa/f14/Proc/GNB/PCIe/Family/0x14/F14PcieAlibSsdt.h
 src/vendorcode/amd/agesa/f15tn/Proc/CPU/Family/0x15/TN/F15TnMicrocodePatch0600111F_Enc.c
