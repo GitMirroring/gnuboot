@@ -49,21 +49,4 @@ You can download GNU Boot from these mirrors:
 Statically linked
 ------------------
 
-Libreboot includes statically linked executables in some releases, built from
-the available source code. Those executables have certain libraries built into
-them, so that the executables will work on many GNU+Linux distros.
-
-Libreboot 20160907 was built in Trisquel GNU+Linux, version 7.0 64-bit.
-Some older Libreboot releases will have been built in Trisquel 6.0.1.
-
-To comply with GNU GPL v2, Trisquel 6 and 7 source ISOs are supplied by the
-Libreboot project. You can find these source ISOs in the `ccsource` directory
-on the `rsync` mirrors.
-
-Libreboot releases past version 20160907 do not distribute statically linked
-binaries. Instead, these releases are source-only, besides pre-compiled ROM
-images for which the regular Libreboot source code archives suffice. These newer
-releases instead automate the installation of build dependencies, with instructions
-in the documentation for building various utilities from source.
-
-These executables are utilities such as `flashrom`.
+GNU Boot releases do not distribute statically linked binaries. These releases are source-only, besides pre-compiled ROM images. These releases automate the installation of build dependencies, with instructions in the documentation for building various utilities from source. These executables are utilities such as `flashrom`.
