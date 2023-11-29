@@ -252,12 +252,6 @@ moverom() {
 			dd if=descriptors/ich9m/ich9fdnogbe_${romsize}m.bin of=${newrompath} bs=1 count=4k conv=notrunc
 		fi
 	done
-
-	if [ "${cuttype}" = "i945 laptop" ]; then
-		dd if=${newrompath} of=top64k.bin bs=1 skip=$[$(stat -c %s ${newrompath}) - 0x10000] count=64k
-		dd if=top64k.bin of=${newrompath} bs=1 seek=$[$(stat -c %s ${newrompath}) - 0x20000] count=64k conv=notrunc
-		rm -f top64k.bin
-	fi
 }
 
 # expected: configs must not specify a payload
