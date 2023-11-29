@@ -20,7 +20,7 @@ GPG signing key
 
 Adrien 'neox' Bourmault <neox@gnu.org>
 
-    key fingerprint: `1DF1 132C F165 8A85 5902    5C98 AAD6 B069 819E 6979`
+    key fingerprint: `9AA8 CDA0 DC9C 0604 D26A    E4A7 2974 E1D5 F25D FCC8`
 
 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 
