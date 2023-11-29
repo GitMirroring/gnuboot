@@ -1,36 +1,37 @@
 ---
 title: Contact
 x-toc-enable: true
+x-reviewed: true
 ...
 
 
 Annoucements
 ============
 
-Our genuine Libreboot makes announcements in [the libreboot-annouce mailing list](https://lists.sr.ht/~libreboot/libreboot-announce).
+GNU Boot makes announcements in [the gnuboot-announce mailing list](gnuboot-announce@gnu.org).
 
 
-User discussion and support
-============
+User support and bug reporting
+==============================
 
-The [libreboot-discuss mailing list](https://lists.sr.ht/~libreboot/libreboot-discuss) is the main channel for user discussion and support.
+The [bug-gnuboot mailing list](bug-gnuboot@gnu.org) is the main channel for user support and bug reporting
 
 
 Development discussion
 ======================
 
-The [libreboot-dev mailing list](https://lists.sr.ht/~libreboot/libreboot-devel) is the main channel for development discussion.
+The [gnuboot mailing list](gnuboot@gnu.org) is the main channel for development discussion.
 
-This is also where to send patches.
+This [gnuboot-patches mailing list](gnuboot-patches@gnu.org) is where to send patches.
 
 
 IRC chatroom
 ============
 
-An IRC chatroom could be planned in the future.
+We have an IRC chatroom on Liberat.chat : [#gnuboot](https://web.libera.chat/#gnuboot)
 
 
 Social media
 ============
 
-Currently our genuine Libreboot does not exist officially on social media.
+Currently GNU Boot does not exist officially on social media.
