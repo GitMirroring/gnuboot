@@ -25,18 +25,17 @@ A way to do that is to get a shell account on fencepost.gnu.org, and
 use SSH to forward the connection to gnu.org. This can be done with
 something like that in your SSH configuration:
 
-    Host gnu.org
-      User wwwcvs
-      Port 2224
-      HostName 127.0.0.1
     Host fencepost.gnu.org
-      LocalForward 127.0.0.1:2224 gnu.org:22
-      User gnutoo
+       User USERNAME
 
-In the example above you will need to adjust the fencepost username,
+    Host gnu.org
+       User wwwcvs
+       ProxyJump fencepost.gnu.org
+
+In the example above you will need to adjust the fencepost USERNAME,
 and modify it to suit your SSH setup if needed (for instance if you
-use keys in different locations, or if the port 2224 is already taken,
-etc).
+use keys in different locations, etc). Of course, you'll have to get
+access to gnu.org ssh server too.
 
 See https://www.gnu.org/software/README.accounts.html for more details
 about Fencepost accounts, the SSH fingerprints, etc.
@@ -44,13 +43,7 @@ about Fencepost accounts, the SSH fingerprints, etc.
 For gnu.org, it's easier if you use an ED25519 key for gnu.org as I
 have the fingerprints below. See [1] for other options.
 
-Once everything is setup you can then SSH into fencepost:
-    $ ssh fencepost.gnu.org
-    [...]
-    gnutoo@fencepost:~$
-
-Once this is done you can then open a new shell and add the SSH
-fingerprint. Here's the ED25519 SSH fingerprints:
+To check that everything is setup you can then SSH into gnu.org:
     $ ssh gnu.org
     The authenticity of host '[127.0.0.1]:2224 ([127.0.0.1]:2224)' can't be established.
     ED25519 key fingerprint is SHA256:pmCf0NrBzSSYfg6DdgmlMzPWZzGpXXcPEz6LP1+o5Jc.
@@ -67,9 +60,8 @@ point. You can exit it with the Ctrl+D or Ctrl+C key combinations.
 
 At this point everything is setup.
 
-To deploy the website you then need to make sure that you still have
-an SSH connection to fencepost.gnu.org and you can then deploy the
-website with the following commands:
+To deploy the website, use the following commands from the website-build
+directory:
     $ ./autogen.sh
     $ ./configure
     $ make deploy
