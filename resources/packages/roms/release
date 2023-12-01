@@ -42,12 +42,10 @@ fi
 
 [ ! -d "release/" ] && \
     mkdir -p release/
-[ ! -d "release/${version}/" ] && \
-    mkdir -p "release/${version}/"
-[ -d "release/${version}/roms/" ] && \
-    rm -Rf "release/${version}/roms/"
-[ ! -d "release/${version}/roms/" ] && \
-    mkdir -p "release/${version}/roms/"
+[ -d "release/roms/" ] && \
+    rm -Rf "release/roms/"
+[ ! -d "release/roms/" ] && \
+    mkdir -p "release/roms/"
 
 printf "Building ROM image archives for version %s\n" "${version}"
 
@@ -58,13 +56,13 @@ printf "Building ROM image archives for version %s\n" "${version}"
             continue
         fi
 
-        printf "Generating release/%s/roms/%s-%s_%s.tar.xz\n" "${version}" "${projectname}" "${version}" "${target##*/}"
+        printf "Generating release/roms/%s-%s_%s.tar.xz\n" "${projectname}" "${version}" "${target##*/}"
 	printf "%s\n" "${version}" > "${target}/version"
 	printf "%s\n" "${versiondate}" > "${target}/versiondate"
 	printf "%s\n" "${projectname}" > "${target}/projectname"
-        tar -c "${target}/" | xz -9e >"../release/${version}/roms/${projectname}-${version}_${target##*/}.tar.xz"
+        tar -c "${target}/" | xz -9e >"../release/roms/${projectname}-${version}_${target##*/}.tar.xz"
     done
 )
 
-printf "\nROM image release archives available at release/%s/roms/\n\n" "${version}"
+printf "\nROM image release archives available at release/roms/\n\n"
 

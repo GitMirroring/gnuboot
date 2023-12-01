@@ -36,7 +36,7 @@ if [ -f versiondate ]; then
 	versiondate="$(cat versiondate)"
 fi
 
-reldir="release/${version}"
+reldir="release/"
 dirname="${projectname}-${version}_src"
 srcdir="${reldir}/${dirname}"
 
