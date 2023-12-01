@@ -25,85 +25,87 @@ if [ $EUID -ne 0 ]; then
    exit 1
 fi
 
+apt-get -y install packagekit
+
 # Duplications are intentional. Please do not re-factor.
 #
 # This is so that they can moved to separate scripts.
 #
 
-apt-get -y install wget
+pkcon -y install wget
 
 # For downloading source code
 # ------------------------------------------------------------
 
-apt-get -y install git
+pkcon -y install git
 
 # For Tianocore and iPXE
 # TODO: check whether this is the full list
 
-apt-get -y install uuid-dev nasm
+pkcon -y install uuid-dev nasm
 
 # For building source code:
 # ------------------------------------------------------------
 
-apt-get -y install build-essential
+pkcon -y install build-essential
 
 # for running the crostool script (to get mrc.bin file for t440p)
-apt-get -y install sharutils curl parted e2fsprogs unzip
+pkcon -y install sharutils curl parted e2fsprogs unzip
 
 # to use the right software versions and links for compiling 
-apt-get -y install pkg-config
+pkcon -y install pkg-config
 
 # for cross-compiling ARM binaries
-apt-get -y install gcc-arm-linux-gnueabi
+pkcon -y install gcc-arm-linux-gnueabi
 
 [ "$(uname -i)" = x86_64 ] || [ "$(uname -m)" = x86_64 ]
 arch=${?}
 
 # For cross-compiling i686 target on x86_64 host.
 if [ "${arch}" -eq 0 ];	then
-	apt-get -y install gcc-multilib libc6-i386 libc6-dev-i386
-	apt-get -y install lib32stdc++6 g++-multilib dh-autoreconf
+	pkcon -y install gcc-multilib libc6-i386 libc6-dev-i386
+	pkcon -y install lib32stdc++6 g++-multilib dh-autoreconf
 	# recommended, but not sure what for:
-	apt-get -y install lib32tinfo-dev
+	pkcon -y install lib32tinfo-dev
 fi
 
 # Memtest86+ build dependencies
 # ------------------------------------------------------------
 
-apt-get -y install build-essential python2.7 python-is-python3
+pkcon -y install build-essential python2.7 python-is-python3
 
 # i945-pwm build dependencies
 # ------------------------------------------------------------
 
-apt-get -y install build-essential perl
+pkcon -y install build-essential perl
 
 # Coreboot build dependencies (also requires build-essential and git)
 # ------------------------------------------------------------
 
-apt-get -y install libncurses5-dev doxygen iasl gdb flex bison build-essential git libssl-dev gnat
+pkcon -y install libncurses5-dev doxygen iasl gdb flex bison build-essential git libssl-dev gnat
 
 # For cross-compiling i686 target on x86_64 host.
-[ "${arch}" -eq 0 ] && apt-get -y install lib32ncurses5-dev
+[ "${arch}" -eq 0 ] && pkcon -y install lib32ncurses5-dev
 
 # GRUB build dependencies (also requires build-essential, bison and flex)
 # ------------------------------------------------------------
 
-apt-get -y install fonts-unifont libopts25 libselinux1-dev autogen m4 autoconf help2man libopts25-dev libfont-freetype-perl automake autotools-dev build-essential bison flex libfuse-dev liblzma-dev gawk libdevmapper-dev libtool libfreetype6-dev
+pkcon -y install fonts-unifont libopts25 libselinux1-dev autogen m4 autoconf help2man libopts25-dev libfont-freetype-perl automake autotools-dev build-essential bison flex libfuse-dev liblzma-dev gawk libdevmapper-dev libtool libfreetype6-dev
 
 # BucTS build dependencies (external script)
 # ------------------------------------------------------------
 
-apt-get -y install build-essential
+pkcon -y install build-essential
 
 # Flashrom build dependencies (also requires build-essential)
 # ------------------------------------------------------------
 
-apt-get -y install libpci-dev pciutils zlib1g-dev libftdi-dev build-essential libusb-1.0-0-dev libusb-1.0 libusb-1.0-0-dev libusb-dev
+pkcon -y install libpci-dev pciutils zlib1g-dev libftdi-dev build-essential libusb-1.0-0-dev libusb-1.0 libusb-1.0-0-dev libusb-dev
 
 # For cross-compiling i686 target on x86_64 host.
-[ "${arch}" -eq 0 ] && apt-get -y install lib32z1-dev
+[ "${arch}" -eq 0 ] && pkcon -y install lib32z1-dev
 
 # For running make check
 # ----------------------
-apt-get -y install shellcheck # lint
-apt-get -y install gawk git grep lzip make sed tar xz-utils # u-boot-libre
+pkcon -y install shellcheck # lint
+pkcon -y install gawk git grep lzip make sed tar xz-utils # u-boot-libre

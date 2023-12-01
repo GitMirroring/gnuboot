@@ -26,63 +26,65 @@ if [ $EUID -ne 0 ]; then
    exit 1
 fi
 
+pacman -S --needed --noconfirm packagekit
+
 # Duplications are intentional. Please do not re-factor.
 #
 # This is so that they can moved to separate scripts.
 #
 
-pacman -S --needed --noconfirm wget
+pkcon -y install wget
 
 # For downloading source code
 # ------------------------------------------------------------
 
-pacman -S --needed --noconfirm git
+pkcon -y install git
 
 # For Tianocore and iPXE
 # TODO: check whether this is the full list
 
-pacman -S --needed --noconfirm nasm perl-libwww python2 subversion
+pkcon -y install nasm perl-libwww python2 subversion
 
 # For building source code:
 # ------------------------------------------------------------
 
-pacman -S --needed --noconfirm base-devel
+pkcon -y install base-devel
 
 # for running the crostool script (to get mrc.bin file for t440p)
-pacman -S --needed --noconfirm sharutils curl parted e2fsprogs unzip
+pkcon -y install sharutils curl parted e2fsprogs unzip
 
 # for cross-compiling ARM binaries
-pacman -S --needed --noconfirm arm-none-eabi-gcc
+pkcon -y install arm-none-eabi-gcc
 
 # Memtest86+ build dependencies
 # ------------------------------------------------------------
 
-pacman -S --needed --noconfirm base-devel python2
+pkcon -y install base-devel python2
 
 # i945-pwm build dependencies
 # ------------------------------------------------------------
 
-pacman -S --needed --noconfirm base-devel perl
+pkcon -y install base-devel perl
 
 # Coreboot build dependencies (also requires build-essential and git)
 # ------------------------------------------------------------
 
-pacman -S --needed --noconfirm ncurses doxygen acpica gdb flex bison base-devel git openssl gcc-ada
+pkcon -y install ncurses doxygen acpica gdb flex bison base-devel git openssl gcc-ada
 
 # GRUB build dependencies (also requires build-essential, bison and flex)
 # ------------------------------------------------------------
 
-pacman -S --needed --noconfirm bdf-unifont autogen help2man base-devel bison flex ttf-dejavu texinfo rsync python libusb xz gawk device-mapper fuse2 gettext freetype2
+pkcon -y install bdf-unifont autogen help2man base-devel bison flex ttf-dejavu texinfo rsync python libusb xz gawk device-mapper fuse2 gettext freetype2
 
 # BucTS build dependencies (external script)
 # ------------------------------------------------------------
 
-pacman -S --needed --noconfirm base-devel
+pkcon -y install base-devel
 
 # Flashrom build dependencies (also requires build-essential)
 # ------------------------------------------------------------
 
-pacman -S --needed --noconfirm libpciaccess pciutils zlib libftdi base-devel libusb
+pkcon -y install libpciaccess pciutils zlib libftdi base-devel libusb
 
 # For running make check
 # ----------------------
