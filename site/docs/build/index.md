@@ -1,35 +1,57 @@
 ---
-title: Build from source
-x-toc-enable: true
+title: Build GNU Boot binaries
+x-reviewed: true
 ...
 
-Libreboot's build system is named `lbmk`, short for `Libreboot Make`, and this
-document describes how to use it. With this guide, you can know how to compile
-Libreboot from the available source code.
-This version, if hosted live on libreboot.srht.site, assumes that you are using
-the `lbmk` git repository, which
-you can download using the instructions on [the code review page](../../git.md).
+This guide documents how to compile GNU Boot binaries from the
+available source code.
 
-If you're using a release archive of Libreboot, please refer to the
-documentation included with *that* release. Libreboot releases are only intended
-as *snapshots*, not for development. For proper development, you should always
-be working directly in the Libreboot git repository.
+At the time of writing users wanting to build binaries need to
+download the [https://git.savannah.gnu.org/cgit/gnuboot.git/ GNU Boot
+source code] with git.
 
-The following document describes how `lbmk` works, and how you can make changes
-to it: [Libreboot maintenance manual](../maintain/)
+Supported distributions for building GNU Boot binaries:
+=======================================================
+
+GNU Boot is currently based on the latest version of Libreboot that
+doesn't ship nonfree software, and it also uses an older version of
+Coreboot to support certain computers that are not supported anymore
+in Coreboot. Because of that the versions of various software that GNU
+Boot builds are old and cannot be built anymore on recent
+distributions.
+
+While there is work to fix that by both updating that software to more
+recent versions and to also also allow to build older versions on
+newer distributions, in the meantime we need to workaround this issue
+by using specific distributions to build GNU Boot.
+
+People managed to build GNU Boot with the following distributions:
+
+* PureOS 10 (byzantium)
+
+* Trisquel 10 (nabia)
+
+And these cannot build GNU Boot yet:
+
+* Trisquel 11 (aramo): The issue is documented in the [Bug
+  #64870](https://savannah.gnu.org/bugs/?64870).
+
+* Guix: Guix doesn't have any ADA compiler and that is needed for
+  building Coreboot for certain computers.
 
 Git
 ===
 
-Libreboot's build system uses Git, extensively. You should perform the steps
-below, *even if you're using a release archive*.
+GNU Boot build system still has some fragile scripts for building some
+of the projects like Coreboot.
 
-Before you use the build system, please know: the build system itself uses
-Git extensively, when downloading software like coreboot and patching it.
+Because of that you need to configure git even if you only want to
+build build a binary without modifying anything because the GNU Boot
+build system uses git directly when applying patches to the software
+it builds, and git expects some configuration to be present when
+applying patches.
 
-You should make sure to initialize your Git properly, before you begin or else
-the build system will not work properly. Do this:
-
+To fix that you need to set a valid username and email:
     git config --global user.name "John Doe"
     git config --global user.email johndoe@example.com
 
@@ -38,56 +60,39 @@ Change the name and email address to whatever you want, when doing this.
 You may also want to follow more of the steps here:
 <https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup>
 
-Python
-======
+Building GNU Boot binaries
+==========================
 
-Python 2 *and* 3 are used by different parts of the build system, not directly
-but because certain projects Libreboot depends upon uses it.
+GNU Boot includes a file called `Makefile` that you can use . This
+Makefile calls some scripts like download or build that are in the
+same directory, that you can also also use directly if you want.
 
-You should have this configuration on your OS:
+The `Makefile` is much more simple to use but offers less flexibility
+(for instance there is a single command to build all images but no way
+to build an image for a specific computer).
 
-    python
+To build GNU Boot you must first ensure that all build dependencies
+are installed.
 
-    python2
-
-    python3
-
-Running `python` should give you python 3.x.
-
-Running `python2` should give you python 2.x.
-
-Running `python3` should give you python 3.x.
-
-Therefore, you should install both python2 and python3 in your distro.
-
-GNU Make
-========
-
-Libreboot Make includes a file called `Makefile`. You can still use
-the `lbmk` build system directly, or you can use GNU Make. The `Makefile`
-simply runs `lbmk` commands. However, using `lbmk` directly will offer you
-much more flexibility; for example, the Makefile currently cannot build single
-ROM images (it just builds all of them, for all boards).
-
-You must ensure that all build dependencies are installed. If you're running
-Ubuntu or similar distribution (Debian, Trisquel, etc) you can do this:
+If you are running Trisquel 10 (nabia) you can run the following
+command as it takes care of installing all the required dependencies
+for you:
 
     sudo make install-dependencies-ubuntu
 
-One exists specifically for Debian:
+If instead you use PureOS 10 (byzantium) you can use the following
+command instead:
 
     sudo make install-dependencies-debian
 
-Another exists for Arch:
-
-    sudo make install-dependencies-arch
-
-Now, simply build the coreboot images like so:
+When this is done you can build all the GNU Boot images with the
+following command (this uses the Makefile):
 
     make
 
-This single command will build ROM images for *every* board integrated in
-Libreboot. If you only wish to build a limited set, you can use `lbmk` directly:
+This single command will build ROM images for *every* computer
+supported by GNU Boot. If you only wish to build a limited set, you
+can use the build script directly:
 
     ./build boot roms x200_8mb
 
@@ -97,9 +102,10 @@ You can specify more than one argument:
 
 ROM images appear under the newly created `bin/` directory in the build system.
 
-For other commands, simply read the `Makefile` in your favourite text editor.
-The `Makefile` is simple, because it merely runs `lbmk` commands, so it's very
-easy to know what commands are available by simply reading it.
+For other commands, simply read the `Makefile` in your favourite text
+editor.  The `Makefile` is simple, because each commands run a simple
+script, so it's very easy to know what commands are available by
+simply reading it.
 
 Standard `clean` command available (cleans all modules except `crossgcc`):
 
@@ -119,32 +125,23 @@ Build without using GNU Make
 The `Makefile` is included just for *compatibility*, so that someone who
 instictively types `make` will get a result.
 
-Actual development/testing is always done using `lbmk` directly, and this
-includes when building from source. Here are some instructions to get you
-started:
+Actual development/testing is always done using the build, download,
+update or modify scripts directly, and this includes when building
+from source. Here are some instructions to get you started:
 
 First, install build dependencies
 ---------------------------------
 
-Libreboot includes a script that automatically installs apt-get dependencies
-in Ubuntu 20.04. It works well in other apt-get distros (such as Trisquel and
-Debian):
+GNU Boot includes a script that automatically installs dependencies in
+Trisquel 10 (nabia):
     
     sudo ./build dependencies ubuntu2004
 
-Separate scripts also exist:
+and for PureOS 10 (byzantium):
 
     sudo ./build dependencies debian
 
-    sudo ./build dependencies arch
-
-    sudo ./build dependencies void
-
-Technically, any GNU+Linux distribution can be used to build Libreboot.
-However, you will have to write your own script for installing build
-dependencies. 
-
-Libreboot Make (lbmk) automatically runs all necessary commands; for example
+The build script automatically runs all necessary commands; for example
 `./build payload grub` will automatically run `./build module grub` if the
 required utilities for GRUB are not built, to produce payloads.
 
@@ -166,7 +163,7 @@ If you wish to build payloads, you can also do that. For example:
 Previous steps will be performed automatically. However, you can *still* run
 individual parts of the build system manually, if you choose. This may be
 beneficial when you're making changes, and you wish to test a specific part of
-lbmk.
+GNU Boot.
 
 Therefore, if you only want to build ROM images, just do the above. Otherwise,
 please continue reading!
@@ -175,17 +172,14 @@ Second, download all of the required software components
 --------------------------------------------------------
 
 If you didn't simply run `./build boot roms` (with or without extra
-arguments), you can still perform the rest of the build process manually. Read
-on! You can read about all available scripts in `lbmk` by reading
-the [Libreboot maintenance manual](../maintain/); lbmk is designed to be modular
-which means that each script *can* be used on its own (if that's not true, for
-any script, it's a bug that should be fixed).
+arguments), you can still perform the rest of the build process
+manually.
 
 It's as simple as that:
 
     ./download all
 
-The above command downloads all modules defined in the Libreboot build system.
+The above command downloads all modules defined in the GNU Boot build system.
 However, you can download modules individually.
 
 This command shows you the list of available modules:
@@ -269,8 +263,8 @@ Run this command:
 
     ./build boot roms
 
-Each board has its own configuration in `lbmk` under `resources/coreboot/`
-which specifies which payloads are supported.
+Each board has its own configuration under `resources/coreboot/` which
+specifies which payloads are supported.
 
 By default, all ROM images are built, for all boards. If you wish to build just
 a specific board, you can specify the board name based on the directory name
@@ -284,3 +278,10 @@ under `resources/coreboot/` in the build system.
 That's it!
 
 If all went well, ROM images should be available to you under bin/
+
+See also:
+=========
+
+If you want to contribute to the website instead, see the
+[website-build/README](https://git.savannah.gnu.org/cgit/gnuboot.git/tree/website-build/README)
+in the source code of GNU Boot.
