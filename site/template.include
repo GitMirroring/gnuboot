@@ -28,6 +28,12 @@ html{
 	background:#fff;
 	color:#222;
 }
+
+table, th, td {
+	border: solid;
+	border-collapse: collapse;
+}
+
 .date,.author,.h a{display:none}
 code,pre,#TOC,a:hover{background:#eee}
 :not(p),a:hover {
@@ -99,6 +105,7 @@ $if(date)$
 $endif$
 <ul>
 <li><a href="/software/gnuboot/web/index.html">Home</a></li>
+<li><a href="/software/gnuboot/web/status.html">Status</a></li>
 <li><a href="/software/gnuboot/web/faq.html">FAQ</a></li>
 <li><a href="/software/gnuboot/web/download.html">Download</a></li>
 <li><a href="/software/gnuboot/web/docs/install/">Install</a></li>
