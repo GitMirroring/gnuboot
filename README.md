@@ -20,9 +20,10 @@ mainboard. That software is specific to a given computer.
 Unfortunately that software is usually nonfree and GNU boot aims to replace
 that with 100% free software.
 
-Like with other type of software, the fact that is nonfree has real impacts.
+Like with other type of software, the fact that it is nonfree has real impacts.
 For instance this software often continues to run once the operating system
 is loaded and as it loads the operating system it can also modify it.
+
 So having a nonfree boot software make it impossible for users to really
 trust their computers. Another common issue is that some BIOS/UEFI add
 restrictions to prevent users from replacing the WiFi card for instance.
