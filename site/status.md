@@ -57,7 +57,7 @@ GNU Boot 0.1 RC1 status
 +----------+-----------------+-----------+-----------------------------+
 | Lenovo   | Thinkpad X60    | Tested    | Untested, can be simplified |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad X60T   | Untested  | Untested, can be simplified |
+| Lenovo   | Thinkpad X60T   | Tested    | Untested, can be simplified |
 +----------+-----------------+-----------+-----------------------------+
 | Lenovo   | Thinkpad X60s   | Untested  | Untested, can be simplified |
 +----------+-----------------+-----------+-----------------------------+
