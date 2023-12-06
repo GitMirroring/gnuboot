@@ -1,6 +1,6 @@
 ---
 title: First-time ThinkPad X200 flashing
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 This guide is for those who want libreboot on their ThinkPad X200 while

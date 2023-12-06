@@ -1,5 +1,6 @@
 ---
 title: Libreboot logo license
+x-unreviewed: true
 ...
 
 The Libreboot logo is copyright 2014 Marcus Moeller, and it was also created by

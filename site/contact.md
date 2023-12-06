@@ -1,7 +1,5 @@
 ---
 title: Contact
-x-toc-enable: true
-x-reviewed: true
 ...
 
 

@@ -14,57 +14,6 @@ $if(keywords)$
   <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$">
 $endif$
   <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
-<style type="text/css">
-
-.warning_banner {
-	background:#000000;
-	color:#ffffff;
-	margin:0 auto;
-	font-family:sans-serif;
-	line-height:5
-}
-
-html{
-	background:#fff;
-	color:#222;
-}
-
-table, th, td {
-	border: solid;
-	border-collapse: collapse;
-}
-
-.date,.author,.h a{display:none}
-code,pre,#TOC,a:hover{background:#eee}
-:not(p),a:hover {
-	max-width:60em;
-	margin:0 auto;
-	font-family:sans-serif;
-	line-height:1.4
-}
-a{color:#22d}
-.title>*, header ul>li, .nav ul>li,
-#footer ul>li, .h:hover>*
-ul>li
-{
-	display:inline;
-	margin:.7%;
-	text-align:center;
-}
-.title>*,span.date{display:block}
-img,video,iframe{max-width:100%}
-#TOC{
-	float:left;
-	margin:1em
-}
-html,ul,#TOC{padding:1em}
-@media (min-width:60em) {
-	.title-logo{display:none}
-	div.title {background-position:right}
-	h1.title {padding:0 4em}
-	#TOC{min-width:25%}
-}
-</style>
 $if(quotes)$
   <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
 $endif$
@@ -118,8 +67,7 @@ $endif$
 <li><strong><a href="https://ryf.fsf.org/categories/laptops">Buy preinstalled</a></strong></li>
 </ul>
 <hr/>
-$if(x-reviewed)$
-$else$
+$if(x-unreviewed)$
 <div class="warning_banner">
 <p>
   The information on this page could be outdated or refer to other
@@ -131,6 +79,7 @@ $else$
 </p>
 <hr/>
 </div>
+$else$
 $endif$
 </header>
 $endif$

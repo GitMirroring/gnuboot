@@ -1,6 +1,6 @@
 ---
 title: Encrypted Debian GNU+Linux
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 This guide is written for the Debian distribution, but it should also

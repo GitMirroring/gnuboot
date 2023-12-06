@@ -1,6 +1,6 @@
 ---
 title: GNU+Linux guides
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 This page is useful for those who wish to use the GNU GRUB payload directly.

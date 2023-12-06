@@ -1,6 +1,6 @@
 ---
 title: KGPE-D16 external flashing instructions 
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 Initial flashing instructions for KGPE-D16.

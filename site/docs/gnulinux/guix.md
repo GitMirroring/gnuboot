@@ -1,6 +1,6 @@
 ---
 title: Encrypted Guix GNU+Linux
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 Objective

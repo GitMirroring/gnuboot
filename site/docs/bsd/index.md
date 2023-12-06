@@ -1,6 +1,6 @@
 ---
 title: BSD operating systems
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 This section is largely x86-centric, pertaining to use of BSD operating systems.

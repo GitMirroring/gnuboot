@@ -1,6 +1,6 @@
 ---
 title: Depthcharge payload 
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 **This documentation is retained from Libreboot 20160907, but it may also be

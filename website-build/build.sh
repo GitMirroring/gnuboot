@@ -19,8 +19,10 @@ EX_USAGE=64
 
 untitled_uri="https://notabug.org/untitled/untitled.git"
 untitled_path=""
-untitled_commit="6941ffefe04375296732565a4628b549eea54a64"
-
+untitled_commit="a147a4303b5608db8fde08abd08b7cc21f1a0c03"
+untitled_patches=" \
+	patches/0001-Enable-to-deploy-websites-in-subdirectories.patch \
+"
 help()
 {
 	echo "Usage: $0 [options]"
@@ -44,6 +46,7 @@ sync_repo()
 	src_uri="$2"
 	src_path="$3"
 	src_revision="$4"
+	src_patches="$5"
 
 	if [ -z "${src_path}" ] && [ ! -d "${dst_path}" ] ; then
 		git clone "${src_uri}" "${dst_path}"
@@ -68,6 +71,18 @@ sync_repo()
 			git -C "${dst_path}" checkout "${src_revision}"
 		fi
 
+
+
+		if git -C "${dst_path}"  status | \
+			grep '^rebase in progress;' > /dev/null ; then
+			git -C "${dst_path}" am --abort
+		fi
+
+		for patch in ${src_patches} ; do
+			GIT_COMMITTER_EMAIL="noreply@gnuboot.gnu.org" \
+			GIT_COMMITTER_NAME="website-build" \
+			git -C "${dst_path}" am $(realpath ${patch})
+		done
 	else
 		rm -rf "${dst_path}"
 		cp -a "${src_path}" "${dst_path}"
@@ -126,7 +141,8 @@ done
 set -e
 
 sync_repo "untitled" \
-	  "${untitled_uri}" "${untitled_path}" "${untitled_commit}"
+	  "${untitled_uri}" "${untitled_path}" \
+	  "${untitled_commit}" "${untitled_patches}"
 
 if [ "${download_only}" -eq 0 ] ; then
 	copy_website "untitled/www/lbwww/"

@@ -1,6 +1,6 @@
 ---
 title: MacBook2,1 and MacBook1,1
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 There is an Apple laptop called the macbook1,1 from 2006 which uses the

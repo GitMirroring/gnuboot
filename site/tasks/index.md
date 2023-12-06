@@ -1,6 +1,6 @@
 ---
 title: Tasks
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 Help the Libreboot project

@@ -1,6 +1,6 @@
 ---
 title: Project contributors
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 This list does not necessarily reflect who is currently working on the project,

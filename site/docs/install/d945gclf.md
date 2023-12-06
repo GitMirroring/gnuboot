@@ -1,5 +1,6 @@
 ---
 title: Intel D945GCLF flashing tutorial 
+x-unreviewed: true
 ...
 
 This guide is for those who want libreboot on their Intel D945GCLF

@@ -1,5 +1,6 @@
 ---
 title: Gigabyte GA-G41M-ES2L desktop board 
+x-unreviewed: true
 ...
 
 This is a desktop board using intel hardware (circa \~2009, ICH7

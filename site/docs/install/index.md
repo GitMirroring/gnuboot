@@ -1,6 +1,6 @@
 ---
 title: Installation instructions
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 This section relates to installing Libreboot on supported targets.

@@ -1,6 +1,6 @@
 ---
 title: Downloads
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 New releases are announced in the [main news section](news/).

@@ -1,6 +1,5 @@
 ---
 title: Template license
-x-reviewed: true
 ...
 
 This website is written in Markdown, and compiled into static HTML using

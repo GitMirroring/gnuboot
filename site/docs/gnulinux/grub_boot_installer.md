@@ -1,6 +1,6 @@
 ---
 title: Installing GNU+Linux
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 # Introduction

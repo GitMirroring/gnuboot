@@ -1,5 +1,6 @@
 ---
 title: Documentation
+x-unreviewed: true
 ...
 
 Always check [libreboot.srht.site](https://libreboot.srht.site/) for the latest updates to

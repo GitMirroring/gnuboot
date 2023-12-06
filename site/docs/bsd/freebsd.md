@@ -1,6 +1,6 @@
 ---
 title: How to install FreeBSD on x86 GNU GRUB payload
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 FreeBSD might show graphical corruption during bootup. You can fix this by

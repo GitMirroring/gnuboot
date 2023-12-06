@@ -1,6 +1,6 @@
 ---
 title: ThinkPad T60 Recovery guide
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 This section documents how to recover from a bad flash that prevents

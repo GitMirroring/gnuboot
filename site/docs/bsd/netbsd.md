@@ -1,6 +1,6 @@
 ---
 title: How to install NetBSD on x86 GNU GRUB payload
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 GRUB supports booting NetBSD kernels directly. However, you're better off

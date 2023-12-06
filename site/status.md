@@ -1,7 +1,103 @@
 ---
 title: Code review
-x-reviewed: true
 ...
+
+GNU Boot 0.1 RC2 status
+=======================
+
++----------+-----------------+-----------+-----------------------------+
+| Vendor   | Product         | Stability | Installation instructions   |
++----------+-----------------+-----------+-----------------------------+
+| Apple    | MacBook 1.1     | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Apple    | MacBook 2.1     | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Apple    | iMac 5,2        | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Asus     | Chromebook C201 | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Asus     | KCMA-D8         | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Asus     | KFSN4-DRE       | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Asus     | KGPE-D16        | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Gigabyte | D945GCLF2D      | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Gigabyte | GA-G41M-ES2L    | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Intel    | D410PT          | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Intel    | D510MO          | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Intel    | D945GCLF        | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad R400   | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad R500   | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad T400   | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad T400S  | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad T500   | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad T60    | Untested  | Untested, can be simplified |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad W500   | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad X200   | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad X200S  | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad X200T  | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad X301   | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad X60    | Untested  | Untested, can be simplified |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad X60T   | Untested  | Untested, can be simplified |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad X60s   | Untested  | Untested, can be simplified |
++----------+-----------------+-----------+-----------------------------+
+| Qemu     | PC (i440FX)     | Untested  | Missing                     |
++----------+-----------------+-----------+-----------------------------+
+
+Stability:
+----------
+
+* Untested: The GNU Boot maintainers are not aware of anybody who
+  tested GNU Boot 0.1 RC1 on that computer. If you have GNU Boot on
+  this computer please report if it works or not (for instance by
+  opening a bug report).
+
+* Tested: Someone tested GNU Boot 0.1 RC1 on that computer and
+  reported to the GNU Boot that it at least booted fine.
+
+* Daily users: Some people contacted the GNU Boot maintainers and
+  volunteered to send bug reports if installing GNU Boot made the
+  computer unusable or very hard to use (like a memory corruption that
+  makes it impossible to boot certain GNU/Linux distributions or
+  crashes the computer randomly). If you want to help GNU Boot
+  with that, please contact the maintainers through a bug report.
+
+Installation instructions:
+--------------------------
+
+* Untested: Nobody tested the GNU Boot installation instructions for
+  this computer.
+
+* Can be simplified: There is work in progress to simplify the
+  instructions by having GNU Boot release the tools required to do the
+  installation and by requiring to keep the computer connected to the
+  electricity (by keeping its power supply connected) instead of
+  requiring to disassemble it to check a battery voltage.
+
+* Tested: The installation instructions worked well.
+
+* Missing: There are no installation instructions for this device and
+  we need help from contributors to add them.
+
 
 GNU Boot 0.1 RC1 status
 =======================
@@ -62,37 +158,8 @@ GNU Boot 0.1 RC1 status
 | Lenovo   | Thinkpad X60s   | Untested  | Untested, can be simplified |
 +----------+-----------------+-----------+-----------------------------+
 
-Stability:
-----------
-
-* Untested: The GNU Boot maintainers are not aware of anybody who
-  tested GNU Boot 0.1 RC1 on that computer. If you have GNU Boot on
-  this computer please report if it works or not (for instance by
-  opening a bug report).
-
-* Tested: Someone tested GNU Boot 0.1 RC1 on that computer and
-  reported to the GNU Boot that it at least booted fine.
-
-* Daily users: Some people contacted the GNU Boot maintainers and
-  volunteered to send bug reports if installing GNU Boot made the
-  computer unusable or very hard to use (like a memory corruption that
-  makes it impossible to boot certain GNU/Linux distributions or
-  crashes the computer randomly). If you want to help GNU Boot
-  with that, please contact the maintainers through a bug report.
-
-Installation instructions:
---------------------------
-
-* Untested: Nobody tested the GNU Boot installation instructions for
-  this computer.
-
-* Can be simplified: There is work in progress to simplify the
-  instructions by having GNU Boot release the tools required to do the
-  installation and by requiring to keep the computer connected to the
-  electricity (by keeping its power supply connected) instead of
-  requiring to disassemble it to check a battery voltage.
-
-* Tested: The installation instructions worked well.
+See the status of GNU Boot 0.1 RC2 above for the meaning of the
+various fields.
 
 Upstream status
 ===============

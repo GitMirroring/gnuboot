@@ -1,6 +1,6 @@
 ---
 title: Flashing the ThinkPad T400 externally
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 Initial flashing instructions for T400.

@@ -1,5 +1,6 @@
 ---
 title: Libreboot releases
+x-unreviewed: true
 ...
 
 This page has merged with the default news section. 

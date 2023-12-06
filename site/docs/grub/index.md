@@ -1,6 +1,6 @@
 ---
 title: GRUB payload 
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 TODO: this guide should be reviewed and updated. Some info might be out of

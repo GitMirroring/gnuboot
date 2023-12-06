@@ -1,6 +1,6 @@
 ---
 title: Hardware compatibility list 
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 This sections relates to known hardware compatibility in libreboot.

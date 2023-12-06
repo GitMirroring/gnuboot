@@ -1,6 +1,6 @@
 ---
 title: Flashing the ThinkPad R400
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 Initial flashing instructions for R400.

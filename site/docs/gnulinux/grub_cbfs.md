@@ -1,6 +1,6 @@
 ---
 title: Modifying grub.cfg in CBFS
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 Before you follow this guide, it is advisable that you have the ability to

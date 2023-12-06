@@ -1,6 +1,6 @@
 ---
 title: Intel D945GCLF desktop board 
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 If you just want flashing instructions, go to

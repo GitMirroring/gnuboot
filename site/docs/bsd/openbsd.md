@@ -1,6 +1,6 @@
 ---
 title: How to install OpenBSD on x86 GNU GRUB payload
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 This guide is written for OpenBSD 6.1, but it can be adapted easily for other

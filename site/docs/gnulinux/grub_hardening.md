@@ -1,6 +1,6 @@
 ---
 title: Hardening GNU GRUB
-x-toc-enable: true
+x-unreviewed: true
 ...
 
 This article only applies to those people who use the GNU GRUB bootloader as
