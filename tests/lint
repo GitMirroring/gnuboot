@@ -45,6 +45,7 @@ run_shellcheck \
     download \
     modify \
     update \
+    resources/packages/coreboot/distclean \
     resources/packages/descriptors/distclean \
     resources/packages/flashrom/distclean \
     resources/packages/grub/distclean \
@@ -57,7 +58,6 @@ run_shellcheck \
     resources/packages/src/distclean \
     resources/packages/u-boot-libre/distclean \
     resources/packages/u-boot/distclean \
-    resources/packages/coreboot/distclean \
     resources/scripts/tasks/distclean.sh \
     tests/distclean \
     tests/lint
