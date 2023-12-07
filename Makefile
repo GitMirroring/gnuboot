@@ -45,6 +45,7 @@ roms:
 release:
 	./build release src
 	./build release roms
+	./build release website
 
 clean:
 	./build clean cbutils

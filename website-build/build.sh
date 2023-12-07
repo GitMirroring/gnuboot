@@ -32,6 +32,10 @@ help()
 	echo -e "\t\tUse a local untitled directory from PATH\n" \
 	     "\t\tinstead of downloading the latest version from\n" \
 	     "\t\t${untitled_uri}"
+	echo -e "\t--download-only"
+	echo -e "\t\tOnly download and setup Untitled. Does not build the"
+	echo -e "\t\twebsite."
+
 }
 
 sync_repo()
@@ -89,6 +93,7 @@ help_missing_arg()
 	help
 }
 
+download_only=0
 i=1
 while [ "$i" -le $# ] ; do
 	opt="$(eval echo \$$i)"
@@ -97,6 +102,9 @@ while [ "$i" -le $# ] ; do
 		-h|--help)
 			help
 			exit 0
+			;;
+		--download-only)
+			download_only=1
 			;;
 		--with-untitled-path)
 			if [ "$i" -ge $# ] ; then
@@ -119,7 +127,10 @@ set -e
 
 sync_repo "untitled" \
 	  "${untitled_uri}" "${untitled_path}" "${untitled_commit}"
-copy_website "untitled/www/lbwww/"
 
-cd untitled
-./build sites lbwww
+if [ "${download_only}" -eq 0 ] ; then
+	copy_website "untitled/www/lbwww/"
+
+	cd untitled
+	./build sites lbwww
+fi

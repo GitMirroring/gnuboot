@@ -58,6 +58,7 @@ run_shellcheck \
     resources/packages/src/distclean \
     resources/packages/u-boot-libre/distclean \
     resources/packages/u-boot/distclean \
+    resources/packages/website/distclean \
     resources/scripts/tasks/distclean.sh \
     tests/distclean \
     tests/lint
