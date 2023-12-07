@@ -39,6 +39,33 @@ And these cannot build GNU Boot yet:
 * Guix: Guix doesn't have any ADA compiler and that is needed for
   building Coreboot for certain computers.
 
+If you don't use PureOS 10 (byzantium) or Trisquel 10 (nabia), there
+are many ways to run them on top of other GNU/Linux distributions:
+
+* A Trisquel 10 chroot can be created with the debootstrap and
+  trisquel-keyring packages under the Trisquel or Parabola
+  distributions. Once this is done you can either configure it and
+  chroot inside or convert it to run inside container engines like
+  LXC, LXD, Docker (with debuerreotype), etc.
+
+* It is possible to install Trisquel 10 (nabia) or PureOS in a virtual
+  machine. Note that PureOS doesn't sign its releases so we copied the
+  official PureOS checksums found in several subdirectories in
+  https://downloads.puri.sm/byzantium in
+  resources/distros/pureos/20230614/ in the GNU Boot repository. The
+  commits of GNU Boot are usually signed by its maintainers, so it's
+  also possible to have a full chain of trust.
+
+* PureOS also has docker images on Docker Hub, and it also [has one
+  for PureOS byzantium](https://hub.docker.com/r/pureos/byzantium). On
+  Docker Hub, The PureOS images made by Puri.sm are the only images
+  that follow the [Free Distro
+  Guidelines](https://www.gnu.org/distros/). Also note that it is not
+  possible to easily check the integrity of images coming from docker
+  hub so by using them you blindly trust Docker Hub. The only way to
+  check the images is to create your own image and compare it with the
+  one hosted on docker hub.
+
 Git
 ===
 

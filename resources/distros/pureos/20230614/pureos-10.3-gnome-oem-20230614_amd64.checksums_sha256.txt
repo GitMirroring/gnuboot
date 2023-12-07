@@ -1,0 +1,3 @@
+3444bab90c9bbd1c90a20cf75ca4eade6272e40c48542c589673208b7edd5af3  ./pureos-10.3-gnome-oem-20230614_amd64.iso.zsync
+be675390a73170f11d209cfdcfe33c3f29ada27ea5a02127c55a4fbfa28a0876  ./pureos-10.3-gnome-oem-20230614_amd64.packages
+9b2dd17beb29b388898d471517fbbad2b236ce0c49bce0e6016f64dbb7a6b591  ./pureos-10.3-gnome-oem-20230614_amd64.iso

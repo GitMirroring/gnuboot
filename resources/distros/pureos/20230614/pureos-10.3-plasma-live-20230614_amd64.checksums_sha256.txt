@@ -1,0 +1,3 @@
+a59e8b6bfc93c7b6d25941773862407b0b8657b7a8a7cffa3bc51e877d926dc7  ./pureos-10.3-plasma-live-20230614_amd64.iso
+c955e5c2400b915ab040462159ebdd4392a3190ce8fbcb3d9f4290a9702c5b1e  ./pureos-10.3-plasma-live-20230614_amd64.iso.zsync
+acc4905b1d18d71a97b2d5c1cb54970ffbdc40bda4563f863af054512b792e90  ./pureos-10.3-plasma-live-20230614_amd64.packages
