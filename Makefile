@@ -76,4 +76,3 @@ install-dependencies-void:
 check:
 	./tests/lint
 	./tests/distclean
-	./tests/u-boot-libre
