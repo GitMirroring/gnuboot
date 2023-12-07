@@ -13,11 +13,6 @@ How to compile Libreboot from source
 
 Refer to the [lbmk build instructions](docs/build/).
 
-How does the build system work?
--------------------------------
-
-Refer to the [lbmk maintenance instructions](docs/maintain/).
-
 Do not use CH341A!
 ------------------
 

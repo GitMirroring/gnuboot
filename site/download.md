@@ -7,9 +7,8 @@ New releases are announced in the [main news section](news/).
 
 If you're more interested in GNU Boot development, go to the
 [GNU Boot development page](../git.md), which also includes links to the
-Git repositories. The page on [/docs/maintain/](docs/maintain/) describes how
-GNU Boot is put together, and how to maintain it. If you wish to build
-GNU Boot from source, [read this page](docs/build/).
+Git repositories. If you wish to build GNU Boot from source,
+[read this page](docs/build/).
 
 GPG signing key
 ---------------
