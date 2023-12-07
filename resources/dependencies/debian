@@ -82,9 +82,6 @@ pkcon -y --allow-reinstall install build-essential perl
 
 pkcon -y --allow-reinstall install libncurses5-dev doxygen acpica-tools gdb flex bison build-essential git libssl-dev gnat
 
-# For cross-compiling i686 target on x86_64 host.
-[ "${arch}" -eq 0 ] && pkcon -y --allow-reinstall install lib32ncurses5-dev
-
 # GRUB build dependencies (also requires build-essential, bison and flex)
 # ------------------------------------------------------------
 
