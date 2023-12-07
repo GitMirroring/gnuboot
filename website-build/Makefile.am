@@ -29,7 +29,7 @@ endif
 if WANT_GUIX
 build:
 	guix time-machine \
-	--commit=07f19ef04b5a8f4d7a12a8940333e67db8da81c0 \
+	--commit=c15a1cd88f80a90437f4b0159f22dfc84b9e6851 \
 	-- shell \
 		--container \
 		--network \
