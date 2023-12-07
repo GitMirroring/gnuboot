@@ -99,9 +99,6 @@ install_packages build-essential perl
 
 install_packages libncurses5-dev doxygen iasl gdb flex bison build-essential git libssl-dev gnat
 
-# For cross-compiling i686 target on x86_64 host.
-[ "${arch}" -eq 0 ] && install_packages lib32ncurses5-dev
-
 # GRUB build dependencies (also requires build-essential, bison and flex)
 # ------------------------------------------------------------
 
