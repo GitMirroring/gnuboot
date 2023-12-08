@@ -95,7 +95,7 @@ pkcon -y --allow-reinstall install build-essential
 # Flashrom build dependencies (also requires build-essential)
 # ------------------------------------------------------------
 
-pkcon -y --allow-reinstall install libpci-dev pciutils zlib1g-dev libftdi-dev build-essential libusb-1.0-0-dev libusb-1.0 libusb-1.0-0-dev libusb-dev
+pkcon -y --allow-reinstall install libpci-dev pciutils zlib1g-dev libftdi-dev build-essential libusb-1.0-0-dev libusb-1.0-0
 
 # For cross-compiling i686 target on x86_64 host.
 [ "${arch}" -eq 0 ] && pkcon -y --allow-reinstall install lib32z1-dev
