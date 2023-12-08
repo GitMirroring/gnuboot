@@ -34,65 +34,65 @@ dnf -y install PackageKit
 # This is so that they can moved to separate scripts.
 #
 
-pkcon -y install wget
+pkcon -y --allow-reinstall install wget
 
 # For downloading source code
 # ------------------------------------------------------------
 
-pkcon -y install git
+pkcon -y --allow-reinstall install git
 
 # For building the documentation
 # ------------------------------------------------------------
 
-pkcon -y install pandoc
+pkcon -y --allow-reinstall install pandoc
 
 # For Tianocore and iPXE
 # TODO: check whether this is the full list
 
-pkcon -y install nasm perl-libwww-perl python2 subversion
+pkcon -y --allow-reinstall install nasm perl-libwww-perl python2 subversion
 
 # For building source code:
 # ------------------------------------------------------------
 
-pkcon -y install gcc
+pkcon -y --allow-reinstall install gcc
 
 # for running the crostool script (to get mrc.bin file for t440p)
-pkcon -y install sharutils curl parted e2fsprogs unzip
+pkcon -y --allow-reinstall install sharutils curl parted e2fsprogs unzip
 
 # for cross-compiling ARM binaries
-pkcon -y install arm-none-eabi-gcc-cs
+pkcon -y --allow-reinstall install arm-none-eabi-gcc-cs
 
 # Memtest86+ build dependencies
 # ------------------------------------------------------------
 
-pkcon -y install gcc python2
+pkcon -y --allow-reinstall install gcc python2
 
 # i945-pwm build dependencies
 # ------------------------------------------------------------
 
-pkcon -y install gcc perl
+pkcon -y --allow-reinstall install gcc perl
 
 # Coreboot build dependencies (also requires build-essential and git)
 # ------------------------------------------------------------
 
-pkcon -y install gcc-gnat ncurses-devel doxygen acpica-tools gdb flex bison gcc git openssl-devel gprbuild bzip2
+pkcon -y --allow-reinstall install gcc-gnat ncurses-devel doxygen acpica-tools gdb flex bison gcc git openssl-devel gprbuild bzip2
 
 # GRUB build dependencies (also requires build-essential, bison and flex)
 # ------------------------------------------------------------
 
-pkcon -y install unifont-fonts autogen help2man gcc bison flex dejavu-fonts-all texinfo rsync python libusb xz gawk device-mapper fuse gettext freetype-devel intltool libselinux-devel
+pkcon -y --allow-reinstall install unifont-fonts autogen help2man gcc bison flex dejavu-fonts-all texinfo rsync python libusb xz gawk device-mapper fuse gettext freetype-devel intltool libselinux-devel
 
 # BucTS build dependencies (external script)
 # ------------------------------------------------------------
 
-pkcon -y install gcc
+pkcon -y --allow-reinstall install gcc
 
 # Flashrom build dependencies (also requires build-essential)
 # ------------------------------------------------------------
 
-pkcon -y install pciutils-devel zlib-devel libftdi-devel gcc libusb-devel
+pkcon -y --allow-reinstall install pciutils-devel zlib-devel libftdi-devel gcc libusb-devel
 
 # For running make check
 # ----------------------
-pkcon -y install ShellCheck # lint
-pkcon -y install gawk git grep lzip make sed tar xz # u-boot-libre
+pkcon -y --allow-reinstall install ShellCheck # lint
+pkcon -y --allow-reinstall install gawk git grep lzip make sed tar xz # u-boot-libre

@@ -33,58 +33,58 @@ pacman -S --needed --noconfirm packagekit
 # This is so that they can moved to separate scripts.
 #
 
-pkcon -y install wget
+pkcon -y --allow-reinstall install wget
 
 # For downloading source code
 # ------------------------------------------------------------
 
-pkcon -y install git
+pkcon -y --allow-reinstall install git
 
 # For Tianocore and iPXE
 # TODO: check whether this is the full list
 
-pkcon -y install nasm perl-libwww python2 subversion
+pkcon -y --allow-reinstall install nasm perl-libwww python2 subversion
 
 # For building source code:
 # ------------------------------------------------------------
 
-pkcon -y install base-devel
+pkcon -y --allow-reinstall install base-devel
 
 # for running the crostool script (to get mrc.bin file for t440p)
-pkcon -y install sharutils curl parted e2fsprogs unzip
+pkcon -y --allow-reinstall install sharutils curl parted e2fsprogs unzip
 
 # for cross-compiling ARM binaries
-pkcon -y install arm-none-eabi-gcc
+pkcon -y --allow-reinstall install arm-none-eabi-gcc
 
 # Memtest86+ build dependencies
 # ------------------------------------------------------------
 
-pkcon -y install base-devel python2
+pkcon -y --allow-reinstall install base-devel python2
 
 # i945-pwm build dependencies
 # ------------------------------------------------------------
 
-pkcon -y install base-devel perl
+pkcon -y --allow-reinstall install base-devel perl
 
 # Coreboot build dependencies (also requires build-essential and git)
 # ------------------------------------------------------------
 
-pkcon -y install ncurses doxygen acpica gdb flex bison base-devel git openssl gcc-ada
+pkcon -y --allow-reinstall install ncurses doxygen acpica gdb flex bison base-devel git openssl gcc-ada
 
 # GRUB build dependencies (also requires build-essential, bison and flex)
 # ------------------------------------------------------------
 
-pkcon -y install bdf-unifont autogen help2man base-devel bison flex ttf-dejavu texinfo rsync python libusb xz gawk device-mapper fuse2 gettext freetype2
+pkcon -y --allow-reinstall install bdf-unifont autogen help2man base-devel bison flex ttf-dejavu texinfo rsync python libusb xz gawk device-mapper fuse2 gettext freetype2
 
 # BucTS build dependencies (external script)
 # ------------------------------------------------------------
 
-pkcon -y install base-devel
+pkcon -y --allow-reinstall install base-devel
 
 # Flashrom build dependencies (also requires build-essential)
 # ------------------------------------------------------------
 
-pkcon -y install libpciaccess pciutils zlib libftdi base-devel libusb
+pkcon -y --allow-reinstall install libpciaccess pciutils zlib libftdi base-devel libusb
 
 # For running make check
 # ----------------------
