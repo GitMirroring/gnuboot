@@ -65,8 +65,6 @@ arch=${?}
 if [ "${arch}" -eq 0 ];	then
 	pkcon -y --allow-reinstall install gcc-multilib libc6-i386 libc6-dev-i386
 	pkcon -y --allow-reinstall install lib32stdc++6 g++-multilib dh-autoreconf
-	# recommended, but not sure what for:
-	pkcon -y --allow-reinstall install lib32tinfo-dev
 fi
 
 # Memtest86+ build dependencies
