@@ -82,8 +82,6 @@ arch=${?}
 if [ "${arch}" -eq 0 ];	then
 	install_packages gcc-multilib libc6-i386 libc6-dev-i386
 	install_packages lib32stdc++6 g++-multilib dh-autoreconf
-	# recommended, but not sure what for:
-	install_packages lib32tinfo-dev
 fi
 
 # Memtest86+ build dependencies
