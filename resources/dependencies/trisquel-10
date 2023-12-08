@@ -97,7 +97,7 @@ install_packages build-essential perl
 # Coreboot build dependencies (also requires build-essential and git)
 # ------------------------------------------------------------
 
-install_packages libncurses5-dev doxygen iasl gdb flex bison build-essential git libssl-dev gnat
+install_packages libncurses5-dev doxygen acpica-tools gdb flex bison build-essential git libssl-dev gnat
 
 # GRUB build dependencies (also requires build-essential, bison and flex)
 # ------------------------------------------------------------
