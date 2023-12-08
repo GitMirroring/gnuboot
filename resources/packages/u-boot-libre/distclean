@@ -18,10 +18,10 @@
 # shellcheck source=resources/scripts/tasks/distclean.sh
 . "$(dirname "$0")"/../../scripts/tasks/distclean.sh
 
-distclean_u_boot_libre()
+distclean_u_boot()
 {
-    rm -rf release
+    rm -rf u-boot
 }
 
 # shellcheck disable=SC2068
-distclean_main distclean_u_boot_libre $@
+distclean_main distclean_u_boot $@
