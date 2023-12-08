@@ -43,6 +43,7 @@ list_modify_paths() {
 	find resources/packages \
 		-mindepth 2 -maxdepth 2 \
 		-type f \
+		-executable \
 		-name "download" \
 		-printf "%P\n"
 }
