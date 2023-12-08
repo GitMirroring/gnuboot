@@ -33,6 +33,7 @@ list_modify_paths() {
 	find resources/packages \
 		-mindepth 2 -maxdepth 2 \
 		-type d \
+		-executable \
 		-name "modify" \
 		-printf "%P\n"
 }
