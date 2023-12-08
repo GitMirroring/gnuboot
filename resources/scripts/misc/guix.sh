@@ -86,7 +86,7 @@ guix_latest_release="1.4.0"
 
 source_guix_profile()
 {
-    if [ "${HOME}"/.config/guix/current/etc/profile ] ; then
+    if [ -f "${HOME}"/.config/guix/current/etc/profile ] ; then
 	GUIX_PROFILE="${HOME}/.config/guix/current"
 	. "$GUIX_PROFILE"/etc/profile
     fi
