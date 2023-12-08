@@ -32,6 +32,7 @@ list_update_paths() {
 	find resources/packages \
 		-mindepth 2 -maxdepth 2 \
 		-type d \
+		-executable \
 		-name "update" \
 		-printf "%P\n"
 }
