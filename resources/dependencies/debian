@@ -80,7 +80,7 @@ pkcon -y --allow-reinstall install build-essential perl
 # Coreboot build dependencies (also requires build-essential and git)
 # ------------------------------------------------------------
 
-pkcon -y --allow-reinstall install libncurses5-dev doxygen iasl gdb flex bison build-essential git libssl-dev gnat
+pkcon -y --allow-reinstall install libncurses5-dev doxygen acpica-tools gdb flex bison build-essential git libssl-dev gnat
 
 # For cross-compiling i686 target on x86_64 host.
 [ "${arch}" -eq 0 ] && pkcon -y --allow-reinstall install lib32ncurses5-dev
