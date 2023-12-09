@@ -191,6 +191,17 @@ like that:
 
 in an (email) reply form the given maintainer.
 
+The maintainers agreement on a patch doesn't necessary mean that there
+is an agreement on the order in which the patch will be added. So the
+patches can also land into a 'gnuboot-next' branch temporarily and
+potentially be re-ordered until all the GNU Boot maintainers agree to
+push all the commits in the chosen order into the main branch.
+
+That 'gnuboot-next' branch can also be used when the GNU Boot
+maintainers agree to merge the patches but need to wait for the
+approval of the GNU project for instance if there are legal questions
+that also require the approval of the GNU Project.
+
 Maintainers
 -----------
 
