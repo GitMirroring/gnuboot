@@ -121,3 +121,6 @@ install_packages libpci-dev pciutils zlib1g-dev libftdi-dev build-essential libu
 # ----------------------
 install_packages shellcheck # lint
 install_packages gawk git grep lzip make sed tar xz-utils # u-boot-libre
+
+# For building the website tarball
+pkcon -y --allow-reinstall install pandoc
