@@ -20,6 +20,23 @@
 [ "x${DEBUG+set}" = 'xset' ] && set -v
 set -u -e
 
+install_packages()
+{
+    to_install=""
+
+    for package in $@ ; do
+        if pkcon resolve ${package} | grep '^Installed' 2>&1>/dev/null ; then
+            continue
+        else
+            to_install="${to_install} ${package}"
+        fi
+    done
+
+    if [ -n "${to_install}" ] ; then
+        pkcon -y --allow-reinstall install ${to_install}
+    fi
+}
+
 if [ $EUID -ne 0 ]; then
    printf "This script must be run as root\n" 
    exit 1
@@ -32,80 +49,80 @@ apt-get -y install packagekit-tools
 # This is so that they can moved to separate scripts.
 #
 
-pkcon -y --allow-reinstall install wget
+install_packages wget
 
 # For downloading source code
 # ------------------------------------------------------------
 
-pkcon -y --allow-reinstall install git
+install_packages git
 
 # For Tianocore and iPXE
 # TODO: check whether this is the full list
 
-pkcon -y --allow-reinstall install uuid-dev nasm
+install_packages uuid-dev nasm
 
 # For building source code:
 # ------------------------------------------------------------
 
-pkcon -y --allow-reinstall install build-essential
+install_packages build-essential
 
 # for running the crostool script (to get mrc.bin file for t440p)
-pkcon -y --allow-reinstall install sharutils curl parted e2fsprogs unzip
+install_packages sharutils curl parted e2fsprogs unzip
 
 # to use the right software versions and links for compiling 
-pkcon -y --allow-reinstall install pkg-config
+install_packages pkg-config
 
 # for cross-compiling ARM binaries
-pkcon -y --allow-reinstall install gcc-arm-linux-gnueabi
+install_packages gcc-arm-linux-gnueabi
 
 [ "$(uname -i)" = x86_64 ] || [ "$(uname -m)" = x86_64 ]
 arch=${?}
 
 # For cross-compiling i686 target on x86_64 host.
 if [ "${arch}" -eq 0 ];	then
-	pkcon -y --allow-reinstall install gcc-multilib libc6-i386 libc6-dev-i386
-	pkcon -y --allow-reinstall install lib32stdc++6 g++-multilib dh-autoreconf
+	install_packages gcc-multilib libc6-i386 libc6-dev-i386
+	install_packages lib32stdc++6 g++-multilib dh-autoreconf
 	# recommended, but not sure what for:
-	pkcon -y --allow-reinstall install lib32tinfo-dev
+	install_packages lib32tinfo-dev
 fi
 
 # Memtest86+ build dependencies
 # ------------------------------------------------------------
 
-pkcon -y --allow-reinstall install build-essential python2.7
+install_packages build-essential python2.7
 
 # i945-pwm build dependencies
 # ------------------------------------------------------------
 
-pkcon -y --allow-reinstall install build-essential perl
+install_packages build-essential perl
 
 # Coreboot build dependencies (also requires build-essential and git)
 # ------------------------------------------------------------
 
-pkcon -y --allow-reinstall install libncurses5-dev doxygen iasl gdb flex bison build-essential git libssl-dev gnat
+install_packages libncurses5-dev doxygen iasl gdb flex bison build-essential git libssl-dev gnat
 
 # For cross-compiling i686 target on x86_64 host.
-[ "${arch}" -eq 0 ] && pkcon -y --allow-reinstall install lib32ncurses5-dev
+[ "${arch}" -eq 0 ] && install_packages lib32ncurses5-dev
 
 # GRUB build dependencies (also requires build-essential, bison and flex)
 # ------------------------------------------------------------
 
-pkcon -y --allow-reinstall install ttf-unifont libopts25 libselinux1-dev autogen m4 autoconf help2man libopts25-dev libfont-freetype-perl automake autotools-dev build-essential bison flex libfuse-dev liblzma-dev gawk libdevmapper-dev libtool libfreetype6-dev
+install_packages ttf-unifont libopts25 libselinux1-dev autogen m4 autoconf help2man libopts25-dev libfont-freetype-perl automake autotools-dev build-essential bison flex libfuse-dev liblzma-dev gawk libdevmapper-dev libtool libfreetype6-dev
 
 # BucTS build dependencies (external script)
 # ------------------------------------------------------------
 
-pkcon -y --allow-reinstall install build-essential
+install_packages build-essential
 
 # Flashrom build dependencies (also requires build-essential)
 # ------------------------------------------------------------
 
-pkcon -y --allow-reinstall install libpci-dev pciutils zlib1g-dev libftdi-dev build-essential libusb-1.0-0-dev libusb-1.0 libusb-1.0-0-dev libusb-dev
+install_packages libpci-dev pciutils zlib1g-dev libftdi-dev build-essential libusb-1.0-0-dev libusb-1.0 libusb-1.0-0-dev libusb-dev
 
 # For cross-compiling i686 target on x86_64 host.
-[ "${arch}" -eq 0 ] && pkcon -y --allow-reinstall install lib32z1-dev
+[ "${arch}" -eq 0 ] && install_packages lib32z1-dev
 
 # For running make check
 # ----------------------
-pkcon -y --allow-reinstall install shellcheck # lint
-pkcon -y --allow-reinstall install gawk git grep lzip make sed tar xz-utils # u-boot-libre
+install_packages shellcheck # lint
+install_packages gawk git grep lzip make sed tar xz-utils # u-boot-libre
