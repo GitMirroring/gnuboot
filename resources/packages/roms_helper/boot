@@ -241,13 +241,13 @@ moverom() {
 	for romsize in 4 8 16; do
 		if [ "${cuttype}" = "${romsize}MiB ICH9 IFD NOR flash" ]; then
 			if [ ! -f "descriptors/ich9m/ich9fdgbe_${romsize}m.bin" ]; then
-				./build descriptors ich9m
+				./build build descriptors
 			fi
 			dd if=descriptors/ich9m/ich9fdgbe_${romsize}m.bin of=${newrompath} bs=1 count=12k conv=notrunc
 		fi
 		if [ "${cuttype}" = "${romsize}MiB ICH9 IFD NOGBE NOR flash" ]; then
 			if [ ! -f "descriptors/ich9m/ich9fdnogbe_${romsize}m.bin" ]; then
-				./build descriptors ich9m
+				./build build descriptors
 			fi
 			dd if=descriptors/ich9m/ich9fdnogbe_${romsize}m.bin of=${newrompath} bs=1 count=4k conv=notrunc
 		fi

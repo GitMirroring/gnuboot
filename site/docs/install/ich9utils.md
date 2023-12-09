@@ -63,7 +63,7 @@ You can also find it in the source code tar archives, on Libreboot releases.
 
 In `lbmk`, you can use the following command to generate descriptors:
 
-    ./build descriptors ich9m
+    ./build build descriptors
 
 The Libreboot build system will use the descriptors under `descriptors/ich9m`
 when building ROM images for these machines.

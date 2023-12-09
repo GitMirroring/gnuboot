@@ -34,7 +34,7 @@ modules:
 	./build module all
 
 ich9m-descriptors:
-	./build descriptors ich9m
+	./build build descriptors
 
 payloads:
 	./build payload all

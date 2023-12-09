@@ -36,7 +36,6 @@ tasks="\
 	boot \
 	clean \
 	dependencies \
-	descriptors \
 	distclean \
 	install \
 	module \
