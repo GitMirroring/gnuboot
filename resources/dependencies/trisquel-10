@@ -87,7 +87,7 @@ fi
 # Memtest86+ build dependencies
 # ------------------------------------------------------------
 
-install_packages build-essential python2.7
+install_packages build-essential python2.7 python-is-python3
 
 # i945-pwm build dependencies
 # ------------------------------------------------------------
