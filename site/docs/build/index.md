@@ -85,14 +85,32 @@ command instead:
 
     sudo make install-dependencies-pureos-10
 
-When this is done you can build all the GNU Boot images with the
-following command (this uses the Makefile):
+
+You can then build everything with this command:
+
+    make release
+
+When the compilation ends this should have created images for all the
+computers supported by GNU Boot in release/roms/. For instance if you
+are building GNU Boot 0.1 RC1 the image for the Thinkpad X60 will be
+in release/roms/gnuboot-0.1-rc1_x60.tar.xz.
+
+It will also create an archive of all the upstream source code used to
+build GNU Boot but without any nonfree software in it. For GNU Boot
+0.1 RC1 the archive will be in release/gnuboot-0.1-rc1_src.tar.xz.
+
+If you use git revisions that are not releases you might instead end
+up with something like '0.2-10-g1234abcdefg' instead of '0.1-rc1'
+inside the file names. For the curious, that part of the filename is
+computed with the 'git describe HEAD' command.
+
+If instead you only want to build all the images and not build an
+archive of the source code you can use this command:
 
     make
 
-This single command will build ROM images for *every* computer
-supported by GNU Boot. If you only wish to build a limited set, you
-can use the build script directly:
+If you only wish to build a limited set of images, you can use the
+build script directly:
 
     ./build boot roms x200_8mb
 
@@ -115,9 +133,6 @@ To clean your `crossgcc` builds:
 
     make crossgcc-clean
 
-To build release archives:
-
-    make release
 
 Build without using GNU Make
 ============================
