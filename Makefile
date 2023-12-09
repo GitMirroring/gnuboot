@@ -46,6 +46,7 @@ release:
 	./build release src
 	./build release roms
 	./build release website
+	./build release gnuboot-source
 
 clean:
 	./build clean cbutils
