@@ -46,15 +46,15 @@ elif [ $# -ne 0 ] ; then
 fi
 
 if is_base_distro "arch" ; then
-    "$(dirname $0)"/../dependencies/arch $@
+    "$(dirname $0)"/../../dependencies/arch $@
 elif is_base_distro "debian" ; then
-    "$(dirname $0)"/../dependencies/debian $@
+    "$(dirname $0)"/../../dependencies/debian $@
 elif is_base_distro "fedora" ; then
-    "$(dirname $0)"/../dependencies/fedora35 $@
+    "$(dirname $0)"/../../dependencies/fedora35 $@
 elif is_base_distro "pureos" ; then # PureOS doesn't have ID_LIKE
-    "$(dirname $0)"/../dependencies/debian $@
+    "$(dirname $0)"/../../dependencies/debian $@
 elif is_base_distro "ubuntu" ; then
-    "$(dirname $0)"/../dependencies/trisquel-10 $@
+    "$(dirname $0)"/../../dependencies/trisquel-10 $@
 elif is_base_distro "void" ; then
-    "$(dirname $0)"/../dependencies/void $@
+    "$(dirname $0)"/../../dependencies/void $@
 fi
