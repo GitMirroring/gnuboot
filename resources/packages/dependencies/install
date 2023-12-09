@@ -46,14 +46,23 @@ elif [ $# -ne 0 ] ; then
     exit ${EX_USAGE}
 fi
 
+# Try to detect distributions derived from other distributions first
+# as for instance Trisquel 10 has ID_LIKE=debian and not
+# ID_LIKE=ubuntu.
+if is_base_distro "trisquel" ; then
+    "$(dirname $0)"/../../dependencies/trisquel-10 $@
+    exit $?
+elif is_base_distro "pureos" ; then # PureOS doesn't have ID_LIKE
+    "$(dirname $0)"/../../dependencies/pureos-10 $@
+    exit $?
+fi
+
 if is_base_distro "arch" ; then
     "$(dirname $0)"/../../dependencies/arch $@
 elif is_base_distro "debian" ; then
     "$(dirname $0)"/../../dependencies/pureos-10 $@
 elif is_base_distro "fedora" ; then
     "$(dirname $0)"/../../dependencies/fedora35 $@
-elif is_base_distro "pureos" ; then # PureOS doesn't have ID_LIKE
-    "$(dirname $0)"/../../dependencies/pureos-10 $@
 elif is_base_distro "ubuntu" ; then
     "$(dirname $0)"/../../dependencies/trisquel-10 $@
 elif is_base_distro "void" ; then
