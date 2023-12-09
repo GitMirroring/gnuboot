@@ -83,7 +83,7 @@ for you:
 If instead you use PureOS 10 (byzantium) you can use the following
 command instead:
 
-    sudo make install-dependencies-debian
+    sudo make install-dependencies-pureos-10
 
 When this is done you can build all the GNU Boot images with the
 following command (this uses the Makefile):
@@ -139,7 +139,7 @@ Trisquel 10 (nabia):
 
 and for PureOS 10 (byzantium):
 
-    sudo ./build dependencies debian
+    sudo ./build dependencies pureos-10
 
 The build script automatically runs all necessary commands; for example
 `./build payload grub` will automatically run `./build module grub` if the

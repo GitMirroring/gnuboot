@@ -22,7 +22,7 @@
 
 .PHONY: all check download modules ich9m-descriptors payloads roms release \
 	clean crossgcc-clean install-dependencies-ubuntu \
-	install-dependencies-debian install-dependencies-arch \
+	install-dependencies-pureos-10 install-dependencies-arch \
 	install-dependencies-void
 
 all: roms
@@ -65,8 +65,8 @@ distclean:
 install-dependencies-ubuntu:
 	./build dependencies trisquel-10
 
-install-dependencies-debian:
-	./build dependencies debian
+install-dependencies-pureos-10:
+	./build dependencies pureos-10
 
 install-dependencies-arch:
 	./build dependencies arch
