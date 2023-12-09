@@ -40,7 +40,7 @@ is_base_distro()
 if [ $# -eq 1 ] && [ "$1" == "--help" ] ; then
     usage "${progname}"
     exit 0
-else
+elif [ $# -ne 0 ] ; then
     usage "${progname}"
     exit ${EX_USAGE}
 fi
