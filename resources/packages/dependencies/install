@@ -31,6 +31,7 @@ usage()
 
 is_base_distro()
 {
+    distro="$1"
     grep "ID=${distro}" /etc/os-release > /dev/null && return ${true}
     grep "ID_LIKE=${distro}" /etc/os-release > /dev/null && return ${true}
     return ${false}
