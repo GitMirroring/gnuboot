@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# ubuntu2004 script: installs build dependencies for Ubuntu 20.04
+# trisquel-10 script: installs build dependencies for Ubuntu 20.04
 #
 #	Copyright (C) 2014, 2015, 2021 Leah Rowe <info@minifree.org>
 #

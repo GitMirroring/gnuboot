@@ -63,7 +63,7 @@ distclean:
 	./build distclean all
 
 install-dependencies-ubuntu:
-	./build dependencies ubuntu2004
+	./build dependencies trisquel-10
 
 install-dependencies-debian:
 	./build dependencies debian

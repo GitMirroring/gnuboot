@@ -89,7 +89,7 @@ This assumes that you already downloaded coreboot:
 This, in turn, assumes that you have installed the build dependencies for
 Libreboot. On Ubuntu 20.04 and other apt-get distros, you can do this:
 
-    ./build dependencies ubuntu2004
+    ./build dependencies trisquel-10
 
 The `cbfstool` executables will be under each coreboot directory, under
 each `coreboot/boardname/` directory for each board. Just pick one, presumably

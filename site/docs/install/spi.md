@@ -235,20 +235,20 @@ install flashrom. Do this after downloading the
     cd lbmk
     sudo ./build install dependencies
 
-NOTE: debian, arch or void can be written instead of ubuntu2004. the debian
+NOTE: debian, arch or void can be written instead of trisquel-10. the debian
 script is also applicable to newer ubuntu versions
 
     ./download flashrom
     ./build module flashrom
 
 If the script complains about missing dependencies, just modify the
-resources/dependencies/ubuntu2004 script and remove those dependencies.
+resources/dependencies/trisquel-10 script and remove those dependencies.
 The script is written for Ubuntu 20.04, but it should work fine in other
 GNU/Linux distributions that use the `apt-get` package manager.
 
 A `flashrom/` directory will be present, with a `flashrom` executable inside
 of it. If you got an error about missing package when running the dependencies
-command above, tweak `resources/dependencies/ubuntu2004`. That
+command above, tweak `resources/dependencies/trisquel-10`. That
 script downloads and installs build dependencies in apt-get and it is intended
 for use on x86-64 systems running Ubuntu 20.04, but it should work in Raspbian
 on the Raspberry Pi.

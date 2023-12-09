@@ -54,7 +54,7 @@ elif is_base_distro "fedora" ; then
 elif is_base_distro "pureos" ; then # PureOS doesn't have ID_LIKE
     "$(dirname $0)"/../dependencies/debian $@
 elif is_base_distro "ubuntu" ; then
-    "$(dirname $0)"/../dependencies/ubuntu2004 $@
+    "$(dirname $0)"/../dependencies/trisquel-10 $@
 elif is_base_distro "void" ; then
     "$(dirname $0)"/../dependencies/void $@
 fi
