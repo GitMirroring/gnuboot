@@ -39,8 +39,12 @@ build_website()
     ./configure --disable-guix --disable-lighttpd
     make website.tar.gz
 
+    # Release website source and transformed files
     install -d ../release
     install -m 644 website.tar.gz ../release/gnuboot-website-"${version}".tar.gz
+
+    # Relase untitled source code
+    git -C untitled bundle create ../../release/untitled-"${version}".bundle HEAD
 }
 
 if [ $# -eq 1 ] && { [ "$1" = "-h" ] || [ "$1" == "--help" ] ;} ; then
