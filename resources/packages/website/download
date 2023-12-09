@@ -16,7 +16,7 @@
 
 . resources/scripts/misc/sysexits.sh
 
-progname="resources/packages/website/release"
+progname="resources/packages/website/download"
 
 set -e
 
