@@ -25,29 +25,43 @@
 	install-dependencies-pureos-10 install-dependencies-arch \
 	install-dependencies-void
 
+LOG = make-$(shell date '+%s').log
+
 all: roms
 
 download:
-	./download all
+	echo 'Makefile: running $@ target' >> $(LOG)
+	./download all 2>&1 | tee -a $(LOG)
+	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
 modules:
-	./build module all
+	echo 'Makefile: running $@ target' >> $(LOG)
+	./build module all 2>&1 | tee -a $(LOG)
+	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
 ich9m-descriptors:
-	./build build descriptors
+	echo 'Makefile: running $@ target' >> $(LOG)
+	./build build descriptors | tee -a $(LOG)
+	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
 payloads:
-	./build payload all
+	echo 'Makefile: running $@ target' >> $(LOG)
+	set -o pipefail ; ./build payload all | tee -a $(LOG)
+	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
 roms:
-	./build boot roms all
+	echo 'Makefile: running $@ target' >> $(LOG)
+	set -o pipefail ; ./build boot roms all | tee -a $(LOG)
+	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
 release:
-	./build release src
-	./build release roms
-	./build release website
-	./build release gnuboot-source
-	./build test release
+	echo 'Makefile: running $@ target' >> $(LOG)
+	set -o pipefail ; ./build release src | tee -a $(LOG)
+	set -o pipefail ; ./build release roms | tee -a $(LOG)
+	set -o pipefail ; ./build release website | tee -a $(LOG)
+	set -o pipefail ; ./build release gnuboot-source | tee -a $(LOG)
+	set -o pipefail ; ./build test release | tee -a $(LOG)
+	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
 clean:
 	./build clean cbutils
@@ -66,16 +80,27 @@ distclean:
 	./build distclean all
 
 install-dependencies-ubuntu:
-	./build dependencies trisquel-10
+	echo 'Makefile: running $@ target' >> $(LOG)
+	set -o pipefail ; ./build dependencies trisquel-10 | tee -a $(LOG)
+	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
 install-dependencies-pureos-10:
-	./build dependencies pureos-10
+	echo 'Makefile: running $@ target' >> $(LOG)
+	set -o pipefail ; ./build dependencies pureos-10 | tee -a $(LOG)
+	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
 install-dependencies-arch:
-	./build dependencies arch
+	echo 'Makefile: running $@ target' >> $(LOG)
+	set -o pipefail ; ./build dependencies arch | tee -a $(LOG)
+	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
 install-dependencies-void:
-	./build dependencies void
+	echo 'Makefile: running $@ target' >> $(LOG)
+	set -o pipefail ; ./build dependencies void | tee -a $(LOG)
+	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
+
 check:
-	./tests/lint
-	./tests/distclean
+	echo 'Makefile: running $@ target' >> $(LOG)
+	set -o pipefail ; ./tests/lint | tee -a $(LOG)
+	set -o pipefail ; ./tests/distclean | tee -a $(LOG)
+	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
