@@ -44,13 +44,23 @@ test_file()
 
 test_release()
 {
-    version="$(git --no-pager describe --tags HEAD)"
+    rev="$(git --no-pager describe --tags HEAD)"
 
     dir="release"
 
     targets="\
         d510mo \
         d510mo_16mb \
+        d945gclf \
+        d945gclf_16mb \
+        g43t-am3 \
+        g43t-am3_16mb \
+        ga-g41m-es2l \
+        kcma-d8-rdimm_16mb \
+        kcma-d8-rdimm_2mb \
+        kcma-d8-udimm_16mb \
+        kcma-d8-udimm_2mb \
+        kfsn4-dre_1mb \
         kfsn4-dre_2mb \
         kgpe-d16-rdimm_16mb \
         kgpe-d16-rdimm_2mb \
@@ -86,17 +96,38 @@ test_release()
         x60_16mb \
     "
 
+    release_files=""
+
     for target in ${targets} ; do
-        test_file "${dir}"/roms/gnuboot-"${version}"_"${target}".tar.xz
+        archive_path="${dir}"/roms/gnuboot-"${rev}"_"${target}".tar.xz
+        release_files="${release_files}"" ""${archive_path}"
     done
 
-    test_file "${dir}"/gnuboot-"${version}"_src.tar.xz
+    release_files="${release_files}"" ""${dir}"/gnuboot-"${rev}"_src.tar.xz
 
-    test_file "${dir}"/gnuboot-source-"${version}".bundle
+    release_files="${release_files}"" ""${dir}"/gnuboot-source-"${rev}".bundle
 
-    test_file "${dir}"/untitled-"${version}".bundle
+    release_files="${release_files}"" ""${dir}"/untitled-"${rev}".bundle
 
-    test_file "${dir}"/gnuboot-website-"${version}".tar.gz
+    release_files="${release_files}"" ""${dir}"/gnuboot-website-"${rev}".tar.gz
+
+    for path in ${release_files} ; do
+        test_file "${path}"
+    done
+
+    while IFS= read -r -d '' path
+    do
+        found=0
+        for release_file in ${release_files} ; do
+            if [ "${path}" = "${release_file}" ] ; then
+                found=1
+            fi
+        done
+
+        if [ $found -eq 0 ] ; then
+            echo "[ !! ] $path"
+        fi
+    done < <(find "${dir}" -type f -print0)
 }
 
 if [ $# -eq 1 ] && { [ "$1" = "-h" ] || [ "$1" == "--help" ] ;} ; then
