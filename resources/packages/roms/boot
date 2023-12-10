@@ -33,6 +33,16 @@ listboards() {
 		if [ ! -d "${boarddir}" ]; then continue; fi
 		board="${boarddir##resources/coreboot/}"
 		board="${board%/}"
+
+		# TODO: In GNU Boot 0.1 RC1 build the release didn't produce
+		# images for the 'default', 'fam15h_rdimm' and 'fam15h_udimm'
+		# 'computers'. So a bug was introduced at some point and made
+		# GNU Boot build these targets. Since we didn't find the bug we
+		# workaround it instead.
+		if [ "${board}" = "default" ]; then continue; fi
+		if [ "${board}" = "fam15h_rdimm" ]; then continue; fi
+		if [ "${board}" = "fam15h_udimm" ]; then continue; fi
+
 		printf '%s\n' "${board##*/}"
 	done
 }
