@@ -17,6 +17,7 @@
 . resources/scripts/misc/sysexits.sh
 
 progname="resources/packages/tests/test-release"
+rev="$(git --no-pager describe --tags HEAD)"
 
 usage()
 {
@@ -42,10 +43,63 @@ test_file()
     fi
 }
 
-test_release()
+test_qemu_rom_archive()
 {
-    rev="$(git --no-pager describe --tags HEAD)"
+    target="qemu-pc_2mb"
+    dir="release"
 
+    keyboard_layouts=" \
+        colemak \
+        deqwertz \
+        esqwerty \
+        frazerty \
+        frdvbepo \
+        itqwerty \
+        svenska \
+        trqwerty \
+        ukdvorak \
+        ukqwerty \
+        usdvorak \
+        usqwerty \
+    "
+
+    archive_files=""
+    for kb in ${keyboard_layouts} ; do
+        cbfb="libgfxinit_corebootfb"
+        txtmode="libgfxinit_txtmode"
+
+        archive_files="${archive_files} \
+            ${target}/grub_${target}_${cbfb}_${kb}.rom \
+            ${target}/grub_${target}_${txtmode}_${kb}.rom \
+            ${target}/seabios_grubfirst_${target}_${cbfb}_${kb}.rom \
+            ${target}/seabios_grubfirst_${target}_${txtmode}_${kb}.rom \
+            ${target}/seabios_withgrub_${target}_${cbfb}_${kb}.rom \
+            ${target}/seabios_withgrub_${target}_${txtmode}_${kb}s.rom \
+        "
+    done
+
+    archive_files="${archive_files} qemu-pc_2mb/version"
+    archive_files="${archive_files} qemu-pc_2mb/versiondate"
+    archive_files="${archive_files} qemu-pc_2mb/projectname"
+
+    archive="${dir}"/roms/gnuboot-"${rev}"_"${target}".tar.xz
+
+    for path in $(tar tf "${archive}" | grep -v '/$') ; do
+        found=0
+        for archive_file in ${archive_files} ; do
+            if [ "${path}" = "${archive_file}" ] ; then
+                found=1
+            fi
+        done
+
+        if [ $found -eq 0 ] ; then
+            echo "[ !! ] $path"
+        fi
+    done
+}
+
+test_release_dir()
+{
     dir="release"
 
     targets="\
@@ -115,8 +169,7 @@ test_release()
         test_file "${path}"
     done
 
-    while IFS= read -r -d '' path
-    do
+    while IFS= read -r -d '' path ; do
         found=0
         for release_file in ${release_files} ; do
             if [ "${path}" = "${release_file}" ] ; then
@@ -128,6 +181,12 @@ test_release()
             echo "[ !! ] $path"
         fi
     done < <(find "${dir}" -type f -print0)
+}
+
+test_release()
+{
+    test_release_dir
+    test_qemu_rom_archive
 }
 
 if [ $# -eq 1 ] && { [ "$1" = "-h" ] || [ "$1" == "--help" ] ;} ; then
