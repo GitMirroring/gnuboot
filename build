@@ -41,6 +41,7 @@ tasks="\
 	module \
 	payload \
 	release \
+	test \
 "
 
 list_tasks() {
