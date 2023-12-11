@@ -11,9 +11,8 @@ boot firmware that comes with computers with free boot software.
 
 Right now GNU Boot is still in its early stage.
 
-It should be relatively safe to use the [previous release
-candidate](https://ftp.gnu.org/gnu/gnuboot/) (GNU Boot 0.1-rc1) as is
-has minimal changes on top of Libreboot 20220710 (the last 100% free
+It should be relatively safe to use the GNU Boot 0.1 RC3 as is has
+minimal changes on top of Libreboot 20220710 (the last 100% free
 release of Libreboot) and also because several people tested it and
 didn't report any blocking issue.
 

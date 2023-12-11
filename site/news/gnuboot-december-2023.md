@@ -19,11 +19,28 @@ places:
 
 - On the GNU Boot website[5].
 
-GNU Boot 0.1 RC2:
+GNU Boot 0.1 RC3:
 -----------------
 
-We just released GNU Boot 0.1 RC2. We also need help from testers for
+We just released GNU Boot 0.1 RC3. We also need help from testers for
 this release, especially because few intrusive changes were made.
+
+We also release GNU Boot 0.1 RC2 just before but some bugs that don't
+affect the installable images were introduced in the last minute fixes
+so we ended up making an RC3 as well (some tests were broken and some
+website pages also needed fixes).
+
+Nonfree software found in the source release of GNU Boot 0.1 RC1.
+-----------------------------------------------------------------
+
+In the GNU Boot source release (gnuboot-0.1-rc1_src.tar.xz) we found
+the 3 files (F12MicrocodePatch03000002.c, F12MicrocodePatch0300000e.c,
+F12MicrocodePatch03000027.c) that contain microcode in binary form,
+without corresponding source code. GNU Boot 0.1 RC1 corresponding
+source code tarball was remade without these files (and renamed). The
+images for the Asus KCMA-D8, KFSN4-DRE and KGPE-D16 were also removed
+as they may contain the nonfree code as well. The rest of the files
+are unaffected.
 
 Website:
 --------
@@ -61,13 +78,14 @@ boot fine:
 
 Since some popular computers were tested[7], we are now also looking
 for testers and contributions on the installation instructions. Even
-if GNU Boot 0.1 RC2 has already been published, it's probably easier
+if GNU Boot 0.1 RC3 has already been published, it's probably easier
 to do the tests with GNU Boot 0.1 RC1 and a computer that was already
-tested as there is no changes that could affect the installation
-instructions between 0.1 RC1 and 0.1 RC2.
+tested (unless the computer is an Asus KCMA-D8, see above for more
+details) as there is no changes that could affect the installation
+instructions between 0.1 RC1 and 0.1 RC3.
 
 The following computers / mainboards weren't tested yet with the 0.1
-RC1 yet so we also need testers for them (ideally on the 0.1 RC2):
+RC1 yet so we also need testers for them (ideally on the 0.1 RC3):
 
 * Chromebook: C201
 * Intel: D410PT, D510MO, D945GCLF2D
@@ -76,18 +94,9 @@ RC1 yet so we also need testers for them (ideally on the 0.1 RC2):
 * Apple: MacBook 1.1, iMac 5,2
 * Lenovo Thinkpads: R500, T400s, X60s, X200s, X200T, X60T.
 
-And as stated above we also need to re-test with the RC2 the computers
+And as stated above we also need to re-test with the RC3 the computers
 that were already tested with the RC1 to make sure that we didn't
 break anything.
-
-Nonfree software found in the source release of GNU Boot 0.1 RC1.
------------------------------------------------------------------
-
-In the GNU Boot source release (gnuboot-0.1-rc1_src.tar.xz) we found
-the 3 files (F12MicrocodePatch03000002.c, F12MicrocodePatch0300000e.c,
-F12MicrocodePatch03000027.c) that contain microcode in binary form,
-without corresponding source code. They already have been removed from
-GNU Boot and an RC2 release without these files is on its way.
 
 GNU Boot running nonfree software:
 ----------------------------------
@@ -193,7 +202,7 @@ References:
 
  [4]https://lists.gnu.org/mailman/listinfo/gnuboot-announce
 
- [5]https://gnu.org/software/gnuboot/web/news/gnuboot-0.1-rc2.html
+ [5]https://gnu.org/software/gnuboot/web/news/gnuboot-december-2023.html
 
  [6]https://www.gnu.org/software/gnuboot/web/git.html
 

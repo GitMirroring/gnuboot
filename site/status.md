@@ -2,7 +2,7 @@
 title: Code review
 ...
 
-GNU Boot 0.1 RC2 status
+GNU Boot 0.1 RC3 status
 =======================
 
 +----------+-----------------+-----------+-----------------------------+
@@ -98,6 +98,74 @@ Installation instructions:
 * Missing: There are no installation instructions for this device and
   we need help from contributors to add them.
 
+GNU Boot 0.1 RC2 status
+=======================
+
+There are no changes affecting images between GNU Boot 0.1 RC2 and GNU
+Boot 0.1 RC3 so it's not worth testing the RC2. It's better to test
+the RC3 directly. Yet GNU Boot maintainers tested some computers on
+the RC2 to reduce the risk of testers.
+
++----------+-----------------+-----------+-----------------------------+
+| Vendor   | Product         | Stability | Installation instructions   |
++----------+-----------------+-----------+-----------------------------+
+| Apple    | MacBook 1.1     | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Apple    | MacBook 2.1     | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Apple    | iMac 5,2        | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Asus     | Chromebook C201 | Can't install due to missing images     |
++----------+-----------------+-----------+-----------------------------+
+| Asus     | KCMA-D8         | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Asus     | KFSN4-DRE       | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Asus     | KGPE-D16        | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Gigabyte | D945GCLF2D      | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Gigabyte | GA-G41M-ES2L    | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Intel    | D410PT          | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Intel    | D510MO          | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Intel    | D945GCLF        | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad R400   | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad R500   | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad T400   | Tested    | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad T400S  | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad T500   | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad T60    | Tested    | Untested, can be simplified |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad W500   | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad X200   | Tested    | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad X200S  | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad X200T  | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad X301   | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad X60    | Tested    | Untested, can be simplified |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad X60T   | Tested    | Untested, can be simplified |
++----------+-----------------+-----------+-----------------------------+
+| Lenovo   | Thinkpad X60s   | Untested  | Untested, can be simplified |
++----------+-----------------+-----------+-----------------------------+
+| Qemu     | PC (i440FX)     | Tested    | Missing                     |
++----------+-----------------+-----------+-----------------------------+
+
+See the status of GNU Boot 0.1 RC3 above for the meaning of the
+various fields.
 
 GNU Boot 0.1 RC1 status
 =======================
@@ -158,7 +226,7 @@ GNU Boot 0.1 RC1 status
 | Lenovo   | Thinkpad X60s   | Untested  | Untested, can be simplified |
 +----------+-----------------+-----------+-----------------------------+
 
-See the status of GNU Boot 0.1 RC2 above for the meaning of the
+See the status of GNU Boot 0.1 RC3 above for the meaning of the
 various fields.
 
 Upstream status
