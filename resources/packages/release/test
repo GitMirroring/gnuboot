@@ -74,7 +74,7 @@ test_qemu_rom_archive()
             ${target}/seabios_grubfirst_${target}_${cbfb}_${kb}.rom \
             ${target}/seabios_grubfirst_${target}_${txtmode}_${kb}.rom \
             ${target}/seabios_withgrub_${target}_${cbfb}_${kb}.rom \
-            ${target}/seabios_withgrub_${target}_${txtmode}_${kb}s.rom \
+            ${target}/seabios_withgrub_${target}_${txtmode}_${kb}.rom \
         "
     done
 
