@@ -8,6 +8,8 @@ GNU Boot 0.1 RC3 status
 +----------+-----------------+-----------+-----------------------------+
 | Vendor   | Product         | Stability | Installation instructions   |
 +----------+-----------------+-----------+-----------------------------+
+| Acer     | G43T-AM3        | Untested  | Untested                    |
++----------+-----------------+-----------+-----------------------------+
 | Apple    | MacBook 1.1     | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
 | Apple    | MacBook 2.1     | Untested  | Untested                    |
@@ -313,3 +315,23 @@ Coreboot GPU driver:
   fixed in the new GPU driver written in ADA. When the field is blank,
   it means that we didn't look at which GPU driver was used or its
   stability.
+
+Upstream versions used in GNU Boot 0.1 RC3
+==========================================
+
++------------------+---------+------------+------------------------------------+
+| Upstream project | Version | Needs      | Computers using it                 |
+|                  |         | deblobbing |                                    |
++------------------+---------+------------+------------------------------------+
+| Coreboot         |   4.11+ | Yes        | Asus: KCMA-D8, KFSN4, KGPE-D16     |
++------------------+---------+------------+------------------------------------+
+| Coreboot         |   4.15+ | Yes        | All but Asus KCMA-D8, KFSN4,       |
+|                  |         |            | KGPE-D16.                          |
++------------------+---------+------------+------------------------------------+
+| GRUB             |   2.06+ | No         | All supported computers            |
++------------------+---------+------------+------------------------------------+
+| Memtest86+       |         |            | All but Gigabyte GA-G41M-ES2L and  |
+| for Coreboot     |   v002+ | No         | Intel D510MO                       |
++------------------+---------+------------+------------------------------------+
+| SeaBIOS          | 1.14.0+ | No         | All supported computers            |
++------------------+---------+------------+------------------------------------+
