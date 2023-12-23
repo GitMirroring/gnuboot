@@ -47,7 +47,6 @@ AC_ARG_WITH([rsync-destination],
 
 AM_CONDITIONAL( [WANT_UNTITLED_PATH], [test x"$UNTITLED_PATH" != x""])
 
-
 # --with-untitled-path
 AC_ARG_WITH([untitled-path],
   [AS_HELP_STRING([--with-untitled-path=PATH],
