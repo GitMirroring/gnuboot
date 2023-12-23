@@ -18,11 +18,11 @@ set -e
 
 usage()
 {
-	echo "$0 <path/to/tarball>"
+	echo "$0 <path/to/tarball> [PORT]"
 	exit 1
 }
 
-if [ $# -ne 1 ] ; then
+if [ $# -ne 1 ] && [ $# -ne 2 ] ; then
 	usage
 fi
 
@@ -30,12 +30,18 @@ basedir="$(dirname $(realpath $0))"
 
 tarball="$1"
 
+lighttpd_port=8080
+if [ $# -eq 2 ] ; then
+    lighttpd_port="$2"
+fi
+
 tmpdir="$(mktemp -d)"
 mkdir -p "${tmpdir}/software/gnuboot/"
 
 tar xf "${tarball}" -C "${tmpdir}/software/gnuboot/"
 
-sed "s#TMPDIR#${tmpdir}#g" \
+sed -e "s#TMPDIR#${tmpdir}#g" \
+    -e "s#LIGHTTPD_PORT#${lighttpd_port}#g" \
     "${basedir}/lighttpd.conf.tmpl" > \
     "${basedir}/lighttpd.conf"
 
