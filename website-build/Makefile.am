@@ -70,7 +70,7 @@ help:
 	@printf "%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n" \
 		"Available commands:" \
 		"help           # Print this help" \
-		"test           # run lighttpd on localhost:8080" \
+		"test           # run lighttpd on localhost:$(LIGHTTPD_PORT)" \
 		"check          # Run automatic tests" \
 		"deploy         # Deploy the website to https://gnu.org/software/gnuboot" \
 		"website.tar.gz # Create a tarball of the website"
@@ -88,11 +88,11 @@ test: website.tar.gz
 		sed \
 		tar \
 		-- \
-		./serve.sh website.tar.gz
+		./serve.sh website.tar.gz $(LIGHTTPD_PORT)
 else
 if WANT_LIGHTTPD
 test: website.tar.gz
-		./serve.sh website.tar.gz
+		./serve.sh website.tar.gz $(LIGHTTPD_PORT)
 else
 test:
 	@printf "%s %s\n" \

@@ -17,6 +17,7 @@ AC_INIT([gnuboot],[0.1],[gnuboot@gnu.org])
 AM_INIT_AUTOMAKE([foreign])
 AC_CONFIG_FILES([Makefile])
 
+AC_SUBST([LIGHTTPD_PORT], [])
 AC_SUBST([RSYNC_DESTINATION], [])
 AC_SUBST([UNTITLED_PATH], [])
 AC_SUBST([UNTITLED_GIT_FOUND], [])
@@ -35,6 +36,14 @@ AC_ARG_ENABLE(lighttpd,
   [lighttpd=$enableval],
   [lighttpd="yes"])
 AM_CONDITIONAL( [WANT_LIGHTTPD], [test x"$lighttpd" = x"yes"])
+
+# --with-lighttpd-port
+AC_ARG_WITH([lighttpd-port],
+  [AS_HELP_STRING([--with-lighttpd-port=PORT],
+                  [Use a custom TCP port for lighttpd tests instead of the
+                   default one (8080).])],
+  [LIGHTTPD_PORT=$withval],
+  [LIGHTTPD_PORT=8080])
 
 # --with-rsync-destination
 AC_ARG_WITH([rsync-destination],
@@ -155,6 +164,8 @@ AS_IF([test x"$guix" = x"yes"],
 
 AC_OUTPUT
 AS_ECHO(["Configuration options:"])
+
+AS_ECHO(["    LIGHTTPD_PORT: $LIGHTTPD_PORT"])
 
 AS_ECHO(["    RSYNC_DESTINATION: $RSYNC_DESTINATION"])
 
