@@ -73,11 +73,13 @@ run_tests()
 	    "${tarball}"
 }
 
+# shellcheck disable=SC2166 # We want to make operator precedence
+# clear.
 if [ $# -eq 1 ] && [ "$1" = "-h" -o "$1" == "--help" ] ; then
 	help
 	exit 0
 elif [ $# -eq 2 ] && [ "$1" = "-t" -o "$1" = "--tarball" ] ; then
-	tarball="$(realpath $2)"
+	tarball="$(realpath "$2")"
 	run_tests "${tarball}"
 else
 	help
