@@ -68,8 +68,9 @@ run_tests()
 {
 	test_pattern "html test" "${tarball}" '\.html$'
 	test_pattern "jpg test" "${tarball}" '\.jpg$'
-	test_savannah_cvs_constraints "Savannah CVS: Only /index.html in root directory" \
-				      "${tarball}"
+	test_savannah_cvs_constraints \
+	    "Savannah CVS: Only /index.html in root directory" \
+	    "${tarball}"
 }
 
 if [ $# -eq 1 ] && [ "$1" = "-h" -o "$1" == "--help" ] ; then
