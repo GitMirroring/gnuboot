@@ -65,7 +65,8 @@ run_shellcheck \
     resources/scripts/misc/guix.sh \
     resources/scripts/tasks/distclean.sh \
     tests/distclean \
-    tests/lint
+    tests/lint \
+    website-build/check.sh
 
 printf "+---------------------+\n"
 printf "| Lint tests done     |\n"
