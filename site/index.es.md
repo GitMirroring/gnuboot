@@ -12,11 +12,10 @@ firmware privativo de arranque de computadoras por software libre.
 
 En este momento, GNU Boot todavía está en su etapa inicial.
 
-Debería ser relativamente seguro utilizar la [última versión
-candidata](https://ftp.gnu.org/gnu/gnuboot/) (GNU Boot 0.1-rc1), ya que
-tiene cambios mínimos a Libreboot 20220710 (el último lanzamiento
-100% libre de Libreboot) y también porque varias personas lo probaron y
-no informaron ningún problema de bloqueo.
+Debería ser relativamente seguro usar GNU Boot 0.1 RC3 ya que tiene
+cambios mínimos sobre Libreboot 20220710 (la última versión 100% libre
+de Libreboot) y también porque varias personas lo probaron y no
+informaron ningún problema de bloqueo.
 
 Sin embargo, necesitamos mucha ayuda para arreglar el sitio web ya que
 la mayoría de las páginas están desactualizadas o todavía hacen
@@ -46,7 +45,7 @@ libre y qué no. Si la gente empieza a referirse a un programa como
 desviar a la comunidad.
 
 Desafortunadamente, tal confusión ocurrió el año pasado con un programa
-de arranque que era software libre y se llama Libreboot: el equipo de
+de arranque que era software libre, llamado Libreboot: su equipo de
 desarrollo le agregó código no libre, pero continuó usando "Libre" en su
 nombre.
 
@@ -54,10 +53,10 @@ Libreboot se lanzó por primera vez en 2013. Ha sido ampliamente
 recomendado en la comunidad de software libre durante los últimos nueve
 años. En noviembre de 2022, Libreboot comenzó a incluir código no libre.
 Hemos realizado repetidos esfuerzos para continuar la colaboración con
-esos desarrolladores para ayudar a que su versión de Libreboot siga
+sus desarrolladores para ayudar a que su versión de Libreboot siga
 siendo libre, pero no fue exitoso.
 
-Ahora hemos dado un paso adelante para defender la libertad, el nuestro
+Ahora hemos dado un paso adelante para defender la libertad, la nuestra
 y la de la comunidad en general, manteniendo nuestra propia versión: un
 Libreboot genuinamente libre, que después de algunos obstáculos dio
 origen a este proyecto: GNU Boot.
