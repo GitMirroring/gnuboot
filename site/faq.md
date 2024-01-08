@@ -8,7 +8,7 @@ AKA Frequently Questioned Answers
 Important issues
 ================
 
-How to compile Libreboot from source
+How to compile GNU Boot from source
 ------------------------------------
 
 Refer to the [lbmk build instructions](docs/build/).
@@ -57,7 +57,7 @@ The ethernet doesn't work on my X200/T400/X60/T60 when I plug in it
 -------------------------------------------------------------------
 
 This was observed on some systems using network-manager. This happens
-both on the original BIOS and in libreboot. It's a quirk in the
+both on the original BIOS and in GNU Boot. It's a quirk in the
 hardware. On debian systems, a workaround is to restart the networking
 service when you connect the ethernet cable:
 
@@ -86,7 +86,7 @@ module without loading the option ROM.
 
 Refer to the [LinuxBoot website](https://www.linuxboot.org/). This is a special
 system that uses BusyBox and the Linux kernel, which goes in the boot flash as a
-coreboot payload. You can insert it into your Libreboot ROM image using cbfstool,
+coreboot payload. You can insert it into your GNU Boot ROM image using cbfstool,
 if it's big enough. On KCMA-D8/KGPE-D16 it's trivial to upgrade the boot flash
 to 16MiB, which is more than enough to fit LinuxBoot. See:\
 [External flashing guide](docs/install/spi.md)
@@ -96,14 +96,14 @@ which can boot other Linux kernels using kexec. It can parse GNU GRUB configs,
 and it can also provide some basic UEFI features. Because it's using the Linux
 kernel, this means that LinuxBoot can make use of the PIKE2008 module.
 
-TODO: Integrate this in Libreboot, as a payload option, but also:
+TODO: Integrate this in GNU Boot, as a payload option, but also:
 
 TODO: Fork LinuxBoot, and make a version of it that uses Linux-libre. Ensure
 that it is a fully free distribution, so that the FSF can endorse it.
 
 LinuxBoot is *perfect*, especially if you're setting up one of these systems to
 be used as a server. LinuxBoot is *much* more flexible and configurable than
-GNU GRUB, which right now is the payload that Libreboot prefers.
+GNU GRUB, which right now is the payload that GNU Boot prefers.
 
 How to save kernel panic logs on thinkpad laptops?
 --------------------------------------------------
@@ -189,7 +189,7 @@ See the following bug reports for more info:
 Hardware compatibility
 ======================
 
-What systems are compatible with libreboot?
+What systems are compatible with GNU Boot?
 -----------------------------------------------------------------------------------
 
 See the [hardware compatibility list](docs/hardware/).
@@ -216,14 +216,14 @@ Intel remote access to a computer where it is present.
 
 Intel themselves even admitted it, publicly.
 
-The Libreboot project recommends avoiding all hardware sold by Purism.
+The GNU Boot project recommends avoiding all hardware sold by Purism.
 
-Why is the latest Intel hardware unsupported in libreboot? {#intel}
+Why is the latest Intel hardware unsupported in GNU Boot? {#intel}
 -----------------------------------------------------------
 
 It is unlikely that any post-2008 Intel hardware will ever be supported in
-libreboot, due to severe security and freedom issues; so severe, that *the
-libreboot project recommends avoiding all modern Intel hardware. If you have an
+GNU Boot, due to severe security and freedom issues; so severe, that *the
+GNU Boot project recommends avoiding all modern Intel hardware. If you have an
 Intel based system affected by the problems described below, then you should
 get rid of it as soon as possible*. The main issues are as follows:
 
@@ -240,9 +240,9 @@ partly disable it. See:
 
 <https://github.com/corna/me_cleaner>\
 NOTE: on those systems, the ME firmware is still needed in the boot flash, and
-since it is a binary blob, those systems are not supported in Libreboot.
+since it is a binary blob, those systems are not supported in GNU Boot.
 
-On all Libreboot systems that have an Intel ME in it (GM45+ICH9M laptops and
+On all GNU Boot systems that have an Intel ME in it (GM45+ICH9M laptops and
 X4X+ICH10 desktops), the ME firmware is not needed in the boot flash. Either a
 modified descriptor is used, which disables the ME and removes the region for
 it in the boot flash, or a descriptorless setup is used.
@@ -310,7 +310,7 @@ application introduced in Q2 2013 with ME firmware version 9.0 on 4th
 Generation Intel Core i3/i5/i7 (Haswell) CPUs. It allows a PC OEM to
 generate an asymmetric cryptographic keypair, install the public key in
 the CPU, and prevent the CPU from executing boot firmware that isn't
-signed with their private key. This means that ***coreboot and libreboot
+signed with their private key. This means that ***coreboot and GNU Boot
 are impossible to port*** to such PCs, without the OEM's private
 signing key. Note that systems assembled from separately purchased
 mainboard and CPU parts are unaffected, since the vendor of the
@@ -348,9 +348,9 @@ privacy that can't be ignored.
 Before version 6.0 (that is, on systems from 2008/2009 and earlier), the
 ME can be disabled by setting a couple of values in the SPI flash
 memory. The ME firmware can then be removed entirely from the flash
-memory space. libreboot [does this](docs/install/ich9utils.md) on
-the Intel 4 Series systems that it supports, such as the [Libreboot
-X200](../docs/install/x200_external.md) and [Libreboot
+memory space. GNU Boot [does this](docs/install/ich9utils.md) on
+the Intel 4 Series systems that it supports, such as the [GNU Boot
+X200](../docs/install/x200_external.md) and [GNU Boot
 T400](../docs/install/t400_external.md). ME firmware versions 6.0 and
 later, which are found on all systems with an Intel Core i3/i5/i7 CPU
 and a PCH, include "ME Ignition" firmware that performs some hardware
@@ -370,7 +370,7 @@ hopelessly proprietary and "tivoized".
 
 **In summary, the Intel Management Engine and its applications are a
 backdoor with total access to and control over the rest of the PC. The
-ME is a threat to freedom, security, and privacy, and the libreboot
+ME is a threat to freedom, security, and privacy, and the GNU Boot
 project strongly recommends avoiding it entirely. Since recent versions
 of it can't be removed, this means avoiding all recent generations of
 Intel hardware.**
@@ -384,7 +384,7 @@ The book ***[Platform Embedded Security Technology
 Revealed](https://www.apress.com/9781430265719)*** describes in great
 detail the ME's hardware architecture and firmware application modules.
 
-If you're stuck with the ME (non-libreboot system), you might find this
+If you're stuck with the ME (non-GNU Boot system), you might find this
 interesting:
 <http://hardenedlinux.org/firmware/2016/11/17/neutralize_ME_firmware_on_sandybridge_and_ivybridge.html>
 
@@ -428,14 +428,14 @@ time, which patches the built-in microcode and disables buggy parts of
 the CPU to improve reliability. In the past, these updates were handled
 by the operating system kernel, but on all recent systems it is the boot
 firmware that must perform this task. Coreboot does distribute microcode
-updates for Intel and AMD CPUs, but libreboot cannot, because the whole
-point of libreboot is to be 100% [free
+updates for Intel and AMD CPUs, but GNU Boot cannot, because the whole
+point of GNU Boot is to be 100% [free
 software](https://www.gnu.org/philosophy/free-sw.html).
 
 On some older Intel CPUs, it is possible to exclude the microcode
 updates and not have any reliability issues in practice. All current
-libreboot systems work without microcode updates (otherwise, they
-wouldn't be supported in libreboot). However, all modern Intel CPUs
+GNU Boot systems work without microcode updates (otherwise, they
+wouldn't be supported in GNU Boot). However, all modern Intel CPUs
 require the microcode updates, otherwise the system will not boot at
 all, or it will be extremely unstable (memory corruption, for example).
 
@@ -446,7 +446,7 @@ to upload your own modified updates, the CPU will reject them.
 The microcode updates alter the way instructions behave on the CPU. That
 means they affect the way the CPU works, in a very fundamental way. That
 makes it software. The updates are proprietary, and are software, so we
-exclude them from libreboot. The microcode built into the CPU already is
+exclude them from GNU Boot. The microcode built into the CPU already is
 not so much of an issue, since we can't change it anyway (it's
 read-only).
 
@@ -470,7 +470,7 @@ blobs](https://01.org/linuxgraphics/intel-linux-graphics-firmwares?langredirect=
 
 Intel is [only going to get
 worse](https://www.phoronix.com/scan.php?page=news_item&px=Intel-Gfx-GuC-SLPC)
-when it comes to user freedom. Libreboot has no support for recent Intel
+when it comes to user freedom. GNU Boot has no support for recent Intel
 platforms, precisely because of the problems described above. The only
 way to solve this is to get Intel to change their policies and to be
 more friendly to the [free
@@ -480,16 +480,16 @@ we need to keep doing it anyway. Moving forward, Intel hardware is a
 non-option unless a radical change happens within Intel.
 
 **Basically, all Intel hardware from year 2010 and beyond will never be
-supported by libreboot. The libreboot project is actively ignoring all
+supported by GNU Boot. The GNU Boot project is actively ignoring all
 modern Intel hardware at this point, and focusing on alternative
 platforms.**
 
-Why is the latest AMD hardware unsupported in libreboot? {#amd}
+Why is the latest AMD hardware unsupported in GNU Boot? {#amd}
 ----------------------------------------------------------------------------
 
 It is extremely unlikely that any modern AMD hardware will ever be
-supported in libreboot, due to severe security and freedom issues; so
-severe, that *the libreboot project recommends avoiding all modern AMD
+supported in GNU Boot, due to severe security and freedom issues; so
+severe, that *the GNU Boot project recommends avoiding all modern AMD
 hardware. If you have an AMD based system affected by the problems
 described below, then you should get rid of it as soon as possible*. The
 main issues are as follows:
@@ -536,7 +536,7 @@ machine completely outside of the user's knowledge.
 Much like with the Intel Boot Guard (an application of the Intel
 Management Engine), AMD's PSP can also act as a tyrant by checking
 signatures on any boot firmware that you flash, making replacement boot
-firmware (e.g. libreboot, coreboot) impossible on some boards. Early
+firmware (e.g. GNU Boot, coreboot) impossible on some boards. Early
 anecdotal reports indicate that AMD's boot guard counterpart will be
 used on most OEM hardware, disabled only on so-called "enthusiast"
 CPUs.
@@ -560,7 +560,7 @@ and based on this work, Damien Zammit (another coreboot hacker)
 [partially replaced it](https://github.com/zamaudio/smutool/) with free
 firmware, but on the relevant system (ASUS F2A85-M) there were still
 other blobs present (Video BIOS, and others) preventing the hardware
-from being supported in libreboot.
+from being supported in GNU Boot.
 
 ### AMD AGESA firmware 
 
@@ -607,18 +607,18 @@ security.
 What *can* I use, then? {#whatcaniuse}
 -------------------------
 
-Libreboot has support for AMD hardware of Family 15h (Bulldozer or
+GNU Boot has support for AMD hardware of Family 15h (Bulldozer or
 Piledriver, ~2012 gen) and some older Intel platforms like Napa,
 Montevina, Eagle Lake, Lakeport (2004-2006). We also have support for
 some ARM chipsets (rk3288). On the Intel side, we're also interested in
 some of the chipsets that use Atom CPUs (rebranded from older chipsets,
 mostly using ich7-based southbridges).
 
-Will libreboot work on a ThinkPad T400 or T500 with an ATI GPU?
+Will GNU Boot work on a ThinkPad T400 or T500 with an ATI GPU?
 ---------------------------------------------------------------------------------------------------
 
 Short answer: yes. These laptops also have an Intel GPU inside, which
-libreboot uses. The ATI GPU is ignored by libreboot.
+GNU Boot uses. The ATI GPU is ignored.
 
 These laptops use what is called *switchable graphics*, where it will
 have both an Intel and ATI GPU. Coreboot will allow you to set (using
@@ -626,8 +626,8 @@ nvramtool) a parameter, specifying whether you would like to use Intel
 or ATI. The ATI GPU lacks free native graphics initialization in
 coreboot, unlike the Intel GPU.
 
-Libreboot modifies coreboot, in such a way where this nvramtool setting
-is ignored. Libreboot will just assume that you want to use the Intel
+GNU Boot modifies coreboot, in such a way where this nvramtool setting
+is ignored. GNU Boot will just assume that you want to use the Intel
 GPU. Therefore, the ATI GPU is completely disabled on these laptops.
 Intel is used instead, with the free native graphics initialization
 (VBIOS replacement) that exists in coreboot.
@@ -635,14 +635,14 @@ Intel is used instead, with the free native graphics initialization
 Will desktop/server hardware be supported?
 ------------------------------------------------------------------------
 
-Libreboot now supports desktop hardware:
+GNU Boot now supports desktop hardware:
 [(see list)](../docs/hardware/)
 (with full native video initialization).
 
 A common issue with desktop hardware is the Video BIOS, when no onboard
 video is present, since every video card has a different Video BIOS.
 Onboard GPUs also require one, so those still have to be replaced with
-free software (non-trivial task). Libreboot has to initialize the
+free software (non-trivial task). GNU Boot has to initialize the
 graphics chipset, but most graphics cards lack a free Video BIOS for
 this purpose. Some desktop motherboards supported in coreboot do have
 onboard graphics chipsets, but these also require a proprietary Video
@@ -654,7 +654,7 @@ Hi, I have &lt;insert random system here&gt;, is it supported?
 Most likely not. First, you must consult coreboot's own hardware
 compatibility list at <http://www.coreboot.org/Supported_Motherboards>
 and, if it is supported, check whether it can run without any
-proprietary blobs in the ROM image. If it can: wonderful! Libreboot can
+proprietary blobs in the ROM image. If it can: wonderful! GNU Boot can
 support it, and you can add support for it. If not, then you will need
 to figure out how to reverse engineer and replace (or remove) those
 blobs that do still exist, in such a way where the system is still
@@ -662,26 +662,26 @@ usable in some defined way.
 
 For those systems where no coreboot support exists, you must first port
 it to coreboot and, if it can then run without any blobs in the ROM
-image, it can be added to libreboot. See: [Motherboard Porting
+image, it can be added to GNU Boot. See: [Motherboard Porting
 Guide](http://www.coreboot.org/Motherboard_Porting_Guide) (this is just
 the tip of the iceberg!)
 
 Please note that board development should be done upstream (in coreboot)
-and merged downstream (into libreboot). This is the correct way to do
-it, and it is how the libreboot project is coordinated so as to avoid
+and merged downstream (into GNU Boot). This is the correct way to do
+it, and it is how the GNU Boot project is coordinated so as to avoid
 too much forking of the coreboot source code.
 
 What about ARM?
 -----------------------------------
 
-Libreboot has support for some ARM based laptops, using the *Rockchip
-RK3288* SoC. Check the libreboot [hardware compatibility
+GNU Boot has support for some ARM based laptops, using the *Rockchip
+RK3288* SoC. Check the GNU Boot [hardware compatibility
 list](../docs/hardware/#supported_list), for more information.
 
 General questions
 =================
 
-How do I install libreboot?
+How do I install GNU Boot?
 -------------------------------------------------------
 
 See [installation guide](docs/install/)
@@ -698,7 +698,7 @@ align the pins properly. The connection is generally more sturdy.
 How do I write-protect the flash chip?
 ----------------------------------------------------------------------------
 
-By default, there is no write-protection on a libreboot system. This is
+By default, there is no write-protection on a GNU Boot system. This is
 for usability reasons, because most people do not have easy access to an
 external programmer for re-flashing their firmware, or they find it
 inconvenient to use an external programmer.
@@ -709,7 +709,7 @@ possible, using dedicated hardware). For example, on current GM45
 laptops (e.g. ThinkPad X200, T400), you can write-protect (see
 [ICH9 gen utility](docs/install/ich9utils.md#ich9gen)).
 
-It's possible to write-protect on all libreboot systems, but the instructions
+It's possible to write-protect on all GNU Boot systems, but the instructions
 need to be written. The documentation is in the main git repository, so you are
 welcome to submit patches adding these instructions.
 
@@ -719,17 +719,17 @@ other methods on AMD systems.
 How do I change the BIOS settings?
 ------------------------------------------------------------------------
 
-Libreboot actually uses the [GRUB
+GNU Boot actually uses the [GRUB
 payload](http://www.coreboot.org/GRUB2). More information about payloads
 can be found at
 [coreboot.org/Payloads](http://www.coreboot.org/Payloads). SeaBIOS is also
-available. The *CMOS* config is hardcoded in Libreboot.
+available. The *CMOS* config is hardcoded.
 
-Libreboot inherits the modular payload concept from coreboot, which
+GNU Boot inherits the modular payload concept from coreboot, which
 means that pre-OS bare-metal *BIOS setup* programs are not very
-practical. Coreboot (and libreboot) does include a utility called
+practical. Coreboot (and GNU Boot) include a utility called
 *nvramtool*, which can be used to change some settings. You can find
-nvramtool under *coreboot/util/nvramtool/*, in the libreboot source
+nvramtool under *coreboot/util/nvramtool/*, in the GNU Boot source
 archives.
 
 The *-a* option in nvramtool will list the available options, and *-w*
@@ -739,7 +739,7 @@ coreboot wiki for more information.
 In practise, you don't need to change any of those settings, in most
 cases.
 
-Libreboot locks the CMOS table, to ensure consistent functionality for
+GNU Boot locks the CMOS table, to ensure consistent functionality for
 all users. You can use:
 
     nvramtool -C yourrom.rom -w somesetting=somevalue
@@ -756,10 +756,10 @@ How do I pad a ROM before flashing?
 
 It is advisable to simply use a larger ROM image. This section was written
 mostly for ASUS KCMA-D8 and KGPE-D16 mainboards, where previously we only
-provided 2MiB ROM images in Libreboot, but we now provide 16MiB ROM images.
+provided 2MiB ROM images in GNU Boot, but we now provide 16MiB ROM images.
 Other sizes are not provided because in practice, someone upgrading one of
 these chips will just use a 16MiB one. Larger sizes are available, but 16MiB
-is the maximum that you can use on all currently supported Libreboot systems
+is the maximum that you can use on all currently supported systems
 that use SPI flash.
 
 Required for ROMs where the ROM image is smaller than the flash chip
@@ -794,17 +794,17 @@ With padding removed cbfstool will be able to operate on the image as usual.
 Do I need to install a bootloader when installing a distribution?
 ---------------------------------------------------------------------------------------------------
 
-Libreboot integrates the GRUB bootloader already, as a
+GNU Boot integrates the GRUB bootloader already, as a
 *[payload](http://www.coreboot.org/Payloads)*. This means that the GRUB
 bootloader is actually *flashed*, as part of the boot firmware
-(libreboot). This means that you do not have to install a boot loader on
+(GNU Boot). This means that you do not have to install a boot loader on
 the HDD or SSD, when installing a new distribution. You'll be able to
 boot just fine, using the bootloader (GRUB) that is in the flash chip.
 
 This also means that even if you remove the HDD or SSD, you'll still
 have a functioning bootloader installed which could be used to boot a
 live distribution installer from a USB flash drive. See
-[How to install GNU+Linux on a libreboot system](../docs/gnulinux/grub_boot_installer.md)
+[How to install GNU+Linux on a GNU Boot system](../docs/gnulinux/grub_boot_installer.md)
 
 Nowadays, other payloads are also provided. If you're using the SeaBIOS payload,
 then the normal MBR bootsector is used on your HDD or SSD, like you would
@@ -813,12 +813,12 @@ expect. So the above paragraphs only apply to the GNU GRUB payload.
 Do I need to re-flash when I re-install a distribution?
 -------------------------------------------------------------------------------------------
 
-Not anymore. Recent versions of libreboot (using the GRUB payload) will
+Not anymore. Recent versions of GNU Boot (using the GRUB payload) will
 automatically switch to a GRUB configuration on the HDD or SSD, if it
 exists. You can also load a different GRUB configuration, from any kind
 of device that is supported in GRUB (such as a USB flash drive). For
 more information, see
-[Modifying the GRUB Configuration in Libreboot Systems](../docs/gnulinux/grub_cbfs.md)
+[Modifying the GRUB Configuration in GNU Boot Systems](../docs/gnulinux/grub_cbfs.md)
 
 If you're using the SeaBIOS payload, it's even easier. It works just like you
 would expect. SeaBIOS implements a normal x86 BIOS interface.
@@ -845,19 +845,19 @@ a
 You can find all of the available logos by browsing this directory:\
 </software/gnuboot/web/img/logo/>
 
-What other firmware exists outside of libreboot?
+What other firmware exists outside of GNU Boot?
 ==================================================
 
 The main freedom issue on any system, is the boot firmware (usually
-referred to as a BIOS or UEFI). Libreboot replaces the boot firmware
-with fully free code, but even with libreboot, there may still be other
+referred to as a BIOS or UEFI). GNU Boot replaces the boot firmware
+with fully free code, but even with GNU Boot, there may still be other
 hardware components in the system (e.g. laptop) that run their own
 dedicated firmware, sometimes proprietary. These are on secondary
 processors, where the firmware is usually read-only, written for very
-specific tasks. While these are unrelated to libreboot, technically
+specific tasks. While these are unrelated to GNU Boot, technically
 speaking, it makes sense to document some of the issues here.
 
-Note that these issues are not unique to libreboot systems. They apply
+Note that these issues are not unique to GNU Boot systems. They apply
 universally, to most systems. The issues described below are the most
 common (or otherwise critical).
 
@@ -874,7 +874,7 @@ only difference is that SeaBIOS can execute it (alternatively, you embed it
 in a coreboot ROM image and have coreboot execute it, if you use a
 different payload, such as GRUB).
 
-On current libreboot systems, instead of VBIOS, coreboot native GPU init is used,
+On current GNU Boot systems, instead of VBIOS, coreboot native GPU init is used,
 which is currently only implemented for Intel GPUs.
 Other cards with proper KMS drivers can be initialized once Linux boots,
 but copy of VBIOS may be still needed to fetch proper VRAM frequency
@@ -885,7 +885,7 @@ a special shim VBIOS is added that uses coreboot linear framebuffer.
 
 NOTE: on desktop/server mainboards, coreboot is configured to load the option
 ROM from an add-on GPU if present. This is the default behaviour on such systems
-in Libreboot.
+in GNU Boot.
 
 ### EC (embedded controller) firmware 
 
@@ -1003,7 +1003,7 @@ Other links:
 
 It is recommended that you use full disk encryption, on HDDs connected
 via USB. There are several adapters available online, that allow you to
-connect SATA HDDs via USB. Libreboot documents how to install several
+connect SATA HDDs via USB. GNU Boot documents how to install several
 distributions with full disk encryption. You can adapt these for use
 with USB drives:
 
@@ -1032,7 +1032,7 @@ issues. A USB NIC can also be used, which does not have DMA.
 
 Implements an instruction set. See 
 description. Here we mean microcode built in to the CPU. We are not
-talking about the updates supplied by the boot firmware (libreboot does
+talking about the updates supplied by the boot firmware (GNU Boot does
 not include microcode updates, and only supports systems that will work
 without it) Microcode can be very powerful. No proof that it's
 malicious, but it could theoretically
@@ -1056,16 +1056,16 @@ workaround.
 Webcams have firmware integrated into them that process the image input
 into the camera; adjusting focus, white balancing and so on. Can use USB
 webcam hardware, to work around potential DMA issues; integrated webcams
-(on laptops, for instance) are discouraged by the libreboot project.
+(on laptops, for instance) are discouraged by the GNU Boot project.
 
 ### USB host controller 
 
-Doesn't really apply to current libreboot systems (none of them have
+Doesn't really apply to current GNU Boot systems (none of them have
 USB 3.0 at the moment), but USB 3.0 host controllers typically rely on
 firmware to implement the XHCI specification. Some newer coreboot ports
 also require this blob, if you want to use USB 3.0.
 
-This doesn't affect libreboot at the moment, because all current
+This doesn't affect GNU Boot at the moment, because all current
 systems that are supported only have older versions of USB available.
 USB devices also don't have DMA (but the USB host controller itself
 does).
@@ -1090,7 +1090,7 @@ by the GSM network, by triangulating the signal).
 
 On some laptops, these cards use USB (internally), so won't have DMA,
 but it's still a massive freedom and privacy issue. If you have an
-internal WWAN chip/card, the libreboot project recommends that you
+internal WWAN chip/card, the GNU Boot project recommends that you
 disable and (ideally, if possible) physically remove the hardware. If
 you absolutely must use this technology, an external USB dongle is much
 better because it can be easily removed when you don't need it, thereby
@@ -1099,8 +1099,8 @@ disabling any external entities from tracking your location.
 Use of ethernet or Wi-Fi is recommended, as opposed to mobile networks,
 as these are generally much safer.
 
-On all current libreboot laptops, it is possible to remove the WWAN card
-and sim card if it exists. The WWAN card is next to the wifi card, and
+On all current GNU Boot laptops, it is possible to remove the WWAN card
+and sim card if it exists. The WWAN card is next to the Wi-Fi card, and
 the sim card (if installed) will be in a slot underneath the battery, or
 next to the RAM.
 
@@ -1110,7 +1110,7 @@ Operating Systems
 Can I use GNU+Linux?
 --------------------------------------------------
 
-Absolutely! It is well-tested in libreboot, and highly recommended. See
+Absolutely! It is well-tested in GNU Boot, and highly recommended. See
 [installing GNU+Linux](../docs/gnulinux/grub_boot_installer.md) and
 [booting GNU+Linux](../docs/gnulinux/grub_cbfs.md).
 
@@ -1127,7 +1127,7 @@ Refer to [the GNU+Linux page](docs/gnulinux/).
 Can I use BSD?
 ----------------------------------
 
-Absolutely! Libreboot has native support for NetBSD, OpenBSD and LibertyBSD.
+Absolutely! GNU Boot has native support for NetBSD, OpenBSD and LibertyBSD.
 Other distros are untested.
 
 See:
@@ -1138,10 +1138,10 @@ Are other operating systems compatible?
 
 Unknown. Probably not.
 
-Does libreboot make my machine 100% free?
+Does GNU Boot make my machine 100% free?
 ==========================================
 
-Libreboot on all devices only provides host hardware init firmware images,
+GNU Boot on all devices only provides host hardware init firmware images,
 that can be written 25XX SPI NOR Flash. But on many systems there are
 a lot more computers running blob firmware.
 Some of them are not practical to replace due to being located on Mask ROM.
