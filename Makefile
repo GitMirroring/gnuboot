@@ -18,7 +18,9 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
+
+# For making pipefail work.
+SHELL := bash
 
 .PHONY: all check download modules ich9m-descriptors payloads roms release \
 	clean crossgcc-clean install-dependencies-ubuntu \
