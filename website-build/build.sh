@@ -19,10 +19,8 @@ EX_USAGE=64
 
 untitled_uri="https://notabug.org/untitled/untitled.git"
 untitled_path=""
-untitled_commit="a147a4303b5608db8fde08abd08b7cc21f1a0c03"
-untitled_patches=" \
-	patches/0001-Enable-to-deploy-websites-in-subdirectories.patch \
-"
+untitled_commit="ee3cf7e29d672e5e5fc1a9409e7327ea9abe9325"
+
 help()
 {
 	echo "Usage: $0 [options]"
@@ -142,7 +140,7 @@ set -e
 
 sync_repo "untitled" \
 	  "${untitled_uri}" "${untitled_path}" \
-	  "${untitled_commit}" "${untitled_patches}"
+	  "${untitled_commit}"
 
 if [ "${download_only}" -eq 0 ] ; then
 	copy_website "untitled/www/lbwww/"
