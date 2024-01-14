@@ -8,18 +8,18 @@ Subject: [PATCH 3/3] say the name gnuboot, in the grub menu
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/grub-core/normal/main.c b/grub-core/normal/main.c
-index c4ebe9e22..3b7a4fc58 100644
+index bd4431000..31308e16a 100644
 --- a/grub-core/normal/main.c
 +++ b/grub-core/normal/main.c
 @@ -209,7 +209,7 @@ grub_normal_init_page (struct grub_term_output *term,
-  
+ 
    grub_term_cls (term);
  
 -  msg_formatted = grub_xasprintf (_("GNU GRUB  version %s"), PACKAGE_VERSION);
 +  msg_formatted = grub_xasprintf (_("GNUBoot firmware, based on coreboot.    https://gnu.org/software/gnuboot/"));
    if (!msg_formatted)
      return;
-  
+ 
 -- 
 2.25.1
 

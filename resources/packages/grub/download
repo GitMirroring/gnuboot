@@ -23,8 +23,8 @@ set -u -e
 
 topdir="$(realpath "$(dirname "$(dirname "$(dirname "$(dirname "$0")")")")")"
 
-grub_revision="50aace6bdb918150ba47e3c16146dcca271c134a"
-gnulib_revision="d271f868a8df9bbec29049d01e056481b7a1a263"
+grub_revision="b835601c7639ed1890f2d3db91900a8506011a8e"
+gnulib_revision="9f48fb992a3d7e96610c4ce8be969cff2d61a01b"
 
 usage()
 {
