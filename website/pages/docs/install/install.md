@@ -5,11 +5,6 @@ x-unreviewed: true
 
 This section relates to installing GNU Boot on supported targets.
 
-NOTE: if running `flashrom -p internal` for software based flashing, and you
-get an error related to `/dev/mem` access, you should reboot with
-`iomem=relaxed` kernel parameter before running flashrom, or use a kernel that
-has `CONFIG_STRICT_DEVMEM` not enabled.
-
 GNU Boot flashing can be risky business. Please ensure that you have external
 flashing equipment, in case anything goes wrong. The general rule of thumb with
 firmware is this: if it's non-free, replace it, but if you're already running
@@ -20,6 +15,25 @@ they have bug fixes for your board, and/or new security fixes.
 If you're already running libre firmware on your board, you should decide for
 sure whether you wish to risk it. See changelogs on
 the [release announcements via the news page](/news/) and decide for yourself.
+
+FLASH ERRORS (and workarounds)
+==============================
+
+Right out of the gate, some users may experience errors with flashrom when
+using the internal programmer. They are:
+
+/dev/mem access error
+---------------------
+
+NOTE: if running `flashrom -p internal` for software based flashing, and you
+get an error related to `/dev/mem` access, you should reboot with
+`iomem=relaxed` kernel parameter before running flashrom, or use a kernel that
+has `CONFIG_STRICT_DEVMEM` not enabled.
+
+On NetBSD and OpenBSD systems, the equivalent to `iomem=relaxed` in this case
+is `kernel.securelevel=-1`; see [NetBSD securelevel
+manual](https://wiki.netbsd.org/tutorials/kernel_secure_levels/)
+and [OpenBSD securelevel manual](https://man.openbsd.org/securelevel).
 
 About ROM image file names
 ==========================
