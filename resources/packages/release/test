@@ -183,10 +183,17 @@ test_release_dir()
     done < <(find "${dir}" -type f -print0)
 }
 
+test_qemu_rom_image()
+{
+    guix time-machine --commit=v1.4.0 -- \
+	 build -f resources/guix/test-qemu-image.scm
+}
+
 test_release()
 {
     test_release_dir
     test_qemu_rom_archive
+    test_qemu_rom_image
 }
 
 if [ $# -eq 1 ] && { [ "$1" = "-h" ] || [ "$1" == "--help" ] ;} ; then
