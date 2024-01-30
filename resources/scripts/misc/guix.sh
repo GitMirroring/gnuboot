@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Copyright (C) 2023 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 #
@@ -18,31 +18,57 @@
 true=0
 false=1
 
+# shellcheck disable=SC2034
 guix_v0_0="6365068393254e1131ab80eb0d68a759e7fd2256"
+# shellcheck disable=SC2034
 guix_v0_1="a1ba8475a610fd491be4e512e599515f36d8b109"
+# shellcheck disable=SC2034
 guix_v0_2="e8b3afeb9234bca4a455272a6a831d7994d29b96"
+# shellcheck disable=SC2034
 guix_v0_3="3253830d46cc55dd6b946468edd6a6f72944ef48"
+# shellcheck disable=SC2034
 guix_v0_4="81bb9b6665e253c42b078e752ec01020b7434e3f"
+# shellcheck disable=SC2034
 guix_v0_5="5d6dbd299e8389e8eb918daac00df9b6f6835e14"
+# shellcheck disable=SC2034
 guix_v0_6="4ec91959f2d13188894e45f82bf7b8c1c4ea7f4a"
+# shellcheck disable=SC2034
 guix_v0_7="508ea01ef20652fb2de875d1d91c27f5178e2874"
+# shellcheck disable=SC2034
 guix_v0_8="44941798d222901b8f381b3210957d880b90a2fc"
+# shellcheck disable=SC2034
 guix_v0_8_1="983c082a747c76bfefcfa0258d804f94c1f5afed"
+# shellcheck disable=SC2034
 guix_v0_8_2="04bdcdb6365e588aa8037a6c02d424b4eed6e2a9"
+# shellcheck disable=SC2034
 guix_v0_8_3="e348eaaf318646e259a5e6803133ad5b296febc1"
+# shellcheck disable=SC2034
 guix_v0_9_0="c8855b991880897b2658dc90164e29c96e2aeb3a"
+# shellcheck disable=SC2034
 guix_v0_10_0="34bf416e4a61324db80c5cea4ea5463f687057f9"
+# shellcheck disable=SC2034
 guix_v0_11_0="66edac525b7bb8ba29362c887450ff38c54da08d"
+# shellcheck disable=SC2034
 guix_v0_12_0="a81771f137716c62e7a44355e18ce5487ecf5301"
+# shellcheck disable=SC2034
 guix_v0_13_0="df671177f854da26bb171d9d5e9a6990024107a0"
+# shellcheck disable=SC2034
 guix_v0_14_0="40f5c53d89da266055a1dd6571c380f5c57fe5f9"
+# shellcheck disable=SC2034
 guix_v0_15_0="359fdda40f754bbf1b5dc261e7427b75463b59be"
+# shellcheck disable=SC2034
 guix_v0_16_0="4a0b87f0ec5b6c2dcf82b372dd20ca7ea6acdd9c"
+# shellcheck disable=SC2034
 guix_v1_0_0="6298c3ffd9654d3231a6f25390b056483e8f407c"
+# shellcheck disable=SC2034
 guix_v1_0_1="d68de958b60426798ed62797ff7c96c327a672ac"
+# shellcheck disable=SC2034
 guix_v1_1_0="d62c9b2671be55ae0305bebfda17b595f33797f2"
+# shellcheck disable=SC2034
 guix_v1_2_0="a099685659b4bfa6b3218f84953cbb7ff9e88063"
+# shellcheck disable=SC2034
 guix_v1_3_0="a0178d34f582b50e9bdbb0403943129ae5b560ff"
+# shellcheck disable=SC2034
 guix_v1_4_0="8e2f32cee982d42a79e53fc1e9aa7b8ff0514714"
 
 guix_known_versions=" \
@@ -88,6 +114,11 @@ source_guix_profile()
 {
     if [ -f "${HOME}"/.config/guix/current/etc/profile ] ; then
         GUIX_PROFILE="${HOME}/.config/guix/current"
+
+        # For some reasons using "# shellcheck
+        # source=${HOME}/.config/guix/current/etc/profile" doesn't
+        # work, so we need to tell shellcheck not to test that file.
+        # shellcheck disable=SC1091
         . "$GUIX_PROFILE"/etc/profile
     fi
 }
@@ -101,7 +132,7 @@ guix_version_commit()
 {
     version="$1"
 
-    eval echo $(echo \$guix_"${version}" | sed 's#\.#_#g')
+    eval echo "\$guix_""${version//./_}"
 }
 
 is_guix_system()
@@ -219,6 +250,9 @@ guix_next_version()
     esac
 
     if is_known_version "${version}" && is_rc_version "${version}"; then
+        # According to https://www.shellcheck.net/wiki/SC2001 bash
+        # substitution doesn't support regexes.
+        # shellcheck disable=SC2001
         echo "${version}" | sed 's/rc[0-9]\+//'
         return ${true}
     else
@@ -230,7 +264,7 @@ next_guix_release()
 {
     version="$1"
 
-    major="$(echo ${version} | awk -F . '{print $1}')"
+    major="$(echo "${version}" | awk -F . '{print $1}')"
 
     if is_latest_release "${version}" ; then
         return ${true}
@@ -258,7 +292,7 @@ guix_checkout()
     for repo in "${HOME}"/.cache/guix/checkouts/*/ ; do
         url=$(git --no-pager -C "$repo" remote get-url origin)
         if [ "${url}" = "https://git.savannah.gnu.org/git/guix.git" ] ; then
-            echo $repo
+            echo "$repo"
         fi
     done
 }
@@ -269,7 +303,7 @@ is_latest_release()
 
     if [ "${revision}" = "${guix_latest_release}" ] ; then
         return ${true}
-    elif [ -n "$(echo ${revision} | grep '\.')" ] ; then
+    elif echo "${revision}" | grep -q '\.' ; then
         return ${false}
     elif git --no-pager -C "$(guix_checkout)" tag --merged "${revision}" | \
             grep "^v${guix_latest_release}$" > /dev/null ; then
@@ -283,7 +317,7 @@ update_guix_to_latest_release()
 {
     current_version="$(guix_version)"
 
-    major="$(echo ${current_version} | awk -F . '{print $1}')"
+    major="$(echo "${current_version}" | awk -F . '{print $1}')"
 
     if is_latest_release "${current_version}" ; then
         return ${true}
@@ -291,7 +325,7 @@ update_guix_to_latest_release()
 
     # We use a released version already
     if [ -n "${major}" ] ; then
-        commit=$(guix_version_commit v$(guix_next_version "${current_version}"))
+        commit="$(guix_version_commit "v$(guix_next_version "${current_version}")")"
         guix pull --commit="${commit}"
         source_guix_profile
         update_guix_to_latest_release
