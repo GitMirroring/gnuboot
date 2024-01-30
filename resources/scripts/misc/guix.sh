@@ -271,10 +271,11 @@ is_latest_release()
         return ${true}
     elif [ -n "$(echo ${revision} | grep '\.')" ] ; then
         return ${false}
-    else
-        git --no-pager -C "$(guix_checkout)" tag --merged "${revision}" | \
-            grep "^v${guix_latest_release}$" > /dev/null
+    elif git --no-pager -C "$(guix_checkout)" tag --merged "${revision}" | \
+            grep "^v${guix_latest_release}$" > /dev/null ; then
         return ${true}
+    else
+        return ${false}
     fi
 }
 
