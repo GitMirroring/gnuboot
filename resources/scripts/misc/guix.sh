@@ -87,8 +87,8 @@ guix_latest_release="1.4.0"
 source_guix_profile()
 {
     if [ -f "${HOME}"/.config/guix/current/etc/profile ] ; then
-	GUIX_PROFILE="${HOME}/.config/guix/current"
-	. "$GUIX_PROFILE"/etc/profile
+        GUIX_PROFILE="${HOME}/.config/guix/current"
+        . "$GUIX_PROFILE"/etc/profile
     fi
 }
 
@@ -292,7 +292,7 @@ update_guix_to_latest_release()
     if [ -n "${major}" ] ; then
         commit=$(guix_version_commit v$(guix_next_version "${current_version}"))
         guix pull --commit="${commit}"
-	source_guix_profile
+        source_guix_profile
         update_guix_to_latest_release
     fi
 }
