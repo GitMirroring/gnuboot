@@ -41,6 +41,7 @@ printf "+---------------------+\n"
 printf "| Running lint tests: |\n"
 printf "+---------------------+\n"
 run_shellcheck \
+    autogen.sh \
     build \
     download \
     modify \

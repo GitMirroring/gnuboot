@@ -31,6 +31,10 @@ set -u -e
 
 . resources/scripts/misc/sysexits.sh
 
+# Some scripts like the ones in resources/packages/flashrom need
+# Makefiles to be generated
+. resources/scripts/misc/generate-configure-makefiles.sh
+
 # set this when you want to modify each coreboot tree
 # for example, you want to test custom patches
 # NODELETE='' ./download coreboot

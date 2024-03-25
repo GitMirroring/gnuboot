@@ -29,6 +29,10 @@ projectname="$(cat projectname)"
 
 . resources/scripts/misc/sysexits.sh
 
+# Some scripts like the ones in resources/packages/flashrom need
+# Makefiles to be generated
+. resources/scripts/misc/generate-configure-makefiles.sh
+
 # This is for backward compatibility: before the list of "modes" was
 # auto-detected, but there isn't a 1:1 matching between modes and
 # packages tasks (build, clean, etc).
