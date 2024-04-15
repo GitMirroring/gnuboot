@@ -48,6 +48,8 @@ GUIX_PACK_COMMAND = \
 
 $(PACK_NAME): \
 	$(RELEASE_DIR)/$(PACK_NAME)-deb-pack.deb \
+	$(RELEASE_DIR)/$(PACK_NAME)-docker-pack.tar.gz \
+	$(RELEASE_DIR)/$(PACK_NAME)-squashfs-pack.gz.squashfs \
 	$(RELEASE_DIR)/$(PACK_NAME)-tarball-pack.tar.gz \
 	$(RELEASE_DIR)/packages_src.tar \
 	$(RELEASE_DIR)/gnuboot_src.tar
@@ -78,6 +80,19 @@ $(RELEASE_DIR)/$(PACK_NAME)-deb-pack.deb: Makefile
 	install -d $(RELEASE_DIR)
 	install \
 	`$(GUIX_PACK_COMMAND) --format="deb" $(GUIX_PACKAGE_NAMES)` \
+	$@
+
+$(RELEASE_DIR)/$(PACK_NAME)-docker-pack.tar.gz: Makefile
+	install -d $(RELEASE_DIR)
+	install \
+	`$(GUIX_PACK_COMMAND) --format="docker" $(GUIX_PACKAGE_NAMES)` \
+	$@
+
+# For singularity
+$(RELEASE_DIR)/$(PACK_NAME)-squashfs-pack.gz.squashfs: Makefile
+	install -d $(RELEASE_DIR)
+	install \
+	`$(GUIX_PACK_COMMAND) --format="squashfs" --entry-point=bin/bash bash $(GUIX_PACKAGE_NAMES)` \
 	$@
 
 $(RELEASE_DIR)/$(PACK_NAME)-tarball-pack.tar.gz: Makefile
