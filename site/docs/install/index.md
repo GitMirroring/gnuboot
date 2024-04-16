@@ -291,34 +291,22 @@ example of the push pin as a proof of concept:
 
 #### ThinkPad X60/X60S/X60T/T60 with Lenovo BIOS {#flashrom_lenovobios}
 
-With the ThinkPad X60, X60S, X60T, T60, GNU Boot can be installed
-without disassembling these laptops.
+**I forgot to actually add the flashrom patches in the Libreboot 20211122
+release. When you see the notes below about `_sst` and `_mx`, for now just use
+the `util` archive from Libreboot 20160907. That release has a utils archive
+with pre-compiled flashrom binaries, including patches binaries for Macronix
+and SST flash chips on these machines. Bucts is also included, pre compiled.
+They are statically linked binaries, so they should work on any distro. Use
+those binaries, but with the ROM images from the Libreboot 20211122 release!**
 
-This requires to download and run some specific software utilities on
-top of a GNU/Linux distribution after having done some configuration,
-and to follow the important part of the instructions very
-carefully. You will be notified when this happens.
-
-First you need to download the right GNU Boot images for your
-computer. Here's a correspondance between the computer model and the
-image to download (and install later on):
+Here are a list of targets:
 
 * ThinkPad X60/X60S/X60T: flash the X60 ROM
 * ThinkPad T60 with Intel GPU: flash the T60 ROM
 
-Once this is done you will need to also download the specific
-utilities. They should be available as part of GNU Boot release that
-are more recent than gnuboot-0.1-rc3.
-
-The releases should contain the
-bucts-flashrom-bucts-tarball-pack.tar.gz file inside an
-i945-thinkpads-install directory.
-
-This archive can be extracted (in the gnuboot-utilities directory)
-with the following command:
-
-  tar xf bucts-flashrom-bucts-tarball-pack.tar.gz -C gnuboot-utilities
-
+Download and build flashrom, using the instructions
+on [the Git page](../../git.md), and download the `bucts` software using the
+notes on that very same page.
 
 You can replace Lenovo BIOS with GNU Boot, using flashrom running on the host
 CPU. However, there are some considerations.
