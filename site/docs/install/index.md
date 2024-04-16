@@ -303,12 +303,6 @@ Here are a list of targets:
 
 * ThinkPad X60/X60S/X60T: flash the X60 ROM
 * ThinkPad T60 with Intel GPU: flash the T60 ROM
-* ThinkPad T60 with ATI GPU: flash the Headless T60 ROM (no video init, but you
-  can get a serial console on the RS232 port if you use the Advanced Dock or
-  Advanced Mini Dock. Connect to it from another machine, using null modem
-  cable and USB serial adapter; GNU Screen can connect to the serial console
-  and you will run it at 115200 baud rate. agetty/fgetty in GNU+Linux can give
-  you a serial console in your OS)
 
 Download and build flashrom, using the instructions
 on [the Git page](../../git.md), and download the `bucts` software using the
