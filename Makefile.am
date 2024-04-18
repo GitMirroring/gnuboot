@@ -122,3 +122,8 @@ help:
 		"Remove all the files being built in GNU Boot."
 	@printf "\tmake crossgcc-clean                      # %s\n" \
 		"Remove the builds of the crossgcc toolchain."
+	@printf "\tmake $(PACK_NAME)\n"
+	@printf "\tmake $(RELEASE_DIR)/$(PACK_NAME)-deb-pack.deb\n"
+	@printf "\tmake $(RELEASE_DIR)/$(PACK_NAME)-tarball-pack.tar.gz\n"
+	@printf "\tmake $(RELEASE_DIR)/packages_src.tar\n"
+	@printf "\tmake $(RELEASE_DIR)/gnuboot_src.tar\n"

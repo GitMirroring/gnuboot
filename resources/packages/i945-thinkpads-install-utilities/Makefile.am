@@ -18,9 +18,7 @@
 # and the binaries and if the source is more recent, rebuilds the
 # binaries.
 
-TOPDIR = .
-
-DESTDIR ?= $(TOPDIR)/release
+DESTDIR ?= release
 
 PACK_NAME = i945-thinkpads-install-utilities
 
@@ -38,8 +36,8 @@ GUIX_PACK_COMMAND = \
 	guix time-machine \
 	--commit=$(GUIX_REVISION) -- \
 	pack \
-	-L $(TOPDIR)/resources/guix/ \
-	-L $(TOPDIR)/resources/guix/gnuboot/patches/ \
+	-L resources/guix/ \
+	-L resources/guix/gnuboot/patches/ \
 	-RR \
 	--save-provenance \
 	--system=i686-linux \
@@ -61,7 +59,7 @@ $(PACK_NAME)-module: $(PACK_NAME)
 # TODO: Make sure the tarball is reproducible
 $(RELEASE_DIR)/gnuboot_src.tar:  Makefile
 	install -d $(RELEASE_DIR)
-	git -C $(TOPDIR) archive HEAD > $@
+	git archive HEAD > $@
 
 # TODO: Use Guix to produce a source package to make it reproducible
 $(RELEASE_DIR)/packages_src.tar:  Makefile
@@ -72,8 +70,7 @@ $(RELEASE_DIR)/packages_src.tar:  Makefile
 		guix time-machine --commit=$(GUIX_REVISION) -- \
 		build \
 		-c $(GUIX_BUILD_CORES) \
-		-L $(TOPDIR)/resources/guix/ \
-		-L $(TOPDIR)/resources/guix/gnuboot/patches \
+		-L resources/guix/ \
 		--sources=transitive \
 		$(GUIX_PACKAGE_NAMES) | sort -u`
 
