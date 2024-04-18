@@ -1,7 +1,6 @@
 *.date
 *.hash
 *.html
-*.s[a-w]?
 *.sha1sum
 *.vim
 *feed.xml
