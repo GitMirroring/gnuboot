@@ -41,13 +41,18 @@ And these cannot build GNU Boot yet:
 If you don't use PureOS 10 (byzantium) or Trisquel 10 (nabia), there
 are many ways to run them on top of other GNU/Linux distributions.
 
-If you run Parabola, Trisquel 10 (nabia) or Trisquel 11 (aramo), you
+If you run Guix (either as an operating system or on top of another
+distribution), Parabola, Trisquel 10 (nabia), Trisquel 11 (aramo), you
 can use debootstrap to create a chroot of Trisquel 10 (nabia) or
 PureOS 10 (byzantium). Here are the packages you need to install
 depending on your distribution:
 
 +----------------+-----------------------+-------------------------------------+
 | Host distro    | Chroot distro         | Required packages                   |
++----------------+-----------------------+-------------------------------------+
+| Guix           | PureOS 10 (byzantium) | debootstrap                         |
++----------------+-----------------------+-------------------------------------+
+| Guix           | Trisquel 10 (nabia)   | debootstrap                         |
 +----------------+-----------------------+-------------------------------------+
 | Parabola       | PureOS 10 (byzantium) | debootstrap, pureos-archive-keyring |
 +----------------+-----------------------+-------------------------------------+
