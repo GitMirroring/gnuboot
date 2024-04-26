@@ -79,16 +79,16 @@ technically a problem, because an option ROM can be free or non-free.
 
 Loading the option ROM from the PIKE2008 module on either ASUS KCMA-D8
 or KGPE-D16 causes the system to hang at boot. It's possible to use
-this in the payload (if you use a linux kernel payload, like linuxboot),
+this in the payload (if you use a Linux kernel payload, like LinuxBoot),
 or to boot (with SeaGRUB and/or SeaBIOS) from regular SATA and then use
 it in GNU+Linux. The Linux kernel is capable of using the PIKE2008
 module without loading the option ROM.
 
-Refer to the [linuxboot website](https://www.linuxboot.org/). This is a special
-busybox+linux system, which goes in the boot flash as a coreboot payload. You
-can insert it into your Libreboot ROM image using cbfstool, if it's big enough.
-On KCMA-D8/KGPE-D16 it's trivial to upgrade the boot flash to 16MiB, which is
-more than enough to fit Linuxboot. See:\
+Refer to the [LinuxBoot website](https://www.linuxboot.org/). This is a special
+system that uses BusyBox and the Linux kernel, which goes in the boot flash as a
+coreboot payload. You can insert it into your Libreboot ROM image using cbfstool,
+if it's big enough. On KCMA-D8/KGPE-D16 it's trivial to upgrade the boot flash
+to 16MiB, which is more than enough to fit LinuxBoot. See:\
 [External flashing guide](docs/install/spi.md)
 
 LinuxBoot has many advanced features. It provides a bootloader called uroot,
@@ -98,7 +98,7 @@ kernel, this means that LinuxBoot can make use of the PIKE2008 module.
 
 TODO: Integrate this in Libreboot, as a payload option, but also:
 
-TODO: Fork LinuxBoot, and make a version of it that uses linux-libre. Ensure
+TODO: Fork LinuxBoot, and make a version of it that uses Linux-libre. Ensure
 that it is a fully free distribution, so that the FSF can endorse it.
 
 LinuxBoot is *perfect*, especially if you're setting up one of these systems to
@@ -433,7 +433,7 @@ point of libreboot is to be 100% [free
 software](https://www.gnu.org/philosophy/free-sw.html).
 
 On some older Intel CPUs, it is possible to exclude the microcode
-updates and not have any reliability issues in practise. All current
+updates and not have any reliability issues in practice. All current
 libreboot systems work without microcode updates (otherwise, they
 wouldn't be supported in libreboot). However, all modern Intel CPUs
 require the microcode updates, otherwise the system will not boot at
@@ -470,7 +470,7 @@ blobs](https://01.org/linuxgraphics/intel-linux-graphics-firmwares?langredirect=
 
 Intel is [only going to get
 worse](https://www.phoronix.com/scan.php?page=news_item&px=Intel-Gfx-GuC-SLPC)
-when it comes to user freedom. Libreboot has no support recent Intel
+when it comes to user freedom. Libreboot has no support for recent Intel
 platforms, precisely because of the problems described above. The only
 way to solve this is to get Intel to change their policies and to be
 more friendly to the [free
@@ -757,7 +757,7 @@ How do I pad a ROM before flashing?
 It is advisable to simply use a larger ROM image. This section was written
 mostly for ASUS KCMA-D8 and KGPE-D16 mainboards, where previously we only
 provided 2MiB ROM images in Libreboot, but we now provide 16MiB ROM images.
-Other sizes are not provided because in practise, someone upgrading one of
+Other sizes are not provided because in practice, someone upgrading one of
 these chips will just use a 16MiB one. Larger sizes are available, but 16MiB
 is the maximum that you can use on all currently supported Libreboot systems
 that use SPI flash.
@@ -871,7 +871,7 @@ the VBIOS (special kind of OptionROM) is usually embedded
 in the main boot firmware. For external graphics, the VBIOS is
 usually on the graphics card itself. This is usually proprietary; the
 only difference is that SeaBIOS can execute it (alternatively, you embed it
-in a coreboot ROM image and have coreboot executes it, if you use a
+in a coreboot ROM image and have coreboot execute it, if you use a
 different payload, such as GRUB).
 
 On current libreboot systems, instead of VBIOS, coreboot native GPU init is used,
@@ -1096,7 +1096,7 @@ you absolutely must use this technology, an external USB dongle is much
 better because it can be easily removed when you don't need it, thereby
 disabling any external entities from tracking your location.
 
-Use of ethernet or wifi is recommended, as opposed to mobile networks,
+Use of ethernet or Wi-Fi is recommended, as opposed to mobile networks,
 as these are generally much safer.
 
 On all current libreboot laptops, it is possible to remove the WWAN card
@@ -1120,8 +1120,8 @@ setting) for the graphics.
 Fedora won't boot? (may also be applicable to Redhat/CentOS)
 -----------------------------------------------------------
 
-On Fedora, by default the grub.cfg tries to boot linux in 16-bit mode. You
-just have to modify Fedora's GRUB configuration.
+On Fedora, by default the grub.cfg tries to boot the Linux kernel in 16-bit
+mode. You just have to modify Fedora's GRUB configuration.
 Refer to [the GNU+Linux page](docs/gnulinux/).
 
 Can I use BSD?
@@ -1144,7 +1144,7 @@ Does libreboot make my machine 100% free?
 Libreboot on all devices only provides host hardware init firmware images,
 that can be written 25XX SPI NOR Flash. But on many systems there are
 a lot more computers running blob firmware.
-Some of them are not practicable to replace due to being located on Mask ROM.
+Some of them are not practical to replace due to being located on Mask ROM.
 Some devices have EC firmware being build as well.
 Additionally, besides software components, there are hardware ones
 (from ICs to boards) that are not released on OSHW licenses.
