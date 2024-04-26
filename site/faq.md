@@ -86,9 +86,9 @@ module without loading the option ROM.
 
 Refer to the [LinuxBoot website](https://www.linuxboot.org/). This is a special
 system that uses BusyBox and the Linux kernel, which goes in the boot flash as a
-coreboot payload. You can insert it into your GNU Boot ROM image using cbfstool,
-if it's big enough. On KCMA-D8/KGPE-D16 it's trivial to upgrade the boot flash
-to 16MiB, which is more than enough to fit LinuxBoot. See:\
+coreboot payload. You can insert it into your GNU Boot image using cbfstool, if
+it's big enough. On KCMA-D8/KGPE-D16 it's trivial to upgrade the boot flash to
+16MiB, which is more than enough to fit LinuxBoot. See:\
 [External flashing guide](docs/install/spi.md)
 
 LinuxBoot has many advanced features. It provides a bootloader called uroot,
@@ -654,14 +654,14 @@ Hi, I have &lt;insert random system here&gt;, is it supported?
 Most likely not. First, you must consult coreboot's own hardware
 compatibility list at <http://www.coreboot.org/Supported_Motherboards>
 and, if it is supported, check whether it can run without any
-proprietary blobs in the ROM image. If it can: wonderful! GNU Boot can
+proprietary blobs in the image. If it can: wonderful! GNU Boot can
 support it, and you can add support for it. If not, then you will need
 to figure out how to reverse engineer and replace (or remove) those
 blobs that do still exist, in such a way where the system is still
 usable in some defined way.
 
 For those systems where no coreboot support exists, you must first port
-it to coreboot and, if it can then run without any blobs in the ROM
+it to coreboot and, if it can then run without any blobs in the
 image, it can be added to GNU Boot. See: [Motherboard Porting
 Guide](http://www.coreboot.org/Motherboard_Porting_Guide) (this is just
 the tip of the iceberg!)
@@ -742,41 +742,41 @@ cases.
 GNU Boot locks the CMOS table, to ensure consistent functionality for
 all users. You can use:
 
-    nvramtool -C yourrom.rom -w somesetting=somevalue
+    nvramtool -C yourimage.bin -w somesetting=somevalue
 
 To get a full list of available options, do this:
 
-    nvramtool -C yourrom.rom -a
+    nvramtool -C yourimage.bin -a
 
-This will change the default inside that ROM image, and then you can
+This will change the default inside that image, and then you can
 re-flash it.
 
-How do I pad a ROM before flashing?
+How do I pad a image before flashing?
 --------------------------------------
 
-It is advisable to simply use a larger ROM image. This section was written
+It is advisable to simply use a larger image. This section was written
 mostly for ASUS KCMA-D8 and KGPE-D16 mainboards, where previously we only
-provided 2MiB ROM images in GNU Boot, but we now provide 16MiB ROM images.
+provided 2MiB images in GNU Boot, but we now provide 16MiB images.
 Other sizes are not provided because in practice, someone upgrading one of
 these chips will just use a 16MiB one. Larger sizes are available, but 16MiB
 is the maximum that you can use on all currently supported systems
 that use SPI flash.
 
-Required for ROMs where the ROM image is smaller than the flash chip
-(e.g. writing a 2MiB ROM to a 16MiB flash chip).
+Required for images where the image is smaller than the flash chip
+(e.g. writing a 2MiB image to a 16MiB flash chip).
 
 Create an empty (00 bytes) file with a size the difference between
-the ROM and flash chip. The case above, for example:
+the image and flash chip. The case above, for example:
 
     truncate -s +14MiB pad.bin
 
-For x86 descriptorless images you need to pad from the *beginning* of the ROM:
+For x86 descriptorless images you need to pad from the *beginning* of the image:
 
-    cat pad.bin yourrom.rom > yourrom.rom.new
+    cat pad.bin yourimage.bin > yourimage.bin.new
 
 For ARM and x86 with intel flash descriptor, you need to pad after the image:
 
-    cat yourrom.rom pad.bin > yourrom.rom.new
+    cat yourimage.bin pad.bin > yourimage.bin.new
 
 Flash the resulting file. Note that cbfstool will not be able to
 operate on images padded this way so make sure to make all changes to
@@ -784,10 +784,10 @@ the image, including runtime config, before padding.
 
 To remove padding, for example after reading it off the flash chip,
 simply use dd(1) to extract only the non-padded portion. Continuing with the
-examples above, in order to extract a 2MiB x86 descriptorless ROM from a
+examples above, in order to extract a 2MiB x86 descriptorless image from a
 padded 16MiB image do the following:
 
-    dd if=flashromread.rom of=yourrom.rom ibs=14MiB skip=1
+    dd if=flashromread.bin of=yourimage.bin ibs=14MiB skip=1
 
 With padding removed cbfstool will be able to operate on the image as usual.
 
@@ -871,7 +871,7 @@ the VBIOS (special kind of OptionROM) is usually embedded
 in the main boot firmware. For external graphics, the VBIOS is
 usually on the graphics card itself. This is usually proprietary; the
 only difference is that SeaBIOS can execute it (alternatively, you embed it
-in a coreboot ROM image and have coreboot execute it, if you use a
+in a coreboot image and have coreboot execute it, if you use a
 different payload, such as GRUB).
 
 On current GNU Boot systems, instead of VBIOS, coreboot native GPU init is used,
