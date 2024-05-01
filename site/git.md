@@ -113,18 +113,33 @@ Many projects using free software licenses do accept contributions
 from anyone but in many cases they also need to be able to track the
 copyright ownership of the contributions for various reasons.
 
-This usually makes anonymous or pseudonymous contributions more
-complicated, but that doesn't make them impossible.
+This usually makes anonymous or pseudonymous contributions to the code
+more complicated, but that doesn't make them impossible.
 
-If you want to contribute anonymously or pseudonymously the best way
-is to contact us publicly (for instance on our mailing list, using a
-mail and name that you use only for that) so we could look into it and
-try to find ways that work for GNU Boot but also potentially for other
-upstream projects as well and this way enable you to contribute to a
-wide variety of projects under free licenses with way less friction.
+The main difficulty for GNU Boot is that GNU boot wants to contribute
+some of its changes to other projects it reuses such as Coreboot,
+GRUB, Guix, and so we need GNU Boot code or documentation
+contributions to be compatible with the way other projects track
+copyright ownership.
 
-Note that for patches, the contributions that you make are publicly
-recorded, in a Git repository which everyone can access.
+Because of that, if you want to contribute anonymously or
+pseudonymously the best way is to contact us publicly (for instance on
+our mailing list, using a mail and name that you use only for that) so
+we could look into it and try to find ways that work for GNU Boot but
+also potentially for other upstream projects as well and this way
+enable you to contribute to a wide variety of projects under free
+licenses with way less friction.
+
+We already looked into it for various cases, and pseudonymous
+contributions should not have any special issues for contributing to
+most of the GNU Boot documentation/website and for translating them,
+for Guix packages, and for most parts of the GNU Boot build system. As
+for contributions that include patches to other upstream projects like
+Coreboot, we would need to look into it.
+
+Note that if you send patches to GNU Boot, the contributions that you
+make are publicly recorded, in a Git repository which everyone can
+access.
 
 And these contributions include a name, an email address and even a
 precise date in which the contribution was made. It is relatively easy
