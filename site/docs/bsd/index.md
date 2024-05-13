@@ -75,6 +75,6 @@ bypassed entirely.
 
 We have separate pages for each BSD system:
 
-* [How to install NetBSD on x86 GNU GRUB payload](netbsd.md)
-* [How to install OpenBSD on x86 GNU GRUB payload](openbsd.md)
-* [How to install FreeBSD on a x86 GNU GRUB payload](freebsd.md)
+* [How to install NetBSD on x86 GNU GRUB payload](netbsd.html)
+* [How to install OpenBSD on x86 GNU GRUB payload](openbsd.html)
+* [How to install FreeBSD on a x86 GNU GRUB payload](freebsd.html)

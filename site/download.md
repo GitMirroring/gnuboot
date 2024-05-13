@@ -6,7 +6,7 @@ x-unreviewed: true
 New releases are announced in the [main news section](news/).
 
 If you're more interested in GNU Boot development, go to the
-[GNU Boot development page](../git.md), which also includes links to the
+[GNU Boot development page](../git.html), which also includes links to the
 Git repositories. If you wish to build GNU Boot from source,
 [read this page](docs/build/).
 
@@ -34,7 +34,7 @@ Links to regular release archives are listed on this page.
 However, for the absolute most bleeding edge up-to-date version of GNU Boot,
 there is a Git repository that you can download from. Go here:
 
-[How to download GNU Boot from Git](git.md)
+[How to download GNU Boot from Git](git.html)
 
 FTP mirrors {#ftp}
 -------------
