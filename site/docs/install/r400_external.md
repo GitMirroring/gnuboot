@@ -18,7 +18,7 @@ Libreboot T400 {#t400}
 ==============
 
 You may also be interested in the smaller, more portable [Libreboot
-T400](t400_external.md).
+T400](t400_external.html).
 
 Serial port {#serial_port}
 -----------
@@ -70,12 +70,12 @@ Use this to find out:
 MAC address {#macaddress}
 ===========
 
-Refer to [mac\_address.md](../hardware/mac_address.md).
+Refer to [mac\_address.html](../hardware/mac_address.html).
 
 External flashing
 =================
 
-Refer to [spi.md](spi.md) as a guide for external re-flashing.
+Refer to [spi.html](spi.html) as a guide for external re-flashing.
 
 Disassembly
 -----------
@@ -160,7 +160,7 @@ next to the memory slots:\
 
 Now, you should be ready to install libreboot.
 
-Read [this article](spi.md) to learn how you may flash the chip, which is near
+Read [this article](spi.html) to learn how you may flash the chip, which is near
 to the RAM.
 
 Thermal paste (IMPORTANT)

@@ -130,7 +130,7 @@ This photo shows an SPI flasher used, with SOIC8 test clip:\
 ![](/software/gnuboot/web/img/x60/th_bbb_flashing.jpg)
 
 Refer to the following guide:\
-[Externally rewrite 25xx NOR flash via SPI protocol](spi.md)
+[Externally rewrite 25xx NOR flash via SPI protocol](spi.html)
 
 NOTE: Do not use the 3.3v rail from your raspberry pi. Leave that disconnected.
 For 3.3v, plug your charger into the mainboard (but do not power on the mainboard)

@@ -11,7 +11,7 @@ you don't want to be mentioned, let us know and we'll remove your
 entry)
 
 Information about who maintains GNU Boot, and how the project is run,
-can be found on this page: [git.md](git.md).
+can be found on this page: [git.html](git.html).
 
 You can know the history of the Libreboot project, simply by reading this page.
 It goes into detail about all of the major contributions to the project, and in
@@ -40,7 +40,7 @@ works on all aspects of Libreboot, such as:
   that Libreboot uses
 * Providing user support on IRC
 * *Commercial* user support via her company listed
-  on [the suppliers page](/suppliers.md)
+  on [the suppliers page](/suppliers.html)
 
 Leah is also responsible for [osboot.org](https://osboot.org/) which is heavily
 based on Libreboot, but with different project goals.
@@ -249,7 +249,7 @@ Patrick "P. J." McDermott
 ---------------------------
 
 Patrick also did a lot of research and wrote the libreboot FAQ section
-relating to the [Intel Management Engine](../faq.md#intelme), in addition
+relating to the [Intel Management Engine](../faq.html#intelme), in addition
 to making several improvements to the build system in libreboot. **Former
 libreboot project maintainer.**
 
@@ -281,7 +281,7 @@ in coreboot, and then helped her integrate the fix in libreboot.
 Peter Stuge
 -----------
 
-Helped write the [FAQ section about DMA](../faq.md#hddssd-firmware), and provided
+Helped write the [FAQ section about DMA](../faq.html#hddssd-firmware), and provided
 general advice in the early days of the project. Peter was a coreboot developer
 in those days, and a major developer in the *libusb* project (which flashrom
 makes heavy use of).

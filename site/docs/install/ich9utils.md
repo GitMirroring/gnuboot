@@ -15,7 +15,7 @@ fully disabled.
 
 ich9utils is handled by the `lbmk` (libreboot-make) build system, but the code
 itself is hosted in a separate repository. You can check the Git repositories
-linked on [../../git.md](../../git.md) if you wish to download and use it.
+linked on [../../git.html](../../git.html) if you wish to download and use it.
 
 It is very *uncommon*, on GM45/ICH9M systems, to have an Intel Flash Descriptor
 and GbE but *without* an Intel ME. On *most* of these systems (without Libreboot,
@@ -54,7 +54,7 @@ Another project: <http://io.netgarage.org/me/>
 ich9utils
 =========
 
-You can find `ich9utils` on the [Git page](../../git.md) or you can download
+You can find `ich9utils` on the [Git page](../../git.html) or you can download
 `lbmk` from the same page and run the following command in there:
 
     ./build module ich9utils
@@ -257,7 +257,7 @@ need for a` factory.rom` dump!
 
 You should now have a **libreboot.rom** image containing the correct 4K
 descriptor and 8K gbe regions, which will then be safe to flash. Refer
-back to [index.md/\#gm45](index.md/#gm45) for how to flash
+back to [index.html/\#gm45](index.html/#gm45) for how to flash
 it.
 
 demefactory utility {#demefactory}

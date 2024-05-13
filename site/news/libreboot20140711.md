@@ -44,7 +44,7 @@ Revisions for r20140711 (1st beta) (11th July 2014)
     (there is no dock or serial port available for macbook21)
 -   Added patches for backlight controls on X60 and T60 with help from
     Denis Carikli (see ./resources/libreboot/patch/gitdiff and ./getcb
-    and docs/i945\_backlight.md)
+    and docs/i945\_backlight.html)
     -   Documentation: added docs/i945\_backlight.html showing how
         backlight controls were made to work on X60/T60
 -   Documentation: Added info about getting LCD panel name based on EDID

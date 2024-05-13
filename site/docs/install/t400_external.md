@@ -71,12 +71,12 @@ Use this to find out:
 MAC address {#macaddress}
 ===========
 
-Refer to [mac\_address.md](../hardware/mac_address.md).
+Refer to [mac\_address.html](../hardware/mac_address.html).
 
 How to flash externally
 =========================
 
-Refer to [spi.md](spi.md) as a guide for external re-flashing.
+Refer to [spi.html](spi.html) as a guide for external re-flashing.
 
 The procedure
 -------------
@@ -173,7 +173,7 @@ Of course, make sure to turn on your PSU:\
 
 Now, you should be ready to install libreboot.
 
-Refer to the external flashing instructions [here](spi.md), and when you're
+Refer to the external flashing instructions [here](spi.html), and when you're
 done, re-assemble your laptop.
 
 Thermal paste (IMPORTANT)

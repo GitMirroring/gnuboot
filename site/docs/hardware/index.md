@@ -21,32 +21,32 @@ Libreboot supports the following systems in this release:
 
 ### Desktops (AMD, Intel, x86)
 
--   [Gigabyte GA-G41M-ES2L motherboard](ga-g41m-es2l.md)
--   [Intel D510MO and D410PT motherboards](d510mo.md)
--   [Intel D945GCLF](d945gclf.md) (D945GCLF2D also reported working by a user)
--   [Apple iMac 5,2](imac52.md)
+-   [Gigabyte GA-G41M-ES2L motherboard](ga-g41m-es2l.html)
+-   [Intel D510MO and D410PT motherboards](d510mo.html)
+-   [Intel D945GCLF](d945gclf.html) (D945GCLF2D also reported working by a user)
+-   [Apple iMac 5,2](imac52.html)
 
 ### Servers/workstations (AMD, x86)
 
--   [ASUS KCMA-D8 motherboard](kcma-d8.md)
--   [ASUS KGPE-D16 motherboard](kgpe-d16.md)
--   [ASUS KFSN4-DRE motherboard](kfsn4-dre.md)
+-   [ASUS KCMA-D8 motherboard](kcma-d8.html)
+-   [ASUS KGPE-D16 motherboard](kgpe-d16.html)
+-   [ASUS KFSN4-DRE motherboard](kfsn4-dre.html)
 
 ### Laptops (ARM)
 
--   [ASUS Chromebook C201](c201.md) (**Libreboot 20160907 only**)
+-   [ASUS Chromebook C201](c201.html) (**Libreboot 20160907 only**)
 
 ### Laptops (Intel, x86)
 
 -   ThinkPad X60 / X60S / X60 Tablet
 -   ThinkPad T60 (with Intel GPU)
--   [Lenovo ThinkPad X200 / X200S / X200 Tablet](x200.md)
--   [Lenovo ThinkPad R400](r400.md)
--   [Lenovo ThinkPad T400 / T400S](t400.md)
--   [Lenovo ThinkPad T500](t500.md)
--   [Lenovo ThinkPad W500](t500.md)
--   [Lenovo ThinkPad R500](r500.md)
--   [Apple MacBook1,1 and MacBook2,1](macbook21.md)
+-   [Lenovo ThinkPad X200 / X200S / X200 Tablet](x200.html)
+-   [Lenovo ThinkPad R400](r400.html)
+-   [Lenovo ThinkPad T400 / T400S](t400.html)
+-   [Lenovo ThinkPad T500](t500.html)
+-   [Lenovo ThinkPad W500](t500.html)
+-   [Lenovo ThinkPad R500](r500.html)
+-   [Apple MacBook1,1 and MacBook2,1](macbook21.html)
 
 'Supported' means that the build scripts know how to build ROM images
 for these systems, and that the systems have been tested (confirmed
@@ -57,7 +57,7 @@ EC update on i945 (X60, T60) and GM45 (X200, T400, T500, R400, W500, R500)
 ==============================================================
 
 It is recommended that you update to the latest EC firmware version. The
-[EC firmware](../../faq.md#ec-embedded-controller-firmware) is separate from
+[EC firmware](../../faq.html#ec-embedded-controller-firmware) is separate from
 libreboot, so we don't actually provide that, but if you still have
 Lenovo BIOS then you can just run the Lenovo BIOS update utility, which
 will update both the BIOS and EC version. See:

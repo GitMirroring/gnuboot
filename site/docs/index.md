@@ -7,7 +7,7 @@ Always check [libreboot.srht.site](https://libreboot.srht.site/) for the latest 
 Libreboot. News, including release announcements, can be found in
 the [main news section](../news/).
 
-[Answers to Frequently Asked Questions about Libreboot](../faq.md).
+[Answers to Frequently Asked Questions about Libreboot](../faq.html).
 
 Installing libreboot
 ====================
@@ -32,7 +32,7 @@ Other information
 =================
 
 -   [Miscellaneous](misc/)
--   [List of codenames](misc/codenames.md)
+-   [List of codenames](misc/codenames.html)
 
 How do I know what version I'm running? {#version}
 ========================================
