@@ -12,8 +12,6 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
-DOMAIN := libreboot.at
-
 .PHONY: all build check help deploy website.tar.gz
 
 all: website.tar.gz
@@ -74,7 +72,7 @@ help:
 		"help           # Print this help" \
 		"test           # run lighttpd on localhost:8080" \
 		"check          # Run automatic tests" \
-		"deploy         # Deploy the website to https://$(DOMAIN)" \
+		"deploy         # Deploy the website to https://gnu.org/software/gnuboot" \
 		"website.tar.gz # Create a tarball of the website"
 
 if WANT_GUIX
