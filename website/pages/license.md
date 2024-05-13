@@ -20,7 +20,7 @@ You can also find the license here:
 <https://www.gnu.org/licenses/fdl-1.3.en.html>
 
 The markdown version, hosted by the GNU project, can be found here:
-<https://www.gnu.org/licenses/fdl-1.3.md>
+<https://www.gnu.org/licenses/fdl-1.3.html>
 
 The *unmodified* license text is as follows:
 

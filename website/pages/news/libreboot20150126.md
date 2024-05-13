@@ -47,11 +47,11 @@ changes:
 -   grub.cfg: hardcode the list of partitions to search (speeds up
     booting considerably. GRUB regexp isn't very well optimized)
 -   Docs (x200.html hcl): Remove incorrect information
--   Documentation (bbb\_setup.md): Fix typos
+-   Documentation (bbb\_setup.html): Fix typos
 -   build-release: delete ich9fdgbe\_{4m,8m}.bin files from ich9gen
     -   These were accidentically included in the r20150124 release.
         They are generated from ich9gen so it's ok, but they don't
         need to be in the archive.
--   Documentation (grub\_cbfs.md): Looping in libreboot\_grub.cfg (Add
+-   Documentation (grub\_cbfs.html): Looping in libreboot\_grub.cfg (Add
     notes about it if the user copied from grub.cfg in CBFS.)
 

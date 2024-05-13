@@ -14,14 +14,14 @@ know how to recover.
 recommend avoiding Kingston modules.*
 
 For more general information about this board, refer to
-[../hardware/kgpe-d16.md](../hardware/kgpe-d16.md).
+[../hardware/kgpe-d16.html](../hardware/kgpe-d16.html).
 
 TODO: show photos here, and other info.
 
 External programmer 
 ===================
 
-Refer to [spi.md](spi.md) for a guide on how to re-flash externally.
+Refer to [spi.html](spi.html) for a guide on how to re-flash externally.
 
 The flash chip is in a PDIP 8 socket (SPI flash chip) on the
 motherboard, which you take out and then re-flash with libreboot, using

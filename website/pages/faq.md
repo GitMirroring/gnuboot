@@ -19,7 +19,7 @@ Do not use CH341A!
 This SPI flasher will damage your chip, and the mainboard that it is connected
 to.
 
-Read the notes about CH341A on [docs/install/spi.md](docs/install/spi.md) to
+Read the notes about CH341A on [docs/install/spi.html](docs/install/spi.html) to
 learn more.
 
 Flashrom complains about DEVMEM access
@@ -89,7 +89,7 @@ system that uses BusyBox and the Linux kernel, which goes in the boot flash as a
 coreboot payload. You can insert it into your GNU Boot image using cbfstool, if
 it's big enough. On KCMA-D8/KGPE-D16 it's trivial to upgrade the boot flash to
 16MiB, which is more than enough to fit LinuxBoot. See:\
-[External flashing guide](docs/install/spi.md)
+[External flashing guide](docs/install/spi.html)
 
 LinuxBoot has many advanced features. It provides a bootloader called uroot,
 which can boot other Linux kernels using kexec. It can parse GNU GRUB configs,
@@ -305,7 +305,7 @@ an attacker exploiting any of these vulnerabilities may gain access to
 everything on the PC as it runs: all open files, all running
 applications, all keys pressed, and more.
 
-[Intel Boot Guard](https://mjg59.dreamwidth.org/33981.md) is an ME
+[Intel Boot Guard](https://mjg59.dreamwidth.org/33981.html) is an ME
 application introduced in Q2 2013 with ME firmware version 9.0 on 4th
 Generation Intel Core i3/i5/i7 (Haswell) CPUs. It allows a PC OEM to
 generate an asymmetric cryptographic keypair, install the public key in
@@ -348,10 +348,10 @@ privacy that can't be ignored.
 Before version 6.0 (that is, on systems from 2008/2009 and earlier), the
 ME can be disabled by setting a couple of values in the SPI flash
 memory. The ME firmware can then be removed entirely from the flash
-memory space. GNU Boot [does this](docs/install/ich9utils.md) on
+memory space. GNU Boot [does this](docs/install/ich9utils.html) on
 the Intel 4 Series systems that it supports, such as the [GNU Boot
-X200](../docs/install/x200_external.md) and [GNU Boot
-T400](../docs/install/t400_external.md). ME firmware versions 6.0 and
+X200](../docs/install/x200_external.html) and [GNU Boot
+T400](../docs/install/t400_external.html). ME firmware versions 6.0 and
 later, which are found on all systems with an Intel Core i3/i5/i7 CPU
 and a PCH, include "ME Ignition" firmware that performs some hardware
 initialization and power management. If the ME's boot ROM does not find
@@ -496,7 +496,7 @@ main issues are as follows:
 
 [We call on AMD to release source code and specs for the new AMD Ryzen
 platforms! We call on the community to put pressure on AMD. Click here
-to read more](amd-libre.md)
+to read more](amd-libre.html)
 
 ### AMD Platform Security Processor (PSP) 
 
@@ -690,7 +690,7 @@ How do I program an SPI flash chip?
 ---------------------------------------------------------------------------------
 
 Refer to:\
-[Externally rewrite 25xx NOR flash via SPI protocol](spi.md)
+[Externally rewrite 25xx NOR flash via SPI protocol](spi.html)
 
 It's possible to use a 16-pin SOIC test clip on an 8-pin SOIC chip, if you
 align the pins properly. The connection is generally more sturdy.
@@ -707,7 +707,7 @@ On some systems, it is possible to write-protect the firmware, such that
 it is rendered read-only at the OS level (external flashing is still
 possible, using dedicated hardware). For example, on current GM45
 laptops (e.g. ThinkPad X200, T400), you can write-protect (see
-[ICH9 gen utility](docs/install/ich9utils.md#ich9gen)).
+[ICH9 gen utility](docs/install/ich9utils.html#ich9gen)).
 
 It's possible to write-protect on all GNU Boot systems, but the instructions
 need to be written. The documentation is in the main git repository, so you are
@@ -804,7 +804,7 @@ boot just fine, using the bootloader (GRUB) that is in the flash chip.
 This also means that even if you remove the HDD or SSD, you'll still
 have a functioning bootloader installed which could be used to boot a
 live distribution installer from a USB flash drive. See
-[How to install GNU+Linux on a GNU Boot system](../docs/gnulinux/grub_boot_installer.md)
+[How to install GNU+Linux on a GNU Boot system](../docs/gnulinux/grub_boot_installer.html)
 
 Nowadays, other payloads are also provided. If you're using the SeaBIOS payload,
 then the normal MBR bootsector is used on your HDD or SSD, like you would
@@ -818,7 +818,7 @@ automatically switch to a GRUB configuration on the HDD or SSD, if it
 exists. You can also load a different GRUB configuration, from any kind
 of device that is supported in GRUB (such as a USB flash drive). For
 more information, see
-[Modifying the GRUB Configuration in GNU Boot Systems](../docs/gnulinux/grub_cbfs.md)
+[Modifying the GRUB Configuration in GNU Boot Systems](../docs/gnulinux/grub_cbfs.html)
 
 If you're using the SeaBIOS payload, it's even easier. It works just like you
 would expect. SeaBIOS implements a normal x86 BIOS interface.
@@ -827,12 +827,12 @@ What does a flash chip look like?
 -----------------------------------------------------------------
 
 You can find photos of various chip types on the following page:\
-[External 25xx NOR flashing guide](docs/install/spi.md)
+[External 25xx NOR flashing guide](docs/install/spi.html)
 
 Who did the logo?
 ----------------------------------------------------------------
 
-See the [license information](../../img/logo/license.md).
+See the [license information](../../img/logo/license.html).
 
 The Libreboot logo is available as a [bitmap](../../img/logo/logo.png), a
 [vector](../../img/logo/logo.svg), or a [greyscale vector](../../img/logo/logo_grey.svg).
@@ -1006,8 +1006,8 @@ connect SATA HDDs via USB. GNU Boot documents how to install several
 distributions with full disk encryption. You can adapt these for use
 with USB drives:
 
--   [Full disk encryption with Debian](../docs/gnulinux/encrypted_debian.md)
--   [Full disk encryption with Parabola](../docs/gnulinux/encrypted_parabola.md)
+-   [Full disk encryption with Debian](../docs/gnulinux/encrypted_debian.html)
+-   [Full disk encryption with Parabola](../docs/gnulinux/encrypted_parabola.html)
 
 The current theory (unproven) is that this will at least prevent
 malicious drives from wrongly manipulating data being read from or
@@ -1110,8 +1110,8 @@ Can I use GNU+Linux?
 --------------------------------------------------
 
 Absolutely! It is well-tested in GNU Boot, and highly recommended. See
-[installing GNU+Linux](../docs/gnulinux/grub_boot_installer.md) and
-[booting GNU+Linux](../docs/gnulinux/grub_cbfs.md).
+[installing GNU+Linux](../docs/gnulinux/grub_boot_installer.html) and
+[booting GNU+Linux](../docs/gnulinux/grub_cbfs.html).
 
 Any recent distribution should work, as long as it uses KMS (kernel mode
 setting) for the graphics.

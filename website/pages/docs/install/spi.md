@@ -182,7 +182,7 @@ You must configure `spidev` on your Raspberry Pi. This is a special driver in
 the Linux kernel; technically, the driver name is `spi-bcm2835`.
 
 This page has info:\
-<https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md>
+<https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.html>
 
 In your Raspberry Pi, which we assume you're running the latest Raspbian version
 on, do this:
@@ -722,7 +722,7 @@ flows properly, otherwise the solder will ball up and you won't get a good
 joint.
 
 In case you're not comfortable with soldering, we have some excellent videos
-linked on the [FAQ page](../../faq.md) which you can watch.
+linked on the [FAQ page](../../faq.html) which you can watch.
 
 WSON8 IC:\
 ![](../../img/rpi/wson8/0001.jpg)

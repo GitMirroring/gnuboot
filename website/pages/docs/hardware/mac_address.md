@@ -96,4 +96,4 @@ Changing the MAC address on X200/T400/T500/W500
 On GM45 laptops with ICH9M southbridge and Intel PHY module, the MAC address
 is hardcoded in boot flash, which means it can be changed if you re-flash.
 
-See [ich9utils documentation](../install/ich9utils.md)
+See [ich9utils documentation](../install/ich9utils.html)

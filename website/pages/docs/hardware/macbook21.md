@@ -77,7 +77,7 @@ motherboard. [How to remove the
 motherboard](https://www.ifixit.com/Guide/MacBook+Core+2+Duo+PRAM+Battery+Replacement/529).
 
 Refer to the following guide:\
-[Externally rewrite 25xx NOR flash via SPI protocol](../install/spi.md)
+[Externally rewrite 25xx NOR flash via SPI protocol](../install/spi.html)
 
 You need to replace OS X with GNU+Linux before flashing Libreboot. (OSX
 won't run at all in Libreboot), if you wish to internally flash on a macbook21.

@@ -34,10 +34,10 @@ just boots up as normal.
 
 Here are links to the guides that were deleted:
 
-* <https://notabug.org/libreboot/lbwww/src/8844c201ef0d1ab856fed2aa5148b89100fffe0d/site/docs/gnulinux/guix_system.md>
-* <https://notabug.org/libreboot/lbwww/src/8844c201ef0d1ab856fed2aa5148b89100fffe0d/site/docs/gnulinux/encrypted_trisquel.md>
-* <https://notabug.org/libreboot/lbwww/src/8844c201ef0d1ab856fed2aa5148b89100fffe0d/site/docs/gnulinux/encrypted_parabola.md>
-* <https://notabug.org/libreboot/lbwww/src/8844c201ef0d1ab856fed2aa5148b89100fffe0d/site/docs/gnulinux/configuring_parabola.md>
+* <https://notabug.org/libreboot/lbwww/src/8844c201ef0d1ab856fed2aa5148b89100fffe0d/site/docs/gnulinux/guix_system.html>
+* <https://notabug.org/libreboot/lbwww/src/8844c201ef0d1ab856fed2aa5148b89100fffe0d/site/docs/gnulinux/encrypted_trisquel.html>
+* <https://notabug.org/libreboot/lbwww/src/8844c201ef0d1ab856fed2aa5148b89100fffe0d/site/docs/gnulinux/encrypted_parabola.html>
+* <https://notabug.org/libreboot/lbwww/src/8844c201ef0d1ab856fed2aa5148b89100fffe0d/site/docs/gnulinux/configuring_parabola.html>
 
 The Trisquel one will be almost identical to the Debian one, with perhaps a few
 extra considerations taken. It's recommended to focus on Debian first, and
@@ -46,13 +46,13 @@ guide can also be adapted for the Ubuntu site. This will cover most Ubuntu and
 Debian based distros.
 
 The remaining Debian guide is here:
-<https://notabug.org/libreboot/lbwww/src/8844c201ef0d1ab856fed2aa5148b89100fffe0d/site/docs/gnulinux/encrypted_debian.md>
+<https://notabug.org/libreboot/lbwww/src/8844c201ef0d1ab856fed2aa5148b89100fffe0d/site/docs/gnulinux/encrypted_debian.html>
 
 Document other RPi GNU+Linux distros for SPI flashing
 -----------------------------------------------------
 
 See:
-[../docs/install/spi.md#caution-about-rpi](../docs/install/spi.md#caution-about-rpi)
+[../docs/install/spi.html#caution-about-rpi](../docs/install/spi.html#caution-about-rpi)
 
 RPi's default distro, Raspbian, no longer can be trusted to be secure. TODO:
 document how to use other distros, to configure the RPi for SPI flashing.
