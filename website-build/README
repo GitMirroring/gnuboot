@@ -13,7 +13,7 @@ $ ./autogen.sh
 $ ./configure
 $ make test
 
-Then you can point a browser to http://localhost:8080/software/gnuboot/web/ or
+Then you can point a browser to http://localhost:8086/software/gnuboot/web/ or
 to http://localhost:PORT/software/gnuboot/web/ if you changed the port through
 ./configure options.
 
