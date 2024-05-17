@@ -41,9 +41,9 @@ AM_CONDITIONAL( [WANT_LIGHTTPD], [test x"$lighttpd" = x"yes"])
 AC_ARG_WITH([lighttpd-port],
   [AS_HELP_STRING([--with-lighttpd-port=PORT],
                   [Use a custom TCP port for lighttpd tests instead of the
-                   default one (8080).])],
+                   default one (8086).])],
   [LIGHTTPD_PORT=$withval],
-  [LIGHTTPD_PORT=8080])
+  [LIGHTTPD_PORT=8086])
 
 # --with-rsync-destination
 AC_ARG_WITH([rsync-destination],

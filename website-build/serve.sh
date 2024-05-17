@@ -30,7 +30,7 @@ basedir="$(dirname $(realpath $0))"
 
 tarball="$1"
 
-lighttpd_port=8080
+lighttpd_port=8086
 if [ $# -eq 2 ] ; then
     lighttpd_port="$2"
 fi
