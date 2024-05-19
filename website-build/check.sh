@@ -23,16 +23,36 @@ usage()
 {
 	progname="$1"
 
-	echo "Usage: ${progname} [options]"
+	echo "Usage: ${progname} <option [ARGUMENT]>"
 	echo ""
 	echo "Available options:"
 	echo -e "\t-h, --help"
 	echo -e "\t\tDisplay this help and exit."
+	echo -e "\t-d, --directory DIRECTORY"
+	echo -e "\t\tCheck DIRECTORY"
 	echo -e "\t-t, --tarball TARBALL"
 	echo -e "\t\tCheck TARBALL\n"
 }
 
-test_pattern()
+test_directory_pattern()
+{
+	name="$1"
+	directory="$2"
+	pattern="$3"
+
+	find "${directory}" -print0 | sed "s#^${directory}/##" | grep -q "${pattern}"
+
+	result=$?
+
+	if [ ${result} -eq 0 ] ; then
+		echo "[ OK ] ${name}"
+	else
+		echo "[ !! ] ${name} failed"
+		exit 1
+	fi
+}
+
+test_tarball_pattern()
 {
 	name="$1"
 	tarball="$2"
@@ -50,7 +70,7 @@ test_pattern()
 	fi
 }
 
-test_savannah_cvs_constraints()
+test_tarball_savannah_cvs_constraints()
 {
 	name="$1"
 	tarball="$2"
@@ -65,13 +85,30 @@ test_savannah_cvs_constraints()
 	fi
 }
 
-
-run_tests()
+run_directory_tests()
 {
-	test_pattern "html test" "${tarball}" '\.html$'
-	test_pattern "jpg test" "${tarball}" '\.jpg$'
-	test_savannah_cvs_constraints \
-	    "Savannah CVS: Only /index.html in root directory" \
+	directory="$1"
+
+	directory_name="$(basename "${directory}")"
+
+	test_directory_pattern "${directory_name}: index.html present test" \
+			       "${directory}" \
+			       'software/gnuboot/index.html'
+
+	test_directory_pattern "${directory_name}: html test" \
+			       "${directory}" \
+			       'software/gnuboot/web/.*\.html$'
+}
+
+run_tarball_tests()
+{
+	tarball="$1"
+
+	filename="$(basename "${tarball}")"
+	test_tarball_pattern "${filename}: html test" "${tarball}" '\.html$'
+	test_tarball_pattern "${filename}: jpg test" "${tarball}" '\.jpg$'
+	test_tarball_savannah_cvs_constraints \
+	    "${filename}: Savannah CVS: Only /index.html in root directory" \
 	    "${tarball}"
 }
 
@@ -80,9 +117,12 @@ run_tests()
 if [ $# -eq 1 ] && [ "$1" = "-h" -o "$1" == "--help" ] ; then
 	usage "check.sh"
 	exit 0
+elif [ $# -eq 2 ] && [ "$1" = "-d" -o "$1" = "--directory" ] ; then
+	directory="$(realpath "$2")"
+	run_directory_tests "${directory}"
 elif [ $# -eq 2 ] && [ "$1" = "-t" -o "$1" = "--tarball" ] ; then
 	tarball="$(realpath "$2")"
-	run_tests "${tarball}"
+	run_tarball_tests "${tarball}"
 else
 	usage "check.sh"
 	exit ${EX_USAGE}

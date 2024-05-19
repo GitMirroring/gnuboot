@@ -49,21 +49,32 @@ build:
 endif
 
 if WANT_GUIX
-check: website.tar.gz
+check: build website.tar.gz
+	rm -rf site/
+	mkdir -p site/software/gnuboot/
+	tar xf website.tar.gz -C site/software/gnuboot/
+
 	guix shell \
 		--container \
 		--network \
 		--emulate-fhs \
 		bash \
 		coreutils \
+		findutils \
 		grep \
 		gzip \
+		sed \
 		tar \
 		-- \
+		./check.sh --directory site && \
 		./check.sh --tarball website.tar.gz
 else
-check: website.tar.gz
-		./check.sh --tarball website.tar.gz
+check: build website.tar.gz
+	rm -rf site/
+	mkdir -p site/software/gnuboot/
+	tar xf website.tar.gz -C site/software/gnuboot/
+	./check.sh --directory site
+	./check.sh --tarball website.tar.gz
 endif
 
 help:
