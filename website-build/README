@@ -11,7 +11,7 @@ different git repositories and/or revisions.
 Here's how to deploy the website in a local webserver:
 $ ./autogen.sh
 $ ./configure
-$ make test
+$ make serve
 
 Then you can point a browser to http://localhost:8086/software/gnuboot/web/ or
 to http://localhost:PORT/software/gnuboot/web/ if you changed the port through
@@ -66,7 +66,7 @@ To deploy the website, use the following commands from the website-build
 directory:
     $ ./autogen.sh
     $ ./configure
-    $ make deploy
+    $ make publish
 
 Then you can point a browser to https://gnu.org/software/gnuboot/web/
 
