@@ -96,7 +96,7 @@ instructions](docs/build/).
 Website
 -------
 
-The website is in the GNU Boot source code inside the site/ directory.
+The website is in the GNU Boot source code inside the website/ directory.
 
 It is currently written in Markdown, specifically the Pandoc version
 of it and the static HTML pages are generated with
