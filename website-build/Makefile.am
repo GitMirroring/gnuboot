@@ -14,7 +14,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 .PHONY: all build check help publish serve website.tar.gz
 
-all: website.tar.gz
+all: help
 
 BUILD_OPTIONS :=
 GUIX_SHARE_OPTIONS := --share=`realpath ../`
