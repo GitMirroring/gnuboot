@@ -2,10 +2,11 @@
 This project enables to easily build and deploy the GNU Boot website
 with very few commands.
 
-If you want to test your own modifications, you either need to use the
-configure options to use external repositories that have your
-modifications, or you could also modify the build.sh script to use
-different git repositories and/or revisions.
+If you want to test your own modifications to the dependency being
+used, you either need to use the configure options to use external
+repositories that have your modifications, or you could also modify
+the build.sh script to use different git repositories and/or
+revisions.
 
 == Local deployments ==
 Here's how to deploy the website in a local webserver:
