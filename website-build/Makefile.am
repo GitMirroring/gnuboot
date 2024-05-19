@@ -12,7 +12,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
-.PHONY: all build check help deploy website.tar.gz
+.PHONY: all build check help publish serve website.tar.gz
 
 all: website.tar.gz
 
@@ -67,16 +67,17 @@ check: website.tar.gz
 endif
 
 help:
-	@printf "%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n" \
+	@printf "%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n" \
 		"Available commands:" \
 		"help           # Print this help" \
-		"test           # run lighttpd on localhost:$(LIGHTTPD_PORT)" \
+		"build          # Build the website" \
+		"serve          # run lighttpd on localhost:$(LIGHTTPD_PORT)" \
+		"publish        # Publish the website to https://gnu.org/software/gnuboot" \
 		"check          # Run automatic tests" \
-		"deploy         # Deploy the website to https://gnu.org/software/gnuboot" \
 		"website.tar.gz # Create a tarball of the website"
 
 if WANT_GUIX
-test: website.tar.gz
+serve: website.tar.gz
 	guix shell \
 		--container \
 		--network \
@@ -91,10 +92,10 @@ test: website.tar.gz
 		./serve.sh website.tar.gz $(LIGHTTPD_PORT)
 else
 if WANT_LIGHTTPD
-test: website.tar.gz
+serve: website.tar.gz
 		./serve.sh website.tar.gz $(LIGHTTPD_PORT)
 else
-test:
+serve:
 	@printf "%s %s\n" \
 		"The test target is disabled." \
 		"To enable it, run './configure --enable-lighttpd'."
@@ -107,7 +108,7 @@ endif
 # note that it's possible to rsync some files to gnu.org but not from
 # gnu.org.
 RSYNC_OPTIONS := -av --progress
-deploy: website.tar.gz
+publish: website.tar.gz
 	rm -rf deploy
 	mkdir -p deploy
 	tar xf website.tar.gz -C deploy
