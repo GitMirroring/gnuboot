@@ -96,8 +96,8 @@ copy_website()
 
 	rm -rf "${dst_path}"
 	mkdir -p "${dst_path}"
-	cp "../site.cfg" "${dst_path}"
-	cp -a "../website/" "${dst_path}/site"
+	cp site.cfg "${dst_path}"
+	cp -a "pages/" "${dst_path}/site"
 }
 
 help_missing_arg()

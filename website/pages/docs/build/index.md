@@ -404,5 +404,5 @@ See also:
 =========
 
 If you want to contribute to the website instead, see the
-[website-build/README](https://git.savannah.gnu.org/cgit/gnuboot.git/tree/website-build/README)
+[website/README](https://git.savannah.gnu.org/cgit/gnuboot.git/tree/website/README)
 in the source code of GNU Boot.

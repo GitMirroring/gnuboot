@@ -1,11 +1,11 @@
 == Introduction ==
-This project enables to easily build and deploy the GNU Boot website
-with very few commands.
+This directory contains both the website in pages/ and build code to
+easily build and deploy the GNU Boot website with very few commands.
 
-If you want to test your own modifications to the dependency being
-used, you either need to use the configure options to use external
-repositories that have your modifications, or you could also modify
-the build.sh script to use different git repositories and/or
+If you want to test your own modifications to the dependencies of this
+build code, you either need to use the configure options to use
+external repositories that have your modifications, or you could also
+modify the build.sh script to use different git repositories and/or
 revisions.
 
 == Local deployments ==
@@ -63,7 +63,7 @@ point. You can exit it with the Ctrl+D or Ctrl+C key combinations.
 
 At this point everything is setup.
 
-To deploy the website, use the following commands from the website-build
+To deploy the website, use the following commands from the website
 directory:
     $ ./autogen.sh
     $ ./configure

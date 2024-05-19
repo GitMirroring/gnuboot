@@ -34,7 +34,7 @@ build_website()
 {
     version="$(git --no-pager describe --tags HEAD)"
 
-    cd website-build
+    cd website
     ./autogen.sh
     ./configure --disable-guix --disable-lighttpd
     make website.tar.gz
