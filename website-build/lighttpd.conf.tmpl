@@ -15,7 +15,7 @@
 
 server.bind             = "localhost"
 server.port		= LIGHTTPD_PORT
-server.document-root	= "TMPDIR"
+server.document-root    = var.CWD + "/site/"
 dir-listing.activate	= "enable"
 index-file.names	= ( "index.html" )
 mimetype.assign		= (

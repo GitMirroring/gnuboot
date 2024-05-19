@@ -37,13 +37,12 @@ if [ $# -eq 2 ] ; then
     lighttpd_port="$2"
 fi
 
-tmpdir="$(mktemp -d)"
-mkdir -p "${tmpdir}/software/gnuboot/"
+destdir="site/software/gnuboot/"
+mkdir -p "${destdir}"
 
-tar xf "${tarball}" -C "${tmpdir}/software/gnuboot/"
+tar xf "${tarball}" -C "${destdir}"
 
-sed -e "s#TMPDIR#${tmpdir}#g" \
-    -e "s#LIGHTTPD_PORT#${lighttpd_port}#g" \
+sed -e "s#LIGHTTPD_PORT#${lighttpd_port}#g" \
     "${basedir}/lighttpd.conf.tmpl" > \
     "${basedir}/lighttpd.conf"
 
