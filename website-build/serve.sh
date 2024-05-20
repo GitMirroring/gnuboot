@@ -18,12 +18,14 @@ set -e
 
 usage()
 {
-	echo "$0 <path/to/tarball> [PORT]"
+	progname="$1"
+
+	echo "${progname} <path/to/tarball> [PORT]"
 	exit 1
 }
 
 if [ $# -ne 1 ] && [ $# -ne 2 ] ; then
-	usage
+	usage "serve.sh"
 fi
 
 basedir="$(dirname $(realpath $0))"
