@@ -842,8 +842,7 @@ Libreboot Inside stickers are available as a
 a
 [vector](../../img/logo/stickers/libreboot-inside-simple-bold-1.60cmx2.00cm-diecut-3.svg)
 
-You can find all of the available logos by browsing this directory:\
-</software/gnuboot/web/img/logo/>
+You can find all of the available logos by browsing [this directory](img/logo/).
 
 What other firmware exists outside of GNU Boot?
 ==================================================
