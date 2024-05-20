@@ -157,7 +157,7 @@ Here are some photos:
 TODO: add photos that michael sent me. i'm waiting for michael to confirm what
 license. for now see these photos that i pulled from a search engine:
 
-* <ttps://pc-1.ru/pic/big/1186411.jpg>
+* <https://pc-1.ru/pic/big/1186411.jpg>
 * <https://i5.walmartimages.com/asr/7ded9e88-73e6-4bc4-9b2a-ff22313c7172_2.9abea30734ddf03fc15b7188cb3e92cd.jpeg>
 
 For flashing instructions:
