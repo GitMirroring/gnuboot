@@ -33,5 +33,7 @@
       #:readers (list untitled-reader)
       #:builders (list (gnuboot-website
 			#:prefix "software/gnuboot/web")
+		       (static-directory "html"
+					 "software/gnuboot/")
                        (static-directory "static"
 					 "software/gnuboot/web/static")))
