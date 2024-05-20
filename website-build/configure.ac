@@ -68,6 +68,10 @@ AC_ARG_WITH([untitled-path],
 AM_CONDITIONAL( [WANT_UNTITLED_PATH], [test x"$UNTITLED_PATH" != x""])
 
 # Check dependencies
+AC_CHECK_PROG([FOUND_AWK], [awk], [awk])
+AS_IF([test x"$FOUND_AWK" = x""],
+      [AC_MSG_ERROR([awk was not found in PATH ($PATH)])])
+
 AC_CHECK_PROG([FOUND_REALPATH], [realpath], [realpath])
 AS_IF([test x"$FOUND_REALPATH" = x""],
       [AC_MSG_ERROR([realpath was not found in PATH ($PATH)])])
