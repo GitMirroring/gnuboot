@@ -23,15 +23,34 @@ usage()
 {
 	progname="$1"
 
-	echo "Usage: ${progname} <option [ARGUMENT]>"
-	echo ""
-	echo "Available options:"
-	echo -e "\t-h, --help"
-	echo -e "\t\tDisplay this help and exit."
-	echo -e "\t-d, --directory DIRECTORY"
-	echo -e "\t\tCheck DIRECTORY"
-	echo -e "\t-t, --tarball TARBALL"
-	echo -e "\t\tCheck TARBALL\n"
+	printf "Examples:\n"
+	printf "\t%s %s %s\n" \
+	       "${progname}" \
+	       "--website-prefix software/gnuboot" \
+	       "--directory site"
+	printf "\t%s %s %s\n" \
+	       "${progname}" \
+	       "--website-prefix software/gnuboot" \
+	       "--tarball website.tar.gz"
+	printf "\n"
+
+	printf "Usage:\n"
+	printf "\t%s %s\n" "${progname}" "<-h|--help>"
+	printf "\t%s %s %s\n" "${progname}" \
+	       "--website-prefix PREFIX" "<COMMAND [ARGUMENT]>"
+	printf "\n"
+
+	printf "Main commands:\n"
+	printf "\t-d, --directory DIRECTORY\n"
+	printf "\t\tCheck DIRECTORY\n"
+	printf "\t-t, --tarball TARBALL\n"
+	printf "\t\tCheck TARBALL\n"
+	printf "\n"
+
+	printf "Other options:\n"
+	printf "\t-h, --help\n"
+	printf "\t\tDisplay this help and exit.\n"
+	printf "\n"
 }
 
 test_directory_pattern()
@@ -88,21 +107,23 @@ test_tarball_savannah_cvs_constraints()
 run_directory_tests()
 {
 	directory="$1"
+	prefix="$2"
 
 	directory_name="$(basename "${directory}")"
 
 	test_directory_pattern "${directory_name}: index.html present test" \
 			       "${directory}" \
-			       'software/gnuboot/index.html'
+			       "${prefix}/index.html"
 
 	test_directory_pattern "${directory_name}: html test" \
 			       "${directory}" \
-			       'software/gnuboot/web/.*\.html$'
+			       "${prefix}/web/.*\.html$"
 }
 
 run_tarball_tests()
 {
 	tarball="$1"
+	prefix="$2"
 
 	filename="$(basename "${tarball}")"
 	test_tarball_pattern "${filename}: html test" "${tarball}" '\.html$'
@@ -117,12 +138,18 @@ run_tarball_tests()
 if [ $# -eq 1 ] && [ "$1" = "-h" -o "$1" == "--help" ] ; then
 	usage "check.sh"
 	exit 0
-elif [ $# -eq 2 ] && [ "$1" = "-d" -o "$1" = "--directory" ] ; then
-	directory="$(realpath "$2")"
-	run_directory_tests "${directory}"
-elif [ $# -eq 2 ] && [ "$1" = "-t" -o "$1" = "--tarball" ] ; then
-	tarball="$(realpath "$2")"
-	run_tarball_tests "${tarball}"
+elif [ $# -eq 4 ] && [ "$1" = "--website-prefix" ] ; then
+	prefix="$2"
+	if [ "$3" = "-d" -o "$3" = "--directory" ] ; then
+		directory="$(realpath "$4")"
+		run_directory_tests "${directory}" "${prefix}"
+	elif [ "$3" = "-t" -o "$3" = "--tarball" ] ; then
+		tarball="$(realpath "$4")"
+		run_tarball_tests "${tarball}" "${prefix}"
+	else
+		usage "check.sh"
+		exit ${EX_USAGE}
+	fi
 else
 	usage "check.sh"
 	exit ${EX_USAGE}

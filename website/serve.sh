@@ -20,27 +20,26 @@ usage()
 {
 	progname="$1"
 
-	echo "${progname} <path/to/tarball> [PORT]"
+	echo "${progname} --website-prefix PREFIX <path/to/tarball> [PORT]"
 	exit 1
 }
 
-if [ $# -ne 1 ] && [ $# -ne 2 ] ; then
+if [ $# -ne 3 ] && [ $# -ne 4 ] && [ "$1" != "--website-prefix" ] ; then
 	usage "serve.sh"
 fi
 
 basedir="$(dirname $(realpath $0))"
 
-tarball="$1"
+prefix="$2"
+tarball="$3"
 
 lighttpd_port=8086
 if [ $# -eq 2 ] ; then
-    lighttpd_port="$2"
+    lighttpd_port="$4"
 fi
 
-destdir="site/software/gnuboot/"
-mkdir -p "${destdir}"
-
-tar xf "${tarball}" -C "${destdir}"
+mkdir -p "site/${prefix}"
+tar xf "${tarball}" -C "site/${prefix}"
 
 sed -e "s#LIGHTTPD_PORT#${lighttpd_port}#g" \
     "${basedir}/lighttpd.conf.tmpl" > \

@@ -21,6 +21,7 @@ AC_SUBST([LIGHTTPD_PORT], [])
 AC_SUBST([RSYNC_DESTINATION], [])
 AC_SUBST([UNTITLED_PATH], [])
 AC_SUBST([UNTITLED_GIT_FOUND], [])
+AC_SUBST([WEBSITE_PREFIX], [])
 
 # --enable-guix
 AC_ARG_ENABLE(guix,
@@ -64,6 +65,19 @@ AC_ARG_WITH([untitled-path],
 		   https://git.sr.ht/~libreboot/untitled .])],
   [UNTITLED_PATH=$withval],
   [])
+
+AM_CONDITIONAL( [WANT_UNTITLED_PATH], [test x"$UNTITLED_PATH" != x""])
+
+# --with-website-prefix
+AC_ARG_WITH([website-prefix],
+  [AS_HELP_STRING(
+    [--with-website-prefix=PREFIX],
+    [By default, the website is to be deployed to
+     https://www.gnu.org/software/gnuboot/. But if you want to deploy to another
+     URL like https://mysite.org/test/, you would need to change the website
+     prefix to /test/ instead of the default one (software/gnuboot).])],
+  [WEBSITE_PREFIX=$withval],
+  [WEBSITE_PREFIX=software/gnuboot])
 
 AM_CONDITIONAL( [WANT_UNTITLED_PATH], [test x"$UNTITLED_PATH" != x""])
 
@@ -175,3 +189,5 @@ AS_ECHO(["    RSYNC_DESTINATION: $RSYNC_DESTINATION"])
 
 AS_IF([test x"$UNTITLED_PATH" != x""],
       [AS_ECHO(["    UNTITLED_PATH: $UNTITLED_PATH"])])
+
+AS_ECHO(["    WEBSITE_PREFIX: $WEBSITE_PREFIX"])
