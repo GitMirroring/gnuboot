@@ -82,94 +82,94 @@ The procedure
 -------------
 
 Remove *all* screws, placing them in the order that you removed them:\
-![](/software/gnuboot/web/img/t400/0001.jpg) ![](/software/gnuboot/web/img/t400/0002.jpg)
+![](../../img/t400/0001.jpg) ![](../../img/t400/0002.jpg)
 
 Remove those three screws then remove the rear bezel:\
-![](/software/gnuboot/web/img/t400/0003.jpg) ![](/software/gnuboot/web/img/t400/0004.jpg)
-![](/software/gnuboot/web/img/t400/0005.jpg) ![](/software/gnuboot/web/img/t400/0006.jpg)
+![](../../img/t400/0003.jpg) ![](../../img/t400/0004.jpg)
+![](../../img/t400/0005.jpg) ![](../../img/t400/0006.jpg)
 
 Remove the speakers:\
-![](/software/gnuboot/web/img/t400/0007.jpg) ![](/software/gnuboot/web/img/t400/0008.jpg)
-![](/software/gnuboot/web/img/t400/0009.jpg) ![](/software/gnuboot/web/img/t400/0010.jpg)
-![](/software/gnuboot/web/img/t400/0011.jpg)
+![](../../img/t400/0007.jpg) ![](../../img/t400/0008.jpg)
+![](../../img/t400/0009.jpg) ![](../../img/t400/0010.jpg)
+![](../../img/t400/0011.jpg)
 
 Remove the wifi:\
-![](/software/gnuboot/web/img/t400/0012.jpg) ![](/software/gnuboot/web/img/t400/0013.jpg)
+![](../../img/t400/0012.jpg) ![](../../img/t400/0013.jpg)
 
 Remove this cable:\
-![](/software/gnuboot/web/img/t400/0014.jpg) ![](/software/gnuboot/web/img/t400/0015.jpg)
-![](/software/gnuboot/web/img/t400/0016.jpg) ![](/software/gnuboot/web/img/t400/0017.jpg)
-![](/software/gnuboot/web/img/t400/0018.jpg)
+![](../../img/t400/0014.jpg) ![](../../img/t400/0015.jpg)
+![](../../img/t400/0016.jpg) ![](../../img/t400/0017.jpg)
+![](../../img/t400/0018.jpg)
 
 Unroute those antenna wires:\
-![](/software/gnuboot/web/img/t400/0019.jpg) ![](/software/gnuboot/web/img/t400/0020.jpg)
-![](/software/gnuboot/web/img/t400/0021.jpg) ![](/software/gnuboot/web/img/t400/0022.jpg)
-![](/software/gnuboot/web/img/t400/0023.jpg)
+![](../../img/t400/0019.jpg) ![](../../img/t400/0020.jpg)
+![](../../img/t400/0021.jpg) ![](../../img/t400/0022.jpg)
+![](../../img/t400/0023.jpg)
 
 Remove the LCD assembly:\
-![](/software/gnuboot/web/img/t400/0024.jpg) ![](/software/gnuboot/web/img/t400/0025.jpg)
-![](/software/gnuboot/web/img/t400/0026.jpg) ![](/software/gnuboot/web/img/t400/0027.jpg)
-![](/software/gnuboot/web/img/t400/0028.jpg) ![](/software/gnuboot/web/img/t400/0029.jpg)
-![](/software/gnuboot/web/img/t400/0030.jpg) ![](/software/gnuboot/web/img/t400/0031.jpg)
+![](../../img/t400/0024.jpg) ![](../../img/t400/0025.jpg)
+![](../../img/t400/0026.jpg) ![](../../img/t400/0027.jpg)
+![](../../img/t400/0028.jpg) ![](../../img/t400/0029.jpg)
+![](../../img/t400/0030.jpg) ![](../../img/t400/0031.jpg)
 
 Disconnect the NVRAM battery:\
-![](/software/gnuboot/web/img/t400/0033.jpg)
+![](../../img/t400/0033.jpg)
 
 Disconnect the fan:\
-![](/software/gnuboot/web/img/t400/0034.jpg)
+![](../../img/t400/0034.jpg)
 
 Unscrew these:\
-![](/software/gnuboot/web/img/t400/0035.jpg) ![](/software/gnuboot/web/img/t400/0036.jpg)
-![](/software/gnuboot/web/img/t400/0037.jpg) ![](/software/gnuboot/web/img/t400/0038.jpg)
+![](../../img/t400/0035.jpg) ![](../../img/t400/0036.jpg)
+![](../../img/t400/0037.jpg) ![](../../img/t400/0038.jpg)
 
 Unscrew the heatsink, then lift it off:\
-![](/software/gnuboot/web/img/t400/0039.jpg) ![](/software/gnuboot/web/img/t400/0040.jpg)
+![](../../img/t400/0039.jpg) ![](../../img/t400/0040.jpg)
 
 Disconnect the power jack:\
-![](/software/gnuboot/web/img/t400/0041.jpg) ![](/software/gnuboot/web/img/t400/0042.jpg)
+![](../../img/t400/0041.jpg) ![](../../img/t400/0042.jpg)
 
 Loosen this:\
-![](/software/gnuboot/web/img/t400/0043.jpg)
+![](../../img/t400/0043.jpg)
 
 Remove this:\
-![](/software/gnuboot/web/img/t400/0044.jpg) ![](/software/gnuboot/web/img/t400/0045.jpg)
-![](/software/gnuboot/web/img/t400/0046.jpg) ![](/software/gnuboot/web/img/t400/0047.jpg)
-![](/software/gnuboot/web/img/t400/0048.jpg)
+![](../../img/t400/0044.jpg) ![](../../img/t400/0045.jpg)
+![](../../img/t400/0046.jpg) ![](../../img/t400/0047.jpg)
+![](../../img/t400/0048.jpg)
 
 Unscrew these:\
-![](/software/gnuboot/web/img/t400/0049.jpg) ![](/software/gnuboot/web/img/t400/0050.jpg)
+![](../../img/t400/0049.jpg) ![](../../img/t400/0050.jpg)
 
 Remove this:\
-![](/software/gnuboot/web/img/t400/0051.jpg) ![](/software/gnuboot/web/img/t400/0052.jpg)
+![](../../img/t400/0051.jpg) ![](../../img/t400/0052.jpg)
 
 Unscrew this:\
-![](/software/gnuboot/web/img/t400/0053.jpg)
+![](../../img/t400/0053.jpg)
 
 Remove the motherboard (the cage is still attached) from the right hand
 side, then lift it out:\
-![](/software/gnuboot/web/img/t400/0054.jpg) ![](/software/gnuboot/web/img/t400/0055.jpg)
-![](/software/gnuboot/web/img/t400/0056.jpg)
+![](../../img/t400/0054.jpg) ![](../../img/t400/0055.jpg)
+![](../../img/t400/0056.jpg)
 
 Remove these screws, placing the screws in the same layout and marking
 each screw hole (so that you know what ones to put the screws back into
-later): ![](/software/gnuboot/web/img/t400/0057.jpg) ![](/software/gnuboot/web/img/t400/0058.jpg)
-![](/software/gnuboot/web/img/t400/0059.jpg) ![](/software/gnuboot/web/img/t400/0060.jpg)
-![](/software/gnuboot/web/img/t400/0061.jpg) ![](/software/gnuboot/web/img/t400/0062.jpg)
+later): ![](../../img/t400/0057.jpg) ![](../../img/t400/0058.jpg)
+![](../../img/t400/0059.jpg) ![](../../img/t400/0060.jpg)
+![](../../img/t400/0061.jpg) ![](../../img/t400/0062.jpg)
 
 Separate the motherboard:\
-![](/software/gnuboot/web/img/t400/0063.jpg) ![](/software/gnuboot/web/img/t400/0064.jpg)
+![](../../img/t400/0063.jpg) ![](../../img/t400/0064.jpg)
 
 Connect your programmer, then connect GND and 3.3V\
-![](/software/gnuboot/web/img/t400/0065.jpg) ![](/software/gnuboot/web/img/t400/0066.jpg)
-![](/software/gnuboot/web/img/t400/0067.jpg) ![](/software/gnuboot/web/img/t400/0069.jpg)
-![](/software/gnuboot/web/img/t400/0070.jpg) ![](/software/gnuboot/web/img/t400/0071.jpg)
+![](../../img/t400/0065.jpg) ![](../../img/t400/0066.jpg)
+![](../../img/t400/0067.jpg) ![](../../img/t400/0069.jpg)
+![](../../img/t400/0070.jpg) ![](../../img/t400/0071.jpg)
 
 A dedicated 3.3V PSU was used to create this guide, but at ATX PSU is
 also fine:\
-![](/software/gnuboot/web/img/t400/0072.jpg)
+![](../../img/t400/0072.jpg)
 
 Of course, make sure to turn on your PSU:\
-![](/software/gnuboot/web/img/x200/disassembly/0013.jpg)
+![](../../img/x200/disassembly/0013.jpg)
 
 Now, you should be ready to install libreboot.
 
@@ -187,7 +187,7 @@ When re-installing the heatsink, you must first clean off all old paste
 with the alcohol/cloth. Then apply new paste. Arctic MX-4 is also much
 better than the default paste used on these systems.
 
-![](/software/gnuboot/web/img/t400/paste.jpg)
+![](../../img/t400/paste.jpg)
 
 NOTE: the photo above is for illustration purposes only, and does not
 show how to properly apply the thermal paste. Other guides online detail
@@ -212,13 +212,13 @@ be useful for RAM compatibility info (note: coreboot raminit is
 different, so this page might be BS)
 
 The following photo shows 8GiB (2x4GiB) of RAM installed:\
-![](/software/gnuboot/web/img/t400/memory.jpg)
+![](../../img/t400/memory.jpg)
 
 Boot it!
 --------
 
 You should see something like this:
 
-![](/software/gnuboot/web/img/t400/boot0.jpg) ![](/software/gnuboot/web/img/t400/boot1.jpg)
+![](../../img/t400/boot0.jpg) ![](../../img/t400/boot1.jpg)
 
 Now [install GNU+Linux](../gnulinux/).
