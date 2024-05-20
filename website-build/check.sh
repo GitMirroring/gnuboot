@@ -19,9 +19,11 @@ EX_USAGE=64
 
 tarball=""
 
-help()
+usage()
 {
-	echo "Usage: $0 [options]"
+	progname="$1"
+
+	echo "Usage: ${progname} [options]"
 	echo ""
 	echo "Available options:"
 	echo -e "\t-h, --help"
@@ -76,12 +78,12 @@ run_tests()
 # shellcheck disable=SC2166 # We want to make operator precedence
 # clear.
 if [ $# -eq 1 ] && [ "$1" = "-h" -o "$1" == "--help" ] ; then
-	help
+	usage "check.sh"
 	exit 0
 elif [ $# -eq 2 ] && [ "$1" = "-t" -o "$1" = "--tarball" ] ; then
 	tarball="$(realpath "$2")"
 	run_tests "${tarball}"
 else
-	help
+	usage "check.sh"
 	exit ${EX_USAGE}
 fi
