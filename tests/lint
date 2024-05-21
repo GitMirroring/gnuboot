@@ -66,6 +66,7 @@ run_shellcheck \
     resources/scripts/tasks/distclean.sh \
     tests/distclean \
     tests/lint \
+    website-build/build.sh \
     website-build/check.sh
 
 printf "+---------------------+\n"

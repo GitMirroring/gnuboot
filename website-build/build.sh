@@ -50,7 +50,7 @@ sync_repo()
 		git clone "${src_uri}" "${dst_path}"
 		git -C "${dst_path}" checkout "${src_revision}"
 	elif [ ! -d "${dst_path}" ] ; then
-		mkdir -p "$(dirname ${dst_path})"
+		mkdir -p "$(dirname "${dst_path}")"
 		cp -a "${src_path}" "${dst_path}"
 		if [ -n "${src_revision}" ] ; then
 			git -C "${dst_path}" checkout "${src_revision}"
@@ -79,7 +79,7 @@ sync_repo()
 		for patch in ${src_patches} ; do
 			GIT_COMMITTER_EMAIL="noreply@gnuboot.gnu.org" \
 			GIT_COMMITTER_NAME="website-build" \
-			git -C "${dst_path}" am $(realpath ${patch})
+			git -C "${dst_path}" am "$(realpath "${patch}")"
 		done
 	else
 		rm -rf "${dst_path}"
@@ -124,8 +124,8 @@ while [ "$i" -le $# ] ; do
 				help_missing_arg "--with-untitled-path"
 				exit ${EX_USAGE}
 			fi
-			untitled_path="$(eval echo \$$(expr $i + 1))"
-			i="$(expr "$i" + 1)"
+			untitled_path="$(eval echo \$$((i + 1)))"
+			i="$((i + 1))"
 			;;
 		*)
 			help
@@ -133,7 +133,7 @@ while [ "$i" -le $# ] ; do
 			;;
 	esac
 
-	i="$(expr "$i" + 1)"
+	i="$((i + 1))"
 done
 
 set -e
