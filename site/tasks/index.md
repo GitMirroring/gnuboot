@@ -162,7 +162,7 @@ license. for now see these photos that i pulled from a search engine:
 
 For flashing instructions:
 
-* Refer to </software/gnuboot/web/img/g43t-am3/soic8.jpg> - a proper photo is
+* Refer to [this picture](../img/g43t-am3/soic8.jpg) - a proper photo is
   not available under a free license, or could not be found, so this diagram
   was made
 * NOTE: It might not be possible to do ISP flashing. Several other X4X desktop
