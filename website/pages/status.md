@@ -34,34 +34,34 @@ GNU Boot 0.1 RC3 status
 +----------+-----------------+-----------+-----------------------------+
 | Intel    | D945GCLF        | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad R400   | Untested  | Untested                    |
+| Lenovo   | ThinkPad R400   | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad R500   | Untested  | Untested                    |
+| Lenovo   | ThinkPad R500   | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad T400   | Untested  | Untested                    |
+| Lenovo   | ThinkPad T400   | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad T400S  | Untested  | Untested                    |
+| Lenovo   | ThinkPad T400S  | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad T500   | Untested  | Untested                    |
+| Lenovo   | ThinkPad T500   | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad T60    | Untested  | Untested, can be simplified |
+| Lenovo   | ThinkPad T60    | Untested  | Untested, can be simplified |
 |          | with intel GPU  |           |                             |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad W500   | Untested  | Untested                    |
+| Lenovo   | ThinkPad W500   | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad X200   | Untested  | Untested                    |
+| Lenovo   | ThinkPad X200   | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad X200S  | Untested  | Untested                    |
+| Lenovo   | ThinkPad X200S  | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad X200T  | Untested  | Untested                    |
+| Lenovo   | ThinkPad X200T  | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad X301   | Untested  | Untested                    |
+| Lenovo   | ThinkPad X301   | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad X60    | Untested  | Untested, can be simplified |
+| Lenovo   | ThinkPad X60    | Untested  | Untested, can be simplified |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad X60T   | Untested  | Untested, can be simplified |
+| Lenovo   | ThinkPad X60T   | Untested  | Untested, can be simplified |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad X60s   | Untested  | Untested, can be simplified |
+| Lenovo   | ThinkPad X60s   | Untested  | Untested, can be simplified |
 +----------+-----------------+-----------+-----------------------------+
 | Qemu     | PC (i440FX)     | Untested  | Missing                     |
 +----------+-----------------+-----------+-----------------------------+
@@ -136,34 +136,34 @@ the RC2 to reduce the risk of testers.
 +----------+-----------------+-----------+-----------------------------+
 | Intel    | D945GCLF        | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad R400   | Untested  | Untested                    |
+| Lenovo   | ThinkPad R400   | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad R500   | Untested  | Untested                    |
+| Lenovo   | ThinkPad R500   | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad T400   | Tested    | Untested                    |
+| Lenovo   | ThinkPad T400   | Tested    | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad T400S  | Untested  | Untested                    |
+| Lenovo   | ThinkPad T400S  | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad T500   | Untested  | Untested                    |
+| Lenovo   | ThinkPad T500   | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad T60    | Tested    | Untested, can be simplified |
+| Lenovo   | ThinkPad T60    | Tested    | Untested, can be simplified |
 |          | with intel GPU  |           |                             |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad W500   | Untested  | Untested                    |
+| Lenovo   | ThinkPad W500   | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad X200   | Tested    | Untested                    |
+| Lenovo   | ThinkPad X200   | Tested    | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad X200S  | Untested  | Untested                    |
+| Lenovo   | ThinkPad X200S  | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad X200T  | Untested  | Untested                    |
+| Lenovo   | ThinkPad X200T  | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad X301   | Untested  | Untested                    |
+| Lenovo   | ThinkPad X301   | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad X60    | Tested    | Untested, can be simplified |
+| Lenovo   | ThinkPad X60    | Tested    | Untested, can be simplified |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad X60T   | Tested    | Untested, can be simplified |
+| Lenovo   | ThinkPad X60T   | Tested    | Untested, can be simplified |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad X60s   | Untested  | Untested, can be simplified |
+| Lenovo   | ThinkPad X60s   | Untested  | Untested, can be simplified |
 +----------+-----------------+-----------+-----------------------------+
 | Qemu     | PC (i440FX)     | Tested    | Missing                     |
 +----------+-----------------+-----------+-----------------------------+
@@ -201,34 +201,34 @@ GNU Boot 0.1 RC1 status
 +----------+-----------------+-----------+-----------------------------+
 | Intel    | D945GCLF        | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad R400   | Tested    | Untested                    |
+| Lenovo   | ThinkPad R400   | Tested    | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad R500   | Untested  | Untested                    |
+| Lenovo   | ThinkPad R500   | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad T400   | Tested    | Untested                    |
+| Lenovo   | ThinkPad T400   | Tested    | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad T400S  | Untested  | Untested                    |
+| Lenovo   | ThinkPad T400S  | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad T500   | Tested    | Untested                    |
+| Lenovo   | ThinkPad T500   | Tested    | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad T60    | Tested    | Untested, can be simplified |
+| Lenovo   | ThinkPad T60    | Tested    | Untested, can be simplified |
 |          | with intel GPU  |           |                             |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad W500   | Tested    | Untested                    |
+| Lenovo   | ThinkPad W500   | Tested    | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad X200   | Tested    | Untested                    |
+| Lenovo   | ThinkPad X200   | Tested    | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad X200S  | Untested  | Untested                    |
+| Lenovo   | ThinkPad X200S  | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad X200T  | Untested  | Untested                    |
+| Lenovo   | ThinkPad X200T  | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad X301   | Tested    | Untested                    |
+| Lenovo   | ThinkPad X301   | Tested    | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad X60    | Tested    | Untested, can be simplified |
+| Lenovo   | ThinkPad X60    | Tested    | Untested, can be simplified |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad X60T   | Tested    | Untested, can be simplified |
+| Lenovo   | ThinkPad X60T   | Tested    | Untested, can be simplified |
 +----------+-----------------+-----------+-----------------------------+
-| Lenovo   | Thinkpad X60s   | Untested  | Untested, can be simplified |
+| Lenovo   | ThinkPad X60s   | Untested  | Untested, can be simplified |
 +----------+-----------------+-----------+-----------------------------+
 
 See the status of GNU Boot 0.1 RC3 above for the meaning of the
@@ -264,34 +264,34 @@ Upstream status
 +----------+-----------------+---------------------------+---------------------+
 | Intel    | D945GCLF        | Unmaintained              | new GPU driver      |
 +----------+-----------------+---------------------------+---------------------+
-| Lenovo   | Thinkpad R400   | Maintained                | new GPU driver      |
+| Lenovo   | ThinkPad R400   | Maintained                | new GPU driver      |
 +----------+-----------------+---------------------------+---------------------+
-| Lenovo   | Thinkpad R500   | Maintained                | new GPU driver      |
+| Lenovo   | ThinkPad R500   | Maintained                | new GPU driver      |
 +----------+-----------------+---------------------------+---------------------+
-| Lenovo   | Thinkpad T400   | Maintained                | new GPU driver      |
+| Lenovo   | ThinkPad T400   | Maintained                | new GPU driver      |
 +----------+-----------------+---------------------------+---------------------+
-| Lenovo   | Thinkpad T400s  | Similar to Thinkpad T400  | new GPU driver      |
+| Lenovo   | ThinkPad T400s  | Similar to ThinkPad T400  | new GPU driver      |
 +----------+-----------------+---------------------------+---------------------+
-| Lenovo   | Thinkpad T500   | Maintained                | new GPU driver      |
+| Lenovo   | ThinkPad T500   | Maintained                | new GPU driver      |
 +----------+-----------------+---------------------------+---------------------+
-| Lenovo   | Thinkpad T60    | Maintained                | old GPU driver      |
+| Lenovo   | ThinkPad T60    | Maintained                | old GPU driver      |
 |          | with intel GPU  |                           |                     |
 +----------+-----------------+---------------------------+---------------------+
-| Lenovo   | Thinkpad W500   | Maintained                | new GPU driver      |
+| Lenovo   | ThinkPad W500   | Maintained                | new GPU driver      |
 +----------+-----------------+---------------------------+---------------------+
-| Lenovo   | Thinkpad X200   | Maintained                | new GPU driver      |
+| Lenovo   | ThinkPad X200   | Maintained                | new GPU driver      |
 +----------+-----------------+---------------------------+---------------------+
-| Lenovo   | Thinkpad X200s  | Maintained                | new GPU driver      |
+| Lenovo   | ThinkPad X200s  | Maintained                | new GPU driver      |
 +----------+-----------------+---------------------------+---------------------+
-| Lenovo   | Thinkpad X200T  | Maintained                | new GPU driver      |
+| Lenovo   | ThinkPad X200T  | Maintained                | new GPU driver      |
 +----------+-----------------+---------------------------+---------------------+
-| Lenovo   | Thinkpad X301   | Maintained                | new GPU driver      |
+| Lenovo   | ThinkPad X301   | Maintained                | new GPU driver      |
 +----------+-----------------+---------------------------+---------------------+
-| Lenovo   | Thinkpad X60    | Maintained                | old GPU driver      |
+| Lenovo   | ThinkPad X60    | Maintained                | old GPU driver      |
 +----------+-----------------+---------------------------+---------------------+
-| Lenovo   | Thinkpad X60T   | Maintained                | old GPU driver      |
+| Lenovo   | ThinkPad X60T   | Maintained                | old GPU driver      |
 +----------+-----------------+---------------------------+---------------------+
-| Lenovo   | Thinkpad X60s   | Maintained                | old GPU driver      |
+| Lenovo   | ThinkPad X60s   | Maintained                | old GPU driver      |
 +----------+-----------------+---------------------------+---------------------+
 
 Coreboot status:
