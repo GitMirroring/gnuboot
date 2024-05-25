@@ -45,6 +45,7 @@ Estado de GNU Boot 0.1 RC3
 | Lenovo   | Thinkpad T500   | No probado  | No probado                           |
 +----------+-----------------+-------------+--------------------------------------+
 | Lenovo   | Thinkpad T60    | No probado  | No probado, se puede simplificar     |
+|          | con GPU intel   |             |                                      |
 +----------+-----------------+-------------+--------------------------------------+
 | Lenovo   | Thinkpad W500   | No probado  | No probado                           |
 +----------+-----------------+-------------+--------------------------------------+
@@ -149,6 +150,7 @@ algunas computadoras en el RC2 para reducir el riesgo de los probadores.
 | Lenovo   | Thinkpad T500   | No probado  | No probado                           |
 +----------+-----------------+-------------+--------------------------------------+
 | Lenovo   | Thinkpad T60    | Probado     | No probado, se puede simplificar     |
+|          | con GPU intel   |             |                                      |
 +----------+-----------------+-------------+--------------------------------------+
 | Lenovo   | Thinkpad W500   | No probado  | No probado                           |
 +----------+-----------------+-------------+--------------------------------------+
@@ -213,6 +215,7 @@ Estado de GNU Boot 0.1 RC1
 | Lenovo   | Thinkpad T500   | Probado     | No probado                           |
 +----------+-----------------+-------------+--------------------------------------+
 | Lenovo   | Thinkpad T60    | Probado     | No probado, se puede simplificar     |
+|          | con GPU intel   |             |                                      |
 +----------+-----------------+-------------+--------------------------------------+
 | Lenovo   | Thinkpad W500   | Probado     | No probado                           |
 +----------+-----------------+-------------+--------------------------------------+
@@ -275,6 +278,7 @@ Estado de "Upstream" (Contracorriente)
 | Lenovo   | Thinkpad T500   | Mantenido                | nuevo controlador de GPU       |
 +----------+-----------------+--------------------------+--------------------------------+
 | Lenovo   | Thinkpad T60    | Mantenido                | controlador de GPU antiguo     |
+|          | con GPU intel   |                          |                                |
 +----------+-----------------+--------------------------+--------------------------------+
 | Lenovo   | Thinkpad W500   | Mantenido                | nuevo controlador de GPU       |
 +----------+-----------------+--------------------------+--------------------------------+

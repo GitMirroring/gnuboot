@@ -45,6 +45,7 @@ GNU Boot 0.1 RC3 status
 | Lenovo   | Thinkpad T500   | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
 | Lenovo   | Thinkpad T60    | Untested  | Untested, can be simplified |
+|          | with intel GPU  |           |                             |
 +----------+-----------------+-----------+-----------------------------+
 | Lenovo   | Thinkpad W500   | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
@@ -146,6 +147,7 @@ the RC2 to reduce the risk of testers.
 | Lenovo   | Thinkpad T500   | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
 | Lenovo   | Thinkpad T60    | Tested    | Untested, can be simplified |
+|          | with intel GPU  |           |                             |
 +----------+-----------------+-----------+-----------------------------+
 | Lenovo   | Thinkpad W500   | Untested  | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
@@ -210,6 +212,7 @@ GNU Boot 0.1 RC1 status
 | Lenovo   | Thinkpad T500   | Tested    | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
 | Lenovo   | Thinkpad T60    | Tested    | Untested, can be simplified |
+|          | with intel GPU  |           |                             |
 +----------+-----------------+-----------+-----------------------------+
 | Lenovo   | Thinkpad W500   | Tested    | Untested                    |
 +----------+-----------------+-----------+-----------------------------+
@@ -272,6 +275,7 @@ Upstream status
 | Lenovo   | Thinkpad T500   | Maintained                | new GPU driver      |
 +----------+-----------------+---------------------------+---------------------+
 | Lenovo   | Thinkpad T60    | Maintained                | old GPU driver      |
+|          | with intel GPU  |                           |                     |
 +----------+-----------------+---------------------------+---------------------+
 | Lenovo   | Thinkpad W500   | Maintained                | new GPU driver      |
 +----------+-----------------+---------------------------+---------------------+
