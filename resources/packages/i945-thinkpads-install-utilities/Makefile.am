@@ -93,3 +93,34 @@ $(PACK_NAME)-clean:
 	rm -rf $(RELEASE_DIR)
 
 $(PACK_NAME)-distclean: $(PACK_NAME)-clean
+
+$(PACK_NAME)-help:
+	@printf "$(PACK_NAME) related commands:\n"
+	@printf "\t%s %s\n"                     \
+		"make $(PACK_NAME)           #" \
+		"Build and relese $(PACK_NAME)."
+	@printf "\t%s %s\n"                     \
+		"make $(PACK_NAME)-clean     #" \
+		"Remove all the built files related to the target."
+	@printf "\t%s %s\n"                     \
+		"make $(PACK_NAME)-distclean #" \
+		"Alias to $(PACK_NAME)-clean for compatibility."
+	@printf "\t%s %s\n"                     \
+		"make $(PACK_NAME)-download  #" \
+		"Alias to $(PACK_NAME) for compatibility."
+	@printf "\t%s %s\n"                     \
+		"make $(PACK_NAME)-module    #" \
+		"Alias to $(PACK_NAME) for compatibility."
+
+	@printf "\t%s %s\n"                              \
+		"make $(RELEASE_DIR)/gnuboot_src.tar  #" \
+		"Release the GNU Boot source code."
+	@printf "\t%s %s\n"                              \
+		"make $(RELEASE_DIR)/packages_src.tar #" \
+		"Relase the source code corresponding to the package binaries."
+	@printf "\t%s %s\n"                                              \
+		"make $(RELEASE_DIR)/$(PACK_NAME)-deb-pack.deb        #" \
+		"Release a Debian package of the binaries."
+	@printf "\t%s %s\n"                                              \
+		"make $(RELEASE_DIR)/$(PACK_NAME)-tarball-pack.tar.gz #" \
+		"Release a tarball of the binaries."

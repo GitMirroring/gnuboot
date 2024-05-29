@@ -112,13 +112,15 @@ include resources/packages/i945-thinkpads-install-utilities/Makefile.am
 
 help:
 	@printf "Available commands:\n"
-	@printf "\tsudo make install-dependencies-ubuntu    # %s\n" \
+	@printf "\tsudo make install-dependencies-ubuntu      # %s\n" \
 		"Install required dependencies on Ubuntu."
-	@printf "\tsudo make install-dependencies-pureos-10 # %s\n" \
+	@printf "\tsudo make install-dependencies-pureos-10   # %s\n" \
 		"Install required dependencies on PureOS 10 (byzantium)."
-	@printf "\tmake release                             # %s\n" \
+	@printf "\tmake release                               # %s\n" \
 		"Build a GNU Boot release."
-	@printf "\tmake clean                               # %s\n" \
+	@printf "\tmake clean                                 # %s\n" \
 		"Remove all the files being built in GNU Boot."
-	@printf "\tmake crossgcc-clean                      # %s\n" \
+	@printf "\tmake crossgcc-clean                        # %s\n" \
 		"Remove the builds of the crossgcc toolchain."
+	@printf "\tmake i945-thinkpads-install-utilities-help # %s\n" \
+		"Print i945-thinkpads-install-utilities targets help."
