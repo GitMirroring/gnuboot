@@ -107,7 +107,7 @@ y las páginas HTML estáticas se generan con
 estáticos.
 
 Su documentación se encuentra en el
-[README](https://git.savannah.gnu.org/cgit/gnuboot.git/tree/website-build/README)
+[README](https://git.savannah.gnu.org/cgit/gnuboot.git/tree/website/README)
 dentro del directorio de compilación del sitio web.
 
 Nombre no requerido

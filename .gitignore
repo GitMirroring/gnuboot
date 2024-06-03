@@ -30,8 +30,8 @@
 /tmp/
 /version
 /versiondate
-/website/news/index*
-/website/sitemap.md
+/website/pages/news/index*
+/website/pages/sitemap.md
 Makefile
 Makefile.in
 aclocal.m4

@@ -32,7 +32,7 @@ usage()
 
 download_untitled()
 {
-    cd website-build
+    cd website
     ./autogen.sh
     ./configure --disable-guix --disable-lighttpd
     ./build.sh --download-only

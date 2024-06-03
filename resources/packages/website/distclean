@@ -21,18 +21,18 @@
 distclean_website()
 {
     rm -rf \
-    website-build/aclocal.m4 \
-    website-build/autom4te.cache/ \
-    website-build/config.log \
-    website-build/config.status \
-    website-build/configure \
-    website-build/deploy/ \
-    website-build/install-sh \
-    website-build/Makefile \
-    website-build/Makefile.in \
-    website-build/missing \
-    website-build/untitled/ \
-    website-build/website.tar.gz
+    website/aclocal.m4 \
+    website/autom4te.cache/ \
+    website/config.log \
+    website/config.status \
+    website/configure \
+    website/deploy/ \
+    website/install-sh \
+    website/Makefile \
+    website/Makefile.in \
+    website/missing \
+    website/untitled/ \
+    website/website.tar.gz
 }
 
 # shellcheck disable=SC2068
