@@ -27,11 +27,11 @@
 /release/
 /resources/coreboot/*/seen
 /seabios/
-/site/news/index*
-/site/sitemap.md
 /tmp/
 /version
 /versiondate
+/website/news/index*
+/website/sitemap.md
 Makefile
 Makefile.in
 aclocal.m4
