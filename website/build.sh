@@ -98,6 +98,7 @@ copy_website()
 	mkdir -p "${dst_path}"
 	cp site.cfg "${dst_path}"
 	cp -a "pages/" "${dst_path}/site"
+	cp -a "hwdumps/" "${dst_path}/site/docs/hardware/"
 }
 
 help_missing_arg()
