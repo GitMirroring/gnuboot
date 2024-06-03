@@ -99,6 +99,7 @@ copy_website()
 	cp site.cfg "${dst_path}"
 	cp -a "pages/" "${dst_path}/site"
 	cp -a "hwdumps/" "${dst_path}/site/docs/hardware/"
+	cp -a "img/" "${dst_path}/site/"
 }
 
 help_missing_arg()
