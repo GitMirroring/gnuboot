@@ -24,8 +24,14 @@ BUILD_OPTIONS += --with-untitled-path $(UNTITLED_PATH)
 GUIX_SHARE_OPTIONS += --share=`realpath $(UNTITLED_PATH)`
 endif
 
+index.html: index.html.tmpl
+	sed -e "s#WEBSITE_PREFIX#$(WEBSITE_PREFIX)#g" "$^" > "$@"
+
+site.cfg: site.cfg.tmpl
+	sed -e "s#WEBSITE_PREFIX#$(WEBSITE_PREFIX)#g" "$^" > "$@"
+
 if WANT_GUIX
-build:
+build: site.cfg
 	guix time-machine \
 	--commit=c15a1cd88f80a90437f4b0159f22dfc84b9e6851 \
 	-- shell \
@@ -44,15 +50,15 @@ build:
 		-- \
 		./build.sh $(BUILD_OPTIONS)
 else
-build:
+build: site.cfg
 		./build.sh $(BUILD_OPTIONS)
 endif
 
 if WANT_GUIX
-check: build website.tar.gz
+check: build website.tar.gz index.html
 	rm -rf site/
-	mkdir -p site/software/gnuboot/
-	tar xf website.tar.gz -C site/software/gnuboot/
+	mkdir -p site/$(WEBSITE_PREFIX)
+	tar xf website.tar.gz -C site/$(WEBSITE_PREFIX)
 
 	guix shell \
 		--container \
@@ -66,15 +72,17 @@ check: build website.tar.gz
 		sed \
 		tar \
 		-- \
-		./check.sh --directory site && \
-		./check.sh --tarball website.tar.gz
+		./check.sh --website-prefix $(WEBSITE_PREFIX) \
+			--directory site && \
+		./check.sh  --website-prefix $(WEBSITE_PREFIX) \
+			--tarball website.tar.gz
 else
-check: build website.tar.gz
+check: build website.tar.gz index.html
 	rm -rf site/
-	mkdir -p site/software/gnuboot/
-	tar xf website.tar.gz -C site/software/gnuboot/
-	./check.sh --directory site
-	./check.sh --tarball website.tar.gz
+	mkdir -p site/$(WEBSITE_PREFIX)
+	tar xf website.tar.gz -C site/$(WEBSITE_PREFIX)
+	./check.sh --website-prefix $(WEBSITE_PREFIX) --directory site
+	./check.sh --website-prefix $(WEBSITE_PREFIX) --tarball website.tar.gz
 endif
 
 help:
@@ -83,7 +91,7 @@ help:
 		"help           # Print this help" \
 		"build          # Build the website" \
 		"serve          # run lighttpd on localhost:$(LIGHTTPD_PORT)" \
-		"publish        # Publish the website to https://gnu.org/software/gnuboot" \
+		"publish        # Publish the website to https://gnu.org/$(WEBSITE_PREFIX)" \
 		"check          # Run automatic tests" \
 		"website.tar.gz # Create a tarball of the website"
 
@@ -100,11 +108,13 @@ serve: website.tar.gz
 		sed \
 		tar \
 		-- \
-		./serve.sh website.tar.gz $(LIGHTTPD_PORT)
+		./serve.sh --website-prefix $(WEBSITE_PREFIX) \
+			website.tar.gz $(LIGHTTPD_PORT)
 else
 if WANT_LIGHTTPD
 serve: website.tar.gz
-		./serve.sh website.tar.gz $(LIGHTTPD_PORT)
+		./serve.sh --website-prefix $(WEBSITE_PREFIX) \
+			website.tar.gz $(LIGHTTPD_PORT)
 else
 serve:
 	@printf "%s %s\n" \
@@ -127,7 +137,7 @@ publish: website.tar.gz
 		deploy/ \
 		$(RSYNC_DESTINATION)/
 
-website.tar.gz: build
+website.tar.gz: build index.html
 	tar \
 		--exclude-vcs \
 		--format=gnu \
