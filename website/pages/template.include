@@ -56,15 +56,13 @@ $endif$
 <li><a href="/software/gnuboot/web/index.html">Home</a></li>
 <li><a href="/software/gnuboot/web/status.html">Status</a></li>
 <li><a href="/software/gnuboot/web/faq.html">FAQ</a></li>
-<li><a href="/software/gnuboot/web/download.html">Download</a></li>
-<li><a href="/software/gnuboot/web/docs/install/">Install</a></li>
+<li><a href="/software/gnuboot/web/docs/install/">Get GNU Boot</a></li>
 <li><a href="/software/gnuboot/web/docs/">Docs</a></li>
 <li><a href="/software/gnuboot/web/news/">News</a></li>
 <li><a href="https://savannah.gnu.org/bugs/?group=gnuboot">Bugs</a></li>
 <li><a href="https://savannah.gnu.org/projects/gnuboot/">Savannah forge</a></li>
 <li><a href="/software/gnuboot/web/git.html">Send patch</a></li>
 <li><a href="/software/gnuboot/web/contact.html">Contact</a></li>
-<li><strong><a href="https://ryf.fsf.org/categories/laptops">Buy preinstalled</a></strong></li>
 </ul>
 <hr/>
 $if(x-unreviewed)$
