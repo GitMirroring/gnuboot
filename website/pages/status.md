@@ -5,66 +5,67 @@ title: Code review
 GNU Boot 0.1 RC3 status
 =======================
 
-+----------+-----------------+-----------+-----------------------------+
-| Vendor   | Product         | Stability | Installation instructions   |
-+----------+-----------------+-----------+-----------------------------+
-| Acer     | G43T-AM3        | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Apple    | MacBook 1.1     | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Apple    | MacBook 2.1     | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Apple    | iMac 5,2        | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
++----------+-----------------+-----------+--------------+--------------+
+| Vendor   | Product         | Stability | Installation | Upgrade      |
+|          |                 |           | instructions | instructions |
++----------+-----------------+-----------+--------------+--------------+
+| Acer     | G43T-AM3        | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Apple    | MacBook 1.1     | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Apple    | MacBook 2.1     | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Apple    | iMac 5,2        | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
 | Asus     | Chromebook C201 | Can't install due to missing images     |
-+----------+-----------------+-----------+-----------------------------+
-| Asus     | KCMA-D8         | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Asus     | KFSN4-DRE       | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Asus     | KGPE-D16        | Tested    | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Gigabyte | D945GCLF2D      | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Gigabyte | GA-G41M-ES2L    | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Intel    | D410PT          | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Intel    | D510MO          | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Intel    | D945GCLF        | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad R400   | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad R500   | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad T400   | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad T400S  | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad T500   | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad T60    | Untested  | Untested, can be simplified |
-|          | with intel GPU  |           |                             |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad W500   | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad X200   | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad X200S  | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad X200T  | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad X301   | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad X60    | Untested  | Untested, can be simplified |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad X60T   | Untested  | Untested, can be simplified |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad X60s   | Untested  | Untested, can be simplified |
-+----------+-----------------+-----------+-----------------------------+
-| Qemu     | PC (i440FX)     | Untested  | Missing                     |
-+----------+-----------------+-----------+-----------------------------+
++----------+-----------------+-----------+--------------+--------------+
+| Asus     | KCMA-D8         | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Asus     | KFSN4-DRE       | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Asus     | KGPE-D16        | Tested    | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Gigabyte | D945GCLF2D      | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Gigabyte | GA-G41M-ES2L    | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Intel    | D410PT          | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Intel    | D510MO          | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Intel    | D945GCLF        | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad R400   | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad R500   | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad T400   | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad T400S  | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad T500   | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad T60    | Untested  | Untested     | Untested     |
+|          | with intel GPU  |           |              |              |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad W500   | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad X200   | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad X200S  | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad X200T  | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad X301   | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad X60    | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad X60T   | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad X60s   | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Qemu     | PC (i440FX)     | Untested  | Missing      | Missing      |
++----------+-----------------+-----------+--------------+--------------+
 
 Stability:
 ----------
@@ -90,12 +91,6 @@ Installation instructions:
 * Untested: Nobody tested the GNU Boot installation instructions for
   this computer.
 
-* Can be simplified: There is work in progress to simplify the
-  instructions by having GNU Boot release the tools required to do the
-  installation and by requiring to keep the computer connected to the
-  electricity (by keeping its power supply connected) instead of
-  requiring to disassemble it to check a battery voltage.
-
 * Tested: The installation instructions worked well.
 
 * Missing: There are no installation instructions for this device and
@@ -109,64 +104,65 @@ Boot 0.1 RC3 so it's not worth testing the RC2. It's better to test
 the RC3 directly. Yet GNU Boot maintainers tested some computers on
 the RC2 to reduce the risk of testers.
 
-+----------+-----------------+-----------+-----------------------------+
-| Vendor   | Product         | Stability | Installation instructions   |
-+----------+-----------------+-----------+-----------------------------+
-| Apple    | MacBook 1.1     | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Apple    | MacBook 2.1     | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Apple    | iMac 5,2        | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
++----------+-----------------+-----------+--------------+--------------+
+| Vendor   | Product         | Stability | Installation | Upgrade      |
+|          |                 |           | instructions | instructions |
++----------+-----------------+-----------+--------------+--------------+
+| Apple    | MacBook 1.1     | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Apple    | MacBook 2.1     | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Apple    | iMac 5,2        | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
 | Asus     | Chromebook C201 | Can't install due to missing images     |
-+----------+-----------------+-----------+-----------------------------+
-| Asus     | KCMA-D8         | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Asus     | KFSN4-DRE       | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Asus     | KGPE-D16        | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Gigabyte | D945GCLF2D      | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Gigabyte | GA-G41M-ES2L    | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Intel    | D410PT          | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Intel    | D510MO          | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Intel    | D945GCLF        | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad R400   | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad R500   | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad T400   | Tested    | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad T400S  | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad T500   | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad T60    | Tested    | Untested, can be simplified |
-|          | with intel GPU  |           |                             |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad W500   | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad X200   | Tested    | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad X200S  | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad X200T  | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad X301   | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad X60    | Tested    | Untested, can be simplified |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad X60T   | Tested    | Untested, can be simplified |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad X60s   | Untested  | Untested, can be simplified |
-+----------+-----------------+-----------+-----------------------------+
-| Qemu     | PC (i440FX)     | Tested    | Missing                     |
-+----------+-----------------+-----------+-----------------------------+
++----------+-----------------+-----------+--------------+--------------+
+| Asus     | KCMA-D8         | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Asus     | KFSN4-DRE       | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Asus     | KGPE-D16        | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Gigabyte | D945GCLF2D      | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Gigabyte | GA-G41M-ES2L    | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Intel    | D410PT          | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Intel    | D510MO          | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Intel    | D945GCLF        | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad R400   | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad R500   | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad T400   | Tested    | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad T400S  | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad T500   | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad T60    | Tested    | Untested     | Untested     |
+|          | with intel GPU  |           |              |              |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad W500   | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad X200   | Tested    | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad X200S  | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad X200T  | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad X301   | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad X60    | Tested    | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad X60T   | Tested    | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad X60s   | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Qemu     | PC (i440FX)     | Tested    | Missing      | Untested     |
++----------+-----------------+-----------+--------------+--------------+
 
 See the status of GNU Boot 0.1 RC3 above for the meaning of the
 various fields.
@@ -174,62 +170,63 @@ various fields.
 GNU Boot 0.1 RC1 status
 =======================
 
-+----------+-----------------+-----------+-----------------------------+
-| Vendor   | Product         | Stability | Installation instructions   |
-+----------+-----------------+-----------+-----------------------------+
-| Apple    | MacBook 1.1     | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Apple    | MacBook 2.1     | Tested    | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Apple    | iMac 5,2        | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
++----------+-----------------+-----------+--------------+--------------+
+| Vendor   | Product         | Stability | Installation | Upgrade      |
+|          |                 |           | instructions | instructions |
++----------+-----------------+-----------+--------------+--------------+
+| Apple    | MacBook 1.1     | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Apple    | MacBook 2.1     | Tested    | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Apple    | iMac 5,2        | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
 | Asus     | Chromebook C201 | Can't install due to missing images     |
-+----------+-----------------+-----------+-----------------------------+
-| Asus     | KCMA-D8         | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Asus     | KFSN4-DRE       | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Asus     | KGPE-D16        | Tested    | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Gigabyte | D945GCLF2D      | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Gigabyte | GA-G41M-ES2L    | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Intel    | D410PT          | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Intel    | D510MO          | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Intel    | D945GCLF        | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad R400   | Tested    | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad R500   | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad T400   | Tested    | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad T400S  | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad T500   | Tested    | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad T60    | Tested    | Untested, can be simplified |
-|          | with intel GPU  |           |                             |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad W500   | Tested    | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad X200   | Tested    | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad X200S  | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad X200T  | Untested  | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad X301   | Tested    | Untested                    |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad X60    | Tested    | Untested, can be simplified |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad X60T   | Tested    | Untested, can be simplified |
-+----------+-----------------+-----------+-----------------------------+
-| Lenovo   | ThinkPad X60s   | Untested  | Untested, can be simplified |
-+----------+-----------------+-----------+-----------------------------+
++----------+-----------------+-----------+--------------+--------------+
+| Asus     | KCMA-D8         | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Asus     | KFSN4-DRE       | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Asus     | KGPE-D16        | Tested    | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Gigabyte | D945GCLF2D      | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Gigabyte | GA-G41M-ES2L    | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Intel    | D410PT          | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Intel    | D510MO          | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Intel    | D945GCLF        | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad R400   | Tested    | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad R500   | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad T400   | Tested    | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad T400S  | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad T500   | Tested    | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad T60    | Tested    | Untested     | Untested     |
+|          | with intel GPU  |           |              |              |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad W500   | Tested    | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad X200   | Tested    | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad X200S  | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad X200T  | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad X301   | Tested    | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad X60    | Tested    | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad X60T   | Tested    | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
+| Lenovo   | ThinkPad X60s   | Untested  | Untested     | Untested     |
++----------+-----------------+-----------+--------------+--------------+
 
 See the status of GNU Boot 0.1 RC3 above for the meaning of the
 various fields.
