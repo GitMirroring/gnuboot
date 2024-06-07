@@ -35,6 +35,38 @@ is `kernel.securelevel=-1`; see [NetBSD securelevel
 manual](https://wiki.netbsd.org/tutorials/kernel_secure_levels/)
 and [OpenBSD securelevel manual](https://man.openbsd.org/securelevel).
 
+ERROR: Could not get I/O privileges
+-----------------------------------
+
+Error message: `ERROR: Could not get I/O privileges (Function not implemented)`
+
+If you get this while running `flashrom -p internal -w filename.rom` (or any
+internal flash operation), note: flashrom heavily uses ioperm/iopl functions
+to operate the internal flasher, at least on x86 machines.
+
+See: <https://lwn.net/Articles/804143/>
+
+Yeah, just enable `CONFIG_X86_IOPL_IOPERM` in your Linux kernel. This is
+a *build-time* option, so you must re-compile your kernel, or find a build that
+has this option enabled (IOPL emulation). Many default kernel configurations
+now disable this option.
+
+Here's a handy-dandy guide for building a kernel from source:
+<https://www.cyberciti.biz/tips/compiling-linux-kernel-26.html> - NOTE: the
+GNU Boot project recommends use of linux-libre, not linux, but this guide should
+work with linux-libre releases. Here is GNU Linux-libre, the deblobbed linux
+kernel:
+<https://www.fsfla.org/ikiwiki/selibre/linux-libre/index.en.html>
+
+**BSD users:** On OpenBSD and NetBSD if you get similar errors, note that it
+should work here, but you need to boot with `kern.securelevel=-1`.
+See: [NetBSD securelevel manual](https://wiki.netbsd.org/tutorials/kernel_secure_levels/)
+and [OpenBSD securelevel manpage](https://man.openbsd.org/securelevel).
+
+Otherwise, if you get such errors, it may just be that you're not root. You
+must run flashrom as root, at least to use the internal flasher (using external
+USB flashing dongles doesn't normally require root).
+
 About ROM image file names
 ==========================
 
