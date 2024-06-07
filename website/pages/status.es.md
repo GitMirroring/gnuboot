@@ -8,19 +8,21 @@ Estado de GNU Boot 0.1 RC3
 +----------+-----------------+-------------+--------------------------------------+
 | Vendedor | Producto        | Estabilidad | Instrucciones de instalación         |
 +----------+-----------------+-------------+--------------------------------------+
+| Acer     | G43T-AM3        | No probado  | No probado                           |
++----------+-----------------+-------------+--------------------------------------+
 | Apple    | MacBook 1.1     | No probado  | No probado                           |
 +----------+-----------------+-------------+--------------------------------------+
 | Apple    | MacBook 2.1     | No probado  | No probado                           |
 +----------+-----------------+-------------+--------------------------------------+
 | Apple    | iMac 5,2        | No probado  | No probado                           |
-+----------+-----------------+-------------+------------------------------------- +
-| Asus     | Chromebook C201 | No se puede instalar debido a que faltan imágenes. |
++----------+-----------------+-------------+--------------------------------------+
+| Asus     | Chromebook C201 | No se puede instalar debido a que faltan imágenes  |
 +----------+-----------------+-------------+--------------------------------------+
 | Asus     | KCMA-D8         | No probado  | No probado                           |
 +----------+-----------------+-------------+--------------------------------------+
 | Asus     | KFSN4-DRE       | No probado  | No probado                           |
 +----------+-----------------+-------------+--------------------------------------+
-| Asus     | KGPE-D16        | No probado  | No probado                           |
+| Asus     | KGPE-D16        | Probado     | No probado                           |
 +----------+-----------------+-------------+--------------------------------------+
 | Gigabyte | D945GCLF2D      | No probado  | No probado                           |
 +----------+-----------------+-------------+--------------------------------------+
@@ -118,7 +120,7 @@ algunas computadoras en el RC2 para reducir el riesgo de los probadores.
 +----------+-----------------+-------------+--------------------------------------+
 | Apple    | iMac 5,2        | No probado  | No probado                           |
 +----------+-----------------+-------------+--------------------------------------+
-| Asus     | Chromebook C201 | No se puede instalar debido a que faltan imágenes. |
+| Asus     | Chromebook C201 | No se puede instalar debido a que faltan imágenes  |
 +----------+-----------------+-------------+--------------------------------------+
 | Asus     | KCMA-D8         | No probado  | No probado                           |
 +----------+-----------------+-------------+--------------------------------------+
@@ -182,7 +184,7 @@ Estado de GNU Boot 0.1 RC1
 +----------+-----------------+-------------+--------------------------------------+
 | Apple    | iMac 5,2        | No probado  | No probado                           |
 +----------+-----------------+-------------+--------------------------------------+
-| Asus     | Chromebook C201 | No se puede instalar debido a que faltan imágenes. |
+| Asus     | Chromebook C201 | No se puede instalar debido a que faltan imágenes  |
 +----------+-----------------+-------------+--------------------------------------+
 | Asus     | KCMA-D8         | No probado  | No probado                           |
 +----------+-----------------+-------------+--------------------------------------+
