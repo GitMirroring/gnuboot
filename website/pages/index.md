@@ -4,29 +4,26 @@ title: Free your BIOS today!
 
 ### What is this? ####
 
-GNU Boot is a free software project aimed at replacing the proprietary
-boot firmware that comes with computers with free boot software.
+GNU Boot is a 100% free software project aimed at replacing the
+nonfree boot software (like BIOS or UEFI) of computers with free boot
+software.
 
-### Project status and need for help ####
+GNU Boot is only a distribution: it reuses existing software projects
+like Coreboot, GRUB, SeaBIOS, etc.
 
-Right now GNU Boot is still in its early stage.
+So it's not very different from [100% free GNU/Linux
+distributions](https://www.gnu.org/distros/free-distros.html) like
+Trisquel or Guix.
 
-It should be relatively safe to use the GNU Boot 0.1 RC3 as is has
-minimal changes on top of Libreboot 20220710 (the last 100% free
-release of Libreboot) and also because several people tested it and
-didn't report any blocking issue.
+Like the other 100% free GNU/Linux distributions its tasks are:
 
-However we need a lot of help for fixing the website as most pages are
-out of date or still refer to Libreboot or libreboot.at instead of GNU
-Boot.
+* To find and remove nonfree software in projects it reuses.
 
-This is very important because the website also contains all the
-project documentation, including the installation instructions (we
-also need help testing them).
+* To build the software and assemble it in something that can be
+  installed. To test it and to provide installation and upgrade
+  instructions.
 
-See the [page about contributing to GNU
-Boot](/software/gnuboot/web/git.html) for more details on how to
-help GNU Boot.
+* To provide good default configuration that work for most users.
 
 ### How this project came to exist ####
 

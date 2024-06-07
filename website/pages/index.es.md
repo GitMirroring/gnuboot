@@ -5,8 +5,26 @@ x-reviewed: true
 
 ### ¿Qué es esto? ####
 
-GNU Boot es un proyecto de software libre destinado a reemplazar el
-firmware privativo de arranque de computadoras por software libre.
+GNU Boot es un proyecto de software 100% libre destinado a reemplazar el
+software privativo de arranque de computadoras por software libre.
+
+GNU Boot es únicamente una distribución: reutiliza proyecto software
+como Coreboot, GRUB, SeaBIOS, etc.
+
+No es muy diferente de [distribución GNU/Linux 100%
+libre](https://www.gnu.org/distros/free-distros.es.html) como Trisquel
+o Guix.
+
+Como otras distribución GNU/Linux 100% libre su tareas son:
+
+* Buscar y remover código no libre en proyectos che reutiliza.
+
+* Hacer la compilación del software y asemblar lo en algo que si puede
+  instalar. Testar el software y distribuir instrucciones de
+  instalación y de mejora.
+
+* Distribuir configuración con buenas valores por defecto que funciona
+  por la mayoría de los usuarios.
 
 ### Situación del proyecto y ayuda necesaria ####
 
