@@ -5,68 +5,94 @@ title: Revisión de código
 Estado de GNU Boot 0.1 RC3
 ==========================
 
-+----------+-----------------+-------------+----------------+---------------+
-| Vendedor | Producto        | Estabilidad | Instrucciones  | Instrucciones |
-|          |                 |             | de instalación | de mejora.    |
-+----------+-----------------+-------------+----------------+---------------+
-| Acer     | G43T-AM3        | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Apple    | MacBook 1.1     | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Apple    | MacBook 2.1     | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Apple    | iMac 5,2        | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Asus     | Chromebook C201 | No se puede instalar debido a que faltan     |
-|          |                 | imágenes.                                    |
-+----------+-----------------+-------------+----------------+---------------+
-| Asus     | KCMA-D8         | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Asus     | KFSN4-DRE       | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Asus     | KGPE-D16        | Probado     | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Gigabyte | D945GCLF2D      | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Gigabyte | GA-G41M-ES2L    | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Intel    | D410PT          | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Intel    | D510MO          | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Intel    | D945GCLF        | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad R400   | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad R500   | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad T400   | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad T400S  | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad T500   | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad T60    | No probado  | No probado     | No probado    |
-|          | con GPU intel   |             |                |               |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad W500   | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad X200   | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad X200S  | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad X200T  | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad X301   | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad X60    | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad X60T   | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad X60s   | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Qemu     | PC (i440FX)     | No probado  | Faltante       | Faltante      |
-+----------+-----------------+-------------+----------------+---------------+
++---------------+----------------+-------------+---------------+---------------+
+| Vendedor      | Producto       | Estabilidad | Instrucciones | Instrucciones |
+|               |                |             | de            | de mejora.    |
+|               |                |             | instalación   |               |
++---------------+----------------+-------------+---------------+---------------+
+| Acer          | G43T-AM3       | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Apple         | MacBook 1.1    | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Apple         | MacBook 2.1    | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Apple         | iMac 5,2       | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Asus          | Chromebook     | No se puede instalar debido a que faltan    |
+|               | C201           | imágenes.                                   |
++---------------+----------------+-------------+---------------+---------------+
+| Asus          | KCMA-D8        | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Asus          | KFSN4-DRE      | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Asus          | KGPE-D16       | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Gigabyte      | D945GCLF2D     | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Gigabyte      | GA-G41M-ES2L   | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Intel         | D410PT         | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Intel         | D510MO         | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Intel         | D945GCLF       | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad R400  | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad R500  | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad T400  | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad T400S | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad T500  | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad T60   | No probado  | No probado    | No probado    |
+|               | con GPU intel  |             |               |               |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad W500  | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad X200  | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad X200S | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad X200T | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad X301  | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad X60   | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad X60T  | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad X60s  | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Libiquity     | Taurinus X200  | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Qemu          | PC (i440FX)    | No probado  | Faltante      | Faltante      |
++---------------+----------------+-------------+---------------+---------------+
+| Technoethical | D16            | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Technoethical | T400           | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Technoethical | T400s          | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Technoethical | T500           | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Technoethical | X200           | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Technoethical | X200s          | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Technoethical | X200 Tablet    | No probado  | No probado    | No probado    |
+|               | (X200T)        |             |               |               |
++---------------+----------------+-------------+---------------+---------------+
+| Vikings       | ASUS KCMA D8   | No probado  | No probado    | No probado    |
+|               | and workstation|             |               |               |
++---------------+----------------+-------------+---------------+---------------+
+| Vikings       | ASUS KGPE D16  | Probado     | No probado    | No probado    |
+|               | mainboard      |             |               |               |
++---------------+----------------+-------------+---------------+---------------+
+| Vikings       | X200           | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
 
 Estabilidad:
 ------------
@@ -107,66 +133,92 @@ Boot 0.1 RC3, por lo que no vale la pena probar el RC2. Es mejor probar
 el RC3 directamente. Sin embargo, los mantenedores de GNU Boot probaron
 algunas computadoras en el RC2 para reducir el riesgo de los probadores.
 
-+----------+-----------------+-------------+----------------+---------------+
-| Vendedor | Producto        | Estabilidad | Instrucciones  | Instrucciones |
-|          |                 |             | de instalación | de mejora.    |
-+----------+-----------------+-------------+----------------+---------------+
-| Apple    | MacBook 1.1     | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Apple    | MacBook 2.1     | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Apple    | iMac 5,2        | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Asus     | Chromebook C201 | No se puede instalar debido a que faltan     |
-|          |                 | imágenes.                                    |
-+----------+-----------------+-------------+----------------+---------------+
-| Asus     | KCMA-D8         | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Asus     | KFSN4-DRE       | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Asus     | KGPE-D16        | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Gigabyte | D945GCLF2D      | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Gigabyte | GA-G41M-ES2L    | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Intel    | D410PT          | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Intel    | D510MO          | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Intel    | D945GCLF        | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad R400   | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad R500   | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad T400   | Probado     | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad T400S  | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad T500   | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad T60    | Probado     | No probado     | No probado    |
-|          | con GPU intel   |             |                |               |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad W500   | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad X200   | Probado     | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad X200S  | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad X200T  | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad X301   | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad X60    | Probado     | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad X60T   | Probado     | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad X60s   | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Qemu     | PC (i440FX)     | Probado     | Faltante       | Faltante      |
-+----------+-----------------+-------------+----------------+---------------+
++---------------+----------------+-------------+---------------+---------------+
+| Vendedor      | Producto       | Estabilidad | Instrucciones | Instrucciones |
+|               |                |             | de            | de mejora.    |
+|               |                |             | instalación   |               |
++---------------+----------------+-------------+---------------+---------------+
+| Apple         | MacBook 1.1    | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Apple         | MacBook 2.1    | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Apple         | iMac 5,2       | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Asus          | Chromebook     | No se puede instalar debido a que faltan    |
+|               | C201           | imágenes.                                   |
++---------------+----------------+-------------+---------------+---------------+
+| Asus          | KCMA-D8        | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Asus          | KFSN4-DRE      | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Asus          | KGPE-D16       | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Gigabyte      | D945GCLF2D     | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Gigabyte      | GA-G41M-ES2L   | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Intel         | D410PT         | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Intel         | D510MO         | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Intel         | D945GCLF       | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad R400  | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad R500  | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad T400  | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad T400S | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad T500  | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad T60   | Probado     | No probado    | No probado    |
+|               | con GPU intel  |             |               |               |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad W500  | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad X200  | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad X200S | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad X200T | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad X301  | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad X60   | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad X60T  | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad X60s  | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Libiquity     | Taurinus X200  | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Qemu          | PC (i440FX)    | Probado     | Faltante      | Faltante      |
++---------------+----------------+-------------+---------------+---------------+
+| Technoethical | D16            | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Technoethical | T400           | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Technoethical | T400s          | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Technoethical | T500           | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Technoethical | X200           | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Technoethical | X200s          | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Technoethical | X200 Tablet    | No probado  | No probado    | No probado    |
+|               | (X200T)        |             |               |               |
++---------------+----------------+-------------+---------------+---------------+
+| Vikings       | ASUS KCMA D8   | No probado  | No probado    | No probado    |
+|               | and workstation|             |               |               |
++---------------+----------------+-------------+---------------+---------------+
+| Vikings       | ASUS KGPE D16  | No probado  | No probado    | No probado    |
+|               | mainboard      |             |               |               |
++---------------+----------------+-------------+---------------+---------------+
+| Vikings       | X200           | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
 
 Consulte el estado de GNU Boot 0.1 RC3 arriba para conocer el
 significado de los distintos campos.
@@ -174,64 +226,90 @@ significado de los distintos campos.
 Estado de GNU Boot 0.1 RC1
 ==========================
 
-+----------+-----------------+-------------+----------------+---------------+
-| Vendedor | Producto        | Estabilidad | Instrucciones  | Instrucciones |
-|          |                 |             | de instalación | de mejora.    |
-+----------+-----------------+-------------+----------------+---------------+
-| Apple    | MacBook 1.1     | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Apple    | MacBook 2.1     | Probado     | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Apple    | iMac 5,2        | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Asus     | Chromebook C201 | No se puede instalar debido a que faltan     |
-|          |                 | imágenes.                                    |
-+----------+-----------------+-------------+----------------+---------------+
-| Asus     | KCMA-D8         | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Asus     | KFSN4-DRE       | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Asus     | KGPE-D16        | Probado     | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Gigabyte | D945GCLF2D      | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Gigabyte | GA-G41M-ES2L    | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Intel    | D410PT          | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Intel    | D510MO          | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Intel    | D945GCLF        | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad R400   | Probado     | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad R500   | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad T400   | Probado     | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad T400S  | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad T500   | Probado     | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad T60    | Probado     | No probado     | No probado    |
-|          | con GPU intel   |             |                |               |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad W500   | Probado     | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad X200   | Probado     | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad X200S  | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad X200T  | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad X301   | Probado     | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad X60    | Probado     | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad X60T   | Probado     | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
-| Lenovo   | ThinkPad X60s   | No probado  | No probado     | No probado    |
-+----------+-----------------+-------------+----------------+---------------+
++---------------+----------------+-------------+---------------+---------------+
+| Vendedor      | Producto       | Estabilidad | Instrucciones | Instrucciones |
+|               |                |             | de            | de mejora.    |
+|               |                |             | instalación   |               |
++---------------+----------------+-------------+---------------+---------------+
+| Apple         | MacBook 1.1    | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Apple         | MacBook 2.1    | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Apple         | iMac 5,2       | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Asus          | Chromebook     | No se puede instalar debido a que faltan    |
+|               | C201           | imágenes.                                   |
++---------------+----------------+-------------+---------------+---------------+
+| Asus          | KCMA-D8        | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Asus          | KFSN4-DRE      | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Asus          | KGPE-D16       | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Gigabyte      | D945GCLF2D     | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Gigabyte      | GA-G41M-ES2L   | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Intel         | D410PT         | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Intel         | D510MO         | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Intel         | D945GCLF       | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad R400  | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad R500  | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad T400  | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad T400S | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad T500  | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad T60   | Probado     | No probado    | No probado    |
+|               | con GPU intel  |             |               |               |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad W500  | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad X200  | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad X200S | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad X200T | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad X301  | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad X60   | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad X60T  | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Lenovo        | ThinkPad X60s  | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Libiquity     | Taurinus X200  | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Technoethical | D16            | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Technoethical | T400           | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Technoethical | T400s          | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Technoethical | T500           | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Technoethical | X200           | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Technoethical | X200s          | No probado  | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
+| Technoethical | X200 Tablet    | No probado  | No probado    | No probado    |
+|               | (X200T)        |             |               |               |
++---------------+----------------+-------------+---------------+---------------+
+| Vikings       | ASUS KCMA D8   | No probado  | No probado    | No probado    |
+|               | and workstation|             |               |               |
++---------------+----------------+-------------+---------------+---------------+
+| Vikings       | ASUS KGPE D16  | Probado     | No probado    | No probado    |
+|               | mainboard      |             |               |               |
++---------------+----------------+-------------+---------------+---------------+
+| Vikings       | X200           | Probado     | No probado    | No probado    |
++---------------+----------------+-------------+---------------+---------------+
 
 Consulte el estado de GNU Boot 0.1 RC3 arriba para conocer el
 significado de los distintos campos.
