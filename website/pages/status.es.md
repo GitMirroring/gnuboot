@@ -1,5 +1,5 @@
 ---
-title: Revisión de código
+title: Estado de GNU Boot
 ...
 
 Estado de GNU Boot 0.1 RC3

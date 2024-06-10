@@ -1,5 +1,5 @@
 ---
-title: Code review
+title: GNU Boot status
 ...
 
 GNU Boot 0.1 RC3 status
