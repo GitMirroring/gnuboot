@@ -30,6 +30,31 @@ project](../../contact.md): we are looking for information on the
 product being sold (flash chip size, customization, etc) to best
 support them.
 
+GNU Boot install parties
+========================
+
+Sometimes there are install parties that can help you install GNU Boot
+and/or install it for you on a computer supported by the install party
+(and GNU Boot).
+
+It can be cheaper than buying a computer with GNU Boot, but the
+install parties typically don't take care of everything.
+
+First you will obviously need to find a compatible computer and doing
+so without running nonfree software (like nonfree JavaScript) is
+complicated.
+
+Then install parties don't have replacement for batteries, WiFi cards
+to get WiFi that work with free software, etc, and they work with the
+hardware you bring to them. So if the hardware has defects they won't
+be able to fix it.
+
+Known install parties:
+
+* In May 2024 there was a GNU Boot install party at the Libreplanet
+  conference. Since this conference happens every year, you might want
+  to check next year(s) if there is a GNU Boot install party there.
+
 Upgrade yourself from an existing installation
 ==============================================
 
