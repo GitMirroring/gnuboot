@@ -30,6 +30,12 @@ project](../../contact.md): we are looking for information on the
 product being sold (flash chip size, customization, etc) to best
 support them.
 
+Upgrade yourself from an existing installation
+==============================================
+
+There is [general purpose documentation](install.md) for technical
+users that can help you upgrade to a newer GNU Boot version.
+
 Installation
 ============
 
