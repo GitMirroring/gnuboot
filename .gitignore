@@ -13,6 +13,10 @@
 /bin/
 /bucts/
 /build_error
+/compile
+/config.guess
+/config.sh
+/config.sub
 /coreboot/
 /crossgcc/
 /depthcharge/
@@ -20,6 +24,8 @@
 /docs/version
 /grub/
 /ich9utils/
+/libtool
+/ltmain.sh
 /me_cleaner/
 /memtest86plus/
 /payload/

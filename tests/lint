@@ -58,6 +58,8 @@ run_shellcheck \
     resources/packages/payloads/distclean \
     resources/packages/rom_images/distclean \
     resources/packages/roms/distclean \
+    resources/packages/roms/download \
+    resources/packages/roms/test \
     resources/packages/seabios/distclean \
     resources/packages/src/distclean \
     resources/packages/u-boot-libre/distclean \

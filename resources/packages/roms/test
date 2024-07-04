@@ -1,0 +1,105 @@
+#!/usr/bin/env bash
+# Copyright (C) 2023-2024 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+set -e
+
+. resources/scripts/misc/sysexits.sh
+
+usage()
+{
+    progname="$1"
+
+    printf "Usage: %s [options]\n\n" "${progname}"
+    printf "Available options:\n"
+    printf "\t-h, --help\n"
+    printf "\t\tDisplay this help and exit.\n"
+}
+
+run_qemu_x86_64()
+{
+    source config.sh
+
+    gnuboot_img_path="$1"
+    rootfs_path="$2"
+    guix_system="$3"
+
+    qemu_pkg="$(guix time-machine \
+                     --commit="${GUIX_REVISION}" \
+                     -- \
+                     build \
+                     --system="${guix_system}" \
+                     qemu | grep -v '\-doc$' | grep -v '\-static$')"
+
+    if [ "${kvm}" = "yes" ] ; then
+        extra_qemu_args="-enable-kvm"
+    fi
+
+    qemu_system_x86_64="${qemu_pkg}/bin/qemu-system-x86_64"
+    # shellcheck disable=SC2086
+    "${qemu_system_x86_64}" \
+        -bios "${gnuboot_img_path}" \
+        -M pc \
+        -m 790M \
+        -nographic \
+        -blockdev '{"driver":"file","filename":"'"${rootfs_path}"'","node-name":"libvirt-1-storage"}' \
+        -blockdev '{"node-name":"libvirt-1-format","driver":"raw","file":"libvirt-1-storage"}' \
+        -device '{"driver":"virtio-scsi-pci","id":"scsi0","bus":"pci.0","addr":"0x4"}' \
+        -device '{"driver":"ahci","id":"sata0","bus":"pci.0","addr":"0x5"}' \
+        -device '{"driver":"ide-hd","bus":"sata0.0","drive":"libvirt-1-format","id":"sata0-0-0"}' \
+        ${extra_qemu_args}
+}
+
+test_grub_cfg_with_lvm()
+{
+    source config.sh
+
+    test_name="Test grub.cfg with Trisquel LVM install"
+
+    # TODO: Make the test also work with i686.
+    if [ "${build_cpu}" != "x86_64" ] ; then
+        printf '[ SKIP ] %s: %s\n' \
+               "${test_name}" \
+               "test doesn't work (yet) on ${build_cpu} CPUs."
+        return 0
+    fi
+
+    rootfs_path="rootfs.img"
+
+    if [ ! -f ${rootfs_path} ] ; then
+	resources/packages/roms/download
+    fi
+
+    run_qemu_x86_64 \
+        bin/qemu-pc_2mb/grub_qemu-pc_2mb_libgfxinit_corebootfb_usqwerty.rom \
+        "${rootfs_path}" \
+        "x86_64-linux" ; ret=$?
+
+    if [ ${ret} -eq 0 ] ; then
+        printf '[ PASS ] %s.\n' "${test_name}"
+    else
+        printf '[ FAIL ] %s.\n' "${test_name}"
+        exit "${ret}"
+    fi
+}
+
+if [ $# -eq 1 ] && { [ "$1" = "-h" ] || [ "$1" == "--help" ] ;} ; then
+    usage "${progname}"
+    exit 0
+elif [ $# -eq 0 ] ; then
+    test_grub_cfg_with_lvm
+else
+    usage "${progname}"
+    exit ${EX_USAGE}
+fi

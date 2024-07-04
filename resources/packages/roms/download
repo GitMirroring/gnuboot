@@ -1,0 +1,246 @@
+#!/usr/bin/env bash
+# Copyright (C) 2023-2024 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+set -e
+
+topdir="$(dirname "$(dirname "$(dirname "$(dirname "$0")")")")"
+
+. "${topdir}"/resources/scripts/misc/sysexits.sh
+
+usage()
+{
+    progname="$1"
+
+    printf "Usage:\n"
+    printf "\t%s                                 # %s.\n" \
+           "${progname}" \
+           "Download all the files required for offline tests"
+    printf "\t%s %s # %s.\n" \
+           "${progname}" \
+           "trisquel-netinst_11.0_amd64.iso" \
+           "Get the path of trisquel-netinst_11.0_amd64.iso"
+    printf "\t%s %s                     # %s.\n" \
+           "${progname}" \
+           "preseed.img" \
+           "Get the path of the pressed.img image"
+    printf "\t%s %s                        # %s.\n" \
+           "${progname}" \
+           "grub.img" \
+           "Get the path of the grub.img image"
+    printf "\t%s <-h|--help>                     # %s.\n" \
+           "${progname}" \
+           "Display this help and exit"
+    printf "\n"
+}
+
+build_trisquel_netinst_x86_64()
+{
+    source "${topdir}"/config.sh
+    source "${topdir}"/resources/scripts/misc/guix.sh
+    source_guix_profile
+
+    # The trisquel-netinst_11.0_amd64.iso package is architecture
+    # independent.
+    guix time-machine \
+        --commit=${GUIX_REVISION} -- \
+        build \
+            -L "${topdir}"/resources/guix/ \
+            -L "${topdir}"/resources/guix/gnuboot/patches/ \
+            --system=i686-linux \
+            trisquel-netinst-amd64
+}
+
+return_trisquel_netinst_x86_64_iso()
+{
+    iso_install_path="share/trisquel-installer/trisquel-netinst_11.0_amd64.iso"
+    iso_path="$(build_trisquel_netinst_x86_64)${iso_install_path}"
+    echo "${iso_path}"
+}
+
+build_guix_qemu_x86_64()
+{
+    source "${topdir}"/config.sh
+    source "${topdir}"/resources/scripts/misc/guix.sh
+    source_guix_profile
+
+    # There are two qemu packages: qemu and qemu-minimal. For now qemu
+    # was used as (1) it enabled easier testing as with some extra we
+    # can run the distributions in a graphical environment and (2) it
+    # also had extra architectures like ARM. However if qemu-minimal
+    # also works for all the architectures currently supported by GNU
+    # Boot (at the time of writing this is i686 and x86_64), it might
+    # be better to use it as it has way less dependencies (and so this
+    # reduces the download time a lot).
+    guix time-machine \
+        --commit=${GUIX_REVISION} -- \
+        build \
+            -L "${topdir}"/resources/guix/ \
+            -L "${topdir}"/resources/guix/gnuboot/patches/ \
+            --system=x86_64-linux \
+            qemu
+}
+
+build_trisquel_preseed_x86_64_img()
+{
+    source "${topdir}"/config.sh
+    source "${topdir}"/resources/scripts/misc/guix.sh
+    source_guix_profile
+
+    guix time-machine \
+        --commit=${GUIX_REVISION} -- \
+        build \
+            -L "${topdir}"/resources/guix/ \
+            -L "${topdir}"/resources/guix/gnuboot/patches/ \
+            --system=i686-linux \
+            gnuboot-trisquel-preseed.img
+}
+
+build_trisquel_grub_img()
+{
+    source "${topdir}"/config.sh
+    source "${topdir}"/resources/scripts/misc/guix.sh
+    source_guix_profile
+
+    guix time-machine \
+        --commit=${GUIX_REVISION} -- \
+        build \
+            -L "${topdir}"/resources/guix/ \
+            -L "${topdir}"/resources/guix/gnuboot/patches/ \
+            --system=i686-linux \
+            gnuboot-trisquel-grub.img
+}
+
+build_trisquel_rootfs_img()
+{
+    source "${topdir}"/config.sh
+    source "${topdir}"/resources/scripts/misc/guix.sh
+    source_guix_profile
+
+    guix time-machine \
+        --commit=${GUIX_REVISION} -- \
+        build \
+            -L "${topdir}"/resources/guix/ \
+            -L "${topdir}"/resources/guix/gnuboot/patches/ \
+            --system=i686-linux \
+            rootfs.img
+}
+
+return_guix_qemu_x86_64()
+{
+    img_install_path="bin/qemu-system-x86_64"
+    # Guix produces 3 qemu outputs: one for the docs, one for the
+    # static version, and one for all the rest.
+    pkg_path="$(build_guix_qemu_x86_64 | \
+                grep -v '\-doc$' | grep -v '\-static$')"
+    qemu_path="${pkg_path}/${img_install_path}"
+    echo "${qemu_path}"
+}
+
+return_trisquel_preseed_x86_64_img()
+{
+    img_install_path="share/trisquel-installer/preseed.img"
+    img_path="$(build_trisquel_preseed_x86_64_img)/${img_install_path}"
+    echo "${img_path}"
+}
+
+return_trisquel_grub_img()
+{
+    img_install_path="share/trisquel-installer/grub.img"
+    img_path="$(build_trisquel_grub_img)/${img_install_path}"
+    echo "${img_path}"
+}
+
+return_trisquel_rootfs_img()
+{
+    grub_img="$(return_trisquel_grub_img)"
+    cp "${grub_img}" grub.img
+    chmod 770 grub.img
+
+    preseed_x86_64_img="$(return_trisquel_preseed_x86_64_img)"
+    cp "${preseed_x86_64_img}" preseed.img
+    chmod 770 preseed.img
+
+    qemu-img "create" "-f" "raw" "rootfs.img" "4.1G"
+
+    extra_qemu_args=""
+    if [ "${kvm}" = "yes" ] ; then
+        extra_qemu_args="-enable-kvm"
+    fi
+
+    # Here we don't run that yet inside a Guix package since for now
+    # running the preseed netinstall requires networking. It is
+    # possible to capture the packets used during the installation
+    # with apt-cacher-ng by running apt-cacher-ng on localhost and
+    # setting mirror/http/proxy to http://10.0.2.2:3142 in presed.cfg
+    # like that: 'd-i mirror/http/proxy string
+    # http://10.0.2.2:3142'. It is also relatively easy to package
+    # apt-cacher-ng for Guix so we could even run it inside a package.
+    # However once all the packages have been captured, for some
+    # reasons I didn't manage to make apt-cacher-ng became a partial
+    # mirror and run fully offline. If someone knows how to do that it
+    # would be relatively easy to move this command inside Guix
+    # package(s). As for the enable-kvm parameter, it might be
+    # possible to generate one package with it and one without it, and
+    # select the right package depending on if the user used
+    # --disable-kvm.
+    "$(return_guix_qemu_x86_64)" \
+        "-M" "pc" \
+        "-m" "790M" \
+        "-nographic" \
+        "-drive" "file=grub.img,index=2,media=cdrom,if=ide" \
+        "-drive" "file=rootfs.img,index=1,media=disk,if=virtio,driver=raw" \
+        "-drive" "file=preseed.img,index=0,media=disk,if=none,format=raw,id=usb" \
+        "-usb" "-device" "usb-ehci,id=ehci" "-device" "usb-storage,bus=ehci.0,drive=usb" \
+        ${extra_qemu_args}
+}
+
+download_roms()
+{
+    source "${topdir}"/config.sh
+
+    # We use a Trisquel rootfs for automatic testing. Trisquel 10.0
+    # LTS (nabia) still supports i686 and it is supported until April
+    # 2025. The next Trisquel version doesn't support i686, so in the
+    # long run users that still have i686-only computers will probably
+    # use something else than Trisquel nabia by 2025.
+    #
+    # Given the above we only added support for testing with Trisquel
+    # on x86_64, but contributions are welcome to add more
+    # distributions that work on i686 (like Guix or older Trisquel
+    # versions for instance).
+    if [ "${build_cpu}" = "x86_64" ] ; then
+        return_trisquel_rootfs_img
+    fi
+}
+
+progname="download"
+
+if [ $# -eq 1 ] && { [ "$1" = "-h" ] || [ "$1" == "--help" ] ;} ; then
+    usage "${progname}"
+    exit 0
+elif [ $# -eq 0 ] ; then
+    download_roms
+elif [ $# -eq 1 ] && [ "$1" = "trisquel-netinst_11.0_amd64.iso" ] ; then
+    return_trisquel_netinst_x86_64_iso
+elif [ $# -eq 1 ] && [ "$1" = "preseed.img" ] ; then
+    return_trisquel_preseed_img
+elif [ $# -eq 1 ] && [ "$1" = "grub.img" ] ; then
+    return_trisquel_grub_img
+elif [ $# -eq 1 ] && [ "$1" = "rootfs.img" ] ; then
+    return_trisquel_rootfs_img
+else
+    usage "${progname}"
+    exit ${EX_USAGE}
+fi

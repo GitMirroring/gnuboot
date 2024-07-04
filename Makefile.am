@@ -62,6 +62,7 @@ release:
 	set -o pipefail ; ./build release roms | tee -a $(LOG)
 	set -o pipefail ; ./build release website | tee -a $(LOG)
 	set -o pipefail ; ./build release gnuboot-source | tee -a $(LOG)
+	set -o pipefail ; ./build test roms | tee -a $(LOG)
 	set -o pipefail ; ./build test release | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
