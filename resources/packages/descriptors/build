@@ -50,3 +50,5 @@ rm -f descriptors/ich9m/*
     cd descriptors/ich9m/
     ../../ich9utils/ich9gen
 )
+
+resources/packages/descriptors/test
