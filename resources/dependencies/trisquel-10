@@ -70,7 +70,7 @@ install_packages build-essential
 install_packages sharutils curl parted e2fsprogs unzip
 
 # to use the right software versions and links for compiling 
-install_packages pkg-config
+install_packages libtool pkg-config
 
 # for cross-compiling ARM binaries
 install_packages gcc-arm-linux-gnueabi
