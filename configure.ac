@@ -41,7 +41,7 @@ AC_SUBST([GUIX_BUILD_MAX_CORES], [])
 #   to start downloading Guix 1.4.0 packages. So that can make things
 #   a lot faster.
 
-AC_SUBST([GUIX_REVISION], [v1.4.0])
+AC_SUBST([GUIX_REVISION], [8e2f32cee982d42a79e53fc1e9aa7b8ff0514714])
 
 # --enable-kvm
 AC_ARG_ENABLE(kvm,
