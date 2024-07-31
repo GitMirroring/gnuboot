@@ -61,7 +61,7 @@ $(PACK_NAME)-module: $(PACK_NAME)
 # TODO: Make sure the tarball is reproducible
 $(RELEASE_DIR)/gnuboot_src.tar:  Makefile
 	install -d $(RELEASE_DIR)
-	git -C $(TOPDIR) archive HEAD > $@
+	$(TOPDIR)/resources/git/git -C $(TOPDIR) archive HEAD > $@
 
 # TODO: Use Guix to produce a source package to make it reproducible
 $(RELEASE_DIR)/packages_src.tar:  Makefile

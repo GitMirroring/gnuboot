@@ -21,9 +21,6 @@
 #	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-# shellcheck source=.gitcheck
-./.gitcheck
-
 [ "${DEBUG+set}" = 'set' ] && set -v
 set -u -e
 
@@ -133,8 +130,5 @@ else
 		resources/packages/"${package}"/download $@
 	fi
 fi
-
-# shellcheck disable=SC2317
-./.gitcheck clean
 
 exit 0

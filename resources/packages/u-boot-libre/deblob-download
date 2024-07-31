@@ -22,6 +22,8 @@
 [ "x${DEBUG+set}" = 'xset' ] && set -v
 set -u -e
 
+topdir="$(realpath "$(dirname "$(dirname "$(dirname "$(dirname "$0")")")")")"
+
 # set this when you want to modify each u-boot tree
 # for example, you want to test custom patches
 # NODELETE= ./download coreboot
@@ -65,9 +67,11 @@ downloadfor() {
 
 	if [ ! -d "${uboot_dir}" ]; then
 		printf "Download u-boot from upstream:\n"
-		git clone https://source.denx.de/u-boot/u-boot.git \
-		    "${uboot_dir}" || \
-		    rm -Rf "${uboot_dir}"
+		"${topdir}"/resources/git/git \
+			clone \
+			https://source.denx.de/u-boot/u-boot.git \
+			"${uboot_dir}" || \
+			rm -Rf "${uboot_dir}"
 		if [ ! -d "${uboot_dir}" ]; then
 		    printf \
 			"ERROR: %s: Problem with git-clone. Network issue?\n" \
@@ -75,7 +79,9 @@ downloadfor() {
 			return 1
 		fi
 	else
-		git -C "${uboot_dir}" pull || touch build_error
+		"${topdir}"/resources/git/git \
+			-C "${uboot_dir}" \
+			pull || touch build_error
 		if [ -f build_error ]; then
 		    printf \
 			"ERROR: %s: Problem with git-pull. Network issue?\n" \
@@ -84,8 +90,10 @@ downloadfor() {
 		fi
 	fi
 
-	git -C "${uboot_dir}" reset --hard ${uboot_revision} || \
-	    touch build_error
+	"${topdir}"/resources/git/git \
+		-C "${uboot_dir}" \
+		reset --hard ${uboot_revision} || \
+		touch build_error
 	if [ -f build_error ]; then
 	    printf \
 		"ERROR: %s: Unable to reset to commit ID/tag '%s' for board '%s' on tree '%s'\n" \

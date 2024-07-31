@@ -16,8 +16,10 @@
 
 . resources/scripts/misc/sysexits.sh
 
+topdir="$(realpath "$(dirname "$(dirname "$(dirname "$(dirname "$0")")")")")"
+
 progname="resources/packages/tests/test-release"
-rev="$(git --no-pager describe --tags HEAD)"
+rev="$("${topdir}"/resources/git/git describe --tags HEAD)"
 
 usage()
 {

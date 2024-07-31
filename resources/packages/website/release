@@ -20,6 +20,8 @@ progname="resources/packages/website/release"
 
 set -e
 
+topdir="$(realpath "$(dirname "$(dirname "$(dirname "$(dirname "$0")")")")")"
+
 usage()
 {
     progname="$1"
@@ -32,7 +34,7 @@ usage()
 
 build_website()
 {
-    version="$(git --no-pager describe --tags HEAD)"
+    version="$("${topdir}"/resources/git/git describe --tags HEAD)"
 
     cd website
     ./autogen.sh
@@ -44,7 +46,9 @@ build_website()
     install -m 644 website.tar.gz ../release/gnuboot-website-"${version}".tar.gz
 
     # Relase untitled source code
-    git -C untitled bundle create ../../release/untitled-"${version}".bundle HEAD
+    "${topdir}"/resources/git/git \
+        -C untitled \
+        bundle create ../../release/untitled-"${version}".bundle HEAD
 }
 
 if [ $# -eq 1 ] && { [ "$1" = "-h" ] || [ "$1" == "--help" ] ;} ; then

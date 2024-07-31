@@ -21,6 +21,8 @@
 [ "x${DEBUG+set}" = 'xset' ] && set -v
 set -u -e
 
+topdir="$(realpath "$(dirname "$(dirname "$(dirname "$(dirname "$0")")")")")"
+
 usage()
 {
 	progname="./download grub"
@@ -49,7 +51,10 @@ rm -Rf "grub/"
 # ------------------------------------------------------------------------------
 
 # download it using git
-git clone git://git.savannah.gnu.org/grub.git || git clone http://git.savannah.gnu.org/r/grub.git
+"${topdir}"/resources/git/git \
+	clone git://git.savannah.gnu.org/grub.git || \
+"${topdir}"/resources/git/git \
+	clone http://git.savannah.gnu.org/r/grub.git
 
 if [ ! -d "grub" ]; then
     printf "grub not downloaded; check network connection?\n\n"
@@ -60,17 +65,18 @@ fi
 # modifications are required
 cd "grub/"
 # reset to known revision
-git reset --hard 50aace6bdb918150ba47e3c16146dcca271c134a
+"${topdir}"/resources/git/git \
+	reset --hard 50aace6bdb918150ba47e3c16146dcca271c134a
 for grubpatch in ../resources/grub/patches/*; do
-	git am "${grubpatch}"
+	"${topdir}"/resources/git/git am "${grubpatch}"
 done
 
-git clone git://git.sv.gnu.org/gnulib gnulib
+"${topdir}"/resources/git/git clone git://git.sv.gnu.org/gnulib gnulib
 cd gnulib/
 
 # NOTE: when updating this, make sure it's the version specified
 # in bootstrap.conf on that version of GRUB, as specified above
-git reset --hard d271f868a8df9bbec29049d01e056481b7a1a263
+"${topdir}"/resources/git/git reset --hard d271f868a8df9bbec29049d01e056481b7a1a263
 rm -Rf .git*
 )
 

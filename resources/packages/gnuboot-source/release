@@ -14,6 +14,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+topdir="$(realpath "$(dirname "$(dirname "$(dirname "$(dirname "$0")")")")")"
+
 . resources/scripts/misc/sysexits.sh
 
 progname="resources/packages/gnuboot-source/release"
@@ -32,10 +34,10 @@ usage()
 
 build_gnuboot_source()
 {
-    version="$(git --no-pager describe --tags HEAD)"
+    version="$("${topdir}"/resources/git/git --no-pager describe --tags HEAD)"
 
     install -d release
-    git bundle create release/gnuboot-source-"${version}".bundle HEAD
+    "${topdir}"/resources/git/git bundle create release/gnuboot-source-"${version}".bundle HEAD
 }
 
 if [ $# -eq 1 ] && { [ "$1" = "-h" ] || [ "$1" == "--help" ] ;} ; then

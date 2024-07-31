@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+set -x
 #
 #  helper script: generate release archive (source code)
 #
@@ -57,7 +57,7 @@ printf "%s" "${version}" > "${srcdir}"/version
 
 modlist="coreboot grub i945-thinkpads-install-utilities memtest86plus seabios ich9utils"
 dirlist="resources"
-filelist="download build README.md COPYING Makefile update version versiondate projectname .gitcheck"
+filelist="download build README.md COPYING Makefile update version versiondate projectname"
 
 for modname in ${modlist}; do
     if [ ! -d "${modname}/" ]; then

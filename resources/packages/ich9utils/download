@@ -21,6 +21,8 @@
 [ "x${DEBUG+set}" = 'xset' ] && set -v
 set -u -e
 
+topdir="$(realpath "$(dirname "$(dirname "$(dirname "$(dirname "$0")")")")")"
+
 usage()
 {
 	progname="./download ich9utils"
@@ -46,7 +48,7 @@ if [ -d ich9utils ]; then
 fi
 
 # download it using git
-git clone https://notabug.org/libreboot/ich9utils.git
+"${topdir}"/resources/git/git clone https://notabug.org/libreboot/ich9utils.git
 
 if [ ! -d "ich9utils" ]; then
     printf "ich9utils not downloaded; check network connection?\n\n"
@@ -57,7 +59,7 @@ fi
 cd "ich9utils/"
 
 # reset to known revision
-git reset --hard 53749b0c6f7c5778bdd1ec2b91cd230626752579
+"${topdir}"/resources/git/git reset --hard 53749b0c6f7c5778bdd1ec2b91cd230626752579
 )
 
 printf "\n\n"

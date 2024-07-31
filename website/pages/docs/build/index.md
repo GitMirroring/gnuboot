@@ -83,27 +83,6 @@ hub so by using them you blindly trust Docker Hub. The only way to
 check the images is to create your own image and compare it with the
 one hosted on docker hub.
 
-Git
-===
-
-GNU Boot build system still has some fragile scripts for building some
-of the projects like Coreboot.
-
-Because of that you need to configure git even if you only want to
-build build a binary without modifying anything because the GNU Boot
-build system uses git directly when applying patches to the software
-it builds, and git expects some configuration to be present when
-applying patches.
-
-To fix that you need to set a valid username and email:
-    git config --global user.name "John Doe"
-    git config --global user.email johndoe@example.com
-
-Change the name and email address to whatever you want, when doing this.
-
-You may also want to follow more of the steps here:
-<https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup>
-
 Guix
 ====
 While GNU Boot doesn't build yet on top of Guix, it started using some

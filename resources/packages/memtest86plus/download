@@ -23,6 +23,8 @@
 [ "x${DEBUG+set}" = 'xset' ] && set -v
 set -u -e
 
+topdir="$(realpath "$(dirname "$(dirname "$(dirname "$(dirname "$0")")")")")"
+
 usage()
 {
 	progname="./download memtest86plus"
@@ -49,17 +51,17 @@ printf "Downloading MemTest86+\n"
 
 rm -Rf "memtest86plus/"
 
-git clone https://review.coreboot.org/memtest86plus.git
+"${topdir}"/resources/git/git clone https://review.coreboot.org/memtest86plus.git
 
 (
 cd "memtest86plus/"
-git reset --hard a78401b9704cfdd49c89bfb31d2df08f60521d0b
+"${topdir}"/resources/git/git reset --hard a78401b9704cfdd49c89bfb31d2df08f60521d0b
 
 for patchfile in ../resources/memtest86plus/patch/*; do
 	if [ ! -f "${patchfile}" ]; then
 		continue
 	fi
-	git am "${patchfile}"
+	"${topdir}"/resources/git/git am "${patchfile}"
 done
 
 rm -Rf .git*
