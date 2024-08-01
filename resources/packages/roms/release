@@ -60,7 +60,9 @@ printf "Building ROM image archives for version %s\n" "${version}"
 	printf "%s\n" "${version}" > "${target}/version"
 	printf "%s\n" "${versiondate}" > "${target}/versiondate"
 	printf "%s\n" "${projectname}" > "${target}/projectname"
-        tar -c "${target}/" | xz -9e >"../release/roms/${projectname}-${version}_${target##*/}.tar.xz"
+	rm -f ../release/roms/"${projectname}"-"${version}"_"${target##*/}".tar
+	tar -cf ../release/roms/"${projectname}"-"${version}"_"${target##*/}".tar "${target}/"
+        xz -vv -9e -f ../release/roms/"${projectname}"-"${version}"_"${target##*/}".tar
     done
 )
 

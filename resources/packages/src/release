@@ -113,7 +113,9 @@ cd "${reldir}/"
 printf "%s\n" "${version}" > "${dirname}/version"
 printf "%s\n" "${versiondate}" > "${dirname}/versiondate"
 printf "%s\n" "${projectname}" > "${dirname}/projectname"
-tar -c "${dirname}/" | xz -9e >"${dirname}.tar.xz"
+rm -f "${dirname}".tar
+tar -cf "${dirname}".tar "${dirname}/"
+xz -vv -9e -f "${dirname}".tar
 rm -Rf "${dirname}/"
 )
 
