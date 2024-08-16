@@ -40,7 +40,7 @@ GUIX_PACK_COMMAND = \
 	pack \
 	-L $(TOPDIR)/resources/guix/ \
 	-L $(TOPDIR)/resources/guix/gnuboot/patches/ \
-	-RR \
+	-R \
 	--save-provenance \
 	--system=i686-linux \
 	--symlink=/usr/local/bin/bucts=bin/bucts \
