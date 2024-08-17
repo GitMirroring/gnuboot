@@ -176,6 +176,7 @@ test_release_dir()
         test_file "${path}"
     done
 
+    missing_in_release_files=0
     while IFS= read -r -d '' path ; do
         found=0
         for release_file in ${release_files} ; do
@@ -186,8 +187,13 @@ test_release_dir()
 
         if [ $found -eq 0 ] ; then
             echo "[ !! ] $path missing in \${release_files}"
+	    missing_in_release_files=$(expr $missing_in_release_files + 1)
         fi
     done < <(find "${dir}" -type f -print0)
+
+    if [ ${missing_in_release_files} -gt 0 ] ; then
+	exit 1
+    fi
 }
 
 test_release()
