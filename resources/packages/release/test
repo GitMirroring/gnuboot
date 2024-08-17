@@ -167,6 +167,11 @@ test_release_dir()
 
     release_files="${release_files}"" ""${dir}"/gnuboot-website-"${rev}".tar.gz
 
+    release_files="${release_files}"" ""${dir}"/i945-thinkpads-install/i945-thinkpads-install-utilities-deb-pack.deb
+    release_files="${release_files}"" ""${dir}"/i945-thinkpads-install/packages_src.tar
+    release_files="${release_files}"" ""${dir}"/i945-thinkpads-install/gnuboot_src.tar
+    release_files="${release_files}"" ""${dir}"/i945-thinkpads-install/i945-thinkpads-install-utilities-tarball-pack.tar.gz
+
     for path in ${release_files} ; do
         test_file "${path}"
     done
