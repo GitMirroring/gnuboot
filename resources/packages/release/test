@@ -185,7 +185,7 @@ test_release_dir()
         done
 
         if [ $found -eq 0 ] ; then
-            echo "[ !! ] $path"
+            echo "[ !! ] $path missing in \${release_files}"
         fi
     done < <(find "${dir}" -type f -print0)
 }
