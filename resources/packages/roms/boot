@@ -80,6 +80,10 @@ buildrom() {
 
 if [ $# -gt 0 ]; then
 	firstoption="${1}"
+	if [ "${firstoption}" = "--help" ]; then
+		help
+		exit 0
+	fi
 	if [ "${firstoption}" = "help" ]; then
 		help
 		exit 0
