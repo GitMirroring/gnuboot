@@ -276,8 +276,6 @@ Intel remote access to a computer where it is present.
 
 Intel themselves even admitted it, publicly.
 
-The GNU Boot project recommends avoiding all hardware sold by Purism.
-
 Why is the latest Intel hardware unsupported in GNU Boot? {#intel}
 -----------------------------------------------------------
 
