@@ -87,7 +87,7 @@ help() {
 
 	Example:	./build module all
 	Example:	./build module i945-thinkpads-install-utilities
-	Example:	./build roms withgrub
+	Example:	./build boot roms qemu-pc_2mb
 	Example:	./build clean all
 
 	Refer to the ${projectname} documentation for more information.
