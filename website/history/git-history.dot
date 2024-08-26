@@ -1,0 +1,133 @@
+# Copyright (C) 2024 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+#
+# Permission is granted to copy, distribute and/or modify this document
+# under the terms of the GNU Free Documentation License, Version 1.3
+# or any later version published by the Free Software Foundation;
+# with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+# A copy of the license is included in the website/COPYING directory.
+
+digraph {
+  subgraph cluster_osboot {
+    label="project current name: osboot
+    freedom status: includes nonfree sofware
+    status: abandonned
+    website: https://osboot.org";
+    subgraph cluster_osbmk {
+      label="https://notabug.org/osboot/osbmk git repository";
+      shape="box";
+      "osbmk: first commit" [label="first commit: df76c3e Fork Libreboot 20160907 build system. Large parts have been re-written."];
+      "osbmk: libre branch" [label="libre branch"];
+      "osbmk: master branch" [label="master"];
+
+      "osbmk: first commit" -> "osbmk: libre branch";
+      "osbmk: first commit" -> "osbmk: master branch";
+    }
+  }
+  subgraph cluster_librebootorg {
+    label="project current name: libreboot
+    freedom status: includes nonfree sofware since 20220710
+    status: ongoing
+    website: https://libreboot.org";
+
+    subgraph cluster_old_libreboot {
+      label="https://notabug.org/libreboot/obsolete-repository-preserved-for-historical-purposes git repository";
+      "old_libreboot: last commit" [label="7242f030 add README.md talking about how this repository is obsolete"];
+      "149273c6" [label="149273c6 www/downloads: remove cyberbits http:// mirror. they already have https://"];
+      "112003a5" [label="112003a5 Paper build system initial import into Libreboot"];
+      "old_libreboot: tag r20160907" [label="tag r20160907"];
+      "old_libreboot: first commit" [label="first commit: cee90ae0 Libreboot release 6 beta 1."];
+
+      "old_libreboot: first commit" -> "old_libreboot: tag r20160907";
+      "old_libreboot: tag r20160907" -> "112003a5";
+      "112003a5" -> "149273c6";
+      "149273c6" -> "old_libreboot: last commit";
+
+      "old_libreboot: tag r20160907" -> "osbmk: first commit" [label="removed history"];
+
+      }
+
+    subgraph cluster_lbmk {
+      label="https://codeberg.org/libreboot/lbmk git repository";
+      "osbmk: libre branch" -> "lbmk: first commit" [label="removed history"];
+      "lbmk: first commit" [label="first commit: 89517ed6 libreboot!"];
+      "lbmk: master" [label="master"];
+      "lbmk: tag 20220710" [label="tag 20220710"];
+
+      "lbmk: first commit" -> "lbmk: tag 20220710" -> "lbmk: master";
+    }
+    subgraph cluster_lbwww {
+      label="https://codeberg.org/libreboot/lbwww git repository";
+      # I don't know if the first commit was made from scratch or if
+      # its content comes from somewhere else as the provenance of the
+      # work is not mentionned in the initial commit message and that
+      # often Leah reuses previous code to create the first commit.
+      "lbwww: before first commit" [label="?"];
+      "lbwww: first commit" [label="first commit: 501e77d libreboot site"];
+      "lbwww: master" [label="master"];
+      "lbwww: tag 20211122" [label="tag 20211122"];
+
+      "lbwww: before first commit" -> "lbwww: first commit";
+      "lbwww: first commit" -> "lbwww: tag 20211122" -> "lbwww: master";
+    }
+
+
+    subgraph cluster_lbwww_img {
+      label="https://codeberg.org/libreboot/lbwww-img git repository";
+      "lbwww-img: first commit" [label="first commit: 55760a6 images from old Libreboot git repo: 149273c6742aeed14ec1aaca019f552cfb109457"];
+      "283ce03" [label="283ce03 wrong bad image"];
+      "lbwww-img: master" [label="master"];
+
+      "149273c6" -> "lbwww-img: first commit" [label="removed history"];
+      "lbwww-img: first commit" -> "283ce03" -> "lbwww-img: master";
+    }
+  }
+  subgraph cluster_librebootat {
+    label="project current name: Genuine libreboot
+    freedom status: 100% free software
+    status: replaced by GNU Boot
+    website: https://libreboot.at";
+
+    subgraph cluster_libreboot_at_lbwww {
+      label="https://git.sr.ht/~libreboot/lbwww git repository (doesn't exit anymore).";
+      "libreboot.at lbwww: first commit" [label="73c505b Add project announcement"];
+      "libreboot.at lbwww: last commit" [label="efdfbca Order maintainers names alphabetically"];
+      "lbwww: tag 20211122" -> "libreboot.at lbwww: first commit" [label="kept history"];
+      "libreboot.at lbwww: first commit" -> "libreboot.at lbwww: last commit";
+    }
+  }
+  subgraph cluster_gnuboot {
+    label="project current name: GNU Boot
+    freedom status: 100% free software
+    status: ongoing
+    website: https://gnu.org/software/gnuboot";
+    subgraph cluster_acpica_mirror {
+      label="https://git.savannah.gnu.org/cgit/gnuboot/acpica.org-mirror.git git repository";
+      "acpica.org-mirror: first commit" [label="first commit"];
+      "acpica.org-mirror: main" [label="main"];
+
+      "acpica.org-mirror: first commit" -> "acpica.org-mirror: main";
+    }
+    subgraph cluster_presentations {
+      label="https://git.savannah.gnu.org/cgit/gnuboot/presentations.git git repository";
+      "presentations: first commit" [label="first commit"];
+      "presentations: main" [label="main"];
+
+      "presentations: first commit" -> "presentations: main";
+    }
+    subgraph cluster_gnuboot {
+      label="https://git.savannah.gnu.org/cgit/gnuboot.git git repository";
+      "first-commit" [label="bf17993 Continue Libreboot under the GNU project"];
+      "gnuboot: main" [label="main"];
+      "b42fd22" [label="b42fd22 Merge the website into GNU Boot"];
+      "2e12909" [label="2e12909 Add GNU Boot project announcement"];
+      "54c6ae4" [label="54c6ae4 Merge the documentation/website pictures into GNU Boot"];
+
+
+      "lbmk: tag 20220710" -> "first-commit" [label="kept history"];
+      "first-commit" -> "b42fd22" -> "54c6ae4" -> "gnuboot: main";
+      "libreboot.at lbwww: last commit" -> "2e12909" [label="kept history"];
+      "2e12909" -> "b42fd22" [label="kept history"];
+      "283ce03" -> "54c6ae4" [label="kept history"];
+    }
+  }
+}

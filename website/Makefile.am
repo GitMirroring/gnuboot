@@ -27,6 +27,9 @@ endif
 index.html: index.html.tmpl
 	sed -e "s#WEBSITE_PREFIX#$(WEBSITE_PREFIX)#g" "$^" > "$@"
 
+history/git-history.jpg: history/git-history.dot
+	dot -T jpg history/git-history.dot > "$@"
+
 site.cfg: site.cfg.tmpl
 	sed -e "s#WEBSITE_PREFIX#$(WEBSITE_PREFIX)#g" "$^" > "$@"
 
@@ -55,7 +58,7 @@ build: site.cfg
 endif
 
 if WANT_GUIX
-check: build website.tar.gz index.html
+check: build website.tar.gz index.html history/git-history.jpg
 	rm -rf site/
 	mkdir -p site/$(WEBSITE_PREFIX)
 	tar xf website.tar.gz -C site/$(WEBSITE_PREFIX)
@@ -77,7 +80,7 @@ check: build website.tar.gz index.html
 		./check.sh  --website-prefix $(WEBSITE_PREFIX) \
 			--tarball website.tar.gz
 else
-check: build website.tar.gz index.html
+check: build website.tar.gz index.html history/git-history.jpg
 	rm -rf site/
 	mkdir -p site/$(WEBSITE_PREFIX)
 	tar xf website.tar.gz -C site/$(WEBSITE_PREFIX)
@@ -137,7 +140,7 @@ publish: website.tar.gz
 		deploy/ \
 		$(RSYNC_DESTINATION)/
 
-website.tar.gz: build index.html
+website.tar.gz: build index.html history/git-history.jpg
 	tar \
 		--exclude-vcs \
 		--format=gnu \
@@ -147,4 +150,7 @@ website.tar.gz: build index.html
 		website.tar.gz \
 		untitled/www/lbwww/site \
 		index.html \
-		--transform="s#untitled/www/lbwww/site#web#"
+		history/git-history.dot \
+		history/git-history.jpg \
+		--transform="s#untitled/www/lbwww/site#web#" \
+		--transform="s#^history/#web/history/#"
