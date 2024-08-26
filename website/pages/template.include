@@ -61,7 +61,7 @@ $endif$
 <li><a href="/software/gnuboot/web/news/">News</a></li>
 <li><a href="https://savannah.gnu.org/bugs/?group=gnuboot">Bugs</a></li>
 <li><a href="https://savannah.gnu.org/projects/gnuboot/">Savannah forge</a></li>
-<li><a href="/software/gnuboot/web/git.html">Send patch</a></li>
+<li><a href="/software/gnuboot/web/git.html">Helping GNU Boot</a></li>
 <li><a href="/software/gnuboot/web/contact.html">Contact</a></li>
 </ul>
 <hr/>
@@ -72,7 +72,7 @@ $if(x-unreviewed)$
   boot software related projects instead of GNU Boot. We also need
   help (ideally in the form of patches sent to the GNU Boot mailing
   list) to fix this website. See
-  the <a href="/software/gnuboot/web/git.html">Send patch</a>
+  the <a href="/software/gnuboot/web/git.html">Helping GNU Boot</a>
   page for more details on how to contribute to GNU Boot.
 </p>
 <hr/>

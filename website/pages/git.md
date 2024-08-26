@@ -176,8 +176,8 @@ GNU/Linux is generally recommended as the OS of choice, for GNU Boot
 development. However, BSD operating systems also boot on GNU Boot
 machines.
 
-Send patches & contribute
--------------------------
+Contributing patches to GNU Boot
+--------------------------------
 
 You can submit your patches to the 
 [gnuboot-patches mailing list](https://lists.gnu.org/mailman/listinfo/gnuboot-patches),
