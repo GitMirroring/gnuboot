@@ -101,3 +101,32 @@ far we only have a partial code history. Contributions are
 welcome. See the [git.md](../../git.md) page about various ways to
 contribute to GNU Boot or to contact the project to update the
 information in this page.
+
+Verified copyright headers
+==========================
+
+So far the copyright headers were verified on the following files:
+
+* build (details in commit 1ccd450fec42ce426a00d075ad9b78a0b8c233ba
+  "build: Update copyright header.").
+
+* resources/grub/config/grub.cfg (details in commit
+  2695c97561405741200dc25f520a5ff649b7421f "grub.cfg: Add copyright
+  header.")
+
+* resources/packages/src/release (details in commit
+ 65c0e57a550e8e6a8d80543585eeed66ad06cb64 "resources: packages: src:
+ release: Update copyright header.")
+
+Also note that some files are there to stay (like the grub.cfg file
+above) but since we took the decision to migrate packages to Guix,
+another way to help improve the copyright headers situation is to
+migrate packages to Guix and to make sure that the Guix packages have
+proper copyright headers.
+
+Since we can add the path of verified files above, it is also possible
+to add files that never had any issues.
+
+Some omissions can still manage to skip through code review after the
+verification but at least we have the proper git history that enables
+us to more easily reconstruct it.
