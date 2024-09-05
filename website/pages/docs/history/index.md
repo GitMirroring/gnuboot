@@ -114,6 +114,10 @@ So far the copyright headers were verified on the following files:
   722a8256ab031a533418cbcf27bedd0cd88b7660 ("website: .gitignore: add
   copyright header.")
 
+* website/serve.sh (details in the commit
+  aca12bde3f7af5b17969d57f7da1a8d700e0a36f ("website: serve.sh: update
+  copyright headers.")
+
 * resources/grub/config/grub.cfg (details in commit
   2695c97561405741200dc25f520a5ff649b7421f "grub.cfg: Add copyright
   header.")
