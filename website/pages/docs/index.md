@@ -1,6 +1,5 @@
 ---
 title: Documentation
-x-unreviewed: true
 ...
 
 General information
