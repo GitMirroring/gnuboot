@@ -9,11 +9,11 @@ the [main news section](../news/).
 
 [Answers to Frequently Asked Questions about Libreboot](../faq.md).
 
-Installing libreboot
-====================
+Installing GNU Boot
+===================
 
--   [What systems can I use libreboot on?](hardware/)
--   [How to install libreboot](install/)
+-   [What systems can I use GNU Boot on?](hardware/)
+-   [How to install GNU Boot](install/)
 
 Documentation related to operating systems
 ============================
