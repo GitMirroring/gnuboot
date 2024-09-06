@@ -30,11 +30,36 @@ index.html: index.html.tmpl
 history/git-history.jpg: history/git-history.dot
 	dot -T jpg history/git-history.dot > "$@"
 
+# We need force the regeneration of the page because if only the git
+# commit changes, there is no way to know about it. In addition the
+# full website is regenerated each time the build target is run, so
+# generating one more page has insignificant performance impact.
+.PHONY: pages/footer-git-commit.include
+pages/footer-git-commit.include:
+	rm -f $@
+
+	printf "This page was generated with %s from the commit %s\n" \
+		"[Untitled](https://untitled.vimuser.org/)" \
+		"`git show --no-patch HEAD --pretty=\"%h\"`" \
+		>> $@
+
+	printf "(\"%s\").\n" \
+		"`git show --no-patch HEAD --pretty=\"%s\"`" \
+		>> $@
+
+	printf "\n" >> $@
+
+pages/footer.include: pages/footer.include.tmpl pages/footer-git-commit.include
+	cat \
+		pages/footer.include.tmpl \
+		pages/footer-git-commit.include \
+		> $@
+
 site.cfg: site.cfg.tmpl
 	sed -e "s#WEBSITE_PREFIX#$(WEBSITE_PREFIX)#g" "$^" > "$@"
 
 if WANT_GUIX
-build: site.cfg
+build: site.cfg pages/footer.include
 	guix time-machine \
 	--commit=c15a1cd88f80a90437f4b0159f22dfc84b9e6851 \
 	-- shell \
@@ -53,7 +78,7 @@ build: site.cfg
 		-- \
 		./build.sh $(BUILD_OPTIONS)
 else
-build: site.cfg
+build: site.cfg pages/footer.include
 		./build.sh $(BUILD_OPTIONS)
 endif
 
