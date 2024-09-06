@@ -24,5 +24,6 @@
 /Makefile.in
 /missing
 /site/**
+/site.cfg
 /untitled/
 /website.tar.gz
