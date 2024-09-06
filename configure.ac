@@ -20,16 +20,16 @@ AC_CONFIG_FILES([
     resources/packages/i945-thinkpads-install-utilities/Makefile
 ])
 
-AC_SUBST([GUIX_BUILD_CORES], [])
+AC_SUBST([GUIX_BUILD_MAX_CORES], [])
 
-# --with-guix-build-cores
-AC_ARG_WITH([guix-build-cores],
-    [AS_HELP_STRING([--with-guix-build-cores=N],
+# --with-guix-build-max-cores
+AC_ARG_WITH([guix-build-max-cores],
+    [AS_HELP_STRING([--with-guix-build-max-cores=N],
                   [Force guix build the use of up to N CPU cores for the build.
                    Lowering the number of cores used can help when there is not
                    enough RAM per core.])],
-    [GUIX_BUILD_CORES=$withval],
-    [GUIX_BUILD_CORES=0])
+    [GUIX_BUILD_MAX_CORES=$withval],
+    [GUIX_BUILD_MAX_CORES=0])
 
 AC_CHECK_PROG([FOUND_GUIX], [guix], [guix])
 AS_IF([test x"$FOUND_GUIX" = x""],
@@ -45,4 +45,6 @@ AC_OUTPUT
 
 AS_ECHO(["Configuration options:"])
 
-AS_ECHO(["    GUIX_BUILD_CORES: $GUIX_BUILD_CORES"])
+AS_IF([test x"$GUIX_BUILD_MAX_CORES" = x"0"],
+      AS_ECHO(["    GUIX_BUILD_MAX_CORES: not limited."]),
+      AS_ECHO(["    GUIX_BUILD_MAX_CORES: $GUIX_BUILD_MAX_CORES"]))

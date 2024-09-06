@@ -1,4 +1,4 @@
-# Copyright (C) 2023 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+# Copyright (C) 2023,2024 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -71,7 +71,7 @@ $(RELEASE_DIR)/packages_src.tar:  Makefile
 		source_guix_profile && \
 		guix time-machine --commit=$(GUIX_REVISION) -- \
 		build \
-		-c $(GUIX_BUILD_CORES) \
+		-c $(GUIX_BUILD_MAX_CORES) \
 		-L $(TOPDIR)/resources/guix/ \
 		-L $(TOPDIR)/resources/guix/gnuboot/patches \
 		--sources=transitive \
