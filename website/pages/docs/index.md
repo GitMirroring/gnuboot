@@ -3,11 +3,12 @@ title: Documentation
 x-unreviewed: true
 ...
 
-Always check [libreboot.srht.site](https://libreboot.srht.site/) for the latest updates to
-Libreboot. News, including release announcements, can be found in
-the [main news section](../news/).
+General information
+===================
 
-[Answers to Frequently Asked Questions about GNU Boot](../faq.md).
+-   News, including release announcements, can be found in the
+    [main news section](../news/).
+-   [Answers to Frequently Asked Questions about GNU Boot](../faq.md).
 
 Installing GNU Boot
 ===================
