@@ -2,7 +2,7 @@
 #
 # Various code quality tests to avoid regressions in code quality.
 #
-# Copyright (C) 2023 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+# Copyright (C) 2023,2024 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -48,11 +48,11 @@ run_shellcheck \
     update \
     resources/packages/coreboot/distclean \
     resources/packages/descriptors/distclean \
+    resources/packages/grub/distclean \
     resources/packages/i945-thinkpads-install-utilities/clean \
     resources/packages/i945-thinkpads-install-utilities/distclean \
     resources/packages/i945-thinkpads-install-utilities/download \
     resources/packages/i945-thinkpads-install-utilities/module \
-    resources/packages/grub/distclean \
     resources/packages/ich9utils/distclean \
     resources/packages/memtest86plus/distclean \
     resources/packages/payloads/distclean \
