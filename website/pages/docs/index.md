@@ -16,7 +16,7 @@ Installing GNU Boot
 -   [How to install GNU Boot](install/)
 
 Documentation related to operating systems
-============================
+==========================================
 
 -   [GNU+Linux Guides](gnulinux/)
 -   [How to install BSD on a libreboot system](bsd/)
@@ -24,7 +24,7 @@ Documentation related to operating systems
 Information for developers
 ==========================
 
--   [How to compile the libreboot source code](build/)
+-   [How to compile the GNU Boot source code](build/)
 -   [GNU Boot source code history and provenance](history/)
 -   [Depthcharge payload](depthcharge/) (**Libreboot 20160907 only**)
 -   [GRUB payload](grub/)
