@@ -3,7 +3,8 @@ title: Downloads
 x-unreviewed: true
 ...
 
-New releases are announced in the [main news section](news/).
+Information about where to find new releases are announcements is in
+the [news page](news.md).
 
 If you're more interested in GNU Boot development, go to the
 [GNU Boot development page](../git.md), which also includes links to the

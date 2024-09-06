@@ -50,7 +50,8 @@ For pre-built images distributed by the libreboot project, this is a
 rough approximation of what version you have, because the version
 numbers are dated, and the release archives are typically built on the
 same day as the release; you can correlate that with the release
-information in [release announcements on the news page](/news/).
+information. For more information on where to find release information,
+see the [news page](/news.md).
 
 For 20160818, note that the lbversion file was missing from CBFS on GRUB
 images. You can still find out what libreboot version you have by

@@ -13,8 +13,9 @@ However, you might want to tweak it or try out newer releases of GNU Boot if
 they have bug fixes for your board, and/or new security fixes.
 
 If you're already running libre firmware on your board, you should decide for
-sure whether you wish to risk it. See changelogs on
-the [release announcements via the news page](/news/) and decide for yourself.
+sure whether you wish to risk it. See the [news page](/news.md) for more
+information on where to find changelogs and release announcements, to enable
+you to decide for yourself.
 
 FLASH ERRORS (and workarounds)
 ==============================

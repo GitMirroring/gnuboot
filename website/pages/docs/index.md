@@ -5,8 +5,8 @@ title: Documentation
 General information
 ===================
 
--   News, including release announcements, can be found in the
-    [main news section](../news/).
+-   Information about where to find GNU Boot news, including release
+    announcements, can be found in the [news page](../news.md).
 -   [Answers to Frequently Asked Questions about GNU Boot](../faq.md).
 
 Installing and updating GNU Boot

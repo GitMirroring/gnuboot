@@ -58,7 +58,7 @@ $endif$
 <li><a href="/software/gnuboot/web/faq.html">FAQ</a></li>
 <li><a href="/software/gnuboot/web/docs/install/">Get GNU Boot</a></li>
 <li><a href="/software/gnuboot/web/docs/">Docs</a></li>
-<li><a href="/software/gnuboot/web/news/">News</a></li>
+<li><a href="/software/gnuboot/web/news.html">News</a></li>
 <li><a href="https://savannah.gnu.org/bugs/?group=gnuboot">Bugs</a></li>
 <li><a href="https://savannah.gnu.org/projects/gnuboot/">Savannah forge</a></li>
 <li><a href="/software/gnuboot/web/git.html">Helping GNU Boot</a></li>
