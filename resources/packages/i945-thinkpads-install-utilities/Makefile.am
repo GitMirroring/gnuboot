@@ -30,13 +30,13 @@ RELEASE_DIR = $(DESTDIR)/i945-thinkpads-install
 # We enable caching by not making this configurable and so when the
 # Makefile isn't updated, the Guix revision doesn't change, so we
 # don't need to rebuild anything.
-GUIX_REVISION = v1.4.0
 
 GUIX_PACK_COMMAND = \
+	source $(TOPDIR)/config.sh && \
 	source resources/scripts/misc/guix.sh && \
 	source_guix_profile && \
 	guix time-machine \
-	--commit=$(GUIX_REVISION) -- \
+	--commit="$${GUIX_REVISION}" -- \
 	pack \
 	-L $(TOPDIR)/resources/guix/ \
 	-L $(TOPDIR)/resources/guix/gnuboot/patches/ \
@@ -67,9 +67,10 @@ $(RELEASE_DIR)/gnuboot_src.tar:  Makefile
 $(RELEASE_DIR)/packages_src.tar:  Makefile
 	install -d $(RELEASE_DIR)
 	tar cf $@ \
-		`source resources/scripts/misc/guix.sh && \
+		`source $(TOPDIR)/config.sh && \
+		source resources/scripts/misc/guix.sh && \
 		source_guix_profile && \
-		guix time-machine --commit=$(GUIX_REVISION) -- \
+		guix time-machine --commit="$${GUIX_REVISION}" -- \
 		build \
 		-c $(GUIX_BUILD_MAX_CORES) \
 		-L $(TOPDIR)/resources/guix/ \
