@@ -19,7 +19,7 @@ EX_USAGE=64
 
 untitled_uri="https://notabug.org/untitled/untitled.git"
 untitled_path=""
-untitled_commit="ee3cf7e29d672e5e5fc1a9409e7327ea9abe9325"
+untitled_commit="e72d055915c3a9ffe739982946e101b146b2483c"
 
 help()
 {
