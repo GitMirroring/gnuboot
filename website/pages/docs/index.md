@@ -7,7 +7,7 @@ Always check [libreboot.srht.site](https://libreboot.srht.site/) for the latest 
 Libreboot. News, including release announcements, can be found in
 the [main news section](../news/).
 
-[Answers to Frequently Asked Questions about Libreboot](../faq.md).
+[Answers to Frequently Asked Questions about GNU Boot](../faq.md).
 
 Installing GNU Boot
 ===================
