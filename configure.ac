@@ -36,11 +36,6 @@ AS_IF([test x"$FOUND_GUIX" = x""],
       [AC_MSG_ERROR(
       [guix was not found in PATH ($PATH)])])
 
-AC_CHECK_PROG([FOUND_GUIX], [guix], [guix])
-AS_IF([test x"$FOUND_GUIX" = x""],
-      [AC_MSG_ERROR(
-      [guix was not found in PATH ($PATH)])])
-
 AC_OUTPUT
 
 AS_ECHO(["Configuration options:"])
