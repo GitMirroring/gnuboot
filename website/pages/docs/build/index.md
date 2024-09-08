@@ -30,13 +30,12 @@ People managed to build GNU Boot with the following distributions:
 
 * Trisquel 10 (nabia)
 
+* Trisquel 11 (aramo)
+
 And these cannot build GNU Boot yet:
 
-* Trisquel 11 (aramo): The issue is documented in the [Bug
-  #64870](https://savannah.gnu.org/bugs/?64870).
-
-* Guix: Guix doesn't have any ADA compiler and that is needed for
-  building Coreboot for certain computers.
+* Guix: The issue is documented in the [Bug
+ #66188](https://savannah.gnu.org/bugs/index.php?66188)
 
 If you don't use PureOS 10 (byzantium) or Trisquel 10 (nabia), there
 are many ways to run them on top of other GNU/Linux distributions.
