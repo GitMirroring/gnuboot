@@ -24,7 +24,6 @@ morse \
 mpi \
 mul_test \
 net \
-newc \
 nilfs2 \
 odc \
 offsetio \
@@ -88,8 +87,6 @@ cmosdump \
 cmostest \
 cmp \
 configfile \
-cpio \
-cpio_be \
 crc64 \
 crypto \
 cryptodisk \
@@ -153,7 +150,6 @@ ldm \
 linux \
 linux16 \
 loadenv \
-loopback \
 ls \
 lsacpi \
 lsmmap \
@@ -215,9 +211,7 @@ setpci \
 sleep \
 smbios \
 spkmodem \
-squash4 \
 sfs \
-tar \
 terminal \
 terminfo \
 test \
