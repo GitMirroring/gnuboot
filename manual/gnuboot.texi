@@ -2170,29 +2170,6 @@ please contact us. If you have a MacBook 1.1, MacBook 2.1 or an iMac
 be interested in your point of view on that, even if you don't use
 such filesystems or don't use GNU Boot.
 
-@node          ReiserFS (ReiserFS v3)
-@subsubsection ReiserFS (ReiserFS v3)
-
-If ReiserFS is being removed from the Linux kernel: it was scheduled
-for removal in 2025 and it is already removed from the most recent
-Linux kernel versions, though it may still be available in older
-stable kernel releases.
-
-It is also prone to corruption (see
-@uref{https://en.wikipedia.org/wiki/ReiserFS#Criticism, the Wikipedia
-ReiserFS article} for more details).
-
-Beside GNU/Linux it seems to be supported by ReactOS, but ReactOS is
-also not FSDG compliant. This means that if we want to support booting
-ReactOS with ReiserFS, we will need to rely on voulonteers that care
-about ReactOS to test if things work fine.
-
-Because of that we are also considering removing the support for ReiserFS in
-GNU Boot.
-
-For instance would it be missed if we remove them from GNU Boot? If so
-please contact us.
-
 @node          BSD related filesystems (UFS@comma{} etc)
 @subsubsection BSD related filesystems (UFS@comma{} etc)
 
@@ -2222,6 +2199,7 @@ The following filesystems were removed to try to fit GRUB images within
 @itemize
 @item HFS
 @item MINIX
+@item ReiserFS v3
 @end itemize
 
 If you miss some of them, please contact us so we could consider
