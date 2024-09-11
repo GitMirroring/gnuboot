@@ -50,9 +50,6 @@ usbserial_ftdi \
 usbserial_pl2303 \
 usbserial_usbdebug \
 usbtest \
-video_bochs \
-video_cirrus \
-video_colors \
 videoinfo \
 videotest \
 videotest_checksum \
