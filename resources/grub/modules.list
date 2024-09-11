@@ -19,8 +19,6 @@ hfsplus \
 hfspluscomp \
 http \
 jfs \
-macbless \
-macho \
 mda_text \
 morse \
 mpi \
@@ -60,9 +58,6 @@ videoinfo \
 videotest \
 videotest_checksum \
 wrmsr \
-xnu \
-xnu_uuid \
-xnu_uuid_test \
 "
 
 # Modules (and always loaded)
