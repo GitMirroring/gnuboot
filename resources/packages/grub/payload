@@ -58,6 +58,7 @@ for keylayoutfile in resources/grub/keymap/*.gkb; do
 		--fonts= --themes= --locales=  \
 		--modules="${grub_modules}" \
 		--install-modules="${grub_install_modules}" \
+		--compress=no \
 		/boot/grub/grub.cfg=resources/grub/config/grub_memdisk.cfg \
 		/boot/grub/layouts/${keymap}.gkb=${keylayoutfile}
 
