@@ -164,8 +164,6 @@ multiboot \
 multiboot2 \
 nativedisk \
 normal \
-ntfs \
-ntfscomp \
 ohci \
 part_bsd \
 part_dfly \

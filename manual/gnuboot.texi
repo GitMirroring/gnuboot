@@ -2126,26 +2126,6 @@ GNU Boot does support the NILFS2 filesystems, however as we don't
 personally use it, we are not up to date with how stable it is or its
 GRUB support.
 
-@node          NTFS
-@subsubsection NTFS
-
-While GNU Boot supports the NTFS filesystem, it is strongly advised
-not to store any precious data on an NTFS filesystem as there is
-currently no fully free software utility capable of reliabily
-repairing an NTFS filesystem if something goes wrong.
-
-While some well known utilities like ntfsfix are fully free software,
-they are not capable of repairing all types of corruptions and they
-expect users to boot under Microsoft Windows to make Windows repair
-them instead.
-
-Because of this issue, most GNU Boot users and/or maintainers don't
-use NTFS and so they are not aware of its status in any practical way.
-
-We also have no idea how useful is NTFS. For instance would it be
-missed if we decide to remove it? If you are interested in keeping it
-and/or removing it please contact the GNU Boot project.
-
 @node          HFS+
 @subsubsection HFS+
 
@@ -2199,6 +2179,7 @@ The following filesystems were removed to try to fit GRUB images within
 @itemize
 @item HFS
 @item MINIX
+@item NTFS
 @item ReiserFS v3
 @end itemize
 
