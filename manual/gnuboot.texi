@@ -2146,14 +2146,13 @@ We also have no idea how useful is NTFS. For instance would it be
 missed if we decide to remove it? If you are interested in keeping it
 and/or removing it please contact the GNU Boot project.
 
-@node          HFS and HFS+
-@subsubsection HFS and HFS+
+@node          HFS+
+@subsubsection HFS+
 
-The HFS and HFS+ filesystems are not supported by many FSDG compliant
+The HFS+ filesystem is not supported by many FSDG compliant
 distributions. So far they are only supported by PureOS 10 (byzantium)
 and Trisquel 11 (aramo) and maybe other versions of PureOS and
-Trisquel, with the hfsutils and hfsplus packages (as well as the
-drivers in Linux).
+Trisquel, with the hfsplus package (as well as the drivers in Linux).
 
 At the time of writing HFS+ support in GNU/Linux also has many
 limitations (like the lack of write support by unless journaling is
@@ -2162,8 +2161,8 @@ disabled according to the
 article}).
 
 Despite that they should normally be supported by GNU Boot for now,
-however we lack information on the support and usage of these
-filesystems.
+however we lack information on the support and usage of this
+filesystem.
 
 For instance would it be missed if we remove them from GNU Boot? If so
 please contact us. If you have a MacBook 1.1, MacBook 2.1 or an iMac
@@ -2221,6 +2220,7 @@ The following filesystems were removed to try to fit GRUB images within
 512 KiB for computers mainboards like the Intel D945GCLF:
 
 @itemize
+@item HFS
 @item MINIX
 @end itemize
 
