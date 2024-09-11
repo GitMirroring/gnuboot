@@ -12,12 +12,10 @@ gettext \
 hexdump \
 hfsplus \
 hfspluscomp \
-http \
 jfs \
 mda_text \
 morse \
 mpi \
-net \
 nilfs2 \
 odc \
 offsetio \
@@ -29,7 +27,6 @@ rdmsr \
 test_blockarg \
 testload \
 testspeed \
-tftp \
 ufs1 \
 ufs1_be \
 ufs2 \
