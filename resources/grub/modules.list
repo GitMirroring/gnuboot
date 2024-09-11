@@ -15,7 +15,6 @@ exfctest \
 functional_test \
 geli \
 gettext \
-hello \
 hexdump \
 hfsplus \
 hfspluscomp \
