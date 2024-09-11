@@ -13,7 +13,6 @@ div_test \
 dm_nv \
 exfctest \
 functional_test \
-gdb \
 geli \
 gettext \
 hello \
