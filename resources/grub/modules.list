@@ -3,13 +3,8 @@ grub_install_modules=" \
 adler32 \
 backtrace \
 bfs \
-bswap_test \
-cmdline_cat_test \
-cmp_test \
 cpuid \
-ctz_test \
 div \
-div_test \
 dm_nv \
 exfctest \
 geli \
@@ -22,7 +17,6 @@ jfs \
 mda_text \
 morse \
 mpi \
-mul_test \
 net \
 nilfs2 \
 odc \
@@ -31,13 +25,7 @@ part_apple \
 part_plan \
 part_sun \
 part_sunpc \
-pbkdf2_test \
 rdmsr \
-setjmp_test \
-shift_test \
-signature_test \
-sleep_test \
-strtoull_test \
 test_blockarg \
 testload \
 testspeed \
