@@ -50,7 +50,6 @@ usbserial_ftdi \
 usbserial_pl2303 \
 usbserial_usbdebug \
 usbtest \
-videotest_checksum \
 wrmsr \
 "
 
