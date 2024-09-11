@@ -37,7 +37,6 @@ part_sun \
 part_sunpc \
 pbkdf2_test \
 rdmsr \
-reiserfs \
 setjmp_test \
 shift_test \
 signature_test \
