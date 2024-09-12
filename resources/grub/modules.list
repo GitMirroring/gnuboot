@@ -2,7 +2,6 @@
 grub_install_modules=" \
 adler32 \
 backtrace \
-bfs \
 cpuid \
 div \
 dm_nv \
