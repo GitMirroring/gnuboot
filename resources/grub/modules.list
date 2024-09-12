@@ -40,7 +40,6 @@ wrmsr \
 # Modules (and always loaded)
 grub_modules=" \
 acpi \
-affs \
 afs \
 afsplitter \
 ahci \
