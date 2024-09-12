@@ -78,7 +78,6 @@ echo \
 efiemu \
 ehci \
 eval \
-elf \
 extcmd \
 exfat \
 ext2 \
