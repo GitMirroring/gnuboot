@@ -152,13 +152,9 @@ memtest86+, SeaBIOS, Tianacore and so on.
 ### seabios
 
 ROM images with just `seabios` in the file name will start first with the
-SeaBIOS payload. They will only contain SeaBIOS, but may also contain memtest as
-an option in the boot menu.
 
-### seabios\_withgrub
-
-ROM images that have `seabios_withgrub` in the file name start with SeaBIOS
-first, but also have GNU GRUB available in the boot menu when you press ESC.
+SeaBIOS payload. They will only contain SeaBIOS, but may also contain
+memtest and/or GNU GRUB as an option in the boot menu when you press ESC.
 
 Which systems are supported?
 ============================

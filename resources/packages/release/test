@@ -73,8 +73,8 @@ test_qemu_rom_archive()
         archive_files="${archive_files} \
             ${target}/grub_${target}_${cbfb}_${kb}.rom \
             ${target}/grub_${target}_${txtmode}_${kb}.rom \
-            ${target}/seabios_withgrub_${target}_${cbfb}_${kb}.rom \
-            ${target}/seabios_withgrub_${target}_${txtmode}_${kb}.rom \
+            ${target}/seabios_${target}_${cbfb}_${kb}.rom \
+            ${target}/seabios_${target}_${txtmode}_${kb}.rom \
         "
     done
 

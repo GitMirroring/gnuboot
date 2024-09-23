@@ -385,7 +385,19 @@ mkRomsWithGrub() {
 		fi
 
 		tmpgrubrom="$(make_grubrom_from_keymap "${keymap}" "${tmprompath}" "${cbfstool}" "${grub_path_in_cbfs}")"
-		if [ "${initmode}" = "normal" ]; then
+
+		# Having too much image types complicates things too much for
+		# users. So we even if we can build 2 type of SeaBIOS images,
+		# one with GRUB and one without GRUB, we only want to show a
+		# single image to the user. This also requires to tell users
+		# that they may or may not have GRUB as secondary payload, but
+		# we already have this situation with memtest86+ that may or
+		# may not be in the image depending on the flash size.
+		if [ "${firstpayloadname}" = "seabios_withgrub" ] ; then
+		    firstpayloadname="seabios"
+		fi
+
+		if [ "${initmode}" = "normal" ]  ; then
 			newrompath="${romdir}/${firstpayloadname}_${board}_${initmode}_${keymap}.rom"
 		else
 			newrompath="${romdir}/${firstpayloadname}_${board}_${initmode}_${displaymode}_${keymap}.rom"
