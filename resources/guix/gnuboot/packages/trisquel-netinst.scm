@@ -305,6 +305,9 @@ preseed.cfg includes in the target rootfs.")
     (source #f)
     (home-page "https://gnu.org/software/gnuboot")
     (build-system gnu-build-system)
+    (inputs
+     (list
+      (local-file (search-trisquel-resources-file "grub.cfg"))))
     (native-inputs (list
                     grub
                     trisquel-netinst_11.0_amd64.iso
