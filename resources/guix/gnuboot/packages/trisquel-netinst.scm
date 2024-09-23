@@ -224,6 +224,11 @@ manually.")
     (source #f)
     (home-page "https://gnu.org/software/gnuboot")
     (build-system gnu-build-system)
+    (inputs
+     (list
+      (local-file (search-trisquel-resources-file "preseed.cfg"))
+      (local-file (search-trisquel-resources-file "preseed.img.sha512"))
+      (local-file (search-trisquel-resources-file "shutdown-after-boot.service"))))
     (native-inputs (list
                     coreutils
                     dosfstools
