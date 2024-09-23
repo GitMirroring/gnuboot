@@ -30,8 +30,13 @@ install_packages()
 {
     to_install=""
 
+    # Users might run Trisquel in various languages, and it is easier to
+    # grep for 'Installed' in the language being used than properly setup
+    # everything to use the right locale for the given situation.
+    installed="$(pkcon resolve packagekit-tools | tail -n1 | awk {print $1})"
+
     for package in $@ ; do
-        if pkcon resolve ${package} | grep '^Installed' 2>&1>/dev/null ; then
+        if pkcon resolve ${package} | grep "^${installed}" 2>&1>/dev/null ; then
             continue
         else
             to_install="${to_install} ${package}"
