@@ -138,3 +138,12 @@ to add files that never had any issues.
 Some omissions can still manage to skip through code review after the
 verification but at least we have the proper git history that enables
 us to more easily reconstruct it.
+
+Files with an incomplete copyright header
+=========================================
+
+The following files have incomplete copyright headers:
+
+* website/pages/global.css (details in the commit
+  612a3b51426eeddfbd8ada0de275eebf7e0ffe7f ("website: pages:
+  global.css: Add copyright header.")
