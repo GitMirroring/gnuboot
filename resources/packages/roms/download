@@ -139,13 +139,24 @@ build_trisquel_rootfs_img()
 
 return_guix_qemu_x86_64()
 {
-    img_install_path="bin/qemu-system-x86_64"
+    qemu_install_path="bin/qemu-system-x86_64"
     # Guix produces 3 qemu outputs: one for the docs, one for the
     # static version, and one for all the rest.
     pkg_path="$(build_guix_qemu_x86_64 | \
                 grep -v '\-doc$' | grep -v '\-static$')"
-    qemu_path="${pkg_path}/${img_install_path}"
+    qemu_path="${pkg_path}/${qemu_install_path}"
     echo "${qemu_path}"
+}
+
+return_guix_qemu_img()
+{
+    qemu_img_install_path="bin/qemu-img"
+    # Guix produces 3 qemu outputs: one for the docs, one for the
+    # static version, and one for all the rest.
+    pkg_path="$(build_guix_qemu_x86_64 | \
+                grep -v '\-doc$' | grep -v '\-static$')"
+    qemu_img_path="${pkg_path}/${qemu_img_install_path}"
+    echo "${qemu_img_path}"
 }
 
 return_trisquel_preseed_x86_64_img()
@@ -172,7 +183,8 @@ return_trisquel_rootfs_img()
     cp "${preseed_x86_64_img}" preseed.img
     chmod 770 preseed.img
 
-    qemu-img "create" "-f" "raw" "rootfs.img" "4.1G"
+    qemu_img="$(return_guix_qemu_img)"
+    "${qemu_img}" "create" "-f" "raw" "rootfs.img" "4.1G"
 
     extra_qemu_args=""
     if [ "${kvm}" = "yes" ] ; then
