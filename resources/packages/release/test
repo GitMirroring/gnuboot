@@ -67,8 +67,8 @@ test_qemu_rom_archive()
 
     archive_files=""
     for kb in ${keyboard_layouts} ; do
-        cbfb="libgfxinit_corebootfb"
-        txtmode="libgfxinit_txtmode"
+        cbfb="corebootfb"
+        txtmode="txtmode"
 
         archive_files="${archive_files} \
             ${target}/grub_${target}_${cbfb}_${kb}.rom \

@@ -248,19 +248,6 @@ using bincfg. Intel provides some limited information about ICH10 descriptors
 in public datasheets. The rest can be guessed at like it was for ICH9M in
 libreboot.
 
-Re-do desktop boards
---------------------
-
-Right now, the configs make no sense. VGA ROM setup (for external GPU) also
-runs libgfxinit, and vice versa, on KCMA-D8 / KGPE-D16, and in many
-configs, both coreboot and seabios run pci roms. There needs to be consistency
-here.
-
-I think there should be separation:
-
-* libgfxinit. coreboot doesn't load pci roms. seabios loads them
-* vgarom-only setup, where coreboot runs pci roms. seabios doesn't load them
-
 Add the following boards
 ------------------------
 

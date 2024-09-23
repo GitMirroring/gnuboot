@@ -82,7 +82,7 @@ test_grub_cfg_with_lvm()
     fi
 
     run_qemu_x86_64 \
-        bin/qemu-pc_2mb/grub_qemu-pc_2mb_libgfxinit_corebootfb_usqwerty.rom \
+        bin/qemu-pc_2mb/grub_qemu-pc_2mb_corebootfb_usqwerty.rom \
         "${rootfs_path}" \
         "x86_64-linux" ; ret=$?
 
