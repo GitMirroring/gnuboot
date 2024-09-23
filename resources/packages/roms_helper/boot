@@ -362,19 +362,12 @@ mkRomsWithGrub() {
 	tmprompath="${1}"
 	initmode="${2}"
 	displaymode="${3}"
-	firstpayloadname="${4}" # allow values: grub, seabios, seabios_withgrub, seabios_grubfirst
+	firstpayloadname="${4}" # allow values: grub, seabios, seabios_withgrub
 
 	if [ "${payload_grub_withseabios}" = "y" ] && [ "${firstpayloadname}" = "grub" ]; then
 		mv "$(make_seabios_rom "${tmprompath}" "seabios.elf" "${seabios_opromloadonly}" "${initmode}" "${cbfstool}")" "${tmprompath}"
 	elif [ "${payload_seabios_withgrub}" ] && [ "${firstpayloadname}" != "grub" ]; then
 		mv "$(make_seabios_rom "${tmprompath}" "fallback/payload" "${seabios_opromloadonly}" "${initmode}" "${cbfstool}")" "${tmprompath}"
-		if [ "${firstpayloadname}" = "seabios_grubfirst" ]; then
-			tmpbootorder=$(mktemp -t coreboot_rom.XXXXXXXXXX)
-			printf "/rom@img/grub2\n" > "${tmpbootorder}"
-			"${cbfstool}" "${tmprompath}" add -f "${tmpbootorder}" -n bootorder -t raw
-			rm -f "${tmpbootorder}"
-			"${cbfstool}" "${tmprompath}" add-int -i 0 -n etc/show-boot-menu
-		fi
 	fi
 
 	for keymapfile in resources/grub/keymap/*; do
@@ -435,8 +428,6 @@ mkRoms() {
 			tmprom=$(mktemp -t coreboot_rom.XXXXXXXXXX)
 			cp "${corebootrom}" "${tmprom}"
 			mkRomsWithGrub "${tmprom}" "${initmode}" "${displaymode}" "seabios_withgrub"
-			cp "${corebootrom}" "${tmprom}"
-			mkRomsWithGrub "${tmprom}" "${initmode}" "${displaymode}" "seabios_grubfirst"
 			rm -f "${tmprom}"
 		fi
 	fi

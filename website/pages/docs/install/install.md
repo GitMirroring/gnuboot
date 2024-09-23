@@ -160,15 +160,6 @@ an option in the boot menu.
 ROM images that have `seabios_withgrub` in the file name start with SeaBIOS
 first, but also have GNU GRUB available in the boot menu when you press ESC.
 
-### seabios\_grubfirst
-
-ROM images that have `seabios_grubfirst` in the file name start with SeaBIOS,
-but SeaBIOS is configured via special `bootorder` file in CBFS so as to ONLY
-load GNU GRUB. This setup would be most useful on desktops, where you wish to
-only have GNU GRUB available, but want to use an add-on GPU while also having
-the option to use libgfxinit, if a supported GPU/framebuffer chip is present
-on your board.
-
 Which systems are supported?
 ============================
 
