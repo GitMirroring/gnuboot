@@ -277,10 +277,11 @@ manually.")
            (lambda _
              (mkdir-p (string-append #$output "/share/trisquel-installer/"))
              (install-file "preseed.img" (string-append #$output "/share/trisquel-installer/"))))
-         (replace
-           'check
-           (lambda _
-             (invoke "sha512sum" "-c" "preseed.img.sha512"))))))
+          (replace
+              'check
+            (lambda* (#:key tests? #:allow-other-keys)
+              (if tests?
+                  (invoke "sha512sum" "-c" "preseed.img.sha512")))))))
     (synopsis "Preseed configuration as a FAT12 filesystem.")
     (description "FAT12 filesystem with inside a preseed.cfg file for automatic install,
 as well as dependencies for the preseed.cfg, such as the files
