@@ -16,6 +16,7 @@
   #:use-module (gnu packages base)
   #:use-module (gnu packages bootloaders)
   #:use-module (gnu packages cdrom)
+  #:use-module (gnu packages check)
   #:use-module (gnu packages compression)
   #:use-module (gnu packages debian)
   #:use-module (gnu packages disk)
@@ -226,6 +227,7 @@ manually.")
     (native-inputs (list
                     coreutils
                     dosfstools
+                    libfaketime
                     mtools))
     (arguments
      (list
@@ -262,16 +264,18 @@ manually.")
                      "-n" "MEDIA"
                      "--invariant"
                      "preseed.img")
-             (invoke "mcopy"
+             (invoke "faketime" "@315532800" ; FAT epoch.
+                     "mcopy"
                      "-i" "preseed.img"
                      "-m"
                      "preseed.cfg"
                      "::/preseed.cfg")
-             (invoke "mcopy"
-                     "-i" "preseed.img"
-                     "-m"
-                     "shutdown-after-boot.service"
-                     "::/shutdown-after-boot.service")))
+             (invoke  "faketime" "@315532800" ; FAT epoch.
+                      "mcopy"
+                      "-i" "preseed.img"
+                      "-m"
+                      "shutdown-after-boot.service"
+                      "::/shutdown-after-boot.service")))
           (replace
            'install
            (lambda _
