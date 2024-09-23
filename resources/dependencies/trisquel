@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# trisquel-10 script: installs build dependencies for Ubuntu 20.04
+# trisquel script: installs build dependencies for Trisquel 9 and 10.
 #
 #	Copyright (C) 2014-2016, 2020-2021 Leah Rowe <info@minifree.org>
 #	Copyright (C) 2016, Klemens Nanni <contact@autoboot.org>
@@ -113,7 +113,7 @@ install_packages libncurses5-dev doxygen acpica-tools gdb flex bison build-essen
 # GRUB build dependencies (also requires build-essential, bison and flex)
 # ------------------------------------------------------------
 
-install_packages ttf-unifont libopts25 libselinux1-dev autogen m4 autoconf help2man libopts25-dev libfont-freetype-perl automake autotools-dev build-essential bison flex libfuse-dev liblzma-dev gawk libdevmapper-dev libtool libfreetype6-dev
+install_packages ttf-unifont libopts25 libselinux1-dev autogen m4 autoconf help2man libopts25-dev libfont-freetype-perl automake autotools-dev build-essential bison flex libfuse-dev liblzma-dev gawk libdevmapper-dev libtool libfreetype6-dev unifont
 
 # BucTS build dependencies (external script)
 # ------------------------------------------------------------

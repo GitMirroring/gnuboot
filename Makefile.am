@@ -84,7 +84,7 @@ distclean:
 
 install-dependencies-ubuntu:
 	echo 'Makefile: running $@ target' >> $(LOG)
-	set -o pipefail ; ./build dependencies trisquel-10 | tee -a $(LOG)
+	set -o pipefail ; ./build dependencies trisquel | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
 install-dependencies-pureos-10:

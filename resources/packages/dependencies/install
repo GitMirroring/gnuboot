@@ -50,7 +50,7 @@ fi
 # as for instance Trisquel 10 has ID_LIKE=debian and not
 # ID_LIKE=ubuntu.
 if is_base_distro "trisquel" ; then
-    "$(dirname $0)"/../../dependencies/trisquel-10 $@
+    "$(dirname $0)"/../../dependencies/trisquel $@
     exit $?
 elif is_base_distro "pureos" ; then # PureOS doesn't have ID_LIKE
     "$(dirname $0)"/../../dependencies/pureos-10 $@
@@ -64,7 +64,7 @@ elif is_base_distro "debian" ; then
 elif is_base_distro "fedora" ; then
     "$(dirname $0)"/../../dependencies/fedora35 $@
 elif is_base_distro "ubuntu" ; then
-    "$(dirname $0)"/../../dependencies/trisquel-10 $@
+    "$(dirname $0)"/../../dependencies/trisquel $@
 elif is_base_distro "void" ; then
     "$(dirname $0)"/../../dependencies/void $@
 fi

@@ -56,7 +56,7 @@ Install the build dependencies. For Ubuntu 20.04 and similar, you can run
 the following command in the libreboot build system, from the root directory
 of the libreboot Git repository.
 
-    ./build dependencies trisquel-10
+    ./build dependencies trisquel
 
 Then, download coreboot:
 

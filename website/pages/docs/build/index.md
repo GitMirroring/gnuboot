@@ -234,7 +234,7 @@ First, install build dependencies
 GNU Boot includes a script that automatically installs dependencies in
 Trisquel 10 (nabia):
     
-    sudo ./build dependencies trisquel-10
+    sudo ./build dependencies trisquel
 
 and for PureOS 10 (byzantium):
 
