@@ -1,7 +1,7 @@
 (authorizations
  (version 0)               ;current file format version
 
- (("FB31 DBA3 AB8D B76A 4157  329F 7651 568F 8037 4459"
+ (("782F 9DDB E36B A7F3 D4DE  4906 5F5D FCC1 4177 E263"
    (name "GNUtoo"))
   ("E23C 26A5 DEEE C5FA 9CDD  D57A 57BC 26A3 6871 16F6"
    (name "neox"))))
