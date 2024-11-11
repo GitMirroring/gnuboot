@@ -1,15 +1,30 @@
 ---
 title: How to install FreeBSD on x86 GNU GRUB payload
-x-unreviewed: true
 ...
 
-FreeBSD might show graphical corruption during bootup. You can fix this by
-altering the order in which kernel modules/drivers are loaded. First, try moving
-video to an earlier stage on the boot process, or try moving it to a later stage
-instead. With this, you should be able to get a working display.
+This guide was written for FreeBSD at a time where Libreboot was still
+fully free.
 
-freebsd.img is the installation image for FreeBSD. Adapt the filename
-accordingly, for whatever FreeBSD version you use.
+FreeBSD is not a fully free softrware operating system / distribution
+and so the GNU Boot project can't force its contributors to test GNU
+Boot with FreeBSD.
+
+Because of that this page is only meant for people already Using
+FreeBSD. See the [BSD index page](index.md) for more details about how
+GNU Boot deals with this issue and the way forward to a better support
+for BSD systems in GNU Boot.
+
+According to the Libreboot project at the time, FreeBSD might show
+graphical corruption during bootup. They also advised that you could
+fix this by altering the order in which kernel modules/drivers were
+loaded. First, by trying to move video to an earlier stage on the boot
+process, or by trying to move it to a later stage instead. They
+advised that with this, you should have been able to get a working
+display.
+
+They also told that freebsd.img was the installation image for
+FreeBSD. And that you might have to adapt the filename accordingly,
+for whatever FreeBSD version you used.
 
 Prepare the USB drive (in FreeBSD)
 ----------------------------------
@@ -113,11 +128,12 @@ TODO
 Troubleshooting
 ===============
 
-Most of these issues occur when using libreboot with coreboot's 'text
-mode' instead of the coreboot framebuffer. This mode is useful for
-booting payloads like memtest86+ which expect text-mode, but for FreeBSD
-it can be problematic when they are trying to switch to a framebuffer
-because it doesn't exist.
+According to the Libreboot project at a time when it was still fully
+free, most of the issues occur when using coreboot's 'text mode'
+instead of the coreboot framebuffer. This mode is useful for booting
+payloads like memtest86+ which expect text-mode, but for FreeBSD,
+accodring to Libreboot at the time, it can be problematic when they
+are trying to switch to a framebuffer because it doesn't exist.
 
 In most cases, you should use the corebootfb ROM images. There ROM images
 have `corebootfb` in the file name, and they start in a high resolution frame
