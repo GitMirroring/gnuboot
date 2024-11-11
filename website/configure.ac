@@ -90,6 +90,10 @@ AC_CHECK_PROG([FOUND_REALPATH], [realpath], [realpath])
 AS_IF([test x"$FOUND_REALPATH" = x""],
       [AC_MSG_ERROR([realpath was not found in PATH ($PATH)])])
 
+AC_CHECK_PROG([FOUND_RM], [rm], [rm])
+AS_IF([test x"$FOUND_RM" = x""],
+      [AC_MSG_ERROR([rm was not found in PATH ($PATH)])])
+
 AC_CHECK_PROG([FOUND_SED], [sed], [sed])
 AS_IF([test x"$FOUND_SED" = x""],
       [AC_MSG_ERROR([sed was not found in PATH ($PATH)])])
@@ -168,11 +172,6 @@ AS_IF([test x"$guix" = x"yes"],
        AS_IF([test x"$FOUND_PRINTF" = x""],
              [AC_MSG_ERROR(
               [printf was not found in PATH ($PATH)])])
-
-       AC_CHECK_PROG([FOUND_RM], [rm], [rm])
-       AS_IF([test x"$FOUND_RM" = x""],
-             [AC_MSG_ERROR(
-              [rm was not found in PATH ($PATH)])])
 
        AC_CHECK_PROG([FOUND_TAIL], [tail], [tail])
        AS_IF([test x"$FOUND_TAIL" = x""],
