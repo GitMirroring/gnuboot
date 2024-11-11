@@ -90,6 +90,10 @@ AC_CHECK_PROG([FOUND_REALPATH], [realpath], [realpath])
 AS_IF([test x"$FOUND_REALPATH" = x""],
       [AC_MSG_ERROR([realpath was not found in PATH ($PATH)])])
 
+AC_CHECK_PROG([FOUND_SED], [sed], [sed])
+AS_IF([test x"$FOUND_SED" = x""],
+      [AC_MSG_ERROR([sed was not found in PATH ($PATH)])])
+
 AC_CHECK_PROG([FOUND_TAR], [tar], [tar])
 AS_IF([test x"$FOUND_TAR" = x""],
       [AC_MSG_ERROR([tar was not found in PATH ($PATH)])])
