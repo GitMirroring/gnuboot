@@ -1,13 +1,38 @@
 ---
 title: How to install NetBSD on x86 GNU GRUB payload
-x-unreviewed: true
 ...
 
-GRUB supports booting NetBSD kernels directly. However, you're better off
-simply using the SeaBIOS payload; BSD works well with BIOS or UEFI setups.
+This guide was written for NetBSD at a time where Libreboot was still
+fully free.
 
-GRUB is acceptable for booting unencrypted BSD installations. However,
-encrypted BSD installations will probably require the use of SeaBIOS/Tianocore.
+NetBSD is not a fully free softrware operating system / distribution
+and so the GNU Boot project can't force its contributors to test GNU
+Boot with NetBSD.
+
+Because of that this page is only meant for people already Using
+NetBSD. See the [BSD index page](index.md) for more details about how
+GNU Boot deals with this issue and the way forward to a better support
+for BSD systems in GNU Boot.
+
+According to the Libreboot project at the time, GRUB supported booting
+NetBSD kernels directly. However, they told that you were better off
+simply using the SeaBIOS payload; They also told that BSD worked well
+with BIOS or UEFI setups.
+
+They also warned that while GRUB was acceptable for booting
+unencrypted BSD installations, encrypted BSD installations probably
+required the use of SeaBIOS/Tianocore.
+
+In addition, GNU boot may also remove support for booting encrypted
+BSD systems in the GRUB images it provides at some point, in order to
+make GRUB smaller to fit computer with a very small boot flash size
+(512 KiB) like the Intel D945GCLF, and unify the documentation, but
+also because it can't currently test that due to the lack of fully
+free BSD systems that are easily installable.
+
+So if you already use NetBSD with encrypted partitions, and that want
+to continue using it on a computer running GNU Boot, you should use
+GNU Boot images with SeaBIOS.
 
 Prepare the USB drive (in NetBSD)
 ---------------------------------
@@ -107,7 +132,7 @@ Press C in GRUB to access the command line:
     grub> knetbsd -r wd0a (ahci0,netbsd1)/netbsd
     grub> boot
 
-NetBSD will start booting. Yay!
+NetBSD will start booting.
 
 Configuring Grub
 ----------------
@@ -115,11 +140,11 @@ Configuring Grub
 If you don't want to drop to the GRUB command line and type in a
 command to boot NetBSD every time, you can create a GRUB configuration
 that's aware of your NetBSD installation and that will automatically be
-used by libreboot.
+used by GNU Boot.
 
 On your NetBSD root partition, create the `/grub` directory and add
-the file `libreboot_grub.cfg` to it. Inside the
-`libreboot_grub.cfg` add these lines:
+the file `gnuboot_grub.cfg` to it. Inside the
+`gnuboot_grub.cfg` add these lines:
 
     default=0
     timeout=3
@@ -135,11 +160,12 @@ seconds NetBSD will boot, or you can hit enter to boot.
 Troubleshooting
 ===============
 
-Most of these issues occur when using Libreboot with coreboot's 'text
-mode' instead of the coreboot framebuffer. This mode is useful for
-booting payloads like memtest86+ which expect text-mode, but for NetBSD
-it can be problematic when they are trying to switch to a framebuffer
-because it doesn't exist.
+According to the Libreboot project at a time when it was still fully
+free, most of the issues occur when using coreboot's 'text mode'
+instead of the coreboot framebuffer. This mode is useful for booting
+payloads like memtest86+ which expect text-mode, but for NetBSD,
+accodring to Libreboot at the time, it can be problematic when they
+are trying to switch to a framebuffer because it doesn't exist.
 
 won't boot...something about file not found
 ---------------------------------------------
