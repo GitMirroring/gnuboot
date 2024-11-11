@@ -27,8 +27,21 @@ endif
 index.html: index.html.tmpl
 	sed -e "s#WEBSITE_PREFIX#$(WEBSITE_PREFIX)#g" "$^" > "$@"
 
+if WANT_GUIX
+history/git-history.jpg: history/git-history.dot
+	guix time-machine \
+	--commit=$(GUIX_REVISION) \
+	-- \
+	shell \
+		--system=i686-linux \
+		--container \
+		graphviz \
+	-- \
+	dot -T jpg history/git-history.dot > "$@"
+else
 history/git-history.jpg: history/git-history.dot
 	dot -T jpg history/git-history.dot > "$@"
+endif
 
 # We need force the regeneration of the page because if only the git
 # commit changes, there is no way to know about it. In addition the

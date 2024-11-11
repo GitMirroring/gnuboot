@@ -130,6 +130,11 @@ AS_IF([test x"$guix" = x"yes"],
              [AC_MSG_ERROR(
               [date was not found in PATH ($PATH)])])
 
+       AC_CHECK_PROG([FOUND_DOT], [dot], [dot])
+       AS_IF([test x"$FOUND_DOT" = x""],
+             [AC_MSG_ERROR(
+              [dot was not found in PATH ($PATH)])])
+
        AC_CHECK_PROG([FOUND_FIND], [find], [find])
        AS_IF([test x"$FOUND_FIND" = x""],
              [AC_MSG_ERROR(
