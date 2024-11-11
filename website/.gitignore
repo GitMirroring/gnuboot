@@ -29,3 +29,6 @@
 /website.tar.gz
 /pages/footer.include
 /pages/footer-git-commit.include
+
+# History
+/history/git-history.jpg
