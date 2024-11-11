@@ -2,6 +2,7 @@
 3rdparty/arm-trusted-firmware/plat/mediatek/mt8173/drivers/spm/spm_mcdi.c
 3rdparty/arm-trusted-firmware/plat/mediatek/mt8173/drivers/spm/spm_suspend.c
 3rdparty/arm-trusted-firmware/plat/rockchip/rk3368/drivers/ddr/rk3368_ddr_reg_resume_V1.05.bin
+3rdparty/arm-trusted-firmware/plat/rockchip/rk3399/drivers/dp/hdcp.bin
 3rdparty/chromeec/test/legacy_nvmem_dump.h
 3rdparty/vboot/tests/futility/data/*
 src/vendorcode/amd/agesa/f12/Proc/CPU/Family/0x12/F12MicrocodePatch03000002.c
