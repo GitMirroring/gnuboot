@@ -1,14 +1,24 @@
 ---
 title: How to install OpenBSD on x86 GNU GRUB payload
-x-unreviewed: true
 ...
 
-This guide is written for OpenBSD 6.1, but it can be adapted easily for other
-versions (of OpenBSD).
+This guide was written for OpenBSD 6.1 and/or LibertyBSD 6.1 at a time
+where Libreboot was still fully free and where LibertyBSD 6.0 was
+still maintained. At that time the this guide was meant to be easily
+adapted for other versions of OpenBSD.
 
-If you want an encrypted install, use SeaBIOS instead of GRUB and go here:
-<https://www.openbsd.org/faq/faq4.html> (official installation guide, which
-says how to use encryption)
+OpenBSD is not a fully free softrware operating system / distribution
+and so the GNU Boot project can't force its contributors to test GNU
+Boot with OpenBSD.
+
+Because of that this page is only meant for people already Using
+OpenBSD. See the [BSD index page](index.md) for more details about how
+GNU Boot deals with this issue and the way forward to a better support
+for BSD systems in GNU Boot.
+
+If you already use OpenBSD and want an encrypted install, use SeaBIOS
+instead of GRUB and go here: <https://www.openbsd.org/faq/faq4.html>
+(official installation guide, which says how to use encryption)
 
 GRUB supports booting OpenBSD kernels directly. However, you're better off
 simply using the SeaBIOS payload; BSD works well with BIOS or UEFI setups.
@@ -17,13 +27,13 @@ GRUB is acceptable for booting unencrypted BSD installations. However,
 encrypted BSD installations will probably require the use of SeaBIOS/Tianocore.
 
 install61.fs is the installation image for OpenBSD 6.1. Adapt the
-filename accordingly, for a different OpenBSD version or LibertyBSD.
+filename accordingly, for a different OpenBSD version.
 
-Prepare the USB drive (in LibertyBSD or OpenBSD)
-------------------------------------------------
+Prepare the USB drive in OpenBSD
+--------------------------------
 
-If you downloaded your ISO on a LibertyBSD or OpenBSD system, here is
-how to create the bootable LibertyBSD/OpenBSD USB drive:
+If you downloaded your ISO on an OpenBSD system, here is how to create
+the bootable OpenBSD USB drive:
 
 Connect the USB drive and check the system message buffer:
 
@@ -107,11 +117,6 @@ Installing OpenBSD with full disk encryption
 If you are using SeaBIOS, OpenBSD's bootloader will be
 chainloaded automatically and everything will just work.
 
-Alternatively, it would be good to port OpenBSD either natively as a
-coreboot payload, or port it to libpayload (payload library in coreboot;
-it has a basic C library and a few functions for certain operations e.g.
-text/bitmap).
-
 Booting
 -------
 
@@ -120,7 +125,7 @@ Press C in GRUB to access the command line:
     grub> kopenbsd -r sd0a (ahci0,openbsd1)/bsd
     grub> boot
 
-OpenBSD will start booting. Yay!
+OpenBSD will start booting.
 
 Configuring Grub
 ----------------
@@ -128,10 +133,10 @@ Configuring Grub
 If you don't want to drop to the GRUB command line and type in a
 command to boot OpenBSD every time, you can create a GRUB configuration
 that's aware of your OpenBSD installation and that will automatically
-be used by Libreboot.
+be used by GNU Boot.
 
 On your OpenBSD root partition, create the `/grub` directory and add the file
-`libreboot_grub.cfg` to it. Inside the `libreboot_grub.cfg` add these lines:
+`gnuboot_grub.cfg` to it. Inside the `gnuboot_grub.cfg` add these lines:
 
     default=0
     timeout=3
@@ -150,11 +155,12 @@ seconds OpenBSD will boot, or you can hit enter to boot.
 Troubleshooting
 ===============
 
-Most of these issues occur when using Libreboot with coreboot's 'text
-mode' instead of the coreboot framebuffer. This mode is useful for
-booting payloads like memtest86+ which expect text-mode, but for OpenBSD
-it can be problematic when they are trying to switch to a framebuffer
-because it doesn't exist.
+According to the Libreboot project at a time when it was still fully
+free, most of the issues occur when using coreboot's 'text mode'
+instead of the coreboot framebuffer. This mode is useful for booting
+payloads like memtest86+ which expect text-mode, but for OpenBSD,
+accodring to Libreboot at the time, it can be problematic when they
+are trying to switch to a framebuffer because it doesn't exist.
 
 Won't boot...something about file not found
 ---------------------------------------------
