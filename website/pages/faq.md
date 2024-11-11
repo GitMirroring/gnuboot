@@ -252,7 +252,7 @@ by doing some packaging work, testing, and writing some
 documentation. This is relatively easy to do.
 
 The documentation on how to send patches to GNU Boot is available in
-the [git.md](git.md) page.
+the [contribute.md](contribute.md) page.
 
 Will the Purism laptops be supported?
 ----------------------------------------------------------------------

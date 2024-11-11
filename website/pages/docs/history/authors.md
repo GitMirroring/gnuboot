@@ -1,21 +1,27 @@
 ---
-title: Project contributors
-x-unreviewed: true
+title: Libreboot project contributors
 ...
 
-This list does not necessarily reflect who is currently working on the project,
-but it lists some people who have contributed to the project in meaningful ways.
+This list was made by the Libreboot project at a time where it was
+still fully free software. At the time it didn't necessarily reflect
+who was currently working on the project, but it listed some people
+who did contribute to the Libreboot project in meaningful ways.
 
-If we forgot to mention you here, let us know and we'll add you. (or if
-you don't want to be mentioned, let us know and we'll remove your
-entry)
+The Libreboot project also told that if they forgot to mention you
+here, you should have let them known and they would have added
+you. (or if you didn't want to be mentioned, you could also have
+notified them and they would have removed your entry).
 
-Information about who maintains GNU Boot, and how the project is run,
-can be found on this page: [git.md](git.md).
+Since this page is now part of the continuation of the 100% free
+Libreboot project, which became GNU Boot, you can also send fixes to
+the GNU Boot project as well. How to contribute to GNU Boot is
+documented on the [contribute.md](contribute.md) page.
 
-You can know the history of the Libreboot project, simply by reading this page.
-It goes into detail about all of the major contributions to the project, and in
-general how the project was created (and who helped create it).
+As for putting foward the names of the people who contributed to GNU
+Boot, we are looking for help for finding the right schemes. So far we
+plan to mention people who help in the GNU Boot project news and also
+put forward all the contributors we can, especially for contributions
+that aren't patches and therefor that are harder to track.
 
 Leah Rowe
 ---------

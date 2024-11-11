@@ -30,6 +30,19 @@ Since some of the files have a very long history that spans through
 multiple projects and repositories, we found the need to document the
 complex history of the GNU Boot source code.
 
+In addition it would also be a good thing to go beyond just
+documenting the git and tarball releases history. For instance we lack
+the history of various projects somewhat related to Libreboot like
+retroboot, and we don't have any documentation on their precise
+relationship with the Libreboot project either.
+
+Researching all that ourselves is time consuming. So until now we
+tried to save what was useful for understanding the GNU Boot history
+without doing too much research (on the material) ourselves. Here are
+the pages we kept (and that we modified a bit to add more context):
+
+* [authors.md](authors.md)
+
 Git history
 ===========
 
@@ -98,7 +111,7 @@ Incomplete history
 
 The history of the projects presented in this page is incomplete. So
 far we only have a partial code history. Contributions are
-welcome. See the [git.md](../../git.md) page about various ways to
+welcome. See the [contribute.md](../../contribute.md) page about various ways to
 contribute to GNU Boot or to contact the project to update the
 information in this page.
 

@@ -49,4 +49,4 @@ file, before converting to a GRUB keymap file. Therefore, it would be unwise to
 automatically add all keymaps in GRUB.
 
 If you've added a keymap to lbmk, and it works,
-[please submit a patch!](../../git.md)
+[please submit a patch!](../../contribute.md)

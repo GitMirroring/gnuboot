@@ -339,7 +339,7 @@ Here are a list of targets:
 * ThinkPad T60 with Intel GPU: flash the T60 ROM
 
 Download and build flashrom, using the instructions
-on [the Git page](../../git.md), and download the `bucts` software using the
+on [the Git page](../../contribute.md), and download the `bucts` software using the
 notes on that very same page.
 
 You can replace Lenovo BIOS with GNU Boot, using flashrom running on the host

@@ -60,7 +60,7 @@ payload. You can use *either* payload, to try to boot BSD operating
 systems. If you do, please report your success or failure to the GNU
 Boot project through a bug report. See the "Documentation and/or
 testing" section in [Helping GNU
-Boot](git.md#documentation-andor-testing) page for more details on how
+Boot](contribute.md#documentation-andor-testing) page for more details on how
 to do that.
 
 SeaBIOS payload
