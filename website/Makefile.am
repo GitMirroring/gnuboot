@@ -165,11 +165,7 @@ serve:
 endif
 endif
 
-# The rsync options are hardcoded here because some options are known
-# not to work. For instance --delete results in rsync hanging. Also
-# note that it's possible to rsync some files to gnu.org but not from
-# gnu.org.
-RSYNC_OPTIONS := -av --progress
+RSYNC_OPTIONS := -av --progress --delete
 publish: website.tar.gz
 	rm -rf deploy
 	mkdir -p deploy
