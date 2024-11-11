@@ -6,8 +6,8 @@ This guide documents how to compile GNU Boot binaries from the
 available source code.
 
 At the time of writing users wanting to build binaries need to
-download the [https://git.savannah.gnu.org/cgit/gnuboot.git/ GNU Boot
-source code] with git.
+download the [GNU Boot source
+code](https://git.savannah.gnu.org/cgit/gnuboot.git/) with git.
 
 Supported distributions for building GNU Boot binaries:
 =======================================================
