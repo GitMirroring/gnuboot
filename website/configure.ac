@@ -86,6 +86,10 @@ AC_CHECK_PROG([FOUND_AWK], [awk], [awk])
 AS_IF([test x"$FOUND_AWK" = x""],
       [AC_MSG_ERROR([awk was not found in PATH ($PATH)])])
 
+AC_CHECK_PROG([FOUND_CAT], [cat], [cat])
+AS_IF([test x"$FOUND_CAT" = x""],
+      [AC_MSG_ERROR([cat was not found in PATH ($PATH)])])
+
 AC_CHECK_PROG([FOUND_PRINTF], [printf], [printf])
 AS_IF([test x"$FOUND_PRINTF" = x""],
       [AC_MSG_ERROR([printf was not found in PATH ($PATH)])])
@@ -112,12 +116,7 @@ AS_IF([test x"$guix" = x"yes"],
              [AC_MSG_ERROR(
               [guix was not found in PATH ($PATH)])])],
 
-      [AC_CHECK_PROG([FOUND_CAT], [cat], [cat])
-       AS_IF([test x"$FOUND_CAT" = x""],
-             [AC_MSG_ERROR(
-              [cat was not found in PATH ($PATH)])])
-
-       AC_CHECK_PROG([FOUND_CP], [cp], [cp])
+      [AC_CHECK_PROG([FOUND_CP], [cp], [cp])
        AS_IF([test x"$FOUND_CP" = x""],
              [AC_MSG_ERROR(
               [cp was not found in PATH ($PATH)])])
