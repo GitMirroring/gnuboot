@@ -90,6 +90,10 @@ AC_CHECK_PROG([FOUND_CAT], [cat], [cat])
 AS_IF([test x"$FOUND_CAT" = x""],
       [AC_MSG_ERROR([cat was not found in PATH ($PATH)])])
 
+AC_CHECK_PROG([FOUND_MKDIR], [mkdir], [mkdir])
+AS_IF([test x"$FOUND_MKDIR" = x""],
+      [AC_MSG_ERROR([mkdir was not found in PATH ($PATH)])])
+
 AC_CHECK_PROG([FOUND_PRINTF], [printf], [printf])
 AS_IF([test x"$FOUND_PRINTF" = x""],
       [AC_MSG_ERROR([printf was not found in PATH ($PATH)])])
@@ -160,11 +164,6 @@ AS_IF([test x"$guix" = x"yes"],
               AS_IF([test x"$FOUND_FALSE" = x""],
                     [AC_MSG_ERROR(
                     [false was not found in PATH ($PATH)])])])
-
-       AC_CHECK_PROG([FOUND_MKDIR], [mkdir], [mkdir])
-       AS_IF([test x"$FOUND_MKDIR" = x""],
-             [AC_MSG_ERROR(
-              [mkdir was not found in PATH ($PATH)])])
 
        AC_CHECK_PROG([FOUND_PANDOC], [pandoc], [pandoc])
        AS_IF([test x"$FOUND_PANDOC" = x""],
