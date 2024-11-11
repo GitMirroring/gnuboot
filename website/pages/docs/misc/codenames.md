@@ -1,6 +1,5 @@
 ---
 title: Product Codenames
-x-unreviewed: true
 ...
 
 TODO: this page could do with an update. More info, about more boards
@@ -69,8 +68,9 @@ under RAM sticks.
     -   with dGPU: SWG (SWitchable Graphics)
     -   with only iGPU: UMA (Unified Memory Access)
 
-*Note that Intel platforms newer than Montevina are not supported by libreboot
-yet!. Currently only Calistoga and Montevina platforms are supported.
+*Note that Intel platforms newer than Montevina were not supported by
+libreboot yet when it was still fully free. Only Calistoga and
+Montevina platforms were supported at the time.
 
 -   These are the known model codenames:
     -   ThinkPad T410: NOZOMI-1 # EXT/INT
