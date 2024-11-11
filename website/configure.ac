@@ -86,6 +86,10 @@ AC_CHECK_PROG([FOUND_AWK], [awk], [awk])
 AS_IF([test x"$FOUND_AWK" = x""],
       [AC_MSG_ERROR([awk was not found in PATH ($PATH)])])
 
+AC_CHECK_PROG([FOUND_PRINTF], [printf], [printf])
+AS_IF([test x"$FOUND_PRINTF" = x""],
+      [AC_MSG_ERROR([printf was not found in PATH ($PATH)])])
+
 AC_CHECK_PROG([FOUND_REALPATH], [realpath], [realpath])
 AS_IF([test x"$FOUND_REALPATH" = x""],
       [AC_MSG_ERROR([realpath was not found in PATH ($PATH)])])
@@ -167,11 +171,6 @@ AS_IF([test x"$guix" = x"yes"],
        AS_IF([test x"$FOUND_PANDOC" = x""],
              [AC_MSG_ERROR(
               [pandoc was not found in PATH ($PATH)])])
-
-       AC_CHECK_PROG([FOUND_PRINTF], [printf], [printf])
-       AS_IF([test x"$FOUND_PRINTF" = x""],
-             [AC_MSG_ERROR(
-              [printf was not found in PATH ($PATH)])])
 
        AC_CHECK_PROG([FOUND_TAIL], [tail], [tail])
        AS_IF([test x"$FOUND_TAIL" = x""],
