@@ -159,7 +159,7 @@ serve: website.tar.gz
 else
 serve:
 	@printf "%s %s\n" \
-		"The test target is disabled." \
+		"The $@ target is disabled." \
 		"To enable it, run './configure --enable-lighttpd'."
 	@false
 endif
