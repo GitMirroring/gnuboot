@@ -134,4 +134,6 @@ install_packages shellcheck # lint
 install_packages gawk git grep lzip make sed tar xz-utils # u-boot-libre
 
 # For building the website tarball
-install_packages pandoc
+install_packages \
+    pandoc \
+    graphviz
