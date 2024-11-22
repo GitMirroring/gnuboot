@@ -5,93 +5,93 @@ title: GNU Boot status
 GNU Boot 0.1 RC3 status
 =======================
 
-+---------------+--------------------+-----------+--------------+--------------+
-| Vendor        | Product            | Stability | Installation | Upgrade      |
-|               |                    |           | instructions | instructions |
-+---------------+--------------------+-----------+--------------+--------------+
-| Acer          | G43T-AM3           | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Apple         | MacBook 1.1        | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Apple         | MacBook 2.1        | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Apple         | iMac 5,2           | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
++---------------+--------------------+--------------+-------------+------------+
+| Vendor        | Product            | Stability    |Installation |Upgrade     |
+|               |                    |              |instructions |instructions|
++---------------+--------------------+--------------+-------------+------------+
+| Acer          | G43T-AM3           | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Apple         | MacBook 1.1        | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Apple         | MacBook 2.1        | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Apple         | iMac 5,2           | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
 | Asus          | Chromebook C201    | Can't install due to missing images     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Asus          | KCMA-D8            | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Asus          | KFSN4-DRE          | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Asus          | KGPE-D16           | Tested    | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Gigabyte      | D945GCLF2D         | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Gigabyte      | GA-G41M-ES2L       | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Intel         | D410PT             | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Intel         | D510MO             | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Intel         | D945GCLF           | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Lenovo        | ThinkPad R400      | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Lenovo        | ThinkPad R500      | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Lenovo        | ThinkPad T400      | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Lenovo        | ThinkPad T400S     | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Lenovo        | ThinkPad T500      | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Lenovo        | ThinkPad T60       | Untested  | Untested     | Untested     |
-|               | with intel GPU     |           |              |              |
-+---------------+--------------------+-----------+--------------+--------------+
-| Lenovo        | ThinkPad W500      | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Lenovo        | ThinkPad X200      | Tested    | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Lenovo        | ThinkPad X200S     | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Lenovo        | ThinkPad X200T     | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Lenovo        | ThinkPad X301      | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Lenovo        | ThinkPad X60       | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Lenovo        | ThinkPad X60T      | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Lenovo        | ThinkPad X60s      | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Libiquity     | Taurinus X200      | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Qemu          | PC (i440FX)        | Untested  | Missing      | Missing      |
-+---------------+--------------------+-----------+--------------+--------------+
-| Technoethical | D16                | Tested    | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Technoethical | T400               | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Technoethical | T400s              | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Technoethical | T500               | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Technoethical | X200               | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Technoethical | X200s              | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
-| Technoethical | X200 Tablet        | Untested  | Untested     | Untested     |
-|               | (X200T)            |           |              |              |
-+---------------+--------------------+-----------+--------------+--------------+
-| Vikings       | ASUS KCMA D8       | Untested  | Untested     | Untested     |
-|               | mainboard          |           |              |              |
-|               | and workstation    |           |              |              |
-+---------------+--------------------+-----------+--------------+--------------+
-| Vikings       | ASUS KGPE D16      | Tested    | Untested     | Untested     |
-|               | mainboard          |           |              |              |
-+---------------+--------------------+-----------+--------------+--------------+
-| Vikings       | X200               | Untested  | Untested     | Untested     |
-+---------------+--------------------+-----------+--------------+--------------+
++---------------+--------------------+--------------+-------------+------------+
+| Asus          | KCMA-D8            | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Asus          | KFSN4-DRE          | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Asus          | KGPE-D16           | Tested       | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Gigabyte      | D945GCLF2D         | Fail: #66463 | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Gigabyte      | GA-G41M-ES2L       | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Intel         | D410PT             | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Intel         | D510MO             | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Intel         | D945GCLF           | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Lenovo        | ThinkPad R400      | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Lenovo        | ThinkPad R500      | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Lenovo        | ThinkPad T400      | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Lenovo        | ThinkPad T400S     | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Lenovo        | ThinkPad T500      | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Lenovo        | ThinkPad T60       | Untested     | Untested    | Untested   |
+|               | with intel GPU     |              |             |            |
++---------------+--------------------+--------------+-------------+------------+
+| Lenovo        | ThinkPad W500      | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Lenovo        | ThinkPad X200      | Tested       | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Lenovo        | ThinkPad X200S     | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Lenovo        | ThinkPad X200T     | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Lenovo        | ThinkPad X301      | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Lenovo        | ThinkPad X60       | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Lenovo        | ThinkPad X60T      | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Lenovo        | ThinkPad X60s      | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Libiquity     | Taurinus X200      | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Qemu          | PC (i440FX)        | Untested     | Missing     | Missing    |
++---------------+--------------------+--------------+-------------+------------+
+| Technoethical | D16                | Tested       | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Technoethical | T400               | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Technoethical | T400s              | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Technoethical | T500               | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Technoethical | X200               | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Technoethical | X200s              | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
+| Technoethical | X200 Tablet        | Untested     | Untested    | Untested   |
+|               | (X200T)            |              |             |            |
++---------------+--------------------+--------------+-------------+------------+
+| Vikings       | ASUS KCMA D8       | Untested     | Untested    | Untested   |
+|               | mainboard          |              |             |            |
+|               | and workstation    |              |             |            |
++---------------+--------------------+--------------+-------------+------------+
+| Vikings       | ASUS KGPE D16      | Tested       | Untested    | Untested   |
+|               | mainboard          |              |             |            |
++---------------+--------------------+--------------+-------------+------------+
+| Vikings       | X200               | Untested     | Untested    | Untested   |
++---------------+--------------------+--------------+-------------+------------+
 
 Stability:
 ----------
@@ -100,6 +100,14 @@ Stability:
   tested GNU Boot 0.1 RC3 on that computer. If you have GNU Boot on
   this computer please report if it works or not (for instance by
   opening a bug report).
+
+* Fail: #<bug number>: Someone tested GNU Boot 0.1 RC3 on that
+  computer and it either doesn't boot at all, can't boot any fully
+  free GNU/Linux distribution. It should also be confirmed that this
+  is a software issue and not a problem with the hardware like broken
+  RAM modules. The issue should also be described in a bug report that
+  is available at https://savannah.gnu.org/bugs/index.php?<bug number>
+  (this is the GNU Boot bug tracker).
 
 * Tested: Someone tested GNU Boot 0.1 RC3 on that computer and
   reported to the GNU Boot that it at least booted fine.
