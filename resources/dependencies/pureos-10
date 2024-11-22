@@ -85,7 +85,7 @@ pkcon -y --allow-reinstall install libncurses5-dev doxygen acpica-tools gdb flex
 # GRUB build dependencies (also requires build-essential, bison and flex)
 # ------------------------------------------------------------
 
-pkcon -y --allow-reinstall install fonts-unifont libopts25 libselinux1-dev autogen m4 autoconf help2man libopts25-dev libfont-freetype-perl automake autotools-dev build-essential bison flex libfuse-dev liblzma-dev gawk libdevmapper-dev libtool libfreetype6-dev
+pkcon -y --allow-reinstall install fonts-unifont libopts25 libselinux1-dev autogen m4 autoconf help2man libopts25-dev libfont-freetype-perl automake autotools-dev build-essential bison flex libfuse-dev liblzma-dev gawk libdevmapper-dev libtool-bin libfreetype6-dev
 
 # BucTS build dependencies (external script)
 # ------------------------------------------------------------
