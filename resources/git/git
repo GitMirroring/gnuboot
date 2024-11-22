@@ -19,6 +19,4 @@
 # scripts: The make program compares the timestamps of the source code
 # and the binaries and if the source is more recent, rebuilds the
 # binaries.
-GIT_CONFIG_GLOBAL="$(dirname "$0")"/gitconfig \
-GIT_CONFIG_SYSTEM="$(dirname "$0")"/gitconfig \
-git $@
+git -c "include.path=$(realpath "$(dirname "$0")"/gitconfig)" $@
