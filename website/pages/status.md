@@ -97,11 +97,11 @@ Stability:
 ----------
 
 * Untested: The GNU Boot maintainers are not aware of anybody who
-  tested GNU Boot 0.1 RC1 on that computer. If you have GNU Boot on
+  tested GNU Boot 0.1 RC3 on that computer. If you have GNU Boot on
   this computer please report if it works or not (for instance by
   opening a bug report).
 
-* Tested: Someone tested GNU Boot 0.1 RC1 on that computer and
+* Tested: Someone tested GNU Boot 0.1 RC3 on that computer and
   reported to the GNU Boot that it at least booted fine.
 
 * Daily users: Some people contacted the GNU Boot maintainers and
