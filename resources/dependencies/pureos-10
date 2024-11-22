@@ -106,4 +106,6 @@ pkcon -y --allow-reinstall install shellcheck # lint
 pkcon -y --allow-reinstall install gawk git grep lzip make sed tar xz-utils # u-boot-libre
 
 # For building the website tarball
-pkcon -y --allow-reinstall install pandoc
+pkcon -y --allow-reinstall install \
+      graphviz \
+      pandoc
