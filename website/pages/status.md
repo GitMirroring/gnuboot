@@ -50,7 +50,7 @@ GNU Boot 0.1 RC3 status
 +---------------+--------------------+-----------+--------------+--------------+
 | Lenovo        | ThinkPad W500      | Untested  | Untested     | Untested     |
 +---------------+--------------------+-----------+--------------+--------------+
-| Lenovo        | ThinkPad X200      | Untested  | Untested     | Untested     |
+| Lenovo        | ThinkPad X200      | Tested    | Untested     | Untested     |
 +---------------+--------------------+-----------+--------------+--------------+
 | Lenovo        | ThinkPad X200S     | Untested  | Untested     | Untested     |
 +---------------+--------------------+-----------+--------------+--------------+
