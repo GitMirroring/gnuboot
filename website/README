@@ -2,21 +2,68 @@
 This directory contains both the website in pages/ and build code to
 easily build and deploy the GNU Boot website with very few commands.
 
-If you want to test your own modifications to the dependencies of this
-build code, you either need to use the configure options to use
-external repositories that have your modifications, or you could also
-modify the build.sh script to use different git repositories and/or
-revisions.
+== Dependencies ==
+
+If you don't want to install Guix just to test the website, you will
+need to install the following dependencies:
+
+* autoconf
+* automake
+* coreutils
+* gawk
+* git
+* graphviz
+* grep
+* gzip
+* lighttpd
+* make
+* pandoc
+* sed
+* tar
+
+$ ./autogen.sh
+$ ./configure --disable-guix
+$ make serve
+
+And if you want to use Guix instead you only need the following
+dependencies instead:
+
+* autoconf
+* automake
+* coreutils
+* guix
+* make
+* tar
+
+And you can use the following commands instead:
+$ ./autogen.sh
+$ ./configure
+$ make serve
 
 == Local deployments ==
+
 Here's how to deploy the website in a local webserver:
 $ ./autogen.sh
 $ ./configure
 $ make serve
 
+If you don't use Guix, remember to do ./configure --disable-guix instead.
+
 Then you can point a browser to http://localhost:8086/software/gnuboot/web/ or
 to http://localhost:PORT/software/gnuboot/web/ if you changed the port through
 ./configure options.
+
+
+The GNU Boot website build system takes care of some of the
+dependencies for you (for instance the static website generator that
+is not packaged in any distributions) so you have less work to do to
+install or use them on your side.
+
+If you want to test your own modifications to the dependencies of this
+build code, you either need to use the configure options to use
+external repositories that have your modifications, or you could also
+modify the build.sh script to use different git repositories and/or
+revisions.
 
 == Deployment on https://gnu.org/software/gnuboot/ ==
 
@@ -85,14 +132,6 @@ References:
    SHA256:pmCf0NrBzSSYfg6DdgmlMzPWZzGpXXcPEz6LP1+o5Jc exists on the
    server".
 
-== Dependencies ==
-* autoconf
-* automake
-* coreutils
-* guix
-* lighttpd: optional: for testing the website if you don't have Guix.
-* make
-* tar
 
 == License ==
 This project is free software:
