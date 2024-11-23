@@ -27,15 +27,17 @@ endif
 index.html: index.html.tmpl
 	sed -e "s#WEBSITE_PREFIX#$(WEBSITE_PREFIX)#g" "$^" > "$@"
 
-if WANT_GUIX
-DOT_CMD = \
-guix time-machine \
+GUIX_SHELL_CONTAINER = guix time-machine \
 	--commit=$(GUIX_REVISION) \
 	-- \
 	shell \
-		--system=i686-linux \
-		--container \
-		graphviz \
+	--system=i686-linux \
+	--container \
+	$(SENTINEL)
+
+if WANT_GUIX
+DOT_CMD = $(GUIX_SHELL_CONTAINER) \
+	graphviz \
 	-- \
 	dot
 else
@@ -74,24 +76,20 @@ site.cfg: site.cfg.tmpl
 	sed -e "s#WEBSITE_PREFIX#$(WEBSITE_PREFIX)#g" "$^" > "$@"
 
 if WANT_GUIX
-BUILD_SH_CMD = \
-guix time-machine \
-	--commit=c15a1cd88f80a90437f4b0159f22dfc84b9e6851 \
-	-- shell \
-		--container \
-		--network \
-		--emulate-fhs \
-		$(GUIX_SHARE_OPTIONS) \
-		bash \
-		coreutils \
-		findutils \
-		git \
-		grep \
-		nss-certs \
-		pandoc \
-		sed \
-		-- \
-		./build.sh
+BUILD_SH_CMD = $(GUIX_SHELL_CONTAINER) \
+	--network \
+	--emulate-fhs \
+	$(GUIX_SHARE_OPTIONS) \
+	bash \
+	coreutils \
+	findutils \
+	git \
+	grep \
+	nss-certs \
+	pandoc \
+	sed \
+	-- \
+	./build.sh
 else
 BUILD_SH_CMD = ./build.sh
 endif
@@ -100,9 +98,7 @@ build: site.cfg pages/footer.include
 	$(BUILD_SH_CMD) $(BUILD_OPTIONS)
 
 if WANT_GUIX
-CHECK_SH_CMD = \
-guix shell \
-	--container \
+CHECK_SH_CMD = $(GUIX_SHELL_CONTAINER) \
 	--network \
 	--emulate-fhs \
 	bash \
@@ -138,9 +134,7 @@ help:
 		"website.tar.gz # Create a tarball of the website"
 
 if WANT_GUIX
-SERVE_SH_CMD = \
-guix shell \
-	--container \
+SERVE_SH_CMD = $(GUIX_SHELL_CONTAINER) \
 	--network \
 	--emulate-fhs \
 	bash \
