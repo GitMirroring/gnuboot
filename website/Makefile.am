@@ -28,8 +28,8 @@ index.html: index.html.tmpl
 	sed -e "s#WEBSITE_PREFIX#$(WEBSITE_PREFIX)#g" "$^" > "$@"
 
 if WANT_GUIX
-history/git-history.jpg: history/git-history.dot
-	guix time-machine \
+DOT_CMD = \
+guix time-machine \
 	--commit=$(GUIX_REVISION) \
 	-- \
 	shell \
@@ -37,11 +37,13 @@ history/git-history.jpg: history/git-history.dot
 		--container \
 		graphviz \
 	-- \
-	dot -T jpg history/git-history.dot > "$@"
+	dot
 else
-history/git-history.jpg: history/git-history.dot
-	dot -T jpg history/git-history.dot > "$@"
+DOT_CMD = dot
 endif
+
+history/git-history.jpg: history/git-history.dot
+	$(DOT_CMD) -T jpg history/git-history.dot > "$@"
 
 # We need force the regeneration of the page because if only the git
 # commit changes, there is no way to know about it. In addition the
@@ -72,8 +74,8 @@ site.cfg: site.cfg.tmpl
 	sed -e "s#WEBSITE_PREFIX#$(WEBSITE_PREFIX)#g" "$^" > "$@"
 
 if WANT_GUIX
-build: site.cfg pages/footer.include
-	guix time-machine \
+BUILD_SH_CMD = \
+guix time-machine \
 	--commit=c15a1cd88f80a90437f4b0159f22dfc84b9e6851 \
 	-- shell \
 		--container \
@@ -89,42 +91,41 @@ build: site.cfg pages/footer.include
 		pandoc \
 		sed \
 		-- \
-		./build.sh $(BUILD_OPTIONS)
+		./build.sh
 else
-build: site.cfg pages/footer.include
-		./build.sh $(BUILD_OPTIONS)
+BUILD_SH_CMD = ./build.sh
 endif
+
+build: site.cfg pages/footer.include
+	$(BUILD_SH_CMD) $(BUILD_OPTIONS)
 
 if WANT_GUIX
-check: build website.tar.gz index.html history/git-history.jpg
-	rm -rf site/
-	mkdir -p site/$(WEBSITE_PREFIX)
-	tar xf website.tar.gz -C site/$(WEBSITE_PREFIX)
-
-	guix shell \
-		--container \
-		--network \
-		--emulate-fhs \
-		bash \
-		coreutils \
-		findutils \
-		grep \
-		gzip \
-		sed \
-		tar \
-		-- \
-		./check.sh --website-prefix $(WEBSITE_PREFIX) \
-			--directory site && \
-		./check.sh  --website-prefix $(WEBSITE_PREFIX) \
-			--tarball website.tar.gz
+CHECK_SH_CMD = \
+guix shell \
+	--container \
+	--network \
+	--emulate-fhs \
+	bash \
+	coreutils \
+	findutils \
+	grep \
+	gzip \
+	sed \
+	tar \
+	-- \
+	./check.sh
 else
+CHECK_SH_CMD = ./check.sh
+endif
+
 check: build website.tar.gz index.html history/git-history.jpg
 	rm -rf site/
 	mkdir -p site/$(WEBSITE_PREFIX)
 	tar xf website.tar.gz -C site/$(WEBSITE_PREFIX)
-	./check.sh --website-prefix $(WEBSITE_PREFIX) --directory site
-	./check.sh --website-prefix $(WEBSITE_PREFIX) --tarball website.tar.gz
-endif
+	$(CHECK_SH_CMD) --website-prefix $(WEBSITE_PREFIX) \
+		--directory site
+	$(CHECK_SH_CMD) --website-prefix $(WEBSITE_PREFIX) \
+		--tarball website.tar.gz
 
 help:
 	@printf "%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n" \
@@ -137,32 +138,33 @@ help:
 		"website.tar.gz # Create a tarball of the website"
 
 if WANT_GUIX
-serve: website.tar.gz
-	guix shell \
-		--container \
-		--network \
-		--emulate-fhs \
-		bash \
-		coreutils \
-		gzip \
-		lighttpd \
-		sed \
-		tar \
-		-- \
-		./serve.sh --website-prefix $(WEBSITE_PREFIX) \
-			website.tar.gz $(LIGHTTPD_PORT)
+SERVE_SH_CMD = \
+guix shell \
+	--container \
+	--network \
+	--emulate-fhs \
+	bash \
+	coreutils \
+	gzip \
+	lighttpd \
+	sed \
+	tar \
+	-- \
+	./serve.sh
 else
-if WANT_LIGHTTPD
-serve: website.tar.gz
-		./serve.sh --website-prefix $(WEBSITE_PREFIX) \
-			website.tar.gz $(LIGHTTPD_PORT)
-else
+SERVE_SH_CMD = ./serve.sh
+endif
+
+if ! WANT_LIGHTTPD
 serve:
 	@printf "%s %s\n" \
 		"The $@ target is disabled." \
 		"To enable it, run './configure --enable-lighttpd'."
 	@false
-endif
+else
+serve: website.tar.gz
+	$(SERVE_SH_CMD) --website-prefix $(WEBSITE_PREFIX) \
+			website.tar.gz $(LIGHTTPD_PORT)
 endif
 
 RSYNC_OPTIONS := -av --progress --delete
