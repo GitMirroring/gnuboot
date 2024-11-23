@@ -33,6 +33,7 @@ GUIX_SHELL_CONTAINER = guix time-machine \
 	shell \
 	--system=i686-linux \
 	--container \
+	`guix repl force-bordeaux-substitute.scm force` \
 	$(SENTINEL)
 
 if WANT_GUIX

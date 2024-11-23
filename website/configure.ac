@@ -17,6 +17,9 @@ AC_INIT([gnuboot],[0.1],[gnuboot@gnu.org])
 AM_INIT_AUTOMAKE([foreign])
 AC_CONFIG_FILES([Makefile])
 
+# Use the same revision than ../configure.ac
+AC_SUBST([GUIX_REVISION], [8e2f32cee982d42a79e53fc1e9aa7b8ff0514714])
+
 AC_SUBST([LIGHTTPD_PORT], [])
 AC_SUBST([RSYNC_DESTINATION], [])
 AC_SUBST([UNTITLED_PATH], [])

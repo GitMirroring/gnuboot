@@ -35,12 +35,42 @@ dependencies instead:
 * make
 * tar
 
-And you can use the following commands instead:
+For making sure that the build doesn't take days, you will also need
+to make sure that bordeaux.guix.gnu.org is in the list of substitutes
+(binary packages servers).
+
+This is needed because some older Guix packages (like the ones on
+Trisquel 11 or PureOS) don't have bordeaux enabled while installation
+through the guix-install.sh instead have it enabled if you enable
+substitutes (binary packages), and without it Guix will start to build
+haskell (which is a dependency of pandoc) and this takes a few days to
+complete on a ThinkPad X200.
+
+If your Guix installation is recent enough it should already have it
+and the following command should print 'bordeaux.guix.gnu.org is
+enabled':
+$ guix repl force-bordeaux-substitute.scm check
+
+If instead you need to add it, it will print 'bordeaux.guix.gnu.org is
+disabled'.
+
+You can add bordeaux.guix.gnu.org with the following command:
+$ guix pull
+$ sudo guix archive --authorize < ~/.config/guix/current/share/guix/bordeaux.guix.gnu.org.pub
+
+You will also need to make it possible for the build system to check
+if it is enabled as some people might want to bulid everything
+themselves for security reasons, so we don't use bordeaux if it is not
+already authorized:
+$ sudo chmod +r /etc/guix/acl
+
+Once bordeaux is enabled you can use the following commands to build
+the website:
 $ ./autogen.sh
 $ ./configure
 $ make serve
 
-== Local deployments ==
+== Testing the website ==
 
 Here's how to deploy the website in a local webserver:
 $ ./autogen.sh
@@ -52,7 +82,6 @@ If you don't use Guix, remember to do ./configure --disable-guix instead.
 Then you can point a browser to http://localhost:8086/software/gnuboot/web/ or
 to http://localhost:PORT/software/gnuboot/web/ if you changed the port through
 ./configure options.
-
 
 The GNU Boot website build system takes care of some of the
 dependencies for you (for instance the static website generator that
