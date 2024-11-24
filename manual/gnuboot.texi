@@ -395,8 +395,8 @@ below.
 
 GNU Boot supports the GPUs that are present in the various laptops it
 supports with 100% free software. Some consideration apply while
-booting, but so far once booted these GPU are known to works well on
-tested computers.
+booting (@pxref{GNU Boot images} for more details), but so far once
+booted these GPU are known to works well on tested computers.
 
 In addition for the non-laptop computers, it also supports the builtin
 AST graphics in the KGPE-D16 and KCMA-D8 with 100% free software, but
@@ -479,7 +479,8 @@ these and welcome contributions in this area.
 
 While GNU Boot should be able to boot almost any GNU/Linux
 distribution, but in some cases some configuration might be needed by
-the GNU Boot user.
+the GNU Boot user. The cases that do and don't require configuration
+from the user will be documented in @ref{GNU Boot images} below.
 
 Even if some cases require some configuration, GNU Boot makes sure to
 provide at least one way to boot free GNU/Linux distributions (see
@@ -524,6 +525,147 @@ works and doesn't work.
 Also if you want to do such tests, you can open a bug report on the
 GNU Boot bug tracker at
 @url{https://savannah.gnu.org/bugs/?group=gnuboot}.
+
+@node GNU Boot images
+@section GNU Boot images
+@cindex flash images
+@cindex image files
+
+In computers people are most familar with, like laptops, the boot
+software resides in a memory chip inside the mainboard (@pxref{boot
+software} for more details).
+
+GNU Boot provide @dfn{image files} which are files that replace the
+content of these memory chip.
+
+These files are similar to
+@uref{https://en.wikipedia.org/wiki/Disk_image,disk images},
+@uref{https://en.wikipedia.org/wiki/ISO_image,ISO images}, or
+@uref{https://en.wikipedia.org/wiki/ROM_image,ROM images}.
+
+We also sometime refer to the flash image files as @dfn{flash images}.
+
+@node GNU Boot images types
+@subsection GNU Boot images types
+
+For a given computer, GNU Boot provides several images with different
+software in it. This enable the users to choose between:
+
+@itemize
+
+@item Two boot software: GRUB or SeaBIOS
+      (@acronym{BIOS, Basic Input/Output System} implementation)
+
+@item Various keyboard layouts (colemak, deqwertz, esqwerty,
+frazerty, frdvbepo, itqwerty, svenska, trqwerty, ukdvorak, ukqwerty,
+usdvorak, usqwerty).
+
+@item Low resolution or high resolution graphics.
+
+@end itemize
+
+If you are a less technical user or helping one, or don't have much
+time to configure things, it is a good idea to choose an image with
+GRUB, and a keyboard layout of your choice (the resolution is not very
+important, but using high resolution looks nicer) as the image with
+GRUB doesn't require to do any configuration in the distributions you
+want to boot.
+
+Otherwise here are the advantages/disadvantages of each combinaison:
+
+@itemize
+
+@item GRUB with high resolution graphics: Images with GRUB
+usually don't require the user to do any configuration of the
+distribution. More technical users can also use that to customize the
+way the system boots for more security or to support unsual boot
+configurations (that are not typically supported by graphical
+installers of GNU/Linux distributions), however these more advanced
+configurations also come with their set of limitations.
+
+@item SeaBIOS with text-only low resolution: It implements
+@acronym{BIOS, Basic Input/Output System} compatibility, so it is very
+similar to a nonfree @acronym{BIOS, Basic Input/Output System} but it
+require users to modify some settings inside the distribution they
+use, otherwise the distribution still boots but usually has a black
+screen during the boot (which can be problematic to diagnose a
+non-booting distribution). The low resolution increase compatibility
+with various software that are typically run at boot like memtest86+
+(a software that detects broken RAM chips).
+
+@item GRUB with text-only low resolution: Since these images
+boot with GRUB, they also don't require any configuration of the
+distribution and more technical users can also use them to customize
+the way the system boots. Compared to GRUB images with high resolution
+graphics:
+    @itemize
+    @item the text is bigger and that there is no background picture
+    @item since on most supported computers, GRUB images can
+          also load and run SeaBIOS (there is a menu entry for
+          it), having a text-only low resolution increase the
+          compatibility with various boot software.
+    @end itemize
+
+@item SeaBIOS with high resolution graphics:
+
+Since these images boot with SeaBIOS they also implement some
+@acronym{BIOS, Basic Input/Output System} compatibility, but they also
+require users to modify some settings inside the distribution they
+use. Compared with SeaBIOS images with text-only low resolution:
+
+    @itemize
+
+    @item they are less compatible with various boot software. This
+           can be useful for testing if you contribute to some boot
+           software.
+
+    @item since on most supported computers, SeaBIOS images can also
+          load and run GRUB (there is a menu entry for it when
+          pressing the 'ESC' key at boot), having high resolution
+          graphics can make GRUB look nicer.
+
+    @end itemize
+
+@end itemize
+
+@node GNU Boot images naming
+@subsection GNU Boot images naming
+
+Images for specific computers can be found on
+@uref{https://ftp.gnu.org/gnu/gnuboot/,the GNU Boot download area} or
+in the release/roms directory if you built GNU Boot from source
+yourself.
+
+For a given release (or release candidate) like GNU Boot 0.1-rc3, you
+can find such files inside the 'roms' directory like
+@url{https://ftp.gnu.org/gnu/gnuboot/gnuboot-0.1-rc3/roms/} for GNU
+Boot 0.1-rc3.
+
+Inside you have archive files like
+@option{gnuboot-0.1-rc3_x200_8mb.tar.xz} that are specific to a
+specific computer (here the ThinkPad X200 with 8MiB flash chip).
+
+Inside each archive files, there are many smaller files that are flash
+images. @xref{boot software} to understand what a flash image is.
+
+The flash image files correspond to the configurations described in
+the @ref{GNU Boot images types}.
+
+So for instance if we have an image named
+@option{grub_x200_8mb_corebootfb_usqwerty.rom}, it is meant for a
+ThinkPad X200 with 8MiB flash chip, and it uses the GRUB software to
+boot, and it is configured to use a QWERTY keyboard layout.
+
+If the image contains @option{seabios} in its file name instead of
+@option{grub}, it uses the SeaBIOS software to boot.
+
+The @option{corebootfb} in the file name correspond to the high
+resolution graphics described in the previous subsection (@ref{GNU
+Boot images types}).
+
+If instead the file has @option{txtmode} in its name, this corresponds
+to the text-only low resolution that was also described in the
+previous subsection (@ref{GNU Boot images types}).
 
 @node Helping GNU Boot
 @chapter Helping GNU Boot
