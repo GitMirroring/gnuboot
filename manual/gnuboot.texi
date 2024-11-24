@@ -55,6 +55,7 @@ This manual is for GNU Boot version @value{VERSION}.
 @menu
 * Overview::					General purpose and information.
 * Supported hardware and configurations::
+* Using GNU Boot::
 * Building GNU Boot from source::
 * Helping GNU Boot::				How to contribute to GNU Boot
 * GNU Free Documentation License::		Copying and sharing this documentation.
@@ -680,7 +681,9 @@ ftp.gnu.org/gnu/gnuboot/).
 
 But depending on your threat model, it could be a good idea to build
 GNU Boot from source yourself instead, to avoid certain security
-attacks.
+attacks. @xref{Security features} section for more context with
+security and threat models and @ref{Building GNU Boot from source}
+for more details about the security attacks mentioned above.
 
 Once GNU Boot is downloaded or built, you will need to understand
 which files you need to install or upgrade. @xref{Supported hardware
@@ -694,6 +697,101 @@ upgrade instructions yet but some generic installation and upgrade
 instructions can be found in the GNU Boot website. We need help to
 migrate these instructions in the manual and make them easier to
 understand.
+
+@node Using GNU Boot
+@chapter Using GNU Boot
+
+@node Using GNU Boot with QEMU
+@section Using GNU Boot with QEMU
+
+The GNU Boot project also release images for QEMU.
+
+If you just want to try an image to see how it looks like you can use
+the following command:
+
+@example
+qemu-system-x86_64 -M pc \
+-bios grub_qemu-pc_2mb_corebootfb_usqwerty.rom
+@end example
+
+Here you need to replace
+@emph{grub_qemu-pc_2mb_corebootfb_usqwerty.rom} by the
+path to the image you want to try.
+
+For a more complete example, you can look in the GNU Boot source code
+as GNU Boot uses QEMU to run some automatic tests that boots Trisquel
+11 (aramo).
+
+Also note that the GNU Boot images for QEMU can be useful in some
+situations, but it doesn't fully replace tests run on real computers.
+
+For instance a distribution or operating system might work on QEMU but
+not work on real hardware due to an incomplete graphic driver for the
+real hardware GPU.
+
+@node Security features
+@section Security features
+@cindex secure boot
+@cindex threat modelling
+
+Note that security is a process. To really make it work you need to
+understand various threats and how to respond to them (this is called
+@dfn{threat modelling}), so what security feature to use or not to use
+depends on your life, use cases, etc.
+
+Also note that in general some security features also have downsides,
+such as making it harder to use the computer, making it harder to fix
+issues, etc, so not everybody might want these security features.
+
+As for security features typically found in other boot software, some
+computers vendor sell computers with what they call @dfn{secure
+boot}. When it cannot be turned off, it becomes an anti-feature and
+the @uref{https://www.fsf.org/,Free Software Foundation} calls it
+@dfn{restricted boot}.
+
+In 2012, the @uref{https://www.fsf.org/,Free Software Foundation}
+wrote
+@uref{https://www.fsf.org/campaigns/secure-boot-vs-restricted-boot/campaigns/secure-boot-vs-restricted-boot/whitepaper.pdf,a
+whitepaper}, on the topic and advised that:
+
+@verbatim
+The best solution currently available for operating system distributions
+includes:
+1. fully supporting user-generated keys, including providing tools and full
+documentation for booting and installing both modified and official
+versions of the distribution using this method;
+2. using a GPLv3-covered bootloader to help protect users against the
+dangers of Restricted Boot;
+3. avoiding requiring or encouraging users to trust Microsoft or any com-
+pany which makes proprietary software; and
+4. joining the FSF and the broader free software movement in pressuring
+computer distributors to facilitate easy and independent installation of
+free software operating systems on any computer.
+@end verbatim
+
+GNU Boot supports various security mechanism: GRUB is a GPLv3-covered
+bootloader that GNU Boot reuses, and it supports user-generated keys
+or other security mechanism that that don't require any signing
+keys.
+
+GNU Boot also obviously doesn't Trust keys from companies that make
+proprietary software.
+
+At the end when used correctly, the security features provided by GNU
+Boot thanks to the software it reuses (like GRUB) can provide similar
+or stronger security guarantees than the UEFI secure boot with
+different security features that you may or may not want want to use
+depending on your threat model.
+
+The GNU Boot Website contains various information on how to use such
+security features, but they are also documented in the
+@ref{,,,grub,GNU GRUB manual} as well in more details. Since the GRUB
+version GNU Boot uses might be older than the online GRUB manual, you
+can use Guix to install the manual of older GRUB versions
+(@pxref{,,,guix,GNU Guix reference manual} for more details).
+
+All the security mechanism described in the GRUB manual or GNU Boot
+website are compatible with users freedom.
 
 @node Building GNU Boot from source
 @chapter Building GNU Boot from source
