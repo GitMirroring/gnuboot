@@ -143,6 +143,11 @@ AS_IF([test x"$guix" = x"yes"],
              [AC_MSG_ERROR(
               [find was not found in PATH ($PATH)])])
 
+       AC_CHECK_PROG([FOUND_GM], [gm], [gm])
+       AS_IF([test x"$FOUND_GM" = x""],
+             [AC_MSG_ERROR(
+              [gm was not found in PATH ($PATH)])])
+
        AC_CHECK_PROG([FOUND_GREP], [grep], [grep])
        AS_IF([test x"$FOUND_GREP" = x""],
              [AC_MSG_ERROR(
@@ -173,6 +178,11 @@ AS_IF([test x"$guix" = x"yes"],
                     [AC_MSG_ERROR(
                     [false was not found in PATH ($PATH)])])])
 
+       AC_CHECK_PROG([FOUND_MAKEINFO], [makeinfo], [makeinfo])
+       AS_IF([test x"$FOUND_MAKEINFO" = x""],
+             [AC_MSG_ERROR(
+              [makeinfo was not found in PATH ($PATH)])])
+
        AC_CHECK_PROG([FOUND_PANDOC], [pandoc], [pandoc])
        AS_IF([test x"$FOUND_PANDOC" = x""],
              [AC_MSG_ERROR(
@@ -186,7 +196,12 @@ AS_IF([test x"$guix" = x"yes"],
        AC_CHECK_PROG([FOUND_TEST], [test], [test])
        AS_IF([test x"$FOUND_TEST" = x""],
              [AC_MSG_ERROR(
-              [test was not found in PATH ($PATH)])])])
+              [test was not found in PATH ($PATH)])])
+
+       AC_CHECK_PROG([FOUND_TEX], [tex], [tex])
+       AS_IF([test x"$FOUND_TEX" = x""],
+             [AC_MSG_ERROR(
+              [tex was not found in PATH ($PATH)])])])
 
 AC_OUTPUT
 AS_ECHO(["Configuration options:"])

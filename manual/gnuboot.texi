@@ -1,0 +1,189 @@
+\input texinfo @c -*-texinfo-*-
+@c %**start of header
+@setfilename gnuboot.info
+@include version.texi
+@settitle GNU Boot @value{VERSION}
+
+@c Define a new index for options.
+@defcodeindex op
+@c Combine everything into one index (arbitrarily chosen to be the
+@c concept index).
+@syncodeindex op cp
+@c %**end of header
+
+@copying
+
+Copyright @copyright{} 2024 Denis 'GNUtoo' Carikli.
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts.  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+@end quotation
+@end copying
+
+@dircategory Kernel
+@direntry
+* GNU Boot: (gnuboot).                 Boot software distribution
+@end direntry
+
+@titlepage
+@title GNU Boot manual (version @value{VERSION})
+@author GNU Boot Contributors (@email{gnuboot@@gnu.org})
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@contents
+
+
+@ifnottex
+@node Top
+@top GNU Boot
+
+This manual is for GNU Boot version @value{VERSION}.
+@end ifnottex
+
+@node Table of contents
+
+@menu
+* Overview::				General purpose and information.
+* Helping GNU Boot::			How to contribute to GNU Boot
+* GNU Free Documentation License::	Copying and sharing this documentation.
+* Concept index::			Index of concepts.
+@end menu
+
+
+@node Overview
+@chapter Overview
+
+This chapter will explain what is GNU Boot, and how it compares with
+somewhat similar projects.
+
+@node What is GNU Boot
+@section What is GNU Boot
+
+GNU Boot is a @dfn{boot software} @dfn{distribution}. What this means
+will be explained below.
+
+@node boot software
+@subsection boot software
+@cindex @acronym{BIOS, Basic Input/Output System}
+@cindex @acronym{UEFI, Unified Extensible Firmware Interface}
+@cindex boot software
+
+If you take a modern laptop computer, and remove the storage devices
+(like @acronym{SSD, Solid State Drive}, hard disks, etc) and then
+power on the computer, it will typically show something on the screen.
+
+It often looks a bit like that:
+
+@verbatim
++--------------------------------------------------------------------+
+|                                                                    |
+|                                                                    |
+|                                                                    |
+|                                                                    |
+|                                                                    |
+|                                                                    |
+|                        [ Some company Logo ]                       |
+|                                                                    |
+|                                                                    |
+|                                                                    |
+|                                                                    |
+|                                                                    |
+|                                                                    |
+| Press F2 for BIOS setup, Press F12 for the startup menu.           |
++--------------------------------------------------------------------+
+@end verbatim
+
+What is being displayed on the screen is produced by software which is
+often nonfree.
+
+It is often called @acronym{BIOS, Basic Input/Output System} or
+@acronym{UEFI, Unified Extensible Firmware Interface} on computers
+people are most familiar with. This software is typically stored
+inside a memory chip inside the computer mainboard. In some computers,
+this software can be replaced by free software.
+
+Depending on how you read the manual, right below you may or may not
+see a picture of this memory chip on the mainboard of a ThinkPad X200.
+
+@image{images/SOIC-16,6in,, Picture of the memory chip of the ThinkPad X200
+mainboard.}
+
+@sp 2
+
+The goal of this boot software is to initialize the hardware and load
+an operating system (like GNU/Linux).
+
+@sp 1
+
+This kind of ``boot software'' exists for a variety of reasons:
+
+@itemize
+
+@item The operating systems require certain hardware components like the
+@acronym{RAM, Random Access Memory} to already work when they are
+started.
+
+@item The operating system is stored on a storage device(s) (like
+@acronym{SSD, Solid State Drive}, hard disks, etc) and part of it needs to be
+loaded inside the @acronym{RAM, Random Access Memory} to
+work. Something has to do the loading, and this is done in software
+for flexibility and/or efficiency reasons.
+
+@item Finally, certain hardware components cannot be auto-detected and
+something needs to tell the operating system what drivers to load,
+which which settings.
+
+@end itemize
+
+GNU Boot provides such software. It enables to replace nonfree boot
+software (typically nonfree @acronym{BIOS, Basic Input/Output System}
+or @acronym{UEFI, Unified Extensible Firmware Interface}) on some
+computers.
+
+@node distribution
+@subsection distribution
+
+GNU Boot is only a distribution because it reuses various software to
+produce something that can be installed.
+
+So it is similar to GNU/Linux distributions like Trisquel 11
+(aramo) that also reuse various software to produce something that
+can be installed.
+
+
+@node Helping GNU Boot
+@chapter Helping GNU Boot
+
+The GNU Boot project needs help with this manual, specifically on
+moving information from the GNU Boot website to this manual.
+
+In general there is also a lot of ways to help the GNU Boot project
+(from reviewing website pages for very simple mistakes or outdated
+information, testing GNU Boot images, etc).
+
+See the
+@uref{https://www.gnu.org/software/gnuboot/web/git.html,Helping GNU
+Boot} page on the GNU Boot website for the areas where we need help
+and on how to help practically speaking (how to contact the project,
+where to send bug reports, etc).
+
+@node GNU Free Documentation License
+@appendix GNU Free Documentation License
+
+@include fdl-1.3.texi
+
+
+@node Concept index
+@unnumbered Concept index
+
+@printindex cp
+
+@bye

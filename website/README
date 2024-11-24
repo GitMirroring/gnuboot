@@ -1,17 +1,24 @@
-== Introduction ==
++==============+
+| Introduction |
++==============+
 This directory contains both the website in pages/ and build code to
 easily build and deploy the GNU Boot website with very few commands.
 
-== Dependencies ==
++==============+
+| Dependencies |
++==============+
 
+Without Guix
+-------------
 If you don't want to install Guix just to test the website, you will
-need to install the following dependencies:
+need to install the following dependencies (tested under Trisquel 11):
 
 * autoconf
 * automake
 * coreutils
 * gawk
 * git
+* graphicsmagick
 * graphviz
 * grep
 * gzip
@@ -20,11 +27,17 @@ need to install the following dependencies:
 * pandoc
 * sed
 * tar
+* texinfo
+* texlive-binaries
+* texlive-plain-generic
 
+You can then use the following commands to build the website:
 $ ./autogen.sh
 $ ./configure --disable-guix
 $ make serve
 
+With Guix
+---------
 And if you want to use Guix instead you only need the following
 dependencies instead:
 
@@ -35,9 +48,9 @@ dependencies instead:
 * make
 * tar
 
-For making sure that the build doesn't take days, you will also need
-to make sure that bordeaux.guix.gnu.org is in the list of substitutes
-(binary packages servers).
+But for making sure that the build doesn't take days with Guix, you
+will also need to make sure that bordeaux.guix.gnu.org is in the list
+of substitutes (binary packages servers for Guix).
 
 This is needed because some older Guix packages (like the ones on
 Trisquel 11 or PureOS) don't have bordeaux enabled while installation
@@ -54,14 +67,20 @@ $ guix repl force-bordeaux-substitute.scm check
 If instead you need to add it, it will print 'bordeaux.guix.gnu.org is
 disabled'.
 
-You can add bordeaux.guix.gnu.org with the following command:
+If you are in the same directory than this README, you can add
+bordeaux.guix.gnu.org with the following command:
+$ sudo guix archive --authorize < ../resources/distros/guix/bordeaux.guix.gnu.org.pub
+
+Or if you do not want to blindly trust the file above, you could
+simply update Guix and get the file from Guix instead, but updating
+Guix the first time can be quite long to do:
 $ guix pull
 $ sudo guix archive --authorize < ~/.config/guix/current/share/guix/bordeaux.guix.gnu.org.pub
 
-You will also need to make it possible for the build system to check
-if it is enabled as some people might want to bulid everything
-themselves for security reasons, so we don't use bordeaux if it is not
-already authorized:
+You will then need to make it possible for the build system to check
+if bordeaux is enabled as some people might want to bulid everything
+themselves for security reasons, so we don't (and can't) use bordeaux
+if it is not already authorized:
 $ sudo chmod +r /etc/guix/acl
 
 Once bordeaux is enabled you can use the following commands to build
@@ -70,7 +89,12 @@ $ ./autogen.sh
 $ ./configure
 $ make serve
 
-== Testing the website ==
+The first time it will be longer in the case you have a Guix older
+than 1.4.0 (as it will also download Guix 1.4.0 in the process).
+
++=====================+
+| Testing the website |
++=====================+
 
 Here's how to deploy the website in a local webserver:
 $ ./autogen.sh
@@ -94,7 +118,9 @@ external repositories that have your modifications, or you could also
 modify the build.sh script to use different git repositories and/or
 revisions.
 
-== Deployment on https://gnu.org/software/gnuboot/ ==
++=================================================+
+| Deployment on https://gnu.org/software/gnuboot/ |
++=================================================+
 
 The deployment to https://gnu.org/software/gnuboot/ uses rsync. As
 gnu.org machine is behind a firewall, so you need to workaround
@@ -161,8 +187,9 @@ References:
    SHA256:pmCf0NrBzSSYfg6DdgmlMzPWZzGpXXcPEz6LP1+o5Jc exists on the
    server".
 
-
-== License ==
++=========+
+| License |
++=========+
 This project is free software:
 - For the files that are in website/pages and the the site.cfg file in
   the same directory than this README see website/pages/license.md for
