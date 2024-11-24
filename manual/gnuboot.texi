@@ -67,8 +67,8 @@ somewhat similar projects.
 @node What is GNU Boot
 @section What is GNU Boot
 
-GNU Boot is a @dfn{boot software} @dfn{distribution}. What this means
-will be explained below.
+GNU Boot is a boot software distribution. What this means will be
+explained below.
 
 @node boot software
 @subsection boot software
@@ -158,6 +158,148 @@ So it is similar to GNU/Linux distributions like Trisquel 11
 (aramo) that also reuse various software to produce something that
 can be installed.
 
+@node Why free boot software is important
+@section Why free boot software is important
+
+Freedom is important in general, and running nonfree software has
+negative consequences regardless of the type of software (game, boot
+software, operating system, driver, etc).
+
+@sp 1
+
+Here are some examples of common issues for nonfree boot software:
+
+@itemize
+
+@item Since the boot software loads the operating system, it
+can potentially modify it in a malicious way. In most cases part of
+the boot software also continues to run once the operating system is
+started. Because of that and, and because of the way the hardware and
+boot software run, the boot software can also do such modification at
+any time. If the boot software is nonfree, it is way harder to find
+and remove malicious code (it's even impossible to remove in some
+cases), and there is no way to make sure that there is none left. For
+instance many nonfree boot software where shipped with the CompuTrace
+malware (which was advertised as an anti-theft security feature).
+
+@item Vendors of various hardware components have to collaborate together
+to provide updates for nonfree Boot software, so in practice
+they decide when updates are done. So if a computer is not sold
+anymore, it is unlikely to get update for its Boot software
+unless the Boot software uses some free software that can be
+updated. Also note that applying nonfree updates comes with huge risk
+as we don't know what's inside the updates. Hardware vendors who
+provide the updates also have an incentive to make things worse for
+the users, so they would be pushed to buy new devices.
+
+@item Some nonfree Boot software restrict what you can do with
+your computer. For instance they refuse to boot if you changed or
+removed some hardware components.
+
+@end itemize
+
+@node Why use GNU Boot
+@section Why use GNU Boot
+
+As explained before GNU boot is just a distribution. So it is also
+possible to take the same software that GNU Boot reuses, and to build,
+assemble and install it yourself.
+
+However doing that is risky because if something goes wrong, your
+computer won't boot anymore.
+
+So the goals of GNU Boot are to:
+
+@itemize
+
+@item Collaborate together to test if GNU Boot releases works fine.
+
+@item Provide documentation to enable easy installation and usage.
+
+@item Limit the amount of work done by GNU Boot and contribute
+directly to the software we reuse whenever possible.
+
+@end itemize
+
+GNU Boot also has a long term focus, so it tries not to break users
+use cases, and tries as much as possible to fix issues in the projects
+it reuses instead of doing workarounds that impact users.
+
+
+@node Other free boot software distributions
+@section Other free boot software distributions
+
+The following GNU/Linux distributions should also provide 100% free
+boot software but they usually only provide them for computers using
+the ARM architecture (which GNU Boot doesn't support yet):
+
+@itemize
+
+@item Parabola
+
+@item PureOS
+
+@item Trisquel
+
+@end itemize
+
+The GNU Guix package manager (which GNU Boot also reuses) also provide
+100% free boot software for some ARM computers. However the Guix
+packages are updated all the time and the Guix project doesn't provide
+any way for users to report that specific ARM computers work fine with
+the boot software they provide.
+
+There is also Canoeboot which is a 100% free software boot
+distribution similar to GNU Boot. Its goal is to remove nonfree
+software from Libreboot. It focuses more on having the latest software
+and many features, including some that are not available in the
+projects it reuses. Because of that it can be harder for users to use.
+
+@node How much free software is GNU Boot?
+@section How much free software is GNU Boot?
+
+Being a GNU package, GNU Boot itself is 100% free software. If you
+find nonfree software in GNU Boot and/or any source code or binaries
+released by GNU Boot, please contact its maintainers by opening a bug
+report on its bug tracker at
+@url{https://savannah.gnu.org/bugs/?group=gnuboot}.
+
+But that doesn't mean that GNU Boot magically makes everything not
+provided by GNU Boot free software.
+
+In some cases GNU Boot even runs nonfree software not provided by GNU
+Boot like nonfree GPUs drivers provided by the removable GPU card.
+
+To address problems like that the @uref{https://www.fsf.org/,Free
+Software Foundation} has created the
+@uref{https://ryf.fsf.org/,Respect Your Freedom hardware
+certification} to list hardware that works with only free software
+(with some very small exceptions for some components, see
+@uref{https://ryf.fsf.org/about/criteria, its criteria} for more
+details).
+
+In addition there is also
+@uref{https://www.fsfla.org/ikiwiki/blogs/lxo/draft/blob-fallacy,The
+Blob Fallacy article} or
+@uref{https://media.libreplanet.org/u/libreplanet/m/software-enshittification-or-freedom-it-s-not-a-hard-choice,
+a video of a presentation about the same issue at LibrePlanet 2024} by
+Alexandre Oliva that explains the related freedom issues with nonfree
+software provided by the hardware and how they compare with other kind
+of freedom issues (nonfree driver, nonfree firmware loaded
+automatically by Linux, etc).
+
+@node Limitations
+@section Limitations
+
+GNU Boot is fairly recent and doesn't have an official release
+yet.
+
+For the release we plan to have at least some install and upgrade
+instructions for some computers and an easy way for users to use GNU
+Boot.
+
+Also the latest GNU Boot release candidate was not tested yet with all
+the computers it's supposed to support (we badly need help for that).
 
 @node Helping GNU Boot
 @chapter Helping GNU Boot
