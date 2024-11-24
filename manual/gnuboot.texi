@@ -55,6 +55,7 @@ This manual is for GNU Boot version @value{VERSION}.
 @menu
 * Overview::					General purpose and information.
 * Supported hardware and configurations::
+* Building GNU Boot from source::
 * Helping GNU Boot::				How to contribute to GNU Boot
 * GNU Free Documentation License::		Copying and sharing this documentation.
 * Concept index::				Index of concepts.
@@ -645,6 +646,9 @@ Inside you have archive files like
 @option{gnuboot-0.1-rc3_x200_8mb.tar.xz} that are specific to a
 specific computer (here the ThinkPad X200 with 8MiB flash chip).
 
+@pxref{Installing or upgrading GNU Boot images} to understand how to
+identify which archive file correspond to which computer.
+
 Inside each archive files, there are many smaller files that are flash
 images. @xref{boot software} to understand what a flash image is.
 
@@ -666,6 +670,125 @@ Boot images types}).
 If instead the file has @option{txtmode} in its name, this corresponds
 to the text-only low resolution that was also described in the
 previous subsection (@ref{GNU Boot images types}).
+
+@node Installing or upgrading GNU Boot images
+@chapter Installing or upgrading GNU Boot images
+
+GNU Boot provides flash images for specific computers that can be
+found on the GNU Boot download area (https://
+ftp.gnu.org/gnu/gnuboot/).
+
+But depending on your threat model, it could be a good idea to build
+GNU Boot from source yourself instead, to avoid certain security
+attacks.
+
+Once GNU Boot is downloaded or built, you will need to understand
+which files you need to install or upgrade. @xref{Supported hardware
+and configurations} chapter for more details on how to do that.
+
+@node Installation and upgrade instructions
+@section Installation and upgrade instructions
+
+The GNU Boot manual doesn't have well integrated installation or
+upgrade instructions yet but some generic installation and upgrade
+instructions can be found in the GNU Boot website. We need help to
+migrate these instructions in the manual and make them easier to
+understand.
+
+@node Building GNU Boot from source
+@chapter Building GNU Boot from source
+
+Currently building GNU Boot flash images on two different computers
+will produce slightly different images.
+
+This is a problem as it prevents people from easily verifying that the
+official flash images really correspond to the source code published
+by GNU Boot, and having the ability for anyone to verify that
+increases the security guarantees.
+
+The @uref{https://reproducible-builds.org,Reproducible builds} project
+helps publicizing this problem and helps distributions and software to
+fix it.
+
+So while GNU Boot also started working to fix this problem the work
+just stated and isn't complete yet, so in the meantime if you care
+about this type of risks, it might be a good idea to build GNU Boot
+from source yourself.
+
+The GNU Boot website has instructions for building GNU Boot at the
+following URL:
+@url{https://www.gnu.org/software/gnuboot/web/docs/build/}.
+
+@xref{Authenticating the GNU Boot source code} as GNU Boot has ways to
+prevent network attacks from tempering with the souce code you are
+downloading.
+
+Note that at the moment, building GNU Boot from tarballs is
+unsupported, so you will have to download GNU Boot from git and build
+from git.
+
+@node Authenticating the GNU Boot source code
+@section Authenticating the GNU Boot source code
+
+As explained on the
+@uref{https://www.gnu.org/software/gnuboot/web/docs/build/,GNU Boot
+build instructions} on the GNU Boot website, to build GNU Boot you
+will need to install Guix first (it can be installed on top of another
+GNU/Linux distribution).
+
+You can consult either the
+@uref{https://www.gnu.org/software/gnuboot/web/docs/build/,GNU Boot
+build instructions} or the @ref{Installation,,,guix,GNU Guix
+reference manual} for how to do that.
+
+Once this is done you can download the GNU Boot source code with the
+following command and go into it:
+@example
+$ git clone https://git.savannah.gnu.org/git/gnuboot.git
+$ cd gnuboot
+@end example
+
+And you can then authenticate the source code with the following guix
+command:
+
+@example
+$ guix git authenticate \
+bf2b91df54aa71ecbfab891d32000ad2d6af6093 \
+"E23C 26A5 DEEE C5FA 9CDD  D57A 57BC 26A3 6871 16F6" \
+-k origin/keyring
+@end example
+
+It should then print something like that:
+@example
+guix git: successfully authenticated commit dde4223088cbfe8a347626638d32902ba2323b25
+@end example
+
+the commit hash (here @samp{dde4223088cbfe8a347626638d32902ba2323b25})
+might be different for you.
+
+@xref{Invoking guix git authenticate,,,guix,GNU Guix manual} or
+@uref{https://guix.gnu.org/en/blog/2024/authenticate-your-git-checkouts/,the
+Authenticate your Git checkouts! Guix blog post} for more details.
+
+The question that remains is then how to make sure that "E23C 26A5
+DEEE C5FA 9CDD D57A 57BC 26A3 6871 16F6" is the right key.
+
+To do that the GnuPG software can help (@pxref{,,,gnupg,its manual}
+for now to use it if you are interested) but the solution to this
+problem is not technical but social and could require significant time
+and effort.
+
+To solve this problem you will need to build some sort of chain of
+trust between you and the person who controls the "E23C 26A5 DEEE C5FA
+9CDD D57A 57BC 26A3 6871 16F6" key (here Adrien 'neox' Bourmault) with
+or without the help of the GnuPG software.
+
+Wikipedia has a bit more information on the problem in its
+@uref{https://en.wikipedia.org/wiki/Web_of_trust,Web of trust} article,
+and the @uref{https://www.gnupg.org/gph,The GNU Privacy Handbook} has
+@uref{https://www.gnupg.org/gph/en/manual/x547.html,a section about
+Building your web of trust}, that contains advises on how to do that,
+especially in the part about "Key validation".
 
 @node Helping GNU Boot
 @chapter Helping GNU Boot
