@@ -51,10 +51,11 @@ This manual is for GNU Boot version @value{VERSION}.
 @node Table of contents
 
 @menu
-* Overview::				General purpose and information.
-* Helping GNU Boot::			How to contribute to GNU Boot
-* GNU Free Documentation License::	Copying and sharing this documentation.
-* Concept index::			Index of concepts.
+* Overview::					General purpose and information.
+* Supported hardware and configurations::
+* Helping GNU Boot::				How to contribute to GNU Boot
+* GNU Free Documentation License::		Copying and sharing this documentation.
+* Concept index::				Index of concepts.
 @end menu
 
 
@@ -300,6 +301,66 @@ Boot.
 
 Also the latest GNU Boot release candidate was not tested yet with all
 the computers it's supposed to support (we badly need help for that).
+
+@node Supported hardware and configurations
+@chapter Supported hardware and configurations
+
+@node Supported computers
+@section Supported computers
+
+For now, GNU Boot only provides images that can be installed on the
+following computers:
+
+@itemize
+
+@item Acer G43T-AM3
+@item Apple MacBook 1.1
+@item Apple MacBook 2.1
+@item Apple iMac 5,2
+@item Asus KCMA-D8
+@item Asus KFSN4-DRE
+@item Asus KGPE-D16
+@item Gigabyte D945GCLF2D
+@item Gigabyte GA-G41M-ES2L
+@item Intel D410PT
+@item Intel D510MO
+@item Intel D945GCLF
+@item Lenovo ThinkPad R400
+@item Lenovo ThinkPad R500
+@item Lenovo ThinkPad T400
+@item Lenovo ThinkPad T400S
+@item Lenovo ThinkPad T500
+@item Lenovo ThinkPad T60 with intel GPU
+@item Lenovo ThinkPad W500
+@item Lenovo ThinkPad X200
+@item Lenovo ThinkPad X200S
+@item Lenovo ThinkPad X200T
+@item Lenovo ThinkPad X301
+@item Lenovo ThinkPad X60
+@item Lenovo ThinkPad X60T
+@item Lenovo ThinkPad X60s
+@item Libiquity Taurinus X200
+@item Qemu PC (i440FX)
+@item Technoethical D16
+@item Technoethical T400
+@item Technoethical T400s
+@item Technoethical T500
+@item Technoethical X200
+@item Technoethical X200s
+@item Technoethical X200 Tablet (X200T)
+@item Vikings ASUS KCMA D8 mainboard and workstation
+@item Vikings ASUS KGPE D16 mainboard
+@item Vikings X200
+
+@end itemize
+
+However as GNU Boot is still relatively new, we lack installation and
+upgrade instructions for most of these computers.
+
+Also not all are well tested, so it's a good idea to look on the GNU
+Boot website, on the status page (
+@url{https://www.gnu.org/software/gnuboot/web/status.html}) for up to
+date result of tests by GNU Boot users and contributors.
 
 @node Helping GNU Boot
 @chapter Helping GNU Boot
