@@ -269,7 +269,10 @@ But that doesn't mean that GNU Boot magically makes everything not
 provided by GNU Boot free software.
 
 In some cases GNU Boot even runs nonfree software not provided by GNU
-Boot like nonfree GPUs drivers provided by the removable GPU card.
+Boot like nonfree GPUs drivers provided by the removable GPU
+card. @xref{Supported computer parts and peripherals} for more
+details about this issue and how to avoid running such nonfree
+software.
 
 To address problems like that the @uref{https://www.fsf.org/,Free
 Software Foundation} has created the
@@ -361,6 +364,113 @@ Also not all are well tested, so it's a good idea to look on the GNU
 Boot website, on the status page (
 @url{https://www.gnu.org/software/gnuboot/web/status.html}) for up to
 date result of tests by GNU Boot users and contributors.
+
+@node Supported computer parts and peripherals
+@section Supported computer parts and peripherals
+
+Most computer parts and peripherals don't have any compatibility issue
+with GNU Boot because:
+
+@itemize
+
+@item they either use some standard that is most often already
+implemented in the software GNU Boot reuses (storage devices like SATA
+drives, USB keyboards, etc),
+
+@item they are not relevant or supported for booting (for instance 3D printers,
+cellular network cards, etc, unless people add support for them in GNU
+Boot in the future). Until then they are only handled in the operating
+system instead (with drivers),
+
+@end itemize
+
+however there is some exceptions as some hardware is non-standard and
+still required for booting, these are documented in the subsections
+below.
+
+@node Supported GPUs and graphics
+@subsection Supported GPUs and graphics
+
+GNU Boot supports the GPUs that are present in the various laptops it
+supports with 100% free software. Some consideration apply while
+booting, but so far once booted these GPU are known to works well on
+tested computers.
+
+In addition for the non-laptop computers, it also supports the builtin
+AST graphics in the KGPE-D16 and KCMA-D8 with 100% free software, but
+this also comes with some limitations: in GNU/Linux it's only possible
+to display text but not images, so it's limited to console
+applications.
+
+In the case of PCIe GPU / graphics cards, we don't know yet if it
+is possible to use them without running nonfree software.
+
+If AMD, ATI, and Nvidia cards work under GNU Boot, it's because GNU
+Boot loaded and run the nonfree video BIOS that is present on the
+card.
+
+It's possible to prevent the nonfree video BIOS from running and you
+can easily confirm that as the display will not work until the Linux
+driver is loaded.
+
+The Free Software Foundation tech team has a wiki. In
+@uref{https://savannah.gnu.org/maintenance/fsf/hardware/disable-option-roms-with-cbfstool/,
+the disable option roms with cbfstool article}, they explains how to
+do that.
+
+And in
+@uref{https://savannah.gnu.org/maintenance/fsf/hardware/graphics-cards/,
+the graphics cards article} they also explain which GPU they tested.
+
+However the Linux driver can also run nonfree software: All the
+current AMD, ATI, and Nvidia drivers have code to load and run (a
+different) initialization code provided on the card. For ATI and AMD
+cards the code that Linux runs is called AtomBIOS.
+
+We don't know yet if there are cases where this code is not run (this
+would need to be tested by doing very simple modifications to the
+drivers, and the GNU Boot project also welcome help in this area).
+
+@node Supported card readers
+@subsection Supported card readers
+
+GNU Boot supports the builtin card reader of the following computers:
+
+@itemize
+@item Lenovo ThinkPad X200
+@item Lenovo ThinkPad X200S
+@item Lenovo ThinkPad X200T
+@item Libiquity Taurinus X200
+@item Technoethical X200
+@item Technoethical X200s
+@item Technoethical X200 Tablet (X200T)
+@item Vikings X200
+
+@end itemize
+
+It also supports some USB card readers that are viewed as
+mass-storage. With all that you can boot on an SD card a microSD card
+and it will be viewed like a mass storage USB key.
+
+@node Unsupported hardware supported by projects reused by GNU Boot
+@subsection Unsupported hardware supported by projects reused by GNU Boot
+
+The following hardware components are supported by software reused by
+GNU Boot, but support for them hasn't been enabled yet in GNU Boot:
+
+@itemize
+@item Serial ports.
+@item Software RAID cards: Some Silicon Image SIL3114 software RAID
+      cards are supported by Coreboot but not enabled in GNU Boot.
+@item Network interfaces. Projects like iPXE has drivers for many network cards
+      and even some Wifi cards typically used with the computers supported by GNU
+      Boot and free distributions.
+@item Some printers that use serial ports could probably easily be supported
+      once serial ports are working.
+@end itemize
+
+The GNU Boot project needs help to evaluate the impact of enabling
+these and welcome contributions in this area.
 
 @node Helping GNU Boot
 @chapter Helping GNU Boot
