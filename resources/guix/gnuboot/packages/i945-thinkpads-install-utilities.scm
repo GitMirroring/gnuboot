@@ -14,7 +14,7 @@
 ;;; GNU General Public License for more details.
 ;;;
 ;;; You should have received a copy of the GNU General Public License
-;;; along with GNU Guix.  If not, see <http://www.gnu.org/licenses/>.
+;;; along with GNU Boot.  If not, see <http://www.gnu.org/licenses/>.
 
 (define-module (gnuboot packages i945-thinkpads-install-utilities)
   #:use-module (gnu packages)
