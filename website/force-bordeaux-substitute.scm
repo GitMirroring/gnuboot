@@ -1,5 +1,5 @@
 ;;; Copyright © 2024 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
-;;; Copyright © 2024 Adrien 'neox' Bourmault <neox@a-lec.org>
+;;; Copyright © 2024 Adrien 'neox' Bourmault <neox@gnu.org>
 ;;;
 ;;; This file is part of GNU Boot.
 ;;;
