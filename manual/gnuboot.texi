@@ -851,14 +851,14 @@ command:
 
 @example
 $ guix git authenticate \
-bf2b91df54aa71ecbfab891d32000ad2d6af6093 \
+dde4223088cbfe8a347626638d32902ba2323b25 \
 "E23C 26A5 DEEE C5FA 9CDD  D57A 57BC 26A3 6871 16F6" \
 -k origin/keyring
 @end example
 
 It should then print the following text:
 @example
-guix git: successfully authenticated commit bf2b91df54aa71ecbfab891d32000ad2d6af6093
+guix git: successfully authenticated commit dde4223088cbfe8a347626638d32902ba2323b25
 @end example
 
 @xref{Invoking guix git authenticate,,,guix,GNU Guix manual} or
