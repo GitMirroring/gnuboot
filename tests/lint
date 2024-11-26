@@ -66,6 +66,7 @@ run_shellcheck \
     resources/packages/website/distclean \
     resources/scripts/misc/guix.sh \
     resources/scripts/tasks/distclean.sh \
+    tests/checkpatch \
     tests/distclean \
     tests/lint \
     website/build.sh \

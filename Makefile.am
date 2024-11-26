@@ -107,6 +107,7 @@ check:
 	set -o pipefail ; ./tests/lint | tee -a $(LOG)
 	set -o pipefail ; ./tests/distclean | tee -a $(LOG)
 	set -o pipefail ; ./tests/targets  2>&1 | tee -a $(LOG)
+	set -o pipefail ; ./tests/checkpatch 2>&1 | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
 include resources/packages/i945-thinkpads-install-utilities/Makefile.am

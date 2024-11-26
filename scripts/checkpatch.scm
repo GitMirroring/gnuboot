@@ -1,0 +1,622 @@
+#!/usr/bin/env -S guix repl --
+!#
+;; Copyright (C) 2024 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+;;
+;; This program is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+;;
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;;
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+(use-modules (ice-9 rdelim))
+(use-modules (ice-9 regex))
+(use-modules (srfi srfi-1))
+(use-modules (srfi srfi-9))
+(use-modules (srfi srfi-19))
+
+(define (startswith str value)
+  (if (> (string-length str) (string-length value))
+      (string=? (substring str 0 (string-length value)) value)      #f))
+
+(define (read-file path func)
+  (define results #f)
+  (let ((port (open-input-file path)))
+    (set! results (func path port))
+    (close-port port)
+    results))
+
+(define (print-patch-name path)
+  (define dashes
+    (string-append
+     (string-join (make-list (string-length path) "-") "")
+     "\n"))
+  (display dashes)
+  (display (string-append path "\n"))
+  (display dashes))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                         ;;;;;;;;;;;;;;;;;;;;;;;;;                          ;;
+;;                         ;; Patch parsing logic ;;                          ;;
+;;                         ;;;;;;;;;;;;;;;;;;;;;;;;;                          ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define-record-type <rule>
+  (make-rule name default line-match line end)
+  rule?
+  (name       rule-name)       ;; Name of the rule
+  (default    rule-default)    ;; Runs once at the beginning, inconditionally
+  (line-match rule-line-match) ;; Runs each line, returns true/false
+  (line       rule-line)       ;; Runs if rule-line-match is true
+  (end        rule-end))       ;; Runs once at the end, inconditionally
+
+(define parse-rules
+  (list
+
+   ;; Here's an example of a parse rule below. Since it runs each time it is
+   ;; also tested. TODO: A a proper unit testing environment needs to
+   ;; be added and then this could be moved to only run inside that
+   ;; separate testing environment.
+   (make-rule
+    "Example empty rule"
+    (lambda (results) results)
+    (lambda (line _ results) #t)
+    (lambda (line _ results) results)
+    (lambda (path _ results) results))
+
+   (make-rule
+    "Count lines"
+    (lambda (results) (acons 'line 0 results))
+    (lambda (line _ results) #t)
+    (lambda (line _ results)
+      (acons 'line (+ 1 (assq-ref results 'line)) results))
+    (lambda (path _ results) results))
+
+   (make-rule
+    "Find diff start"
+    (lambda (results) results)
+    (lambda (line _ results)
+      (startswith line "diff --git "))
+    (lambda (line _ results)
+      (acons 'diff-start
+             (assq-ref results
+                       'line) results))
+    (lambda (path _ results)
+      results))
+
+   (make-rule
+    "Retrieve Signed-off-by"
+    (lambda (results) (acons 'signed-off-by '() results))
+    (lambda (line _ results) (startswith line "Signed-off-by: "))
+    (lambda (line _ results)
+      (let ((signed-off-by
+             (string-join (cdr (string-split line #\ )) " ")))
+        (acons 'signed-off-by
+               (append (assq-ref results 'signed-off-by) (list signed-off-by))
+               results)))
+    (lambda (path _ results) results))
+
+   ;; TODO: Raise an exception if there is no lines with From:, and
+   ;; when handling it, complain that the file is not a valid git
+   ;; patch.
+   (make-rule
+    "Find commit author"
+    (lambda (results) results)
+    (lambda (line _ results) (startswith line "From: "))
+    (lambda (line _ results)
+      (let ((commit-author (string-join (cdr (string-split line #\ )) " ")))
+        (acons
+         'commit-author
+         commit-author
+         results)))
+    (lambda (path _ results) results))
+
+   (make-rule
+    "Find commit hash"
+    (lambda (results) results)
+    (lambda (line _ results)
+      ;; Example:
+      ;; From 0df4fe5fadfb7f51c1c34dad10ca9e6e04c3fa18 Mon Sep 17 00:00:00 2001
+      (and (not (startswith line "From: "))
+           (startswith line "From ")))
+    (lambda (line _ results)
+      (let ((commit-hash (list-ref (string-split line #\ ) 1)))
+        (acons 'commit-hash commit-hash results)))
+    (lambda (path _ results) results))
+
+   ;; TODO: Raise an exception if there is no lines with Date:, and
+   ;; when handling it, complain that the file is not a valid git
+   ;; patch.
+   (make-rule
+    "Find commit date"
+    (lambda (results) results)
+    (lambda (line _ results) (startswith line "Date: "))
+    (lambda (line _ results)
+      (acons 'commit-date
+             (string->date
+              (string-join (cdr (string-split line #\ )) " ")
+              "~a, ~d ~b ~Y ~H:~M:~S ~z")
+             results))
+    (lambda (path _ results) results))
+
+   ;; TODO:
+   ;; - In general we might want to have the commit summary instead of
+   ;;   the subject, but for now we will use the mail subject instead
+   ;;   as we don't use the summary yet and properly parsing the
+   ;;   subject would require to reimplement the cleanup_subject
+   ;;   function from mailinfo.c in git source code.
+   ;; - Raise an exception if there is no lines with From:, and when
+   ;;   handling it, complain that the file is not a valid git patch.
+   (make-rule
+    "Find patch subject"
+    (lambda (results) results)
+    (lambda (line _ results) (startswith line "Subject: "))
+    (lambda (line _ results)
+      (let ((commit-subject (string-join (cdr (string-split line #\ )) " ")))
+        (acons
+         'commit-subject-line
+         (assq-ref results 'line)
+         (acons
+          'commit-subject
+          commit-subject
+          results))))
+    (lambda (path _ results) results))
+
+   (make-rule
+    "Find commit subject and message separator"
+    (lambda (results) results)
+    (lambda (line _ results)
+      ;; TODO: Raise an exception if the line after the commit subject
+      ;; line is not empty, and when handling it, complain that the
+      ;; file is not a valid git patch.
+      (and
+       (not (assq-ref results 'commit-message-end-line))
+       (assq-ref results 'commit-subject)
+       (string=? line "")
+       (eq? (+ 1 (assq-ref results 'commit-subject-line))
+            (assq-ref results 'line))))
+    (lambda (line _ results)
+      (acons
+          'commit-subject-message-separator-line
+          (assq-ref results 'line)
+          results))
+    (lambda (path _ results) results))
+
+   ;; TODO: Raise an exception if there is more than two lines with
+   ;; ---, and when handling it, complain that the file is not a valid
+   ;; git patch.
+   (make-rule
+    "Find changelog end"
+    (lambda (results) results)
+    (lambda (line _ results)
+      (and
+       (assq-ref results 'commit-message-end-line)
+       (string=? line "---")))
+    (lambda (line _ results)
+      (acons 'changelog-end-line (assq-ref results 'line) results))
+    (lambda (path _ results) results))
+
+   ;; TODO: Raise an exception if there is no line with ---, and when
+   ;; handling it, complain that the file is not a valid git patch.
+   (make-rule
+    "Find commit message end"
+    (lambda (results) results)
+    (lambda (line _ results)
+      ;; This matches the first "---" but there could be more as shown
+      ;; in the example below:
+      ;;     ---
+      ;;     ChangeLog: [...]
+      ;;     ---
+      ;; So until found we are in the commit message, but after it is found
+      ;; we could also be in the ChangeLog.
+      (and (string=? line "---")
+           (not (assq-ref results 'commit-message-end-line))))
+    (lambda (line _ results)
+          (acons 'commit-message-end-line (assq-ref results 'line) results))
+    (lambda (path _ results) results))
+
+   (make-rule
+    "Find the end of the commit"
+    (lambda (results) results)
+    (lambda (line _ results) #f)
+    (lambda (line _ results) results)
+    (lambda (path _ results)
+      (acons 'commit-end-line
+             (if (assq-ref results 'changelog-end-line)
+                 (assq-ref results 'changelog-end-line)
+                 (assq-ref results 'commit-message-end-line))
+             results)))
+
+   (make-rule
+    "Find commit message"
+    (lambda (results) results)
+    (lambda (line _ results)
+      (and
+       (not (assq-ref results 'commit-message-end-line))
+       (assq-ref results 'commit-subject-message-separator-line)
+       (> (assq-ref results 'line)
+          (assq-ref results 'commit-subject-message-separator-line))))
+    (lambda (line _ results)
+      (let ((commit-message
+             (if (not (assq-ref results 'commit-message))
+                 (list)
+                 (append (assq-ref results 'commit-message) (list line)))))
+        (acons
+         'commit-message
+         commit-message
+         results)))
+    (lambda (path _ results) results))
+
+   (make-rule
+    "Find added files"
+    (lambda (results)
+      (acons 'added-files
+             '() results))
+    (lambda (line _ results)
+      (and (startswith line " create mode ")))
+    (lambda (line _ results)
+      (define line-parts
+        (string-split line #\space))
+      (define added-file
+        '())
+      (if (> (length line-parts) 3)
+          (set! added-file
+                (list (list-ref line-parts 4))))
+      (acons 'added-files
+             (append (assq-ref results 'added-files) added-file)
+             results))
+    (lambda (path _ results)
+      results))
+
+   (make-rule
+    "Find deleted files"
+    (lambda (results)
+      (acons 'deleted-files
+             '() results))
+    (lambda (line _ results)
+      (and (startswith line " delete mode ")))
+    (lambda (line _ results)
+      (define line-parts
+        (string-split line #\space))
+      (define deleted-file
+        '())
+      (if (> (length line-parts) 3)
+          (set! deleted-file
+                (list (list-ref line-parts 4))))
+      (acons 'deleted-files
+             (append (assq-ref results 'deleted-files) deleted-file)
+             results))
+    (lambda (path _ results)
+      results))
+
+   (make-rule
+    "Find modified files and track current file diff"
+    (lambda (results)
+      (acons 'current-diff-file #f
+             (acons 'modified-files '() results)))
+    (lambda (line _ results)
+      (startswith line "diff --git a/"))
+    (lambda (line _ results)
+      (define line-parts
+        (string-split line #\space))
+      (define current-diff-file
+        #f)
+      (define modified-file
+        '())
+      (if (> (length line-parts) 3)
+          ;; Example: b/www/x60t_unbrick/0009.JPG
+          (let* ((part3 (list-ref line-parts 3))
+                 ;; remove the b/
+                 (path (substring part3 2
+                                  (string-length part3))))
+            (set! current-diff-file path)
+            (if (not (or (any (lambda (added-file-path)
+                                (string=? added-file-path path))
+                              (assq-ref results 'added-files))
+                         (any (lambda (deleted-file-path)
+                                (string=? deleted-file-path
+                                          path))
+                              (assq-ref results 'deleted-files))))
+                (set! modified-file
+                      (list path)))))
+      (acons 'modified-files
+             (append (assq-ref results 'modified-files) modified-file)
+             (acons 'current-diff-file current-diff-file
+                    results)))
+    (lambda (path _ results)
+      results))
+
+   (make-rule
+    "Track diff"
+    (lambda (results) results)
+    (lambda (line _ results) #t)
+    (lambda (line _ results)
+      (define diff-start
+        0)
+      (define diff-end
+        0)
+      (if (and (assq-ref results
+                         'current-diff-file)
+               (startswith line "@@"))
+          (set! diff-start
+                (assq-ref results
+                          'line)))
+      (if (startswith line "diff --git a/")
+          (set! diff-end
+                (assq-ref results
+                          'line)))
+      (if (and (not (eq? diff-start 0))
+               (not (eq? diff-end 0)))
+          (acons 'diff-end diff-end
+                 (acons 'diff-start diff-start results))
+          (if (not (eq? diff-start 0))
+              (acons 'diff-start diff-start results)
+              (acons 'diff-end diff-end results))))
+    (lambda (path _ results) results))
+
+   (make-rule
+    "Check for copyrights inside the patch"
+    (lambda (results)
+      (acons 'diff-path-added-proper-copyright
+             '() results))
+    (lambda (line _ results)
+      (and (startswith line "+")
+           (assq-ref results
+                     'current-diff-file)
+           (> (assq-ref results
+                        'diff-start) 0)))
+    (lambda (line _ results)
+      (let ((diff-start (assq-ref results
+                                  'diff-start))
+            (diff-end (assq-ref results
+                                'diff-end))
+            (current-diff-file (assq-ref results
+                                         'current-diff-file))
+            (commit-author (assq-ref results
+                                     'commit-author))
+            (commit-year (date-year (assq-ref results
+                                              'commit-date))))
+        ;; Example: Copyright (C) 2024 Some Name <mail@domain.org>
+        (if
+         (string-match
+          (string-append
+           "Copyright[ ]\\(C\\)[ ]" ;"Copyright (C) "
+           ".*" ;We can have multiple years
+           (number->string commit-year 10) ;Year
+           ".*" ;We can have multiple years
+           " " ;We have at least 1 space before the author line
+           commit-author) line)
+         (acons 'diff-path-added-proper-copyright
+                (append (assq-ref results
+                                  'diff-path-added-proper-copyright)
+                        (list current-diff-file)) results)
+         results)))
+    (lambda (path _ results) results))
+
+   ;; We can also use rules for debugging the code, here are two
+   ;; examples below.
+
+   ;; (make-rule
+   ;;  "Debug: print lines."
+   ;;  (lambda (results) results)
+   ;;  (lambda (line _ results) #t)
+   ;;  (lambda (line _ results)
+   ;;    (display "Count lines: line #")
+   ;;    (display (+ 1 (assq-ref results 'line)))
+   ;;    (display (string-append ": " line "\n"))
+   ;;    results)
+   ;;  (lambda (path _ results) results))
+
+   ;; (make-rule
+   ;;  "Debug: print results."
+   ;;  (lambda (results) results)
+   ;;  (lambda (line _ results) #f)
+   ;;  (lambda (line _ results) results)
+   ;;  (lambda (path _ results)
+   ;;    (pk results)
+   ;;    results))
+   ))
+
+(define (set-defaults rules results)
+  (for-each
+   (lambda (rule)
+     (set! results ((rule-default rule) results)))
+   rules)
+  results)
+
+(define (run-line-match-rules port rules parse-results results)
+  (define line (read-line port))
+  (if (eof-object? line)
+      results
+      ((lambda _
+         (for-each
+          (lambda (rule)
+            (if ((rule-line-match rule) line parse-results results)
+                (set! results ((rule-line rule) line parse-results results))))
+          rules)
+         (run-line-match-rules port rules parse-results results)))))
+
+(define (run-end-rules path rules other-results results)
+  (for-each
+   (lambda (rule)
+     (set! results ((rule-end rule) path other-results results)))
+   rules)
+  results)
+
+(define (run-parse-rules rules path)
+  (read-file
+   path
+   (lambda (path port)
+     (let* ((defaults (set-defaults rules '()))
+            (results (run-line-match-rules port rules #f defaults)))
+     (run-end-rules path rules #f results)))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                                ;;;;;;;;;;;;                                ;;
+;;                                ;; Checks ;;                                ;;
+;;                                ;;;;;;;;;;;;                                ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define (run-check-rules parse-results rules path)
+  (read-file
+   path
+   (lambda (path port)
+     (let* ((defaults (set-defaults rules '()))
+            (check-results
+             (run-line-match-rules port rules parse-results defaults)))
+     (run-end-rules path rules parse-results check-results)))))
+
+(define check-rules
+  (list
+
+   ;; Here's an example of a check rule below. Since it runs each time it is
+   ;; also tested. TODO: A a proper unit testing environment needs to
+   ;; be added and then this could be moved to only run inside that
+   ;; separate testing environment.
+   (make-rule
+    "Example empty rule"
+    (lambda (check-results) check-results)
+    (lambda (line parse-results check-results) #t)
+    (lambda (line parse-results check-results) check-results)
+    (lambda (path parse-results check-results) check-results))
+
+   (make-rule
+    "Count lines"
+    (lambda (check-results) (acons 'line 0 check-results))
+    (lambda (line parse-results check-results) #t)
+    (lambda (line parse-results check-results)
+      (acons 'line (+ 1 (assq-ref check-results 'line)) check-results))
+    (lambda (path parse-results check-results) check-results))
+
+   ;; Workarround for the bug #66268
+   ;; [1]https://debbugs.gnu.org/cgi/bugreport.cgi?bug=66268
+   (make-rule
+    "Enforce commit size < 4KB"
+    (lambda (check-results)
+      (acons 'commit-size 0 check-results))
+    (lambda (line parse-results check-results)
+      (< (assq-ref check-results 'line)
+         (assq-ref parse-results 'commit-end-line)))
+    (lambda (line parse-results check-results)
+      (acons 'commit-size
+             (+
+              1 ;; for the \n
+              (string-length line)
+              (assq-ref check-results 'commit-size))
+             check-results))
+    (lambda (path parse-results check-results)
+      ;; We're not sure of the exact size limit so let's use 2500
+      ;; instead of 4096, since we're not counting signatures etc
+      (let ((limit 2500)
+            (commit-size (assq-ref check-results 'commit-size)))
+        (if (>= commit-size limit)
+            ((lambda _
+               (display
+                (string-append
+                 "ERROR: Commit size is " (number->string commit-size) " B"
+                 " which is over the " (number->string limit) " B limit\n\n"))
+               (acons
+                'errors
+                (+ 1 (assq-ref check-results 'errors)) check-results)))
+            check-results))))
+
+   (make-rule
+    "Check for Signed-off-by"
+    (lambda (check-results) check-results)
+    (lambda (line parse-results check-results) #t)
+    (lambda (line parse-results check-results) check-results)
+    (lambda (path parse-results check-results)
+      (let ((author (assq-ref parse-results 'commit-author)))
+        (if (not (any (lambda (elm)
+                        (string=? author elm))
+                      (assq-ref parse-results 'signed-off-by)))
+            ((lambda _
+               (display
+                (string-append "ERROR: Missing Signed-off-by: " author "\n\n"))
+               (acons
+                'errors
+                (+ 1 (assq-ref check-results 'errors)) check-results)))
+            check-results))))
+
+   (make-rule
+    "Track total errors and warnings"
+    (lambda (check-results) (acons 'warnings 0 (acons 'errors 0 check-results)))
+    (lambda (line parse-results check-results) #t)
+    (lambda (line parse-results check-results) check-results)
+    (lambda (path parse-results check-results)
+      (let* ((nr-lines (number->string (assq-ref parse-results 'line) 10))
+             (errors (assq-ref check-results 'errors))
+             (warnings (assq-ref check-results 'warnings))
+             (error-text
+              (string-append (number->string errors 10)
+                             (if (> errors 1) " errors, " " error, ")))
+             (warning-text
+              (string-append (number->string warnings 10)
+                             (if (> warnings 1) " warnings, " " warning, "))))
+        (display
+         (string-append
+          "total: " error-text warning-text nr-lines " lines checked\n\n"))
+        (if (or (> errors 0) (> warnings 0))
+            ((lambda _
+               (display
+                (string-append path " has style problems, please review.\n"))
+               (display
+                (string-append
+                 "NOTE: If any of the errors are false positives, "
+                 "please report them to the GNU Boot maintainers.\n"))))
+            (display
+             (string-append
+              path
+              " has no obvious style problems "
+              "and is ready for submission.\n"))))
+      check-results))))
+
+(define (test-patch path)
+  (let* ((parse-results (run-parse-rules parse-rules path))
+         (check-results (run-check-rules parse-results check-rules path)))
+    parse-results))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;                     ;;
+;;                     ;; Command line parsing handlig ;;                     ;;
+;;                     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;                     ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; error if not in git tree and in topdir.
+(define (in-tree-topdir?)
+  (string=?
+   (canonicalize-path (getcwd))
+   (dirname (dirname (current-filename)))))
+
+(define (usage progname exit-code)
+  (display (string-append
+            "Usage: "
+            progname
+            " [path/to/file.patch [path/to/file.patch ...]]\n"))
+  (exit exit-code))
+
+(if (eq? (length (program-arguments)) 1)
+    (usage "checkpatch.pl" 64) ;; 64 is EX_USAGE in sysexits.h
+    (if (not (in-tree-topdir?))
+        ((lambda _
+           (display
+            (string-append
+             "Error: please run checkpatch.scm in the git top directory.\n"))
+           (exit 69))) ;; 69 is EX_UNAVAILABLE in sysexits.h
+    (map (lambda (path)
+           (if (> (length (program-arguments)) 2)
+               (print-patch-name path))
+           (test-patch path))
+         (cdr (program-arguments)))))

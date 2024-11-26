@@ -217,6 +217,37 @@ maintainers agree to merge the patches but need to wait for the
 approval of the GNU project for instance if there are legal questions
 that also require the approval of the GNU Project.
 
+Testing for common issues in patches
+------------------------------------
+
+Once you built GNU Boot images or the GNU Boot website, it is possible
+to run various automatic tests. You can run them with the following
+command:
+```
+make check
+```
+either in the website directory (if you want to test the website) or
+in the top directory (if you want to test the rest).
+
+We also have a script that can test your patch for common issues we
+identified. It can be used in this way (with 0001-fix-bug-#1234.patch
+being the patch you are about to send):
+
+```
+$ guile ./scripts/checkpatch.scm ./0001-fix-bug-#1234.patch
+  [...]
+  total: 0 error, 0 warning, 88 lines checked
+
+  ./0001-fix-bug-#1234.patch has no obvious style problems and is ready for submission.
+```
+
+While running all these tests is not mandatory (unless you are a GNU
+Boot maintainer), it can still be helpful and save time for everybody
+as it can spot issues before sending patches to the mailing lists,
+and this will let you fix the issue faster than waiting for other
+people to run tests and asking you to fix your patch and resend it
+once it is fixed.
+
 Maintainers
 -----------
 
