@@ -856,13 +856,10 @@ bf2b91df54aa71ecbfab891d32000ad2d6af6093 \
 -k origin/keyring
 @end example
 
-It should then print something like that:
+It should then print the following text:
 @example
-guix git: successfully authenticated commit dde4223088cbfe8a347626638d32902ba2323b25
+guix git: successfully authenticated commit bf2b91df54aa71ecbfab891d32000ad2d6af6093
 @end example
-
-the commit hash (here @samp{dde4223088cbfe8a347626638d32902ba2323b25})
-might be different for you.
 
 @xref{Invoking guix git authenticate,,,guix,GNU Guix manual} or
 @uref{https://guix.gnu.org/en/blog/2024/authenticate-your-git-checkouts/,the
