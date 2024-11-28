@@ -46,14 +46,6 @@ mv out/bios.bin.elf ../payload/seabios/seabios_libgfxinit.elf
 mv out/vgabios.bin ../payload/seabios/seavgabios.bin
 rm .config
 
-# for vgarom setup:
-[[ -f Makefile ]] && make distclean
-cp ../resources/seabios/config/vgarom .config
-make silentoldconfig -j$(nproc)
-make -j$(nproc)
-mv out/bios.bin.elf ../payload/seabios/seabios_vgarom.elf
-rm .config
-
 # clean it again. gotta keep it clean!
 [[ -f Makefile ]] && make distclean
 
