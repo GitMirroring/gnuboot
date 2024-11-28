@@ -266,7 +266,7 @@ mkCoreboot() {
 	printf "%s-%s\n" "$(cat projectname)" "$(cat version)" > "${cbdir}/.coreboot-version"
 	(
 		cd "${cbdir}"
-		make distclean		
+		make distclean
 	)
 	cp "${cbcfgpath}" "${cbdir}"/.config
 	(
