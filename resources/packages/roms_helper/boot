@@ -134,6 +134,13 @@ if [ "${board}" != "${cbtree}" ]; then
 fi
 cbfstool="${cbdir}/util/cbfstool/cbfstool"
 corebootrom="${cbdir}/build/coreboot.rom"
+
+# seabios.elf and seavgabios.bin are produced by
+# resources/packages/seabios/payload, which also hardcode their paths
+# in the same way and in the same variable names, so the variable
+# below need to be kept in sync with
+# the ones in resources/packages/seabios/payload.
+seabiosrom="payload/seabios/seabios.elf"
 seavgabiosrom="payload/seabios/seavgabios.bin"
 
 if [ ! -d "${cbdir}" ]; then
@@ -164,7 +171,7 @@ if [ ! -f "${cbfstool}" ]; then
 fi
 
 if [ ! -f "${seavgabiosrom}" ] \
-		|| [ ! -f payload/seabios/seabios_libgfxinit.elf ]; then
+		|| [ ! -f ${seabiosrom} ]; then
 	if [ "${payload_seabios}" = "y" ]; then
 		./build payload seabios
 	elif [ "${payload_grub}" = "y" ] \
@@ -284,8 +291,8 @@ make_seabios_rom() {
 
 	# etc/pci-optionrom-exec will be set to 2
 	# etc/pci-optionrom-exec will be set to 0
-	target_seabioself="payload/seabios/seabios.elf"
-	target_seavgabios_rom="payload/seabios/seavgabios.bin"
+	target_seabioself="${seabiosrom}"
+	target_seavgabios_rom="${seavgabiosrom}"
 
 	tmprom=$(mktemp -t coreboot_rom.XXXXXXXXXX)
 

@@ -24,6 +24,14 @@ set -u -e
 # Build SeaBIOS
 # ---------------------------------------------------------------------
 
+# seabios.elf and seavgabios.bin are reused by
+# resources/packages/roms_helper/boot, and their path is also
+# hardcoded, in the same way, in the same variable names, so if you
+# modify the variables below also keep
+# resources/packages/roms_helper/boot in sync.
+seabiosrom="../payload/seabios/seabios.elf"
+seavgabiosrom="../payload/seabios/seavgabios.bin"
+
 printf "Building SeaBIOS payloads and SeaVGABIOS\n"
 
 [ ! -d "payload/" ] && mkdir -p payload/
@@ -42,8 +50,8 @@ cd seabios/
 cp ../resources/seabios/config/libgfxinit .config
 make silentoldconfig -j$(nproc)
 make -j$(nproc)
-mv out/bios.bin.elf ../payload/seabios/seabios_libgfxinit.elf
-mv out/vgabios.bin ../payload/seabios/seavgabios.bin
+mv out/bios.bin.elf ${seabiosrom}
+mv out/vgabios.bin ${seavgabiosrom}
 rm .config
 
 # clean it again. gotta keep it clean!
