@@ -26,10 +26,9 @@
 [ "x${DEBUG+set}" = 'xset' ] && set -v
 set -u -e
 
+to_install=""
 install_packages()
 {
-    to_install=""
-
     for package in $@ ; do
         if dpkg -l "${package}" | grep "^ii" 2>&1>/dev/null ; then
             continue
@@ -37,10 +36,6 @@ install_packages()
             to_install="${to_install} ${package}"
         fi
     done
-
-    if [ -n "${to_install}" ] ; then
-        apt install -y ${to_install}
-    fi
 }
 
 if [ $EUID -ne 0 ]; then
@@ -137,3 +132,7 @@ install_packages gawk git grep lzip make sed tar xz-utils # u-boot-libre
 install_packages \
     pandoc \
     graphviz
+
+if [ -n "${to_install}" ] ; then
+    apt install -y ${to_install}
+fi
