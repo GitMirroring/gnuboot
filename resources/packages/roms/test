@@ -79,7 +79,7 @@ test_gnuboot_with_lvm()
     rootfs_path="rootfs.img"
 
     if [ ! -f ${rootfs_path} ] ; then
-	resources/packages/roms/download
+        resources/packages/roms/download
     fi
 
     run_qemu_x86_64 \
