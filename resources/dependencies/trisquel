@@ -48,8 +48,6 @@ if [ $EUID -ne 0 ]; then
    exit 1
 fi
 
-apt-get -y install packagekit-tools
-
 # Duplications are intentional. Please do not re-factor.
 #
 # This is so that they can moved to separate scripts.
