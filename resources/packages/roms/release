@@ -3,7 +3,7 @@
 #
 #  helper script: generate release archive (ROM images)
 #
-#	Copyright (C) 2020,2021 Leah Rowe <info@minifree.org>
+#    Copyright (C) 2020,2021 Leah Rowe <info@minifree.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -29,11 +29,11 @@ projectname="$(cat projectname)"
 
 version="version-unknown"
 if [ -f version ]; then
-	version="$(cat version)"
+    version="$(cat version)"
 fi
 versiondate="version-date-unknown"
 if [ -f versiondate ]; then
-	versiondate="$(cat versiondate)"
+    versiondate="$(cat versiondate)"
 fi
 
 if [ ! -d "bin/" ]; then
@@ -57,14 +57,13 @@ printf "Building ROM image archives for version %s\n" "${version}"
         fi
 
         printf "Generating release/roms/%s-%s_%s.tar.xz\n" "${projectname}" "${version}" "${target##*/}"
-	printf "%s\n" "${version}" > "${target}/version"
-	printf "%s\n" "${versiondate}" > "${target}/versiondate"
-	printf "%s\n" "${projectname}" > "${target}/projectname"
-	rm -f ../release/roms/"${projectname}"-"${version}"_"${target##*/}".tar
-	tar -cf ../release/roms/"${projectname}"-"${version}"_"${target##*/}".tar "${target}/"
+        printf "%s\n" "${version}" > "${target}/version"
+        printf "%s\n" "${versiondate}" > "${target}/versiondate"
+        printf "%s\n" "${projectname}" > "${target}/projectname"
+        rm -f ../release/roms/"${projectname}"-"${version}"_"${target##*/}".tar
+        tar -cf ../release/roms/"${projectname}"-"${version}"_"${target##*/}".tar "${target}/"
         xz -vv -9e -f ../release/roms/"${projectname}"-"${version}"_"${target##*/}".tar
     done
 )
 
 printf "\nROM image release archives available at release/roms/\n\n"
-
