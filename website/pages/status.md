@@ -423,6 +423,119 @@ Upstream versions used in GNU Boot 0.1 RC3
 | SeaBIOS          | 1.14.0+ | No         | All supported computers            |
 +------------------+---------+------------+------------------------------------+
 
+Reproducible builds
+===================
+
+This tracks the status of reproducible builds in GNU Boot.
+
+See [Building GNU Boot from source
+chapter](https://www.gnu.org/software/gnuboot/web/manual/gnuboot.html#Building-GNU-Boot-from-source)
+in the [GNU Boot
+manual](http://localhost:8086/software/gnuboot/web/docs/#manuals) for
+more details about this issue.
+
+Also note that the table below is meant for the [GNU Boot
+images](http://localhost:8086/software/gnuboot/web/manual/gnuboot.html#index-flash-images)
+which is what gets installed and what interest more users.
+
++------------------+------------------------------+--------------+-------------+
+| Provenance       | Path inside the image        | Reproducible | Usage       |
++------------------+------------------------------+--------------+-------------+
+| Coreboot         | * CBFS headers               | Unknown      | all images  |
++------------------+------------------------------+--------------+-------------+
+| Coreboot         | * /bootblock                 | Unknown      | all images  |
++------------------+------------------------------+--------------+-------------+
+| Coreboot         | * /build_info                | Unknown      | all images  |
++------------------+------------------------------+--------------+-------------+
+| Coreboot         | * /cmos.default              | Unknown      | all but     |
+|                  |                              |              | 16MB macbook|
+|                  |                              |              | images      |
++------------------+------------------------------+--------------+-------------+
+| Coreboot         | * /cmos_layout.bin           | Unknown      | all images  |
++------------------+------------------------------+--------------+-------------+
+| Coreboot         | * /config                    | Unknown      | all images  |
++------------------+------------------------------+--------------+-------------+
+| Coreboot         | * /data_ccfl.vbt             | N/A: not     | all images  |
+|                  |                              | built        |             |
++------------------+------------------------------+--------------+-------------+
+| Coreboot         | * /data_led.vbt              | N/A: not     | all images  |
+|                  |                              | built        |             |
++------------------+------------------------------+--------------+-------------+
+| Coreboot         | * /vbt.bin                   | Unknown      | computers   |
+|                  |                              |              | with Intel  |
+|                  |                              |              | GPU         |
++------------------+------------------------------+--------------+-------------+
+| Coreboot         | * /fallback/dsdt.aml         | Unknown      | all images  |
++------------------+------------------------------+--------------+-------------+
+| Coreboot         | * /fallback/postcar          | Unknown      | all but     |
+|                  |                              |              | KGPE-D16 and|
+|                  |                              |              | KCMA-D8     |
++------------------+------------------------------+--------------+-------------+
+| Coreboot         | * /fallback/ramstage         | Unknown      | all images  |
++------------------+------------------------------+--------------+-------------+
+| Coreboot         | * /fallback/romstage         | Unknown      | all images  |
++------------------+------------------------------+--------------+-------------+
+| Coreboot         | * /revision                  | Unknown      | all images  |
++------------------+------------------------------+--------------+-------------+
+| Coreboot         | * /rt8168-macaddress         | Unknown      | all images  |
++------------------+------------------------------+--------------+-------------+
+| GRUB             | * /fallback/payload          | Unknown      | GRUB images |
++------------------+------------------------------+--------------+-------------+
+| GRUB             | * /img/grub2                 | Unknown      | SeaBIOS     |
+|                  |                              |              | images      |
++------------------+------------------------------+--------------+-------------+
+| Memtest86+       | * /img/memtest               | Unknown      | more than   |
+| for Coreboot     |                              |              | half of the |
+|                  |                              |              | images      |
++------------------+------------------------------+--------------+-------------+
+| SeaBIOS          | * /fallback/payload          | Unknown      | SeaBIOS     |
+|                  |                              |              | images      |
++------------------+------------------------------+--------------+-------------+
+| SeaBIOS          | * /vgaroms/seavgabios.bin    | Unknown      | all images  |
++------------------+------------------------------+--------------+-------------+
+| ich9gen          | * Intel flash descriptor     | Yes: verified| GM45        |
+|                  |                              | by checksum  | ThinkPads   |
++------------------+------------------------------+--------------+-------------+
+| ich9gen          | * Intel Gigabit ethernet     | Yes: verified| GM45        |
+|                  |   partition                  | by checksum  | ThinkPads   |
++------------------+------------------------------+--------------+-------------+
+| GNU Boot         | * /background.png            | Unknown      | all but     |
+| build system     |                              |              | d945gclf and|
+|                  |                              |              | kfsn4-dre   |
++------------------+------------------------------+--------------+-------------+
+| GNU Boot         | * /etc/only-load-option-roms | Unknown      | all images  |
+| build system     |                              |              |             |
++------------------+------------------------------+--------------+-------------+
+| GNU Boot         | * /etc/optionroms-checksum   | Unknown      | all images  |
+| build system     |                              |              |             |
++------------------+------------------------------+--------------+-------------+
+| GNU Boot         | * /etc/pci-optionrom-exec    | Unknown      | all images  |
+| build system     |                              |              |             |
++------------------+------------------------------+--------------+-------------+
+| GNU Boot         | * /etc/ps2-keyboard-spinup   | Unknown      | all images  |
+| build system     |                              |              |             |
++------------------+------------------------------+--------------+-------------+
+| GNU Boot         | * /grub.cfg                  | Unknown      | all but     |
+| build system     |                              |              | d945gclf and|
+|                  |                              |              | kfsn4-dre   |
++------------------+------------------------------+--------------+-------------+
+| GNU Boot         | * /grubtest.cfg              | Unknown      | kfsn4-dre   |
+| build system     |                              |              |             |
++------------------+------------------------------+--------------+-------------+
+| GNU Boot         |* pci1000,0072.rom            | N/A: empty   | KGPE-D16    |
+| build system     |                              | file         | and KCMA-D8 |
++------------------+------------------------------+--------------+-------------+
+| GNU Boot         |* pci1000,3050.rom            | N/A: empty   | KGPE-D16    |
+| build system     |                              | file         | and KCMA-D8 |
++------------------+------------------------------+--------------+-------------+
+
+Also note that not everything is in the table above:
+
+* The gnuboot-trisquel-grub.img file, which is produced by GNU Boot
+  and that is used during the automatic tests is reproducible. It can
+  be used as an example to make other components built with Guix
+  reproducible.
+
 Limitations
 ===========
 
