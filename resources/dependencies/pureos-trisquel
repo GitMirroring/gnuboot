@@ -133,7 +133,8 @@ install_packages \
     graphicsmagick \
     graphviz \
     pandoc \
-    texinfo
+    texinfo \
+    texlive
 
 if [ -n "${to_install}" ] ; then
     apt install -y ${to_install}
