@@ -50,6 +50,9 @@ fi
 printf "Building ROM image archives for version %s\n" "${version}"
 
 (
+    # For consistency reasons, the same logic than in
+    # resources/packages/roms/test is being used. If you improve the
+    # code below, don't forget to also improve the test code.
     cd bin/
     for target in *; do
         if [ ! -d "${target}/" ]; then
@@ -62,9 +65,14 @@ printf "Building ROM image archives for version %s\n" "${version}"
         printf "%s\n" "${versiondate}" > "${target}/versiondate"
         printf "%s\n" "${projectname}" > "${target}/projectname"
         rm -f ../release/roms/"${projectname}"-"${version}"_"${target##*/}".tar
+
         tar -cf \
             ../release/roms/"${projectname}"-"${version}"_"${target##*/}".tar \
-            "${target}/"
+            "${target}"/*.rom \
+            "${target}"/version \
+            "${target}"/versiondate \
+            "${target}"/projectname
+
         xz -vv -9e -f \
            ../release/roms/"${projectname}"-"${version}"_"${target##*/}".tar
     done

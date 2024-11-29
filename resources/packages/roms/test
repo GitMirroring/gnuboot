@@ -61,7 +61,7 @@ run_qemu_x86_64()
         ${extra_qemu_args}
 }
 
-test_gnuboot_with_lvm()
+check_gnuboot_with_lvm()
 {
     source config.sh
 
@@ -95,19 +95,108 @@ test_gnuboot_with_lvm()
     fi
 }
 
+check_cbfs_image_log()
+{
+    image_name="$1"
+    cbfs_image_log="$2"
+    func="check_cbfs_image_log"
+
+    # All the files below are required for booting.
+    required_files="
+        bootblock \
+        fallback/romstage \
+        fallback/ramstage \
+        fallback/payload"
+
+    # This is the DSDT ACPI table. It may or may not be required for
+    # booting but it's present in all the images, so it's good to
+    # check for it.
+    required_files="${required_files} fallback/dsdt.aml"
+
+    # We also make sure to keep the build configuration and Coreboot
+    # revision used as they can be useful to identify an image or to
+    # rebuild it.
+    required_files="${required_files} config revision"
+
+    # This is required on some computers to make the internal keyboard
+    # work with SeaBIOS: This settings configure how much time SeaBIOS
+    # should wait for the builtin (PS2) keyboard to properly
+    # initialize.
+    required_files="${required_files} etc/ps2-keyboard-spinup"
+
+    # All the supported computers use CMOS for configuration so we
+    # also need the layout to be there.
+    required_files="${required_files} cmos.layout"
+
+    # Currently 16 MiB MacBook images lack cmos.default (bug #66494:
+    # https://savannah.gnu.org/bugs/index.php?66494). However,
+    # according to neox who is working on a paper on the KGPE-D16 RAM
+    # initialization, wrong values of the hypertransport_speed_limit
+    # CMOS setting can prevent the boot.  Since we don't know how the
+    # CMOS values can be interpretated if cmos.default is missing we
+    # should uncomment the next line when the bug #66494 is fixed.
+    # required_files="${required_files}
+
+    for file in ${required_files} ; do
+        if ! grep -q "^${file}" "${cbfs_image_log}" ; then
+            printf '[ FAIL ] %s: %s not found in %s.\n' \
+                   "${func}" "${file}" "${image_name}"
+            exit 1
+	fi
+    done
+
+    printf '[ PASS ] %s: found all known required files inside %s.\n' \
+           "${func}" "${image_name}"
+}
+
+check_cbfs_images()
+{
+    current_dir="$(pwd)"
+
+    # cbfstool should have been already built if we have images to
+    # check.
+    cbfstool="$(realpath coreboot/default/util/cbfstool/cbfstool)"
+
+    # For consistency reasons, the same logic than in
+    # resources/packages/roms/release is being used. If you improve
+    # the code below, don't forget to also improve the release code.
+    cd bin/
+    for target in *; do
+        if [ ! -d "${target}/" ]; then
+            continue
+        fi
+
+        # The resulting log files don't go inside the release
+        # tarballs. See the code in resources/packages/roms/release
+        # for more details.
+        for image in "${target}"/*.rom ; do
+            "${cbfstool}" "${image}" print > "${image}".cbfs.log
+            check_cbfs_image_log \
+                "${image}" \
+                "${image}".cbfs.log
+        done
+    done
+
+    cd "${current_dir}"
+}
+
 if [ $# -eq 1 ] && { [ "$1" = "-h" ] || [ "$1" == "--help" ] ;} ; then
     usage "${progname}"
     exit 0
 elif [ $# -eq 0 ] ; then
+
+    # Test that we don't have missing known files inside CBFS.
+    check_cbfs_images
+
     # This test is mainly meant to verify if the grub configuration
     # can boot a Trisquel rootfs with LVM.
-    test_gnuboot_with_lvm \
+    check_gnuboot_with_lvm \
         "Test GRUB images and its grub.cfg with a Trisquel LVM install" \
         "bin/qemu-pc_2mb/grub_qemu-pc_2mb_corebootfb_usqwerty.rom"
 
     # This test is mainly meant to verify if the SeaBIOS payload is
     # broken or not.
-    test_gnuboot_with_lvm \
+    check_gnuboot_with_lvm \
         "Test SeaBIOS images with a Trisquel (LVM) install" \
         "bin/qemu-pc_2mb/seabios_qemu-pc_2mb_txtmode_usqwerty.rom"
 else
