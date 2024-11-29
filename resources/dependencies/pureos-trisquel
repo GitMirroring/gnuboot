@@ -132,7 +132,8 @@ install_packages gawk git grep lzip make sed tar xz-utils # u-boot-libre
 install_packages \
     graphicsmagick \
     graphviz \
-    pandoc
+    pandoc \
+    texinfo
 
 if [ -n "${to_install}" ] ; then
     apt install -y ${to_install}
