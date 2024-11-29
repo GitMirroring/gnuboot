@@ -108,7 +108,14 @@ install_packages libncurses5-dev doxygen acpica-tools gdb flex bison build-essen
 # GRUB build dependencies (also requires build-essential, bison and flex)
 # ------------------------------------------------------------
 
-install_packages fonts-unifont libopts25 libselinux1-dev autogen m4 autoconf help2man libopts25-dev libfont-freetype-perl automake autotools-dev build-essential bison flex libfuse-dev liblzma-dev gawk libdevmapper-dev libtool libfreetype6-dev unifont
+# Trisquel 10 (nabia) doesn't have fonts-unifont. Also for the check
+# we can assume that the 'nabia' code name is unique as it is in the
+# upstream debootstrap in /usr/share/debootstrap/scripts/nabia.
+if ! grep -q 'VERSION_CODENAME="nabia"' /etc/os-release ; then
+    install_packages fonts-unifont
+fi
+
+install_packages libopts25 libselinux1-dev autogen m4 autoconf help2man libopts25-dev libfont-freetype-perl automake autotools-dev build-essential bison flex libfuse-dev liblzma-dev gawk libdevmapper-dev libtool libfreetype6-dev unifont
 
 # BucTS build dependencies (external script)
 # ------------------------------------------------------------
