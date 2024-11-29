@@ -242,13 +242,13 @@ script is also applicable to newer ubuntu versions
     ./build module flashrom
 
 If the script complains about missing dependencies, just modify the
-resources/dependencies/trisquel script and remove those dependencies.
+resources/dependencies/pureos-trisquel script and remove those dependencies.
 The script is written for Ubuntu 20.04, but it should work fine in other
 GNU/Linux distributions that use the `apt-get` package manager.
 
 A `flashrom/` directory will be present, with a `flashrom` executable inside
 of it. If you got an error about missing package when running the dependencies
-command above, tweak `resources/dependencies/trisquel`. That
+command above, tweak `resources/dependencies/pureos-trisquel`. That
 script downloads and installs build dependencies in apt-get and it is intended
 for use on x86-64 systems running Ubuntu 20.04, but it should work in Raspbian
 on the Raspberry Pi.

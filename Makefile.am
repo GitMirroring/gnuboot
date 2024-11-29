@@ -23,8 +23,8 @@
 SHELL := bash
 
 .PHONY: all check download modules ich9m-descriptors payloads roms release \
-	clean crossgcc-clean install-dependencies-ubuntu \
-	install-dependencies-pureos-10 install-dependencies-arch \
+	clean crossgcc-clean  \
+	install-dependencies-pureos-trisquel install-dependencies-arch \
 	install-dependencies-void
 
 LOG = make-$(shell date '+%s').log
@@ -82,14 +82,9 @@ crossgcc-clean:
 distclean:
 	./build distclean all
 
-install-dependencies-ubuntu:
+install-dependencies-pureos-trisquel:
 	echo 'Makefile: running $@ target' >> $(LOG)
-	set -o pipefail ; ./build dependencies trisquel | tee -a $(LOG)
-	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
-
-install-dependencies-pureos-10:
-	echo 'Makefile: running $@ target' >> $(LOG)
-	set -o pipefail ; ./build dependencies pureos-10 | tee -a $(LOG)
+	set -o pipefail ; ./build dependencies pureos-trisquel | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
 install-dependencies-arch:
@@ -114,10 +109,8 @@ include resources/packages/i945-thinkpads-install-utilities/Makefile.am
 
 help:
 	@printf "Available commands:\n"
-	@printf "\tsudo make install-dependencies-ubuntu      # %s\n" \
-		"Install required dependencies on Ubuntu."
-	@printf "\tsudo make install-dependencies-pureos-10   # %s\n" \
-		"Install required dependencies on PureOS 10 (byzantium)."
+	@printf "\t# Install required dependencies on PureOS 10 (byzantium).\n"
+	@printf "\tsudo make install-dependencies-pureos-trisquel\n\n" \
 	@printf "\tmake release                               # %s\n" \
 		"Build a GNU Boot release."
 	@printf "\tmake clean                                 # %s\n" \
