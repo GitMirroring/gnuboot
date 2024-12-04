@@ -1,0 +1,16 @@
+GNU Boot also builds some debug images that are shipped in separate
+debug archives (like gnuboot-0.1-rc3_x200_8mb_debug.tar.xz).
+
+The debug images have the following differences with the regular
+images:
+
+- The serial port is enabled, its speed is set to 115200, and the
+  Coreboot debug level is set to 7. It's possible to bring it up to 8
+  without recompiling the image by modifying the cmos.default file
+  inside the image. In addition POST codes are also printed on the
+  serial port.
+
+- When the computer has a Coreboot build setting for that (all
+  computers but QEMU have that), memory debugging is enabled. This can
+  help diagnose RAM compatibility issues to potentially fix them in
+  Coreboot.

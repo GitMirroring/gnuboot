@@ -5,6 +5,7 @@
 #	Copyright (C) 2020,2021 Leah Rowe <info@minifree.org>
 #	Copyright (C) 2021 Vitali64 <vitali64pmemail@protonmail.com>
 #	Copyright (C) 2023, 2024 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+#	Copyright (C) 2024 Adrien Bourmault <neox@gnu.org>
 #
 #	This program is free software: you can redistribute it and/or modify
 #	it under the terms of the GNU General Public License as published by
@@ -48,7 +49,6 @@ if [ ! -f "resources/coreboot/${board}/board.cfg" ]; then
 	printf "build/roms: Target %s does not have a board.cfg. Skipping build.\n" "${board}"
 	exit 1
 fi
-
 
 # Workaround to grub's slow boot
 grub_scan_disk="undefined" # both: scan ata and ahci (slow), there is ata and ahci too
@@ -129,6 +129,7 @@ if [ "${payload_memtest}" = "y" ]; then
 fi
 
 romdir="bin/${board}"
+dbgdir="bin-dbg/${board}"
 cbdir="coreboot/${board}"
 if [ "${board}" != "${cbtree}" ]; then
 	cbdir="coreboot/${cbtree}"
@@ -181,8 +182,10 @@ if [ ! -f "${seavgabiosrom}" ] \
 	fi
 fi
 
+# create romdir if it does not exist, remove everything in it
+# remove everything in dbgdir (if it exists), but do not create it (see later)
 [ -d "${romdir}/" ] || mkdir -p "${romdir}/"
-rm -f "${romdir}"/*
+rm -f "${romdir}"/* "${dbgdir}"/*
 
 if [ "${payload_grub}" = "y" ] || [ "${payload_seabios_withgrub}" = "y" ]; then
 	if [ -f "payload/grub/grub_usqwerty.cfg" ]; then
@@ -359,6 +362,17 @@ mkRomsWithGrub() {
 	tmprompath="${1}"
 	displaymode="${2}"
 	firstpayloadname="${3}" # allow values: grub, seabios, seabios_withgrub
+	kind="${4}"
+	romdest=${romdir}
+	name_prefix=""
+
+	if [ "${kind}" = "${DEBUGIMG}" ]; then
+		# location for debug images is different from regular ones
+		romdest=${dbgdir}
+
+		# add "debug_" at the beginning of the file name
+		name_prefix="debug_"
+	fi
 
 	if [ "${payload_grub_withseabios}" = "y" ] && [ "${firstpayloadname}" = "grub" ]; then
 		mv "$(make_seabios_rom "${tmprompath}" "seabios.elf" "${seabios_opromloadonly}" "${cbfstool}")" "${tmprompath}"
@@ -393,7 +407,7 @@ mkRomsWithGrub() {
 		    firstpayloadname="seabios"
 		fi
 
-		newrompath="${romdir}/${firstpayloadname}_${board}_${displaymode}_${keymap}.rom"
+		newrompath="${romdest}/${name_prefix}${firstpayloadname}_${board}_${displaymode}_${keymap}.rom"
 		moverom "${tmpgrubrom}" "${newrompath}" "${romtype}"
 		rm -f "${tmpgrubrom}"
 	done
@@ -403,11 +417,23 @@ mkRomsWithGrub() {
 mkRoms() {
 	cbcfgpath="${1}"
 	displaymode="${2}"
+	destdir=${3}
+	kind="${4}"
+	romdest=${romdir}
+	name_prefix=""
 
 	if [ ! -f "${cbcfgpath}" ]; then
 		printf "'%s' does not exist. Skipping build for %s %s %s\n" \
 			"${cbcfgpath}" "${board}" "${displaymode}"
 		return 0
+	fi
+
+	if [ "${kind}" = "${DEBUGIMG}" ]; then
+		# location for debug images is different from regular ones
+		romdest=${dbgdir}
+
+		# add "debug_" at the beginning of the file name
+		name_prefix="debug_"
 	fi
 
 	mkCoreboot "${cbdir}" "${cbcfgpath}"
@@ -419,26 +445,40 @@ mkRoms() {
 	if [ "${payload_seabios}" = "y" ]; then
 		if [ "${payload_seabios_withgrub}" = "n" ]; then
 			tmpseabiosrom="$(make_seabios_rom "${corebootrom}" "fallback/payload" "${seabios_opromloadonly}" "${cbfstool}")"
-			newrompath="${romdir}/seabios_${board}_${displaymode}.rom"
+			newrompath="${romdest}/${name_prefix}seabios_${board}_${displaymode}.rom"
 
 			moverom "${tmpseabiosrom}" "${newrompath}" "${romtype}"
 			rm -f "${tmpseabiosrom}"
 		else
 			tmprom=$(mktemp -t coreboot_rom.XXXXXXXXXX)
 			cp "${corebootrom}" "${tmprom}"
-			mkRomsWithGrub "${tmprom}" "${displaymode}" "seabios_withgrub"
+			mkRomsWithGrub "${tmprom}" "${displaymode}" "seabios_withgrub" ${kind}
 			rm -f "${tmprom}"
 		fi
 	fi
 
 	if [ "${payload_grub}" = "y" ]; then
-		mkRomsWithGrub "${corebootrom}" "${displaymode}" "grub"
+		mkRomsWithGrub "${corebootrom}" "${displaymode}" "grub" ${kind}
 	fi
 }
 
 for displaymode in corebootfb txtmode; do
 	cbcfgpath="resources/coreboot/${board}/config/${displaymode}"
-	mkRoms "${cbcfgpath}" "${displaymode}"
+	DEBUGIMG=1
+	REGULARIMG=0
+
+	# make regular image
+	mkRoms "${cbcfgpath}" "${displaymode}" ${romdir} ${REGULARIMG}
+
+	# check that a debug configuration exists
+	if [ -f "${cbcfgpath}.debug" ]; then
+
+		# create debug image directory, if it does not exist
+		[ -d "${dbgdir}/" ] || mkdir -p "${dbgdir}/"
+
+		# make debug image
+		mkRoms "${cbcfgpath}.debug" "${displaymode}" ${dbgdir} ${DEBUGIMG}
+	fi
 done
 
 (
