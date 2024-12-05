@@ -5,6 +5,7 @@
 #
 #    Copyright (C) 2020,2021 Leah Rowe <info@minifree.org>
 #    Copyright (C) 2023,2024 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+#    Copyright (C) 2024 Adrien Bourmault <neox@gnu.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -47,6 +48,10 @@ fi
     rm -Rf "release/roms/"
 [ ! -d "release/roms/" ] && \
     mkdir -p "release/roms/"
+[ -d "release/roms-dbg/" ] && \
+    rm -Rf "release/roms-dbg/"
+[ ! -d "release/roms-dbg/" ] && \
+    mkdir -p "release/roms-dbg/"
 
 printf "Building ROM image archives for version %s\n" "${version}"
 
@@ -80,3 +85,37 @@ printf "Building ROM image archives for version %s\n" "${version}"
 )
 
 printf "\nROM image release archives available at release/roms/\n\n"
+
+printf "Building ROM debug image archives for version %s\n" "${version}"
+
+(
+    # For consistency reasons, the same logic than above (look for a comment
+    # with "For consistency reasons" above). Though note that at the time of
+    # writing, there are no test yet for debug images.
+    cd bin-dbg/
+    for target in *; do
+        if [ ! -d "${target}/" ]; then
+            continue
+        fi
+
+        printf "Generating release/roms-dbg/%s-%s_debug_%s.tar.xz\n" \
+               "${projectname}" "${version}" "${target##*/}"
+        printf "%s\n" "${version}" > "${target}/version"
+        printf "%s\n" "${versiondate}" > "${target}/versiondate"
+        printf "%s\n" "${projectname}" > "${target}/projectname"
+        rm -f ../release/roms-dbg/"${projectname}"-"${version}"_debug_"${target##*/}".tar
+
+        tar -cf \
+            ../release/roms-dbg/"${projectname}"-"${version}"_debug_"${target##*/}".tar \
+            "${target}"/*.rom \
+            "${target}"/version \
+            "${target}"/versiondate \
+            "${target}"/projectname \
+            ../resources/coreboot/README.debug
+
+        xz -vv -9e -f \
+           ../release/roms-dbg/"${projectname}"-"${version}"_debug_"${target##*/}".tar
+    done
+)
+
+printf "Building debug ROM image archives for version %s\n" "${version}"
