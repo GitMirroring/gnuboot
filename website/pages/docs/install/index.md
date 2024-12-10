@@ -55,20 +55,62 @@ Known install parties:
   conference. Since this conference happens every year, you might want
   to check next year(s) if there is a GNU Boot install party there.
 
+Installation instructions
+=========================
+
+There are various instructions to install GNU Boot yourself or to help
+each other to do it together (this could be easier and faster).
+
+When reading or following such instructions it's important to keep in
+mind that:
+
+* You always need to look at the [status page](status.md) to find out
+  if the image you are about to install is known to work.
+
+  If the image is not known to work, it could prevent your computer
+  from booting. To fix that you will most likely need to disassemble
+  your computer and use another computer and a flash programmer to
+  recover it. This is exactly how people who test untested images do
+  when things go wrong.
+
+  There are also instructions to recover from non-booting computers on
+  the GNU Boot website. Make sure to consult them first if you want to
+  help the GNU Boot project to test images and that you are not
+  familiar yet with how to recover a specific computers (the
+  difficulty can vary a lot depending on the computer and your
+  existing skills).
+
+* You also need to make sure to use the right image for the computer.
+  An image for the T400 will probably not work on the X301, and there
+  is also the risk of breaking the computer for good if you use the
+  wrong image because in some cases the code in the images is also
+  responsible for setting the right voltage. It's also a important to
+  know the version of GNU Boot you are installing because you need
+  that to check the status page.
+
+* Before installing or upgrading (to) GNU Boot, it is important to do
+  a backup of what is in the flash chip you are about to
+  override. This way if things are worse in the new image, you can
+  still revert to the previous image.
+
+  If you are testing images that were not tested before, it is also a
+  good idea to put the backup somewhere that you can easily access if
+  the computer doesn't boot anymore.
+
 Upgrade yourself from an existing installation
-==============================================
+----------------------------------------------
 
 There is [general purpose documentation](install.md) for technical
 users that can help you upgrade to a newer GNU Boot version.
 
 Installation
-============
+------------
 
 There is [general purpose documentation](install.md) for technical
 users that can help you install GNU Boot.
 
 Downloads
-=========
+---------
 
 The [Downloads](../../download.md) page has documentation on how to
 download GNU Boot in various ways.
