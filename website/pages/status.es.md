@@ -2,6 +2,167 @@
 title: Estado de GNU Boot
 ...
 
+Estado de GNU Boot 0.1 RC5
+==========================
+
++------------------+--------------+--------------+--------------+--------------+
+| Vendedor,        | GRUB con     | GRUB con     | SeaBIOS con  | SeaBIOS con  |
+| Producto         | gráficos     | texto        | gráficos     | texto        |
+|                  | alta         | baja         | alta         | baja         |
+|                  | resolución   | resolución   | resolución   | resolución   |
++------------------+--------------+--------------+--------------+--------------+
+| Acer, G43T-AM3   | No probado   | No probado   | No probado   | No probado   |
++------------------+--------------+--------------+--------------+--------------+
+| Apple,           | No probado   | No probado   | No probado   | No probado   |
++------------------+--------------+--------------+--------------+--------------+
+| Apple,           | No probado   | No probado   | No probado   | No probado   |
+| MacBook 2.1      |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Apple, iMac 5,2  | No probado   | No probado   | No probado   | No probado   |
++------------------+--------------+--------------+--------------+--------------+
+| Asus,            |                                                           |
+| Chromebook C201  | No se puede instalar debido a que faltan imágenes.        |
++------------------+--------------+--------------+--------------+--------------+
+| Asus, KCMA-D8    | No probado   | No probado   | No probado   | No probado   |
++------------------+--------------+--------------+--------------+--------------+
+| Asus, KFSN4-DRE  | No probado   | No probado   | No probado   | No probado   |
++------------------+--------------+--------------+--------------+--------------+
+| Asus, KGPE-D16   | No probado   | No probado   | No probado   | No probado   |
++------------------+--------------+--------------+--------------+--------------+
+| Gigabyte,        |                                                           |
+| D945GCLF2D       | Fallado: #66463                                           |
++------------------+--------------+--------------+--------------+--------------+
+| Gigabyte,        | No probado   | No probado   | No probado   | No probado   |
+| GA-G41M-ES2L     |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Intel, D410PT    | No probado   | No probado   | No probado   | No probado   |
++------------------+--------------+--------------+--------------+--------------+
+| Intel, D510MO    | No probado   | No probado   | No probado   | No probado   |
++------------------+--------------+--------------+--------------+--------------+
+| Intel, D945GCLF  | No probado   | No probado   | No probado   | No probado   |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | No probado   | No probado   |
+| ThinkPad R400    |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | No probado   | No probado   |
+| ThinkPad R500    |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | No probado   | No probado   |
+| ThinkPad T400    |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | No probado   | No probado   |
+| ThinkPad T400S   |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | No probado   | No probado   |
+| ThinkPad T500    |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | No probado   | No probado   |
+| ThinkPad T60     |              |              |              |              |
+| with intel GPU   |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | No probado   | No probado   |
+| ThinkPad W500    |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | No probado   | No probado   |
+| ThinkPad X200    |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | No probado   | No probado   |
+|  ThinkPad X200S  |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | No probado   | No probado   |
+| ThinkPad X200T   |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | No probado   | No probado   |
+| ThinkPad X301    |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | No probado   | No probado   |
+| ThinkPad X60     |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | No probado   | No probado   |
+| ThinkPad X60T    |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | No probado   | No probado   |
+|  ThinkPad X60s   |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Libiquity,       | No probado   | No probado   | No probado   | No probado   |
+| Taurinus X200    |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Qemu,            | No probado   | No probado   | No probado   | No probado   |
+| PC (i440FX)      |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | No probado   | No probado   | No probado   | No probado   |
+| D16              |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | No probado   | No probado   | No probado   | No probado   |
+| T400             |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | No probado   | No probado   | No probado   | No probado   |
+| T400s            |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | No probado   | No probado   | No probado   | No probado   |
+| T500             |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | No probado   | No probado   | No probado   | No probado   |
+| X200             |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | No probado   | No probado   | No probado   | No probado   |
+| X200s            |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | No probado   | No probado   | No probado   | No probado   |
+| X200 Tablet      |              |              |              |              |
+| (X200T)          |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Vikings,         | No probado   | No probado   | No probado   | No probado   |
+| ASUS KCMA D8     |              |              |              |              |
+| mainboard and    |              |              |              |              |
+| workstation      |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Vikings,         | No probado   | No probado   | No probado   | No probado   |
+| ASUS KGPE D16    |              |              |              |              |
+| mainboard        |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Vikings, X200    | No probado   | No probado   | No probado   | No probado   |
++------------------+--------------+--------------+--------------+--------------+
+
+Estabilidad:
+------------
+
+* No probado: Los mantenedores de GNU Boot no conocen a nadie que haya
+  probado GNU Boot 0.1 RC5 en esa computadora. Si tiene GNU Boot en esta
+  computadora, informe si funciona o no (por ejemplo, abriendo un informe
+  de error).
+
+* Fallado: #<número de error>: Alguien probó GNU Boot 0.1 RC5 en esa
+  computadora y no arrancó o no arrancó completamente ninguna
+  distribución de GNU con Linux. Se debe confirmar que sea un problema
+  software y no hardware hardware como módulos de RAM rotos.
+  Se debe describir el problema en un rapporto de incidencias que es
+  disponible en https://savannah.gnu.org/bugs/index.php?<número de
+  error> (esto es el rastreador de errores de GNU Boot).
+
+* Probado: Alguien probó GNU Boot 0.1 RC5 en esa computadora e informó a
+  GNU Boot que al menos arrancó bien.
+
+* Usuarios diarios: algunas personas que se pusieron en contacto con los
+  mantenedores de GNU Boot y se ofrecieron como voluntarios para enviar
+  informes de errores a cerca de si la instalación de GNU Boot hacía que
+  la computadora fuera inutilizable o muy difícil de usar (como una
+  corrupción de la memoria que imposibilita el inicio de ciertas
+  distribuciones de GNU con Linux o bloquea la computadora
+  aleatoriamente). Si desea ayudar a GNU Boot con esto, comuníquese con
+  los mantenedores a través de un informe de error.
+
+Instrucciones de instalación:
+-----------------------------
+
+* No probado: Nadie probó las instrucciones de instalación de GNU Boot
+  para esta computadora.
+
+* Probado: Las instrucciones de instalación funcionaron bien.
+
+* Faltante: No hay instrucciones de instalación para este dispositivo y
+  necesitamos ayuda de los contribuyentes para agregarlas.
+
 Estado de GNU Boot 0.1 RC4
 ==========================
 
@@ -134,44 +295,8 @@ Estado de GNU Boot 0.1 RC4
 |                  |              |              | #66487       | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
 
-Estabilidad:
-------------
-
-* No probado: Los mantenedores de GNU Boot no conocen a nadie que haya
-  probado GNU Boot 0.1 RC4 en esa computadora. Si tiene GNU Boot en esta
-  computadora, informe si funciona o no (por ejemplo, abriendo un informe
-  de error).
-
-* Fallado: #<número de error>: Alguien probó GNU Boot 0.1 RC4 en esa
-  computadora y no arrancó o no arrancó completamente ninguna
-  distribución de GNU con Linux. Se debe confirmar que sea un problema
-  software y no hardware hardware como módulos de RAM rotos.
-  Se debe describir el problema en un rapporto de incidencias que es
-  disponible en https://savannah.gnu.org/bugs/index.php?<número de
-  error> (esto es el rastreador de errores de GNU Boot).
-
-* Probado: Alguien probó GNU Boot 0.1 RC4 en esa computadora e informó a
-  GNU Boot que al menos arrancó bien.
-
-* Usuarios diarios: algunas personas que se pusieron en contacto con los
-  mantenedores de GNU Boot y se ofrecieron como voluntarios para enviar
-  informes de errores a cerca de si la instalación de GNU Boot hacía que
-  la computadora fuera inutilizable o muy difícil de usar (como una
-  corrupción de la memoria que imposibilita el inicio de ciertas
-  distribuciones de GNU con Linux o bloquea la computadora
-  aleatoriamente). Si desea ayudar a GNU Boot con esto, comuníquese con
-  los mantenedores a través de un informe de error.
-
-Instrucciones de instalación:
------------------------------
-
-* No probado: Nadie probó las instrucciones de instalación de GNU Boot
-  para esta computadora.
-
-* Probado: Las instrucciones de instalación funcionaron bien.
-
-* Faltante: No hay instrucciones de instalación para este dispositivo y
-  necesitamos ayuda de los contribuyentes para agregarlas.
+Consulte el estado de GNU Boot 0.1 RC5 arriba para conocer el
+significado de los distintos campos.
 
 Estado de GNU Boot 0.1 RC3
 ==========================
@@ -265,7 +390,7 @@ Estado de GNU Boot 0.1 RC3
 | Vikings       | X200           | No probado      | No probado  | No probado  |
 +---------------+----------------+-----------------+-------------+-------------+
 
-Consulte el estado de GNU Boot 0.1 RC4 arriba para conocer el
+Consulte el estado de GNU Boot 0.1 RC5 arriba para conocer el
 significado de los distintos campos.
 
 Estado de GNU Boot 0.1 RC2
@@ -363,7 +488,7 @@ algunas computadoras en el RC2 para reducir el riesgo de los probadores.
 | Vikings       | X200           | Probado         | No probado  | No probado  |
 +---------------+----------------+-----------------+-------------+-------------+
 
-Consulte el estado de GNU Boot 0.1 RC4 arriba para conocer el
+Consulte el estado de GNU Boot 0.1 RC5 arriba para conocer el
 significado de los distintos campos.
 
 Estado de GNU Boot 0.1 RC1
@@ -454,7 +579,7 @@ Estado de GNU Boot 0.1 RC1
 | Vikings       | X200           | Probado         | No probado  | No probado  |
 +---------------+----------------+-----------------+-------------+-------------+
 
-Consulte el estado de GNU Boot 0.1 RC4 arriba para conocer el
+Consulte el estado de GNU Boot 0.1 RC5 arriba para conocer el
 significado de los distintos campos.
 
 Estado de "Upstream" (Contracorriente)
