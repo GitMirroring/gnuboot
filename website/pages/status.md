@@ -2,6 +2,166 @@
 title: GNU Boot status
 ...
 
+GNU Boot 0.1 RC4 status
+=======================
+
++------------------+--------------+--------------+--------------+--------------+
+| Vendor, product  | GRUB with    | GRUB with    | SeaBIOS with | SeaBIOS with |
+|                  | high         | text-only    | high         | text-only    |
+|                  | resolution   | low          | resolution   | low          |
+|                  | graphics     | resolution   | graphics     | resolution   |
++------------------+--------------+--------------+--------------+--------------+
+| Acer, G43T-AM3   | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Apple,           |              |              |              |              |
+| MacBook 1.1      | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Apple,           |              |              |              |              |
+| MacBook 2.1      | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Apple, iMac 5,2  | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Asus,            |                                                           |
+| Chromebook C201  | Can't install due to missing images                       |
++------------------+--------------+--------------+--------------+--------------+
+| Asus, KCMA-D8    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Asus, KFSN4-DRE  | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Asus, KGPE-D16   | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Gigabyte,        |                                                           |
+| D945GCLF2D       | Fail: #66463, #66487                                      |
++------------------+--------------+--------------+--------------+--------------+
+| Gigabyte,        |              |              |              |              |
+| GA-G41M-ES2L     | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Intel, D410PT    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Intel, D510MO    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Intel, D945GCLF  | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          |              |              |              |              |
+| ThinkPad R400    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          |              |              |              |              |
+| ThinkPad R500    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          |              |              |              |              |
+| ThinkPad T400    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          |              |              |              |              |
+| ThinkPad T400S   | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          |              |              |              |              |
+| ThinkPad T500    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          |              |              |              |              |
+| ThinkPad T60     |              |              |              |              |
+| with intel GPU   | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          |              |              |              |              |
+| ThinkPad W500    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          |              |              |              |              |
+| ThinkPad X200    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          |              |              |              |              |
+|  ThinkPad X200S  | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          |              |              |              |              |
+| ThinkPad X200T   | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          |              |              |              |              |
+| ThinkPad X301    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          |              |              |              |              |
+| ThinkPad X60     | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          |              |              |              |              |
+| ThinkPad X60T    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          |              |              |              |              |
+|  ThinkPad X60s   | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Libiquity,       |              |              |              |              |
+| Taurinus X200    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Qemu,            |              |              |              |              |
+| PC (i440FX)      | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   |
+| D16              | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   |              |              |              |              |
+| T400             | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   |              |              |              |              |
+| T400s            | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   |              |              |              |              |
+| T500             | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   |              |              |              |              |
+| X200             | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   |              |              |              |              |
+| X200s            | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   |              |              |              |              |
+| X200 Tablet      |              |              |              |              |
+| (X200T)          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Vikings,         |              |              |              |              |
+| ASUS KCMA D8     |              |              |              |              |
+| mainboard and    |              |              |              |              |
+| workstation      | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Vikings,         |              |              |              |              |
+| ASUS KGPE D16    |              |              |              |              |
+| mainboard        | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Vikings, X200    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+
+Stability:
+----------
+
+* Untested: The GNU Boot maintainers are not aware of anybody who
+  tested GNU Boot 0.1 RC4 on that computer. If you have GNU Boot on
+  this computer please report if it works or not (for instance by
+  opening a bug report).
+
+* Fail: #<bug number>: Someone tested GNU Boot 0.1 RC4 on that
+  computer and it either doesn't boot at all, can't boot any fully
+  free GNU/Linux distribution. It should also be confirmed that this
+  is a software issue and not a problem with the hardware like broken
+  RAM modules. The issue should also be described in a bug report that
+  is available at https://savannah.gnu.org/bugs/index.php?<bug number>
+  (this is the GNU Boot bug tracker).
+
+* Tested: Someone tested GNU Boot 0.1 RC4 on that computer and
+  reported to the GNU Boot that it at least booted fine.
+
+* Daily users: Some people contacted the GNU Boot maintainers and
+  volunteered to send bug reports if installing GNU Boot made the
+  computer unusable or very hard to use (like a memory corruption that
+  makes it impossible to boot certain GNU/Linux distributions or
+  crashes the computer randomly). If you want to help GNU Boot
+  with that, please contact the maintainers through a bug report.
+
+Installation instructions:
+--------------------------
+
+* Untested: Nobody tested the GNU Boot installation instructions for
+  this computer.
+
+* Tested: The installation instructions worked well.
+
+* Missing: There are no installation instructions for this device and
+  we need help from contributors to add them.
+
 GNU Boot 0.1 RC3 status
 =======================
 
@@ -93,42 +253,8 @@ GNU Boot 0.1 RC3 status
 | Vikings       | X200               | Untested     | Untested    | Untested   |
 +---------------+--------------------+--------------+-------------+------------+
 
-Stability:
-----------
-
-* Untested: The GNU Boot maintainers are not aware of anybody who
-  tested GNU Boot 0.1 RC3 on that computer. If you have GNU Boot on
-  this computer please report if it works or not (for instance by
-  opening a bug report).
-
-* Fail: #<bug number>: Someone tested GNU Boot 0.1 RC3 on that
-  computer and it either doesn't boot at all, can't boot any fully
-  free GNU/Linux distribution. It should also be confirmed that this
-  is a software issue and not a problem with the hardware like broken
-  RAM modules. The issue should also be described in a bug report that
-  is available at https://savannah.gnu.org/bugs/index.php?<bug number>
-  (this is the GNU Boot bug tracker).
-
-* Tested: Someone tested GNU Boot 0.1 RC3 on that computer and
-  reported to the GNU Boot that it at least booted fine.
-
-* Daily users: Some people contacted the GNU Boot maintainers and
-  volunteered to send bug reports if installing GNU Boot made the
-  computer unusable or very hard to use (like a memory corruption that
-  makes it impossible to boot certain GNU/Linux distributions or
-  crashes the computer randomly). If you want to help GNU Boot
-  with that, please contact the maintainers through a bug report.
-
-Installation instructions:
---------------------------
-
-* Untested: Nobody tested the GNU Boot installation instructions for
-  this computer.
-
-* Tested: The installation instructions worked well.
-
-* Missing: There are no installation instructions for this device and
-  we need help from contributors to add them.
+See the status of GNU Boot 0.1 RC4 above for the meaning of the
+various fields.
 
 GNU Boot 0.1 RC2 status
 =======================
@@ -224,7 +350,7 @@ the RC2 to reduce the risk of testers.
 | Vikings       | X200               | Tested       | Untested    | Untested   |
 +---------------+--------------------+--------------+-------------+------------+
 
-See the status of GNU Boot 0.1 RC3 above for the meaning of the
+See the status of GNU Boot 0.1 RC4 above for the meaning of the
 various fields.
 
 GNU Boot 0.1 RC1 status
@@ -314,7 +440,7 @@ GNU Boot 0.1 RC1 status
 | Vikings       | X200               | Tested       | Untested    | Untested   |
 +---------------+--------------------+--------------+-------------+------------+
 
-See the status of GNU Boot 0.1 RC3 above for the meaning of the
+See the status of GNU Boot 0.1 RC4 above for the meaning of the
 various fields.
 
 Upstream status

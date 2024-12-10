@@ -2,6 +2,177 @@
 title: Estado de GNU Boot
 ...
 
+Estado de GNU Boot 0.1 RC4
+==========================
+
++------------------+--------------+--------------+--------------+--------------+
+| Vendedor,        | GRUB con     | GRUB con     | SeaBIOS con  | SeaBIOS con  |
+| Producto         | gráficos     | texto        | gráficos     | texto        |
+|                  | alta         | baja         | alta         | baja         |
+|                  | resolución   | resolución   | resolución   | resolución   |
++------------------+--------------+--------------+--------------+--------------+
+| Acer, G43T-AM3   | No probado   | No probado   | Fallado:     | Fallado:     |
+|                  |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Apple,           | No probado   | No probado   | Fallado:     | Fallado:     |
+| MacBook 1.1      |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Apple,           | No probado   | No probado   | Fallado:     | Fallado:     |
+| MacBook 2.1      |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Apple, iMac 5,2  | No probado   | No probado   | Fallado:     | Fallado:     |
+|                  |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Asus,            |                                                           |
+| Chromebook C201  | No se puede instalar debido a que faltan imágenes.        |
++------------------+--------------+--------------+--------------+--------------+
+| Asus, KCMA-D8    | No probado   | No probado   | Fallado:     | Fallado:     |
+|                  |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Asus, KFSN4-DRE  | No probado   | No probado   | Fallado:     | Fallado:     |
+|                  |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Asus, KGPE-D16   | No probado   | No probado   | Fallado:     | Fallado:     |
+|                  |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Gigabyte,        |                                                           |
+| D945GCLF2D       | Fallado: #66463, #66487                                   |
++------------------+--------------+--------------+--------------+--------------+
+| Gigabyte,        | No probado   | No probado   | Fallado:     | Fallado:     |
+| GA-G41M-ES2L     |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Intel, D410PT    | No probado   | No probado   | Fallado:     | Fallado:     |
+|                  |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Intel, D510MO    | No probado   | No probado   | Fallado:     | Fallado:     |
+|                  |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Intel, D945GCLF  | No probado   | No probado   | Fallado:     | Fallado:     |
+|                  |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
+| ThinkPad R400    |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
+| ThinkPad R500    |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
+| ThinkPad T400    |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
+| ThinkPad T400S   |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
+| ThinkPad T500    |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
+| ThinkPad T60     |              |              | #66487       | #66487       |
+| with intel GPU   |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
+| ThinkPad W500    |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
+| ThinkPad X200    |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
+|  ThinkPad X200S  |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
+| ThinkPad X200T   |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
+| ThinkPad X301    |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
+| ThinkPad X60     |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
+| ThinkPad X60T    |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
+|  ThinkPad X60s   |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Libiquity,       | No probado   | No probado   | Fallado:     | Fallado:     |
+| Taurinus X200    |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Qemu,            | No probado   | No probado   | Fallado:     | Fallado:     |
+| PC (i440FX)      |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | No probado   | No probado   | Fallado:     | Fallado:     |
+| D16              |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | No probado   | No probado   | Fallado:     | Fallado:     |
+| T400             |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | No probado   | No probado   | Fallado:     | Fallado:     |
+| T400s            |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | No probado   | No probado   | Fallado:     | Fallado:     |
+| T500             |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | No probado   | No probado   | Fallado:     | Fallado:     |
+| X200             |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | No probado   | No probado   | Fallado:     | Fallado:     |
+| X200s            |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | No probado   | No probado   | Fallado:     | Fallado:     |
+| X200 Tablet      |              |              | #66487       | #66487       |
+| (X200T)          |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Vikings,         | No probado   | No probado   | Fallado:     | Fallado:     |
+| ASUS KCMA D8     |              |              | #66487       | #66487       |
+| mainboard and    |              |              |              |              |
+| workstation      |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Vikings,         | No probado   | No probado   | Fallado:     | Fallado:     |
+| ASUS KGPE D16    |              |              | #66487       | #66487       |
+| mainboard        |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Vikings, X200    | No probado   | No probado   | Fallado:     | Fallado:     |
+|                  |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+
+Estabilidad:
+------------
+
+* No probado: Los mantenedores de GNU Boot no conocen a nadie que haya
+  probado GNU Boot 0.1 RC4 en esa computadora. Si tiene GNU Boot en esta
+  computadora, informe si funciona o no (por ejemplo, abriendo un informe
+  de error).
+
+* Fallado: #<número de error>: Alguien probó GNU Boot 0.1 RC4 en esa
+  computadora y no arrancó o no arrancó completamente ninguna
+  distribución de GNU con Linux. Se debe confirmar que sea un problema
+  software y no hardware hardware como módulos de RAM rotos.
+  Se debe describir el problema en un rapporto de incidencias que es
+  disponible en https://savannah.gnu.org/bugs/index.php?<número de
+  error> (esto es el rastreador de errores de GNU Boot).
+
+* Probado: Alguien probó GNU Boot 0.1 RC4 en esa computadora e informó a
+  GNU Boot que al menos arrancó bien.
+
+* Usuarios diarios: algunas personas que se pusieron en contacto con los
+  mantenedores de GNU Boot y se ofrecieron como voluntarios para enviar
+  informes de errores a cerca de si la instalación de GNU Boot hacía que
+  la computadora fuera inutilizable o muy difícil de usar (como una
+  corrupción de la memoria que imposibilita el inicio de ciertas
+  distribuciones de GNU con Linux o bloquea la computadora
+  aleatoriamente). Si desea ayudar a GNU Boot con esto, comuníquese con
+  los mantenedores a través de un informe de error.
+
+Instrucciones de instalación:
+-----------------------------
+
+* No probado: Nadie probó las instrucciones de instalación de GNU Boot
+  para esta computadora.
+
+* Probado: Las instrucciones de instalación funcionaron bien.
+
+* Faltante: No hay instrucciones de instalación para este dispositivo y
+  necesitamos ayuda de los contribuyentes para agregarlas.
+
 Estado de GNU Boot 0.1 RC3
 ==========================
 
@@ -94,44 +265,8 @@ Estado de GNU Boot 0.1 RC3
 | Vikings       | X200           | No probado      | No probado  | No probado  |
 +---------------+----------------+-----------------+-------------+-------------+
 
-Estabilidad:
-------------
-
-* No probado: Los mantenedores de GNU Boot no conocen a nadie que haya
-  probado GNU Boot 0.1 RC1 en esa computadora. Si tiene GNU Boot en esta
-  computadora, informe si funciona o no (por ejemplo, abriendo un informe
-  de error).
-
-* Fallado: #<número de error>: Alguien probó GNU Boot 0.1 RC1 en esa
-  computadora y no arrancó o no arrancó completamente ninguna
-  distribución de GNU con Linux. Se debe confirmar que sea un problema
-  software y no hardware hardware como módulos de RAM rotos.
-  Se debe describir el problema en un rapporto de incidencias que es
-  disponible en https://savannah.gnu.org/bugs/index.php?<número de
-  error> (esto es el rastreador de errores de GNU Boot).
-
-* Probado: Alguien probó GNU Boot 0.1 RC1 en esa computadora e informó a
-  GNU Boot que al menos arrancó bien.
-
-* Usuarios diarios: algunas personas que se pusieron en contacto con los
-  mantenedores de GNU Boot y se ofrecieron como voluntarios para enviar
-  informes de errores a cerca de si la instalación de GNU Boot hacía que
-  la computadora fuera inutilizable o muy difícil de usar (como una
-  corrupción de la memoria que imposibilita el inicio de ciertas
-  distribuciones de GNU con Linux o bloquea la computadora
-  aleatoriamente). Si desea ayudar a GNU Boot con esto, comuníquese con
-  los mantenedores a través de un informe de error.
-
-Instrucciones de instalación:
------------------------------
-
-* No probado: Nadie probó las instrucciones de instalación de GNU Boot
-  para esta computadora.
-
-* Probado: Las instrucciones de instalación funcionaron bien.
-
-* Faltante: No hay instrucciones de instalación para este dispositivo y
-  necesitamos ayuda de los contribuyentes para agregarlas.
+Consulte el estado de GNU Boot 0.1 RC4 arriba para conocer el
+significado de los distintos campos.
 
 Estado de GNU Boot 0.1 RC2
 ==========================
@@ -228,7 +363,7 @@ algunas computadoras en el RC2 para reducir el riesgo de los probadores.
 | Vikings       | X200           | Probado         | No probado  | No probado  |
 +---------------+----------------+-----------------+-------------+-------------+
 
-Consulte el estado de GNU Boot 0.1 RC3 arriba para conocer el
+Consulte el estado de GNU Boot 0.1 RC4 arriba para conocer el
 significado de los distintos campos.
 
 Estado de GNU Boot 0.1 RC1
@@ -319,7 +454,7 @@ Estado de GNU Boot 0.1 RC1
 | Vikings       | X200           | Probado         | No probado  | No probado  |
 +---------------+----------------+-----------------+-------------+-------------+
 
-Consulte el estado de GNU Boot 0.1 RC3 arriba para conocer el
+Consulte el estado de GNU Boot 0.1 RC4 arriba para conocer el
 significado de los distintos campos.
 
 Estado de "Upstream" (Contracorriente)
