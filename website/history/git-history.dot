@@ -94,6 +94,13 @@ digraph {
       "lbwww: tag 20211122" -> "libreboot.at lbwww: first commit" [label="kept history"];
       "libreboot.at lbwww: first commit" -> "libreboot.at lbwww: last commit";
     }
+
+    subgraph cluster_libreboot_at_lbwww_build {
+      label="https://git.sr.ht/~libreboot/lbwww-build git repository (doesn't exit anymore).";
+      "lbwww-build: first commit" [label="db0fb8a2 Initial import"];
+      "955ecb39" [label="955ecb39 configure.ac: Add --disable-lighttpd"];
+      "lbwww-build: first commit" -> "955ecb39";
+    }
   }
   subgraph cluster_gnuboot {
     label="project current name: GNU Boot
@@ -121,13 +128,15 @@ digraph {
       "b42fd22" [label="b42fd22 Merge the website into GNU Boot"];
       "2e12909" [label="2e12909 Add GNU Boot project announcement"];
       "54c6ae4" [label="54c6ae4 Merge the documentation/website pictures into GNU Boot"];
+      "dc6e1f32" [label="dc6e1f32 Import website-build to build the GNU Boot website."];
 
 
       "lbmk: tag 20220710" -> "first-commit" [label="kept history"];
-      "first-commit" -> "b42fd22" -> "54c6ae4" -> "gnuboot: main";
+      "first-commit" -> "b42fd22" -> "54c6ae4" -> dc6e1f32 -> "gnuboot: main";
       "libreboot.at lbwww: last commit" -> "2e12909" [label="kept history"];
-      "2e12909" -> "b42fd22" [label="kept history"];
-      "283ce03" -> "54c6ae4" [label="kept history"];
+      "2e12909"  ->  "b42fd22"  [label="kept history"];
+      "283ce03"  ->  "54c6ae4"  [label="kept history"];
+      "955ecb39" ->  "dc6e1f32" [label="kept history"];
     }
   }
 }
