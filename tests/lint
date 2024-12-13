@@ -46,6 +46,7 @@ run_shellcheck \
     download \
     modify \
     update \
+    resources/grub/config/grub.cfg \
     resources/packages/coreboot/distclean \
     resources/packages/descriptors/distclean \
     resources/packages/grub/distclean \
