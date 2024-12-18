@@ -251,7 +251,7 @@ elif [ $# -eq 0 ] ; then
 elif [ $# -eq 1 ] && [ "$1" = "trisquel-netinst_11.0_amd64.iso" ] ; then
     return_trisquel_netinst_x86_64_iso
 elif [ $# -eq 1 ] && [ "$1" = "preseed.img" ] ; then
-    return_trisquel_preseed_img
+    return_trisquel_preseed_x86_64_img
 elif [ $# -eq 1 ] && [ "$1" = "grub.img" ] ; then
     return_trisquel_grub_img
 elif [ $# -eq 1 ] && [ "$1" = "rootfs.img" ] ; then
