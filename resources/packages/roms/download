@@ -39,6 +39,10 @@ usage()
            "${progname}" \
            "grub.img" \
            "Get the path of the grub.img image"
+    printf "\t%s %s                      # %s.\n" \
+           "${progname}" \
+           "rootfs.img" \
+           "Get the path of the rootfs.img image"
     printf "\t%s <-h|--help>                     # %s.\n" \
            "${progname}" \
            "Display this help and exit"
