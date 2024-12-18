@@ -41,7 +41,7 @@ Estado de GNU Boot 0.1 RC5
 +------------------+--------------+--------------+--------------+--------------+
 | Intel, D945GCLF  | No probado   | No probado   | No probado   | No probado   |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          | No probado   | No probado   | No probado   | No probado   |
+| Lenovo,          | Probado      | No probado   | No probado   | No probado   |
 | ThinkPad R400    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | No probado   | No probado   | No probado   | No probado   |

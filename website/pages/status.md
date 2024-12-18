@@ -43,7 +43,7 @@ GNU Boot 0.1 RC5 status
 | Intel, D945GCLF  | Untested     | Untested     | Untested     | Untested     |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          |              |              |              |              |
-| ThinkPad R400    | Untested     | Untested     | Untested     | Untested     |
+| ThinkPad R400    | Tested       | Untested     | Untested     | Untested     |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          |              |              |              |              |
 | ThinkPad R500    | Untested     | Untested     | Untested     | Untested     |
