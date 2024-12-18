@@ -20,8 +20,8 @@ Estado de GNU Boot 0.1 RC5
 +------------------+--------------+--------------+--------------+--------------+
 | Apple, iMac 5,2  | No probado   | No probado   | No probado   | No probado   |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus,            |                                                           |
-| Chromebook C201  | No se puede instalar debido a que faltan imágenes.        |
+| Asus,            | Faltan       | Faltan       | Faltan       | Faltan       |
+| Chromebook C201  | imágenes     | imágenes     | imágenes     | imágenes     |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KCMA-D8    | No probado   | No probado   | No probado   | No probado   |
 +------------------+--------------+--------------+--------------+--------------+
@@ -29,8 +29,8 @@ Estado de GNU Boot 0.1 RC5
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KGPE-D16   | No probado   | No probado   | No probado   | No probado   |
 +------------------+--------------+--------------+--------------+--------------+
-| Gigabyte,        |                                                           |
-| D945GCLF2D       | Fallado: #66463                                           |
+| Gigabyte,        | Fallado:     | Fallado:     | Fallado:     | Fallado:     |
+| D945GCLF2D       | #66463       | #66463       | #66463       | #66463       |
 +------------------+--------------+--------------+--------------+--------------+
 | Gigabyte,        | No probado   | No probado   | No probado   | No probado   |
 | GA-G41M-ES2L     |              |              |              |              |
@@ -184,8 +184,8 @@ Estado de GNU Boot 0.1 RC4
 | Apple, iMac 5,2  | No probado   | No probado   | Fallado:     | Fallado:     |
 |                  |              |              | #66487       | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus,            |                                                           |
-| Chromebook C201  | No se puede instalar debido a que faltan imágenes.        |
+| Asus,            | Faltan       | Faltan       | Faltan       | Faltan       |
+| Chromebook C201  | imágenes     | imágenes     | imágenes     | imágenes     |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KCMA-D8    | No probado   | No probado   | Fallado:     | Fallado:     |
 |                  |              |              | #66487       | #66487       |
@@ -196,8 +196,8 @@ Estado de GNU Boot 0.1 RC4
 | Asus, KGPE-D16   | No probado   | No probado   | Fallado:     | Fallado:     |
 |                  |              |              | #66487       | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
-| Gigabyte,        |                                                           |
-| D945GCLF2D       | Fallado: #66463, #66487                                   |
+| Gigabyte,        | Fallado:     | Fallado:     | Fallado:     | Fallado:     |
+| D945GCLF2D       | #66463       | #66463       | #66463,#66487|#66463,#66487 |
 +------------------+--------------+--------------+--------------+--------------+
 | Gigabyte,        | No probado   | No probado   | Fallado:     | Fallado:     |
 | GA-G41M-ES2L     |              |              | #66487       | #66487       |
@@ -314,8 +314,8 @@ Estado de GNU Boot 0.1 RC3
 +---------------+----------------+-----------------+-------------+-------------+
 | Apple         | iMac 5,2       | No probado      | No probado  | No probado  |
 +---------------+----------------+-----------------+-------------+-------------+
-| Asus          | Chromebook     | No se puede instalar debido a que faltan    |
-|               | C201           | imágenes.                                   |
+| Asus          | Chromebook     | Faltan          | Faltan      | Faltan      |
+|               | C201           | imágenes        | imágenes    | imágenes    |
 +---------------+----------------+-----------------+-------------+-------------+
 | Asus          | KCMA-D8        | No probado      | No probado  | No probado  |
 +---------------+----------------+-----------------+-------------+-------------+
@@ -412,8 +412,8 @@ algunas computadoras en el RC2 para reducir el riesgo de los probadores.
 +---------------+----------------+-----------------+-------------+-------------+
 | Apple         | iMac 5,2       | No probado      | No probado  | No probado  |
 +---------------+----------------+-----------------+-------------+-------------+
-| Asus          | Chromebook     | No se puede instalar debido a que faltan    |
-|               | C201           | imágenes.                                   |
+| Asus          | Chromebook     | Faltan          | Faltan      | Faltan      |
+|               | C201           | imágenes        | imágenes    | imágenes    |
 +---------------+----------------+-----------------+-------------+-------------+
 | Asus          | KCMA-D8        | No probado      | No probado  | No probado  |
 +---------------+----------------+-----------------+-------------+-------------+
@@ -505,8 +505,8 @@ Estado de GNU Boot 0.1 RC1
 +---------------+----------------+-----------------+-------------+-------------+
 | Apple         | iMac 5,2       | No probado      | No probado  | No probado  |
 +---------------+----------------+-----------------+-------------+-------------+
-| Asus          | Chromebook     | No se puede instalar debido a que faltan    |
-|               | C201           | imágenes.                                   |
+| Asus          | Chromebook     | Faltan          | Faltan      | Faltan      |
+|               | C201           | imágenes        | imágenes    | imágenes    |
 +---------------+----------------+-----------------+-------------+-------------+
 | Asus          | KCMA-D8        | No probado      | No probado  | No probado  |
 +---------------+----------------+-----------------+-------------+-------------+
