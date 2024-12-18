@@ -91,7 +91,7 @@ GNU Boot 0.1 RC5 status
 | Qemu,            |              |              |              |              |
 | PC (i440FX)      | Untested     | Untested     | Untested     | Untested     |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   |
+| Technoethical,   |              |              |              |              |
 | D16              | Untested     | Untested     | Untested     | Untested     |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   |              |              |              |              |
@@ -240,7 +240,7 @@ GNU Boot 0.1 RC4 status
 | Qemu,            |              |              |              |              |
 | PC (i440FX)      | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   |
+| Technoethical,   |              |              |              |              |
 | D16              | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   |              |              |              |              |
