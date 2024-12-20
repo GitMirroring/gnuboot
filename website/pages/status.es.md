@@ -26,7 +26,8 @@ Estado de GNU Boot 0.1 RC5
 | Asus, KCMA-D8    | Faltan       | No probado   | Faltan       | No probado   |
 |                  | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KFSN4-DRE  | No probado   | No probado   | No probado   | No probado   |
+| Asus, KFSN4-DRE  | Faltan       | No probado   | Faltan       | No probado   |
+|                  | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KGPE-D16   | No probado   | No probado   | No probado   | No probado   |
 +------------------+--------------+--------------+--------------+--------------+
@@ -191,8 +192,8 @@ Estado de GNU Boot 0.1 RC4
 | Asus, KCMA-D8    | Faltan       | No probado   | Faltan       | No probado   |
 |                  | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KFSN4-DRE  | No probado   | No probado   | Fallado:     | Fallado:     |
-|                  |              |              | #66487       | #66487       |
+| Asus, KFSN4-DRE  | Faltan       | No probado   | Faltan       | Fallado:     |
+|                  | imágenes     |              | imágenes     | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KGPE-D16   | No probado   | No probado   | Fallado:     | Fallado:     |
 |                  |              |              | #66487       | #66487       |
