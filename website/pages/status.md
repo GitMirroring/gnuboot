@@ -37,8 +37,8 @@ GNU Boot 0.1 RC5 status
 | Gigabyte,        | Missing      | Fail: #66463 | Missing      | Fail: #66463 |
 | D945GCLF2D       | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Gigabyte,        |              |              |              |              |
-| GA-G41M-ES2L     | Untested     | Untested     | Untested     | Untested     |
+| Gigabyte,        | Missing      | Untested     | Missing      | Untested     |
+| GA-G41M-ES2L     | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Intel, D410PT    | Untested     | Untested     | Untested     | Untested     |
 +------------------+--------------+--------------+--------------+--------------+
@@ -192,8 +192,8 @@ GNU Boot 0.1 RC4 status
 | Gigabyte,        | Missing      | Fail: #66463 | Missing      | Fail: #66463 |
 | D945GCLF2D       | images       |              | images       | Fail: #66487 |
 +------------------+--------------+--------------+--------------+--------------+
-| Gigabyte,        |              |              |              |              |
-| GA-G41M-ES2L     | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Gigabyte,        | Missing      | Untested     | Missing      | Fail: #66487 |
+| GA-G41M-ES2L     | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Intel, D410PT    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
 +------------------+--------------+--------------+--------------+--------------+
