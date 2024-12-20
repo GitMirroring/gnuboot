@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Copyright (C) 2023 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+# Copyright (C) 2023,2024 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -150,10 +150,22 @@ test_release_dir()
         x60_16mb \
     "
 
+    debug_targets="\
+        x200_8mb \
+        t400_8mb \
+        kgpe-d16-rdimm_2mb \
+        qemu-pc_2mb \
+    "
+
     release_files=""
 
     for target in ${targets} ; do
         archive_path="${dir}"/roms/gnuboot-"${rev}"_"${target}".tar.xz
+        release_files="${release_files}"" ""${archive_path}"
+    done
+
+    for target in ${debug_targets} ; do
+        archive_path="${dir}"/roms-dbg/gnuboot-"${rev}"_debug_"${target}".tar.xz
         release_files="${release_files}"" ""${archive_path}"
     done
 
