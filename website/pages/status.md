@@ -214,7 +214,7 @@ GNU Boot 0.1 RC4 status
 | Asus, KFSN4-DRE  | Missing      | Missing      | Missing      | Fail: #66487 |
 |                  | images       | images       | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KGPE-D16   | Missing      | Untested     | Missing      | Fail: #66487 |
+| Asus, KGPE-D16   | Missing      | Tested       | Missing      | Fail: #66487 |
 | with ECC RAM     | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KGPE-D16   | Missing      | Untested     | Missing      | Fail: #66487 |
@@ -234,7 +234,7 @@ GNU Boot 0.1 RC4 status
 | Intel, D945GCLF  | Missing      | Missing      | Missing      | Fail: #66487 |
 |                  | images       | images       | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Lenovo,          | Tested       | Untested     | Fail: #66487 | Fail: #66487 |
 | ThinkPad R400    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
@@ -246,7 +246,7 @@ GNU Boot 0.1 RC4 status
 | Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
 | ThinkPad T400S   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Lenovo,          | Tested       | Untested     | Fail: #66487 | Fail: #66487 |
 | ThinkPad T500    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |

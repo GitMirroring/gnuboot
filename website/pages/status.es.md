@@ -224,7 +224,7 @@ Estado de GNU Boot 0.1 RC4
 | Asus, KFSN4-DRE  | Faltan       | Faltan       | Faltan       | Fallado:     |
 |                  | imágenes     | imágenes     | imágenes     | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KGPE-D16   | Faltan       | No probado   | Faltan       | Fallado:     |
+| Asus, KGPE-D16   | Faltan       | Probado      | Faltan       | Fallado:     |
 | con RAM ECC      | imágenes     |              | imágenes     | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KGPE-D16   | Faltan       | No probado   | Faltan       | Fallado:     |
@@ -245,7 +245,7 @@ Estado de GNU Boot 0.1 RC4
 | Intel, D945GCLF  | Faltan       | Faltan       | Faltan       | Fallado:     |
 |                  | imágenes     | imágenes     | imágenes     | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
+| Lenovo,          | Probado      | No probado   | Fallado:     | Fallado:     |
 | ThinkPad R400    |              |              | #66487       | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
@@ -257,7 +257,7 @@ Estado de GNU Boot 0.1 RC4
 | Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
 | ThinkPad T400S   |              |              | #66487       | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
+| Lenovo,          | Probado      | No probado   | Fallado:     | Fallado:     |
 | ThinkPad T500    |              |              | #66487       | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
