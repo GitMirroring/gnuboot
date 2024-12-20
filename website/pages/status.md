@@ -33,8 +33,8 @@ GNU Boot 0.1 RC5 status
 | Asus, KGPE-D16   | Missing      | Untested     | Missing      | Untested     |
 |                  | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Gigabyte,        |              |              |              |              |
-| D945GCLF2D       | Fail: #66487 | Fail: #66463 | Fail: #66463 | Fail: #66463 |
+| Gigabyte,        | Missing      | Fail: #66463 | Missing      | Fail: #66463 |
+| D945GCLF2D       | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Gigabyte,        |              |              |              |              |
 | GA-G41M-ES2L     | Untested     | Untested     | Untested     | Untested     |
@@ -44,7 +44,8 @@ GNU Boot 0.1 RC5 status
 | Intel, D510MO    | Missing      | Untested     | Missing      | Untested     |
 |                  | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Intel, D945GCLF  | Untested     | Untested     | Untested     | Untested     |
+| Intel, D945GCLF  | Missing      | Untested     | Missing      | Untested     |
+|                  | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          |              |              |              |              |
 | ThinkPad R400    | Tested       | Untested     | Untested     | Untested     |
@@ -186,8 +187,8 @@ GNU Boot 0.1 RC4 status
 | Asus, KGPE-D16   | Missing      | Untested     | Missing      | Fail: #66487 |
 |                  | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Gigabyte,        | Fail: #66463 | Fail: #66463 | Fail: #66463 | Fail: #66463 |
-| D945GCLF2D       |              |              | Fail: #66487 | Fail: #66487 |
+| Gigabyte,        | Missing      | Fail: #66463 | Missing      | Fail: #66463 |
+| D945GCLF2D       | images       |              | images       | Fail: #66487 |
 +------------------+--------------+--------------+--------------+--------------+
 | Gigabyte,        |              |              |              |              |
 | GA-G41M-ES2L     | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
@@ -197,7 +198,8 @@ GNU Boot 0.1 RC4 status
 | Intel, D510MO    | Missing      | Untested     | Missing      | Fail: #66487 |
 |                  | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Intel, D945GCLF  | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Intel, D945GCLF  | Missing      | Untested     | Missing      | Fail: #66487 |
+|                  | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          |              |              |              |              |
 | ThinkPad R400    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
