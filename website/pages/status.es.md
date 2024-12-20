@@ -25,7 +25,10 @@ Estado de GNU Boot 0.1 RC5
 | Chromebook C201  | imágenes     | imágenes     | imágenes     | imágenes     |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KCMA-D8    | Faltan       | No probado   | Faltan       | No probado   |
-|                  | imágenes     |              | imágenes     |              |
+| con RAM ECC      | imágenes     |              | imágenes     |              |
++------------------+--------------+--------------+--------------+--------------+
+| Asus, KCMA-D8    | Faltan       | No probado   | Faltan       | No probado   |
+| con RAM no-ECC   | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KFSN4-DRE  | Faltan       | Faltan       | Faltan       | No probado   |
 |                  | imágenes     | imágenes     | imágenes     |              |
@@ -128,6 +131,13 @@ Estado de GNU Boot 0.1 RC5
 | ASUS KCMA D8     | imágenes     |              | imágenes     |              |
 | mainboard and    |              |              |              |              |
 | workstation      |              |              |              |              |
+| con RAM ECC      |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Vikings,         | Faltan       | No probado   | Faltan       | No probado   |
+| ASUS KCMA D8     | imágenes     |              | imágenes     |              |
+| mainboard and    |              |              |              |              |
+| workstation      |              |              |              |              |
+| con RAM no-ECC   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings,         | Faltan       | No probado   | Faltan       | No probado   |
 | ASUS KGPE D16    | imágenes     |              | imágenes     |              |
@@ -206,7 +216,10 @@ Estado de GNU Boot 0.1 RC4
 | Chromebook C201  | imágenes     | imágenes     | imágenes     | imágenes     |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KCMA-D8    | Faltan       | No probado   | Faltan       | No probado   |
-|                  | imágenes     |              | imágenes     |              |
+| con RAM ECC      | imágenes     |              | imágenes     |              |
++------------------+--------------+--------------+--------------+--------------+
+| Asus, KCMA-D8    | Faltan       | No probado   | Faltan       | No probado   |
+| con RAM no-ECC   | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KFSN4-DRE  | Faltan       | Faltan       | Faltan       | Fallado:     |
 |                  | imágenes     | imágenes     | imágenes     | #66487       |
@@ -311,6 +324,13 @@ Estado de GNU Boot 0.1 RC4
 | ASUS KCMA D8     | imágenes     |              | imágenes     |              |
 | mainboard and    |              |              |              |              |
 | workstation      |              |              |              |              |
+| con RAM ECC      |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Vikings,         | Faltan       | No probado   | Faltan       | No probado   |
+| ASUS KCMA D8     | imágenes     |              | imágenes     |              |
+| mainboard and    |              |              |              |              |
+| workstation      |              |              |              |              |
+| con RAM no-ECC   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings,         | Faltan       | No probado   | Faltan       | Fallado:     |
 | ASUS KGPE D16    | imágenes     |              | imágenes     | #66487       |

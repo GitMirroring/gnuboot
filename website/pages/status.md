@@ -26,7 +26,11 @@ GNU Boot 0.1 RC5 status
 | Chromebook C201  | images       | images       | images       | images       |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KCMA-D8    | Missing      | Untested     | Missing      | Untested     |
-|                  | images       |              | images       |              |
+| with ECC RAM     | images       |              | images       |              |
++------------------+--------------+--------------+--------------+--------------+
+| Asus, KCMA-D8    | Missing      | Untested     | Missing      | Untested     |
+| with non-ECC     | images       |              | images       |              |
+| RAM              |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KFSN4-DRE  | Missing      | Missing      | Missing      | Untested     |
 |                  | images       | images       | images       |              |
@@ -131,6 +135,13 @@ GNU Boot 0.1 RC5 status
 | ASUS KCMA D8     | images       |              | images       |              |
 | mainboard and    |              |              |              |              |
 | workstation      |              |              |              |              |
+| with ECC RAM     |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Vikings,         | Missing      | Untested     | Missing      | Untested     |
+| ASUS KCMA D8     | images       |              | images       |              |
+| mainboard and    |              |              |              |              |
+| workstation with |              |              |              |              |
+| non-ECC RAM      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings,         | Missing      | Untested     | Missing      | Untested     |
 | ASUS KGPE D16    | images       |              | images       |              |
@@ -195,7 +206,10 @@ GNU Boot 0.1 RC4 status
 | Chromebook C201  | images       | images       | images       | images       |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KCMA-D8    | Missing      | Untested     | Missing      | Untested     |
-|                  | images       |              | images       |              |
+| with ECC RAM     | images       |              | images       |              |
++------------------+--------------+--------------+--------------+--------------+
+| Asus, KCMA-D8    | Missing      | Untested     | Missing      | Untested     |
+| with non-ECC RAM | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KFSN4-DRE  | Missing      | Missing      | Missing      | Fail: #66487 |
 |                  | images       | images       | images       |              |
@@ -299,6 +313,13 @@ GNU Boot 0.1 RC4 status
 | ASUS KCMA D8     | images       |              | images       |              |
 | mainboard and    |              |              |              |              |
 | workstation      |              |              |              |              |
+| with ECC RAM     |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Vikings,         | Missing      | Untested     | Missing      | Untested     |
+| ASUS KCMA D8     | images       |              | images       |              |
+| mainboard and    |              |              |              |              |
+| workstation with |              |              |              |              |
+| non-ECC RAM      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings,         | Missing      | Untested     | Missing      | Fail: #66487 |
 | ASUS KGPE D16    | images       |              | images       |              |
