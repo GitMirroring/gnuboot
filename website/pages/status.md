@@ -24,7 +24,8 @@ GNU Boot 0.1 RC5 status
 | Asus,            | Missing      | Missing      | Missing      | Missing      |
 | Chromebook C201  | images       | images       | images       | images       |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KCMA-D8    | Untested     | Untested     | Untested     | Untested     |
+| Asus, KCMA-D8    | Missing      | Untested     | Missing      | Untested     |
+|                  | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KFSN4-DRE  | Untested     | Untested     | Untested     | Untested     |
 +------------------+--------------+--------------+--------------+--------------+
@@ -113,10 +114,10 @@ GNU Boot 0.1 RC5 status
 | X200 Tablet      |              |              |              |              |
 | (X200T)          | Untested     | Untested     | Untested     | Untested     |
 +------------------+--------------+--------------+--------------+--------------+
-| Vikings,         |              |              |              |              |
-| ASUS KCMA D8     |              |              |              |              |
+| Vikings,         | Missing      | Untested     | Missing      | Untested     |
+| ASUS KCMA D8     | images       |              | images       |              |
 | mainboard and    |              |              |              |              |
-| workstation      | Untested     | Untested     | Untested     | Untested     |
+| workstation      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings,         |              |              |              |              |
 | ASUS KGPE D16    |              |              |              |              |
@@ -173,7 +174,8 @@ GNU Boot 0.1 RC4 status
 | Asus,            | Missing      | Missing      | Missing      | Missing      |
 | Chromebook C201  | images       | images       | images       | images       |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KCMA-D8    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Asus, KCMA-D8    | Missing      | Untested     | Missing      | Untested     |
+|                  | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KFSN4-DRE  | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
 +------------------+--------------+--------------+--------------+--------------+
@@ -262,10 +264,10 @@ GNU Boot 0.1 RC4 status
 | X200 Tablet      |              |              |              |              |
 | (X200T)          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
 +------------------+--------------+--------------+--------------+--------------+
-| Vikings,         |              |              |              |              |
-| ASUS KCMA D8     |              |              |              |              |
+| Vikings,         | Missing      | Untested     | Missing      | Untested     |
+| ASUS KCMA D8     | images       |              | images       |              |
 | mainboard and    |              |              |              |              |
-| workstation      | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| workstation      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings,         |              |              |              |              |
 | ASUS KGPE D16    |              |              |              |              |

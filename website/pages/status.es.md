@@ -23,7 +23,8 @@ Estado de GNU Boot 0.1 RC5
 | Asus,            | Faltan       | Faltan       | Faltan       | Faltan       |
 | Chromebook C201  | imágenes     | imágenes     | imágenes     | imágenes     |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KCMA-D8    | No probado   | No probado   | No probado   | No probado   |
+| Asus, KCMA-D8    | Faltan       | No probado   | Faltan       | No probado   |
+|                  | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KFSN4-DRE  | No probado   | No probado   | No probado   | No probado   |
 +------------------+--------------+--------------+--------------+--------------+
@@ -112,8 +113,8 @@ Estado de GNU Boot 0.1 RC5
 | X200 Tablet      |              |              |              |              |
 | (X200T)          |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Vikings,         | No probado   | No probado   | No probado   | No probado   |
-| ASUS KCMA D8     |              |              |              |              |
+| Vikings,         | Faltan       | No probado   | Faltan       | No probado   |
+| ASUS KCMA D8     | imágenes     |              | imágenes     |              |
 | mainboard and    |              |              |              |              |
 | workstation      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
@@ -187,8 +188,8 @@ Estado de GNU Boot 0.1 RC4
 | Asus,            | Faltan       | Faltan       | Faltan       | Faltan       |
 | Chromebook C201  | imágenes     | imágenes     | imágenes     | imágenes     |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KCMA-D8    | No probado   | No probado   | Fallado:     | Fallado:     |
-|                  |              |              | #66487       | #66487       |
+| Asus, KCMA-D8    | Faltan       | No probado   | Faltan       | No probado   |
+|                  | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KFSN4-DRE  | No probado   | No probado   | Fallado:     | Fallado:     |
 |                  |              |              | #66487       | #66487       |
@@ -282,8 +283,8 @@ Estado de GNU Boot 0.1 RC4
 | X200 Tablet      |              |              | #66487       | #66487       |
 | (X200T)          |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Vikings,         | No probado   | No probado   | Fallado:     | Fallado:     |
-| ASUS KCMA D8     |              |              | #66487       | #66487       |
+| Vikings,         | Faltan       | No probado   | Faltan       | No probado   |
+| ASUS KCMA D8     | imágenes     |              | imágenes     |              |
 | mainboard and    |              |              |              |              |
 | workstation      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
