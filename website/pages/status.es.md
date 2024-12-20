@@ -33,7 +33,7 @@ Estado de GNU Boot 0.1 RC5
 | Asus, KFSN4-DRE  | Faltan       | Faltan       | Faltan       | No probado   |
 |                  | imágenes     | imágenes     | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KGPE-D16   | Faltan       | No probado   | Faltan       | No probado   |
+| Asus, KGPE-D16   | Faltan       | Probado      | Faltan       | No probado   |
 | con RAM ECC      | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KGPE-D16   | Faltan       | No probado   | Faltan       | No probado   |
