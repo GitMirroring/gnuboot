@@ -57,6 +57,7 @@ run_shellcheck \
     resources/packages/ich9utils/distclean \
     resources/packages/memtest86plus/distclean \
     resources/packages/payloads/distclean \
+    resources/packages/release/test \
     resources/packages/rom_images/distclean \
     resources/packages/roms/distclean \
     resources/packages/roms/download \

@@ -197,7 +197,7 @@ test_release_dir()
 
         if [ $found -eq 0 ] ; then
             echo "[ !! ] $path missing in \${release_files}"
-            missing_in_release_files=$(expr $missing_in_release_files + 1)
+            missing_in_release_files="$((missing_in_release_files + 1))"
         fi
     done < <(find "${dir}" -type f -print0)
 
