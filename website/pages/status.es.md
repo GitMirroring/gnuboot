@@ -11,7 +11,8 @@ Estado de GNU Boot 0.1 RC5
 |                  | alta         | baja         | alta         | baja         |
 |                  | resolución   | resolución   | resolución   | resolución   |
 +------------------+--------------+--------------+--------------+--------------+
-| Acer, G43T-AM3   | No probado   | No probado   | No probado   | No probado   |
+| Acer, G43T-AM3   | Faltan       | No probado   | Faltan       | No probado   |
+|                  | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Apple,           | No probado   | No probado   | No probado   | No probado   |
 +------------------+--------------+--------------+--------------+--------------+
@@ -176,8 +177,8 @@ Estado de GNU Boot 0.1 RC4
 |                  | alta         | baja         | alta         | baja         |
 |                  | resolución   | resolución   | resolución   | resolución   |
 +------------------+--------------+--------------+--------------+--------------+
-| Acer, G43T-AM3   | No probado   | No probado   | Fallado:     | Fallado:     |
-|                  |              |              | #66487       | #66487       |
+| Acer, G43T-AM3   | Faltan       | No probado   | Faltan       | Fallado:     |
+|                  | imágenes     |              | imágenes     | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
 | Apple,           | No probado   | No probado   | Fallado:     | Fallado:     |
 | MacBook 1.1      |              |              | #66487       | #66487       |

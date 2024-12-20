@@ -11,7 +11,8 @@ GNU Boot 0.1 RC5 status
 |                  | resolution   | low          | resolution   | low          |
 |                  | graphics     | resolution   | graphics     | resolution   |
 +------------------+--------------+--------------+--------------+--------------+
-| Acer, G43T-AM3   | Untested     | Untested     | Untested     | Untested     |
+| Acer, G43T-AM3   | Missing      | Untested     | Missing      | Untested     |
+|                  | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Apple,           |              |              |              |              |
 | MacBook 1.1      | Untested     | Untested     | Untested     | Untested     |
@@ -165,7 +166,8 @@ GNU Boot 0.1 RC4 status
 |                  | resolution   | low          | resolution   | low          |
 |                  | graphics     | resolution   | graphics     | resolution   |
 +------------------+--------------+--------------+--------------+--------------+
-| Acer, G43T-AM3   | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Acer, G43T-AM3   | Missing      | Untested     | Missing      | Fail: #66487 |
+|                  | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Apple,           |              |              |              |              |
 | MacBook 1.1      | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
