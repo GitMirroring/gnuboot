@@ -29,7 +29,8 @@ Estado de GNU Boot 0.1 RC5
 | Asus, KFSN4-DRE  | Faltan       | No probado   | Faltan       | No probado   |
 |                  | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KGPE-D16   | No probado   | No probado   | No probado   | No probado   |
+| Asus, KGPE-D16   | Faltan       | No probado   | Faltan       | No probado   |
+|                  | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Gigabyte,        | Fallado:     | Fallado:     | Fallado:     | Fallado:     |
 | D945GCLF2D       | #66463       | #66463       | #66463       | #66463       |
@@ -119,8 +120,8 @@ Estado de GNU Boot 0.1 RC5
 | mainboard and    |              |              |              |              |
 | workstation      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Vikings,         | No probado   | No probado   | No probado   | No probado   |
-| ASUS KGPE D16    |              |              |              |              |
+| Vikings,         | Faltan       | No probado   | Faltan       | No probado   |
+| ASUS KGPE D16    | imágenes     |              | imágenes     |              |
 | mainboard        |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings, X200    | No probado   | No probado   | No probado   | No probado   |
@@ -195,8 +196,8 @@ Estado de GNU Boot 0.1 RC4
 | Asus, KFSN4-DRE  | Faltan       | No probado   | Faltan       | Fallado:     |
 |                  | imágenes     |              | imágenes     | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KGPE-D16   | No probado   | No probado   | Fallado:     | Fallado:     |
-|                  |              |              | #66487       | #66487       |
+| Asus, KGPE-D16   | Faltan       | No probado   | Faltan       | Fallado:     |
+|                  | imágenes     |              | imágenes     | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
 | Gigabyte,        | Fallado:     | Fallado:     | Fallado:     | Fallado:     |
 | D945GCLF2D       | #66463       | #66463       | #66463,#66487|#66463,#66487 |
@@ -289,8 +290,8 @@ Estado de GNU Boot 0.1 RC4
 | mainboard and    |              |              |              |              |
 | workstation      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Vikings,         | No probado   | No probado   | Fallado:     | Fallado:     |
-| ASUS KGPE D16    |              |              | #66487       | #66487       |
+| Vikings,         | Faltan       | No probado   | Faltan       | Fallado:     |
+| ASUS KGPE D16    | imágenes     |              | imágenes     | #66487       |
 | mainboard        |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings, X200    | No probado   | No probado   | Fallado:     | Fallado:     |
