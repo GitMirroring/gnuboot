@@ -32,7 +32,10 @@ GNU Boot 0.1 RC5 status
 |                  | images       | images       | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KGPE-D16   | Missing      | Untested     | Missing      | Untested     |
-|                  | images       |              | images       |              |
+| with ECC RAM     | images       |              | images       |              |
++------------------+--------------+--------------+--------------+--------------+
+| Asus, KGPE-D16   | Missing      | Untested     | Missing      | Untested     |
+| with non-ECC RAM | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Gigabyte,        | Missing      | Missing      | Missing      | Fail: #66463 |
 | D945GCLF2D       | images       | images       | images       |              |
@@ -97,8 +100,13 @@ GNU Boot 0.1 RC5 status
 | Qemu,            |              |              |              |              |
 | PC (i440FX)      | Untested     | Untested     | Untested     | Untested     |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   |              |              |              |              |
-| D16              | Untested     | Untested     | Untested     | Untested     |
+| Technoethical,   | Untested     | Untested     | Untested     | Untested     |
+| D16              |              |              |              |              |
+| with ECC RAM     |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | Untested     | Untested     | Untested     | Untested     |
+| D16              |              |              |              |              |
+| with non-ECC RAM |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   |              |              |              |              |
 | T400             | Untested     | Untested     | Untested     | Untested     |
@@ -126,7 +134,13 @@ GNU Boot 0.1 RC5 status
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings,         | Missing      | Untested     | Missing      | Untested     |
 | ASUS KGPE D16    | images       |              | images       |              |
-| mainboard        |              |              |              |              |
+| mainboard with   |              |              |              |              |
+| ECC RAM          |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Vikings,         | Missing      | Untested     | Missing      | Untested     |
+| ASUS KGPE D16    | images       |              | images       |              |
+| mainboard with   |              |              |              |              |
+| non-ECC RAM      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings, X200    | Untested     | Untested     | Untested     | Untested     |
 +------------------+--------------+--------------+--------------+--------------+
@@ -187,7 +201,10 @@ GNU Boot 0.1 RC4 status
 |                  | images       | images       | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KGPE-D16   | Missing      | Untested     | Missing      | Fail: #66487 |
-|                  | images       |              | images       |              |
+| with ECC RAM     | images       |              | images       |              |
++------------------+--------------+--------------+--------------+--------------+
+| Asus, KGPE-D16   | Missing      | Untested     | Missing      | Fail: #66487 |
+| with non-ECC RAM | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Gigabyte,        | Missing      | Missing      | Missing      | Fail: #66463 |
 | D945GCLF2D       | images       | images       | images       | Fail: #66487 |
@@ -253,7 +270,11 @@ GNU Boot 0.1 RC4 status
 | PC (i440FX)      | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   |              |              |              |              |
-| D16              | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| D16 with ECC RAM | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| D16 with non-ECC |              |              |              |              |
+| RAM              |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   |              |              |              |              |
 | T400             | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
@@ -281,7 +302,13 @@ GNU Boot 0.1 RC4 status
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings,         | Missing      | Untested     | Missing      | Fail: #66487 |
 | ASUS KGPE D16    | images       |              | images       |              |
-| mainboard        |              |              |              |              |
+| mainboard with   |              |              |              |              |
+| ECC RAM          |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Vikings,         | Missing      | Untested     | Missing      | Fail: #66487 |
+| ASUS KGPE D16    | images       |              | images       |              |
+| mainboard with   |              |              |              |              |
+| non-ECC RAM      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings, X200    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
 +------------------+--------------+--------------+--------------+--------------+

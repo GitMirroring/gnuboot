@@ -31,7 +31,10 @@ Estado de GNU Boot 0.1 RC5
 |                  | imágenes     | imágenes     | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KGPE-D16   | Faltan       | No probado   | Faltan       | No probado   |
-|                  | imágenes     |              | imágenes     |              |
+| con RAM ECC      | imágenes     |              | imágenes     |              |
++------------------+--------------+--------------+--------------+--------------+
+| Asus, KGPE-D16   | Faltan       | No probado   | Faltan       | No probado   |
+| con RAM no-ECC   | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Gigabyte,        | Faltan       | Faltan       | Faltan       | Fallado:     |
 | D945GCLF2D       | imágenes     | imágenes     | imágenes     | #66463       |
@@ -96,7 +99,11 @@ Estado de GNU Boot 0.1 RC5
 | PC (i440FX)      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | No probado   | No probado   | No probado   | No probado   |
-| D16              |              |              |              |              |
+| D16 con RAM ECC  |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | No probado   | No probado   | No probado   | No probado   |
+| D16 con RAM      |              |              |              |              |
+| no-ECC           |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | No probado   | No probado   | No probado   | No probado   |
 | T400             |              |              |              |              |
@@ -125,6 +132,12 @@ Estado de GNU Boot 0.1 RC5
 | Vikings,         | Faltan       | No probado   | Faltan       | No probado   |
 | ASUS KGPE D16    | imágenes     |              | imágenes     |              |
 | mainboard        |              |              |              |              |
+| con RAM ECC      |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Vikings,         | Faltan       | No probado   | Faltan       | No probado   |
+| ASUS KGPE D16    | imágenes     |              | imágenes     |              |
+| mainboard        |              |              |              |              |
+| con RAM no-ECC   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings, X200    | No probado   | No probado   | No probado   | No probado   |
 +------------------+--------------+--------------+--------------+--------------+
@@ -199,7 +212,10 @@ Estado de GNU Boot 0.1 RC4
 |                  | imágenes     | imágenes     | imágenes     | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KGPE-D16   | Faltan       | No probado   | Faltan       | Fallado:     |
-|                  | imágenes     |              | imágenes     | #66487       |
+| con RAM ECC      | imágenes     |              | imágenes     | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Asus, KGPE-D16   | Faltan       | No probado   | Faltan       | Fallado:     |
+| con RAM no-ECC   | imágenes     |              | imágenes     | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
 | Gigabyte,        | Faltan       | Faltan       | Faltan       | Fallado:     |
 | D945GCLF2D       | imágenes     | imágenes     | imágenes     |#66463,#66487 |
@@ -266,7 +282,11 @@ Estado de GNU Boot 0.1 RC4
 | PC (i440FX)      |              |              | #66487       | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | No probado   | No probado   | Fallado:     | Fallado:     |
-| D16              |              |              | #66487       | #66487       |
+| D16 con RAM ECC  |              |              | #66487       | #66487       |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | No probado   | No probado   | Fallado:     | Fallado:     |
+| D16 con RAM      |              |              | #66487       | #66487       |
+| no-ECC           |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | No probado   | No probado   | Fallado:     | Fallado:     |
 | T400             |              |              | #66487       | #66487       |
@@ -295,6 +315,12 @@ Estado de GNU Boot 0.1 RC4
 | Vikings,         | Faltan       | No probado   | Faltan       | Fallado:     |
 | ASUS KGPE D16    | imágenes     |              | imágenes     | #66487       |
 | mainboard        |              |              |              |              |
+| con RAM ECC      |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Vikings,         | Faltan       | No probado   | Faltan       | Fallado:     |
+| ASUS KGPE D16    | imágenes     |              | imágenes     | #66487       |
+| mainboard        |              |              |              |              |
+| con RAM no-ECC   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings, X200    | No probado   | No probado   | Fallado:     | Fallado:     |
 |                  |              |              | #66487       | #66487       |
