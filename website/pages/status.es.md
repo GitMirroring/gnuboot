@@ -332,7 +332,7 @@ Estado de GNU Boot 0.1 RC4
 | workstation      |              |              |              |              |
 | con RAM no-ECC   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Vikings,         | Faltan       | No probado   | Faltan       | Fallado:     |
+| Vikings,         | Faltan       | Probado      | Faltan       | Fallado:     |
 | ASUS KGPE D16    | imágenes     |              | imágenes     | #66487       |
 | mainboard        |              |              |              |              |
 | con RAM ECC      |              |              |              |              |

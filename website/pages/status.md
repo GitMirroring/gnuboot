@@ -321,7 +321,7 @@ GNU Boot 0.1 RC4 status
 | workstation with |              |              |              |              |
 | non-ECC RAM      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Vikings,         | Missing      | Untested     | Missing      | Fail: #66487 |
+| Vikings,         | Missing      | Tested       | Missing      | Fail: #66487 |
 | ASUS KGPE D16    | images       |              | images       |              |
 | mainboard with   |              |              |              |              |
 | ECC RAM          |              |              |              |              |
