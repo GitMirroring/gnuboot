@@ -14,11 +14,11 @@ GNU Boot 0.1 RC5 status
 | Acer, G43T-AM3   | Missing      | Untested     | Missing      | Untested     |
 |                  | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Apple,           |              |              |              |              |
-| MacBook 1.1      | Untested     | Untested     | Untested     | Untested     |
+| Apple,           | Untested     | Untested     | Untested     | Untested     |
+| MacBook 1.1      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Apple,           |              |              |              |              |
-| MacBook 2.1      | Untested     | Untested     | Untested     | Untested     |
+| Apple,           | Untested     | Untested     | Untested     | Untested     |
+| MacBook 2.1      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Apple, iMac 5,2  | Untested     | Untested     | Untested     | Untested     |
 +------------------+--------------+--------------+--------------+--------------+
@@ -55,54 +55,54 @@ GNU Boot 0.1 RC5 status
 | Intel, D945GCLF  | Missing      | Missing      | Missing      | Untested     |
 |                  | images       | images       | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-| ThinkPad R400    | Tested       | Untested     | Untested     | Untested     |
+| Lenovo,          | Tested       | Untested     | Untested     | Untested     |
+| ThinkPad R400    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-| ThinkPad R500    | Untested     | Untested     | Untested     | Untested     |
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| ThinkPad R500    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-| ThinkPad T400    | Untested     | Untested     | Untested     | Untested     |
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| ThinkPad T400    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-| ThinkPad T400S   | Untested     | Untested     | Untested     | Untested     |
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| ThinkPad T400S   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-| ThinkPad T500    | Tested       | Untested     | Untested     | Untested     |
+| Lenovo,          | Tested       | Untested     | Untested     | Untested     |
+| ThinkPad T500    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
 | ThinkPad T60     |              |              |              |              |
-| with intel GPU   | Untested     | Untested     | Untested     | Untested     |
+| with intel GPU   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-| ThinkPad W500    | Untested     | Untested     | Untested     | Untested     |
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| ThinkPad W500    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-| ThinkPad X200    | Tested       | Untested     | Untested     | Untested     |
+| Lenovo,          | Tested       | Untested     | Untested     | Untested     |
+| ThinkPad X200    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-|  ThinkPad X200S  | Untested     | Untested     | Untested     | Untested     |
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+|  ThinkPad X200S  |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-| ThinkPad X200T   | Untested     | Untested     | Untested     | Untested     |
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| ThinkPad X200T   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-| ThinkPad X301    | Untested     | Untested     | Untested     | Untested     |
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| ThinkPad X301    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-| ThinkPad X60     | Untested     | Untested     | Untested     | Untested     |
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| ThinkPad X60     |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-| ThinkPad X60T    | Untested     | Untested     | Untested     | Untested     |
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| ThinkPad X60T    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-|  ThinkPad X60s   | Untested     | Untested     | Untested     | Untested     |
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| ThinkPad X60s    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Libiquity,       |              |              |              |              |
-| Taurinus X200    | Untested     | Untested     | Untested     | Untested     |
+| Libiquity,       | Untested     | Untested     | Untested     | Untested     |
+| Taurinus X200    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Qemu,            |              |              |              |              |
-| PC (i440FX)      | Untested     | Untested     | Untested     | Untested     |
+| Qemu,            | Untested     | Untested     | Untested     | Untested     |
+| PC (i440FX)      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | Untested     | Untested     | Untested     | Untested     |
 | D16              |              |              |              |              |
@@ -112,24 +112,24 @@ GNU Boot 0.1 RC5 status
 | D16              |              |              |              |              |
 | with non-ECC RAM |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   |              |              |              |              |
-| T400             | Untested     | Untested     | Untested     | Untested     |
+| Technoethical,   | Untested     | Untested     | Untested     | Untested     |
+| T400             |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   |              |              |              |              |
-| T400s            | Untested     | Untested     | Untested     | Untested     |
+| Technoethical,   | Untested     | Untested     | Untested     | Untested     |
+| T400s            |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   |              |              |              |              |
-| T500             | Untested     | Untested     | Untested     | Untested     |
+| Technoethical,   | Untested     | Untested     | Untested     | Untested     |
+| T500             |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   |              |              |              |              |
-| X200             | Untested     | Untested     | Untested     | Untested     |
+| Technoethical,   | Untested     | Untested     | Untested     | Untested     |
+| X200             |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   |              |              |              |              |
-| X200s            | Untested     | Untested     | Untested     | Untested     |
+| Technoethical,   | Untested     | Untested     | Untested     | Untested     |
+| X200s            |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   |              |              |              |              |
+| Technoethical,   | Untested     | Untested     | Untested     | Untested     |
 | X200 Tablet      |              |              |              |              |
-| (X200T)          | Untested     | Untested     | Untested     | Untested     |
+| (X200T)          |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings,         | Missing      | Untested     | Missing      | Untested     |
 | ASUS KCMA D8     | images       |              | images       |              |
@@ -194,11 +194,11 @@ GNU Boot 0.1 RC4 status
 | Acer, G43T-AM3   | Missing      | Untested     | Missing      | Fail: #66487 |
 |                  | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Apple,           |              |              |              |              |
-| MacBook 1.1      | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Apple,           | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| MacBook 1.1      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Apple,           |              |              |              |              |
-| MacBook 2.1      | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Apple,           | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| MacBook 2.1      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Apple, iMac 5,2  | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
 +------------------+--------------+--------------+--------------+--------------+
@@ -234,80 +234,80 @@ GNU Boot 0.1 RC4 status
 | Intel, D945GCLF  | Missing      | Missing      | Missing      | Fail: #66487 |
 |                  | images       | images       | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-| ThinkPad R400    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| ThinkPad R400    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-| ThinkPad R500    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| ThinkPad R500    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-| ThinkPad T400    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| ThinkPad T400    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-| ThinkPad T400S   | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| ThinkPad T400S   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-| ThinkPad T500    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| ThinkPad T500    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
+| Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
 | ThinkPad T60     |              |              |              |              |
-| with intel GPU   | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| with intel GPU   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-| ThinkPad W500    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| ThinkPad W500    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-| ThinkPad X200    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| ThinkPad X200    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-|  ThinkPad X200S  | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+|  ThinkPad X200S  |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-| ThinkPad X200T   | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| ThinkPad X200T   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-| ThinkPad X301    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| ThinkPad X301    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-| ThinkPad X60     | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| ThinkPad X60     |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-| ThinkPad X60T    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| ThinkPad X60T    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          |              |              |              |              |
-|  ThinkPad X60s   | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| ThinkPad X60s    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Libiquity,       |              |              |              |              |
-| Taurinus X200    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Libiquity,       | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Taurinus X200    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Qemu,            |              |              |              |              |
-| PC (i440FX)      | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Qemu,            | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| PC (i440FX)      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   |              |              |              |              |
-| D16 with ECC RAM | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Technoethical,   | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| D16 with ECC RAM |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
 | D16 with non-ECC |              |              |              |              |
 | RAM              |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   |              |              |              |              |
-| T400             | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Technoethical,   | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| T400             |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   |              |              |              |              |
-| T400s            | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Technoethical,   | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| T400s            |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   |              |              |              |              |
-| T500             | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Technoethical,   | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| T500             |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   |              |              |              |              |
-| X200             | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Technoethical,   | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| X200             |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   |              |              |              |              |
-| X200s            | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| Technoethical,   | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| X200s            |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   |              |              |              |              |
+| Technoethical,   | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
 | X200 Tablet      |              |              |              |              |
-| (X200T)          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| (X200T)          |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings,         | Missing      | Untested     | Missing      | Untested     |
 | ASUS KCMA D8     | images       |              | images       |              |
