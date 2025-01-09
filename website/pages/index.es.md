@@ -1,80 +1,60 @@
 ---
-title: ¡Libera tu BIOS hoy!
-x-reviewed: true
+title: ¡Libera tu BIOS hoy mismo!
 ...
 
-### ¿Qué es esto? ####
+### ¿Qué es esto? ###
 
-GNU Boot es un proyecto de software 100% libre destinado a reemplazar el
-software privativo de arranque de computadoras por software libre.
+GNU Boot es un proyecto de software 100% libre destinado a sustituir el
+software de arranque no libre (como BIOS o UEFI) de los computadores por
+software de arranque libre.
 
-GNU Boot es únicamente una distribución: reutiliza proyecto software
-como Coreboot, GRUB, SeaBIOS, etc.
+GNU Boot es sólo una distribución: reutiliza proyectos de software
+existentes como Coreboot, GRUB, SeaBIOS, etc.
 
-No es muy diferente de [distribución GNU/Linux 100%
-libre](https://www.gnu.org/distros/free-distros.es.html) como Trisquel
-o Guix.
+Así que no es muy diferente de [distribuciones GNU/Linux 100%
+libres](https://www.gnu.org/distros/free-distros.es.html) como Trisquel o
+Guix.
 
-Como otras distribución GNU/Linux 100% libre su tareas son:
+Como el resto de distribuciones GNU/Linux 100% libres sus tareas son:
 
-* Buscar y remover código no libre en proyectos che reutiliza.
+* Encontrar y eliminar el software no libre de los proyectos que
+  reutiliza.
 
-* Hacer la compilación del software y asemblar lo en algo que si puede
-  instalar. Testar el software y distribuir instrucciones de
-  instalación y de mejora.
+* Construir el software y ensamblarlo en algo que pueda instalarse.
+  Probarlo y proporcionar instrucciones de instalación y actualización.
 
-* Distribuir configuración con buenas valores por defecto que funciona
-  por la mayoría de los usuarios.
+* Proporcionar una buena configuración por defecto que funcione para la
+  mayoría de los usuarios.
 
-### Situación del proyecto y ayuda necesaria ####
+### Cómo surgió este proyecto ###
 
-En este momento, GNU Boot todavía está en su etapa inicial.
-
-Debería ser relativamente seguro usar GNU Boot 0.1 RC3 ya que tiene
-cambios mínimos sobre Libreboot 20220710 (la última versión 100% libre
-de Libreboot) y también porque varias personas lo probaron y no
-informaron ningún problema de bloqueo.
-
-Sin embargo, necesitamos mucha ayuda para arreglar el sitio web ya que
-la mayoría de las páginas están desactualizadas o todavía hacen
-referencia a Libreboot o libreboot.at en vez de GNU Boot.
-
-Esto es muy importante porque el sitio web también contiene toda la
-documentación del proyecto, incluidas las instrucciones de instalación
-(también necesitamos ayuda para probarlas).
-
-Consulte la [página sobre cómo contribuir a GNU
-Boot](/software/gnuboot/web/git.html) para obtener más detalles sobre
-cómo ayudar a GNU Boot.
-
-### Como surgió este proyecto ####
-
-Creemos que los usuarios de computadoras merecen controlar todo el
+Creemos que los usuarios de computadores merecen controlar todo el
 software que ejecutan. Esta creencia es el principio clave del
-Movimiento del Software Libre y fue el motivo para desarrollar el
-sistema operativo GNU y fundar la Free Software Foundation. Creemos que
-la libertad del usuario de computadoras es un derecho humano crucial.
+movimiento del software libre, y fue el motivo para desarrollar el
+sistema operativo GNU y crear la Free Software Foundation. Creemos que
+la libertad de los usuarios de computadores es un derecho humano
+crucial.
 
-Para lograr nuestro objetivo, es crucial que llamemos a un programa
-"libre" sólo cuando de hecho lo sea en su totalidad. Cuando hablamos de
-programas específicos, no debemos confundir los hechos sobre qué es
-libre y qué no. Si la gente empieza a referirse a un programa como
-"libre", cuando partes del mismo no lo son en realidad, eso tiende a
-desviar a la comunidad.
+Para lograr nuestro objetivo, es crucial que llamemos «libre» a un
+programa sólo cuando sea realmente libre en su totalidad. Cuando
+hablemos de programas concretos, no debemos confundir los hechos sobre
+lo que es libre y lo que no. Si la gente empieza a referirse a un
+programa como «libre», cuando partes de él no lo son en realidad, eso
+tiende a llevar a la comunidad por mal camino.
 
-Desafortunadamente, tal confusión ocurrió el año pasado con un programa
-de arranque que era software libre, llamado Libreboot: su equipo de
-desarrollo le agregó código no libre, pero continuó usando "Libre" en su
-nombre.
+Por desgracia, el año pasado se produjo un embrollo de este tipo con un
+programa de arranque que era software libre y que se denominó Libreboot:
+el equipo de desarrollo le añadió código que no era libre, pero siguió
+utilizando «Libre» en su nombre.
 
 Libreboot se lanzó por primera vez en 2013. Ha sido ampliamente
-recomendado en la comunidad de software libre durante los últimos nueve
+recomendado en la comunidad del software libre durante los últimos nueve
 años. En noviembre de 2022, Libreboot comenzó a incluir código no libre.
-Hemos realizado repetidos esfuerzos para continuar la colaboración con
-sus desarrolladores para ayudar a que su versión de Libreboot siga
-siendo libre, pero no fue exitoso.
+Hemos hecho repetidos esfuerzos por seguir colaborando con dichos
+desarrolladores para ayudar a que su versión de Libreboot siga siendo
+libre, pero no hemos tenido éxito.
 
 Ahora hemos dado un paso adelante para defender la libertad, la nuestra
-y la de la comunidad en general, manteniendo nuestra propia versión: un
-Libreboot genuinamente libre, que después de algunos obstáculos dio
-origen a este proyecto: GNU Boot.
+y la de la comunidad en general, manteniendo nuestra propia versión, un
+Libreboot genuinamente libre, que tras algunos obstáculos dio origen a
+este proyecto: GNU Boot.
