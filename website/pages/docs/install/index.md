@@ -2,8 +2,8 @@
 title: Get GNU Boot
 ...
 
-Buy a computers with GNU Boot
-=============================
+Buy a computer with GNU Boot
+============================
 
 The FSF maintains a [certification](ttps://ryf.fsf.org) for computers
 that mostly work without nonfree software.
