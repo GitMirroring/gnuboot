@@ -40,22 +40,22 @@ testing/updating the installation instructions.
 We currently have a list of what computers aren't tested yet in the
 [bug 64754](https://savannah.gnu.org/bugs/?64754).
 
-As for reporting what you tested, you can open a new bug or send a
-mail to the [gnuboot](http://lists.gnu.org/mailman/listinfo/gnuboot)
-or [Bug-gnuboot]
-(https://lists.gnu.org/mailman/listinfo/bug-gnuboot) mailing list.
+As for reporting what you tested, you can open a new bug or send a mail to
+the [gnuboot](http://lists.gnu.org/mailman/listinfo/gnuboot) or
+[Bug-gnuboot](https://lists.gnu.org/mailman/listinfo/bug-gnuboot) mailing
+list.
 
 Technical contributions
 -----------------------
 
 GNU Boot is currently using old versions of upstream software (like
 Coreboot, GRUB, etc) and so they need to be updated. Patches for that
-need to be sent on the [gnuboot-patches]
-(http://lists.gnu.org/mailman/listinfo/gnuboot-patches) mailing list.
+need to be sent on the [gnuboot-patches][]  mailing list.
 
-We also have a bug tracker at
-https://savannah.gnu.org/bugs/?group=gnuboot that contains a list of
-bugs that needs to be fixed.
+[gnuboot-patches]: http://lists.gnu.org/mailman/listinfo/gnuboot-patches
+
+We also have a bug tracker at <https://savannah.gnu.org/bugs/?group=gnuboot>
+that contains a list of bugs that needs to be fixed.
 
 How to contribute
 =================
