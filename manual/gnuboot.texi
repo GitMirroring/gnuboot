@@ -81,11 +81,8 @@ explained below.
 @cindex @acronym{UEFI, Unified Extensible Firmware Interface}
 @cindex boot software
 
-If you take a modern laptop computer, and remove the storage devices
-(like @acronym{SSD, Solid State Drive}, hard disks, etc) and then
-power on the computer, it will typically show something on the screen.
-
-It often looks a bit like that:
+When you boot a computer, you can sometimes can see a screen that
+looks like that:
 
 @verbatim
 +--------------------------------------------------------------------+
@@ -106,29 +103,41 @@ It often looks a bit like that:
 +--------------------------------------------------------------------+
 @end verbatim
 
-What is being displayed on the screen is produced by software which is
-often nonfree.
+This screen is produced by software that is often called
+@acronym{BIOS, Basic Input/Output System} or @acronym{UEFI, Unified
+Extensible Firmware Interface}. We refer to this type of software as
+boot software.
 
-It is often called @acronym{BIOS, Basic Input/Output System} or
-@acronym{UEFI, Unified Extensible Firmware Interface} on computers
-people are most familiar with. This software is typically stored
-inside a memory chip inside the computer mainboard. In some computers,
-this software can be replaced by free software.
+The goal of this software is to initialize the hardware of the
+computer and load an operating system (like GNU/Linux, Windows, or
+macOS). GNU Boot can replaces this software on some computers.
 
-Depending on how you read the manual, right below you may or may not
-see a picture of this memory chip on the mainboard of a ThinkPad X200.
+Like all software, this boot software has to be stored somewhere.
 
-@image{images/SOIC-16,6in,, Picture of the memory chip of the ThinkPad X200
+Unlike the operating system which is typically stored on data storage
+devices people are familiar with (like @acronym{SSD, Solid State
+Drive} or a hard disks, USB keys, etc), the boot software is stored on
+a very different kind of data storage device.
+
+It is stored inside a chip that is inside the computer mainboard.
+People and technical documentation often call this chip the "boot
+flash" because it is stores the boot software, and also because it is
+a chip that stores data and that is built with a semiconductor
+technology called flash (see @uref{https://en.wikipedia.org/wiki/Flash
+memory,the Wikipedia article on flash memory} for more details on the
+technology).
+
+Here is a picture of this boot flash on the mainboard of a ThinkPad
+X200:
+
+@image{images/SOIC-16,6in,, Picture of the boot flash of the ThinkPad X200
 mainboard.}
-
-@sp 2
-
-The goal of this boot software is to initialize the hardware and load
-an operating system (like GNU/Linux).
 
 @sp 1
 
-This kind of ``boot software'' exists for a variety of reasons:
+Boot software (like @acronym{BIOS, Basic Input/Output System},
+@acronym{UEFI, Unified Extensible Firmware Interface} or GNU Boot)
+exist for a variety of technical reasons:
 
 @itemize
 
@@ -156,12 +165,15 @@ computers.
 @node distribution
 @subsection distribution
 
-GNU Boot is only a distribution because it reuses various software to
-produce something that can be installed.
-
-So it is similar to GNU/Linux distributions like Trisquel 11
-(aramo) that also reuse various software to produce something that
+GNU Boot a distribution of boot software: like GNU/Linux distributions
+(like Trisquel), it reuses various software to produce something that
 can be installed.
+
+However the scope of GNU Boot is more limited than GNU/Linux
+distributions as it only reuses boot software like Coreboot or GRUB to
+produce something that replaces nonfree @acronym{BIOS, Basic
+Input/Output System} or @acronym{UEFI, Unified Extensible Firmware
+Interface}.
 
 @node Why free boot software is important
 @section Why free boot software is important
@@ -533,19 +545,28 @@ GNU Boot bug tracker at
 @cindex flash images
 @cindex image files
 
-In computers people are most familar with, like laptops, the boot
-software resides in a memory chip inside the mainboard (@pxref{boot
-software} for more details).
+In computers people are most familiar with, like laptops, the boot
+software (like the @acronym{BIOS, Basic Input/Output System},
+@acronym{UEFI, Unified Extensible Firmware Interface} or even GNU
+Boot) resides in the boot flash which is a data storage chip inside
+the mainboard (@pxref{boot software} for more details).
 
-GNU Boot provide @dfn{image files} which are files that replace the
-content of these memory chip.
+So to install GNU Boot or to update it, you will need to replace all
+the content of this boot flash with GNU Boot or with a newer GNU Boot
+version.
+
+To do that, GNU Boot provide @dfn{image files} which are files whose
+content is to be written to the boot flash to overwrite everything
+that was previously stored by the boot flash (like previous versions
+of GNU Boot, the @acronym{BIOS, Basic Input/Output System}, etc).
 
 These files are similar to
 @uref{https://en.wikipedia.org/wiki/Disk_image,disk images},
 @uref{https://en.wikipedia.org/wiki/ISO_image,ISO images}, or
 @uref{https://en.wikipedia.org/wiki/ROM_image,ROM images}.
 
-We also sometime refer to the flash image files as @dfn{flash images}.
+We also sometime refer to the flash image files as @dfn{flash images}
+or simply (GNU Boot) "images" (files).
 
 @node GNU Boot images types
 @subsection GNU Boot images types
