@@ -259,17 +259,80 @@ the ARM architecture (which GNU Boot doesn't support yet):
 
 @end itemize
 
+@node       GNU boot and GNU Guix
+@subsection GNU boot and GNU Guix
+
 The GNU Guix package manager (which GNU Boot also reuses) also provide
 100% free boot software for some ARM computers. However the Guix
 packages are updated all the time and the Guix project doesn't provide
 any way for users to report that specific ARM computers work fine with
 the boot software they provide.
 
-There is also Canoeboot which is a 100% free software boot
-distribution similar to GNU Boot. Its goal is to remove nonfree
-software from Libreboot. It focuses more on having the latest software
-and many features, including some that are not available in the
-projects it reuses. Because of that it can be harder for users to use.
+@node       GNU boot and Canoeboot
+@subsection GNU boot and Canoeboot
+
+There is also Canoeboot which is a 100% free software boot distribution
+similar to GNU Boot. Its goal is to remove nonfree software from
+Libreboot.
+
+The main difference is that GNU Boot has a longer term focus. This has
+many different impacts for end users.
+
+Compared to GNU Boot, Canoeboot focuses more on having the latest
+software, adding additional features not available in the projects it
+reuses (like modern full disk encryption with GRUB), and it also
+supports computers not yet supported by GNU Boot.
+
+In both cases this is sometimes done by modifying the project it reuses
+without contributing back the changes. While this saves a lot of time in
+the short and medium term, and that things do work as Canoeboot and/or
+its community do test all these changes, it makes it harder to keep
+these extra features and/or computers in the long run.
+
+As the project being reused and everything around evolve, the
+modifications need to be maintained and sometimes re-made to work with
+newer versions of the project being reused.
+
+The difficulty to keep these changes increase with the amount of such
+changes, their size and complexity, or the speed of the evolution of the
+projects being reused.
+
+Weather or not this will turn out to be an issue is hard to tell in
+advance because there are a lot of unknowns.
+
+Note that GNU Boot also has similar issues but instead of adding more
+modifications it tries to reduces their amount.
+
+Another significant difference between both projects is that Canoeboot
+improved seems to have fixed a lot of issue since Libreboot 20220710
+(the latest fully Libreboot version), while GNU Boot took a completely
+different approach: its goal is to re architecture many things, step by
+step, while taking great care of not breaking what worked in Libreboot
+20220710. For instance GNU Boot is switching to GNU Guix to build its
+software and it is also making a proper manual.
+
+In the long run this enables GNU boot to solve more complex problem that
+would be really hard or impossible to solve with the current design of
+Canoeboot (like the ability to trust the images built by someone else,
+or the ability to build and modify your own images faster, more easily
+and with way less risk).
+
+But this also means that shorter term fixes are often less good in GNU
+Boot because we focus more on longer term fixes like the migration to
+GNU Guix. The real impact of all that is hard to evaluate in the short
+term as GNU Boot also changes less often than Canoeboot and probably has
+less testing by users.
+
+And for documentation the impact Canoeboot website seems more consistent
+than GNU Boot, but GNU Boot also has this manual.
+
+Also note that the GNU Boot maintainers don't know Canoeboot well enough
+as this would require them to spend a lot of time studying its
+documentation, source code an testing it and/or using it, to get first
+hand knowledge about it, to really evaluate the impact of Canoeboot
+choices and compare them to GNU Boot, so instead they relied on
+discussion with Leah Rowe, its maintainer, to write this subsection
+about Canoeboot.
 
 @node    How much free software is GNU Boot?
 @section How much free software is GNU Boot?
