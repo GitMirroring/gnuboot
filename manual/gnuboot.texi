@@ -260,17 +260,50 @@ the ARM architecture (which GNU Boot doesn't support yet):
 
 @end itemize
 
+@node       GNU boot and GNU Guix
+@subsection GNU boot and GNU Guix
+
 The GNU Guix package manager (which GNU Boot also reuses) also provide
 100% free boot software for some ARM computers. However the Guix
 packages are updated all the time and the Guix project doesn't provide
 any way for users to report that specific ARM computers work fine with
 the boot software they provide.
 
+@node       GNU boot and Canoeboot
+@subsection GNU boot and Canoeboot
+
 There is also Canoeboot which is a 100% free software boot
 distribution similar to GNU Boot. Its goal is to remove nonfree
-software from Libreboot. It focuses more on having the latest software
-and many features, including some that are not available in the
-projects it reuses. Because of that it can be harder for users to use.
+software from Libreboot.
+
+Compared to GNU Boot, it focuses more on having the latest software,
+adding additional features not available in the projects it reuses
+(like modern full disk encryption with GRUB), and it also supports
+computers not yet supported by GNU Boot.
+
+In both cases this is sometimes done with experimental code that is
+also not in the project it reuses. While this approach is extremely
+useful in the short term (things do work as Canoeboot and/or its
+community do test all that), it has been shown to be unsustainable in
+the long run when the amount of patches is too big and/or when the the
+projects being reused change too fast. When that happens, the support
+for the extra features or hardware is usually removed.
+
+Another significant difference between both projects is that Canoeboot
+improved and fixed a lot of issue since Libreboot 20220710 (the latest
+fully Libreboot version), while GNU Boot took a completely different
+approach: its goal is to re architecture many things, step by step,
+while taking great care of not breaking what worked in Libreboot
+20220710. For instance GNU Boot is switching to GNU Guix to build its
+software and it is also making a proper manual.
+
+This makes Canoeboot technically superior in many aspects in the short
+run (for instance the build is more robust and its documentation more
+consistent), but in the long run this enables GNU boot to solve more
+complex problem that would be really hard or impossible to solve with
+the current design of Canoeboot (like the ability to trust the images
+built by someone else, or the ability to build and modify your own
+images faster, more easily and with way less risk).
 
 @node How much free software is GNU Boot?
 @section How much free software is GNU Boot?
