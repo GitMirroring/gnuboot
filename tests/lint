@@ -37,16 +37,22 @@ run_shellcheck()
     done
 }
 
-printf "+---------------------+\n"
-printf "| Running lint tests: |\n"
-printf "+---------------------+\n"
+run_grub_script_check()
+{
+    for path in "$@" ; do
+	grub-script-check  "${path}" ; report "${path}"
+    done
+}
+
+printf "+---------------------------+\n"
+printf "| Running shellcheck tests: |\n"
+printf "+---------------------------+\n"
 run_shellcheck \
     autogen.sh \
     build \
     download \
     modify \
     update \
-    resources/grub/config/grub.cfg \
     resources/packages/coreboot/distclean \
     resources/packages/descriptors/distclean \
     resources/packages/grub/distclean \
@@ -73,6 +79,12 @@ run_shellcheck \
     tests/lint \
     website/build.sh \
     website/check.sh
+
+printf "+----------------------------------+\n"
+printf "| Running grub-script-check tests: |\n"
+printf "+----------------------------------+\n"
+run_grub_script_check \
+    resources/grub/config/grub.cfg
 
 printf "+---------------------+\n"
 printf "| Lint tests done     |\n"
