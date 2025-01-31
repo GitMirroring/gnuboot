@@ -20,12 +20,16 @@
 report()
 {
     ret=$?
-    message="$1"
+    path="$1"
+    test="$2"
+
+    message="${path}"
 
     if [ ${ret} -eq 0 ] ; then
 	echo "[ OK ] ${message}"
     else
-	echo "[ !! ] ${message} failed"
+	message="${path}: ${test} test"
+	echo "[ !! ] ${message} failed."
 	exit ${ret}
     fi
 }
@@ -33,7 +37,9 @@ report()
 run_shellcheck()
 {
     for path in "$@" ; do
-	shellcheck -x "${path}" ; report "${path}"
+	head -n1 "${path}" | grep -q '^#!/usr/bin/env bash$' || \
+	    report "${path}" "\"#!/usr/bin/env bash\""
+	shellcheck -s bash -x "${path}" ; report "${path}"
     done
 }
 
