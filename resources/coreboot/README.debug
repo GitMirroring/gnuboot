@@ -1,5 +1,5 @@
 GNU Boot also builds some debug images that are shipped in separate
-debug archives (like gnuboot-0.1-rc3_x200_8mb_debug.tar.xz).
+debug archives (like gnuboot-0.1-rc3_t400_8mb_debug.tar.xz).
 
 The debug images have the following differences with the regular
 images:

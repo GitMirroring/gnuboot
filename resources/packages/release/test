@@ -151,7 +151,6 @@ test_release_dir()
     "
 
     debug_targets="\
-        x200_8mb \
         t400_8mb \
         kgpe-d16-rdimm_2mb \
         qemu-pc_2mb \
