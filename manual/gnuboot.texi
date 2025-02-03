@@ -915,6 +915,44 @@ and it will be viewed like a mass storage USB key.
 @pxref{Supported computers}, inside each computer subsection to see
 which computers's internal card readers are supported.
 
+@node       Supported serial ports
+@subsection Supported serial ports
+
+While the serial ports are not enabled in the default GNU Boot images,
+GNU Boot also build debug images with the serial port enabled.
+
+So far only the following computers have debug images with the serial
+port enabled:
+
+@itemize
+@item Asus KGPE-D16
+@item Lenovo ThinkPad T400
+@item Lenovo ThinkPad T400S
+@item Qemu PC (i440FX)
+@item Technoethical T400
+@item Technoethical T400s
+@item Vikings ASUS KGPE D16 mainboard
+@end itemize
+
+If you have a computer supported by GNU Boot that isn't in the list
+above, and that you are able to test and recover from non-working
+images (@pxref{Practical freedoms with flash programmers} for more
+details), you can ask the GNU Boot maintainers to add a debug image
+for your computer, and once you tested it we could update the list
+above.
+
+To get the logs you can for instance get an USB<->serial adapter and a
+Null modem cable or adapter and after installing the picocom package,
+you can most of the time use the following command to get the logs:
+
+@example
+picocom -b 115200 /dev/ttyUSB0
+@end example
+
+For USB<->Serial adapters, the serial port will most of the time be on
+/dev/ttyUSB0, but it can change in some configuration (when there are
+multiple serial ports, or with some adapters).
+
 @node       Unsupported hardware supported by projects reused by GNU Boot
 @subsection Unsupported hardware supported by projects reused by GNU Boot
 
@@ -922,14 +960,11 @@ The following hardware components are supported by software reused by
 GNU Boot, but support for them hasn't been enabled yet in GNU Boot:
 
 @itemize
-@item Serial ports.
 @item Software RAID cards: Some Silicon Image SIL3114 software RAID
       cards are supported by Coreboot but not enabled in GNU Boot.
 @item Network interfaces. Projects like iPXE has drivers for many network cards
       and even some Wifi cards typically used with the computers supported by GNU
       Boot and free distributions.
-@item Some printers that use serial ports could probably easily be supported
-      once serial ports are working.
 @end itemize
 
 The GNU Boot project needs help to evaluate the impact of enabling
