@@ -42,6 +42,16 @@
   (display (string-append path "\n"))
   (display dashes))
 
+(define (file-exists-at-commit? commit path)
+  (not (eof-object?
+        (let*
+            ((port
+              (open-pipe*
+               OPEN_READ
+               "git" "ls-tree" commit "--" path))
+             (str (read-line port)))
+          str))))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
 ;;                         ;;;;;;;;;;;;;;;;;;;;;;;;;                          ;;
@@ -631,6 +641,59 @@
                 'errors
                 (+ 1 (assq-ref check-results 'errors)) check-results)))
             check-results))))
+
+   (make-rule
+    "Warn about missing translations"
+    (lambda (path parse-results check-results) check-results)
+    (lambda (line parse-results check-results) #t)
+    (lambda (line parse-results check-results) check-results)
+    (lambda (path parse-results check-results)
+      (define warnings (assq-ref check-results 'warnings))
+
+      (define (english-page? path)
+        (and
+         (not (string-match "^website/pages/.*\\.es\\.md$" path))
+         (string-match "^website/pages/.*\\.md$" path)))
+
+      (define (english-page->spanish-page path)
+        (regexp-substitute #f (string-match "\\.md$" path) 'pre ".es.md"))
+
+      (define (spanish-needs-update? page-path)
+        (cond ((not (english-page? page-path)) #f)
+              ;; We cannot expects contributors to ever update Spanish
+              ;; pages if they do not exit.
+              ((not (file-exists-at-commit?
+                     (assq-ref parse-results 'commit-hash)
+                     (english-page->spanish-page page-path)))
+               #f)
+              ;; This checks if the patch updates the corresponding
+              ;; Spanish file. If it doesn't the file needs update
+              ;; and a warning is added.
+              ((not
+                (= 1 (length
+                      (filter
+                       (lambda (modified-file-path)
+                         (string=?
+                          modified-file-path
+                          (english-page->spanish-page page-path)))
+                       (assq-ref parse-results 'modified-files)))))
+               #t)
+              (else #f)))
+      (for-each
+       (lambda (current-page)
+         (if (spanish-needs-update? current-page)
+             ((lambda _
+                (set! warnings (+ 1 warnings))
+                (display
+                 (string-append
+                  "WARNING: " current-page " was updated but not "
+                  (english-page->spanish-page current-page)
+                     ".\n\n"))))))
+       (assq-ref parse-results 'modified-files))
+
+      (acons
+       'warnings
+       warnings check-results)))
 
    (make-rule
     "Check @node alignement in the manual"

@@ -79,6 +79,37 @@ done < tests/checkpatch-test-non-modified-unaligned-nodes.ref && \
 echo "[ OK ] didn't warn against non-modified unaligned nodes in the manual."
 
 ################################################################################
+# Test if checkpatch.scm correctly finds missing Spanish translation.          #
+################################################################################
+
+# This checks the "website: status: RC4/RC5: cosmetics: align cell
+# text top-left." commit where website/pages/status.es.md exists, but
+# the commit only updates website/pages/status.md.
+./scripts/checkpatch.scm \
+    "$(git format-patch -1 4c46963c3dd2a9f26fb48363a5b7c8395be61f5a)" > \
+    "${tmpdir}"/checkpatch-test-missing-spanish-translation.log 2>/dev/null
+
+while IFS= read -r line; do
+    grep -q "${line}" "${tmpdir}"/checkpatch-test-missing-spanish-translation.log
+done < tests/checkpatch-test-missing-spanish-translation.ref || \
+    fail "failed to detect missing spanish translation in the website."
+
+echo "[ OK ] detected missing spanish translation in the website."
+
+# This checks the "website: status: 0.1 RC4: mark Vikings D16 as
+# tested" commit where the Spanish translation is correctly updated.
+./scripts/checkpatch.scm \
+    "$(git format-patch -1 1f07a190bab3fb06c6adca70d72355a149ee09b3)" > \
+    "${tmpdir}"/checkpatch-test-updated-spanish-translation.log 2>/dev/null
+
+while IFS= read -r line; do
+    ! grep -q "${line}" "${tmpdir}"/checkpatch-test-updated-spanish-translation.log
+done < tests/checkpatch-test-missing-spanish-translation.ref || \
+    fail "failed to indentify updated spanish translation in the website."
+
+echo "[ OK ] identified updated spanish translation in the website."
+
+################################################################################
 # Test checkpatch.scm with all the existing patches. It should not crash.      #
 ################################################################################
 
