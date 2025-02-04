@@ -27,6 +27,17 @@ Texts.  A copy of the license is included in the section entitled
 @end quotation
 @end copying
 
+@macro cardreaderUSB
+
+The internal SD card reader is known to work with GNU Boot and
+Linux. This means that you can boot a distribution from an SD card or
+a microSD card with a microSD to SD adapter. However it only supports
+cards that store data (and not TV Tunners, etc) and it cannot read
+very low level technical information about the cards (like their
+serial number, vendor, etc).
+
+@end macro
+
 @dircategory Kernel
 @direntry
 * GNU Boot: (gnuboot).                 Boot software distribution
@@ -442,6 +453,171 @@ Boot website, on the status page (
 @url{https://www.gnu.org/software/gnuboot/status.html}) for up to
 date result of tests by GNU Boot users and contributors.
 
+@node       Lenovo ThinkPad X200
+@subsection Lenovo ThinkPad X200
+
+Here are some details on this computer:
+
+@multitable  {Max RAM}    {ThinkPad X200}
+@item        Vendor:      @tab Lenovo
+@item        Product:     @tab ThinkPad X200
+@item        Max RAM:     @tab 8GiB
+@item        CPU:         @tab Non-removable (soldered)
+@item        Boot flash:  @tab Non-removable (soldered)
+@end multitable
+
+@node          Lenovo ThinkPad X200 builtin boot flash
+@subsubsection Lenovo ThinkPad X200 builtin boot flash
+
+The ThinkPad X200 originally had one of these boot flash:
+
+@itemize
+@item Macronix MX25L6405D (8MiB, SOIC-16)
+@item Winbond  W25X64     (8MiB)
+@item Macronix MX25L3205D (4MiB)
+@item Atmel    AT25DF321  (4MiB)
+@end itemize
+
+@node          Lenovo ThinkPad X200 builtin CPU
+@subsubsection Lenovo ThinkPad X200 builtin CPU
+
+The ThinkPad X200 had one of these CPUs:
+@itemize
+@item Intel Core 2 Duo P8400 (64bit, 2 cores, 2.26GHz)
+@item Intel Core 2 Duo P8600 (64bit, 2 cores, 2.40GHz)
+@item Intel Core 2 Duo P8700 (64bit, 2 cores, 2.53GHz)
+@item Intel Core 2 Duo P8800 (64bit, 2 cores, 2.66GHz)
+@end itemize
+
+@node          Lenovo ThinkPad X200 builtin card reader
+@subsubsection Lenovo ThinkPad X200 builtin card reader
+
+@cardreaderUSB
+
+@node       Lenovo ThinkPad X200s
+@subsection Lenovo ThinkPad X200s
+
+Here are some details on this computer:
+
+@multitable  {Max RAM}    {ThinkPad X200s}
+@item        Vendor:         @tab Lenovo
+@item        Product:        @tab ThinkPad X200s
+@item        Max RAM:        @tab 8GiB
+@item        CPU:            @tab Non-removable (soldered)
+@item        Boot flash:     @tab Non-removable (soldered)
+@end multitable
+
+@node          Lenovo ThinkPad X200s builtin card reader
+@subsubsection Lenovo ThinkPad X200s builtin card reader
+
+@cardreaderUSB
+
+@node       Lenovo ThinkPad X200T
+@subsection Lenovo ThinkPad X200T
+
+Here are some details on this computer:
+
+@multitable  {Max RAM}    {ThinkPad X200s}
+@item        Vendor:         @tab Lenovo
+@item        Product:        @tab ThinkPad X200%
+@item        Max RAM:        @tab 8GiB
+@item        CPU:            @tab Non-removable (soldered)
+@item        Boot flash:     @tab Non-removable (soldered)
+@end multitable
+
+@node          Lenovo ThinkPad X200T builtin card reader
+@subsubsection Lenovo ThinkPad X200T builtin card reader
+
+@cardreaderUSB
+
+@node       Libiquity Taurinus X200
+@subsection Libiquity Taurinus X200
+
+Here are some details on this computer:
+
+@multitable  {Max RAM}    {ThinkPad X200s}
+@item        Vendor:         @tab Libiquity
+@item        Product:        @tab Taurinus X200
+@item        Max RAM:        @tab 8GiB
+@item        CPU:            @tab Non-removable (soldered)
+@item        Boot flash:     @tab Non-removable (soldered)
+@end multitable
+
+@node           Taurinus X200 builtin card reader
+@subsubsection  Taurinus X200 builtin card reader
+
+@cardreaderUSB
+
+@node       Technoethical X200
+@subsection Technoethical X200
+
+Here are some details on this computer:
+
+@multitable  {Max RAM}    {Technoethical X200}
+@item        Vendor:         @tab Technoethical
+@item        Product:        @tab X200
+@item        Max RAM:        @tab 8GiB
+@item        CPU:            @tab Non-removable (soldered)
+@item        Boot flash:     @tab Non-removable (soldered)
+@end multitable
+
+@subsubsection Technoethical X200 builtin card reader
+
+@cardreaderUSB
+
+@node       Technoethical X200s
+@subsection Technoethical X200s
+
+Here are some details on this computer:
+
+@multitable  {Max RAM}    {Technoethical X200s}
+@item        Vendor:         @tab Technoethical
+@item        Product:        @tab X200s
+@item        Max RAM:        @tab 8GiB
+@item        CPU:            @tab Non-removable (soldered)
+@item        Boot flash:     @tab Non-removable (soldered)
+@end multitable
+
+@subsubsection Technoethical X200s builtin card reader
+
+@cardreaderUSB
+
+@node       Technoethical X200 Tablet (X200T)
+@subsection Technoethical X200 Tablet (X200T)
+
+Here are some details on this computer:
+
+@multitable  {Max RAM}    {Technoethical X200T}
+@item        Vendor:         @tab Technoethical
+@item        Product:        @tab X200T
+@item        Max RAM:        @tab 8GiB
+@item        CPU:            @tab Non-removable (soldered)
+@item        Boot flash:     @tab Non-removable (soldered)
+@end multitable
+
+@node          Technoethical X200T builtin card reader
+@subsubsection Technoethical X200T builtin card reader
+
+@cardreaderUSB
+
+@node       Vikings X200
+@subsection Vikings X200
+
+Here are some details on this computer:
+
+@multitable  {Max RAM}    {Technoethical X200s}
+@item        Vendor:         @tab Vikings
+@item        Product:        @tab X200
+@item        Max RAM:        @tab 8GiB
+@item        CPU:            @tab Non-removable (soldered)
+@item        Boot flash:     @tab Non-removable (soldered)
+@end multitable
+
+@node          Vikings X200 builtin card reader
+@subsubsection Vikings X200 builtin card reader
+
+@cardreaderUSB
+
 @node    Supported computer parts and peripherals
 @section Supported computer parts and peripherals
 
@@ -508,26 +684,15 @@ We don't know yet if there are cases where this code is not run (this
 would need to be tested by doing very simple modifications to the
 drivers, and the GNU Boot project also welcome help in this area).
 
-@node       Supported card readers
-@subsection Supported card readers
+@node       Supported external card readers
+@subsection Supported external card readers
 
-GNU Boot supports the builtin card reader of the following computers:
-
-@itemize
-@item Lenovo ThinkPad X200
-@item Lenovo ThinkPad X200S
-@item Lenovo ThinkPad X200T
-@item Libiquity Taurinus X200
-@item Technoethical X200
-@item Technoethical X200s
-@item Technoethical X200 Tablet (X200T)
-@item Vikings X200
-
-@end itemize
-
-It also supports some USB card readers that are viewed as
+GNU Boot supports some USB card readers that are viewed as
 mass-storage. With all that you can boot on an SD card a microSD card
 and it will be viewed like a mass storage USB key.
+
+@pxref{Supported computers}, inside each computer subsection to see
+which computers's internal card readers are supported.
 
 @node       Unsupported hardware supported by projects reused by GNU Boot
 @subsection Unsupported hardware supported by projects reused by GNU Boot
