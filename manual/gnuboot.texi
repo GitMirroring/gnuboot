@@ -38,6 +38,17 @@ serial number, vendor, etc).
 
 @end macro
 
+@macro cardreaderPCIe
+
+The internal SD card reader is known not to work with GNU Boot but it
+works with Linux. This means that you cannot boot a distribution from
+an SD card or a microSD card with the internal SD card reader. However
+once booted, Linux has full access to the SD card and it can read very
+low level technical information about the cards (like their serial
+number, vendor, etc) or support SD peripherals (like TV tunners, etc).
+
+@end macro
+
 @dircategory Kernel
 @direntry
 * GNU Boot: (gnuboot).                 Boot software distribution
@@ -492,6 +503,60 @@ Also not all are well tested, so it's a good idea to look on the GNU
 Boot website, on the status page (
 @url{https://www.gnu.org/software/gnuboot/status.html}) for up to
 date result of tests by GNU Boot users and contributors.
+
+@node       Lenovo ThinkPad X60
+@subsection Lenovo ThinkPad X60
+
+Here are some details on this computer:
+
+@multitable  {Boot flash:} {Non-removable (soldered)}
+@item        Vendor:       @tab Lenovo
+@item        Product:      @tab ThinkPad X60
+@item        Max RAM:      @tab < 4GiB
+@item        CPU:          @tab Non-removable (soldered)
+@item        Boot flash:   @tab Non-removable (soldered)
+@end multitable
+
+@node          Lenovo ThinkPad X60 builtin card reader
+@subsubsection Lenovo ThinkPad X60 builtin card reader
+
+@cardreaderPCIe
+
+@node       Lenovo ThinkPad X60s
+@subsection Lenovo ThinkPad X60s
+
+Here are some details on this computer:
+
+@multitable  {Boot flash:} {Non-removable (soldered)}
+@item        Vendor:       @tab Lenovo
+@item        Product:      @tab ThinkPad X60s
+@item        Max RAM:      @tab < 4GiB
+@item        CPU:          @tab Non-removable (soldered)
+@item        Boot flash:   @tab Non-removable (soldered)
+@end multitable
+
+@node          Lenovo ThinkPad X60s builtin card reader
+@subsubsection Lenovo ThinkPad X60s builtin card reader
+
+@cardreaderPCIe
+
+@node       Lenovo ThinkPad X60T
+@subsection Lenovo ThinkPad X60T
+
+Here are some details on this computer:
+
+@multitable  {Boot flash:} {Non-removable (soldered)}
+@item        Vendor:       @tab Lenovo
+@item        Product:      @tab ThinkPad X60T
+@item        Max RAM:      @tab < 4GiB
+@item        CPU:          @tab Non-removable (soldered)
+@item        Boot flash:   @tab Non-removable (soldered)
+@end multitable
+
+@node          Lenovo ThinkPad X60T builtin card reader
+@subsubsection Lenovo ThinkPad X60T builtin card reader
+
+@cardreaderPCIe
 
 @node       Lenovo ThinkPad X200
 @subsection Lenovo ThinkPad X200
