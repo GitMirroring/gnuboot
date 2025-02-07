@@ -50,8 +50,6 @@ Texts.  A copy of the license is included in the section entitled
 This manual is for GNU Boot version @value{VERSION}.
 @end ifnottex
 
-@node Table of contents
-
 @menu
 * Overview::					General purpose and information.
 * Supported hardware and configurations::
