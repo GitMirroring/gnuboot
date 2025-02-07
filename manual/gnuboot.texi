@@ -62,20 +62,19 @@ This manual is for GNU Boot version @value{VERSION}.
 * Concept index::				Index of concepts.
 @end menu
 
-
-@node Overview
+@node    Overview
 @chapter Overview
 
 This chapter will explain what is GNU Boot, and how it compares with
 somewhat similar projects.
 
-@node What is GNU Boot
+@node    What is GNU Boot
 @section What is GNU Boot
 
 GNU Boot is a boot software distribution. What this means will be
 explained below.
 
-@node boot software
+@node       boot software
 @subsection boot software
 @cindex @acronym{BIOS, Basic Input/Output System}
 @cindex @acronym{UEFI, Unified Extensible Firmware Interface}
@@ -162,7 +161,7 @@ software (typically nonfree @acronym{BIOS, Basic Input/Output System}
 or @acronym{UEFI, Unified Extensible Firmware Interface}) on some
 computers.
 
-@node distribution
+@node       distribution
 @subsection distribution
 
 GNU Boot a distribution of boot software: like GNU/Linux distributions
@@ -175,7 +174,7 @@ produce something that replaces nonfree @acronym{BIOS, Basic
 Input/Output System} or @acronym{UEFI, Unified Extensible Firmware
 Interface}.
 
-@node Why free boot software is important
+@node    Why free boot software is important
 @section Why free boot software is important
 
 Freedom is important in general, and running nonfree software has
@@ -215,7 +214,7 @@ removed some hardware components.
 
 @end itemize
 
-@node Why use GNU Boot
+@node    Why use GNU Boot
 @section Why use GNU Boot
 
 As explained before GNU boot is just a distribution. So it is also
@@ -243,7 +242,7 @@ use cases, and tries as much as possible to fix issues in the projects
 it reuses instead of doing workarounds that impact users.
 
 
-@node Other free boot software distributions
+@node    Other free boot software distributions
 @section Other free boot software distributions
 
 The following GNU/Linux distributions should also provide 100% free
@@ -305,7 +304,7 @@ the current design of Canoeboot (like the ability to trust the images
 built by someone else, or the ability to build and modify your own
 images faster, more easily and with way less risk).
 
-@node How much free software is GNU Boot?
+@node    How much free software is GNU Boot?
 @section How much free software is GNU Boot?
 
 Being a GNU package, GNU Boot itself is 100% free software. If you
@@ -341,7 +340,7 @@ software provided by the hardware and how they compare with other kind
 of freedom issues (nonfree driver, nonfree firmware loaded
 automatically by Linux, etc).
 
-@node Limitations
+@node    Limitations
 @section Limitations
 
 GNU Boot is fairly recent and doesn't have an official release
@@ -354,10 +353,10 @@ Boot.
 Also the latest GNU Boot release candidate was not tested yet with all
 the computers it's supposed to support (we badly need help for that).
 
-@node Supported hardware and configurations
+@node    Supported hardware and configurations
 @chapter Supported hardware and configurations
 
-@node Supported computers
+@node    Supported computers
 @section Supported computers
 
 For now, GNU Boot only provides images that can be installed on the
@@ -414,7 +413,7 @@ Boot website, on the status page (
 @url{https://www.gnu.org/software/gnuboot/web/status.html}) for up to
 date result of tests by GNU Boot users and contributors.
 
-@node Supported computer parts and peripherals
+@node    Supported computer parts and peripherals
 @section Supported computer parts and peripherals
 
 Most computer parts and peripherals don't have any compatibility issue
@@ -437,7 +436,7 @@ however there is some exceptions as some hardware is non-standard and
 still required for booting, these are documented in the subsections
 below.
 
-@node Supported GPUs and graphics
+@node       Supported GPUs and graphics
 @subsection Supported GPUs and graphics
 
 GNU Boot supports the GPUs that are present in the various laptops it
@@ -480,7 +479,7 @@ We don't know yet if there are cases where this code is not run (this
 would need to be tested by doing very simple modifications to the
 drivers, and the GNU Boot project also welcome help in this area).
 
-@node Supported card readers
+@node       Supported card readers
 @subsection Supported card readers
 
 GNU Boot supports the builtin card reader of the following computers:
@@ -501,7 +500,7 @@ It also supports some USB card readers that are viewed as
 mass-storage. With all that you can boot on an SD card a microSD card
 and it will be viewed like a mass storage USB key.
 
-@node Unsupported hardware supported by projects reused by GNU Boot
+@node       Unsupported hardware supported by projects reused by GNU Boot
 @subsection Unsupported hardware supported by projects reused by GNU Boot
 
 The following hardware components are supported by software reused by
@@ -573,7 +572,7 @@ Also if you want to do such tests, you can open a bug report on the
 GNU Boot bug tracker at
 @url{https://savannah.gnu.org/bugs/?group=gnuboot}.
 
-@node GNU Boot images
+@node    GNU Boot images
 @section GNU Boot images
 @cindex flash images
 @cindex image files
@@ -601,7 +600,7 @@ These files are similar to
 We also sometime refer to the flash image files as @dfn{flash images}
 or simply (GNU Boot) "images" (files).
 
-@node GNU Boot images types
+@node       GNU Boot images types
 @subsection GNU Boot images types
 
 For a given computer, GNU Boot provides several images with different
@@ -684,7 +683,7 @@ use. Compared with SeaBIOS images with text-only low resolution:
 
 @end itemize
 
-@node GNU Boot images naming
+@node       GNU Boot images naming
 @subsection GNU Boot images naming
 
 Images for specific computers can be found on
@@ -726,7 +725,7 @@ If instead the file has @option{txtmode} in its name, this corresponds
 to the text-only low resolution that was also described in the
 previous subsection (@ref{GNU Boot images types}).
 
-@node Installing or upgrading GNU Boot images
+@node    Installing or upgrading GNU Boot images
 @chapter Installing or upgrading GNU Boot images
 
 GNU Boot provides flash images for specific computers that can be
@@ -743,7 +742,7 @@ Once GNU Boot is downloaded or built, you will need to understand
 which files you need to install or upgrade. @xref{Supported hardware
 and configurations} chapter for more details on how to do that.
 
-@node Installation and upgrade instructions
+@node    Installation and upgrade instructions
 @section Installation and upgrade instructions
 
 The GNU Boot manual doesn't have well integrated installation or
@@ -752,10 +751,10 @@ instructions can be found in the GNU Boot website. We need help to
 migrate these instructions in the manual and make them easier to
 understand.
 
-@node Using GNU Boot
+@node    Using GNU Boot
 @chapter Using GNU Boot
 
-@node Using GNU Boot with QEMU
+@node    Using GNU Boot with QEMU
 @section Using GNU Boot with QEMU
 
 The GNU Boot project also release images for QEMU.
@@ -783,7 +782,7 @@ For instance a distribution or operating system might work on QEMU but
 not work on real hardware due to an incomplete graphic driver for the
 real hardware GPU.
 
-@node Security features
+@node    Security features
 @section Security features
 @cindex secure boot
 @cindex threat modelling
@@ -847,7 +846,7 @@ can use Guix to install the manual of older GRUB versions
 All the security mechanism described in the GRUB manual or GNU Boot
 website are compatible with users freedom.
 
-@node Building GNU Boot from source
+@node    Building GNU Boot from source
 @chapter Building GNU Boot from source
 
 Currently building GNU Boot flash images on two different computers
@@ -879,7 +878,7 @@ Note that at the moment, building GNU Boot from tarballs is
 unsupported, so you will have to download GNU Boot from git and build
 from git.
 
-@node Authenticating the GNU Boot source code
+@node    Authenticating the GNU Boot source code
 @section Authenticating the GNU Boot source code
 
 As explained on the
@@ -939,7 +938,7 @@ and the @uref{https://www.gnupg.org/gph,The GNU Privacy Handbook} has
 Building your web of trust}, that contains advises on how to do that,
 especially in the part about "Key validation".
 
-@node Helping GNU Boot
+@node    Helping GNU Boot
 @chapter Helping GNU Boot
 
 The GNU Boot project needs help with this manual, specifically on
@@ -955,13 +954,13 @@ Boot} page on the GNU Boot website for the areas where we need help
 and on how to help practically speaking (how to contact the project,
 where to send bug reports, etc).
 
-@node GNU Free Documentation License
+@node     GNU Free Documentation License
 @appendix GNU Free Documentation License
 
 @include fdl-1.3.texi
 
 
-@node Concept index
+@node       Concept index
 @unnumbered Concept index
 
 @printindex cp

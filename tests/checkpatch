@@ -19,11 +19,18 @@ set -e
 
 fail()
 {
-    message="$1"
+    # shellcheck disable=SC2124
+    message="$@"
 
     printf "[ !! ] scripts/checkpatch.scm test failed: %s\n" \
-	   "${message}"
+           "${message}"
+
+    exit 1
 }
+
+################################################################################
+# Setup                                                                        #
+################################################################################
 
 printf "+--------------------------------------+\n"
 printf "| Running scripts/checkpatch.scm test: |\n"
@@ -35,10 +42,59 @@ tmpdir="$(mktemp -d)"
 test -f "${topdir}"/scripts/checkpatch.scm || fail "checkpatch.scm not found."
 test -f "${topdir}"/resources/git/git || fail "resources/git/git not found."
 
-patches="$("${topdir}"/resources/git/git format-patch --root -o "${tmpdir}")"
-# shellcheck disable=SC2086
+################################################################################
+# Test if checkpatch.scm correctly finds non-aligned nodes.                    #
+################################################################################
 
-"${topdir}"/scripts/checkpatch.scm ${patches}
+# This checks the "Add a minimal GNU Boot manual." commit which has
+# unaligned nodes.
+./scripts/checkpatch.scm \
+    "$(git format-patch -1 08b9e449e94e99c0ec924e2026dc650b63ddc3e5)" > \
+    "${tmpdir}"/checkpatch-test-unaligned-nodes.log 2>/dev/null || \
+    fail "checkpatch.scm failed " \
+         "when trying to detect unaligned node in the manual."
+
+while IFS= read -r line; do
+    grep -q "${line}" "${tmpdir}"/checkpatch-test-unaligned-nodes.log || \
+    fail "failed to detect unaligned node in the manual."
+done < tests/checkpatch-test-unaligned-nodes.ref || \
+
+echo "[ OK ] detected unaligned nodes in the manual."
+
+# This checks the "manual: Describe the GNU Boot project." commit
+# which has non-modified unaligned nodes.
+./scripts/checkpatch.scm \
+    "$(git format-patch -1 5303fab6a49796d69fc9176b715409f925d8f608)" > \
+    "${tmpdir}"/checkpatch-test-non-modified-unaligned-nodes.log \
+    2>/dev/null || \
+    fail "checkpatch.scm failed " \
+         "when checking non-modified unaligned nodes in the manual."
+
+while IFS= read -r line; do
+    grep -q -L "${line}" \
+         "${tmpdir}"/checkpatch-test-non-modified-unaligned-nodes.log
+done < tests/checkpatch-test-non-modified-unaligned-nodes.ref && \
+    fail "warned against non-modified unaligned nodes in the manual."
+
+echo "[ OK ] didn't warn against non-modified unaligned nodes in the manual."
+
+################################################################################
+# Test checkpatch.scm with all the existing patches. It should not crash.      #
+################################################################################
+
+echo "[ .. ] Checking if any existing patch makes checkpatch.scm crash."
+
+patches="$("${topdir}"/resources/git/git format-patch --root -o "${tmpdir}")"
+
+# shellcheck disable=SC2086
+"${topdir}"/scripts/checkpatch.scm ${patches} | sed 's#^#       #g' || \
+    fail "checkpatch.scm crashed."
+
+echo "[ OK ] None of the existing patches make checkpatch.scm crash."
+
+################################################################################
+# Cleanups and end                                                             #
+################################################################################
 
 rm -rf "${tmpdir}"
 

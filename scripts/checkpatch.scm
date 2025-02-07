@@ -498,6 +498,25 @@
       (acons 'line (+ 1 (assq-ref check-results 'line)) check-results))
     (lambda (path parse-results check-results) check-results))
 
+   (make-rule
+    "Track current file diff"
+    (lambda (check-results)
+      (acons 'current-diff-file #f check-results))
+    (lambda (line parse-results check-results)
+      (startswith line "diff --git a/"))
+    (lambda (line parse-results check-results)
+      (define line-parts (string-split line #\space))
+      (define current-diff-file #f)
+      (if (> (length line-parts) 3)
+          ;; Example: b/www/x60t_unbrick/0009.JPG
+          (let* ((part3 (list-ref line-parts 3))
+                 ;; remove the b/
+                 (path (substring part3 2
+                                  (string-length part3))))
+            (set! current-diff-file path)))
+      (acons 'current-diff-file current-diff-file check-results))
+    (lambda (path _ check-results) check-results))
+
    ;; Workarround for the bug #66268
    ;; [1]https://debbugs.gnu.org/cgi/bugreport.cgi?bug=66268
    (make-rule
@@ -547,6 +566,152 @@
                 'errors
                 (+ 1 (assq-ref check-results 'errors)) check-results)))
             check-results))))
+
+   (make-rule
+    "Check @node alignement in the manual"
+    (lambda (check-results)
+      (acons 'current-node #f check-results))
+    (lambda (line parse-results check-results)
+      (and
+       (assq-ref check-results 'current-diff-file)
+       (string=?
+       (assq-ref check-results 'current-diff-file)
+       "manual/gnuboot.texi")))
+    (lambda (line parse-results check-results)
+      (define warnings (assq-ref check-results 'warnings))
+
+      (define* (node-name line prefix type)
+        (regexp-substitute
+         #f
+         (string-match (string-append "\\" prefix "@" type " +") line) 'post))
+
+      (define (handle-node-type prefix type warnings)
+        (define current-node-name
+          (substring
+           (assq-ref check-results 'current-node)
+           1
+           (string-length (assq-ref check-results 'current-node))))
+
+        (lambda (line parse-results check-results)
+          (if
+           (and
+            (string=?
+             (node-name line prefix type)
+             (node-name
+              (string-append prefix current-node-name)
+              prefix
+              "node"))
+            (not
+             (= (string-length
+                 (substring line (string-length prefix) (string-length line)))
+                (string-length
+                 current-node-name))))
+           ((lambda _
+              (display
+               (string-append
+                "WARNING: " (node-name line prefix type)
+                " " type " and node are not aligned.\n\n"))
+              (+ 1 warnings)))
+           warnings)))
+
+      ;; We have at least 3 cases we want to detect:
+      ;; - a @chapter/@*section was changed and node was not
+      ;; - a @chapter/@*section was not changed and node was
+      ;; - both were changed
+      ;; So we store the @node reguardless of if it was changed or
+      ;; not, and then we also look at @chapter/@*section reguardless
+      ;; of the change of both node or @chapter/@*section.
+      ;; To avoid trigering when none changed, we store the full line
+      ;; with @node, including the begining "+" or " ", to then be
+      ;; able to know that node didn't change in the @chapter/@*section.
+
+      (cond
+       ((or (startswith line "+@node ") (startswith line " @node "))
+        (acons
+         'current-node
+         (substring line 0 (string-length line))
+         check-results))
+
+       ;; Skip when nothing changed. Note that (assq-ref check-results
+       ;; 'current-node) is sometime false. So we cannot assume it is
+       ;; a string unless we check if it is not false before.
+       ((and (assq-ref check-results 'current-node)
+	     (startswith line " @chapter ")
+             (startswith (assq-ref check-results 'current-node) " @node "))
+               check-results)
+
+       ((and (assq-ref check-results 'current-node)
+	     (or (startswith line "+@chapter ")
+		 (startswith line " @chapter ")))
+        (acons 'warnings
+               ((handle-node-type
+                 (substring line 0 1) ;; "+" or " "
+                 "chapter"
+                 warnings)
+                line parse-results check-results)
+               check-results))
+
+       ;; Skip when nothing changed. Note that (assq-ref check-results
+       ;; 'current-node) is sometime false. So we cannot assume it is
+       ;; a string unless we check if it is not false before.
+       ((and (assq-ref check-results 'current-node)
+	     (startswith line " @section ")
+             (startswith (assq-ref check-results 'current-node) " @node "))
+               check-results)
+
+       ((and (assq-ref check-results 'current-node)
+	     (or (startswith line "+@section ")
+		 (startswith line " @section ")))
+        (acons 'warnings
+               ((handle-node-type
+                 (substring line 0 1) ;; "+" or " "
+                 "section"
+                 warnings)
+                line parse-results check-results)
+               check-results))
+
+       ;; Skip when nothing changed. Note that (assq-ref check-results
+       ;; 'current-node) is sometime false. So we cannot assume it is
+       ;; a string unless we check if it is not false before.
+       ((and (assq-ref check-results 'current-node)
+	     (startswith line " @subsection ")
+             (startswith (assq-ref check-results 'current-node) " @node "))
+               check-results)
+
+       ((and (assq-ref check-results 'current-node)
+	     (or (startswith line "+@subsection ")
+		 (startswith line " @subsection ")))
+        (acons 'warnings
+               ((handle-node-type
+                 (substring line 0 1) ;; "+" or " "
+                 "subsection"
+                 warnings)
+                line parse-results check-results)
+               check-results))
+
+       ;; Skip when nothing changed. Note that (assq-ref check-results
+       ;; 'current-node) is sometime false. So we cannot assume it is
+       ;; a string unless we check if it is not false before.
+       ((and (assq-ref check-results 'current-node)
+	     (startswith line " @subsubsection ")
+             (startswith (assq-ref check-results 'current-node) " @node "))
+               check-results)
+
+       ((and (assq-ref check-results 'current-node)
+	     (or (startswith line "+@subsubsection ")
+		 (startswith line " @subsubsection ")))
+        (acons 'warnings
+               ((handle-node-type
+                 (substring line 0 1) ;; "+" or " "
+                 "subsubsection"
+                 warnings)
+                line parse-results check-results)
+               check-results))
+
+       (else check-results)))
+
+    (lambda (path parse-results check-results)
+      check-results))
 
    (make-rule
     "Track total errors and warnings"
