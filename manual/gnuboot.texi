@@ -75,8 +75,10 @@ This manual is for GNU Boot version @value{VERSION}.
 @menu
 * Overview::					General purpose and information.
 * Supported hardware and configurations::
+* Flash programmers::
 * Installing or upgrading GNU Boot images::
 * Using GNU Boot::
+* Maintenance and repairations::
 * Building GNU Boot from source::
 * Helping GNU Boot::				How to contribute to GNU Boot
 * GNU Free Documentation License::		Copying and sharing this documentation.
@@ -101,6 +103,14 @@ Supported hardware and configurations
 * Supported operating systems::
 * GNU Boot images::
 
+Flash programmers
+
+* Practical freedoms with flash programmers::
+* Setup and components needed to use a flash programmer::
+* Flash chip package::
+* Known issues with flash programmers::
+* Supported flash programmers::
+
 Installing or upgrading GNU Boot images
 
 * Installation and upgrade instructions::
@@ -109,6 +119,10 @@ Using GNU Boot
 
 * Using GNU Boot with QEMU::
 * Security features::
+
+Maintenance and repairations
+
+* Replacing the boot flash on a desktop@comma{} server or workstation::
 
 Building GNU Boot from source
 
@@ -139,7 +153,10 @@ explained below.
 @subsection boot software
 @cindex @acronym{BIOS, Basic Input/Output System}
 @cindex @acronym{UEFI, Unified Extensible Firmware Interface}
+@cindex boot flash
 @cindex boot software
+@cindex flash chip
+@cindex flash memory
 
 When you boot a computer, you can sometimes can see a screen that
 looks like that:
@@ -180,12 +197,12 @@ Drive} or a hard disks, USB keys, etc), the boot software is stored on
 a very different kind of data storage device.
 
 It is stored inside a chip that is inside the computer mainboard.
-People and technical documentation often call this chip the "boot
-flash" because it is stores the boot software, and also because it is
-a chip that stores data and that is built with a semiconductor
-technology called flash (see @uref{https://en.wikipedia.org/wiki/Flash
-memory,the Wikipedia article on flash memory} for more details on the
-technology).
+People and technical documentation often call this chip the @dfn{boot
+flash} because it is stores the boot software, and also because it is
+a @dfn{flash chip} which is a chip that stores data and that is built
+with a semiconductor technology called flash (see
+@uref{https://en.wikipedia.org/wiki/Flash memory,the Wikipedia article
+on flash memory} for more details on the technology).
 
 Here is a picture of this boot flash on the mainboard of a ThinkPad
 X200:
@@ -997,7 +1014,7 @@ Boot 0.1-rc3.
 
 Inside you have archive files like
 @option{gnuboot-0.1-rc3_x200_8mb.tar.xz} that are specific to a
-specific computer (here the ThinkPad X200 with 8MiB flash chip).
+specific computer (here the ThinkPad X200 with 8MiB boot flash).
 
 @pxref{Installing or upgrading GNU Boot images} to understand how to
 identify which archive file correspond to which computer.
@@ -1010,7 +1027,7 @@ the @ref{GNU Boot images types}.
 
 So for instance if we have an image named
 @option{grub_x200_8mb_corebootfb_usqwerty.rom}, it is meant for a
-ThinkPad X200 with 8MiB flash chip, and it uses the GRUB software to
+ThinkPad X200 with 8MiB boot flash, and it uses the GRUB software to
 boot, and it is configured to use a QWERTY keyboard layout.
 
 If the image contains @option{seabios} in its file name instead of
@@ -1023,6 +1040,173 @@ Boot images types}).
 If instead the file has @option{txtmode} in its name, this corresponds
 to the text-only low resolution that was also described in the
 previous subsection (@ref{GNU Boot images types}).
+
+@node    Flash programmers
+@chapter Flash programmers
+
+@node    Practical freedoms with flash programmers
+@section Practical freedoms with flash programmers
+
+Getting a compatible flash programmer is not strictly required to use
+GNU Boot.
+
+While you need a compatible flash programmer to upgrade from the
+nonfree BIOS to GNU Boot on some computers, it is possible to avoid
+using one by either getting a compatible laptop with an alternative
+boot software (like Canoeboot, Coreboot, GNU Boot, Libreboot, etc)
+already installed, or by having someone do the installation for you
+(for instance in an install party, or by paying a company to do a
+"Installation Service" of an alternative boot software).
+
+However if you know how to disassemble computers supported by GNU
+Boot, or that you can get help to do that, it is very strongly advised
+to get a compatible flash programmer: with it you will be able to
+recover from non-booting computers, and this will enable you to do a
+lot more things.
+
+Not only you will be able to test and run previously untested GNU Boot
+images, but you will also more easily be able to customize the GNU
+Boot images that you use. Since GNU Boot is slowly switching to Guix
+to build the software it reuses, and that Guix has lots of ways to
+customize software, over time this will also enable you to customize
+GNU Boot even more to better suit your needs.
+
+@node    Setup and components needed to use a flash programmer
+@section Setup and components needed to use a flash programmer
+
+To reprogram the boot flash of a laptop (for instance the Lenovo
+ThinkPad X200), you will need several thing:
+@itemize
+@item A flash chip programmer
+@item A clip or test probe to connect to the boot flash.
+@item Some wires (usually female<->female jump wires) to connect
+      the flash chip programmer to the clip.
+@item An extra computer running GNU/Linux with an USB port that works.
+      Any computers should work, however if you care about security, since
+      this extra computer will have the ability to modify the GNU Boot image
+      that it is reading or writing, you need to be able to trust this extra
+      computer, so choose this extra computer accordingly.
+@end itemize
+
+To reprogram the boot flash of a desktop, server or workstation
+mainboard (for instance the Asus KGPE-D16), you will need several
+thing:
+@itemize
+@item A flash chip programmer
+@item A way to extract the boot flash from the mainboard. This can be done
+      by hand but if you do that a lot, at the end the pins of the
+      boot flash might break. If that happens, new boot flash are
+      relatively easy to find. If you want to avoid breaking the chip
+      instead, you can either use specialized tools to extract the flash
+      chip (like a scalpel, some tweezers for stamps that you can try to put
+      between the chip and the socket to remove the chip without bending its
+      pins,  or a chip extractor), or you can glue something on top of the
+      boot flash for easier extraction.
+
+@item If your programmer doesn't have a socket where to plug the mainboard flash
+      chip you will need a breadboard or a boot flash socket, and a way to
+      connect the breadboard to the flash programmer (for instance
+      female<->female jump wires and some pin rows).
+
+@end itemize
+
+@node    Flash chip package
+@section Flash chip package
+@cindex @acronym{DIP, Dual in-line package}
+@cindex @acronym{WSON, Very-very-thin small-outline no-lead package}
+
+The flash chip use various standard physical and pin layout.
+
+The supported laptops have either a boot flash in the SOIC-8, SOIC-16
+or WSON-8 package.
+
+The desktop, servers and workstations mainboard typically use a flash
+chip in the DIP-8 package.
+
+@node    Known issues with flash programmers
+@section Known issues with flash programmers
+
+@node       Wire length
+@subsection Wire length
+
+If the length of the wires connecting the programmer to the chip is
+too long, then there will be signal integrity issues and flashprog or
+flashrom might not find the boot flash at all.
+
+If that happens, the best fix is to use shorter wires. It is also
+sometimes possible to workaround by lowering the speed at which the
+programmer talks to the boot flash.
+
+@node       Programmer SPI speed
+@subsection Programmer SPI speed
+
+On some flash chip programmers, the speed at which it access the flash
+chip can be configured. In this case using the lowest speed possible
+can sometimes make a given flash programmer work when there are signal
+integrity issues (for instance when the wires connecting the
+programmer to the boot flash are too long). How to do that is
+documented in the flashrom and flashprog manuals, inside the
+programmer sections. Such options have names like spispeed, or
+divisor, depending on the programmer being used.
+
+Note that some programmers don't have the ability to lower their
+speed.
+
+@node       Lenovo ThinkPad X200 with the MX25L6405D (8MiB)
+@subsection Lenovo ThinkPad X200 with the MX25L6405D (8MiB)
+
+For some reasons the signal integrity is bad with the MX25L6405D
+(8MiB) boot flash on the Lenovo ThinkPad X200. Because of that it is
+advised to have the shortest cables possibles (@pxref{Wire length} for
+more details) but also to check the compatibility of various flash
+programmers with this boot flash on this laptop. On programmers that
+are known to work, you might still need to lower the SPI speed
+(@pxref{Programmer SPI speed} for more details) to be able to detect,
+read or write the boot flash.
+
+@node    Supported flash programmers
+@section Supported flash programmers
+
+@node       OpenMoko Neo1973 Debug board (V2+)
+@subsection OpenMoko Neo1973 Debug board (V2+)
+
+The Neo1973 Debug board (V2+) from OpenMoko can be used but it will
+require to solder some pin headers on the programmer itself.
+
+If you want to use this programmer to reprogram a laptop boot flash,
+you will need to get Female/Female Jumper Wires and a test clip
+corresponding to your boot flash (like the Pomona 5252 test clip for
+SOIC-16 or the Pomona 5250 test clip for SOIC-8).
+
+If instead you want to reprogram a DIP-8 boot flash, you will need to
+get Female/Female Jumper Wires, some PIN headers and a breadboard.
+
+@multitable {Lenovo ThinkPad X200 with MX25L6405D}     {Works?}
+@headitem    Boot flash                            @tab Works?
+@item        DIP-8 SPI                             @tab Yes
+@item        Lenovo ThinkPad X200 with MX25L6405D  @tab No
+@end multitable
+
+@node       Vikings CH341a USB Programmer
+@subsection Vikings CH341a USB Programmer
+
+The CH341a USB Programmer from Vikings can be used without having to
+solder anything.
+
+If you want to use this programmer to reprogram a laptop boot flash,
+you will need to get Female/Female Jumper Wires (like the "Jumper Wire
+F/F, 20pcs" from Vikings) and a test clip corresponding to your flash
+chip (like the "Pomona 5252 IC TEST CLIP SOIC 16 (2 X 8)" or "Pomona
+5250 IC TEST CLIP SOIC 8 (2 X 4)" from Vikings).
+
+If instead you want to reprogram a DIP-8 boot flash, nothing special
+is needed as this programmer has a builtin socket for them.
+
+@multitable {Lenovo ThinkPad X200 with MX25L6405D}     {works?}
+@headitem    Boot flash                            @tab Works?
+@item        DIP-8 SPI                             @tab Yes
+@item        Lenovo ThinkPad X200 with MX25L6405D  @tab No
+@end multitable
 
 @node    Installing or upgrading GNU Boot images
 @chapter Installing or upgrading GNU Boot images
@@ -1144,6 +1328,61 @@ can use Guix to install the manual of older GRUB versions
 
 All the security mechanism described in the GRUB manual or GNU Boot
 website are compatible with users freedom.
+
+@node    Maintenance and repairations
+@chapter Maintenance and repairations
+
+@node    Replacing the boot flash on a desktop@comma{} server or workstation
+@section Replacing the boot flash on a desktop@comma{} server or workstation
+
+If you break the boot flash (for instance by breaking its pins), it
+can easily be replaced.
+
+To do that you need to use a boot flash of the same chip package
+(@pxref{Flash chip package} to understand what is a chip package) and
+storage size and that uses the SPI protocol (currently all supported
+computers use SPI boot flash).
+
+To check the compatibility of the chip with Flashrom you can use the
+following command:
+
+@example
+flashrom -L
+@end example
+
+And here's the command if you use flashprog instead:
+@example
+flashprog -L
+@end example
+
+In the output we can see for instance a 2MiB boot flash that are known
+to work well:
+
+@example
+flashrom v1.3.0 on Linux 6.11.11-gnu (x86_64)
+flashrom is free software, get the source code at https://flashrom.org
+
+Using clock_gettime for delay loops (clk_id: 1, resolution: 1ns).
+Supported flash chips (total: 576):
+
+Vendor             Device                          Test  Known   Size   Type
+                                                   OK    Broken  [kB]
+
+(P = PROBE, R = READ, E = ERASE, W = WRITE, - = N/A)
+
+[...]
+Spansion           S25FL016A                       PREW           2048  SPI
+[...]
+@end example
+
+Alternatively, if you are able to find one, you can also use the same
+boot flash model than the broken one or any of the boot flash that
+were shipped with the computer model (@pxref{Supported computers} for
+information on that).
+
+You might also need a flash programmer and another computer to put GNU
+Boot on the new boot flash (@pxref{Flash programmers} for more
+details on flash chip programmers).
 
 @node    Building GNU Boot from source
 @chapter Building GNU Boot from source
