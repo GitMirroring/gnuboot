@@ -37,34 +37,41 @@ usage()
 	       "Prints this help"
 }
 
-if [ $# -ne 0 ] ; then
+download()
+{
+	# Get the last version of MemTest86+ used, apply patches, build it.
+
+	# Remove the old version that may exist
+	# ----------------------------------------------------------------------
+
+	printf "Downloading MemTest86+\n"
+
+	rm -Rf "memtest86plus/"
+
+	"${topdir}"/resources/wrapper/git clone \
+		   https://review.coreboot.org/memtest86plus.git
+
+	(
+	cd "memtest86plus/"
+	"${topdir}"/resources/wrapper/git reset --hard \
+		   a78401b9704cfdd49c89bfb31d2df08f60521d0b
+
+	for patchfile in ../resources/memtest86plus/patch/*; do
+		if [ ! -f "${patchfile}" ]; then
+			continue
+		fi
+		"${topdir}"/resources/wrapper/git am "${patchfile}"
+	done
+
+	rm -Rf .git*
+	)
+
+	printf "\n\n"
+}
+
+if [ $# -eq 0 ] ; then
+	download
+else
 	usage
 	exit 0
 fi
-
-# Get the last version of MemTest86+ used, apply patches, build it.
-
-# Remove the old version that may exist
-# ------------------------------------------------------------------------------
-
-printf "Downloading MemTest86+\n"
-
-rm -Rf "memtest86plus/"
-
-"${topdir}"/resources/wrapper/git clone https://review.coreboot.org/memtest86plus.git
-
-(
-cd "memtest86plus/"
-"${topdir}"/resources/wrapper/git reset --hard a78401b9704cfdd49c89bfb31d2df08f60521d0b
-
-for patchfile in ../resources/memtest86plus/patch/*; do
-	if [ ! -f "${patchfile}" ]; then
-		continue
-	fi
-	"${topdir}"/resources/wrapper/git am "${patchfile}"
-done
-
-rm -Rf .git*
-)
-
-printf "\n\n"
