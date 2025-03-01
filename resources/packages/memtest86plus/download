@@ -37,22 +37,36 @@ usage()
 	       "Prints this help"
 }
 
+is_done()
+{
+	if [ -d memtest86plus ] ; then
+		exit 0
+	else
+		exit 1
+	fi
+}
+
 download()
 {
 	# Get the last version of MemTest86+ used, apply patches, build it.
+
+
+	tmpdir="memtest86plus.tmp"
+	destdir="memtest86plus"
 
 	# Remove the old version that may exist
 	# ----------------------------------------------------------------------
 
 	printf "Downloading MemTest86+\n"
 
-	rm -Rf "memtest86plus/"
+	rm -Rf "${tmpdir}"
+	rm -Rf "${destdir}"
 
 	"${topdir}"/resources/wrapper/git clone \
-		   https://review.coreboot.org/memtest86plus.git
+		   https://review.coreboot.org/memtest86plus.git "${tmpdir}"
 
 	(
-	cd "memtest86plus/"
+	cd "${tmpdir}"
 	"${topdir}"/resources/wrapper/git reset --hard \
 		   a78401b9704cfdd49c89bfb31d2df08f60521d0b
 
@@ -67,11 +81,15 @@ download()
 	)
 
 	printf "\n\n"
+
+	mv "${tmpdir}" "${destdir}"
 }
 
 if [ $# -eq 0 ] ; then
 	download
-else
+elif [ $# -eq 1 ] && [ "$1" = "--help" ] ; then
 	usage
 	exit 0
+elif [ $# -eq 1 ] && [ "$1" = "--is-done" ] ; then
+	is_done
 fi
