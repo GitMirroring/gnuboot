@@ -35,49 +35,55 @@ usage()
 	       "Prints this help"
 }
 
-if [ $# -ne 0 ] ; then
+download()
+{
+	# Remove the old version that may still exist
+	# ----------------------------------------------------------------------
+
+	printf "Downloading GRUB\n"
+
+	rm -Rf "grub/"
+
+	# Get latest GRUB
+	# ----------------------------------------------------------------------
+
+	# download it using git
+	"${topdir}"/resources/git/git \
+		clone git://git.savannah.gnu.org/grub.git || \
+	"${topdir}"/resources/git/git \
+		clone http://git.savannah.gnu.org/r/grub.git
+
+	if [ ! -d "grub" ]; then
+	    printf "grub not downloaded; check network connection?\n\n"
+	    exit 1
+	fi
+
+	(
+	# modifications are required
+	cd "grub/"
+	# reset to known revision
+	"${topdir}"/resources/git/git \
+		reset --hard 50aace6bdb918150ba47e3c16146dcca271c134a
+	for grubpatch in ../resources/grub/patches/*; do
+		"${topdir}"/resources/git/git am "${grubpatch}"
+	done
+
+	"${topdir}"/resources/git/git clone git://git.sv.gnu.org/gnulib gnulib
+	cd gnulib/
+
+	# NOTE: when updating this, make sure it's the version specified
+	# in bootstrap.conf on that version of GRUB, as specified above
+	"${topdir}"/resources/git/git reset --hard \
+		   d271f868a8df9bbec29049d01e056481b7a1a263
+	rm -Rf .git*
+	)
+
+	printf "\n\n"
+}
+
+if [ $# -eq 0 ] ; then
+	download
+else
 	usage
 	exit 0
 fi
-
-# Remove the old version that may still exist
-# ------------------------------------------------------------------------------
-
-printf "Downloading GRUB\n"
-
-rm -Rf "grub/"
-
-# Get latest GRUB
-# ------------------------------------------------------------------------------
-
-# download it using git
-"${topdir}"/resources/git/git \
-	clone git://git.savannah.gnu.org/grub.git || \
-"${topdir}"/resources/git/git \
-	clone http://git.savannah.gnu.org/r/grub.git
-
-if [ ! -d "grub" ]; then
-    printf "grub not downloaded; check network connection?\n\n"
-    exit 1
-fi
-
-(
-# modifications are required
-cd "grub/"
-# reset to known revision
-"${topdir}"/resources/git/git \
-	reset --hard 50aace6bdb918150ba47e3c16146dcca271c134a
-for grubpatch in ../resources/grub/patches/*; do
-	"${topdir}"/resources/git/git am "${grubpatch}"
-done
-
-"${topdir}"/resources/git/git clone git://git.sv.gnu.org/gnulib gnulib
-cd gnulib/
-
-# NOTE: when updating this, make sure it's the version specified
-# in bootstrap.conf on that version of GRUB, as specified above
-"${topdir}"/resources/git/git reset --hard d271f868a8df9bbec29049d01e056481b7a1a263
-rm -Rf .git*
-)
-
-printf "\n\n"
