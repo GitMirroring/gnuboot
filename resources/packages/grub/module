@@ -29,9 +29,8 @@ set -u -e
 
 printf "Building GRUB\n"
 
-if [ ! -d "grub/" ]; then
-    ./download grub
-fi
+# Check if GRUB has already been downloaded, and download it if not.
+./download grub --is-done || ./download grub
 
 # use a subshell to not end up in grub/ in case of build issues
 (

@@ -27,40 +27,60 @@ usage()
 {
 	progname="./download grub"
 	printf "Usage:\n"
-	printf "\t%s         # %s\n" \
+	printf "\t%s            # %s\n" \
 	       "${progname}" \
 	       "Download GRUB"
-	printf "\t%s --help  # %s\n" \
+	printf "\t%s --is-done  # %s\n" \
+	       "${progname}" \
+	       "Returns 0 if downloaded, 1 otherwise"
+	printf "\t%s --help     # %s\n" \
 	       "${progname}" \
 	       "Prints this help"
 }
 
+is_done()
+{
+	if [ -d grub ] ; then
+		exit 0
+	else
+		exit 1
+	fi
+}
+
 download()
 {
-	# Remove the old version that may still exist
+	# We need to handle the case where GRUB download is
+	# interrupted in the middle, so we do everything in a
+	# temporary directory, and move it to the final location at
+	# the end.
+	tmpdir="grub.tmp"
+	destdir="grub"
+
+	# Remove the old version(s) that may still exist
 	# ----------------------------------------------------------------------
 
 	printf "Downloading GRUB\n"
 
-	rm -Rf "grub/"
+	rm -Rf "${tmpdir}"
+	rm -Rf "${destdir}"
 
 	# Get latest GRUB
 	# ----------------------------------------------------------------------
 
 	# download it using git
 	"${topdir}"/resources/git/git \
-		clone git://git.savannah.gnu.org/grub.git || \
+		clone git://git.savannah.gnu.org/grub.git "${tmpdir}" || \
 	"${topdir}"/resources/git/git \
-		clone http://git.savannah.gnu.org/r/grub.git
+		clone http://git.savannah.gnu.org/r/grub.git "${tmpdir}"
 
-	if [ ! -d "grub" ]; then
-	    printf "grub not downloaded; check network connection?\n\n"
-	    exit 1
+	if [ ! -d "${tmpdir}" ]; then
+		printf "grub not downloaded; check network connection?\n\n"
+		exit 1
 	fi
 
 	(
 	# modifications are required
-	cd "grub/"
+	cd "${tmpdir}"
 	# reset to known revision
 	"${topdir}"/resources/git/git \
 		reset --hard 50aace6bdb918150ba47e3c16146dcca271c134a
@@ -79,11 +99,15 @@ download()
 	)
 
 	printf "\n\n"
+
+	mv "${tmpdir}" "${destdir}"
 }
 
 if [ $# -eq 0 ] ; then
 	download
-else
+elif [ $# -eq 1 ] && [ "$1" = "--help" ] ; then
 	usage
 	exit 0
+elif [ $# -eq 1 ] && [ "$1" = "--is-done" ] ; then
+	is_done
 fi
