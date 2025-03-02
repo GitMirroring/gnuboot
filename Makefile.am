@@ -31,32 +31,38 @@ LOG = make-$(shell date '+%s').log
 
 all: roms
 
-download:
+$(LOG):
+	@echo -n "git revision: "  >> $@
+	resources/git/git describe >> $@
+	@echo -n "----------------------------------------"  >> $@
+	@echo    "----------------------------------------"  >> $@
+
+download: $(LOG)
 	echo 'Makefile: running $@ target' >> $(LOG)
 	./download all 2>&1 | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
-modules:
+modules: $(LOG)
 	echo 'Makefile: running $@ target' >> $(LOG)
 	./build module all 2>&1 | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
-ich9m-descriptors:
+ich9m-descriptors: $(LOG)
 	echo 'Makefile: running $@ target' >> $(LOG)
 	./build build descriptors | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
-payloads:
+payloads: $(LOG)
 	echo 'Makefile: running $@ target' >> $(LOG)
 	set -o pipefail ; ./build payload all | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
-roms:
+roms: $(LOG)
 	echo 'Makefile: running $@ target' >> $(LOG)
 	set -o pipefail ; ./build boot roms all | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
-release:
+release: $(LOG)
 	echo 'Makefile: running $@ target' >> $(LOG)
 	set -o pipefail ; ./build release src | tee -a $(LOG)
 	set -o pipefail ; ./build release roms | tee -a $(LOG)
@@ -82,22 +88,22 @@ crossgcc-clean:
 distclean:
 	./build distclean all
 
-install-dependencies-pureos-trisquel:
+install-dependencies-pureos-trisquel: $(LOG)
 	echo 'Makefile: running $@ target' >> $(LOG)
 	set -o pipefail ; ./build dependencies pureos-trisquel | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
-install-dependencies-arch:
+install-dependencies-arch: $(LOG)
 	echo 'Makefile: running $@ target' >> $(LOG)
 	set -o pipefail ; ./build dependencies arch | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
-install-dependencies-void:
+install-dependencies-void: $(LOG)
 	echo 'Makefile: running $@ target' >> $(LOG)
 	set -o pipefail ; ./build dependencies void | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
-check:
+check: $(LOG)
 	echo 'Makefile: running $@ target' >> $(LOG)
 	set -o pipefail ; ./tests/lint | tee -a $(LOG)
 	set -o pipefail ; ./tests/distclean | tee -a $(LOG)
