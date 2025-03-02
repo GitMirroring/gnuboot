@@ -23,6 +23,9 @@ set -u -e
 
 topdir="$(realpath "$(dirname "$(dirname "$(dirname "$(dirname "$0")")")")")"
 
+grub_revision="50aace6bdb918150ba47e3c16146dcca271c134a"
+gnulib_revision="d271f868a8df9bbec29049d01e056481b7a1a263"
+
 usage()
 {
 	progname="./download grub"
@@ -40,11 +43,35 @@ usage()
 
 is_done()
 {
-	if [ -d grub ] ; then
-		exit 0
-	else
+	# We need to check if any of the patches were modified. If
+	# they are we need to apply their newer versions.
+	if [ ! -d grub/patches ] ; then
 		exit 1
 	fi
+	for grubpatch in ../resources/grub/patches/*; do
+		cmp "${grubpatch}" patches/"${grubpatch}"
+	done
+
+	# Also check if we have the right git revision for GRUB
+	current_commit=$("${topdir}"/resources/git/git \
+				    -C grub show HEAD \
+				    --no-patch --pretty="%H")
+	if [ "${current_commit}" != "${grub_revision}" ] ; then
+	    exit 1
+	fi
+
+	# Also check if we have the right git revision for gnulib
+	if [ ! -d grub/gnulib ] ; then
+		exit 1
+	fi
+	current_commit="$("${topdir}"/resources/git/git \
+			    -C grub/gnulib show HEAD \
+			    --no-patch --pretty="%H")"
+	if [ "${current_commit}" != "${gnulib_revision}" ] ; then
+	    exit 1
+	fi
+
+	exit 0
 }
 
 download()
@@ -82,9 +109,13 @@ download()
 	# modifications are required
 	cd "${tmpdir}"
 	# reset to known revision
-	"${topdir}"/resources/git/git \
-		reset --hard 50aace6bdb918150ba47e3c16146dcca271c134a
+	"${topdir}"/resources/git/git reset --hard "${grub_revision}"
+
+	# See the is_done function for why we copy the patches in the
+	# source tree.
+	mkdir patches
 	for grubpatch in ../resources/grub/patches/*; do
+		cp "${grubpatch}" patches/
 		"${topdir}"/resources/git/git am "${grubpatch}"
 	done
 
@@ -93,8 +124,7 @@ download()
 
 	# NOTE: when updating this, make sure it's the version specified
 	# in bootstrap.conf on that version of GRUB, as specified above
-	"${topdir}"/resources/git/git reset --hard \
-		   d271f868a8df9bbec29049d01e056481b7a1a263
+	"${topdir}"/resources/git/git reset --hard "${gnulib_revision}"
 	rm -Rf .git*
 	)
 
