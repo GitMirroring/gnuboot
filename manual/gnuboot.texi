@@ -1337,6 +1337,9 @@ these and welcome contributions in this area.
 @node    Supported operating systems
 @section Supported operating systems
 
+@node       GNU/Linux
+@subsection GNU/Linux
+
 While GNU Boot should be able to boot almost any GNU/Linux
 distribution, but in some cases some configuration might be needed by
 the GNU Boot user. The cases that do and don't require configuration
@@ -1357,7 +1360,10 @@ Trisquel 11 (aramo), one of the free distributions to make sure that
 it can boot fine without needing any special configuration from the
 user.
 
-However sometimes fully free distributions also propose experimental
+@node          Non-standard GNU/Linux configurations
+@subsubsection Non-standard GNU/Linux configurations
+
+Sometimes fully free distributions also propose experimental
 or non-standard configurations for very specific use cases. For
 instance Guix has experimental support for GNU Hurd, an experimental
 kernel from the GNU project, and Trisquel supports the Xen kernel,
@@ -1369,12 +1375,18 @@ might require some configuration from the user. Also we would need
 help from users to report what works and doesn't work or what
 workarounds are needed to make them work with GNU Boot.
 
+@node          Nonfree distributions
+@subsubsection Nonfree distributions
+
 The cases that are known not to require any configuration might also
 work with any GNU/Linux distributions (even the nonfree ones), however
 the GNU Boot project doesn't want to force contributors to download or
 run nonfree software to test changes, so it relies on voulounteers
 already running such distributions to report bugs in case something
 doesn't work as it should.
+
+@node       Other operating systems
+@subsection Other operating systems
 
 As for other operating systems, there is some documentation on how to
 boot some of them (like some BSD operating systems) on the GNU Boot
