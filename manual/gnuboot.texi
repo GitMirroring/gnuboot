@@ -1424,6 +1424,48 @@ These files are similar to
 We also sometime refer to the flash image files as @dfn{flash images}
 or simply (GNU Boot) "images" (files).
 
+@node       GNU Boot images naming
+@subsection GNU Boot images naming
+
+Images for specific computers can be found on
+@uref{https://ftp.gnu.org/gnu/gnuboot/,the GNU Boot download area} or
+in the release/roms directory if you built GNU Boot from source
+yourself.
+
+For a given release (or release candidate) like GNU Boot 0.1-rc3, you
+can find such files inside the 'roms' directory like
+@url{https://ftp.gnu.org/gnu/gnuboot/gnuboot-0.1-rc3/roms/} for GNU
+Boot 0.1-rc3.
+
+Inside you have archive files like
+@option{gnuboot-0.1-rc3_x200_8mb.tar.xz} that are specific to a
+specific computer (here the ThinkPad X200 with 8MiB boot flash).
+
+@pxref{Installing or upgrading GNU Boot images} to understand how to
+identify which archive file correspond to which computer.
+
+Inside each archive files, there are many smaller files that are flash
+images. @xref{boot software} to understand what a flash image is.
+
+The flash image files correspond to the configurations described in
+the @ref{GNU Boot images types}.
+
+So for instance if we have an image named
+@option{grub_x200_8mb_corebootfb_usqwerty.rom}, it is meant for a
+ThinkPad X200 with 8MiB boot flash, and it uses the GRUB software to
+boot, and it is configured to use a QWERTY keyboard layout.
+
+If the image contains @option{seabios} in its file name instead of
+@option{grub}, it uses the SeaBIOS software to boot.
+
+The @option{corebootfb} in the file name correspond to the high
+resolution graphics described in the previous subsection (@ref{GNU
+Boot images types}).
+
+If instead the file has @option{txtmode} in its name, this corresponds
+to the text-only low resolution that was also described in the
+previous subsection (@ref{GNU Boot images types}).
+
 @node       GNU Boot images types
 @subsection GNU Boot images types
 
@@ -1507,47 +1549,210 @@ use. Compared with SeaBIOS images with text-only low resolution:
 
 @end itemize
 
-@node       GNU Boot images naming
-@subsection GNU Boot images naming
 
-Images for specific computers can be found on
-@uref{https://ftp.gnu.org/gnu/gnuboot/,the GNU Boot download area} or
-in the release/roms directory if you built GNU Boot from source
-yourself.
+@node    SeaBIOS images requirements
+@section SeaBIOS images requirements
 
-For a given release (or release candidate) like GNU Boot 0.1-rc3, you
-can find such files inside the 'roms' directory like
-@url{https://ftp.gnu.org/gnu/gnuboot/gnuboot-0.1-rc3/roms/} for GNU
-Boot 0.1-rc3.
+@node       SeaBIOS: Supported filesystems and partitions
+@subsection SeaBIOS: Supported filesystems and partitions
 
-Inside you have archive files like
-@option{gnuboot-0.1-rc3_x200_8mb.tar.xz} that are specific to a
-specific computer (here the ThinkPad X200 with 8MiB boot flash).
+SeaBIOS images don't need to support any filesystems because SeaBIOS
+is a BIOS interface implementation and BIOSes don't need to support
+any filesystem to load an operating system.
 
-@pxref{Installing or upgrading GNU Boot images} to understand how to
-identify which archive file correspond to which computer.
+It supports the MBR (Master boot record) partition table.
 
-Inside each archive files, there are many smaller files that are flash
-images. @xref{boot software} to understand what a flash image is.
+If you use GPT (GUID Partition Table) instead, it may be possible to
+boot from a BIOS Boot partition instead, but it is untested. Please do
+report if this works for you.
 
-The flash image files correspond to the configurations described in
-the @ref{GNU Boot images types}.
+Wikipedia has more information on why in its
+@uref{https://en.wikipedia.org/wiki/Master_boot_record,Master boot
+record} and
+@uref{https://en.wikipedia.org/wiki/BIOS_Boot_partition,BIOS Boot
+partition} articles.
 
-So for instance if we have an image named
-@option{grub_x200_8mb_corebootfb_usqwerty.rom}, it is meant for a
-ThinkPad X200 with 8MiB boot flash, and it uses the GRUB software to
-boot, and it is configured to use a QWERTY keyboard layout.
+@node       SeaBIOS: Supported bootloaders
+@subsection SeaBIOS: Supported bootloaders
 
-If the image contains @option{seabios} in its file name instead of
-@option{grub}, it uses the SeaBIOS software to boot.
+@node          SeaBIOS: GRUB (on MBR or BIOS boot partition)
+@subsubsection SeaBIOS: GRUB (on MBR or BIOS boot partition)
 
-The @option{corebootfb} in the file name correspond to the high
-resolution graphics described in the previous subsection (@ref{GNU
-Boot images types}).
+GRUB, when shipped from a GNU/Linux distribution, typically uses a
+graphic driver that is incompatible with GNU Boot. Because of that you
+typically can't see GRUB during the boot.
 
-If instead the file has @option{txtmode} in its name, this corresponds
-to the text-only low resolution that was also described in the
-previous subsection (@ref{GNU Boot images types}).
+Even if this causes no inconvenience to you now, if there is any
+issues later on, you might be required to interact with GRUB due to
+various reasons (GRUB might stop the boot and/or you might need to
+interact with it to continue booting your distribution, you might need
+to boot in recovery mode and/or load another kernel due to various
+issues), and if you can't see anything you will not be able to boot
+anymore your distribution (unless you boot another distribution and
+repair it from there).
+
+Most distribution provide a GRUB configuration in
+@emph{/etc/default/grub}, it looks a bit like that (it might change a
+bit depending on the distribution, here we used the Trisquel 11
+(aramo) configuration as an example):
+
+@verbatim
+# If you change this file, run 'update-grub' afterwards to update
+# /boot/grub/grub.cfg.
+# For full documentation of the options in this file, see:
+#   info -f grub -n 'Simple configuration'
+
+GRUB_DEFAULT=0
+GRUB_TIMEOUT_STYLE=hidden
+GRUB_TIMEOUT=1
+GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+GRUB_CMDLINE_LINUX=""
+
+# Uncomment to enable BadRAM filtering, modify to suit your needs
+# This works with Linux-Libre (no patch required) and with any kernel that obtains
+# the memory map information from GRUB (GNU Mach, kernel of FreeBSD ...)
+#GRUB_BADRAM="0x01234567,0xfefefefe,0x89abcdef,0xefefefef"
+
+# Uncomment to disable graphical terminal (grub-pc only)
+#GRUB_TERMINAL=console
+
+# The resolution used on graphical terminal
+# note that you can use only modes which your graphic card supports via VBE
+# you can see them in real GRUB with the command `vbeinfo'
+#GRUB_GFXMODE=640x480
+
+# Uncomment if you don't want GRUB to pass "root=UUID=xxx" parameter to Linux
+#GRUB_DISABLE_LINUX_UUID=true
+
+# Uncomment to disable generation of recovery mode menu entries
+#GRUB_DISABLE_RECOVERY="true"
+
+# Uncomment to get a beep at grub start
+#GRUB_INIT_TUNE="480 440 1"
+
+@end verbatim
+
+You can see it with the @emph{sudo cat /etc/default/grub} command.
+
+Here you will need to change @emph{#GRUB_TERMINAL=console} to
+@emph{GRUB_TERMINAL=console}.
+
+On Trisquel can be done with the following command:
+@example
+sudo sed 's/#GRUB_TERMINAL=console/GRUB_TERMINAL=console/' -i /etc/default/grub
+@end example
+
+To verify that we changed the file, we can use the following command:
+@example
+grep '^GRUB_TERMINAL=console$' /etc/default/grub
+@end example
+
+It should print @emph{GRUB_TERMINAL=console}.
+
+We then need to run the following command to update the generated grub
+configuration that is in @emph{/boot/grub/grub.cfg}:
+
+@c Parabola
+
+Some distribution (here Parabola) have a slightly different
+configuration file in @emph{/etc/default/grub}.
+
+Instead of having this:
+@example
+# Uncomment to disable graphical terminal (grub-pc only)
+#GRUB_TERMINAL=console
+@end example
+
+We have:
+@example
+# Uncomment to use basic console
+GRUB_TERMINAL_INPUT=console
+
+# Uncomment to disable graphical terminal
+#GRUB_TERMINAL_OUTPUT=console
+@end example
+
+So we instead need to use this command:
+@example
+sudo sed 's/#GRUB_TERMINAL_OUTPUT=console/GRUB_TERMINAL_OUTPUT=console/' \
+-i /etc/default/grub
+@end example
+
+To verify that we changed the file, we then need to use the following command:
+@example
+grep '^GRUB_TERMINAL_OUTPUT=console$' /etc/default/grub
+@end example
+
+It should then print @emph{GRUB_TERMINAL_OUTPUT=console}.
+
+We then need to run the following command to update the generated grub
+configuration that is in @emph{/boot/grub/grub.cfg}:
+
+@example
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+@end example
+
+@c Guix
+
+If you use Guix system instead, you don't have a configuration file
+like that. So you will need to modify the bootloader section of your
+system configuration to add @emph{(terminal-outputs '(console))}
+inside your bootloader section. It should look a bit like that:
+@example
+(bootloader (bootloader-configuration
+             (bootloader grub-bootloader)
+             (targets '(file-system-label "Guix_image"))
+             (terminal-outputs '(console))))
+@end example
+
+Then to update the GRUB configuration, you will need to reconfigure your system:
+@example
+sudo guix system reconfigure /etc/config.scm
+@end example
+
+@c How to use GRUB.
+
+Since most distribution hides the GRUB menu by default unless they
+detects some issue, if one day you need to interract with GRUB (for
+instance to boot with an older kernel), at boot, you will need to
+first wait for SeaBIOS to load.
+
+It should look like that:
+
+@verbatim
+SeaBIOS (version rel-1.14.0-27-g64f37cc5)
+
+
+Press ESC for boot menu.
+@end verbatim
+
+At this point, do not press @emph{ESC} and wait a bit until it
+starts. You should see something like that:
+
+@verbatim
+Booting from Hard Disk...
+@end verbatim
+
+You can then press the @emph{Escape} or @emph{ESC} key multiple times
+until it interrupts GRUB, right after SeaBIOS. At this point you should
+see something more or less like that (instead of a completely black
+screen):
+
+@verbatim
+               GNU GRUB  version 2.12
++--------------------------------------------------+
+|*Trisquel GNU/Linux                               |
+| Advanced options for Trisquel GNU/Linux          |
+| Trisquel GNU/Linux 11.0.1, Aramo (11.0.1) (on /d→|
+| Advanced options for Trisquel GNU/Linux 11.0.1, →|
++--------------------------------------------------+
+      Use the ↑ and ↓ keys to select which
+      entry is highlighted.
+      Press enter to boot the selected OS, `e'
+      to edit the commands before booting or
+      `c' for a command-line.
+@end verbatim
 
 @node    Flash programmers
 @chapter Flash programmers
