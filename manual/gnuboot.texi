@@ -1876,25 +1876,131 @@ screen):
 @subsection Configuration files supported by GRUB
 
 @menu
-* grub.cfg::
+* Builtin configuration::
 @end menu
 
-@node          grub.cfg
-@subsubsection grub.cfg
+@node          Builtin configuration
+@subsubsection Builtin configuration
 
-When booting, the GNU Boot GRUB image selects the first entry, which
-is @emph{Load Operating System (incl. fully encrypted disks)}.
+By default, when booting, the GNU Boot GRUB image will show this menu:
+
+@verbatim
+                       GNU GRUB  version 2.12
+
+ +----------------------------------------------------------------+
+ |*Load Operating System (incl. fully encrypted disks)  [o]       |
+ | Search ISOLINUX menu (AHCI)  [a]                               |
+ | Search ISOLINUX menu (USB)  [u]                                |
+ | Search ISOLINUX menu (ATA/IDE)  [d]                            |
+ | Load test configuration (grubtest.cfg) inside of CBFS  [t]     |
+ | Search for GRUB2 configuration on external media  [s]          |
+ | Poweroff  [p]                                                  |
+ | Reboot  [r]                                                    |
+ | Boot multiple distributions (experimental) [x]                 |
+ |                                                                |
+ +----------------------------------------------------------------+
+
+      Use the ↑ and ↓ keys to select which entry is
+      highlighted.
+      Press enter to boot the selected OS, `e' to edit the
+      commands before booting or `c' for a command-line.
+
+@end verbatim
+
+It will then wait 10 seconds for the user to select an entry and if
+nothing is selected, it will select the first entry (@emph{Load
+Operating System (incl. fully encrypted isks)}).
+
+To modify the behavior of the menu, @pxref{Modifing the menu behavior}.
+
+The next subsubsections will document the entries.
+
+@node          Load Operating System (incl. fully encrypted disks)
+@subsubsection Load Operating System (incl. fully encrypted disks)
+
+The first entry is @emph{Load Operating System (incl. fully encrypted
+isks)}. Its goal is to boot the first distribution it finds from
+the internal SATA or ATA disk(s).
 
 It has limited heuristics to find LVM, raid and encrypted partitions.
 
 Once it finds a filesystem, it tries to find the gnuboot_grub.cfg,
-osboot_grub.cfg, autoboot_grub.cfg, coreboot_grub.cfg, grub.cfg, in
-that order, in the boot, grub, grub2, boot/grub, or boot/grub2
-directories.
+osboot_grub.cfg, autoboot_grub.cfg, coreboot_grub.cfg, grub.cfg, in that
+order, in the boot, grub, grub2, boot/grub, or boot/grub2 directories.
 
 So if it loads the wrong distribution, you can put grub commands that
-load the right distribution in /boot/gnuboot_grub.cfg in the partition
+load the right distribution in /boot/gnuboot_grub
+.cfg in the partition
 it loads the wrong distribution from.
+
+There is also a manual way to boot that let you select from which
+partition to boot through the menu. This might be handy if you have
+multiple distributions or if @emph{Load Operating System (incl. fully
+encrypted disks)} doesn't do what you want. For this menu entry,
+@pxref{Boot multiple distributions (experimental)} for more details.
+
+@node          Boot multiple distributions (experimental)
+@subsubsection Boot multiple distributions (experimental)
+
+When selecting @emph{Boot multiple distributions (experimental)}, it
+will display all your storage devices, it could for instance look like
+that:
+
+@verbatim
+                       GNU GRUB  version 2.12
+
+ +---------------------------------------------------------+
+ |*(lvm/vg-root)                                           |
+ | (ahci0)                                                 |
+ | (ahci0,msdos5)                                          |
+ | (ahci0,msdos1)                                          |
+ |                                                         |
+ +---------------------------------------------------------+
+
+      Use the ↑ and ↓ keys to select which entry is
+      highlighted.
+      Press enter to boot the selected OS, `e' to edit the
+      commands before booting or `c' for a command-line.
+
+@end verbatim
+
+If you select one of the entries, it will look for grub.cfg file from
+the usual locations (@pxref{Load Operating System (incl. fully encrypted
+disks)}). If it doesn't find it, it gets you back to the same menu (here
+it would be the same one as above).
+
+If it does find it, it will just load it and this will either boot the
+distribution or show the distribution menu like below:
+
+@verbatim
+               GNU GRUB  version 2.12
++--------------------------------------------------+
+|*Trisquel GNU/Linux                               |
+| Advanced options for Trisquel GNU/Linux          |
+| Trisquel GNU/Linux 11.0.1, Aramo (11.0.1) (on /d→|
+| Advanced options for Trisquel GNU/Linux 11.0.1, →|
++--------------------------------------------------+
+      Use the ↑ and ↓ keys to select which
+      entry is highlighted.
+      Press enter to boot the selected OS, `e'
+      to edit the commands before booting or
+      `c' for a command-line.
+@end verbatim
+
+This also supports advanced partitioning like @emph{LVM2}
+(@pxref{LVM2}) or full disk encryption and @pxref{GRUB: LUKS1 and
+LUKS2}).
+
+@node          Modifing the menu behavior
+@subsubsection Modifing the menu behavior
+
+It is also possible to modify the behavior of this menu (for instance
+adding new entries) by modifying the grub.cfg configuration file inside
+the GNU Boot GRUB image. The @ref{,,,grub,GNU GRUB manual} has
+information on the syntax of this file and the @emph{cbfstool} program
+can be used to replace the existing grub.cfg. This program is available
+in the GNU Boot releases and it is sometimes packaged in distributions
+(like Parabola)
 
 @node       Partitions supported by GRUB images
 @subsection Partitions supported by GRUB images
@@ -2110,8 +2216,8 @@ configfile /rootfs/trisquel/boot/grub/grub.cfg
 This will make the GNU Boot GRUB image find that configuration file,
 and load the grub.cfg produced by your Trisquel installation.
 
-@xref{grub.cfg} for more details on the GRUB configurations loaded by
-GNU Boot.
+@xref{Builtin configuration} for more details on the GRUB
+configurations loaded by GNU Boot.
 
 @node          ISO 9660 and UDF
 @subsubsection ISO 9660 and UDF
