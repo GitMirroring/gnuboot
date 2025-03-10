@@ -103,13 +103,13 @@ test_release_dir()
     dir="release"
 
     targets="\
-        d510mo \
+        d510mo_1mb \
         d510mo_16mb \
-        d945gclf \
+        d945gclf_512kb \
         d945gclf_16mb \
-        g43t-am3 \
+        g43t-am3_2mb \
         g43t-am3_16mb \
-        ga-g41m-es2l \
+        ga-g41m-es2l_1mb \
         kcma-d8-rdimm_16mb \
         kcma-d8-rdimm_2mb \
         kcma-d8-udimm_16mb \
@@ -120,9 +120,9 @@ test_release_dir()
         kgpe-d16-rdimm_2mb \
         kgpe-d16-udimm_16mb \
         kgpe-d16-udimm_2mb \
-        macbook11 \
+        macbook11_2mb \
         macbook11_16mb \
-        macbook21 \
+        macbook21_2mb \
         macbook21_16mb \
         qemu-pc_2mb \
         r400_16mb \
@@ -135,8 +135,8 @@ test_release_dir()
         t500_16mb \
         t500_4mb \
         t500_8mb \
-        t60_16mb_intelgpu \
-        t60_intelgpu \
+        t60_intelgpu_16mb \
+        t60_intelgpu_2mb \
         w500_16mb \
         w500_4mb \
         w500_8mb \
@@ -146,7 +146,7 @@ test_release_dir()
         x301_16mb \
         x301_4mb \
         x301_8mb \
-        x60 \
+        x60_2mb \
         x60_16mb \
     "
 
