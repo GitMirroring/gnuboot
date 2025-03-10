@@ -1,4 +1,4 @@
-# Copyright (C) 2024 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+# Copyright (C) 2024,2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,6 +18,8 @@
 # and the binaries and if the source is more recent, rebuilds the
 # binaries.
 
+[commit]
+	gpgSign = false
 [core]
 	pager = cat
 [user]
