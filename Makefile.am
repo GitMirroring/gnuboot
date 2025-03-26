@@ -74,12 +74,14 @@ release: $(LOG)
 	set -o pipefail ; ./build release gnuboot-source 2>&1 | tee -a $(LOG)
 	set -o pipefail ; ./build test roms              2>&1 | tee -a $(LOG)
 	set -o pipefail ; ./build test release           2>&1 | tee -a $(LOG)
+	set -o pipefail ; ./build test manual            2>&1 | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
 clean:
 	./build clean cbutils
 	./build clean i945-thinkpads-install-utilities
 	./build clean ich9utils
+	./build clean manual
 	./build clean payloads
 	./build clean seabios
 	./build clean grub

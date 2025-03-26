@@ -54,6 +54,8 @@ run_shellcheck \
     guix-revision.sh \
     modify \
     update \
+    manual/build-guix-i686-linux.sh.in \
+    manual/build-guix-x86_64-linux.sh.in \
     resources/packages/coreboot/distclean \
     resources/packages/descriptors/distclean \
     resources/packages/grub/distclean \
@@ -62,6 +64,9 @@ run_shellcheck \
     resources/packages/i945-thinkpads-install-utilities/download \
     resources/packages/i945-thinkpads-install-utilities/module \
     resources/packages/ich9utils/distclean \
+    resources/packages/manual/clean \
+    resources/packages/manual/distclean \
+    resources/packages/manual/test \
     resources/packages/memtest86plus/distclean \
     resources/packages/payloads/distclean \
     resources/packages/release/test \

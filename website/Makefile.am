@@ -1,4 +1,4 @@
-# Copyright (C) 2022-2024 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+# Copyright (C) 2022-2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 # Copyright (C) 2025 Adrien 'neox' Bourmault <neox@gnu.org>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -197,6 +197,15 @@ endif
 		`git --no-pager show --no-patch HEAD --pretty="%h"` > $@ ; \
 	fi
 
+../manual/build-guix-%-linux.sh: ../manual/build-guix-%-linux.sh.in
+	m4 -DGUIX_REVISION=$(GUIX_REVISION) $^ | \
+		sed 's/#.*//' | \
+		sed '/^$$/d' > $@
+	chmod +x $@
+
+../manual/guix-revision.texi:
+	../../$(srcdir)/guix-revision.sh print-texinfo > $@
+
 # If we use GNUBOOT_MANUAL_DEPENDENCIES, autoreconf 2.71 will output the
 # following warning:
 #     Makefile.am:115: warning: variable 'GNUBOOT_MANUAL_DEPENDENCIES' is
@@ -207,8 +216,11 @@ endif
 # *_SOURCES, so we used GNUBOOT_MANUAL_FILES to avoid conflicts or
 # potentially unintended side effects.
 GNUBOOT_MANUAL_FILES = \
+	../manual/build-guix-i686-linux.sh \
+	../manual/build-guix-x86_64-linux.sh \
 	../manual/fdl-1.3.texi \
 	../manual/gnuboot.texi \
+	../manual/guix-revision.texi \
 	../manual/images/SOIC-16.png \
 	../manual/version.texi \
 	Makefile \

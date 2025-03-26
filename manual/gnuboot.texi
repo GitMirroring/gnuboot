@@ -2,6 +2,7 @@
 @c %**start of header
 @setfilename gnuboot.info
 @include version.texi
+@include guix-revision.texi
 @settitle GNU Boot @value{VERSION}
 
 @c Define a new index for options.
@@ -9,6 +10,7 @@
 @c Combine everything into one index (arbitrarily chosen to be the
 @c concept index).
 @syncodeindex op cp
+@codequoteundirected on
 @c %**end of header
 
 @copying
@@ -2033,13 +2035,24 @@ understand.
 @node    Using GNU Boot with QEMU
 @section Using GNU Boot with QEMU
 
-The GNU Boot project also release images for QEMU.
+The GNU Boot project also release images for QEMU. They can be useful
+for trying GNU Boot, especially the GRUB images, to see how to boot
+various distributions. If you contribute to GNU Boot, they can also be
+useful to run quick tests tests.
 
-If you just want to try an image to see how it looks like you can use
-the following command:
+However note that testing with these QEMU images don't fully replace
+tests on real computers. For instance a distribution or operating
+system might work on QEMU but not work on real hardware due to an
+incomplete graphic driver for the real hardware GPU.
+
+@node       Quick test with QEMU
+@subsection Quick test with QEMU
+
+If you just want to try an image to see how it looks like, after
+installing QEMU, you can use the following command:
 
 @example
-qemu-system-x86_64 -M pc \
+qemu-system-i386 -M pc \
 -bios grub_qemu-pc_2mb_corebootfb_usqwerty.rom
 @end example
 
@@ -2047,16 +2060,225 @@ Here you need to replace
 @emph{grub_qemu-pc_2mb_corebootfb_usqwerty.rom} by the
 path to the image you want to try.
 
-For a more complete example, you can look in the GNU Boot source code
-as GNU Boot uses QEMU to run some automatic tests that boots Trisquel
-11 (aramo).
+If you don't have @emph{qemu-system-i386} you can either ask users of
+your distribution for help, to understand which package you need to
+install, or use @emph{qemu-system-x86_64} instead.
 
-Also note that the GNU Boot images for QEMU can be useful in some
-situations, but it doesn't fully replace tests run on real computers.
+Alternatively, the @emph{qemu} package from Guix also provides both
+(@emph{qemu-system-i386} and @emph{qemu-system-x86_64}).
 
-For instance a distribution or operating system might work on QEMU but
-not work on real hardware due to an incomplete graphic driver for the
-real hardware GPU.
+@c We don't want the qemu-system-i386 command to be split between 2 pages as
+@c users are expected to copy-paste it in a terminal, and we don't want
+@c "Chapter 5: Using GNU Boot <page number>" to end up in the middle of the
+@c command.
+@page
+
+@node       Booting a distribution with QEMU
+@subsection Booting a distribution with QEMU
+
+In the previous section (@ref{Quick test with QEMU}) we didn't boot a
+distribution.
+
+To boot an x86 32bit distribution, you can use the following (QEMU) command:
+
+@example
+qemu-system-i386 \
+-bios grub_qemu-pc_2mb_corebootfb_usqwerty.rom \
+-M pc \
+-m 128M \
+-cpu kvm32 \
+-enable-kvm \
+-blockdev \
+'@{"driver":"file","filename":"rootfs-i686.img","node-name":"libvirt-1-storage"@}' \
+-blockdev \
+'@{"node-name":"libvirt-1-format","driver":"raw","file":"libvirt-1-storage"@}' \
+-device \
+'@{"driver":"virtio-scsi-pci","id":"scsi0","bus":"pci.0","addr":"0x4"@}' \
+-device \
+'@{"driver":"ahci","id":"sata0","bus":"pci.0","addr":"0x5"@}' \
+-device \
+'@{"driver":"ide-hd","bus":"sata0.0","drive":"libvirt-1-format","id":"sata0-0-0"@}'
+@end example
+
+If it fails with the following error:
+@example
+qemu-system-i386: failed to initialize kvm: Permission denied
+@end example
+
+You can fix that by removing the -enable-kvm from the command
+above. It will always work but it will make booting the virtual
+machine slower.
+
+Alternatively, you can try to fix this by adding the proper
+permissions to /dev/kvm. To do that you can either consult your
+distribution documentation / wiki or ask other users of that
+distribution for help. Also, this will only work if your processor
+supports KVM (most computer do).
+
+In addition, for the command to work you will also need to provide the
+@emph{rootfs-i686.img} file (otherwise it will fail with @emph{Could
+not open 'rootfs-i686.img': No such file or directory}).
+
+If you don't know how to do that, you can install Guix first (it can
+be installed on top of another GNU/Linux distribution) and generate it
+with Guix.
+
+You can consult either the
+@uref{https://www.gnu.org/software/gnuboot/web/docs/build/,GNU Boot
+build instructions} or the @ref{Installation,,,guix,GNU Guix reference
+manual} for how to install Guix.
+
+Then for distributions (like PureOS or Trisquel) that provide Guix
+versions older than @value{GUIX_REVISION_NAME}, or if you don't know
+the Guix version you have, you will need to update Guix with the
+following commands:
+@example
+guix pull
+@end example
+
+It could take a long time though (maybe 1 hour or more depending on
+the speed of the computer and network).
+
+Then make sure you are using the latest Guix with the following
+command (this needs to be done each time you use a new shell and want
+to use the latest Guix when Guix is installed on top of another
+distribution):
+
+@example
+hash guix
+@end example
+
+@c We don't want the content of guix-i686-linux.scm or the command used to
+@c generate the rootfs-i686.img file to be split between 2 pages, as users
+@c are expected to copy-paste the content of guix-i686-linux.scm (which is
+@c displayed as-is in the manual) in a file (named guix-i686-linux.scm), and
+@c then copy paste the command, as otherwise "Chapter 5: Using GNU Boot
+@c <page number>" would end up in that file and command.
+@page
+
+Then you can copy the following inside the guix-i686-linux.scm file:
+
+@verbatiminclude guix-i686-linux.scm
+
+And finally you can generate the @emph{rootfs-i686.img} file with the
+following command:
+
+@verbatiminclude build-guix-i686-linux.sh
+
+This will create the @emph{rootfs-i686.img} that you need in the
+current directory.
+
+You can then boot it with the QEMU command we gave before. You should
+then see this:
+
+@example
+This is the GNU system.  Welcome.
+guix-i686-linux login: _
+@end example
+
+You then can login as the @emph{root} user with no password (by typing
+@emph{root} and then pressing the @emph{ENTER} key), and once done you
+can shut it down with the @emph{shutdown} command.
+
+To use this with another distribution or image, you will have to find
+a way to download or generate the rootfs-i686.img file that contains
+the distribution that you want to test yourself and adapt the QEMU
+command accordingly.
+
+@xref{Booting an x86 64bit distribution with QEMU} for an example with
+a different image.
+
+@c We don't want the qemu-system-x86_64 command to be split between 2 pages as
+@c users are expected to copy-paste it in a terminal, and we don't want
+@c "Chapter 5: Using GNU Boot <page number>" to end up in the middle of the
+@c command.
+@page
+
+@node       Booting an x86 64bit distribution with QEMU
+@subsection Booting an x86 64bit distribution with QEMU
+
+In the previous subsection (@ref{Booting a distribution with QEMU}) we
+booted a 32bit distribution as it works fast on both 32bit and 64bit
+x86 computers and it uses less RAM.
+
+In this example we need 256 MiB of RAM (It is set in the command below
+with @emph{-m 256M}).
+
+So to boot an x86 64bit distribution, you can use the following
+command:
+
+@example
+qemu-system-x86_64 \
+-bios grub_qemu-pc_2mb_corebootfb_usqwerty.rom \
+-M pc \
+-m 256M \
+-cpu kvm64 \
+-enable-kvm \
+-blockdev \
+'@{"driver":"file","filename":"rootfs-x86_64.img","node-name":"libvirt-1-storage"@}' \
+-blockdev \
+'@{"node-name":"libvirt-1-format","driver":"raw","file":"libvirt-1-storage"@}' \
+-device \
+'@{"driver":"virtio-scsi-pci","id":"scsi0","bus":"pci.0","addr":"0x4"@}' \
+-device \
+'@{"driver":"ahci","id":"sata0","bus":"pci.0","addr":"0x5"@}' \
+-device \
+'@{"driver":"ide-hd","bus":"sata0.0","drive":"libvirt-1-format","id":"sata0-0-0"@}'
+@end example
+
+Here too, if it fails with the following error:
+@example
+qemu-system-x86_64: failed to initialize kvm: Permission denied
+@end example
+
+You can also fix that by removing the -enable-kvm from the command
+above. It will always work but it will make booting the virtual
+machine slower. @pxref{Booting a distribution with QEMU} for pointers
+on how to make -enable-kvm work to not make the virtual machine boot
+slower.
+
+Here you will need to provide the @emph{rootfs-x86_64.img} file.
+
+If you don't know how to do that, like mentionneed in the previous
+section (@ref{Booting a distribution with QEMU}), you can install Guix
+and update it if necessary.
+
+Once done don't forget to run this command to use the latest Guix:
+
+@example
+hash guix
+@end example
+
+@c We don't want the content of guix-x86_64-linux.scm or the command used to
+@c generate the rootfs-x86_64.img file to be split between 2 pages, as users
+@c are expected to copy-paste the content of guix-x86_64-linux.scm (which is
+@c displayed as-is in the manual) in a file (named guix-x86_64-linux.scm), and
+@c then copy paste the command, as otherwise "Chapter 5: Using GNU Boot
+@c <page number>" would end up in that file and command.
+@page
+
+You can then copy the following inside the guix-x86_64-linux.scm file:
+
+@verbatiminclude guix-x86_64-linux.scm
+
+And finally you can generate the @emph{rootfs-x86_64.img} file with the
+following command:
+
+@verbatiminclude build-guix-x86_64-linux.sh
+
+Once booted, you should then see this:
+@example
+This is the GNU system.  Welcome.
+guix-x86_64-linux login: _
+@end example
+
+Here too, you can login as the @emph{root} user with no password
+(@pxref{Booting a distribution with QEMU} for more details), and you
+can also shut it down with the @emph{shutdown} command.
+
+@node       Booting more distributions with QEMU
+@subsection Booting more distributions with QEMU
+
 
 @node    Security features
 @section Security features

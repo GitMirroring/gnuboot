@@ -14,16 +14,26 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 info_TEXINFOS = gnuboot.texi
 
-# This also contains the pictures dependencies as no other workaround
-# documented in the "9.4.1 Built Sources Example" node of the automake
-# work for this case (we don't want to type make all before building
-# the various document formats).
+# This also contains the pictures dependencies and other files as well
+# as no other workaround documented in the "9.4.1 Built Sources
+# Example" node of the automake work for this case (we don't want to
+# type make all before building the various document formats).
 gnuboot_TEXINFOS = \
+	build-guix-i686-linux.sh \
+	build-guix-x86_64-linux.sh \
 	fdl-1.3.texi \
+	guix-i686-linux.scm \
+	guix-revision.texi \
+	guix-x86_64-linux.scm \
 	images/SOIC-16.eps \
 	images/SOIC-16.png
 
 CLEANFILES = \
+	build-guix-i686-linux.sh \
+	build-guix-x86_64-linux.sh \
+	guix-i686-linux.scm \
+	guix-revision.texi \
+	guix-x86_64-linux.scm \
 	images/SOIC-16.eps \
 	images/SOIC-16.png
 
@@ -37,3 +47,12 @@ dist_infoimage_DATA = \
 	gm convert "$<" "$(srcdir)/$@"
 .jpeg.eps:
 	gm convert "$<" "$(srcdir)/$@"
+
+build-guix-%-linux.sh: build-guix-%-linux.sh.in
+	m4 -DGUIX_REVISION=$(GUIX_REVISION) $^ | \
+		sed 's/#.*//' | \
+		sed '/^$$/d' > $@
+	chmod +x $@
+
+guix-revision.texi:
+	../$(srcdir)/guix-revision.sh print-texinfo > $@
