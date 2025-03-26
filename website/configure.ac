@@ -234,6 +234,11 @@ AS_IF([test x"$guix" = x"yes"],
              [AC_MSG_ERROR(
               [tex was not found in PATH ($PATH)])])])
 
+# We want to only set the Guix revision being used only in one place
+# to avoid forgetting to also update it on other places it would have
+# been set.
+`dirname $0`/../guix-revision.sh print-texinfo > ../manual/guix-revision.texi
+
 AC_OUTPUT
 AS_ECHO(["Configuration options:"])
 

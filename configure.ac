@@ -113,6 +113,9 @@ printf 'build_cpu=%s\n' "$build_cpu" >> config.sh
 printf 'kvm=%s # kvm possible values: yes, no\n' "$kvm" >> config.sh
 chmod +x config.sh
 
+# We also need to generate a definition file for the manual.
+`dirname $0`/guix-revision.sh print-texinfo > "$srcdir/manual/guix-revision.texi"
+
 AC_OUTPUT
 
 AS_ECHO(["Configuration options:"])

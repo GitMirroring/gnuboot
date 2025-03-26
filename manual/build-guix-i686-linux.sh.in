@@ -1,4 +1,5 @@
-# Copyright (C) 2024,2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+#!/usr/bin/env bash
+# Copyright (C) 2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -12,24 +13,9 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-# autogen.sh and configure.
-/mdate-sh
-/texinfo.tex
-
-# Generated pictures for various targets
-/images/SOIC-16.png
-/images/SOIC-16.eps
-
-# dvi, html, info, pdf, ps targets
-/build-guix-i686-linux.sh
-/build-guix-x86_64-linux.sh
-/gnuboot.dvi
-/gnuboot.info
-/gnuboot.pdf
-/gnuboot.ps
-/gnuboot.t2d/
-/gnuboot.t2p/
-/guix-revision.texi
-/stamp-vti
-/version.texi
+install -m 644 \
+    "$(guix time-machine \
+       --commit=GUIX_REVISION \
+       -- \
+       system image --system=i686-linux guix-i686-linux.scm)" \
+       rootfs-i686.img

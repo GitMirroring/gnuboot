@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+#
+# Copyright (C) 2023,2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+# shellcheck source=resources/scripts/tasks/distclean.sh
+. "$(dirname "$0")"/../../scripts/tasks/distclean.sh
+
+distclean_manual()
+{
+    # We only remove the generated rootfs. This is because the
+    # generated manuals don't have any clean rules inside Makefile or
+    # manual/Makefile. So tracking all these files would bring in too
+    # much maintenance costs, and it may even be specific to autoconf,
+    # automake or other autotools components versions. Depending on
+    # git (with git clean -dfX) is also not a good idea as we want to
+    # also be able to build GNU Boot from source tarballs at some
+    # point.
+    rm -f \
+       manual/rootfs-i686.img \
+       manual/rootfs-x86_64.img
+}
+
+# shellcheck disable=SC2068
+distclean_main distclean_manual $@
