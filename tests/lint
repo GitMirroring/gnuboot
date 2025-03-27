@@ -51,6 +51,7 @@ run_shellcheck \
     autogen.sh \
     build \
     download \
+    guix-revision.sh \
     modify \
     update \
     resources/packages/coreboot/distclean \
