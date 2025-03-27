@@ -17,9 +17,6 @@ AC_INIT([gnuboot],[0.1],[gnuboot@gnu.org])
 AM_INIT_AUTOMAKE([foreign])
 AC_CONFIG_FILES([Makefile])
 
-# Use the same revision than ../configure.ac
-AC_SUBST([GUIX_REVISION], [8e2f32cee982d42a79e53fc1e9aa7b8ff0514714])
-
 AC_SUBST([LIGHTTPD_PORT], [])
 AC_SUBST([RSYNC_DESTINATION], [])
 AC_SUBST([UNTITLED_PATH], [])
@@ -33,6 +30,10 @@ AC_ARG_ENABLE(guix,
   [guix=$enableval],
   [guix="yes"])
 AM_CONDITIONAL( [WANT_GUIX], [test x"$guix" = x"yes"])
+
+# Use the same revision than ../configure.ac
+AC_SUBST([GUIX_REVISION],
+	 [`\`dirname $0\`/../guix-revision.sh print-variable GUIX_REVISION`])
 
 # --enable-lighttpd
 AC_ARG_ENABLE(lighttpd,

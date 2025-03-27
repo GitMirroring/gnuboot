@@ -43,7 +43,8 @@ AC_SUBST([XZ_EXTRA_ARGS], [])
 #   to start downloading Guix 1.4.0 packages. So that can make things
 #   a lot faster.
 
-AC_SUBST([GUIX_REVISION], [8e2f32cee982d42a79e53fc1e9aa7b8ff0514714])
+AC_SUBST([GUIX_REVISION],
+         [`\`dirname $0\`/guix-revision.sh print-variable GUIX_REVISION`])
 
 # --enable-kvm
 AC_ARG_ENABLE(kvm,
