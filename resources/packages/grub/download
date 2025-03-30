@@ -80,8 +80,8 @@ download()
 	# interrupted in the middle, so we do everything in a
 	# temporary directory, and move it to the final location at
 	# the end.
-	tmpdir="grub.tmp"
-	destdir="grub"
+	tmpdir="${topdir}/grub.tmp"
+	destdir="${topdir}/grub"
 
 	# Remove the old version(s) that may still exist
 	# ----------------------------------------------------------------------
@@ -105,28 +105,25 @@ download()
 		exit 1
 	fi
 
-	(
-	# modifications are required
-	cd "${tmpdir}"
-	# reset to known revision
-	"${topdir}"/resources/wrapper/git reset --hard "${grub_revision}"
+	# modifications are required, reset to known revision
+	"${topdir}"/resources/wrapper/git -C "${tmpdir}" reset --hard "${grub_revision}"
 
 	# See the is_done function for why we copy the patches in the
 	# source tree.
-	mkdir patches
-	for grubpatch in ../resources/grub/patches/*; do
-		cp "${grubpatch}" patches/
-		"${topdir}"/resources/wrapper/git am "${grubpatch}"
+	mkdir "${tmpdir}"/patches
+	for grubpatch in "${topdir}"/resources/grub/patches/*; do
+		cp "${grubpatch}" "${tmpdir}"/patches/
+		"${topdir}"/resources/wrapper/git -C "${tmpdir}" am "${grubpatch}"
 	done
 
-	"${topdir}"/resources/wrapper/git clone git://git.sv.gnu.org/gnulib gnulib
-	cd gnulib/
+	"${topdir}"/resources/wrapper/git clone git://git.sv.gnu.org/gnulib \
+		   "${tmpdir}"/gnulib
 
 	# NOTE: when updating this, make sure it's the version specified
 	# in bootstrap.conf on that version of GRUB, as specified above
-	"${topdir}"/resources/wrapper/git reset --hard "${gnulib_revision}"
-	rm -Rf .git*
-	)
+	"${topdir}"/resources/wrapper/git -C "${tmpdir}"/gnulib \
+		   reset --hard "${gnulib_revision}"
+	rm -Rf "${tmpdir}"/gnulib/.git*
 
 	printf "\n\n"
 
