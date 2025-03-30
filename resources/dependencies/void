@@ -26,6 +26,8 @@ if [ $EUID -ne 0 ]; then
    exit 1
 fi
 
+trap 'echo [ !! ] Failed to install dependencies for \"$(basename "$0")\".' ERR
+
 # Duplications are intentional. Please do not re-factor.
 #
 # This is so that they can moved to separate scripts.
@@ -88,3 +90,5 @@ xbps-install -y libpciaccess pciutils zlib libftdi1 base-devel libusb
 # ----------------------
 xbps-install -y shellcheck # lint
 xbps-install -y gawk git grep lzip make sed tar xz # u-boot-libre
+
+echo "[ OK ] Installed dependencies for \"$(basename "$0")\"."
