@@ -140,13 +140,9 @@ install_packages \
 
 # GRUB build dependencies (also requires build-essential, bison and flex)
 # ------------------------------------------------------------
-# This is separated from rest to reduce the diff with 'pureos-trisquel'.
-install_packages bdf-unifont
 
 install_packages \
-    autoconf \
     autogen \
-    automake \
     base-devel \
     bison \
     device-mapper \
@@ -156,9 +152,7 @@ install_packages \
     gawk \
     gettext \
     help2man \
-    libtool \
     libusb \
-    m4 \
     python \
     rsync \
     texinfo \

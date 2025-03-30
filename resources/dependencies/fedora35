@@ -80,7 +80,7 @@ pkcon -y --allow-reinstall install gcc-gnat ncurses-devel doxygen acpica-tools g
 # GRUB build dependencies (also requires build-essential, bison and flex)
 # ------------------------------------------------------------
 
-pkcon -y --allow-reinstall install unifont-fonts autogen help2man gcc bison flex dejavu-fonts-all texinfo rsync python libusb xz gawk device-mapper fuse gettext freetype-devel intltool libselinux-devel
+pkcon -y --allow-reinstall install autogen help2man gcc bison flex dejavu-fonts-all texinfo rsync python libusb xz gawk device-mapper fuse gettext freetype-devel intltool libselinux-devel
 
 # BucTS build dependencies (external script)
 # ------------------------------------------------------------

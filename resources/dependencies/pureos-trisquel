@@ -144,13 +144,6 @@ install_packages \
 # GRUB build dependencies (also requires build-essential, bison and flex)
 # ------------------------------------------------------------
 
-# Trisquel 10 (nabia) doesn't have fonts-unifont. Also for the check
-# we can assume that the 'nabia' code name is unique as it is in the
-# upstream debootstrap in /usr/share/debootstrap/scripts/nabia.
-if ! grep -q 'VERSION_CODENAME="nabia"' /etc/os-release ; then
-    install_packages fonts-unifont
-fi
-
 install_packages \
     autoconf \
     autogen \
@@ -159,9 +152,7 @@ install_packages \
     bison \
     build-essential \
     flex \
-    fonts-dejavu \
     gawk \
-    gettext \
     help2man \
     libdevmapper-dev \
     libfont-freetype-perl \
@@ -173,13 +164,7 @@ install_packages \
     libselinux1-dev \
     libtool \
     libtool-bin \
-    libusb-1.0-0 \
-    libusb-1.0-0-dev \
     m4 \
-    python3 \
-    rsync \
-    texinfo \
-    unifont \
     "${sentinel}"
 
 # BucTS build dependencies (external script)
