@@ -41,12 +41,12 @@ usage()
 	       "Prints this help"
 }
 
-is_done()
+is_grub_done()
 {
 	# We need to check if any of the patches were modified. If
 	# they are we need to apply their newer versions.
 	if [ ! -d grub/patches ] ; then
-		exit 1
+		return 1
 	fi
 
 	for grubpatch in resources/grub/patches/*; do
@@ -61,7 +61,7 @@ is_done()
 	nr_gnuboot_patches="$(ls resources/grub/patches/* | wc -l)"
 	nr_applied_patches="$(ls grub/patches/* | wc -l)"
 	if [ "${nr_gnuboot_patches}" -ne "${nr_applied_patches}" ] ; then
-		exit 1
+		return 1
 	fi
 
 	# Also check if we have the right git revision for GRUB
@@ -71,39 +71,48 @@ is_done()
 
 	# Make sure we're based on the ${grub_revision} (potentially with
 	# patches on top).
-	merge_base="$("${topdir}"/resources/git/git -C grub \
+	merge_base="$("${topdir}"/resources/wrapper/git -C grub \
 		      merge-base "${grub_revision}" HEAD)"
 	if [ "${merge_base}" != "${grub_revision}" ] ; then
-	    exit 1
+	    return 1
 	fi
 
-	nr_patches="$("${topdir}"/resources/git/git -C grub \
+	nr_patches="$("${topdir}"/resources/wrapper/git -C grub \
 		log --oneline "${merge_base}".."${current_commit}" | wc -l)"
 
 	# Make sure that we don't have more or less patches in git
 	# than we are supposed to.
 	if [ "${nr_patches}" -ne "${nr_gnuboot_patches}" ] ; then
-		exit 1
+		return 1
 	fi
 
 	# TODO: also detect if the same patches were applied, for instance by
 	# adding IDs in patches.
 
+	return 0
+}
+
+is_gnulib_done()
+{
 	# Also check if we have the right git revision for gnulib
 	if [ ! -d grub/gnulib ] ; then
-		exit 1
+		return 1
 	fi
+
 	current_commit="$("${topdir}"/resources/wrapper/git \
 			    -C grub/gnulib show HEAD \
 			    --no-patch --pretty="%H")"
+
+	# We have no patches on top of gnulib so we can safely do this
+	# comparison.
 	if [ "${current_commit}" != "${gnulib_revision}" ] ; then
-	    exit 1
+	    return 1
 	fi
 
-	exit 0
+	return 0
 }
 
-download()
+download_grub()
 {
 	# We need to handle the case where GRUB download is
 	# interrupted in the middle, so we do everything in a
@@ -145,18 +154,54 @@ download()
 		"${topdir}"/resources/wrapper/git -C "${tmpdir}" am "${grubpatch}"
 	done
 
-	"${topdir}"/resources/wrapper/git clone git://git.sv.gnu.org/gnulib \
-		   "${tmpdir}"/gnulib
+	printf "\n\n"
+
+	mv "${tmpdir}" "${destdir}"
+}
+
+download_gnulib()
+{
+	# Enable standalone use of download_gnulib: gnulib depends on GRUB being
+	# downloaded.
+	if ! is_grub_done ; then
+		download_grub
+	fi
+
+	# We need to handle the case where GRUB's gnulib download is
+	# interrupted in the middle, so we do everything in a
+	# temporary directory, and move it to the final location at
+	# the end.
+	tmpdir="grub/gnulib.tmp"
+	destdir="grub/gnulib"
+
+	# Remove the old version(s) that may still exist
+	# ----------------------------------------------------------------------
+
+	printf "Downloading gnulib for GRUB\n"
+
+	rm -Rf "${tmpdir}"
+	rm -Rf "${destdir}"
+
+	"${topdir}"/resources/wrapper/git clone git://git.sv.gnu.org/gnulib "${tmpdir}"
 
 	# NOTE: when updating this, make sure it's the version specified
 	# in bootstrap.conf on that version of GRUB, as specified above
-	"${topdir}"/resources/wrapper/git -C "${tmpdir}"/gnulib \
-		   reset --hard "${gnulib_revision}"
-	rm -Rf "${tmpdir}"/gnulib/.git*
+	"${topdir}"/resources/wrapper/git -C "${tmpdir}" reset --hard "${gnulib_revision}"
+	rm -Rf "${tmpdir}"/.git*
 
 	printf "\n\n"
 
 	mv "${tmpdir}" "${destdir}"
+}
+
+is_done()
+{
+	is_grub_done && is_gnulib_done
+}
+
+download()
+{
+	download_grub && download_gnulib
 }
 
 if [ $# -eq 0 ] ; then
