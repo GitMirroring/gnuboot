@@ -108,6 +108,11 @@ is_gnulib_done()
 		return 1
 	fi
 
+	# We need git to check the revision
+	if [ ! -d grub/gnulib/.git ] ; then
+		return 1
+	fi
+
 	current_commit="$("${topdir}"/resources/wrapper/git \
 			    -C grub/gnulib show HEAD \
 			    --no-patch --pretty="%H")"
@@ -210,7 +215,6 @@ download_gnulib()
 	# NOTE: when updating this, make sure it's the version specified
 	# in bootstrap.conf on that version of GRUB, as specified above
 	"${topdir}"/resources/wrapper/git -C "${tmpdir}" reset --hard "${gnulib_revision}"
-	rm -Rf "${tmpdir}"/.git*
 
 	printf "\n\n"
 
