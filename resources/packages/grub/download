@@ -201,7 +201,13 @@ is_done()
 
 download()
 {
-	download_grub && download_gnulib
+	if ! is_grub_done ; then
+		download_grub
+	fi
+
+	if ! is_gnulib_done ; then
+		download_gnulib
+	fi
 }
 
 if [ $# -eq 0 ] ; then
