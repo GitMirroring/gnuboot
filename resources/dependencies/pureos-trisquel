@@ -165,6 +165,9 @@ install_packages \
     libtool \
     libtool-bin \
     m4 \
+    python3 \
+    rsync \
+    texinfo \
     "${sentinel}"
 
 # BucTS build dependencies (external script)
