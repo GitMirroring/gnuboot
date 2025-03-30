@@ -29,8 +29,10 @@
 
 [ "x${DEBUG+set}" = 'xset' ] && set -v
 set -u -e
+trap 'echo [ !! ] Failed to install dependencies for \"$(basename "$0")\".' ERR
 
 sentinel=""
+
 
 to_install=""
 install_packages()
@@ -219,3 +221,5 @@ install_packages \
 if [ -n "${to_install}" ] ; then
     apt install -y ${to_install}
 fi
+
+echo "[ OK ] Installed dependencies for \"$(basename "$0")\"."

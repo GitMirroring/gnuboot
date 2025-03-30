@@ -28,6 +28,7 @@
 
 [ "x${DEBUG+set}" = 'xset' ] && set -v
 set -u -e
+trap 'echo [ !! ] Failed to install dependencies for \"$(basename "$0")\".' ERR
 
 sentinel=""
 
@@ -208,3 +209,5 @@ if [ -n "${to_install}" ] ; then
     pacman -S --needed --noconfirm packagekit
     pkcon -y --allow-reinstall ${to_install}
 fi
+
+echo "[ OK ] Installed dependencies for \"$(basename "$0")\"."

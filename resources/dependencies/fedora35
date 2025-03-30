@@ -19,6 +19,8 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+trap 'echo [ !! ] Failed to install dependencies for \"$(basename "$0")\".' ERR
+
 [ "x${DEBUG+set}" = 'xset' ] && set -v
 set -u -e
 
@@ -96,3 +98,5 @@ pkcon -y --allow-reinstall install pciutils-devel zlib-devel libftdi-devel gcc l
 # ----------------------
 pkcon -y --allow-reinstall install ShellCheck # lint
 pkcon -y --allow-reinstall install gawk git grep lzip make sed tar xz # u-boot-libre
+
+echo "[ OK ] Installed dependencies for \"$(basename "$0")\"."
