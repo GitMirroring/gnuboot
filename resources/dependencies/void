@@ -72,7 +72,7 @@ xbps-install -y ncurses doxygen acpica-utils gdb flex bison base-devel git opens
 # GRUB build dependencies (also requires build-essential, bison and flex)
 # ------------------------------------------------------------
 
-xbps-install -y font-unifont-bdf autogen help2man base-devel bison flex dejavu-fonts-ttf texinfo rsync python3 libusb xz gawk device-mapper fuse gettext freetype
+xbps-install -y autogen help2man base-devel bison flex dejavu-fonts-ttf texinfo rsync python3 libusb xz gawk device-mapper fuse gettext freetype
 
 # BucTS build dependencies (external script)
 # ------------------------------------------------------------

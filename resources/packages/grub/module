@@ -43,6 +43,8 @@ cd grub/
 
 # build
 ./autogen.sh
-./configure --with-platform=coreboot
+./configure \
+    --with-platform=coreboot \
+    --with-unifont=../unifont.bdf
 make -j$(nproc)
 )
