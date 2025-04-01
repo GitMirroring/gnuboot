@@ -129,9 +129,7 @@ download_unifont()
 	eval "$("${topdir}"/guix-revision.sh print-shell)"
 
 	install -m 644 \
-		"$(guix time-machine --commit="${GUIX_REVISION}" \
-		   -- \
-		   build --system=i686-linux \
+		"$("${topdir}"/resources/wrapper/guix build \
 		   -e '(@@ (gnu packages bootloaders) unifont)')" \
 		unifont.bdf.gz
 	gunzip -k unifont.bdf.gz
