@@ -37,7 +37,7 @@ all: roms
 
 $(LOG):
 	@echo -n "git revision: "  >> $@
-	resources/git/git describe 2>&1 >> $@
+	resources/wrapper/git describe 2>&1 >> $@
 	@echo -n "----------------------------------------"  >> $@
 	@echo    "----------------------------------------"  >> $@
 

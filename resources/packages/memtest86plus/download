@@ -51,17 +51,17 @@ printf "Downloading MemTest86+\n"
 
 rm -Rf "memtest86plus/"
 
-"${topdir}"/resources/git/git clone https://review.coreboot.org/memtest86plus.git
+"${topdir}"/resources/wrapper/git clone https://review.coreboot.org/memtest86plus.git
 
 (
 cd "memtest86plus/"
-"${topdir}"/resources/git/git reset --hard a78401b9704cfdd49c89bfb31d2df08f60521d0b
+"${topdir}"/resources/wrapper/git reset --hard a78401b9704cfdd49c89bfb31d2df08f60521d0b
 
 for patchfile in ../resources/memtest86plus/patch/*; do
 	if [ ! -f "${patchfile}" ]; then
 		continue
 	fi
-	"${topdir}"/resources/git/git am "${patchfile}"
+	"${topdir}"/resources/wrapper/git am "${patchfile}"
 done
 
 rm -Rf .git*

@@ -167,7 +167,7 @@ commit_contains_last_release()
 {
     commit="$1"
 
-    "${topdir}"/resources/git/git \
+    "${topdir}"/resources/wrapper/git \
         -C "$(guix_checkout)" \
         tag \
         --sort=taggerdate \
@@ -181,7 +181,7 @@ commit_last_release()
 {
     commit="$1"
 
-    "${topdir}"/resources/git/git \
+    "${topdir}"/resources/wrapper/git \
         -C "$(guix_checkout)" \
         tag \
         --sort=taggerdate \
@@ -290,7 +290,7 @@ next_guix_release()
 guix_checkout()
 {
     for repo in "${HOME}"/.cache/guix/checkouts/*/ ; do
-        url=$("${topdir}"/resources/git/git -C "$repo" remote get-url origin)
+        url=$("${topdir}"/resources/wrapper/git -C "$repo" remote get-url origin)
         if [ "${url}" = "https://git.savannah.gnu.org/git/guix.git" ] ; then
             echo "$repo"
         fi
@@ -305,7 +305,7 @@ is_latest_release()
         return ${true}
     elif echo "${revision}" | grep -q '\.' ; then
         return ${false}
-    elif "${topdir}"/resources/git/git -C "$(guix_checkout)" tag --merged "${revision}" | \
+    elif "${topdir}"/resources/wrapper/git -C "$(guix_checkout)" tag --merged "${revision}" | \
             grep "^v${guix_latest_release}$" > /dev/null ; then
         return ${true}
     else
