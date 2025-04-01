@@ -52,6 +52,13 @@
              (str (read-line port)))
           str))))
 
+(define (patch-modified-file? parse-results file-path)
+  (not (nil?
+        (filter
+         (lambda (modified-file-path)
+           (string=? modified-file-path file-path))
+         (assq-ref parse-results 'modified-files)))))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
 ;;                         ;;;;;;;;;;;;;;;;;;;;;;;;;                          ;;
@@ -840,6 +847,39 @@
 
     (lambda (path parse-results check-results)
       check-results))
+
+   (make-rule
+    "Don't forget to review resources/wrapper/guix when bumping Guix revision"
+    (lambda (path parse-results check-results)
+      (acons 'guix-revision-modified #f check-results))
+    (lambda (line parse-results check-results) #t)
+    (lambda (line parse-results check-results)
+      (if (and
+           (string? (assq-ref check-results 'current-diff-file))
+           (string=? (assq-ref check-results 'current-diff-file)
+                     "guix-revision.sh"))
+          (if (or
+               (startswith line "+GUIX_REVISION=\"")
+               (startswith line "-GUIX_REVISION=\""))
+              (acons 'guix-revision-modified #t check-results)
+              check-results)
+          check-results))
+    (lambda (path parse-results check-results)
+      (define warnings (assq-ref check-results 'warnings))
+      (if
+       (and
+        (assq-ref check-results 'guix-revision-modified)
+        (not (patch-modified-file? parse-results "resources/wrapper/guix")))
+        ((lambda _
+           (set! warnings (+ 1 warnings))
+           (display
+            (string-append
+             "WARNING: guix-revision.sh was updated but not resources/wrapper/guix.\n"
+             "         Make sure to review resources/wrapper/guix when updating "
+             "the Guix revision.\n\n")))))
+      (acons
+       'warnings
+       warnings check-results)))
 
    (make-rule
     "Track total errors and warnings"

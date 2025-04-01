@@ -114,14 +114,13 @@ WEB_SYMLINKS_TRANSFORM = \
 	$(SENTINEL)
 endif
 
-GUIX_SHELL_CONTAINER = guix time-machine \
-	--no-channel-files \
-	--commit=$(GUIX_REVISION) \
-	-- \
+GUIX_SHELL_CONTAINER = \
+	$(srcdir)/../resources/wrapper/guix \
 	shell \
 	--system=i686-linux \
 	--container \
-	`guix repl force-bordeaux-substitute.scm force` \
+	`$(srcdir)/../resources/wrapper/guix \
+		repl force-bordeaux-substitute.scm force` \
 	$(SENTINEL)
 
 if WANT_GUIX

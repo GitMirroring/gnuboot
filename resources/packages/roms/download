@@ -57,11 +57,7 @@ build_trisquel_netinst_x86_64()
 
     # The trisquel-netinst_11.0_amd64.iso package is architecture
     # independent.
-    guix time-machine \
-        --commit=${GUIX_REVISION} -- \
-        build \
-            -L "${topdir}"/resources/guix/ \
-            -L "${topdir}"/resources/guix/gnuboot/patches/ \
+    "${topdir}"/resources/wrapper/guix build \
             --system=i686-linux \
             trisquel-netinst-amd64
 }
@@ -87,11 +83,7 @@ build_guix_qemu_x86_64()
     # Boot (at the time of writing this is i686 and x86_64), it might
     # be better to use it as it has way less dependencies (and so this
     # reduces the download time a lot).
-    guix time-machine \
-        --commit=${GUIX_REVISION} -- \
-        build \
-            -L "${topdir}"/resources/guix/ \
-            -L "${topdir}"/resources/guix/gnuboot/patches/ \
+    "${topdir}"/resources/wrapper/guix build \
             --system=x86_64-linux \
             qemu
 }
@@ -102,11 +94,7 @@ build_trisquel_preseed_x86_64_img()
     source "${topdir}"/resources/scripts/misc/guix.sh
     source_guix_profile
 
-    guix time-machine \
-        --commit=${GUIX_REVISION} -- \
-        build \
-            -L "${topdir}"/resources/guix/ \
-            -L "${topdir}"/resources/guix/gnuboot/patches/ \
+    "${topdir}"/resources/wrapper/guix build \
             --system=i686-linux \
             gnuboot-trisquel-preseed.img
 }
@@ -117,11 +105,7 @@ build_trisquel_grub_img()
     source "${topdir}"/resources/scripts/misc/guix.sh
     source_guix_profile
 
-    guix time-machine \
-        --commit=${GUIX_REVISION} -- \
-        build \
-            -L "${topdir}"/resources/guix/ \
-            -L "${topdir}"/resources/guix/gnuboot/patches/ \
+    "${topdir}"/resources/wrapper/guix build \
             --system=i686-linux \
             gnuboot-trisquel-grub.img
 }
@@ -132,11 +116,7 @@ build_trisquel_rootfs_img()
     source "${topdir}"/resources/scripts/misc/guix.sh
     source_guix_profile
 
-    guix time-machine \
-        --commit=${GUIX_REVISION} -- \
-        build \
-            -L "${topdir}"/resources/guix/ \
-            -L "${topdir}"/resources/guix/gnuboot/patches/ \
+    "${topdir}"/resources/wrapper/guix build \
             --system=i686-linux \
             rootfs.img
 }
