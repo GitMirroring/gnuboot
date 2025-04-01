@@ -53,7 +53,7 @@ is_done()
 	done
 
 	# Also check if we have the right git revision for GRUB
-	current_commit=$("${topdir}"/resources/git/git \
+	current_commit=$("${topdir}"/resources/wrapper/git \
 				    -C grub show HEAD \
 				    --no-patch --pretty="%H")
 	if [ "${current_commit}" != "${grub_revision}" ] ; then
@@ -64,7 +64,7 @@ is_done()
 	if [ ! -d grub/gnulib ] ; then
 		exit 1
 	fi
-	current_commit="$("${topdir}"/resources/git/git \
+	current_commit="$("${topdir}"/resources/wrapper/git \
 			    -C grub/gnulib show HEAD \
 			    --no-patch --pretty="%H")"
 	if [ "${current_commit}" != "${gnulib_revision}" ] ; then
@@ -95,9 +95,9 @@ download()
 	# ----------------------------------------------------------------------
 
 	# download it using git
-	"${topdir}"/resources/git/git \
+	"${topdir}"/resources/wrapper/git \
 		clone git://git.savannah.gnu.org/grub.git "${tmpdir}" || \
-	"${topdir}"/resources/git/git \
+	"${topdir}"/resources/wrapper/git \
 		clone http://git.savannah.gnu.org/r/grub.git "${tmpdir}"
 
 	if [ ! -d "${tmpdir}" ]; then
@@ -109,22 +109,22 @@ download()
 	# modifications are required
 	cd "${tmpdir}"
 	# reset to known revision
-	"${topdir}"/resources/git/git reset --hard "${grub_revision}"
+	"${topdir}"/resources/wrapper/git reset --hard "${grub_revision}"
 
 	# See the is_done function for why we copy the patches in the
 	# source tree.
 	mkdir patches
 	for grubpatch in ../resources/grub/patches/*; do
 		cp "${grubpatch}" patches/
-		"${topdir}"/resources/git/git am "${grubpatch}"
+		"${topdir}"/resources/wrapper/git am "${grubpatch}"
 	done
 
-	"${topdir}"/resources/git/git clone git://git.sv.gnu.org/gnulib gnulib
+	"${topdir}"/resources/wrapper/git clone git://git.sv.gnu.org/gnulib gnulib
 	cd gnulib/
 
 	# NOTE: when updating this, make sure it's the version specified
 	# in bootstrap.conf on that version of GRUB, as specified above
-	"${topdir}"/resources/git/git reset --hard "${gnulib_revision}"
+	"${topdir}"/resources/wrapper/git reset --hard "${gnulib_revision}"
 	rm -Rf .git*
 	)
 

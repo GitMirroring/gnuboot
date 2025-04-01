@@ -146,17 +146,17 @@ downloadfor() {
 
 	if [ ! -d coreboot ]; then
 		printf "Download coreboot from upstream:\n"
-		"${topdir}"/resources/git/git clone https://review.coreboot.org/coreboot || rm -Rf coreboot
+		"${topdir}"/resources/wrapper/git clone https://review.coreboot.org/coreboot || rm -Rf coreboot
 		if [ ! -d coreboot ]; then
 			printf "WARNING: Upstream failed. Trying backup github repository:\n"
-			"${topdir}"/resources/git/git clone https://github.com/coreboot/coreboot.git || rm -Rf coreboot
+			"${topdir}"/resources/wrapper/git clone https://github.com/coreboot/coreboot.git || rm -Rf coreboot
 		fi
 		if [ ! -d coreboot ]; then 
 			printf "ERROR: download/coreboot: Problem with git-clone. Network issue?\n"
 			cd ../; return 1
 		fi
 	else
-		( cd coreboot/; "${topdir}"/resources/git/git pull || touch ../build_error )
+		( cd coreboot/; "${topdir}"/resources/wrapper/git pull || touch ../build_error )
 		if [ -f ../build_error ]; then
 			printf "ERROR: download/coreboot: Problem with git-pull. Network issue?\n"
 			cd ../; return 1
@@ -172,13 +172,13 @@ downloadfor() {
 
 	cd ${cbtree}/
 
-	"${topdir}"/resources/git/git reset --hard ${cbrevision} || touch ../../build_error
+	"${topdir}"/resources/wrapper/git reset --hard ${cbrevision} || touch ../../build_error
 	if [ -f ../../build_error ]; then
 		printf "ERROR: download/coreboot: Unable to reset to commit ID/tag '%s' for board '%s' on tree '%s'\n" "${cbrevision}" "${1}" "${cbtree}"
 		cd ../../; return 1
 	fi
 
-	"${topdir}"/resources/git/git submodule update --init || touch ../../build_error
+	"${topdir}"/resources/wrapper/git submodule update --init || touch ../../build_error
 	if [ -f ../../build_error ]; then
 		printf "ERROR: download/coreboot: Unable to update submodules for tree '%s'\n" "${cbtree}"
 		cd ../../; return 1
@@ -189,10 +189,10 @@ downloadfor() {
 			continue
 		fi
 
-		"${topdir}"/resources/git/git am "${patch}" || touch ../../build_error
+		"${topdir}"/resources/wrapper/git am "${patch}" || touch ../../build_error
 		if [ -f ../../build_error ]; then
 			printf "ERROR: download/coreboot: Unable to apply patch '%s' for board '%s' on tree '%s'" "${patch}" "${1}" "${cbtree}"
-			"${topdir}"/resources/git/git am --abort
+			"${topdir}"/resources/wrapper/git am --abort
 			cd ../../; return 1
 		fi
 	done

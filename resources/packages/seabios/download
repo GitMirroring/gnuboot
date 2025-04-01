@@ -53,8 +53,8 @@ rm -rf "seabios/"
 # ------------------------------------------------------------------------------
 
 # download it using git
-"${topdir}"/resources/git/git clone https://review.coreboot.org/seabios || \
-"${topdir}"/resources/git/git clone https://github.com/coreboot/seabios
+"${topdir}"/resources/wrapper/git clone https://review.coreboot.org/seabios || \
+"${topdir}"/resources/wrapper/git clone https://github.com/coreboot/seabios
 
 if [ ! -d "seabios" ]; then
 	printf "seabios not downloaded; check network connection?\n\n"
@@ -68,14 +68,14 @@ cd "seabios/"
 # Reset to the last commit that was tested (we use stable releases for seabios)
 # ------------------------------------------------------------------------------
 
-"${topdir}"/resources/git/git \
+"${topdir}"/resources/wrapper/git \
 	reset --hard 64f37cc530f144e53c190c9e8209a51b58fd5c43
 
 for patchfile in ../resources/seabios/patches/*.patch; do
 	if [ ! -f "${patchfile}" ]; then continue; fi
-	"${topdir}"/resources/git/git am "${patchfile}" || touch ../build_error
+	"${topdir}"/resources/wrapper/git am "${patchfile}" || touch ../build_error
 	if [ -f ../build_error ]; then
-		"${topdir}"/resources/git/git am --abort
+		"${topdir}"/resources/wrapper/git am --abort
 		break
 	fi
 done

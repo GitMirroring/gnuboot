@@ -34,7 +34,7 @@ usage()
 
 build_website()
 {
-    version="$("${topdir}"/resources/git/git describe --tags HEAD)"
+    version="$("${topdir}"/resources/wrapper/git describe --tags HEAD)"
 
     cd website
     ./autogen.sh
@@ -46,7 +46,7 @@ build_website()
     install -m 644 website.tar.gz ../release/gnuboot-website-"${version}".tar.gz
 
     # Relase untitled source code
-    "${topdir}"/resources/git/git \
+    "${topdir}"/resources/wrapper/git \
         -C untitled \
         bundle create ../../release/untitled-"${version}".bundle HEAD
 }

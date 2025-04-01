@@ -27,8 +27,8 @@ if [ -f version ]; then
 fi
 version_="${version}"
 if [ -e ".git" ]; then
-	version="$("${topdir}"/resources/git/git describe --tags HEAD 2>&1)" \
-	|| version="git-$("${topdir}"/resources/git/git rev-parse HEAD 2>&1)" \
+	version="$("${topdir}"/resources/wrapper/git describe --tags HEAD 2>&1)" \
+	|| version="git-$("${topdir}"/resources/wrapper/git rev-parse HEAD 2>&1)" \
 	|| version="${version_}"
 	printf "%s\n" "${version}" > version
 fi
@@ -39,7 +39,7 @@ if [ -f versiondate ]; then
 fi
 versiondate_="${versiondate}"
 if [ -e ".git" ]; then
-	versiondate="$("${topdir}"/resources/git/git show --no-patch --no-notes --pretty='%ct' HEAD)" \
+	versiondate="$("${topdir}"/resources/wrapper/git show --no-patch --no-notes --pretty='%ct' HEAD)" \
 	|| versiondate="${versiondate_}"
 	printf "%s\n" "${versiondate}" > versiondate
 fi

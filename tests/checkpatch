@@ -40,7 +40,8 @@ topdir="$(dirname "$(dirname "$(realpath "$0")")")"
 tmpdir="$(mktemp -d)"
 
 test -f "${topdir}"/scripts/checkpatch.scm || fail "checkpatch.scm not found."
-test -f "${topdir}"/resources/git/git || fail "resources/git/git not found."
+test -f "${topdir}"/resources/wrapper/git || \
+    fail "resources/wrapper/git not found."
 
 ################################################################################
 # Test if checkpatch.scm correctly finds non-aligned nodes.                    #
@@ -120,7 +121,7 @@ echo "[ .. ] Checking if any existing patch makes checkpatch.scm crash."
 # Libreboot git repo: 149273c6742aeed14ec1aaca019f552cfb109457")) is
 # huge: it is 19 MiB, and it takes a while to process, even with a
 # KGPE-D16, so it is better to skip it.
-patches="$("${topdir}"/resources/git/git format-patch \
+patches="$("${topdir}"/resources/wrapper/git format-patch \
     639f71f6e92407aafa03d7c364215c2f162367e1 -o "${tmpdir}")"
 
 # shellcheck disable=SC2086

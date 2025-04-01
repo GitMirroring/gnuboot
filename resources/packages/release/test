@@ -19,7 +19,7 @@
 topdir="$(realpath "$(dirname "$(dirname "$(dirname "$(dirname "$0")")")")")"
 
 progname="resources/packages/tests/test-release"
-rev="$("${topdir}"/resources/git/git describe --tags HEAD)"
+rev="$("${topdir}"/resources/wrapper/git describe --tags HEAD)"
 
 usage()
 {

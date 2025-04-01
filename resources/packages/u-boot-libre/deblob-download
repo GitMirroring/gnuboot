@@ -67,7 +67,7 @@ downloadfor() {
 
 	if [ ! -d "${uboot_dir}" ]; then
 		printf "Download u-boot from upstream:\n"
-		"${topdir}"/resources/git/git \
+		"${topdir}"/resources/wrapper/git \
 			clone \
 			https://source.denx.de/u-boot/u-boot.git \
 			"${uboot_dir}" || \
@@ -79,7 +79,7 @@ downloadfor() {
 			return 1
 		fi
 	else
-		"${topdir}"/resources/git/git \
+		"${topdir}"/resources/wrapper/git \
 			-C "${uboot_dir}" \
 			pull || touch build_error
 		if [ -f build_error ]; then
@@ -90,7 +90,7 @@ downloadfor() {
 		fi
 	fi
 
-	"${topdir}"/resources/git/git \
+	"${topdir}"/resources/wrapper/git \
 		-C "${uboot_dir}" \
 		reset --hard ${uboot_revision} || \
 		touch build_error

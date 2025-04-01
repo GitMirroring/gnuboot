@@ -34,10 +34,10 @@ usage()
 
 build_gnuboot_source()
 {
-    version="$("${topdir}"/resources/git/git --no-pager describe --tags HEAD)"
+    version="$("${topdir}"/resources/wrapper/git --no-pager describe --tags HEAD)"
 
     install -d release
-    "${topdir}"/resources/git/git bundle create release/gnuboot-source-"${version}".bundle HEAD
+    "${topdir}"/resources/wrapper/git bundle create release/gnuboot-source-"${version}".bundle HEAD
 }
 
 if [ $# -eq 1 ] && { [ "$1" = "-h" ] || [ "$1" == "--help" ] ;} ; then
