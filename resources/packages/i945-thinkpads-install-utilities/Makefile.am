@@ -35,11 +35,7 @@ GUIX_PACK_COMMAND = \
 	source $(TOPDIR)/config.sh && \
 	source resources/scripts/misc/guix.sh && \
 	source_guix_profile && \
-	guix time-machine \
-	--commit="$${GUIX_REVISION}" -- \
-	pack \
-	-L $(TOPDIR)/resources/guix/ \
-	-L $(TOPDIR)/resources/guix/gnuboot/patches/ \
+	$(TOPDIR)/resources/wrapper/guix pack \
 	-R \
 	--save-provenance \
 	--system=i686-linux \
@@ -62,13 +58,10 @@ $(RELEASE_DIR)/packages_src.tar:  Makefile
 	install -d $(RELEASE_DIR)
 	tar cf $@ \
 		`source $(TOPDIR)/config.sh && \
-		source resources/scripts/misc/guix.sh && \
+		source $(TOPDIR)/resources/scripts/misc/guix.sh && \
 		source_guix_profile && \
-		guix time-machine --commit="$${GUIX_REVISION}" -- \
-		build \
+		$(TOPDIR)/resources/wrapper/guix build \
 		-c $(GUIX_BUILD_MAX_CORES) \
-		-L $(TOPDIR)/resources/guix/ \
-		-L $(TOPDIR)/resources/guix/gnuboot/patches \
 		--sources=transitive \
 		$(GUIX_PACKAGE_NAMES) | sort -u`
 
