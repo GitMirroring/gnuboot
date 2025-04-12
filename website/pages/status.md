@@ -2,6 +2,186 @@
 title: GNU Boot status
 ...
 
+GNU Boot 0.1 RC6 status
+=======================
+
++------------------+--------------+--------------+--------------+--------------+
+| Vendor, product  | GRUB with    | GRUB with    | SeaBIOS with | SeaBIOS with |
+|                  | high         | text-only    | high         | text-only    |
+|                  | resolution   | low          | resolution   | low          |
+|                  | graphics     | resolution   | graphics     | resolution   |
++------------------+--------------+--------------+--------------+--------------+
+| Acer, G43T-AM3   | Missing      | Untested     | Missing      | Untested     |
+|                  | images       |              | images       |              |
++------------------+--------------+--------------+--------------+--------------+
+| Apple,           | Untested     | Untested     | Untested     | Untested     |
+| MacBook 1.1      |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Apple,           | Untested     | Untested     | Untested     | Untested     |
+| MacBook 2.1      |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Apple, iMac 5,2  | Untested     | Untested     | Untested     | Untested     |
++------------------+--------------+--------------+--------------+--------------+
+| Asus,            | Missing      | Missing      | Missing      | Missing      |
+| Chromebook C201  | images       | images       | images       | images       |
++------------------+--------------+--------------+--------------+--------------+
+| Asus, KCMA-D8    | Missing      | Untested     | Missing      | Untested     |
+| with ECC RAM     | images       |              | images       |              |
++------------------+--------------+--------------+--------------+--------------+
+| Asus, KCMA-D8    | Missing      | Untested     | Missing      | Untested     |
+| with non-ECC     | images       |              | images       |              |
+| RAM              |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Asus, KFSN4-DRE  | Missing      | Missing      | Missing      | Untested     |
+|                  | images       | images       | images       |              |
++------------------+--------------+--------------+--------------+--------------+
+| Asus, KGPE-D16   | Missing      | Untested     | Missing      | Untested     |
+| with ECC RAM     | images       |              | images       |              |
++------------------+--------------+--------------+--------------+--------------+
+| Asus, KGPE-D16   | Missing      | Untested     | Missing      | Untested     |
+| with non-ECC RAM | images       |              | images       |              |
++------------------+--------------+--------------+--------------+--------------+
+| Gigabyte,        | Missing      | Missing      | Missing      | Fail: #66463 |
+| D945GCLF2D       | images       | images       | images       |              |
++------------------+--------------+--------------+--------------+--------------+
+| Gigabyte,        | Missing      | Untested     | Missing      | Untested     |
+| GA-G41M-ES2L     | images       |              | images       |              |
++------------------+--------------+--------------+--------------+--------------+
+| Intel, D410PT    | Untested     | Untested     | Untested     | Untested     |
++------------------+--------------+--------------+--------------+--------------+
+| Intel, D510MO    | Missing      | Untested     | Missing      | Untested     |
+|                  | images       |              | images       |              |
++------------------+--------------+--------------+--------------+--------------+
+| Intel, D945GCLF  | Missing      | Missing      | Missing      | Untested     |
+|                  | images       | images       | images       |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| ThinkPad R400    |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| ThinkPad R500    |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| ThinkPad T400    |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| ThinkPad T400S   |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| ThinkPad T500    |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| ThinkPad T60     |              |              |              |              |
+| with intel GPU   |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| ThinkPad W500    |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| ThinkPad X200    |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+|  ThinkPad X200S  |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| ThinkPad X200T   |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| ThinkPad X301    |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| ThinkPad X60     |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| ThinkPad X60T    |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| ThinkPad X60s    |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Libiquity,       | Untested     | Untested     | Untested     | Untested     |
+| Taurinus X200    |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Qemu,            | Untested     | Untested     | Untested     | Untested     |
+| PC (i440FX)      |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | Untested     | Untested     | Untested     | Untested     |
+| D16              |              |              |              |              |
+| with ECC RAM     |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | Untested     | Untested     | Untested     | Untested     |
+| D16              |              |              |              |              |
+| with non-ECC RAM |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | Untested     | Untested     | Untested     | Untested     |
+| T400             |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | Untested     | Untested     | Untested     | Untested     |
+| T400s            |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | Untested     | Untested     | Untested     | Untested     |
+| T500             |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | Untested     | Untested     | Untested     | Untested     |
+| X200             |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | Untested     | Untested     | Untested     | Untested     |
+| X200s            |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Technoethical,   | Untested     | Untested     | Untested     | Untested     |
+| X200 Tablet      |              |              |              |              |
+| (X200T)          |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Vikings,         | Missing      | Untested     | Missing      | Untested     |
+| ASUS KCMA D8     | images       |              | images       |              |
+| mainboard and    |              |              |              |              |
+| workstation      |              |              |              |              |
+| with ECC RAM     |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Vikings,         | Missing      | Untested     | Missing      | Untested     |
+| ASUS KCMA D8     | images       |              | images       |              |
+| mainboard and    |              |              |              |              |
+| workstation with |              |              |              |              |
+| non-ECC RAM      |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Vikings,         | Missing      | Untested     | Missing      | Untested     |
+| ASUS KGPE D16    | images       |              | images       |              |
+| mainboard with   |              |              |              |              |
+| ECC RAM          |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Vikings,         | Missing      | Untested     | Missing      | Untested     |
+| ASUS KGPE D16    | images       |              | images       |              |
+| mainboard with   |              |              |              |              |
+| non-ECC RAM      |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Vikings, X200    | Untested     | Untested     | Untested     | Untested     |
++------------------+--------------+--------------+--------------+--------------+
+
+Stability:
+----------
+
+* Untested: The GNU Boot maintainers are not aware of anybody who
+  tested GNU Boot 0.1 RC6 on that computer. If you have GNU Boot on
+  this computer please report if it works or not (for instance by
+  opening a bug report).
+
+* Fail: #<bug number>: Someone tested GNU Boot 0.1 RC6 on that
+  computer and it either doesn't boot at all, can't boot any fully
+  free GNU/Linux distribution. It should also be confirmed that this
+  is a software issue and not a problem with the hardware like broken
+  RAM modules. The issue should also be described in a bug report that
+  is available at https://savannah.gnu.org/bugs/index.php?<bug number>
+  (this is the GNU Boot bug tracker).
+
+* Tested: Someone tested GNU Boot 0.1 RC6 on that computer and
+  reported to the GNU Boot that it at least booted fine.
+
+* Daily users: Some people contacted the GNU Boot maintainers and
+  volunteered to send bug reports if installing GNU Boot made the
+  computer unusable or very hard to use (like a memory corruption that
+  makes it impossible to boot certain GNU/Linux distributions or
+  crashes the computer randomly). If you want to help GNU Boot
+  with that, please contact the maintainers through a bug report.
+
 GNU Boot 0.1 RC5 status
 =======================
 
@@ -156,31 +336,8 @@ GNU Boot 0.1 RC5 status
 | Vikings, X200    | Untested     | Untested     | Untested     | Untested     |
 +------------------+--------------+--------------+--------------+--------------+
 
-Stability:
-----------
-
-* Untested: The GNU Boot maintainers are not aware of anybody who
-  tested GNU Boot 0.1 RC5 on that computer. If you have GNU Boot on
-  this computer please report if it works or not (for instance by
-  opening a bug report).
-
-* Fail: #<bug number>: Someone tested GNU Boot 0.1 RC5 on that
-  computer and it either doesn't boot at all, can't boot any fully
-  free GNU/Linux distribution. It should also be confirmed that this
-  is a software issue and not a problem with the hardware like broken
-  RAM modules. The issue should also be described in a bug report that
-  is available at https://savannah.gnu.org/bugs/index.php?<bug number>
-  (this is the GNU Boot bug tracker).
-
-* Tested: Someone tested GNU Boot 0.1 RC5 on that computer and
-  reported to the GNU Boot that it at least booted fine.
-
-* Daily users: Some people contacted the GNU Boot maintainers and
-  volunteered to send bug reports if installing GNU Boot made the
-  computer unusable or very hard to use (like a memory corruption that
-  makes it impossible to boot certain GNU/Linux distributions or
-  crashes the computer randomly). If you want to help GNU Boot
-  with that, please contact the maintainers through a bug report.
+See the status of GNU Boot 0.1 RC6 above for the meaning of the
+various fields.
 
 GNU Boot 0.1 RC4 status
 =======================
@@ -334,7 +491,7 @@ GNU Boot 0.1 RC4 status
 | Vikings, X200    | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
 +------------------+--------------+--------------+--------------+--------------+
 
-See the status of GNU Boot 0.1 RC5 above for the meaning of the
+See the status of GNU Boot 0.1 RC6 above for the meaning of the
 various fields.
 
 GNU Boot 0.1 RC3 status
@@ -429,7 +586,7 @@ GNU Boot 0.1 RC3 status
 | Vikings       | X200               | Untested     |
 +---------------+--------------------+--------------+
 
-See the status of GNU Boot 0.1 RC5 above for the meaning of the
+See the status of GNU Boot 0.1 RC6 above for the meaning of the
 various fields.
 
 GNU Boot 0.1 RC2 status
@@ -527,7 +684,7 @@ the RC2 to reduce the risk of testers.
 | Vikings       | X200               | Tested       |
 +---------------+--------------------+--------------+
 
-See the status of GNU Boot 0.1 RC5 above for the meaning of the
+See the status of GNU Boot 0.1 RC6 above for the meaning of the
 various fields.
 
 GNU Boot 0.1 RC1 status
@@ -618,7 +775,7 @@ GNU Boot 0.1 RC1 status
 | Vikings       | X200               | Tested       |
 +---------------+--------------------+--------------+
 
-See the status of GNU Boot 0.1 RC5 above for the meaning of the
+See the status of GNU Boot 0.1 RC6 above for the meaning of the
 various fields.
 
 Upstream status
