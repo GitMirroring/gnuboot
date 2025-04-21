@@ -2055,6 +2055,14 @@ supported by most GNU/Linux distributions since a very long time, so
 they should be safe to use. We are also not aware of any limitations
 or issues at the time of writing.
 
+@node          F2FS
+@subsubsection F2FS
+
+GNU Boot does support the F2FS filesystems, however we don't have
+extensive use of it, so we are not very familiar with it. Though it
+should be stable and we are also not aware of any limitations or
+issues at the time of writing.
+
 @node          NILFS2
 @subsubsection NILFS2
 
