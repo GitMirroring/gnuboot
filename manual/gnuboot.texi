@@ -1364,6 +1364,93 @@ For USB<->Serial adapters, the serial port will most of the time be on
 /dev/ttyUSB0, but it can change in some configuration (when there are
 multiple serial ports, or with some adapters).
 
+@node       @acronym{NVMe, NVM Express}
+@subsection @acronym{NVMe, NVM Express}
+
+GNU Boot doesn't support booting on NVMe as the software it reuses
+(Coreboot, GRUB when compiled for Coreboot, SeaBIOS) lack support for
+that. Despite of that it's still possible to use NVMe with GNU Boot
+(see below how).
+
+@node          @acronym{NVMe, NVM Express}: Security implications
+@subsubsection @acronym{NVMe, NVM Express}: Security implications
+
+One of the issue with @acronym{NVMe, NVM Express} is that its nonfree
+firmware can take complete control of the computer if it is malicious,
+and since its nonfree there is no easy way to check that it the
+firmware cannot or doesn't do that.
+
+There are ways to prevent this security issue but it requires an
+@acronym{IOMMU,input–output memory management unit} which is a
+hardware component that is not present in all computers supported by
+GNU Boot.
+
+In addition even on computers with an IOMMU, there have been no
+security reviews of either GNU Boot or the software that it reuses
+with regard to their ability (or lack thereof), of preventing such
+attacks.
+
+While a malicious firmware of a sata SSDs can also take full the
+control of the computer in some cases, GNU Boot provides ways to
+protect against this (for instance by using full disk encryption with
+GNU Boot GRUB images).
+
+@xref{Security} section for more context with security and threat
+models.
+
+@node          @acronym{NVMe, NVM Express}: How to use one
+@subsubsection @acronym{NVMe, NVM Express}: How to use one
+
+If you really want to use an NVMe with GNU Boot, you could move your
+distribution(s) @emph{/boot} (and the bootloader as well if you use
+GNU Boot SeaBIOS images) on another storage device supported by GNU
+Boot (such as a SATA SSD, an USB key, SD card, etc) until NVMe support
+is added to new GRUB and/or SeaBIOS versions and that GNU Boot start
+using them.
+
+Alternatively, according to its maintainer, at the time of writing,
+Canoeboot supports NVMe in all its flavors (SeaBIOS, GRUB, u-boot,
+etc).
+
+@xref{How much free software are other distributions} for more details
+on the freedom implications of using Canoeboot instead of GNU Boot.
+
+In all the cases above it is a good idea to also check if the NVMe and
+the computer you want to use it with are compatible at the hardware
+level: some NVMe require multiple PCIe lanes, and not all the
+computers and/or PCIe ports and/or M2 adapters have the number of PCIe
+lanes required.
+
+@node          @acronym{NVMe, NVM Express}: ThinkMods expresscard to NVMe adapter
+@subsubsection @acronym{NVMe, NVM Express}: ThinkMods expresscard to NVMe adapter
+
+ThinkMods made an @uref{expresscard to NVMe
+adapter,https://thinkmods.store/collections/all-mods/products/expresscard-to-nvme-adapter}.
+
+This adapter contains nonfree software to help BIOS and/or UEFI that
+don't contain NVMe support to boot.
+
+If you use GNU Boot SeaBIOS images, not only SeaBIOS will find and
+execute that nonfree software. However even if it does that we have no
+idea if this actually enables to boot on the NVMe because as far as we
+know this adapter was never tested with GNU Boot.
+
+The @uref{SeaBIOS source code,https://review.coreboot.org/seabios.git}
+has some documentation in docs/Runtime_config.md, for technical users,
+about the etc/pci-optionrom-exec SeaBIOS setting that can be used to
+prevent running the nonfree software provided by this adapter when
+running GNU Boot SeaBIOS images.
+
+GNU Boot GRUB images will however not run the nonfree software
+provided by this adapter.
+
+So if you want to use this adapter, a valid option could be to use
+GRUB GNU Boot images with a @emph{/boot} on another storage device.
+@xref{@acronym{NVMe, NVM Express}: How to use one} for more details.
+
+Also note that ThinkMods has a @acronym{HCL,hardware compatibility
+list} somewhere on @uref{https://thinkmods.store,its website}.
+
 @node       Unsupported hardware supported by projects reused by GNU Boot
 @subsection Unsupported hardware supported by projects reused by GNU Boot
 
