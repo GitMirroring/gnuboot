@@ -1948,6 +1948,27 @@ don't support these RAID cards yet ( @xref{Unsupported hardware
 supported by projects reused by GNU Boot}). Help is welcome for
 identifying if we can add support for these.
 
+@node          BSD related partitions
+@subsubsection BSD related partitions
+
+At the time of writing there is no FSDG compliant BSD operating system
+and/or distribution that can easily be tested.
+
+Because of that we rely on voulounteers for testing, but so far no
+voulounteers contacted us yet, so we have no idea about the support of
+BSD specific partitions (like GELI for encryption or partition
+tables).
+
+At the time of writing, Hyperbola BSD is a work in progress, and once
+it reach a point where it will be easier to try (when either a
+bootable media, or some extremely basic documentation to install it
+will be provided), we could have more insight on what works or doesn't
+work and what to support.
+
+If you either use a BSD operating system and/or distribution or if you
+are involved in Hyperbola BSD and care about GNU Boot support for
+Hyperbola as of today, please contact us.
+
 @node          other partition types
 @subsubsection other partition types
 
@@ -2167,6 +2188,26 @@ considering removing support for the MINIX filesystem in GNU Boot.
 
 Would it be missed if we remove the MINIX filesystem from GNU Boot? If
 so please contact us.
+
+@node          BSD related filesystems (UFS@comma{} etc)
+@subsubsection BSD related filesystems (UFS@comma{} etc)
+
+At the time of writing there is no FSDG compliant BSD operating system
+and/or distribution that can easily be tested.
+
+Because of that we rely on voulounteers for testing, but so far no
+voulounteers contacted us yet, so we have no idea about the support of
+BSD specific filesystems.
+
+At the time of writing, Hyperbola BSD is a work in progress, and once
+it reach a point where it will be easier to try (when either a
+bootable media, or some extremely basic documentation to install it
+will be provided), we could have more insight on what works or doesn't
+work and what to support.
+
+If you either use a BSD operating system and/or distribution or if you
+are involved in Hyperbola BSD and care about GNU Boot support for
+Hyperbola as of today, please contact us.
 
 @node    Flash programmers
 @chapter Flash programmers
