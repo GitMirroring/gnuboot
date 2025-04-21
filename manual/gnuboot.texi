@@ -2070,6 +2070,31 @@ GNU Boot does support the NILFS2 filesystems, however as we don't
 personally use it, we are not up to date with how stable it is or its
 GRUB support.
 
+@node          HFS and HFS+
+@subsubsection HFS and HFS+
+
+The HFS and HFS+ filesystems are not supported by many FSDG compliant
+distributions. So far they are only supported by PureOS 10 (byzantium)
+and Trisquel 11 (aramo) and maybe other versions of PureOS and
+Trisquel, with the hfsutils and hfsplus packages (as well as the
+drivers in Linux).
+
+At the time of writing HFS+ support in GNU/Linux also has many
+limitations (like the lack of write support by unless journaling is
+disabled according to the
+@uref{https://en.wikipedia.org/wiki/HFS%2B#Linux, HFS Plus Wikipedia
+article}).
+
+Despite that they should normally be supported by GNU Boot for now,
+however we lack information on the support and usage of these
+filesystems.
+
+For instance would it be missed if we remove them from GNU Boot? If so
+please contact us. If you have a MacBook 1.1, MacBook 2.1 or an iMac
+5.2 and installed some boot software distribution on it, we would also
+be interested in your point of view on that, even if you don't use
+such filesystems or don't use GNU Boot.
+
 @node          ReiserFS (ReiserFS v3)
 @subsubsection ReiserFS (ReiserFS v3)
 
