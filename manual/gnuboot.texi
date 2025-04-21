@@ -1921,6 +1921,41 @@ it loads the wrong distribution from.
 
 The GRUB images support GPT and MBR partitions.
 
+@node          GRUB: LUKS1 and LUKS2
+@subsubsection GRUB: LUKS1 and LUKS2
+
+The GRUB images support the most common LUKS1 configurations.
+
+However it only has partial support of LUKS2: it doesn't support the
+default Argon2 family (argon2i, argon2id, etc) of @acronym{KDF, key
+derivation functions}.
+
+Because of that, if you use LUKS2, you will need to use a @emph{/boot}
+that has no encryption at all (and ideally an ext4 filesystem as it is
+well supported), or to downgrade the LUKS2 @acronym{KDF, key
+derivation functions} to PBKDF2 which is way less effective
+protections against bruteforce attacks.
+
+You can also use a separate @emph{/boot} encrypted with LUKS1 or with
+LUKS2 and PBKDF2.
+
+See the @uref{https://en.wikipedia.org/wiki/Argon2,Argon2} and the See
+@uref{https://en.wikipedia.org/wiki/PBKDF2,PBKDF2} Wikipedia articles
+for more details.
+
+If you really need Argon2, you could consider using Canoeboot GRUB
+images instead of GNU Boot GRUB images as Canoeboot supports LUKS2
+with the Argon2 family (argon2i, argon2id, etc) of @acronym{KDF, key
+derivation functions} through a patch that was refused by GRUB for
+maintenance cost reasons.
+
+@xref{How much free software are other distributions} for more details
+on the freedom implications of using Canoeboot instead of GNU Boot.
+
+The @uref{https://savannah.gnu.org/bugs/?55093,GRUB bug #55093}
+contains a bit more details as why Argon2 is not supported yet and why
+the previous patch(es) for it was/were refused.
+
 @node          GRUB: LVM2
 @subsubsection GRUB: LVM2
 
