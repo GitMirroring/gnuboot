@@ -2085,6 +2085,36 @@ GNU Boot.
 For instance would it be missed if we remove them from GNU Boot? If so
 please contact us.
 
+@node          MINIX filesystem
+@subsubsection MINIX filesystem
+
+While the MINIX filesystem seems well supported in GNU/Linux, it has
+limitations that are unpractical for booting in modern GNU/Linux
+systems: the filenames are limited to about 30 characters and the
+partitions to 64 MiB.
+
+Beside GNU/Linux, this filesystem can also be used by Minix 3, MiNT
+and HelenOS.
+
+However we lack information on these other operating systems,
+especially on their freedoms.
+
+If you know what nonfree software is being redistributed through these
+operating systems, please consider contributing an entry to the
+@uref{https://www.gnu.org/distros/common-distros.html,Common Distros}
+page. If they are fully free, they might be interested to apply to be
+in the
+@uref{https://www.gnu.org/distros/free-non-gnu-distros.html,Free
+Non-GNU Distros list}. If you do any of that, also do contact GNU Boot
+so we could update this manual.
+
+Because of the limitations under GNU/Linux and because these operating
+system most likely contain nonfree software, for now we are
+considering removing support for the MINIX filesystem in GNU Boot.
+
+Would it be missed if we remove the MINIX filesystem from GNU Boot? If
+so please contact us.
+
 @node    Flash programmers
 @chapter Flash programmers
 
