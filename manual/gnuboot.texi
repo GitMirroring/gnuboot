@@ -1801,6 +1801,14 @@ what you want.
 
 @xref{,,,grub,the GRUB manual} for more details about GRUB commands.
 
+@node       GRUB: Supported partitions
+@subsection GRUB: Supported partitions
+
+@node          GRUB: GPT (GUID Partition Table) and MBR (Master boot record)
+@subsubsection GRUB: GPT (GUID Partition Table) and MBR (Master boot record)
+
+The GRUB images support GPT and MBR partitions.
+
 @node    Flash programmers
 @chapter Flash programmers
 
