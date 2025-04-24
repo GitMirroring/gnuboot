@@ -1779,6 +1779,14 @@ So if it loads the wrong distribution, you can put grub commands that
 load the right distribution in /boot/gnuboot_grub.cfg in the partition
 it loads the wrong distribution from.
 
+@node       GRUB: Supported partitions
+@subsection GRUB: Supported partitions
+
+@node          GRUB: GPT (GUID Partition Table) and MBR (Master boot record)
+@subsubsection GRUB: GPT (GUID Partition Table) and MBR (Master boot record)
+
+The GRUB images support GPT and MBR partitions.
+
 @node    Flash programmers
 @chapter Flash programmers
 
