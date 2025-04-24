@@ -2062,6 +2062,29 @@ GNU Boot does support the NILFS2 filesystems, however as we don't
 personally use it, we are not up to date with how stable it is or its
 GRUB support.
 
+@node          ReiserFS (ReiserFS v3)
+@subsubsection ReiserFS (ReiserFS v3)
+
+If ReiserFS is being removed from the Linux kernel: it was scheduled
+for removal in 2025 and it is already removed from the most recent
+Linux kernel versions, though it may still be available in older
+stable kernel releases.
+
+It is also prone to corruption (see
+@uref{https://en.wikipedia.org/wiki/ReiserFS#Criticism, the Wikipedia
+ReiserFS article} for more details).
+
+Beside GNU/Linux it seems to be supported by ReactOS, but ReactOS is
+also not FSDG compliant. This means that if we want to support booting
+ReactOS with ReiserFS, we will need to rely on voulonteers that care
+about ReactOS to test if things work fine.
+
+Because of that we are also considering removing the support for ReiserFS in
+GNU Boot.
+
+For instance would it be missed if we remove them from GNU Boot? If so
+please contact us.
+
 @node    Flash programmers
 @chapter Flash programmers
 
