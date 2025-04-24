@@ -1816,6 +1816,26 @@ While basic usage of LVM2 is supported and well tested, it also has
 various backends like for RAID0, RAID5, etc, and these are not well
 tested and might not all be supported.
 
+@node          GRUB: GNU/Linux RAID
+@subsubsection GRUB: GNU/Linux RAID
+
+GNU Boot GRUB images support some RAID combinations, but we also lack
+information on which ones do and don't work. Please contact us if you
+have any information on that.
+
+Due to limitations in the grub configuration of the GNU Boot GRUB
+images, we only support 10 RAID volumes (md/0 to md/9), help is
+welcome to fix that.
+
+@node          GRUB: RAID formats of RAID card vendors
+@subsubsection GRUB: RAID formats of RAID card vendors
+
+While some GNU/Linux distributions support that, this is completely
+untested in GNU Boot and it is probably not supported. In addition we
+don't support these RAID cards yet ( @xref{Unsupported hardware
+supported by projects reused by GNU Boot}). Help is welcome for
+identifying if we can add support for these.
+
 @node    Flash programmers
 @chapter Flash programmers
 
