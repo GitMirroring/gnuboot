@@ -2046,6 +2046,15 @@ GNU Boot does support the ISO 9660 and UDF filesystems. These should
 normally be stable. We are not aware of any limitations or issues at
 the time of writing.
 
+@node          JFS and XFS
+@subsubsection JFS and XFS
+
+GNU Boot does support the JFS and XFS filesystems. While the GNU Boot
+maintainers don't personally use them, they are well known, stable and
+supported by most GNU/Linux distributions since a very long time, so
+they should be safe to use. We are also not aware of any limitations
+or issues at the time of writing.
+
 @node    Flash programmers
 @chapter Flash programmers
 
