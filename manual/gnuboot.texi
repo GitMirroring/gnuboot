@@ -2128,6 +2128,13 @@ beside the ones of the filesystem. It has less limitations than fat12
 / fat16 / fat32 and vfat, but it is not widely used yet to boot as in
 practice most UEFI implementation support only FAT and not exfat.
 
+@node          ISO 9660 and UDF
+@subsubsection ISO 9660 and UDF
+
+GNU Boot does support the ISO 9660 and UDF filesystems. These should
+normally be stable. We are not aware of any limitations or issues at
+the time of writing.
+
 @node    Flash programmers
 @chapter Flash programmers
 
