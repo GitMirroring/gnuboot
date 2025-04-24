@@ -1787,6 +1787,13 @@ it loads the wrong distribution from.
 
 The GRUB images support GPT and MBR partitions.
 
+@node          GRUB: LVM2
+@subsubsection GRUB: LVM2
+
+While basic usage of LVM2 is supported and well tested, it also has
+various backends like for RAID0, RAID5, etc, and these are not well
+tested and might not all be supported.
+
 @node    Flash programmers
 @chapter Flash programmers
 
