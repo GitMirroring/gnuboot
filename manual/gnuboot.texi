@@ -1814,6 +1814,15 @@ don't support these RAID cards yet ( @xref{Unsupported hardware
 supported by projects reused by GNU Boot}). Help is welcome for
 identifying if we can add support for these.
 
+@node          other partition types
+@subsubsection other partition types
+
+Right now, GNU Boot probably supports more partition types. We are
+considering removing them in GNU Boot.
+
+Would they be missed if we remove them from GNU Boot? If so please
+contact us.
+
 @node    Flash programmers
 @chapter Flash programmers
 
