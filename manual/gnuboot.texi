@@ -1766,6 +1766,41 @@ screen):
       `c' for a command-line.
 @end verbatim
 
+@node    GRUB images requirements
+@section GRUB images requirements
+
+@node       GRUB: Supported configuration files
+@subsection GRUB: Supported configuration files
+
+@node          grub.cfg
+@subsubsection grub.cfg
+
+When booting, the GNU Boot GRUB image selects the first entry, which
+is @emph{Load Operating System (incl. fully encrypted disks)}.
+
+It has limited heuristics to find LVM, raid and encrypted partitions.
+
+Once it finds a filesystem, it tries to find the gnuboot_grub.cfg,
+osboot_grub.cfg, autoboot_grub.cfg, coreboot_grub.cfg, grub.cfg, in
+that order, in the boot, grub, grub2, boot/grub, or boot/grub2
+directories.
+
+If you want something else (like a menu or to boot another
+distribution), you will first need to find the GRUB configuration file
+that the GNU Boot GRUB image loaded.
+
+Once this is done you can simply add a gnuboot_grub.cfg file in the
+same directory, with inside GRUB commands that make the GNU Boot GRUB
+image do what you want.
+
+For example if you installed Trisquel on /dev/sda1 and that you have
+no separate /boot, the grub.cfg file provided by Trisquel is typically
+in /boot/grub/grub.cfg, so in your case you will add a file in
+/boot/grub/gnuboot_grub.cfg in /dev/sda1 with the GRUB commands to do
+what you want.
+
+@xref{,,,grub,the GRUB manual} for more details about GRUB commands.
+
 @node    Flash programmers
 @chapter Flash programmers
 
