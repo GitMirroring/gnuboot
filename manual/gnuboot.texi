@@ -2039,6 +2039,13 @@ and load the grub.cfg produced by your Trisquel installation.
 @xref{grub.cfg} for more details on the GRUB configurations loaded by
 GNU Boot.
 
+@node          ISO 9660 and UDF
+@subsubsection ISO 9660 and UDF
+
+GNU Boot does support the ISO 9660 and UDF filesystems. These should
+normally be stable. We are not aware of any limitations or issues at
+the time of writing.
+
 @node    Flash programmers
 @chapter Flash programmers
 
