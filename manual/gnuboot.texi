@@ -1984,6 +1984,22 @@ At the time of writing, the ext2, ext3 and ext4 filesystems are very
 well supported by the GNU Boot GRUB images and we are not aware of any
 limitations.
 
+@node          fat12 / fat16 / fat32 / vfat / exfat filesystems
+@subsubsection fat12 / fat16 / fat32 / vfat / exfat filesystems
+
+At the time of writing, the fat12 / fat16 / fat32 / vfat filesystems
+are very well supported by the GNU Boot GRUB images and we are not
+aware of any limitations apart from the limitations inherent to these
+filesystems (file size limited to 4GiB or less depending on the
+filesystem configuration, restricted set of characters allowed in
+filenames, etc).
+
+The exfat filesystem should also normally be well supported by the GNU
+Boot GRUB images as well and we are also not aware of any limitation
+beside the ones of the filesystem. It has less limitations than fat12
+/ fat16 / fat32 and vfat, but it is not widely used yet to boot as in
+practice most UEFI implementation support only FAT and not exfat.
+
 @node    Flash programmers
 @chapter Flash programmers
 
