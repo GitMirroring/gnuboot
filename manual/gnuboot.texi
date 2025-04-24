@@ -1756,6 +1756,29 @@ screen):
       `c' for a command-line.
 @end verbatim
 
+@node    GRUB images requirements
+@section GRUB images requirements
+
+@node       GRUB: Supported configuration files
+@subsection GRUB: Supported configuration files
+
+@node          grub.cfg
+@subsubsection grub.cfg
+
+When booting, the GNU Boot GRUB image selects the first entry, which
+is @emph{Load Operating System (incl. fully encrypted disks)}.
+
+It has limited heuristics to find LVM, raid and encrypted partitions.
+
+Once it finds a filesystem, it tries to find the gnuboot_grub.cfg,
+osboot_grub.cfg, autoboot_grub.cfg, coreboot_grub.cfg, grub.cfg, in
+that order, in the boot, grub, grub2, boot/grub, or boot/grub2
+directories.
+
+So if it loads the wrong distribution, you can put grub commands that
+load the right distribution in /boot/gnuboot_grub.cfg in the partition
+it loads the wrong distribution from.
+
 @node    Flash programmers
 @chapter Flash programmers
 
