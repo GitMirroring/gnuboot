@@ -1957,6 +1957,33 @@ considering removing them in GNU Boot.
 Would they be missed if we remove them from GNU Boot? If so please
 contact us.
 
+@node       GRUB: Supported filesystems
+@subsection GRUB: Supported filesystems
+
+The GRUB images typically reuse the GRUB configuration of the
+distributions being installed to boot them, so it needs to support the
+filesystems the distributions or operating system use to boot.
+
+If you're unsure what filesystem to use, having a @emph{/boot}
+filesystem with @emph{ext4} should work in all cases.
+
+Also note that in the review of the support of various filesystems
+below doesn't take into account things like resizing the filesystems
+as there are use cases where these features are not relevant.
+
+See @uref{https://gparted.org/features.php, the @acronym{GParted,GNOME
+Partition Editor} status} or even better, @emph{View} -> @emph{File
+system support} inside GParted in the distribution(s) you use to find
+for more details on how growing or shrinking partitions are or will be
+supported by your distribution.
+
+@node          ext2 / ext3 / ext4 filesystems
+@subsubsection ext2 / ext3 / ext4 filesystems
+
+At the time of writing, the ext2, ext3 and ext4 filesystems are very
+well supported by the GNU Boot GRUB images and we are not aware of any
+limitations.
+
 @node    Flash programmers
 @chapter Flash programmers
 
