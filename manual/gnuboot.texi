@@ -2000,6 +2000,45 @@ beside the ones of the filesystem. It has less limitations than fat12
 / fat16 / fat32 and vfat, but it is not widely used yet to boot as in
 practice most UEFI implementation support only FAT and not exfat.
 
+@node          BTRFS
+@subsubsection BTRFS
+
+Support for BTRFS is experimental in the GNU Boot GRUB images. We need
+more feedback to understand how stable it is or what BTRFS features
+aren't supported.
+
+For instance had a rare issue with BTRFS, GNU Boot and GRUB in an
+unsupported configuration
+(@uref{https://savannah.gnu.org/bugs/?66777,GRUB bug #66777}) that we
+were not able yet to debug in time until it disapeared.
+
+Apart from that, at the moment, GNU Boot's GRUB configuration doesn't
+understand BTRFS subvolumes.
+
+Because of that you either need not to put the distributions or
+operating system you want GNU Boot to find in a subvolume, or you need
+to add a configuration in a path relative to the root directory of the
+btrfs filesystem.
+
+The configuration need to be in either /gnuboot_grub.cfg,
+/osboot_grub.cfg, /autoboot_grub.cfg, /coreboot_grub.cfg, /grub.cfg,
+in that order, in the boot, grub, grub2, boot/grub, or boot/grub2
+directories.
+
+If you have installed Trisquel on a subvolume named
+@emph{rootfs/trisquel}, and that you have no @emph{/boot}, then
+you could add the following configuration file in
+@emph{/boot/gnuboot_grub.cfg}:
+@example
+configfile /rootfs/trisquel/boot/grub/grub.cfg
+@end example
+
+This will make the GNU Boot GRUB image find that configuration file,
+and load the grub.cfg produced by your Trisquel installation.
+
+@xref{grub.cfg} for more details on the GRUB configurations loaded by
+GNU Boot.
+
 @node    Flash programmers
 @chapter Flash programmers
 
