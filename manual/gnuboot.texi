@@ -2055,6 +2055,13 @@ supported by most GNU/Linux distributions since a very long time, so
 they should be safe to use. We are also not aware of any limitations
 or issues at the time of writing.
 
+@node          NILFS2
+@subsubsection NILFS2
+
+GNU Boot does support the NILFS2 filesystems, however as we don't
+personally use it, we are not up to date with how stable it is or its
+GRUB support.
+
 @node    Flash programmers
 @chapter Flash programmers
 
