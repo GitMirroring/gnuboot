@@ -26,7 +26,7 @@ set -u -e
 
 printf "Cleaning the previous build of seabios\n"
 
-rm -f seabios_libgfxinit.elf seavgabios.bin seabios_vgarom.elf
+rm -f seabios_libgfxinit.elf seavgabios.bin
 
 [ ! -d "seabios/" ] && exit 0
 
