@@ -45,9 +45,8 @@ fi
 
 cd seabios/
 
-# for libgfxinit setup:
 [[ -f Makefile ]] && make distclean
-cp ../resources/seabios/config/libgfxinit .config
+cp ../resources/seabios/config/default .config
 make silentoldconfig -j$(nproc)
 make -j$(nproc)
 mv out/bios.bin.elf ${seabiosrom}
