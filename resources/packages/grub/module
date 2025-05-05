@@ -25,6 +25,38 @@
 [ "x${DEBUG+set}" = 'xset' ] && set -v
 set -u -e
 
+get_grub_version()
+{
+    git="../resources/wrappers/git"
+
+    nr_patches="$(ls -d ../resources/grub/patches/* | wc -l)"
+
+    # grub-2.12-226-g56ccc5ed5 -> 2.12-226-g56ccc5ed5
+    grub_version="$(${git} describe | sed 's#^grub-##')"
+
+    if [ "${nr_patches}" -eq 0 ] ; then
+        echo "${grub_version}"
+    elif [ "${nr_patches}" -eq 1 ] ; then
+        echo "${grub_version} + 1 patch"
+    else
+        echo "${grub_version} + ${nr_patches} patches"
+    fi
+}
+
+get_gnuboot_version()
+{
+    git="../resources/wrappers/git"
+
+    if [ "${git} describe --tags --abbrev=0" = "${git} describe" ] ; then
+        # convert 0.1-rc6 to 0.1 RC6
+        "${git} describe" | sed 's#-# #' | awk '{print toupper($0)}'
+    else
+        # If we're not on a tag use something like that instead:
+        # 0.1-rc6-101-g2198c81b1e
+        echo "${git} describe"
+    fi
+}
+
 # Build GRUB2 as coreboot payload
 
 printf "Building GRUB\n"
@@ -41,10 +73,15 @@ cd grub/
 
 ./bootstrap --gnulib-srcdir=gnulib/ --no-git 
 
+# Get some infos for displaying "2.12 from GNU Boot 0.1 RC1" in "GNU GRUB
+# version 2.12 from GNU Boot 0.1 RC1" in the GRUB menu screen.
+PACKAGE_VERSION="$(get_grub_version) from GNU Boot $(get_gnuboot_version)."
+
 # build
 ./autogen.sh
 ./configure \
     --with-platform=coreboot \
-    --with-unifont=../unifont.bdf
+    --with-unifont=../unifont.bdf \
+    PACKAGE_VERSION="${PACKAGE_VERSION}"
 make -j$(nproc)
 )
