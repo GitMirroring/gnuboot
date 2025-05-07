@@ -126,7 +126,10 @@
       ;; Example:
       ;; From 0df4fe5fadfb7f51c1c34dad10ca9e6e04c3fa18 Mon Sep 17 00:00:00 2001
       (and (not (startswith line "From: "))
-           (startswith line "From ")))
+           (startswith line "From ")
+           ;; We only want to match the first result, otherwise a 'From [...]
+           ;; within the commit message will match.
+           (not (assq-ref results 'commit-hash))))
     (lambda (line _ results)
       (let ((commit-hash (list-ref (string-split line #\ ) 1)))
         (acons 'commit-hash commit-hash results)))
@@ -765,6 +768,9 @@
    (canonicalize-path (getcwd))
    (dirname (dirname (current-filename)))))
 
+(define (in-git-dir?)
+  (file-exists? ".git/config"))
+
 (define (usage progname exit-code)
   (display (string-append
             "Usage: "
@@ -775,14 +781,17 @@
 (define (main args)
   (if (eq? (length args) 1)
       (usage "checkpatch.pl" 64) ;; 64 is EX_USAGE in sysexits.h
-      (if (not (in-tree-topdir?))
-          ((lambda _
-             (display
-              (string-append
-               "Error: please run checkpatch.scm in the git top directory.\n"))
-             (exit 69))) ;; 69 is EX_UNAVAILABLE in sysexits.h
-          (map (lambda (path)
-                 (if (> (length args) 2)
-                     (print-patch-name path))
-                 (test-patch path))
-               (cdr args)))))
+      (cond
+       ((or (not (in-tree-topdir?))
+            (not (in-git-dir?)))
+        ((lambda _
+           (display
+            (string-append
+             "Error: please run checkpatch.scm in the git top directory.\n"))
+           (exit 69)))) ;; 69 is EX_UNAVAILABLE in sysexits.h
+       (else
+        (map (lambda (path)
+               (if (> (length args) 2)
+                   (print-patch-name path))
+               (test-patch path))
+             (cdr args))))))
