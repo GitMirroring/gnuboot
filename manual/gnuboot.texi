@@ -476,8 +476,8 @@ GNU Boot, but support for them hasn't been enabled yet in GNU Boot:
 The GNU Boot project needs help to evaluate the impact of enabling
 these and welcome contributions in this area.
 
-@node Supported operating systems
-@subsection Supported operating systems
+@node    Supported operating systems
+@section Supported operating systems
 
 While GNU Boot should be able to boot almost any GNU/Linux
 distribution, but in some cases some configuration might be needed by
