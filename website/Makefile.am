@@ -146,7 +146,7 @@ else
 GM_CMD = gm
 endif
 
-pages/manual/images/SOIC-16.png: ../manual/SOIC-16.jpeg
+pages/manual/images/SOIC-16.png: ../manual/images/SOIC-16.jpeg
 	mkdir -p `dirname $@`
 	$(GM_CMD) convert $< $@
 
@@ -160,7 +160,7 @@ pages/manual/images/SOIC-16.png: ../manual/SOIC-16.jpeg
 	mkdir -p `dirname $@`
 	install -m 644 $< $@
 
-pages/manual/images/SOIC-16.jpeg: ../manual/SOIC-16.jpeg
+pages/manual/images/SOIC-16.jpeg: ../manual/images/SOIC-16.jpeg
 	mkdir -p `dirname $@`
 	install -m 644 $< $@
 

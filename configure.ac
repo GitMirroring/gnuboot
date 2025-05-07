@@ -17,6 +17,7 @@ AC_INIT([gnuboot],[0.1],[gnuboot@gnu.org])
 AM_INIT_AUTOMAKE([foreign])
 AC_CONFIG_FILES([
     Makefile
+    manual/Makefile
     resources/packages/i945-thinkpads-install-utilities/Makefile
 ])
 
