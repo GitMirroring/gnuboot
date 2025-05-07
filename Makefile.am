@@ -35,7 +35,7 @@ all: roms
 
 $(LOG):
 	@echo -n "git revision: "  >> $@
-	resources/git/git describe >> $@
+	resources/git/git describe 2>&1 >> $@
 	@echo -n "----------------------------------------"  >> $@
 	@echo    "----------------------------------------"  >> $@
 
@@ -51,27 +51,27 @@ modules: $(LOG)
 
 ich9m-descriptors: $(LOG)
 	echo 'Makefile: running $@ target' >> $(LOG)
-	./build build descriptors | tee -a $(LOG)
+	./build build descriptors 2>&1 | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
 payloads: $(LOG)
 	echo 'Makefile: running $@ target' >> $(LOG)
-	set -o pipefail ; ./build payload all | tee -a $(LOG)
+	set -o pipefail ; ./build payload all 2>&1 | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
 roms: $(LOG)
 	echo 'Makefile: running $@ target' >> $(LOG)
-	set -o pipefail ; ./build boot roms all | tee -a $(LOG)
+	set -o pipefail ; ./build boot roms all 2>&1 | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
 release: $(LOG)
 	echo 'Makefile: running $@ target' >> $(LOG)
-	set -o pipefail ; ./build release src | tee -a $(LOG)
-	set -o pipefail ; ./build release roms | tee -a $(LOG)
-	set -o pipefail ; ./build release website | tee -a $(LOG)
-	set -o pipefail ; ./build release gnuboot-source | tee -a $(LOG)
-	set -o pipefail ; ./build test roms | tee -a $(LOG)
-	set -o pipefail ; ./build test release | tee -a $(LOG)
+	set -o pipefail ; ./build release src            2>&1 | tee -a $(LOG)
+	set -o pipefail ; ./build release roms           2>&1 | tee -a $(LOG)
+	set -o pipefail ; ./build release website        2>&1 | tee -a $(LOG)
+	set -o pipefail ; ./build release gnuboot-source 2>&1 | tee -a $(LOG)
+	set -o pipefail ; ./build test roms              2>&1 | tee -a $(LOG)
+	set -o pipefail ; ./build test release           2>&1 | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
 clean:
@@ -92,24 +92,24 @@ distclean:
 
 install-dependencies-pureos-trisquel: $(LOG)
 	echo 'Makefile: running $@ target' >> $(LOG)
-	set -o pipefail ; ./build dependencies pureos-trisquel | tee -a $(LOG)
+	set -o pipefail ; ./build dependencies pureos-trisquel 2>&1 | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
 install-dependencies-arch: $(LOG)
 	echo 'Makefile: running $@ target' >> $(LOG)
-	set -o pipefail ; ./build dependencies arch | tee -a $(LOG)
+	set -o pipefail ; ./build dependencies arch 2>&1 | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
 install-dependencies-void: $(LOG)
 	echo 'Makefile: running $@ target' >> $(LOG)
-	set -o pipefail ; ./build dependencies void | tee -a $(LOG)
+	set -o pipefail ; ./build dependencies void 2>&1 | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
 check: $(LOG)
 	echo 'Makefile: running $@ target' >> $(LOG)
-	set -o pipefail ; ./tests/lint | tee -a $(LOG)
-	set -o pipefail ; ./tests/distclean | tee -a $(LOG)
-	set -o pipefail ; ./tests/targets  2>&1 | tee -a $(LOG)
+	set -o pipefail ; ./tests/lint       2>&1 | tee -a $(LOG)
+	set -o pipefail ; ./tests/distclean  2>&1 | tee -a $(LOG)
+	set -o pipefail ; ./tests/targets    2>&1 | tee -a $(LOG)
 	set -o pipefail ; ./tests/checkpatch 2>&1 | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
