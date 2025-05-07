@@ -27,6 +27,8 @@ set -x
 [ "x${DEBUG+set}" = 'xset' ] && set -v
 set -u -e
 
+source config.sh
+
 projectname="$(cat projectname)"
 
 version="version-unknown"
@@ -115,7 +117,7 @@ printf "%s\n" "${versiondate}" > "${dirname}/versiondate"
 printf "%s\n" "${projectname}" > "${dirname}/projectname"
 rm -f "${dirname}".tar
 tar -cf "${dirname}".tar "${dirname}/"
-xz -vv -9e -f "${dirname}".tar
+xz -vv -9e -f ${XZ_EXTRA_ARGS} "${dirname}".tar
 rm -Rf "${dirname}/"
 )
 

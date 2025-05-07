@@ -27,6 +27,8 @@
 [ "x${DEBUG+set}" = 'xset' ] && set -v
 set -u -e
 
+source config.sh
+
 projectname="$(cat projectname)"
 
 version="version-unknown"
@@ -79,7 +81,7 @@ printf "Building ROM image archives for version %s\n" "${version}"
             "${target}"/versiondate \
             "${target}"/projectname
 
-        xz -vv -9e -f \
+        xz -vv -9e -f ${XZ_EXTRA_ARGS} \
            ../release/roms/"${projectname}"-"${version}"_"${target##*/}".tar
     done
 )
@@ -113,7 +115,7 @@ printf "Building ROM debug image archives for version %s\n" "${version}"
             "${target}"/projectname \
             ../resources/coreboot/README.debug
 
-        xz -vv -9e -f \
+        xz -vv -9e -f ${XZ_EXTRA_ARGS} \
            ../release/roms-dbg/"${projectname}"-"${version}"_debug_"${target##*/}".tar
     done
 )
