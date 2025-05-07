@@ -67,14 +67,14 @@
    ;; separate testing environment.
    (make-rule
     "Example empty rule"
-    (lambda (results) results)
+    (lambda (_ results) results)
     (lambda (line _ results) #t)
     (lambda (line _ results) results)
     (lambda (path _ results) results))
 
    (make-rule
     "Count lines"
-    (lambda (results) (acons 'line 0 results))
+    (lambda (_ results) (acons 'line 0 results))
     (lambda (line _ results) #t)
     (lambda (line _ results)
       (acons 'line (+ 1 (assq-ref results 'line)) results))
@@ -82,7 +82,7 @@
 
    (make-rule
     "Find diff start"
-    (lambda (results) results)
+    (lambda (_ results) results)
     (lambda (line _ results)
       (startswith line "diff --git "))
     (lambda (line _ results)
@@ -94,7 +94,7 @@
 
    (make-rule
     "Retrieve Signed-off-by"
-    (lambda (results) (acons 'signed-off-by '() results))
+    (lambda (_ results) (acons 'signed-off-by '() results))
     (lambda (line _ results) (startswith line "Signed-off-by: "))
     (lambda (line _ results)
       (let ((signed-off-by
@@ -109,7 +109,7 @@
    ;; patch.
    (make-rule
     "Find commit author"
-    (lambda (results) results)
+    (lambda (_ results) results)
     (lambda (line _ results) (startswith line "From: "))
     (lambda (line _ results)
       (let ((commit-author (string-join (cdr (string-split line #\ )) " ")))
@@ -121,7 +121,7 @@
 
    (make-rule
     "Find commit hash"
-    (lambda (results) results)
+    (lambda (_ results) results)
     (lambda (line _ results)
       ;; Example:
       ;; From 0df4fe5fadfb7f51c1c34dad10ca9e6e04c3fa18 Mon Sep 17 00:00:00 2001
@@ -140,7 +140,7 @@
    ;; patch.
    (make-rule
     "Find commit date"
-    (lambda (results) results)
+    (lambda (_ results) results)
     (lambda (line _ results) (startswith line "Date: "))
     (lambda (line _ results)
       (acons 'commit-date
@@ -160,7 +160,7 @@
    ;;   handling it, complain that the file is not a valid git patch.
    (make-rule
     "Find patch subject"
-    (lambda (results) results)
+    (lambda (_ results) results)
     (lambda (line _ results) (startswith line "Subject: "))
     (lambda (line _ results)
       (let ((commit-subject (string-join (cdr (string-split line #\ )) " ")))
@@ -175,7 +175,7 @@
 
    (make-rule
     "Find commit subject and message separator"
-    (lambda (results) results)
+    (lambda (_ results) results)
     (lambda (line _ results)
       ;; TODO: Raise an exception if the line after the commit subject
       ;; line is not empty, and when handling it, complain that the
@@ -198,7 +198,7 @@
    ;; git patch.
    (make-rule
     "Find changelog end"
-    (lambda (results) results)
+    (lambda (_ results) results)
     (lambda (line _ results)
       (and
        (assq-ref results 'commit-message-end-line)
@@ -211,7 +211,7 @@
    ;; handling it, complain that the file is not a valid git patch.
    (make-rule
     "Find commit message end"
-    (lambda (results) results)
+    (lambda (_ results) results)
     (lambda (line _ results)
       ;; This matches the first "---" but there could be more as shown
       ;; in the example below:
@@ -228,7 +228,7 @@
 
    (make-rule
     "Find the end of the commit"
-    (lambda (results) results)
+    (lambda (_ results) results)
     (lambda (line _ results) #f)
     (lambda (line _ results) results)
     (lambda (path _ results)
@@ -240,7 +240,7 @@
 
    (make-rule
     "Find commit message"
-    (lambda (results) results)
+    (lambda (_ results) results)
     (lambda (line _ results)
       (and
        (not (assq-ref results 'commit-message-end-line))
@@ -260,7 +260,7 @@
 
    (make-rule
     "Find added files"
-    (lambda (results)
+    (lambda (_ results)
       (acons 'added-files
              '() results))
     (lambda (line _ results)
@@ -281,7 +281,7 @@
 
    (make-rule
     "Find deleted files"
-    (lambda (results)
+    (lambda (_ results)
       (acons 'deleted-files
              '() results))
     (lambda (line _ results)
@@ -302,7 +302,7 @@
 
    (make-rule
     "Find modified files and track current file diff"
-    (lambda (results)
+    (lambda (_ results)
       (acons 'current-diff-file #f
              (acons 'modified-files '() results)))
     (lambda (line _ results)
@@ -339,7 +339,7 @@
 
    (make-rule
     "Track diff"
-    (lambda (results) results)
+    (lambda (_ results) results)
     (lambda (line _ results) #t)
     (lambda (line _ results)
       (define diff-start
@@ -367,7 +367,7 @@
 
    (make-rule
     "Check for copyrights inside the patch"
-    (lambda (results)
+    (lambda (_ results)
       (acons 'diff-path-added-proper-copyright
              '() results))
     (lambda (line _ results)
@@ -409,7 +409,7 @@
 
    ;; (make-rule
    ;;  "Debug: print lines."
-   ;;  (lambda (results) results)
+   ;;  (lambda (_ results) results)
    ;;  (lambda (line _ results) #t)
    ;;  (lambda (line _ results)
    ;;    (display "Count lines: line #")
@@ -420,7 +420,7 @@
 
    ;; (make-rule
    ;;  "Debug: print results."
-   ;;  (lambda (results) results)
+   ;;  (lambda (_ results) results)
    ;;  (lambda (line _ results) #f)
    ;;  (lambda (line _ results) results)
    ;;  (lambda (path _ results)
@@ -428,10 +428,10 @@
    ;;    results))
    ))
 
-(define (set-defaults rules results)
+(define (set-defaults rules parse-results results)
   (for-each
    (lambda (rule)
-     (set! results ((rule-default rule) results)))
+     (set! results ((rule-default rule) parse-results results)))
    rules)
   results)
 
@@ -458,7 +458,7 @@
   (read-file
    path
    (lambda (path port)
-     (let* ((defaults (set-defaults rules '()))
+     (let* ((defaults (set-defaults rules #f '()))
             (results (run-line-match-rules port rules #f defaults)))
      (run-end-rules path rules #f results)))))
 
@@ -474,7 +474,7 @@
   (read-file
    path
    (lambda (path port)
-     (let* ((defaults (set-defaults rules '()))
+     (let* ((defaults (set-defaults rules parse-results '()))
             (check-results
              (run-line-match-rules port rules parse-results defaults)))
      (run-end-rules path rules parse-results check-results)))))
@@ -488,14 +488,26 @@
    ;; separate testing environment.
    (make-rule
     "Example empty rule"
-    (lambda (check-results) check-results)
+    (lambda (parse-results check-results) check-results)
+    (lambda (line parse-results check-results) #t)
+    (lambda (line parse-results check-results) check-results)
+    (lambda (path parse-results check-results) check-results))
+
+   (make-rule
+    "Check commit hash"
+    (lambda (parse-results check-results)
+      (define commit-hash (assq-ref parse-results 'commit-hash))
+      (cond ((not commit-hash)
+             (display "Error: the patch has no commit hash.\n")
+             (exit 69)) ;; 69 is EX_UNAVAILABLE in sysexits.h
+            (else check-results)))
     (lambda (line parse-results check-results) #t)
     (lambda (line parse-results check-results) check-results)
     (lambda (path parse-results check-results) check-results))
 
    (make-rule
     "Count lines"
-    (lambda (check-results) (acons 'line 0 check-results))
+    (lambda (parse-results check-results) (acons 'line 0 check-results))
     (lambda (line parse-results check-results) #t)
     (lambda (line parse-results check-results)
       (acons 'line (+ 1 (assq-ref check-results 'line)) check-results))
@@ -503,7 +515,7 @@
 
    (make-rule
     "Track current file diff"
-    (lambda (check-results)
+    (lambda (parse-results check-results)
       (acons 'current-diff-file #f check-results))
     (lambda (line parse-results check-results)
       (startswith line "diff --git a/"))
@@ -524,7 +536,7 @@
    ;; [1]https://debbugs.gnu.org/cgi/bugreport.cgi?bug=66268
    (make-rule
     "Enforce commit size < 4KB"
-    (lambda (check-results)
+    (lambda (parse-results check-results)
       (acons 'commit-size 0 check-results))
     (lambda (line parse-results check-results)
       (< (assq-ref check-results 'line)
@@ -554,7 +566,7 @@
 
    (make-rule
     "Check for Signed-off-by"
-    (lambda (check-results) check-results)
+    (lambda (parse-results check-results) check-results)
     (lambda (line parse-results check-results) #t)
     (lambda (line parse-results check-results) check-results)
     (lambda (path parse-results check-results)
@@ -572,7 +584,7 @@
 
    (make-rule
     "Check @node alignement in the manual"
-    (lambda (check-results)
+    (lambda (parse-results check-results)
       (acons 'current-node #f check-results))
     (lambda (line parse-results check-results)
       (and
@@ -718,7 +730,8 @@
 
    (make-rule
     "Track total errors and warnings"
-    (lambda (check-results) (acons 'warnings 0 (acons 'errors 0 check-results)))
+    (lambda (parse-results check-results)
+      (acons 'warnings 0 (acons 'errors 0 check-results)))
     (lambda (line parse-results check-results) #t)
     (lambda (line parse-results check-results) check-results)
     (lambda (path parse-results check-results)
