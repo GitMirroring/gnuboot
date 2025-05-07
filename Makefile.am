@@ -85,6 +85,7 @@ clean:
 	./build clean grub
 	./build clean memtest86plus
 	./build clean rom_images
+	rm -f tests/checkpatch-test-unaligned-nodes.log
 
 crossgcc-clean:
 	./build clean crossgcc
