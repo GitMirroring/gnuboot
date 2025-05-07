@@ -268,9 +268,15 @@ the boot software they provide.
 
 There is also Canoeboot which is a 100% free software boot
 distribution similar to GNU Boot. Its goal is to remove nonfree
-software from Libreboot. It focuses more on having the latest software
-and many features, including some that are not available in the
-projects it reuses. Because of that it can be harder for users to use.
+software from Libreboot.
+
+Compared to GNU Boot, it focuses more on having the latest software,
+adding additional features not available in the projects it reuses
+(like modern full disk encryption with GRUB), and it also supports
+computers not yet supported by GNU Boot. In both cases this is
+sometime done with experimental code that is also not in the project
+it reuses. The downside of this approach is that it is difficult to
+keep supporting (well) these extra computers or features over time.
 
 @node How much free software is GNU Boot?
 @section How much free software is GNU Boot?
