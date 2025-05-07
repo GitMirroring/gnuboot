@@ -21,6 +21,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+SUBDIRS = manual
+
 # For making pipefail work.
 SHELL := bash
 
@@ -113,10 +115,12 @@ check: $(LOG)
 	set -o pipefail ; ./tests/checkpatch 2>&1 | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
+manuals: dvi html info pdf ps
+
 include resources/packages/i945-thinkpads-install-utilities/Makefile.am
 
 help:
-	@printf "Available commands:\n"
+	@printf "Available make commands/targets :\n"
 	@printf "\t# Install required dependencies on PureOS 10 (byzantium).\n"
 	@printf "\tsudo make install-dependencies-pureos-trisquel\n\n" \
 	@printf "\tmake release                               # %s\n" \
@@ -127,3 +131,7 @@ help:
 		"Remove the builds of the crossgcc toolchain."
 	@printf "\tmake i945-thinkpads-install-utilities-help # %s\n" \
 		"Print i945-thinkpads-install-utilities targets help."
+	@printf "\tmake manuals                               # %s\n" \
+		"Build 'dvi', 'html', 'info', 'pdf', and 'ps' manuals."
+	@printf "\t                                           # %s\n" \
+		"Note 'dvi', etc are also valid make targets.\n"
