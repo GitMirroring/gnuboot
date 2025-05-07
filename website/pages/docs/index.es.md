@@ -12,9 +12,10 @@ dirigirse a una mayor diversidad de usuarios, colaboradores y
 mantenedores.
 
 Tenga en cuenta que el manual en línea también puede guardarse
-localmente. En ese caso, es conveniente guardar también la imagen
-[SOIC-16.jpeg](../manual/images/SOIC-16.jpeg) en el mismo directorio
-para que la imagen o imágenes funcionen.
+localmente. En ese caso, es conveniente usar la función "Guardar
+como..." ("Save Page As ...") de su navegador en lugar de "Guardar
+Enlace como..." ("Save Link As ...") para obtener también la imagen o
+imágenes.
 
 Información general
 ===================

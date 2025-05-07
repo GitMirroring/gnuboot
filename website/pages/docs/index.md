@@ -11,9 +11,8 @@ better organize the documentation about GNU Boot. It also enables to
 target a wider diversity of users, contributors and maintainers.
 
 Note that the online manual can also be saved locally. In that case
-it's a good idea to also save the
-[SOIC-16.jpeg](../manual/images/SOIC-16.jpeg) picture in the same directory
-to make the image(s) work.
+it's a good idea to use the "Save Page As ..." function of your
+browser instead of "Save Link As ..."  to get the picture(s) as well.
 
 General information
 ===================
