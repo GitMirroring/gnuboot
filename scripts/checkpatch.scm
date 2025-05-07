@@ -1,4 +1,4 @@
-#!/usr/bin/env -S guix repl --
+#!/usr/bin/env -S guile -e main -s
 !#
 ;; Copyright (C) 2024 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 ;;
@@ -607,16 +607,17 @@
             " [path/to/file.patch [path/to/file.patch ...]]\n"))
   (exit exit-code))
 
-(if (eq? (length (program-arguments)) 1)
-    (usage "checkpatch.pl" 64) ;; 64 is EX_USAGE in sysexits.h
-    (if (not (in-tree-topdir?))
-        ((lambda _
-           (display
-            (string-append
-             "Error: please run checkpatch.scm in the git top directory.\n"))
-           (exit 69))) ;; 69 is EX_UNAVAILABLE in sysexits.h
-    (map (lambda (path)
-           (if (> (length (program-arguments)) 2)
-               (print-patch-name path))
-           (test-patch path))
-         (cdr (program-arguments)))))
+(define (main args)
+  (if (eq? (length args) 1)
+      (usage "checkpatch.pl" 64) ;; 64 is EX_USAGE in sysexits.h
+      (if (not (in-tree-topdir?))
+          ((lambda _
+             (display
+              (string-append
+               "Error: please run checkpatch.scm in the git top directory.\n"))
+             (exit 69))) ;; 69 is EX_UNAVAILABLE in sysexits.h
+          (map (lambda (path)
+                 (if (> (length args) 2)
+                     (print-patch-name path))
+                 (test-patch path))
+               (cdr args)))))
