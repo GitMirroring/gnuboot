@@ -5,6 +5,8 @@
 # See docs/maintain/ and docs/git/ for information about the build system
 #
 # Copyright (C) 2020, 2021 Leah Rowe <info@minifree.org>
+# Copyright (C) 2021 shmalebx9 <thonkpeasant@protonmail.com>
+# Copyright (C) 2022-2024 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
