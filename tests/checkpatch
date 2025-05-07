@@ -84,7 +84,13 @@ echo "[ OK ] didn't warn against non-modified unaligned nodes in the manual."
 
 echo "[ .. ] Checking if any existing patch makes checkpatch.scm crash."
 
-patches="$("${topdir}"/resources/git/git format-patch --root -o "${tmpdir}")"
+# The very first commit in GNU Booot
+# (55760a644a8d38d9534906cadce6584a27370758 ("images from old
+# Libreboot git repo: 149273c6742aeed14ec1aaca019f552cfb109457")) is
+# huge: it is 19 MiB, and it takes a while to process, even with a
+# KGPE-D16, so it is better to skip it.
+patches="$("${topdir}"/resources/git/git format-patch \
+    639f71f6e92407aafa03d7c364215c2f162367e1 -o "${tmpdir}")"
 
 # shellcheck disable=SC2086
 "${topdir}"/scripts/checkpatch.scm ${patches} | sed 's#^#       #g' || \
