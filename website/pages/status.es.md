@@ -2,6 +2,22 @@
 title: Estado de GNU Boot
 ...
 
+Soporte experimental por algunos computadores
+=============================================
+
+El soporte por estos computadores es experimental:
+
+* Asus KCMA-D8
+* Asus KFSN4-DRE
+* Asus KGPE-D16
+* Technoethical D16
+* Vikings ASUS KCMA D8 mainboard and workstation
+* Vikings ASUS KGPE D16 mainboard
+
+See el [Experimental support for some
+computers](software/gnuboot/manual/gnuboot.html#Experimental-support-for-some-computers)
+subsección en el manual de GNU Boot para entender que significa.
+
 Estado de GNU Boot 0.1 RC6
 ==========================
 

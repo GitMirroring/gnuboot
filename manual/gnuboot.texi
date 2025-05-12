@@ -27,16 +27,9 @@ Texts.  A copy of the license is included in the section entitled
 @end quotation
 @end copying
 
-@macro cardreaderUSB
-
-The internal SD card reader is known to work with GNU Boot and
-Linux. This means that you can boot a distribution from an SD card or
-a microSD card with a microSD to SD adapter. However it only supports
-cards that store data (and not TV Tunners, etc) and it cannot read
-very low level technical information about the cards (like their
-serial number, vendor name, etc).
-
-@end macro
+@c +-----------------------------------------------------------------+
+@c |                             Macros                              |
+@c +-----------------------------------------------------------------+
 
 @macro cardreaderPCIe
 
@@ -47,7 +40,55 @@ once booted, Linux has full access to the SD card and it can read very
 low level technical information about the cards (like their serial
 number, vendor, etc) or support SD peripherals (like TV tunners, etc).
 
-@end macro
+@end macro @c cardreaderPCIe
+
+@macro cardreaderUSB
+
+The internal SD card reader is known to work with GNU Boot and
+Linux. This means that you can boot a distribution from an SD card or
+a microSD card with a microSD to SD adapter. However it only supports
+cards that store data (and not TV Tunners, etc) and it cannot read
+very low level technical information about the cards (like their
+serial number, vendor name, etc).
+
+@end macro @c cardreaderUSB
+
+@macro computerWithSlowUSBKeyboard
+
+At the moment, USB keyboards are extremely slow in the GRUB provided by
+GNU Boot in its GRUB images. PS/2 Keyboard seems to work fine, so it is
+strongly recommended to get a PS/2 keyboard or try to see if some USB to
+PS2 adapters can work. A PS/2 keyboard was tested and worked fine when
+connected on the purple PS/2 connector.
+
+@end macro @c computerWithSlowUSBKeyboard
+
+@macro experimentalComputer
+
+The support for this computer is experimental. @xref{Experimental
+support for some computers} for what it means.
+
+@end macro @c experimentalComputer
+
+@macro fastestxeightysixcomputer
+
+This computer can have 32 cores and 256 GiB of RAM, so it is the most
+powerful x86 computer that can boot with free software. More x86
+recent computers require nonfree software to boot.
+
+It also exist more powerful computers that can boot with free
+software, but the support for fully free distribution is either
+experimental or non-existent depending on the computer. In addition
+these more powerful computers are much more expensive, limiting their
+reach to organizations or individuals with enough money to buy them
+(some people in the free software community have such computers, but
+not a lot of people).
+
+@end macro @c fastestxeightysixcomputer
+
+@c +-----------------------------------------------------------------+
+@c |                          End of macros                          |
+@c +-----------------------------------------------------------------+
 
 @dircategory Kernel
 @direntry
@@ -547,9 +588,9 @@ following computers:
 @item Apple MacBook 1.1
 @item Apple MacBook 2.1
 @item Apple iMac 5,2
-@item Asus KCMA-D8
-@item Asus KFSN4-DRE
-@item Asus KGPE-D16
+@item Asus KCMA-D8 (experimental)
+@item Asus KFSN4-DRE (experimental)
+@item Asus KGPE-D16 (experimental)
 @item Gigabyte D945GCLF2D
 @item Gigabyte GA-G41M-ES2L
 @item Intel D410PT
@@ -571,15 +612,15 @@ following computers:
 @item Lenovo ThinkPad X60s
 @item Libiquity Taurinus X200
 @item Qemu PC (i440FX)
-@item Technoethical D16
+@item Technoethical D16 (experimental)
 @item Technoethical T400
 @item Technoethical T400s
 @item Technoethical T500
 @item Technoethical X200
 @item Technoethical X200s
 @item Technoethical X200 Tablet (X200T)
-@item Vikings ASUS KCMA D8 mainboard and workstation
-@item Vikings ASUS KGPE D16 mainboard
+@item Vikings ASUS KCMA D8 mainboard and workstation (experimental)
+@item Vikings ASUS KGPE D16 mainboard (experimental)
 @item Vikings X200
 
 @end itemize
@@ -618,6 +659,139 @@ Technoethical X200 to be two distinct computers.
 Because of that we also need help from the vendors and/or users of
 these modified computers to tell us or help us find what was modified
 on these computers, to better support them.
+
+@node       Experimental support for some computers
+@subsection Experimental support for some computers
+
+The support for the following computers is experimental:
+
+@itemize
+@item Asus KCMA-D8
+@item Asus KFSN4-DRE
+@item Asus KGPE-D16
+@item Technoethical D16
+@item Vikings ASUS KCMA D8 mainboard and workstation
+@item Vikings ASUS KGPE D16 mainboard
+@end itemize
+
+If you don't have any of these computers, you can simply skip this
+subsection.
+
+All of these computers use similar chips. Their future is uncertain
+because of several issues:
+
+@itemize
+
+@item They are no longer supported by Coreboot.
+      This makes it difficult continue supporting it over time.
+      In practice they uses an older Coreboot version and the code doesn't
+      build on distributions like Parabola because of that. For now the
+      code can still be built on Trisquel 11 (aramo).
+
+@item The code that initialize the RAM works accidentally and it
+      is not reliable. In practice this means that the compatibility RAM
+      modules is very difficult to know in advance. For instance going up to
+      the maximum amount of RAM (like 256 GiB of RAM on a KGPE-D16) only works
+      with very specific RAM modules.
+
+      Which modules work and can still be bought at regular prices are also
+      kept secret to prevent companies from buying them all and increasing
+      the prices.
+
+      In addition sometimes rebooting don't work, and powering the
+      mainboard does not always work (sometimes we need to try several times
+      for that to work). Weather that works or not can also be dependent on
+      the room temperature. In addition once running the computer for very
+      long period of time can result in a crash at some point, which
+      requires rebooting it.
+
+@end itemize
+
+Despite all that, some organizations like the FSF, GNU or Libre en
+Communs manage to run infrastructure with computers that have these
+issues. But this requires specific know how or workarounds.
+
+For instance if you want to use these computers as remote servers, you
+will need to know how to build a system that can reboot the computer
+remotely even if it is crashed, and also make sure that the system you
+build doesn't depend on nonfree software.
+
+In contrast, such knowledge is not required for running GNU Boot on
+well supported computers like a ThinkPad X200, even if they are used
+as servers.
+
+Despite all these issues, these computer that are affected by such
+issues are still (badly) supported by GNU Boot because of historic
+reasons: in November 2022, Libreboot began to include non-libre code,
+and because of that GNU Boot was created to continue providing a fully
+free boot distribution with the same spirit of former Libreboot
+releases.
+
+Since Libreboot already supported this computer and that people and
+organization do use them, including key contributors to GNU Boot, it
+made sense and still makes sense to support these mainboard.
+
+For instance the GNU Boot build server runs on a @acronym{VM,virtual
+machine} provided by Libre en Communs which runs on a KGPE-D16 with
+GNU Boot, and the KGPE-D16 is affected by these issues.
+
+And neox is also involved in running all that on the Libre En Communs
+side so not supporting that mainboard in GNU Boot would also means
+that neox would have less time for GNU Boot due to the duplication of
+work.
+
+All the above makes it really important to fix these issue once for
+good, and several things can be done to really do that:
+
+@itemize
+
+@item neox reverse engineered the RAM controller hardware of the KGPE-D16 and
+      wrote an academic paper on it that will be published under a free
+      license. People with related skills can help by requesting a copy to neox
+      and reviewing it.
+
+@item another way to help is to find people that have the skills
+      and the time to write a proper RAM initialization code and bring back
+      this mainboard in Coreboot. GNU Boot may be able to get funding for that.
+
+@end itemize
+
+In addition fixing these issue will also enable to have RAM
+initialization code that we have the full control of: most computers
+out there put unknown values in the RAM controller and have algorithms
+to then tune the RAM settings until something acceptable is reached.
+
+But the goal of neox's paper is to really document the hardware, to
+enable to write extremely reliable initialization code. This can also
+open the door for other optimizations to improve performance,
+reliability (make it work with a bigger temperature range), security,
+etc.
+
+These optimizations are not possible for all the other computers
+supported by GNU Boot, as it would require to do the same kind of work
+neox did to also reverse engineer the RAM controller of these other
+computers.
+
+@node       Asus KGPE-D16 (experimental)
+@subsection Asus KGPE-D16 (experimental)
+
+Here are some details on this computer:
+
+@multitable  {Boot flash:} {Non-removable (soldered)}
+@item        Vendor:       @tab Asus
+@item        Product:      @tab KGPE-D16
+@item        Max RAM:      @tab 256 GiB (with specific modules)
+@item        CPU:          @tab 2 CPUs, Removable: G34 socket
+@item        Boot flash:   @tab Removable: DIP-8 socket
+@end multitable
+
+@fastestxeightysixcomputer
+@experimentalComputer
+
+@node          Asus KGPE-D16: How to build a computer with this mainboard.
+@subsubsection Asus KGPE-D16: How to build a computer with this mainboard.
+
+@computerWithSlowUSBKeyboard
 
 @node       Lenovo ThinkPad X60
 @subsection Lenovo ThinkPad X60
