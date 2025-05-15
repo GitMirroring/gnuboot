@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+DH_VERBOSE = 1
+
+override_dh_auto_configure:
+	dh_auto_configure -- --prefix=/usr
+
+override_dh_auto_build:
+	dh_auto_build -- info
+
+# The manual tests are not separate from the rest of the tests. So we skip the
+# manual tests for now.
+override_dh_auto_test:
+
+%:
+	dh $@

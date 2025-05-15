@@ -1,0 +1,11 @@
+Source: gnuboot-manual
+Maintainer: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+Section: misc
+Priority: optional
+Standards-Version: 0.1
+Build-Depends: autoconf, automake, debhelper-compat (= 13), libtool, pkg-config, texinfo
+
+Package: gnuboot-manual
+Architecture: all
+Depends:
+Description: GNU Boot manual.
