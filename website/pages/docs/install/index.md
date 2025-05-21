@@ -64,8 +64,8 @@ each other to do it together (this could be easier and faster).
 When reading or following such instructions it's important to keep in
 mind that:
 
-* You always need to look at the [status page](status.md) to find out
-  if the image you are about to install is known to work.
+* You always need to look at the [status page](../../status.md) to find
+  out if the image you are about to install is known to work.
 
   If the image is not known to work, it could prevent your computer
   from booting. To fix that you will most likely need to disassemble
