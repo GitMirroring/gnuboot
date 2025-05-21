@@ -37,7 +37,7 @@ prefix="$2"
 tarball="$3"
 
 lighttpd_port=8086
-if [ $# -eq 2 ] ; then
+if [ "$#" -eq 4 ] ; then
     lighttpd_port="$4"
 fi
 
