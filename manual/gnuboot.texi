@@ -377,7 +377,7 @@ upgrade instructions for most of these computers.
 
 Also not all are well tested, so it's a good idea to look on the GNU
 Boot website, on the status page (
-@url{https://www.gnu.org/software/gnuboot/web/status.html}) for up to
+@url{https://www.gnu.org/software/gnuboot/status.html}) for up to
 date result of tests by GNU Boot users and contributors.
 
 @node    Supported computer parts and peripherals
@@ -835,7 +835,7 @@ from source yourself.
 
 The GNU Boot website has instructions for building GNU Boot at the
 following URL:
-@url{https://www.gnu.org/software/gnuboot/web/docs/build/}.
+@url{https://www.gnu.org/software/gnuboot/docs/build/}.
 
 @xref{Authenticating the GNU Boot source code} as GNU Boot has ways to
 prevent network attacks from tempering with the souce code you are
@@ -849,13 +849,13 @@ from git.
 @section Authenticating the GNU Boot source code
 
 As explained on the
-@uref{https://www.gnu.org/software/gnuboot/web/docs/build/,GNU Boot
+@uref{https://www.gnu.org/software/gnuboot/docs/build/,GNU Boot
 build instructions} on the GNU Boot website, to build GNU Boot you
 will need to install Guix first (it can be installed on top of another
 GNU/Linux distribution).
 
 You can consult either the
-@uref{https://www.gnu.org/software/gnuboot/web/docs/build/,GNU Boot
+@uref{https://www.gnu.org/software/gnuboot/docs/build/,GNU Boot
 build instructions} or the @ref{Installation,,,guix,GNU Guix
 reference manual} for how to do that.
 
@@ -916,7 +916,7 @@ In general there is also a lot of ways to help the GNU Boot project
 information, testing GNU Boot images, etc).
 
 See the
-@uref{https://www.gnu.org/software/gnuboot/web/git.html,Helping GNU
+@uref{https://www.gnu.org/software/gnuboot/git.html,Helping GNU
 Boot} page on the GNU Boot website for the areas where we need help
 and on how to help practically speaking (how to contact the project,
 where to send bug reports, etc).

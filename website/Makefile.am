@@ -26,9 +26,6 @@ BUILD_OPTIONS += --with-untitled-path $(UNTITLED_PATH)
 GUIX_SHARE_OPTIONS += --share=`realpath $(UNTITLED_PATH)`
 endif
 
-index.html: index.html.tmpl
-	sed -e "s#WEBSITE_PREFIX#$(WEBSITE_PREFIX)#g" "$^" > "$@"
-
 GUIX_SHELL_CONTAINER = guix time-machine \
 	--commit=$(GUIX_REVISION) \
 	-- \
@@ -210,7 +207,7 @@ else
 CHECK_SH_CMD = ./check.sh
 endif
 
-check: build website.tar.gz index.html history/git-history.jpg
+check: build website.tar.gz history/git-history.jpg
 	rm -rf site/
 	mkdir -p site/$(WEBSITE_PREFIX)
 	tar xf website.tar.gz -C site/$(WEBSITE_PREFIX)
@@ -266,7 +263,7 @@ publish: website.tar.gz
 		deploy/ \
 		$(RSYNC_DESTINATION)/
 
-website.tar.gz: build index.html history/git-history.jpg
+website.tar.gz: build history/git-history.jpg
 	tar \
 		--exclude-vcs \
 		--format=gnu \
@@ -274,9 +271,7 @@ website.tar.gz: build index.html history/git-history.jpg
 		--sort=name \
 		-czf \
 		website.tar.gz \
-		untitled/www/lbwww/site \
-		index.html \
+		untitled/www/lbwww/site/ \
 		history/git-history.dot \
 		history/git-history.jpg \
-		--transform="s#untitled/www/lbwww/site#web#" \
-		--transform="s#^history/#web/history/#"
+		--transform="s#untitled/www/lbwww/site/##"
