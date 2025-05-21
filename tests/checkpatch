@@ -57,7 +57,7 @@ test -f "${topdir}"/resources/git/git || fail "resources/git/git not found."
 while IFS= read -r line; do
     grep -q "${line}" "${tmpdir}"/checkpatch-test-unaligned-nodes.log || \
     fail "failed to detect unaligned node in the manual."
-done < tests/checkpatch-test-unaligned-nodes.ref || \
+done < tests/checkpatch-test-unaligned-nodes.ref
 
 echo "[ OK ] detected unaligned nodes in the manual."
 
