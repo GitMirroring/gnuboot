@@ -53,6 +53,7 @@ This manual is for GNU Boot version @value{VERSION}.
 @menu
 * Overview::					General purpose and information.
 * Supported hardware and configurations::
+* Installing or upgrading GNU Boot images::
 * Using GNU Boot::
 * Building GNU Boot from source::
 * Helping GNU Boot::				How to contribute to GNU Boot
