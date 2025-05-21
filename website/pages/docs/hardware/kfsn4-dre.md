@@ -77,7 +77,7 @@ Current issues {#issues}
 
 -   There seems to be a 30 second bootblock delay (observed by
     tpearson); the system otherwise boots and works as expected. See
-    [text/kfsn4-dre/bootlog.txt](text/kfsn4-dre/bootlog.txt) - this uses
+    [hwdumps/kfsn4-dre/bootlog.txt](hwdumps/kfsn4-dre/bootlog.txt) - this uses
     the 'simple' bootblock, while tpearson uses the 'normal'
     bootblock, which tpearson suspects may be a possible cause. This
     person says that they will look into it. [This
