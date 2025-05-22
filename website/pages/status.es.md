@@ -1,6 +1,5 @@
----
 title: Estado de GNU Boot
-...
+---
 
 Soporte experimental por algunos computadores
 =============================================

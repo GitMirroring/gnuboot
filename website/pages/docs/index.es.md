@@ -1,6 +1,5 @@
----
 title: Documentación
-...
+---
 
 Manuales
 ========

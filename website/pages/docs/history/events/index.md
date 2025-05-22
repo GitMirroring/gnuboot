@@ -1,6 +1,5 @@
----
 title: Source for event announcements.
-...
+---
 
 Introduction
 ============

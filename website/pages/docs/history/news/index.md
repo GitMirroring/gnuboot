@@ -1,6 +1,5 @@
----
 title: Source for GNU Boot news.
-...
+---
 
 Introduction
 ============

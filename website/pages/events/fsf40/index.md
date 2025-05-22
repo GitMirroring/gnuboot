@@ -1,6 +1,5 @@
----
 title: FSF40 Hackathon
-...
+---
 
 Foreword
 ========

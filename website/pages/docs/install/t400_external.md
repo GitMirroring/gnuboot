@@ -1,7 +1,6 @@
----
 title: Flashing the ThinkPad T400 externally
 x-unreviewed: true
-...
+---
 
 Initial flashing instructions for T400.
 

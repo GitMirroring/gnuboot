@@ -1,6 +1,5 @@
----
 title: How to install FreeBSD on x86 GNU GRUB payload
-...
+---
 
 This guide was written for FreeBSD at a time where Libreboot was still
 fully free.

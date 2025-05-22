@@ -1,7 +1,6 @@
----
 title: Read/write 25XX NOR flash via SPI protocol
 x-unreviewed: true
-...
+---
 
 This guide will teach you how to use various tools for externally reprogramming
 a 25xx NOR flash via SPI protocol. This is the most common type of flash IC for

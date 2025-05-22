@@ -1,7 +1,6 @@
----
 title: Hardware compatibility list 
 x-unreviewed: true
-...
+---
 
 This sections relates to known hardware compatibility in libreboot.
 

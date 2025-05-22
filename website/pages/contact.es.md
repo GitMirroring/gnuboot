@@ -1,6 +1,5 @@
----
 title: Contacto
-...
+---
 
 
 Listas de correo

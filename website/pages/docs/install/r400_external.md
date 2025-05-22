@@ -1,7 +1,6 @@
----
 title: Flashing the ThinkPad R400
 x-unreviewed: true
-...
+---
 
 Initial flashing instructions for R400.
 

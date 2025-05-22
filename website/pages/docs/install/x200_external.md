@@ -1,7 +1,6 @@
----
 title: First-time ThinkPad X200 flashing
 x-unreviewed: true
-...
+---
 
 This guide is for those who want libreboot on their ThinkPad X200 while
 they still have the original Lenovo BIOS present. This guide can also be

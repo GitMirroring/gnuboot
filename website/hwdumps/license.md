@@ -1,6 +1,5 @@
----
 title: License
-...
+---
 
 Unless otherwise stated, every file in the hwdump directory, is released under
 the terms of the GNU Free Documentation License, either version 1.3 or (at your
