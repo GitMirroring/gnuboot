@@ -1,7 +1,6 @@
----
 title: ASUS KGPE-D16 server/workstation board 
 x-unreviewed: true
-...
+---
 
 Introduction
 ============

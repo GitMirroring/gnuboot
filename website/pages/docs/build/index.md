@@ -1,6 +1,5 @@
----
 title: Build GNU Boot binaries
-...
+---
 
 This guide documents how to compile GNU Boot binaries from the
 available source code.

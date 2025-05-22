@@ -1,7 +1,6 @@
----
 title: Modifying grub.cfg in CBFS
 x-unreviewed: true
-...
+---
 
 Before you follow this guide, it is advisable that you have the ability to
 flash externally, just in case something goes wrong.

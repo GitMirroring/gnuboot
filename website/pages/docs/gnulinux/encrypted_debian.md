@@ -1,7 +1,6 @@
----
 title: Encrypted Debian GNU+Linux
 x-unreviewed: true
-...
+---
 
 This guide is written for the Debian distribution, but it should also
 work for Devuan with the net installer. Other Debian based GNU+Linux

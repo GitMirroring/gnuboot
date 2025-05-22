@@ -90,6 +90,29 @@ sync_repo()
 	fi
 }
 
+# Haunt uses CommonMark and Pandoc Markdown. While CommonMark should
+# also be compatible with Pandoc, the way the metadata is stored is
+# different.
+haunt2pandoc()
+{
+	input="$1"
+	output="$2"
+
+	if ! grep -q '^---$' "${input}" ; then
+		cp "${input}" "${output}"
+		return
+	fi
+
+	separator="$(grep -n '^---$' "${input}" | head -n1 | sed 's#:.*##')"
+
+	{
+	    printf "%s\n" "---"
+	    head -n $((separator - 1)) "${1}"
+	    printf "...\n"
+	    tail -n+$((separator + 1)) "${1}"
+	} > "${output}"
+}
+
 copy_website()
 {
 	dst_path="$1"
@@ -97,7 +120,17 @@ copy_website()
 	rm -rf "${dst_path}"
 	mkdir -p "${dst_path}"
 	cp site.cfg "${dst_path}"
+
+	# We still copy pages/ as the Makefile copies the manual and
+	# potentially other things there.
 	cp -a "pages/" "${dst_path}/site"
+	find pages/ -type f -name "*.md" | while read -r page ; do
+	        # shellcheck disable=SC2001 # We want to use regexp
+		haunt2pandoc \
+			"${page}" \
+			"${dst_path}"/site/"$(echo "${page}" | sed 's#^pages/##')"
+	done
+
 	cp -a "hwdumps/" "${dst_path}/site/docs/hardware/"
 	cp -a "img/" "${dst_path}/site/"
 }

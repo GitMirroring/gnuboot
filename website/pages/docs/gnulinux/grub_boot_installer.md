@@ -1,7 +1,6 @@
----
 title: Installing GNU+Linux
 x-unreviewed: true
-...
+---
 
 # Introduction
 

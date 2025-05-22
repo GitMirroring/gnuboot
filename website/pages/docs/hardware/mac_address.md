@@ -1,7 +1,6 @@
----
 title: Changing the MAC address
 x-unreviewed: true
-...
+---
 
 Introduction (GM45+e1000)
 =========================

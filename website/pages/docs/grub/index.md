@@ -1,6 +1,5 @@
----
 title: GRUB payload 
-...
+---
 
 TODO: this guide should be reviewed and updated. Some info might be out of
 date.

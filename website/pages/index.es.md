@@ -1,6 +1,5 @@
----
 title: ¡Libera tu BIOS hoy mismo!
-...
+---
 
 ### ¿Qué es esto? ###
 

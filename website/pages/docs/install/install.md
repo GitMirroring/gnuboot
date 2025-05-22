@@ -1,7 +1,6 @@
----
 title: Installation instructions
 x-unreviewed: true
-...
+---
 
 This section relates to installing GNU Boot on supported targets.
 

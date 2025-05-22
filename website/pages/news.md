@@ -1,6 +1,5 @@
----
 title: News
-...
+---
 
 The GNU Boot news contains projects announcements (both technical and
 organizational) and also information about releases.

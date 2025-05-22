@@ -1,7 +1,6 @@
----
 title: Code review
 x-reviewed: true
-...
+---
 
 Our short term plans and need for help
 ======================================

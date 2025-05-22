@@ -1,7 +1,6 @@
----
 title: Depthcharge payload 
 x-unreviewed: true
-...
+---
 
 **This documentation is retained from Libreboot 20160907, but it may also be
 prudent to check documentation from Libreboot 20160907 itself. It is included

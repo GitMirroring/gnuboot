@@ -1,7 +1,6 @@
----
 title: MacBook2,1 and MacBook1,1
 x-unreviewed: true
-...
+---
 
 There is an Apple laptop called the macbook1,1 from 2006 which uses the
 same i945 chipset as the ThinkPad X60/T60. A developer (Mono Moosbart) ported

@@ -1,7 +1,6 @@
----
 title: Flashing the T500 with a BeagleBone Black
 x-unreviewed: true
-...
+---
 
 Initial flashing instructions for T500.
 

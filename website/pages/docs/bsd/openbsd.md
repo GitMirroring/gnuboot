@@ -1,6 +1,5 @@
----
 title: How to install OpenBSD on x86 GNU GRUB payload
-...
+---
 
 This guide was written for OpenBSD 6.1 and/or LibertyBSD 6.1 at a time
 where Libreboot was still fully free and where LibertyBSD 6.0 was
