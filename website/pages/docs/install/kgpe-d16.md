@@ -1,7 +1,6 @@
----
 title: KGPE-D16 external flashing instructions 
 x-unreviewed: true
-...
+---
 
 Initial flashing instructions for KGPE-D16.
 

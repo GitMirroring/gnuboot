@@ -1,7 +1,6 @@
----
 title: Intel D945GCLF desktop board 
 x-unreviewed: true
-...
+---
 
 If you just want flashing instructions, go to
 [../install/d945gclf.md](../install/d945gclf.md)

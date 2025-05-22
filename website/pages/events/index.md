@@ -1,6 +1,5 @@
----
 title: Events
-...
+---
 
 This page contains previous, present and future events.
 

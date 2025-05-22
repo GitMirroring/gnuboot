@@ -1,6 +1,5 @@
----
 title: GNU Boot logo license
-...
+---
 
 The boot logo for GNUBoot is copyright 2023 Jason Self and released under
 [the CC-0 license](https://creativecommons.org/publicdomain/zero/1.0/legalcode).

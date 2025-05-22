@@ -1,6 +1,5 @@
----
 title: Obtenga GNU Boot
-...
+---
 
 Compra un computador con GNU Boot
 =================================

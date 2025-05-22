@@ -1,7 +1,6 @@
----
 title: ThinkPad X60 Tablet Recovery guide
 x-unreviewed: true
-...
+---
 
 This section documents how to recover from a bad flash that prevents
 your ThinkPad X60 Tablet from booting.

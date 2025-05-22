@@ -1,6 +1,5 @@
----
 title: Template license
-...
+---
 
 This website is written in Markdown, and compiled into static HTML using
 Pandoc. An HTML template is used, 

@@ -1,7 +1,6 @@
----
 title: Documentation
 x-unreviewed: true
-...
+---
 
 How do I know what version I'm running?
 =======================================

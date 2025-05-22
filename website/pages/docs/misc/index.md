@@ -1,7 +1,6 @@
----
 title: Miscellaneous 
 x-unreviewed: true
-...
+---
 
 TODO: this page is very old, and could do with an update.
 

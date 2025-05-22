@@ -1,6 +1,5 @@
----
 title: Libreboot project contributors
-...
+---
 
 This list was made by the Libreboot project at a time where it was
 still fully free software. At the time it didn't necessarily reflect

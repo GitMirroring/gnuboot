@@ -1,7 +1,6 @@
----
 title: Encrypted Guix GNU+Linux
 x-unreviewed: true
-...
+---
 
 Objective
 =========

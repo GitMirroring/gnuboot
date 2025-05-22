@@ -1,7 +1,6 @@
----
 title: Frequently Asked Questions
 x-unreviewed: true
-...
+---
 
 AKA Frequently Questioned Answers
 

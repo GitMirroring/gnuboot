@@ -1,6 +1,5 @@
----
 title: GNU Boot source code history
-...
+---
 
 Introduction
 ============
