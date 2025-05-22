@@ -1,7 +1,6 @@
----
 title: GNU+Linux guides
 x-unreviewed: true
-...
+---
 
 This page is useful for those who wish to use the GNU GRUB payload directly.
 If you're using SeaBIOS, the boot process will work similarly to traditional

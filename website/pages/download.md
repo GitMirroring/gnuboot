@@ -1,6 +1,5 @@
----
 title: Downloads
-...
+---
 
 Information about where to find new releases are announcements is in
 the [news page](news.md).

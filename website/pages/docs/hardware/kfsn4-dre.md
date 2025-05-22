@@ -1,7 +1,6 @@
----
 title: ASUS KFSN4-DRE server/workstation board 
 x-unreviewed: true
-...
+---
 
 This is a server board using AMD hardware (Fam10h). It can also be used
 for building a high-powered workstation. Powered by libreboot.

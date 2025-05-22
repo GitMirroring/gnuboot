@@ -1,7 +1,6 @@
----
 title: Revisión de Código
 x-reviewed: true
-...
+---
 
 Nuestros planes a corto plazo y necesidad de ayuda
 ==================================================

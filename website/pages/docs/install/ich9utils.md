@@ -1,7 +1,6 @@
----
 title: ich9utils
 x-unreviewed: true
-...
+---
 
 Introduction
 ============

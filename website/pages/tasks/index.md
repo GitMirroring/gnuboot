@@ -1,7 +1,6 @@
----
 title: Tasks
 x-unreviewed: true
-...
+---
 
 Help the Libreboot project
 ==========================

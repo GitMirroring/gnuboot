@@ -1,6 +1,5 @@
----
 title: Build GNU Boot binaries for specific computers
-...
+---
 
 This guide documents how to compile GNU Boot binaries for a specific
 computer.

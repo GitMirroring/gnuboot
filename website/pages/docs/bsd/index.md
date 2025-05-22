@@ -1,6 +1,5 @@
----
 title: BSD operating systems
-...
+---
 
 At the time of writing, there is no easily installable BSD operating
 system or distribution that is fully free. Because of that we cannot

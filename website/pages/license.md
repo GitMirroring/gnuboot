@@ -1,6 +1,5 @@
----
 title: License
-...
+---
 
 Unless otherwise stated, every page and image (e.g. JPG/PNG files) on
 GNU Boot or in the repository that it is built on, is released under the

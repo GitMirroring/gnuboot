@@ -1,6 +1,5 @@
----
 title: GNU Boot status
-...
+---
 
 
 Experimental support for some computers

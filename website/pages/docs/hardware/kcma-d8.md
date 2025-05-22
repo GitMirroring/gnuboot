@@ -1,7 +1,6 @@
----
 title: ASUS KCMA-D8 desktop/workstation board 
 x-unreviewed: true
-...
+---
 
 Introduction
 ============
