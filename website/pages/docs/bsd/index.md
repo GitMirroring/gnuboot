@@ -59,7 +59,7 @@ payload. You can use *either* payload, to try to boot BSD operating
 systems. If you do, please report your success or failure to the GNU
 Boot project through a bug report. See the "Documentation and/or
 testing" section in [Helping GNU
-Boot](contribute.md#documentation-andor-testing) page for more details on how
+Boot](contribute.html#documentation-andor-testing) page for more details on how
 to do that.
 
 SeaBIOS payload
@@ -111,6 +111,6 @@ bypassed entirely.
 
 The GNU Boot project has separate pages for each BSD system:
 
-* [How to install NetBSD on x86 GNU GRUB payload](netbsd.md)
-* [How to install OpenBSD on x86 GNU GRUB payload](openbsd.md)
-* [How to install FreeBSD on a x86 GNU GRUB payload](freebsd.md)
+* [How to install NetBSD on x86 GNU GRUB payload](netbsd.html)
+* [How to install OpenBSD on x86 GNU GRUB payload](openbsd.html)
+* [How to install FreeBSD on a x86 GNU GRUB payload](freebsd.html)

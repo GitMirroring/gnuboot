@@ -20,16 +20,16 @@ Información general
 ===================
 
 -   Puede encontrar información sobre dónde encontrar noticias de GNU Boot,
-    incluyendo anuncios de versiones, en la [página de noticias](../news.md).
+    incluyendo anuncios de versiones, en la [página de noticias](../news.html).
 
--   [Respuestas a las preguntas más frecuentes sobre GNU Boot](../faq.md).
+-   [Respuestas a las preguntas más frecuentes sobre GNU Boot](../faq.html).
 
 Instalación y actualización de GNU Boot
 =======================================
 
 -   [¿En qué sistemas puedo usar GNU Boot?](hardware/)
 -   [Cómo instalar GNU Boot](install/)
--   [¿Cómo sé qué versión estoy ejecutando?](install/version.md)
+-   [¿Cómo sé qué versión estoy ejecutando?](install/version.html)
 
 Documentación relacionada con los sistemas operativos
 =====================================================
@@ -49,4 +49,4 @@ Información adicional
 =====================
 
 -   [Miscelánea](misc/)
--   [Lista de nombres clave](misc/codenames.md)
+-   [Lista de nombres clave](misc/codenames.html)

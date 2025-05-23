@@ -3,7 +3,7 @@ x-unreviewed: true
 ---
 
 If you just want flashing instructions, go to
-[../install/d945gclf.md](../install/d945gclf.md)
+[../install/d945gclf.html](../install/d945gclf.html)
 
 D945GCLF2D also reported working by a user.
 

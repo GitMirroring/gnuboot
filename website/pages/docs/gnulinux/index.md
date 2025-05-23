@@ -20,12 +20,12 @@ Useful links
 
 Refer to the following pages:
 
-* [How to Prepare and Boot a USB Installer in Libreboot Systems](grub_boot_installer.md)
-* [Modifying the GRUB Configuration in Libreboot Systems](grub_cbfs.md)
+* [How to Prepare and Boot a USB Installer in Libreboot Systems](grub_boot_installer.html)
+* [Modifying the GRUB Configuration in Libreboot Systems](grub_cbfs.html)
 * [Installing Hyperbola GNU+Linux, with Full-Disk Encryption (including /boot)](https://wiki.hyperbola.info/en:guide:encrypted_installation)
-* [Installing Debian or Devuan GNU+Linux-Libre, with Full-Disk Encryption (including /boot)](encrypted_debian.md)
-* [Installing Guix System, with Full-Disk Encryption (including /boot)](guix.md)
-* [How to Harden Your GRUB Configuration, for Security](grub_hardening.md)
+* [Installing Debian or Devuan GNU+Linux-Libre, with Full-Disk Encryption (including /boot)](encrypted_debian.html)
+* [Installing Guix System, with Full-Disk Encryption (including /boot)](guix.html)
+* [How to Harden Your GRUB Configuration, for Security](grub_hardening.html)
 
 Guix, Parabola, Trisquel
 ========================

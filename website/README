@@ -25,6 +25,7 @@ need to install the following dependencies (tested under Trisquel 11):
 * gzip
 * liburi-perl
 * lighttpd
+* lynx
 * make
 * pandoc
 * python3-bs4
