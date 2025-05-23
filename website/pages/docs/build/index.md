@@ -36,7 +36,7 @@ And these cannot build GNU Boot yet:
 * Guix: The issue is documented in the [Bug
  #66188](https://savannah.gnu.org/bugs/index.php?66188)
 
-Since GNU Boot 0.1 RC6, the [GNU Boot status page][../../status.md]
+Since GNU Boot 0.1 RC6, the [GNU Boot status page][../../status.html]
 started including information on which distribution was used to build
 a given release ("This release was built [...] on Trisquel Aramo
 (11.0.1) [...].").

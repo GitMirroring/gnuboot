@@ -12,7 +12,7 @@ However, you might want to tweak it or try out newer releases of GNU Boot if
 they have bug fixes for your board, and/or new security fixes.
 
 If you're already running libre firmware on your board, you should decide for
-sure whether you wish to risk it. See the [news page](/news.md) for more
+sure whether you wish to risk it. See the [news page](/news.html) for more
 information on where to find changelogs and release announcements, to enable
 you to decide for yourself.
 
@@ -167,7 +167,7 @@ The MAC address is stored in a region of the boot flashed called *GbE NVM*
 which is short for *gigabit ethernet non-volatile memory*. Refer to the
 following article:
 
-[ich9utils documentation](ich9utils.md)
+[ich9utils documentation](ich9utils.html)
 
 GNU Boot puts a default MAC address in the available ROM images, but this is
 a generic MAC address and it's identical on every ROM image. Technically, you
@@ -260,14 +260,14 @@ the sections below:
 
 #### If your boot flash is currently write-protected
 
-[You must flash it externally](spi.md)
+[You must flash it externally](spi.html)
 
 #### Lenovo ThinkPad X200/X200S/X200T/T400/T400S/T500/W500/R400/R500 running non-free Lenovo BIOS
 
 If you're running one of these, it cannot be flashed internally if you're still
 running the non-free Lenovo BIOS firmware.
 
-[You must flash it externally](spi.md)
+[You must flash it externally](spi.html)
 
 See notes further down on this page. We have guides for specific thinkpads,
 related to disassembly and reassembly so that you can access the flash.
@@ -278,11 +278,11 @@ Intel NIC.
 
 #### Intel D510MO and D410PT running non-free Intel BIOS
 
-[You must flash it externally](spi.md)
+[You must flash it externally](spi.html)
 
 D410PT is more or less the same board as D510MO, but we would like more info
 about this board. If you have a D410PT mainboard, please [contact the GNU Boot
-project](../../contact.md) before you flash it. When you do so, please reference this
+project](../../contact.html) before you flash it. When you do so, please reference this
 paragraph on this web page.
 
 #### Gigabyte GA-G41M-ES2l (any firmware)
@@ -294,7 +294,7 @@ and you must flash both chips. Refer to the guide:\
 #### Macbook1,1 running non-free Apple EFI firmware
 
 This laptop requires external flashing. Remove the mainboard and refer to
-the [external flashing guide](spi.md); if GNU Boot is already running, you
+the [external flashing guide](spi.html); if GNU Boot is already running, you
 can flash internally.
 
 MacBook2,1 can be flashed internally.
@@ -312,15 +312,15 @@ example of the push pin as a proof of concept:
 
 #### ASUS KGPE-D16 running non-free ASUS BIOS
 
-[You must flash it externally](spi.md)
+[You must flash it externally](spi.html)
 
 #### ASUS KCMA-D8 running non-free ASUS BIOS
 
-[You must flash it externally](spi.md)
+[You must flash it externally](spi.html)
 
 #### ASUS D945GCLF running non-free Intel BIOS
 
-[You must flash it externally](spi.md)
+[You must flash it externally](spi.html)
 
 #### ThinkPad X60/X60S/X60T/T60 with Lenovo BIOS {#flashrom_lenovobios}
 
@@ -338,7 +338,7 @@ Here are a list of targets:
 * ThinkPad T60 with Intel GPU: flash the T60 ROM
 
 Download and build flashrom, using the instructions
-on [the Git page](../../contribute.md), and download the `bucts` software using the
+on [the Git page](../../contribute.html), and download the `bucts` software using the
 notes on that very same page.
 
 You can replace Lenovo BIOS with GNU Boot, using flashrom running on the host
@@ -478,7 +478,7 @@ How to use external flashing equipment
 --------------------------------------
 
 Refer to the following article:\
-[Externally rewrite 25xx NOR flash via SPI protocol](spi.md)
+[Externally rewrite 25xx NOR flash via SPI protocol](spi.html)
 
 ASUS KFSN4-DRE
 --------------
@@ -500,65 +500,65 @@ iMac5,2 is essentially the same board as Macbook2,1, and it is compatible with
 GNU Boot.
 
 Refer to the following article:\
-[Macbook2,1 and MacBook1,1 installation guide](../hardware/macbook21.md)
+[Macbook2,1 and MacBook1,1 installation guide](../hardware/macbook21.html)
 
 iMac5,2 isn't documented but you can find the flash chip on that board quite
 easily. See the generic flashing guide:\
-[Externally rewrite 25xx NOR flash via SPI protocol](spi.md)
+[Externally rewrite 25xx NOR flash via SPI protocol](spi.html)
 
 TARGET: Gigabyte GA-G41M-ES2L mainboard
 ---------------------------------------
 
 Refer to the following article:\
-[Gigabyte GA-G41M-ES2L](ga-g41m-es2l.md)
+[Gigabyte GA-G41M-ES2L](ga-g41m-es2l.html)
 
 TARGET: Intel D510MO and D410PT mainboards
 ------------------------------------------
 
 Refer to the following article:\
-[Intel D510MO and D410PT boards](d510mo.md)
+[Intel D510MO and D410PT boards](d510mo.html)
 
 TARGET: Intel D945GCLF mainboard
 --------------------------------
 
 Refer to the following article:\
-[Intel D945GCLF](d945gclf.md)
+[Intel D945GCLF](d945gclf.html)
 
 TARGET: ASUS KGPE-D16 mainboard
 -------------------------------
 
 Refer to the following article:\
-[ASUS KGPE-D16](kgpe-d16.md)
+[ASUS KGPE-D16](kgpe-d16.html)
 
 TARGET: ASUS KCMA-D8 mainboard
 ------------------------------
 
 Refer to the following article:\
-[ASUS KCMA-D8](../hardware/kcma-d8.md)
+[ASUS KCMA-D8](../hardware/kcma-d8.html)
 
 TARGET: Lenovo ThinkPad X60 laptop
 ----------------------------------
 
 Refer to the following article:\
-[ThinkPad X60](x60_unbrick.md)
+[ThinkPad X60](x60_unbrick.html)
 
 TARGET: Lenovo ThinkPad X60 Tablet laptop
 -----------------------------------------
 
 Refer to the following article:\
-[ThinkPad X60 Tablet](x60tablet_unbrick.md)
+[ThinkPad X60 Tablet](x60tablet_unbrick.html)
 
 TARGET: Lenovo ThinkPad T60 laptop
 ----------------------------------
 
 Refer to the following article:\
-[ThinkPad T60](t60_unbrick.md)
+[ThinkPad T60](t60_unbrick.html)
 
 TARGET: Lenovo ThinkPad X200 laptop
 -----------------------------------
 
 Refer to the following article:\
-[ThinkPad X200](x200_external.md)
+[ThinkPad X200](x200_external.html)
 
 TARGET: Lenovo ThinkPad X200S or X200 Tablet laptop
 ---------------------------------------------------
@@ -567,7 +567,7 @@ Software-wise, identical to regular X200 but SMD rework skills are required.
 You must de-solder the default flash chip, and replace it with another one.
 
 Refer to the following article:\
-[25xx NOR flashing guide](spi.md)
+[25xx NOR flashing guide](spi.html)
 
 That guide, linked above, has instructions for how to deal with these machines.
 
@@ -575,7 +575,7 @@ TARGET: Lenovo ThinkPad T400 laptop
 -----------------------------------
 
 Refer to the following article:\
-[ThinkPad T400](t400_external.md)
+[ThinkPad T400](t400_external.html)
 
 TARGET: Lenovo ThinkPad T400S laptop
 ------------------------------------
@@ -584,13 +584,13 @@ Software-wise, identical to regular T400 but SMD rework skills are required.
 You must de-solder the default flash chip, and replace it with another one.
 
 Refer to the following article:\
-[25xx NOR flashing guide](spi.md)
+[25xx NOR flashing guide](spi.html)
 
 TARGET: Lenovo ThinkPad R400 laptop
 -----------------------------------
 
 Refer to the following article:\
-[ThinkPad R400](r400_external.md)
+[ThinkPad R400](r400_external.html)
 
 TARGET: Lenovo ThinkPad T500 or W500 laptop
 -------------------------------------------
@@ -598,10 +598,10 @@ TARGET: Lenovo ThinkPad T500 or W500 laptop
 These two laptops have identical mainboard, except for a few minor changes.
 
 Refer to the following article:\
-[ThinkPad T500/W500](t500_external.md)
+[ThinkPad T500/W500](t500_external.html)
 
 TARGET: Lenovo ThinkPad R500 laptop
 -----------------------------------
 
 Refer to the following laptop:\
-[ThinkPad R500](../hardware/r500.md)
+[ThinkPad R500](../hardware/r500.html)

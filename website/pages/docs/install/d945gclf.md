@@ -8,12 +8,12 @@ motherboard while they still have the original BIOS present.
 D945GCLF2D also reported working by a user.
 
 For information about this board, go to
-[../hardware/d945gclf.md](../hardware/d945gclf.md)
+[../hardware/d945gclf.html](../hardware/d945gclf.html)
 
 Flashing instructions {#clip}
 =====================
 
-Refer to [spi.md](spi.md) for how to re-flash externally.
+Refer to [spi.html](spi.html) for how to re-flash externally.
 
 Here is an image of the flash chip:\
 ![](../../img/d945gclf/d945gclf_spi.jpg)

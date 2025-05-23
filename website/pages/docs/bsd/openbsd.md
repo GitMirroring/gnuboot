@@ -11,7 +11,7 @@ and so the GNU Boot project can't force its contributors to test GNU
 Boot with OpenBSD.
 
 Because of that this page is only meant for people already Using
-OpenBSD. See the [BSD index page](index.md) for more details about how
+OpenBSD. See the [BSD index page](index.html) for more details about how
 GNU Boot deals with this issue and the way forward to a better support
 for BSD systems in GNU Boot.
 
@@ -65,7 +65,7 @@ there. This will also work with the OpenBSD image.
 Prepare the USB drive (in FreeBSD)
 ----------------------------------
 
-[This page](https://www.freebsd.org/doc/handbook/bsdinstall-pre.md) on
+[This page](https://www.freebsd.org/doc/handbook/bsdinstall-pre.html) on
 the FreeBSD website shows how to create a bootable USB drive for
 installing FreeBSD. Use the `dd` on that page. You can also use the same
 instructions with a OpenBSD ISO image.

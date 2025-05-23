@@ -14,7 +14,7 @@ Libreboot T400 {#t400}
 ==============
 
 You may also be interested in the smaller, more portable [Libreboot
-T400](t400_external.md).
+T400](t400_external.html).
 
 Serial port {#serial_port}
 -----------
@@ -78,12 +78,12 @@ Use this to find out:
 MAC address {#macaddress}
 ===========
 
-Refer to [mac\_address.md](../hardware/mac_address.md).
+Refer to [mac\_address.html](../hardware/mac_address.html).
 
 Initial BBB configuration
 =========================
 
-Refer to [spi.md](spi.md) as a guide for external re-flashing.
+Refer to [spi.html](spi.html) as a guide for external re-flashing.
 
 The following shows how to connect clip to the BBB (on the P9 header),
 for SOIC-16 (clip: Pomona 5252):
@@ -273,7 +273,7 @@ it is not one you want to use. Make sure to change the MAC address to the one
 that is correct for your system, for **later internal flash**,
 but always remember to **flash unmodfied txtmode image first** as it is known
 to work and only this variant provides memtest. You can follow instructions
-at [ich9utils.md#ich9gen](ich9utils.md#ich9gen)
+at [ich9utils.html#ich9gen](ich9utils.html#ich9gen)
 to change the MAC address inside the libreboot image.
 
 Now flash it:

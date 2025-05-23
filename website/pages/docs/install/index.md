@@ -19,13 +19,13 @@ free software (by replacing the WiFi card), make sure the hardware
 really work, etc, and it might be the easiest way for non-technical
 users to get GNU Boot.
 
-See the [GNU Boot status page](../../status.md) for which RYF
+See the [GNU Boot status page](../../status.html) for which RYF
 computers are compatible with GNU Boot.
 
 If you are a hardware vendor that is or was listed in
 https://ryf.fsf.org/vendors/ and that you sold computers that are
 compatible with GNU Boot, please [contact the GNU Boot
-project](../../contact.md): we are looking for information on the
+project](../../contact.html): we are looking for information on the
 product being sold (flash chip size, customization, etc) to best
 support them.
 
@@ -63,7 +63,7 @@ each other to do it together (this could be easier and faster).
 When reading or following such instructions it's important to keep in
 mind that:
 
-* You always need to look at the [status page](../../status.md) to find
+* You always need to look at the [status page](../../status.html) to find
   out if the image you are about to install is known to work.
 
   If the image is not known to work, it could prevent your computer
@@ -99,19 +99,19 @@ mind that:
 Upgrade yourself from an existing installation
 ----------------------------------------------
 
-There is [general purpose documentation](install.md) for technical
+There is [general purpose documentation](install.html) for technical
 users that can help you upgrade to a newer GNU Boot version.
 
 Installation
 ------------
 
-There is [general purpose documentation](install.md) for technical
+There is [general purpose documentation](install.html) for technical
 users that can help you install GNU Boot.
 
 Downloads
 ---------
 
-The [Downloads](../../download.md) page has documentation on how to
+The [Downloads](../../download.html) page has documentation on how to
 download GNU Boot in various ways.
 
 However if you want to install GNU Boot, it is very strongly advised

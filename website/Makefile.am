@@ -319,6 +319,7 @@ CHECK_SH_CMD = $(GUIX_SHELL_CONTAINER) \
 	findutils \
 	grep \
 	gzip \
+	lynx \
 	sed \
 	tar \
 	-- \
