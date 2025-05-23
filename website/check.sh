@@ -53,6 +53,89 @@ usage()
 	printf "\n"
 }
 
+get_html_links()
+{
+	lynx -dump -listonly -nonumbers "$1"
+}
+
+get_include_links()
+{
+	get_html_links lbssg/www/lbwww/site/footer.include.html
+	get_html_links lbssg/www/lbwww/site/sitemap.include.html
+	get_html_links lbssg/www/lbwww/site/template.include.html
+}
+
+# By default, lbssg convert all the .md links into .html links. This
+# means that we can't link to markdown files within the markdown file,
+# but so far this hasn't really been a concern.
+#
+# The real issue is that Haunt doesn't do such conversion, so for now
+# we can enforce HTML links to facilitate the migration and If we need
+# to link to markdown resources for some reasons we then need to add
+# exceptions in the code below.
+validate_markdown_links_in_markdown_file()
+{
+	prefix="$1"
+	md_path="$2"
+
+	# shellcheck disable=SC2001 # We want to use regexp
+	html_path="$(echo "${md_path}" | sed 's#\.md$#.html#')"
+	if [ ! -f "${html_path}" ] ; then
+		echo "[ !! ] HTML path \"${html_path}\" not found."
+		exit 1
+	fi
+
+	links="$(lynx -dump -listonly -nonumbers "${html_path}")"
+	for link in ${links} ; do
+		# Skip HTML links
+		if ! echo "${link}" | grep -q "\.md" ; then
+			continue
+		fi
+
+		# The end of the page has the following HTML:
+		# <p>Markdown file for this page:
+		# <a href="https://gnu.org/software/gnuboot/<page path>.md"
+		# class="uri">
+		# https://gnu.org/software/gnuboot/<page path>.md
+		# </a></p>
+		# shellcheck disable=SC2001 # We want to use regexp
+		l1="$(echo "${link}" | sed "s#https://gnu.org/""${prefix}""/##g")"
+		# shellcheck disable=SC2001 # We want to use regexp
+		l2="$(echo "${md_path}"|sed "s#^site/"${prefix}"/##g")"
+		[ "${l1}" = "${l2}" ] && continue
+
+		# This is present in
+		# lbssg/www/lbwww/site/license.md and it says: "The
+		# markdown version, hosted by the GNU project, can be
+		# found here:
+		# <https://www.gnu.org/licenses/fdl-1.3.md>"
+		[ "${l1}" = "https://www.gnu.org/licenses/fdl-1.3.md" ] && \
+		    continue
+
+		echo "[ !! ] Markdown link detected in ${md_path}."
+		echo "       ${l1}"
+		echo "       Please fix it or add an exception in the code."
+		exit 1
+	done
+}
+
+test_markdown_links()
+{
+	name="$1"
+	directory="$2"
+	prefix="$3"
+
+	while IFS= read -r -d '' file
+	do
+		# shellcheck disable=SC2001 # We want to use regexp
+		validate_markdown_links_in_markdown_file \
+			"${prefix}" \
+			"$(echo "${file}" | sed s#^"${PWD}"/##g)"
+	done <   <(find "${directory}" -type f -name "*.md" -print0)
+
+	echo "[ OK ] ${name}"
+}
+
 test_directory_pattern()
 {
 	name="$1"
@@ -103,6 +186,10 @@ run_directory_tests()
 	test_directory_pattern "${directory_name}: html test" \
 			       "${directory}" \
 			       "${prefix}/.*\.html$"
+
+	test_markdown_links "${directory_name}: markdown links test" \
+			    "${directory}" \
+			    "${prefix}"
 }
 
 run_tarball_tests()

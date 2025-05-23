@@ -74,7 +74,7 @@ If you are on a 32-bit system (e.g. X60):
     initrd /install.386/initrd.gz
     boot
     
-[This guide](grub_boot_installer.md) shows how to create a boot USB
+[This guide](grub_boot_installer.html) shows how to create a boot USB
 drive with the Debian ISO image.
 
 *This guide is only for the GRUB payload. If you use the depthcharge payload,
@@ -276,7 +276,7 @@ generate grub.cfg using following command:
 
     grub-install --target=i386-coreboot
 
-[Refer to this guide](grub_hardening.md) for further guidance on
+[Refer to this guide](grub_hardening.html) for further guidance on
 hardening your GRUB configuration, for security purposes.
 
 Troubleshooting

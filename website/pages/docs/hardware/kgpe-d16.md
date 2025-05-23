@@ -46,7 +46,7 @@ IPMI iKVM module add-on {#ipmi}
 
 Don't use it. It uses proprietary firmware and adds a backdoor (remote
 out-of-band management chip, similar to the [Intel Management
-Engine](../../faq.md#intelme). Fortunately, the firmware is
+Engine](../../faq.html#intelme). Fortunately, the firmware is
 unsigned (possibly to replace) and physically separate from the
 mainboard since it's on the add-on module, which you don't have to
 install.
@@ -68,7 +68,7 @@ extractor. These can be found online. See
 <http://www.coreboot.org/Developer_Manual/Tools#Chip_removal_tools>*
 
 This guide shows how to flash the chip:\
-[25xx NOR flashing guide](../install/spi.md)
+[25xx NOR flashing guide](../install/spi.html)
 
 Native graphics initialization {#graphics}
 ==============================

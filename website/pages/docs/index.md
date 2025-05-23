@@ -17,15 +17,15 @@ General information
 ===================
 
 -   Information about where to find GNU Boot news, including release
-    announcements, can be found in the [news page](../news.md).
--   [Answers to Frequently Asked Questions about GNU Boot](../faq.md).
+    announcements, can be found in the [news page](../news.html).
+-   [Answers to Frequently Asked Questions about GNU Boot](../faq.html).
 
 Installing and updating GNU Boot
 ================================
 
 -   [What systems can I use GNU Boot on?](hardware/)
 -   [How to install GNU Boot](install/)
--   [How do I know what version I'm running?](install/version.md)
+-   [How do I know what version I'm running?](install/version.html)
 
 Documentation related to operating systems
 ==========================================
@@ -45,4 +45,4 @@ Other information
 =================
 
 -   [Miscellaneous](misc/)
--   [List of codenames](misc/codenames.md)
+-   [List of codenames](misc/codenames.html)

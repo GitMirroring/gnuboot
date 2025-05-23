@@ -19,7 +19,7 @@ EX_USAGE=64
 
 lbssg_uri="https://codeberg.org/libreboot/lbssg"
 lbssg_path=""
-lbssg_commit="e72d055915c3a9ffe739982946e101b146b2483c"
+lbssg_commit="35f50960707946bd16a0d4481faa253c6463241d"
 
 help()
 {
@@ -193,4 +193,10 @@ if [ "${download_only}" -eq 0 ] ; then
 	sed 's/^RSS_LINK=".*"/RSS_LINK=""/g' -i lang/*/strings.cfg
 
 	./build sites lbwww
+
+	# We need the HTML for automatic tests
+	dir="www/lbwww/site"
+	for page in footer.include sitemap.include template.include ; do
+		pandoc "${dir}"/"${page}" -o "${dir}"/"${page}".html
+	done
 fi

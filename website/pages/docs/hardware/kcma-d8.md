@@ -50,7 +50,7 @@ need to re-flash externally. Refer instead to the generic instructions on
 this page: [../install/](../install/)
 
 Refer to the following guide:\
-[Externally rewrite 25xx NOR flash via SPI protocol](../install/spi.md)
+[Externally rewrite 25xx NOR flash via SPI protocol](../install/spi.html)
 
 PCI option ROMs
 ===============
@@ -123,7 +123,7 @@ IPMI iKVM module add-on {#ipmi}
 
 Don't use it. It uses proprietary firmware and adds a backdoor (remote
 out-of-band management chip, similar to the [Intel Management
-Engine](../../faq.md#intelme). Fortunately, the firmware is
+Engine](../../faq.html#intelme). Fortunately, the firmware is
 unsigned (possible to replace) and physically separate from the
 mainboard since it's on the add-on module, which you don't have to
 install.

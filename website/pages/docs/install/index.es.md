@@ -19,13 +19,13 @@ funciona con software libre (mediante la sustitución de la tarjeta
 WiFi), asegurarse de que el hardware realmente sirve etc, pudiendo ser
 la forma más fácil para los usuarios no técnicos de conseguir GNU Boot.
 
-Consulte la página [estado de GNU Boot](../../status.md) para saber qué
+Consulte la página [estado de GNU Boot](../../status.html) para saber qué
 computadores RYF son compatibles con GNU Boot.
 
 Si usted es un vendedor de hardware que está o estuvo listado en
 https://ryf.fsf.org/vendors/ y que vendió computadores compatibles con
 GNU Boot, por favor [contacte con el proyecto GNU
-Boot](../../contact.md): estamos buscando información sobre el producto
+Boot](../../contact.html): estamos buscando información sobre el producto
 vendido (tamaño del chip flash, personalización, etc) para darles el
 mejor soporte.
 
@@ -63,7 +63,7 @@ ayudarse a hacerlo juntos (esto podría ser más fácil y rápido).
 
 Al leer o seguir estas instrucciones, es importante tener en cuenta que:
 
-* Siempre hay que mirar la [página de estado](status.md) para saber si
+* Siempre hay que mirar la [página de estado](status.html) para saber si
   se sabe que la imagen que se va a instalar funciona.
 
   Si se sabe que la imagen no funciona, podría impedir el arranque del
@@ -99,20 +99,20 @@ Al leer o seguir estas instrucciones, es importante tener en cuenta que:
 Actualícese a partir de una instalación existente
 -------------------------------------------------
 
-Existe [documentación de propósito general](install.md) para usuarios
+Existe [documentación de propósito general](install.html) para usuarios
 técnicos que puede ayudarle a actualizar a una versión más reciente de
 GNU Boot.
 
 Instalación
 -----------
 
-Existe [documentación de propósito general](install.md) para usuarios
+Existe [documentación de propósito general](install.html) para usuarios
 técnicos que puede ayudarle a instalar GNU Boot.
 
 Descargas
 ---------
 
-La página [Descargas](../../download.md) tiene documentación sobre cómo
+La página [Descargas](../../download.html) tiene documentación sobre cómo
 descargar GNU Boot de varias maneras.
 
 Sin embargo, si desea instalar GNU Boot, se recomienda encarecidamente

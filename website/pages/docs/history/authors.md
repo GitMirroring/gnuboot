@@ -14,7 +14,7 @@ notified them and they would have removed your entry).
 Since this page is now part of the continuation of the 100% free
 Libreboot project, which became GNU Boot, you can also send fixes to
 the GNU Boot project as well. How to contribute to GNU Boot is
-documented on the [contribute.md](contribute.md) page.
+documented on the [contribute.html](contribute.html) page.
 
 As for putting foward the names of the people who contributed to GNU
 Boot, we are looking for help for finding the right schemes. So far we
@@ -45,7 +45,7 @@ works on all aspects of Libreboot, such as:
   that Libreboot uses
 * Providing user support on IRC
 * *Commercial* user support via her company listed
-  on [the suppliers page](/suppliers.md)
+  on [the suppliers page](/suppliers.html)
 
 Leah is also responsible for [osboot.org](https://osboot.org/) which is heavily
 based on Libreboot, but with different project goals.
@@ -254,7 +254,7 @@ Patrick "P. J." McDermott
 ---------------------------
 
 Patrick also did a lot of research and wrote the libreboot FAQ section
-relating to the [Intel Management Engine](../faq.md#intelme), in addition
+relating to the [Intel Management Engine](../faq.html#intelme), in addition
 to making several improvements to the build system in libreboot. **Former
 libreboot project maintainer.**
 
@@ -286,7 +286,7 @@ in coreboot, and then helped her integrate the fix in libreboot.
 Peter Stuge
 -----------
 
-Helped write the [FAQ section about DMA](../faq.md#hddssd-firmware), and provided
+Helped write the [FAQ section about DMA](../faq.html#hddssd-firmware), and provided
 general advice in the early days of the project. Peter was a coreboot developer
 in those days, and a major developer in the *libusb* project (which flashrom
 makes heavy use of).

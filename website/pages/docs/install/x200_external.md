@@ -24,7 +24,7 @@ Run this command on x200 to find out flash chip model and its size:
 MAC address
 ===========
 
-Refer to [mac\_address.md](../hardware/mac_address.md).
+Refer to [mac\_address.html](../hardware/mac_address.html).
 
 The procedure
 -------------
@@ -56,7 +56,7 @@ connect the clip:\
 
 Now, you should be ready to install libreboot.
 
-Refer to the [SPI programming instructions](spi.md).
+Refer to the [SPI programming instructions](spi.html).
 
 When you're done, put the system back together. If it doesn't boot, try other
 RAM modules because raminit is very unreliable on this platform (in coreboot).
@@ -146,4 +146,4 @@ just connect some pogo pins to ground GPIO33, then boot up, run some software
 
 On a related note, libreboot has a utility that could help with
 investigating this:
-[ich9utils.md#demefactory](ich9utils.md#demefactory)
+[ich9utils.html#demefactory](ich9utils.html#demefactory)

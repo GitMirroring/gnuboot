@@ -10,7 +10,7 @@ This document lists product codenames for some hardware.
 Please note that just because a certain device is listed here does NOT mean
 that it is supported in GNU Boot nor that it was supported in Libreboot when
 it was fully free. For supported devices refer to the
-[GNU Boot status](status.md) or the [GNU Boot manual](manual/gnuboot.html).
+[GNU Boot status](status.html) or the [GNU Boot manual](manual/gnuboot.html).
 
 ### A note on GPUs
 
