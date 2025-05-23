@@ -99,7 +99,7 @@ References:
 
 * [GRUB manual](https://www.gnu.org/software/grub/manual/html_node/Security.html#Security)
 * [GRUB info pages](http://git.savannah.gnu.org/cgit/grub.git/tree/docs/grub.texi)
-* [SATA connected storage considered dangerous.](../../faq.md#hddssd-firmware)
+* [SATA connected storage considered dangerous.](../../faq.html#hddssd-firmware)
 * [Coreboot GRUB security howto](https://www.coreboot.org/GRUB2#Security)
 
 GRUB Password

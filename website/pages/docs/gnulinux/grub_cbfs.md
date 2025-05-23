@@ -111,7 +111,7 @@ when you read from and/or write to the boot flash from an operating systems
 In other cases, you may need to connect an SPI programmer externally (with the
 machine powered down) and read the contents of the boot flash.
 
-[Learn how to externally reprogram these chips](../install/spi.md)
+[Learn how to externally reprogram these chips](../install/spi.html)
 
 Extract grub.cfg
 ================

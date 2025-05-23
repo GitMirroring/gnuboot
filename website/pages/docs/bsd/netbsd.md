@@ -9,7 +9,7 @@ and so the GNU Boot project can't force its contributors to test GNU
 Boot with NetBSD.
 
 Because of that this page is only meant for people already Using
-NetBSD. See the [BSD index page](index.md) for more details about how
+NetBSD. See the [BSD index page](index.html) for more details about how
 GNU Boot deals with this issue and the way forward to a better support
 for BSD systems in GNU Boot.
 

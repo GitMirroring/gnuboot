@@ -40,7 +40,7 @@ tried to save what was useful for understanding the GNU Boot history
 without doing too much research (on the material) ourselves. Here are
 the pages we kept (and that we modified a bit to add more context):
 
-* [authors.md](authors.md)
+* [authors.html](authors.html)
 
 Git history
 ===========
@@ -127,7 +127,7 @@ Incomplete history
 
 The history of the projects presented in this page is incomplete. So
 far we only have a partial code history. Contributions are
-welcome. See the [contribute.md](../../contribute.md) page about various ways to
+welcome. See the [contribute.html](../../contribute.html) page about various ways to
 contribute to GNU Boot or to contact the project to update the
 information in this page.
 
