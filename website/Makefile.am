@@ -19,10 +19,13 @@ SENTINEL =
 	all \
 	build \
 	check \
+	haunt-build \
+	haunt-serve \
+	haunt-website.tar \
 	help \
 	publish \
 	serve \
-	website-raw.tar \
+	lbssg-website.tar \
 if WANT_WEB_SYMLINKS_PATH
 	$(WEB_SYMLINKS_PATH)/COPYING \
 	$(WEB_SYMLINKS_PATH)/web-symlinks \
@@ -59,8 +62,8 @@ if WANT_WEB_SYMLINKS_PATH
 GUIX_SHARE_OPTIONS += --share=`realpath $(WEB_SYMLINKS_PATH)`
 
 # With ./configure --with-lbssg-path=[...], we end up having a
-# specific revision that is set in build/build.sh. So here we also verify
-# the checksums for consistency.
+# specific revision that is set in build/lbssg/build.sh. So here we
+# also verify the checksums for consistency.
 
 $(WEB_SYMLINKS_PATH)/COPYING.sha512: symlinks/COPYING.sha512
 	echo "`cat $^ | awk '{print $$1}'` `echo $@ | sed 's/\.sha512$$//'`" > $@
@@ -422,9 +425,6 @@ templates/footer.include: templates/footer.include.tmpl templates/footer-git-com
 		templates/footer-git-commit.include \
 		> $@
 
-templates/site.cfg: templates/site.cfg.tmpl
-	sed -e "s#WEBSITE_PREFIX#$(WEBSITE_PREFIX)#g" "$^" > "$@"
-
 ##########
 # manual #
 ##########
@@ -534,32 +534,6 @@ GNUBOOT_MANUAL = \
 	manual/gnuboot.pdf \
 	$(SENTINEL)
 
-#################
-# website build #
-#################
-
-if WANT_GUIX
-BUILD_SH_CMD = $(GUIX_SHELL_CONTAINER) \
-	--network \
-	--emulate-fhs \
-	$(GUIX_SHARE_OPTIONS) \
-	bash \
-	coreutils \
-	findutils \
-	git \
-	grep \
-	nss-certs \
-	pandoc \
-	sed \
-	-- \
-	build/build.sh
-else
-BUILD_SH_CMD = build/build.sh
-endif
-
-build: templates/site.cfg templates/footer.include $(GNUBOOT_MANUAL) $(GENERATED_STATUS_PAGES)
-	$(BUILD_SH_CMD) $(BUILD_OPTIONS)
-
 ###################
 # automatic tests #
 ###################
@@ -577,29 +551,26 @@ CHECK_SH_CMD = $(GUIX_SHELL_CONTAINER) \
 	sed \
 	tar \
 	-- \
-	build/check.sh
+	./check.sh
 else
-CHECK_SH_CMD = build/check.sh
+CHECK_SH_CMD = ./check.sh
 endif
 
-check: build website.tar history/git-history.jpg
-	rm -rf site/
-	mkdir -p site/$(WEBSITE_PREFIX)
-	tar xf website.tar -C site/$(WEBSITE_PREFIX)
-	$(CHECK_SH_CMD) --website-prefix $(WEBSITE_PREFIX) \
-		--directory site
-	$(CHECK_SH_CMD) --website-prefix $(WEBSITE_PREFIX) \
-		--tarball website.tar
-
 help:
-	@printf "%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n" \
+	@printf "%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n" \
 		"Available commands:" \
-		"help        # Print this help" \
-		"build       # Build the website" \
-		"serve       # run lighttpd on localhost:$(LIGHTTPD_PORT)" \
-		"publish     # Publish the website to https://gnu.org/$(WEBSITE_PREFIX)" \
-		"check       # Run automatic tests" \
-		"website.tar # Create a tarball of the website"
+		"help              # Print this help" \
+		"build             # Build the website" \
+		"publish           # Publish the website to https://gnu.org/$(WEBSITE_PREFIX)" \
+		"check             # Run automatic tests" \
+		"haunt-build       # Build the website with Haunt (experimental)" \
+		"haunt-check       # Run tests for Haunt (experimental)" \
+		"haunt-serve       # serve the website built with Haunt on localhost:$(LIGHTTPD_PORT) (experimental)" \
+		"haunt-website.tar # Create a tarball of the website built with Haunt (experimental)" \
+		"lbssg-build       # Build the website with Lbssg" \
+		"lbssg-check       # Run tests for lbssg" \
+		"lbssg-serve       # serve the website built with Lbssg on localhost:$(LIGHTTPD_PORT)" \
+		"lbssg-website.tar # Create a tarball of the website built with lbssg"
 
 ################
 # manual tests #
@@ -624,27 +595,15 @@ else
 SERVE_SH_CMD = build/serve.sh
 endif
 
-if ! WANT_LIGHTTPD
-serve:
-	@printf "%s %s\n" \
-		"The $@ target is disabled." \
-		"To enable it, run './configure --enable-lighttpd'."
-	@false
-else
-serve: website.tar
-	$(SERVE_SH_CMD) --website-prefix $(WEBSITE_PREFIX) \
-			website.tar $(LIGHTTPD_PORT)
-endif
-
 ##########################
 # publishing the website #
 ##########################
 
 RSYNC_OPTIONS := -av --progress --delete
-publish: website.tar
+publish: lbssg-website.tar
 	rm -rf deploy
 	mkdir -p deploy
-	tar xf website.tar -C deploy
+	tar xf lbssg-website.tar -C deploy
 	rsync $(RSYNC_OPTIONS) \
 		deploy/ \
 		$(RSYNC_DESTINATION)/
@@ -658,22 +617,6 @@ WEBSITE_TAR_GZ_DEPS = \
 	$(WEB_SYMLINKS_FILES) \
 	$(SENTINEL)
 
-website-raw.tar: build $(WEBSITE_TAR_GZ_DEPS)
-	tar \
-		--exclude-vcs \
-		--format=gnu \
-		--owner=0 --group=0 --numeric-owner \
-		--sort=name \
-		-cf \
-		$@ \
-		lbssg/www/lbwww/site/ \
-		history/git-history.dot \
-		history/git-history.jpg \
-		$(WEB_SYMLINKS_FILES) \
-		$(WEB_SYMLINKS_TRANSFORM) \
-		--transform="s#lbssg/www/lbwww/site/##" \
-		$(SENTINEL)
-
 if WANT_GUIX
 PRETTIFY_ARCHIVE_PY = \
 	$(GUIX_SHELL_CONTAINER) \
@@ -682,5 +625,7 @@ else
 PRETTIFY_ARCHIVE_PY = python3 build/prettify-archive.py
 endif
 
-website.tar: website-raw.tar
-	$(PRETTIFY_ARCHIVE_PY) $^ $@
+include build/haunt/Makefile.am
+include build/lbssg/Makefile.am
+
+check: haunt-check lbssg-check
