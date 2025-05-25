@@ -60,3 +60,7 @@
 /images/*
 /manual/**
 /pages/manual/*
+
+# Templates
+/templates/footer-git-commit.include
+/templates/footer.include
