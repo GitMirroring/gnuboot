@@ -133,8 +133,8 @@ install or use them on your side.
 If you want to test your own modifications to the dependencies of this
 build code, you either need to use the configure options to use
 external repositories that have your modifications, or you could also
-modify the build.sh script to use different git repositories and/or
-revisions.
+modify the build/lbssg/build.sh script to use different git
+repositories and/or revisions.
 
 +=================================================+
 | Deployment on https://gnu.org/software/gnuboot/ |
