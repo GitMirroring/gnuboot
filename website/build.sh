@@ -131,8 +131,9 @@ copy_website()
 			"${dst_path}"/site/"$(echo "${page}" | sed 's#^pages/##')"
 	done
 
-	cp -a "hwdumps/" "${dst_path}/site/docs/hardware/"
-	cp -a "img/" "${dst_path}/site/"
+	cp -a hwdumps/ "${dst_path}/site/docs/hardware/"
+	cp -a img/     "${dst_path}/site/"
+	cp -a static/* "${dst_path}/site/"
 }
 
 help_missing_arg()
