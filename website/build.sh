@@ -130,10 +130,18 @@ copy_website()
 			"${dst_path}"/site/"$(echo "${page}" | sed 's#^pages/##')"
 	done
 
-	cp -a hwdumps/ "${dst_path}/site/docs/hardware/"
-	cp -a img/     "${dst_path}/site/"
-	cp -a manual/  "${dst_path}/site/"
-	cp -a static/* "${dst_path}/site/"
+	cp -a hwdumps/    "${dst_path}/site/docs/hardware/"
+	cp -a img/        "${dst_path}/site/"
+	cp -a manual/     "${dst_path}/site/"
+	cp -a static/*    "${dst_path}/site/"
+	cp -a templates/* "${dst_path}/site/"
+
+	# The templates/template-license.md file is a web page so we
+	# need the same treatment as other web pages.
+	rm -f "${dst_path}"/site/template-license.md
+	haunt2pandoc \
+	    templates/template-license.md \
+	    "${dst_path}"/site/template-license.md
 }
 
 help_missing_arg()
