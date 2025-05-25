@@ -147,8 +147,8 @@ history/git-history.jpg: history/git-history.dot
 # commit changes, there is no way to know about it. In addition the
 # full website is regenerated each time the build target is run, so
 # generating one more page has insignificant performance impact.
-.PHONY: pages/footer-git-commit.include
-pages/footer-git-commit.include:
+.PHONY: templates/footer-git-commit.include
+templates/footer-git-commit.include:
 	rm -f $@
 
 	printf "This page was generated with %s from the commit %s\n" \
@@ -162,10 +162,10 @@ pages/footer-git-commit.include:
 
 	printf "\n" >> $@
 
-pages/footer.include: pages/footer.include.tmpl pages/footer-git-commit.include
+templates/footer.include: templates/footer.include.tmpl templates/footer-git-commit.include
 	cat \
-		pages/footer.include.tmpl \
-		pages/footer-git-commit.include \
+		templates/footer.include.tmpl \
+		templates/footer-git-commit.include \
 		> $@
 
 site.cfg: site.cfg.tmpl
@@ -303,7 +303,7 @@ else
 BUILD_SH_CMD = ./build.sh
 endif
 
-build: site.cfg pages/footer.include $(GNUBOOT_MANUAL)
+build: site.cfg templates/footer.include $(GNUBOOT_MANUAL)
 	$(BUILD_SH_CMD) $(BUILD_OPTIONS)
 
 ###################
