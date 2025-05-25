@@ -237,10 +237,10 @@ GNUBOOT_MANUAL_FILES = \
 	Makefile \
 	$(SENTINEL)
 
-pages/manual/gnuboot.%: $(GNUBOOT_MANUAL_FILES)
+manual/gnuboot.%: $(GNUBOOT_MANUAL_FILES)
 	mkdir -p `dirname $@`
 	$(MAKEINFO_CMD) \
-		 --$(subst pages/manual/gnuboot.,,$@) \
+		 --$(subst manual/gnuboot.,,$@) \
 		--no-split \
 		-o $@ \
 		../manual/gnuboot.texi
@@ -255,7 +255,7 @@ else
 GM_CMD = gm
 endif
 
-pages/manual/images/SOIC-16.png: ../manual/images/SOIC-16.jpeg
+manual/images/SOIC-16.png: ../manual/images/SOIC-16.jpeg
 	mkdir -p `dirname $@`
 	$(GM_CMD) convert $< $@
 
@@ -265,19 +265,19 @@ pages/manual/images/SOIC-16.png: ../manual/images/SOIC-16.jpeg
 # in /usr/share/info/ while its images are expected to go in
 # /usr/share/info/images instead. But then the manual also
 # needs to be able to find its images during the compilation.
-../manual/images/SOIC-16.png: pages/manual/images/SOIC-16.png
+../manual/images/SOIC-16.png: manual/images/SOIC-16.png
 	mkdir -p `dirname $@`
 	install -m 644 $< $@
 
-pages/manual/images/SOIC-16.jpeg: ../manual/images/SOIC-16.jpeg
+manual/images/SOIC-16.jpeg: ../manual/images/SOIC-16.jpeg
 	mkdir -p `dirname $@`
 	install -m 644 $< $@
 
 GNUBOOT_MANUAL = \
-	pages/manual/images/SOIC-16.jpeg \
-	pages/manual/images/SOIC-16.png \
-	pages/manual/gnuboot.html \
-	pages/manual/gnuboot.pdf \
+	manual/images/SOIC-16.jpeg \
+	manual/images/SOIC-16.png \
+	manual/gnuboot.html \
+	manual/gnuboot.pdf \
 	$(SENTINEL)
 
 #################

@@ -59,4 +59,5 @@
 /gnuboot.log
 /gnuboot.toc
 /images/*
+/manual/**
 /pages/manual/*
