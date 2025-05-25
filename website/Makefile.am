@@ -21,10 +21,13 @@ ACLOCAL_AMFLAGS = -I m4
 	all \
 	build \
 	check \
+	haunt-build \
+	haunt-serve \
+	haunt-website.tar \
 	help \
 	publish \
 	serve \
-	website-raw.tar \
+	lbssg-website.tar \
 if WANT_WEB_SYMLINKS_PATH
 	$(WEB_SYMLINKS_PATH)/COPYING \
 	$(WEB_SYMLINKS_PATH)/web-symlinks \
@@ -61,8 +64,8 @@ if WANT_WEB_SYMLINKS_PATH
 GUIX_SHARE_OPTIONS += --share=`realpath $(WEB_SYMLINKS_PATH)`
 
 # With ./configure --with-lbssg-path=[...], we end up having a
-# specific revision that is set in build/build.sh. So here we also verify
-# the checksums for consistency.
+# specific revision that is set in build/lbssg/build.sh. So here we
+# also verify the checksums for consistency.
 
 $(WEB_SYMLINKS_PATH)/COPYING.sha512: symlinks/COPYING.sha512
 	echo "`cat $^ | awk '{print $$1}'` `echo $@ | sed 's/\.sha512$$//'`" > $@
@@ -169,6 +172,54 @@ $(ES_LOCALE): status/po/es.po locale/es_ES.UTF-8/LC_IDENTIFICATION
 # status #
 ##########
 
+STATUS_TABLE_0.1_RC1_DEPS = \
+	status/modules/dsv/table.scm \
+	status/common.scm \
+	status/generate-0.1-rc1-status-table.scm \
+	../resources/data/computers-0.1-rc1.rec \
+	$(ES_LOCALE) \
+	$(SENTINEL)
+
+STATUS_TABLE_0.1_RC2_DEPS = \
+	status/modules/dsv/table.scm \
+	status/common.scm \
+	status/generate-0.1-rc1-status-table.scm \
+	../resources/data/computers-0.1-rc2.rec \
+	$(ES_LOCALE) \
+	$(SENTINEL)
+
+STATUS_TABLE_0.1_RC4_DEPS = \
+	status/modules/dsv/table.scm \
+	status/common.scm \
+	status/generate-0.1-rc4-status-table.scm \
+	../resources/data/computers-0.1-rc4.rec \
+	$(ES_LOCALE) \
+	$(SENTINEL)
+
+COREBOOT_UPSTREAM_STATUS_TABLE_DEPS = \
+	status/modules/dsv/table.scm \
+	status/common.scm \
+	status/generate-coreboot-upstream-status.scm \
+	../resources/data/coreboot-upstream-status.rec \
+	$(ES_LOCALE) \
+	$(SENTINEL)
+
+UPSTREAM_VERSIONS_TABLE_DEPS = \
+	status/modules/dsv/table.scm \
+	status/common.scm \
+	status/generate-upstream-versions.scm \
+	../resources/data/upstream-versions.rec \
+	$(ES_LOCALE) \
+	$(SENTINEL)
+
+REPRODUCIBLE_BUILDS_STATUS_TABLE_DEPS = \
+	status/modules/dsv/table.scm \
+	status/common.scm \
+	status/generate-reproducible-builds-status.scm \
+	../resources/data/reproducible-builds-status.rec \
+	$(ES_LOCALE) \
+	$(SENTINEL)
+
 # guile-dsv is not widely packaged. To our knowledge it is only available in
 # Guix and Aur. Since table.scm only depend on guile and guile-lib, we can
 # simply ship it here. We need to allow both online and offline builds.
@@ -202,222 +253,6 @@ status/modules/dsv/table.scm: status/table.scm.sha512
 	@sha512sum --strict -c $^
 endif # WANT_GUILE_DSV_PATH
 
-MD_STATUS_TABLE_0.1_RC1_DEPS = \
-	status/modules/dsv/table.scm \
-	status/common.scm \
-	status/generate-0.1-rc1-markdown-status-table.scm \
-	../resources/data/computers-0.1-rc1.rec \
-	$(ES_LOCALE) \
-	$(SENTINEL)
-
-MD_STATUS_TABLE_0.1_RC2_DEPS = \
-	status/modules/dsv/table.scm \
-	status/common.scm \
-	status/generate-0.1-rc1-markdown-status-table.scm \
-	../resources/data/computers-0.1-rc2.rec \
-	$(ES_LOCALE) \
-	$(SENTINEL)
-
-MD_STATUS_TABLE_0.1_RC4_DEPS = \
-	status/modules/dsv/table.scm \
-	status/common.scm \
-	status/generate-0.1-rc4-markdown-status-table.scm \
-	../resources/data/computers-0.1-rc4.rec \
-	$(ES_LOCALE) \
-	$(SENTINEL)
-
-status/0.1-rc1.md: $(MD_STATUS_TABLE_0.1_RC1_DEPS) ../resources/data/0.1-rc1.rec
-	status/generate-0.1-rc1-markdown-status-table.scm \
-		../resources/data/computers-0.1-rc1.rec \
-		../resources/data/0.1-rc1.rec \
-		"en" \
-	> $@
-
-status/0.1-rc2.md: $(MD_STATUS_TABLE_0.1_RC2_DEPS) ../resources/data/0.1-rc2.rec
-	status/generate-0.1-rc1-markdown-status-table.scm \
-		../resources/data/computers-0.1-rc2.rec \
-		../resources/data/0.1-rc2.rec \
-		"en" \
-	> $@
-
-status/0.1-rc3.md: $(MD_STATUS_TABLE_0.1_RC2_DEPS) ../resources/data/0.1-rc3.rec
-	status/generate-0.1-rc1-markdown-status-table.scm \
-		../resources/data/computers-0.1-rc2.rec \
-		../resources/data/0.1-rc3.rec \
-		"en" \
-	> $@
-
-status/0.1-rc4.md: $(MD_STATUS_TABLE_0.1_RC4_DEPS) ../resources/data/0.1-rc4.rec
-	status/generate-0.1-rc4-markdown-status-table.scm \
-		../resources/data/computers-0.1-rc4.rec \
-		../resources/data/0.1-rc4.rec \
-		"en" \
-	> $@
-
-status/0.1-rc5.md: $(MD_STATUS_TABLE_0.1_RC4_DEPS) ../resources/data/0.1-rc5.rec
-	status/generate-0.1-rc4-markdown-status-table.scm \
-		../resources/data/computers-0.1-rc4.rec \
-		../resources/data/0.1-rc5.rec \
-		"en" \
-	> $@
-
-status/0.1-rc6.md: $(MD_STATUS_TABLE_0.1_RC4_DEPS) ../resources/data/0.1-rc6.rec
-	status/generate-0.1-rc4-markdown-status-table.scm \
-		../resources/data/computers-0.1-rc4.rec \
-		../resources/data/0.1-rc6.rec \
-		"en" \
-	> $@
-
-status/0.1-rc1.es.md: $(MD_STATUS_TABLE_0.1_RC1_DEPS) ../resources/data/0.1-rc1.rec
-	LOCPATH=locale \
-		status/generate-0.1-rc1-markdown-status-table.scm \
-		../resources/data/computers-0.1-rc1.rec \
-		../resources/data/0.1-rc1.rec \
-		"es" \
-	> $@
-
-status/0.1-rc2.es.md: $(MD_STATUS_TABLE_0.1_RC2_DEPS) ../resources/data/0.1-rc2.rec
-	LOCPATH=locale \
-	status/generate-0.1-rc1-markdown-status-table.scm \
-		../resources/data/computers-0.1-rc2.rec \
-		../resources/data/0.1-rc2.rec \
-		"es" \
-	> $@
-
-status/0.1-rc3.es.md: $(MD_STATUS_TABLE_0.1_RC2_DEPS) ../resources/data/0.1-rc3.rec
-	LOCPATH=locale \
-	status/generate-0.1-rc1-markdown-status-table.scm \
-		../resources/data/computers-0.1-rc2.rec \
-		../resources/data/0.1-rc3.rec \
-		"es" \
-	> $@
-
-status/0.1-rc4.es.md: $(MD_STATUS_TABLE_0.1_RC4_DEPS) ../resources/data/0.1-rc4.rec
-	LOCPATH=locale \
-	status/generate-0.1-rc4-markdown-status-table.scm \
-		../resources/data/computers-0.1-rc4.rec \
-		../resources/data/0.1-rc4.rec \
-		"es" \
-	> $@
-
-status/0.1-rc5.es.md: $(MD_STATUS_TABLE_0.1_RC4_DEPS) ../resources/data/0.1-rc5.rec
-	LOCPATH=locale \
-	status/generate-0.1-rc4-markdown-status-table.scm \
-		../resources/data/computers-0.1-rc4.rec \
-		../resources/data/0.1-rc5.rec \
-		"es" \
-	> $@
-
-status/0.1-rc6.es.md: $(MD_STATUS_TABLE_0.1_RC4_DEPS) ../resources/data/0.1-rc6.rec
-	LOCPATH=locale \
-	status/generate-0.1-rc4-markdown-status-table.scm \
-		../resources/data/computers-0.1-rc4.rec \
-		../resources/data/0.1-rc6.rec \
-		"es" \
-	> $@
-
-COREBOOT_UPSTREAM_STATUS_TABLE_DEPS = \
-	status/modules/dsv/table.scm \
-	status/common.scm \
-	status/generate-coreboot-upstream-status.scm \
-	../resources/data/coreboot-upstream-status.rec \
-	$(ES_LOCALE) \
-	$(SENTINEL)
-
-status/coreboot-upstream-status.md: $(COREBOOT_UPSTREAM_STATUS_TABLE_DEPS)
-	status/generate-coreboot-upstream-status.scm \
-		../resources/data/coreboot-upstream-status.rec \
-		"en" \
-		> $@
-
-status/coreboot-upstream-status.es.md: $(COREBOOT_UPSTREAM_STATUS_TABLE_DEPS)
-	LOCPATH=locale \
-	status/generate-coreboot-upstream-status.scm \
-		../resources/data/coreboot-upstream-status.rec \
-		"es" \
-		> $@
-
-UPSTREAM_VERSIONS_TABLE_DEPS = \
-	status/modules/dsv/table.scm \
-	status/common.scm \
-	status/generate-upstream-versions.scm \
-	../resources/data/upstream-versions.rec \
-	$(ES_LOCALE) \
-	$(SENTINEL)
-
-status/upstream-versions.md: $(UPSTREAM_VERSIONS_TABLE_DEPS)
-	status/generate-upstream-versions.scm \
-		../resources/data/upstream-versions.rec \
-		"en" \
-		> $@
-
-status/upstream-versions.es.md: $(UPSTREAM_VERSIONS_TABLE_DEPS)
-	LOCPATH=locale \
-	status/generate-upstream-versions.scm \
-		../resources/data/upstream-versions.rec \
-		"es" \
-		> $@
-
-REPRODUCIBLE_BUILDS_STATUS_TABLE_DEPS = \
-	status/modules/dsv/table.scm \
-	status/common.scm \
-	status/generate-reproducible-builds-status.scm \
-	../resources/data/reproducible-builds-status.rec \
-	$(ES_LOCALE) \
-	$(SENTINEL)
-
-status/reproducible-builds-status.md: $(REPRODUCIBLE_BUILDS_STATUS_TABLE_DEPS)
-	status/generate-reproducible-builds-status.scm \
-		../resources/data/reproducible-builds-status.rec \
-		"en" \
-		> $@
-
-status/reproducible-builds-status.es.md: $(REPRODUCIBLE_BUILDS_STATUS_TABLE_DEPS)
-	LOCPATH=locale \
-	status/generate-reproducible-builds-status.scm \
-		../resources/data/reproducible-builds-status.rec \
-		"es" \
-		> $@
-
-STATUS_PAGE_DEPS = \
-	status/0.1-rc1.md \
-	status/0.1-rc2.md \
-	status/0.1-rc3.md \
-	status/0.1-rc4.md \
-	status/0.1-rc5.md \
-	status/0.1-rc6.md \
-	status/coreboot-upstream-status.md \
-	status/reproducible-builds-status.md \
-	status/status.md.tmpl \
-	status/status.py \
-	status/upstream-versions.md \
-$(SENTINEL)
-
-ES_STATUS_PAGE_DEPS = \
-	status/0.1-rc1.es.md \
-	status/0.1-rc2.es.md \
-	status/0.1-rc3.es.md \
-	status/0.1-rc4.es.md \
-	status/0.1-rc5.es.md \
-	status/0.1-rc6.es.md \
-	status/coreboot-upstream-status.es.md \
-	status/reproducible-builds-status.es.md \
-	status/status.es.md.tmpl \
-	status/status.py \
-	status/upstream-versions.es.md \
-	$(SENTINEL)
-
-pages/status.md: $(STATUS_PAGE_DEPS)
-	python3 status/status.py en > $@
-
-pages/status.es.md: $(ES_STATUS_PAGE_DEPS)
-	python3 status/status.py es > $@
-
-GENERATED_STATUS_PAGES = \
-	pages/status.md \
-	pages/status.es.md \
-	$(SENTINEL)
-
 #############
 # templates #
 #############
@@ -446,9 +281,6 @@ templates/footer.include: templates/footer.include.tmpl templates/footer-git-com
 		templates/footer.include.tmpl \
 		templates/footer-git-commit.include \
 		> $@
-
-templates/site.cfg: templates/site.cfg.tmpl
-	sed -e "s#WEBSITE_PREFIX#$(WEBSITE_PREFIX)#g" "$^" > "$@"
 
 ##########
 # manual #
@@ -560,32 +392,6 @@ GNUBOOT_MANUAL = \
 	manual/gnuboot.pdf \
 	$(SENTINEL)
 
-#################
-# website build #
-#################
-
-if WANT_GUIX
-BUILD_SH_CMD = $(GUIX_SHELL_CONTAINER) \
-	--network \
-	--emulate-fhs \
-	$(GUIX_SHARE_OPTIONS) \
-	bash \
-	coreutils \
-	findutils \
-	git \
-	grep \
-	nss-certs \
-	pandoc \
-	sed \
-	-- \
-	build/build.sh
-else
-BUILD_SH_CMD = build/build.sh
-endif
-
-build: templates/site.cfg templates/footer.include $(GNUBOOT_MANUAL) $(GENERATED_STATUS_PAGES)
-	$(BUILD_SH_CMD) $(BUILD_OPTIONS)
-
 ###################
 # automatic tests #
 ###################
@@ -603,29 +409,26 @@ CHECK_SH_CMD = $(GUIX_SHELL_CONTAINER) \
 	sed \
 	tar \
 	-- \
-	build/check.sh
+	./check.sh
 else
-CHECK_SH_CMD = build/check.sh
+CHECK_SH_CMD = ./check.sh
 endif
 
-check: build website.tar
-	rm -rf site/
-	mkdir -p site/$(WEBSITE_PREFIX)
-	tar xf website.tar -C site/$(WEBSITE_PREFIX)
-	$(CHECK_SH_CMD) --website-prefix $(WEBSITE_PREFIX) \
-		--directory site
-	$(CHECK_SH_CMD) --website-prefix $(WEBSITE_PREFIX) \
-		--tarball website.tar
-
 help:
-	@printf "%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n" \
+	@printf "%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n" \
 		"Available commands:" \
-		"help        # Print this help" \
-		"build       # Build the website" \
-		"serve       # run lighttpd on localhost:$(LIGHTTPD_PORT)" \
-		"publish     # Publish the website to https://gnu.org/$(WEBSITE_PREFIX)" \
-		"check       # Run automatic tests" \
-		"website.tar # Create a tarball of the website"
+		"help              # Print this help" \
+		"build             # Build the website" \
+		"publish           # Publish the website to https://gnu.org/$(WEBSITE_PREFIX)" \
+		"check             # Run automatic tests" \
+		"haunt-build       # Build the website with Haunt (experimental)" \
+		"haunt-check       # Run tests for Haunt (experimental)" \
+		"haunt-serve       # serve the website built with Haunt on localhost:$(LIGHTTPD_PORT) (experimental)" \
+		"haunt-website.tar # Create a tarball of the website built with Haunt (experimental)" \
+		"lbssg-build       # Build the website with Lbssg" \
+		"lbssg-check       # Run tests for lbssg" \
+		"lbssg-serve       # serve the website built with Lbssg on localhost:$(LIGHTTPD_PORT)" \
+		"lbssg-website.tar # Create a tarball of the website built with lbssg"
 
 ################
 # manual tests #
@@ -650,27 +453,15 @@ else
 SERVE_SH_CMD = build/serve.sh
 endif
 
-if ! WANT_LIGHTTPD
-serve:
-	@printf "%s %s\n" \
-		"The $@ target is disabled." \
-		"To enable it, run './configure --enable-lighttpd'."
-	@false
-else
-serve: website.tar
-	$(SERVE_SH_CMD) --website-prefix $(WEBSITE_PREFIX) \
-			website.tar $(LIGHTTPD_PORT)
-endif
-
 ##########################
 # publishing the website #
 ##########################
 
 RSYNC_OPTIONS := -av --progress --delete
-publish: website.tar
+publish: lbssg-website.tar
 	rm -rf deploy
 	mkdir -p deploy
-	tar xf website.tar -C deploy
+	tar xf lbssg-website.tar -C deploy
 	rsync $(RSYNC_OPTIONS) \
 		deploy/ \
 		$(RSYNC_DESTINATION)/
@@ -684,22 +475,6 @@ WEBSITE_TAR_GZ_DEPS = \
 	$(WEB_SYMLINKS_FILES) \
 	$(SENTINEL)
 
-website-raw.tar: build $(WEBSITE_TAR_GZ_DEPS)
-	tar \
-		--exclude-vcs \
-		--format=gnu \
-		--owner=0 --group=0 --numeric-owner \
-		--sort=name \
-		-cf \
-		$@ \
-		lbssg/www/lbwww/site/ \
-		history/git-history.dot \
-		history/git-history.jpg \
-		$(WEB_SYMLINKS_FILES) \
-		$(WEB_SYMLINKS_TRANSFORM) \
-		--transform="s#lbssg/www/lbwww/site/##" \
-		$(SENTINEL)
-
 if WANT_GUIX
 PRETTIFY_ARCHIVE_PY = \
 	$(GUIX_SHELL_CONTAINER) \
@@ -708,5 +483,7 @@ else
 PRETTIFY_ARCHIVE_PY = python3 build/prettify-archive.py
 endif
 
-website.tar: website-raw.tar
-	$(PRETTIFY_ARCHIVE_PY) $^ $@
+include build/haunt/Makefile.am
+include build/lbssg/Makefile.am
+
+check: haunt-check lbssg-check

@@ -55,13 +55,19 @@ guile-dsv's format-table function. The list it will return will look like that:
     (usage "generate-upstream-versions.scm" 64))
    ((string=? (list-ref args 1) "--help")
     (usage "generate-upstream-versions.scm" 0))
-   ((eqv? (length args) 3)
-    (setup-translations (list-ref args 2))
+   ((and (eqv? (length args) 4) (string=? (list-ref args 1) "--html"))
+    (setup-translations (list-ref args 3))
+    (format-table
+     (upstream-versions
+      (list-ref args 2))
+     html-table))
+   ((and (eqv? (length args) 4) (string=? (list-ref args 1) "--markdown"))
+    (setup-translations (list-ref args 3))
     (if
-     (string=? (list-ref args 2) "es")
+     (string=? (list-ref args 3) "es")
      (format-table
       (upstream-versions
-       (list-ref args 1))
+       (list-ref args 2))
       pandoc-markdown
       #:width 80
       #:calculate-cell-widths
@@ -70,7 +76,7 @@ guile-dsv's format-table function. The list it will return will look like that:
       #:string-slice string-slice*)
      (format-table
       (upstream-versions
-       (list-ref args 1))
+       (list-ref args 2))
       pandoc-markdown
       #:width 80
       #:calculate-cell-widths

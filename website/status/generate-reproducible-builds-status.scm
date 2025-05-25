@@ -53,11 +53,17 @@ guile-dsv's format-table function. The list it will return will look like that:
     (usage "generate-reproducible-builds-status.scm" 64))
    ((string=? (list-ref args 1) "--help")
     (usage "generate-reproducible-builds-status.scm" 0))
-   ((eqv? (length args) 3)
-    (setup-translations (list-ref args 2))
+   ((and (eqv? (length args) 4) (string=? (list-ref args 1) "--html"))
+    (setup-translations (list-ref args 3))
     (format-table
      (upstream-versions
-      (list-ref args 1))
+      (list-ref args 2))
+     html-table))
+   ((and (eqv? (length args) 4) (string=? (list-ref args 1) "--markdown"))
+    (setup-translations (list-ref args 3))
+    (format-table
+     (upstream-versions
+      (list-ref args 2))
      pandoc-markdown
      #:width 80
      #:calculate-cell-widths

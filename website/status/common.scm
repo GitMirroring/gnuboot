@@ -17,14 +17,16 @@
              (ice-9 i18n)
              (srfi srfi-1))
 
-(define-public (usage progname exit-code)
+(define (usage progname exit-code)
   (display (string-append
-            "Usage: "
-            progname
-            " [OPTIONS] [UPSTREAM-VERSIONS-RECFILE] [LANGUAGE]\n"
+            "Usage:\n"
+            "\t" progname
+            " [FORMAT] [UPSTREAM-VERSIONS-RECFILE] [LANGUAGE]\n"
+            "\t" progname " --help\n"
             "\n"
-            "Options:\n"
-            "\t--help print this help.\n"))
+            "Formats:\n"
+            "\t--html     HTML output.\n"
+            "\t--markdown Markdown output.\n"))
   (exit exit-code))
 
 (define-public (parse-recfile recfile-path)
@@ -132,6 +134,39 @@ section of the recutils info manual for more details on records."
     (header-bottom-right     . "|")
     (header-bottom-joint     . "+")
     (header-column-separator . "|")))
+
+;; guile-dsv's format-table table function supports several formats (like Org
+;; Mode or Markdown but it doesn't have the HTML format.
+(define-public html-table
+  '((name                . "html")
+    (description         . "HTML table.")
+    (border-top          . "")
+    (border-top-left     . "")
+    (border-top-right    . "   <table style=\"width:96%;\">\n    <colgroup>\n     <col style=\"width: 23%\"/>\n     <col style=\"width: 18%\"/>\n     <col style=\"width: 18%\"/>\n     <col style=\"width: 18%\"/>\n     <col style=\"width: 18%\"/>\n    </colgroup>\n    <tbody>\n     <tr class=\"odd\">")
+    (border-top-joint    . "")
+    (border-left         . "      <td>\n      ")
+    (border-left-joint   . "      </td>\n     </tr>\n     <tr class=\"even\">")
+    (border-right        . "")
+    (border-right-joint  . "")
+    (row-separator       . "")
+    (row-joint           . "")
+    (column-separator    . "\n      </td>\n      <td>\n      ")
+    (border-bottom       . "")
+    (border-bottom-left  . "")
+    (border-bottom-right . "      </td>\n     </tr>\n    </tbody>\n   </table>")
+    (border-bottom-joint . "")
+    ;; Header style.
+    (header-top              . "")
+    (header-top-left         . "")
+    (header-top-right        . "")
+    (header-top-joint        . "")
+    (header-left             . "")
+    (header-right            . "")
+    (header-bottom           . "")
+    (header-bottom-left      . "")
+    (header-bottom-right     . "")
+    (header-bottom-joint     . "")
+    (header-column-separator . "")))
 
 ;; The string-slice* function is based on string-slice from guile-dsv v0.7.2
 ;; which has the following copyright:

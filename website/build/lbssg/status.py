@@ -22,15 +22,15 @@ def usage():
     print("Usage: status.py [en|es]")
 
 config = {
-    'GNU_BOOT_0.1_RC6_STATUS_TABLE' : 'status/0.1-rc6',
-    'GNU_BOOT_0.1_RC5_STATUS_TABLE' : 'status/0.1-rc5',
-    'GNU_BOOT_0.1_RC4_STATUS_TABLE' : 'status/0.1-rc4',
-    'GNU_BOOT_0.1_RC3_STATUS_TABLE' : 'status/0.1-rc3',
-    'GNU_BOOT_0.1_RC2_STATUS_TABLE' : 'status/0.1-rc2',
-    'GNU_BOOT_0.1_RC1_STATUS_TABLE' : 'status/0.1-rc1',
-    'COREBOOT_UPSTREAM_STATUS' : 'status/coreboot-upstream-status',
-    'UPSTREAM_VERSIONS' : 'status/upstream-versions',
-    'REPRODUCIBLE_BUILDS_STATUS' : 'status/reproducible-builds-status',
+    'GNU_BOOT_0.1_RC6_STATUS_TABLE' : 'build/lbssg/0.1-rc6',
+    'GNU_BOOT_0.1_RC5_STATUS_TABLE' : 'build/lbssg/0.1-rc5',
+    'GNU_BOOT_0.1_RC4_STATUS_TABLE' : 'build/lbssg/0.1-rc4',
+    'GNU_BOOT_0.1_RC3_STATUS_TABLE' : 'build/lbssg/0.1-rc3',
+    'GNU_BOOT_0.1_RC2_STATUS_TABLE' : 'build/lbssg/0.1-rc2',
+    'GNU_BOOT_0.1_RC1_STATUS_TABLE' : 'build/lbssg/0.1-rc1',
+    'COREBOOT_UPSTREAM_STATUS' : 'build/lbssg/coreboot-upstream-status',
+    'UPSTREAM_VERSIONS' : 'build/lbssg/upstream-versions',
+    'REPRODUCIBLE_BUILDS_STATUS' : 'build/lbssg/reproducible-builds-status',
 }
 
 if len(sys.argv) != 2:

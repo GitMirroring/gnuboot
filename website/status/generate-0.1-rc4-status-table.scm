@@ -21,12 +21,14 @@
 
 (define (usage progname exit-code)
   (display (string-append
-            "Usage: "
-            progname
-            " [OPTIONS] [COMPUTERS-RECFILE] [RELEASE-RECFILE] [LANGUAGE]\n"
+            "Usage:\n"
+            "\t" progname
+            " [FORMAT] [COMPUTERS-RECFILE] [RELEASE-RECFILE] [LANGUAGE]\n"
+            "\t" progname " --help\n"
             "\n"
-            "Options:\n"
-            "\t--help print this help.\n"))
+            "Formats:\n"
+            "\t--html     HTML output.\n"
+            "\t--markdown Markdown output.\n"))
   (exit exit-code))
 
 (define (get-computer-test-data computer-list vendor product)
@@ -130,15 +132,22 @@ guile-dsv's format-table function. The list it will return will look like that:
   (cond
    ((eqv? (length args) 1)
     ;; 64 is EX_USAGE in sysexits.h
-    (usage "generate-0.1-rc4-markdown-status-table.scm" 64))
+    (usage "generate-0.1-rc4-status-table.scm" 64))
    ((string=? (list-ref args 1) "--help")
-    (usage "generate-0.1-rc4-markdown-status-table.scm" 0))
-   ((eqv? (length args) 4)
-    (setup-translations (list-ref args 3))
+    (usage "generate-0.1-rc4-status-table.scm" 0))
+   ((and (eqv? (length args) 5) (string=? (list-ref args 1) "--html"))
+    (setup-translations (list-ref args 4))
     (format-table
      (release-status
-      (list-ref args 1)
-      (list-ref args 2))
+      (list-ref args 2)
+      (list-ref args 3))
+     html-table))
+   ((and (eqv? (length args) 5) (string=? (list-ref args 1) "--markdown"))
+    (setup-translations (list-ref args 4))
+    (format-table
+     (release-status
+      (list-ref args 2)
+      (list-ref args 3))
      pandoc-markdown
      #:width 35
      #:calculate-cell-widths

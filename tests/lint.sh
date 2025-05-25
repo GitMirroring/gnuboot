@@ -96,7 +96,7 @@ run_shellcheck \
     tests/checkpatch/checkpatch.sh \
     tests/distclean.sh \
     tests/lint.sh \
-    website/build/build.sh \
+    website/build/lbssg/build.sh \
     website/build/check.sh \
     website/build/serve.sh
 

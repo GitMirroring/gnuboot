@@ -21,12 +21,14 @@
 
 (define (usage progname exit-code)
   (display (string-append
-            "Usage: "
-            progname
-            " [OPTIONS] [COREBOOT-UPSTREAM-STATUS-RECFILE] [LANGUAGE]\n"
+            "Usage:\n"
+            "\t" progname
+            " [FORMAT] [COREBOOT-UPSTREAM-STATUS-RECFILE] [LANGUAGE]\n"
+            "\t" progname " --help\n"
             "\n"
-            "Options:\n"
-            "\t--help print this help.\n"))
+            "Formats:\n"
+            "\t--html     HTML output.\n"
+            "\t--markdown Markdown output.\n"))
   (exit exit-code))
 
 (define (coreboot-upstream-status status-recfile-path)
@@ -65,28 +67,33 @@ guile-dsv's format-table function. The list it will return will look like that:
     (usage "generate-coreboot-upstream-status.scm" 64))
    ((string=? (list-ref args 1) "--help")
     (usage "generate-coreboot-upstream-status.scm" 0))
-   ((eqv? (length args) 3)
-    (setup-translations (list-ref args 2))
-    (if
-     (string=? (list-ref args 2) "es")
-     (format-table
-      (coreboot-upstream-status
-       (list-ref args 1))
-      pandoc-markdown
-      #:width 80
-      #:calculate-cell-widths
-      (lambda (content-width percents)
-        (list 8 14 24 20))
-      #:string-slice string-slice*)
-     (format-table
-      (coreboot-upstream-status
-       (list-ref args 1))
-      pandoc-markdown
-      #:width 80
-      #:calculate-cell-widths
-      (lambda (content-width percents)
-        (list 8 15 25 19))
-      #:string-slice string-slice*)))
+   ((and (eqv? (length args) 4) (string=? (list-ref args 1) "--html"))
+    (setup-translations (list-ref args 3))
+    (format-table
+     (coreboot-upstream-status
+      (list-ref args 2))
+     html-table))
+   ((and (eqv? (length args) 4) (string=? (list-ref args 1) "--markdown"))
+    (setup-translations (list-ref args 3))
+    (if (string=? (list-ref args 3) "es")
+	(format-table
+	 (coreboot-upstream-status
+	  (list-ref args 2))
+	 pandoc-markdown
+	 #:width 80
+	 #:calculate-cell-widths
+	 (lambda (content-width percents)
+           (list 8 14 24 20))
+	 #:string-slice string-slice*)
+	(format-table
+	 (coreboot-upstream-status
+	  (list-ref args 2))
+	 pandoc-markdown
+	 #:width 80
+	 #:calculate-cell-widths
+	 (lambda (content-width percents)
+           (list 8 15 25 19))
+	 #:string-slice string-slice*)))
    (else
     ;; 64 is EX_USAGE in sysexits.h
     (usage "generate-coreboot-upstream-status.scm" 64))))

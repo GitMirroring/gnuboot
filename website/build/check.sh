@@ -60,9 +60,9 @@ get_html_links()
 
 get_include_links()
 {
-	get_html_links lbssg/www/lbwww/site/footer.include.html
-	get_html_links lbssg/www/lbwww/site/sitemap.include.html
-	get_html_links lbssg/www/lbwww/site/template.include.html
+	get_html_links build/lbssg/site/www/lbwww/site/footer.include.html
+	get_html_links build/lbssg/site/www/lbwww/site/sitemap.include.html
+	get_html_links build/lbssg/site/www/lbwww/site/template.include.html
 }
 
 # By default, lbssg convert all the .md links into .html links. This
@@ -105,7 +105,7 @@ validate_markdown_links_in_markdown_file()
 		[ "${l1}" = "${l2}" ] && continue
 
 		# This is present in
-		# lbssg/www/lbwww/site/license.md and it says: "The
+		# build/lbssg/site/www/lbwww/site/license.md and it says: "The
 		# markdown version, hosted by the GNU project, can be
 		# found here:
 		# <https://www.gnu.org/licenses/fdl-1.3.md>"
