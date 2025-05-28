@@ -83,7 +83,8 @@ run_shellcheck \
     tests/distclean \
     tests/lint \
     website/build.sh \
-    website/check.sh
+    website/check.sh \
+    website/serve.sh
 
 printf "+----------------------------------+\n"
 printf "| Running grub-script-check tests: |\n"
