@@ -2,7 +2,7 @@
 #
 # Various code quality tests to avoid regressions in code quality.
 #
-# Copyright (C) 2023,2024 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+# Copyright (C) 2023-2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -57,6 +57,7 @@ run_shellcheck \
     manual/build-guix-i686-linux.sh.in \
     manual/build-guix-x86_64-linux.sh.in \
     resources/packages/coreboot/distclean \
+    resources/packages/dependencies/install \
     resources/packages/descriptors/distclean \
     resources/packages/grub/distclean \
     resources/packages/i945-thinkpads-install-utilities/clean \
