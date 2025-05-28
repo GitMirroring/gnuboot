@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Copyright (c) 1987, 1993
 #	The Regents of the University of California.  All rights reserved.
 # Copyright (c) 2023 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
@@ -83,6 +84,10 @@
 #		perform the operation.  This is not intended for
 #		file system problems, which should use NOINPUT or
 #		CANTCREAT, but rather for higher level permissions.
+
+# Without the shellcheck disable, we have: SC2034 (warning): <variable>
+# appears unused. Verify use (or export if used externally).
+# shellcheck disable=SC2034
 
 EX_OK=0           # successful termination
 EX__BASE=64       # base value for error messages
