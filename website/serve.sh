@@ -31,7 +31,7 @@ if [ $# -ne 3 ] && [ $# -ne 4 ] && [ "$1" != "--website-prefix" ] ; then
 	usage "serve.sh"
 fi
 
-basedir="$(dirname $(realpath $0))"
+basedir="$(dirname "$(realpath "$0")")"
 
 prefix="$2"
 tarball="$3"
