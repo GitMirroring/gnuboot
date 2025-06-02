@@ -310,7 +310,7 @@ computers.
 @node       distribution
 @subsection distribution
 
-GNU Boot a distribution of boot software: like GNU/Linux distributions
+GNU Boot is a distribution of boot software: like GNU/Linux distributions
 (like Trisquel), it reuses various software to produce something that
 can be installed.
 
