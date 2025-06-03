@@ -13,7 +13,7 @@ Creative Commons Zero license version 1.0 universal, which you can find here:
 You can find the template file here: [/template.include](/template.include) 
 
 The file `template.include` is the modified version (modified by Leah Rowe).
-The original version can be found here: [/template.original](/template.original)
+The original version can be found in the GNU Boot git history.
 
 Other modified templates may be used, on specific pages. Check for this on the
 Git repository for the Libreboot website.
