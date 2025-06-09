@@ -32,8 +32,6 @@ List of models and codenames
 
 ### Codenames
 
--   Asus Chromebook C201PA: speedy\_rk3288, veyron-speedy
-
 -   ThinkPad X60: KS Note (Sumo)
 -   ThinkPad X60s (slim): KS Note-2 / KS-2 (Kabuki)
 -   ThinkPad X60 Tablet: Dali (Same PCB as KS Note-2, different EC firmware)

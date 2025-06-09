@@ -32,10 +32,6 @@ Libreboot supports the following systems in this release:
 -   [ASUS KGPE-D16 motherboard](kgpe-d16.md)
 -   [ASUS KFSN4-DRE motherboard](kfsn4-dre.md)
 
-### Laptops (ARM)
-
--   [ASUS Chromebook C201](c201.md) (**Libreboot 20160907 only**)
-
 ### Laptops (Intel, x86)
 
 -   ThinkPad X60 / X60S / X60 Tablet
