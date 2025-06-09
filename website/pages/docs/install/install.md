@@ -537,12 +537,6 @@ TARGET: ASUS KCMA-D8 mainboard
 Refer to the following article:\
 [ASUS KCMA-D8](../hardware/kcma-d8.md)
 
-TARGET: ASUS Chromebook C201 laptop
-----------------------------
-
-Refer to the following article:\
-[ASUS Chromebook C201](c201.md)
-
 TARGET: Lenovo ThinkPad X60 laptop
 ----------------------------------
 
