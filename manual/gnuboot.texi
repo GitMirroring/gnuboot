@@ -3487,6 +3487,9 @@ especially in the part about "Key validation".
 @node    Helping GNU Boot
 @chapter Helping GNU Boot
 
+@node    Documentation
+@section Documentation
+
 The GNU Boot project needs help with this manual, specifically on
 moving information from the GNU Boot website to this manual.
 
@@ -3499,6 +3502,69 @@ See the
 Boot} page on the GNU Boot website for the areas where we need help
 and on how to help practically speaking (how to contact the project,
 where to send bug reports, etc).
+
+@node    Adding support for additional computers
+@section Adding support for additional computers
+
+@node    Asus Chromebook C201
+@section Asus Chromebook C201
+
+The Asus Chromebook C201 was supported by Libreboot around 2016 at a
+time where Libreboot didn't include nonfree software in its releases and
+where they used an older build system that is archived here at
+@url{https://notabug.org/libreboot/obsolete-repository-preserved-for-historical-purposes}.
+
+It is still present in Coreboot (in src/mainboard/google/veyron/) even
+if there is no official maintainer for it.
+
+At the time of writing, this computer is not supported by Canoeboot, so
+there is probably no useful information on this computer there.
+
+There is some documentation about it in the GNU Boot source code history
+before the commit 9b807193b3af2fe843e6f68f9e239ae70eeb6eb7 (``Clarify
+that the Asus Chromebook C201 isn't supported.''). We removed this
+documentation in this commit for consistency reasons as we didn't
+produce any images for this computer, and so it made sense to remove it
+to prevent missunderstandings.
+
+It could be supported by GNU Boot if someone does the work to bring it
+back.
+
+However when it was supported by Libreboot, images were made with the
+depthcharge Coreboot payload. This complicated support for distributions
+like Parabola, so it could make sense to (also) find a way to also
+support more well known payloads like GRUB.
+
+If you intend to do that work, you should seriously consider getting
+access to a @emph{servo} first, which is a hardware board that can be
+plugged to a debug port inside the Asus Chromebook C201 (and maybe other
+Chromebooks as well).
+
+It can give access to a serial port which can make it much easier to see
+what is going on in both GNU Boot and distributions like Parabola that
+do want to support this computer.
+
+Since such servo were hard to get and to manufacture, Paul Kocialkowski
+designed some compatible hardware that is easier to manufacture at the
+time. The work was done as part of non-profit organization that doesn't
+exist anymore (embedded freedom).
+
+So you should start by contacting Paul Kocialkowski. If you don't get
+access to a @emph{servo}, the port will become much harder and longer
+because if something if anything goes wrong, you won't be able to get
+any message of what went wrong. And you might also need to test things
+with distributions like Parabola as well to make sure there is at least
+one GNU/Linux distribution that work fine with this computer.
+
+An alternative to the @emph{servo} would be to make the non-working GNU
+Boot image or kenrel store its logs in the boot flash or in the RAM, to
+then restore a known working image (from an old Libreboot or by building
+an old Parabola kernel for instance) and then retrieve the logs in some
+ways.
+
+We're didn't check if there are working Coreboot or Linux drivers for
+that though, and if they exist, this also require the images to not
+crash before intializing these drivers.
 
 @node     GNU Free Documentation License
 @appendix GNU Free Documentation License
