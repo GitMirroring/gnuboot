@@ -37,9 +37,6 @@ Estado de GNU Boot 0.1 RC6
 +------------------+--------------+--------------+--------------+--------------+
 | Apple, iMac 5,2  | No probado   | No probado   | No probado   | No probado   |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus,            | Faltan       | Faltan       | Faltan       | Faltan       |
-| Chromebook C201  | imágenes     | imágenes     | imágenes     | imágenes     |
-+------------------+--------------+--------------+--------------+--------------+
 | Asus, KCMA-D8    | Faltan       | No probado   | Faltan       | No probado   |
 | con RAM ECC      | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
@@ -220,9 +217,6 @@ Estado de GNU Boot 0.1 RC5
 +------------------+--------------+--------------+--------------+--------------+
 | Apple, iMac 5,2  | No probado   | No probado   | No probado   | No probado   |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus,            | Faltan       | Faltan       | Faltan       | Faltan       |
-| Chromebook C201  | imágenes     | imágenes     | imágenes     | imágenes     |
-+------------------+--------------+--------------+--------------+--------------+
 | Asus, KCMA-D8    | Faltan       | No probado   | Faltan       | No probado   |
 | con RAM ECC      | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
@@ -375,9 +369,6 @@ Estado de GNU Boot 0.1 RC4
 | Apple, iMac 5,2  | No probado   | No probado   | Fallado:     | Fallado:     |
 |                  |              |              | #66487       | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus,            | Faltan       | Faltan       | Faltan       | Faltan       |
-| Chromebook C201  | imágenes     | imágenes     | imágenes     | imágenes     |
-+------------------+--------------+--------------+--------------+--------------+
 | Asus, KCMA-D8    | Faltan       | No probado   | Faltan       | No probado   |
 | con RAM ECC      | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
@@ -528,9 +519,6 @@ Estado de GNU Boot 0.1 RC3
 +---------------+----------------+-----------------+
 | Apple         | iMac 5,2       | No probado      |
 +---------------+----------------+-----------------+
-| Asus          | Chromebook     | Faltan          |
-|               | C201           | imágenes        |
-+---------------+----------------+-----------------+
 | Asus          | KCMA-D8        | No probado      |
 +---------------+----------------+-----------------+
 | Asus          | KFSN4-DRE      | No probado      |
@@ -626,9 +614,6 @@ algunas computadoras en el RC2 para reducir el riesgo de los probadores.
 +---------------+----------------+-----------------+
 | Apple         | iMac 5,2       | No probado      |
 +---------------+----------------+-----------------+
-| Asus          | Chromebook     | Faltan          |
-|               | C201           | imágenes        |
-+---------------+----------------+-----------------+
 | Asus          | KCMA-D8        | No probado      |
 +---------------+----------------+-----------------+
 | Asus          | KFSN4-DRE      | No probado      |
@@ -719,9 +704,6 @@ Estado de GNU Boot 0.1 RC1
 +---------------+----------------+-----------------+
 | Apple         | iMac 5,2       | No probado      |
 +---------------+----------------+-----------------+
-| Asus          | Chromebook     | Faltan          |
-|               | C201           | imágenes        |
-+---------------+----------------+-----------------+
 | Asus          | KCMA-D8        | No probado      |
 +---------------+----------------+-----------------+
 | Asus          | KFSN4-DRE      | No probado      |
@@ -807,8 +789,6 @@ Estado de "Upstream" (Contracorriente)
 | Apple    | MacBook 2.1     | Mantenido                | controlador de GPU antiguo     |
 +----------+-----------------+--------------------------+--------------------------------+
 | Apple    | iMac 5,2        | Mantenido                | controlador de GPU antiguo     |
-+----------+-----------------+--------------------------+--------------------------------+
-| Asus     | Chromebook C201 | Sin mantenimiento        |                                |
 +----------+-----------------+--------------------------+--------------------------------+
 | Asus     | KCMA-D8         | Removido                 |                                |
 +----------+-----------------+--------------------------+--------------------------------+
