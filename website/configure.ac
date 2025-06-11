@@ -234,6 +234,20 @@ AS_IF([test x"$guix" = x"yes"],
              [AC_MSG_ERROR(
               [tex was not found in PATH ($PATH)])])])
 
+dnl tests for BeautifulSoup. Here we assume that since Guix shell is a very
+dnl controlled environment, we don't really need to test for
+dnl python-beautifulsoup4 within Guix. Note that the tests would need to run
+dnl in a guix shell container if we did that.
+AS_IF([test x"$guix" != x"yes"],
+      [AC_CHECK_PROG([FOUND_PYTHON3], [python3], [python3])
+       AS_IF([test x"$FOUND_PYTHON3" = x""],
+             [AC_MSG_ERROR(
+              [python3 was not found in PATH ($PATH)])])
+       AS_IF([python3 -c 'from bs4 import BeautifulSoup'],
+             [AS_ECHO(["checking for BeautifulSoup... done"])],
+             [AC_MSG_ERROR(
+              [Beautifulsoup was not found])])])
+
 # We want to only set the Guix revision being used only in one place
 # to avoid forgetting to also update it on other places it would have
 # been set.
