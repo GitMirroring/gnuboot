@@ -123,6 +123,10 @@ GUIX_SHELL_CONTAINER = \
 		repl force-bordeaux-substitute.scm force` \
 	$(SENTINEL)
 
+###########
+# history #
+###########
+
 if WANT_GUIX
 DOT_CMD = $(GUIX_SHELL_CONTAINER) \
 	graphviz \
@@ -134,6 +138,10 @@ endif
 
 history/git-history.jpg: history/git-history.dot
 	$(DOT_CMD) -T jpg history/git-history.dot > "$@"
+
+#############
+# templates #
+#############
 
 # We need force the regeneration of the page because if only the git
 # commit changes, there is no way to know about it. In addition the
@@ -162,6 +170,10 @@ pages/footer.include: pages/footer.include.tmpl pages/footer-git-commit.include
 
 site.cfg: site.cfg.tmpl
 	sed -e "s#WEBSITE_PREFIX#$(WEBSITE_PREFIX)#g" "$^" > "$@"
+
+##########
+# manual #
+##########
 
 if WANT_GUIX
 # We can't use MAKEINFO as it's defined in configure.ac
@@ -268,6 +280,10 @@ GNUBOOT_MANUAL = \
 	pages/manual/gnuboot.pdf \
 	$(SENTINEL)
 
+#################
+# website build #
+#################
+
 if WANT_GUIX
 BUILD_SH_CMD = $(GUIX_SHELL_CONTAINER) \
 	--network \
@@ -289,6 +305,10 @@ endif
 
 build: site.cfg pages/footer.include $(GNUBOOT_MANUAL)
 	$(BUILD_SH_CMD) $(BUILD_OPTIONS)
+
+###################
+# automatic tests #
+###################
 
 if WANT_GUIX
 CHECK_SH_CMD = $(GUIX_SHELL_CONTAINER) \
@@ -326,6 +346,10 @@ help:
 		"check          # Run automatic tests" \
 		"website.tar.gz # Create a tarball of the website"
 
+################
+# manual tests #
+################
+
 if WANT_GUIX
 SERVE_SH_CMD = $(GUIX_SHELL_CONTAINER) \
 	--network \
@@ -357,6 +381,10 @@ serve: website.tar.gz
 			website.tar.gz $(LIGHTTPD_PORT)
 endif
 
+##########################
+# publishing the website #
+##########################
+
 RSYNC_OPTIONS := -av --progress --delete
 publish: website.tar.gz
 	rm -rf deploy
@@ -365,6 +393,10 @@ publish: website.tar.gz
 	rsync $(RSYNC_OPTIONS) \
 		deploy/ \
 		$(RSYNC_DESTINATION)/
+
+###################
+# website tarball #
+###################
 
 WEBSITE_TAR_GZ_DEPS = \
 	history/git-history.jpg \
