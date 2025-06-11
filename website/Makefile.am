@@ -22,7 +22,7 @@ SENTINEL =
 	help \
 	publish \
 	serve \
-	website.tar.gz \
+	website-raw.tar.gz \
 if WANT_WEB_SYMLINKS_PATH
 	$(WEB_SYMLINKS_PATH)/COPYING \
 	$(WEB_SYMLINKS_PATH)/web-symlinks \
@@ -403,14 +403,14 @@ WEBSITE_TAR_GZ_DEPS = \
 	$(WEB_SYMLINKS_FILES) \
 	$(SENTINEL)
 
-website.tar.gz: build $(WEBSITE_TAR_GZ_DEPS)
+website-raw.tar.gz: build $(WEBSITE_TAR_GZ_DEPS)
 	tar \
 		--exclude-vcs \
 		--format=gnu \
 		--owner=0 --group=0 --numeric-owner \
 		--sort=name \
 		-czf \
-		website.tar.gz \
+		$@ \
 		untitled/www/lbwww/site/ \
 		history/git-history.dot \
 		history/git-history.jpg \
@@ -418,3 +418,14 @@ website.tar.gz: build $(WEBSITE_TAR_GZ_DEPS)
 		$(WEB_SYMLINKS_TRANSFORM) \
 		--transform="s#untitled/www/lbwww/site/##" \
 		$(SENTINEL)
+
+if WANT_GUIX
+PRETTIFY_ARCHIVE_PY = \
+	$(GUIX_SHELL_CONTAINER) \
+	python python-beautifulsoup4 -- python3 prettify-archive.py
+else
+PRETTIFY_ARCHIVE_PY = python3 prettify-archive.py
+endif
+
+website.tar.gz: website-raw.tar.gz
+	$(PRETTIFY_ARCHIVE_PY) $^ $@
