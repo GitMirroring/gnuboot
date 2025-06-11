@@ -27,6 +27,7 @@ need to install the following dependencies (tested under Trisquel 11):
 * lighttpd
 * make
 * pandoc
+* python3-bs4
 * sed
 * tar
 * texinfo
