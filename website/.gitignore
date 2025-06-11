@@ -26,6 +26,7 @@
 /missing
 /site/**
 /site.cfg
+/website-raw.tar.gz
 /website.tar.gz
 /pages/footer.include
 /pages/footer-git-commit.include
