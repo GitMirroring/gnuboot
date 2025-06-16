@@ -61,6 +61,49 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
+;;                        ;;;;;;;;;;;;;;;;;;;;;;;;;;;                         ;;
+;;                        ;; Texinfo parsing logic ;;                         ;;
+;;                        ;;;;;;;;;;;;;;;;;;;;;;;;;;;                         ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define (handle-texinfo-node-type prefix type check-results)
+  (define warnings (assq-ref check-results 'warnings))
+  (define* (node-name line prefix type)
+    (regexp-substitute
+     #f
+     (string-match (string-append "\\" prefix "@" type " +") line) 'post))
+
+  (define current-node-name
+    (substring
+     (assq-ref check-results 'current-node)
+     1
+     (string-length (assq-ref check-results 'current-node))))
+
+  (lambda (line parse-results check-results)
+    (if
+     (and
+      (string=?
+       (node-name line prefix type)
+       (node-name
+        (string-append prefix current-node-name)
+        prefix
+        "node"))
+      (not
+       (= (string-length
+           (substring line (string-length prefix) (string-length line)))
+          (string-length
+           current-node-name))))
+     ((lambda _
+        (display
+         (string-append
+          "WARNING: " (node-name line prefix type)
+          " " type " and node are not aligned.\n\n"))
+        (+ 1 warnings)))
+     warnings)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
 ;;                         ;;;;;;;;;;;;;;;;;;;;;;;;;                          ;;
 ;;                         ;; Patch parsing logic ;;                          ;;
 ;;                         ;;;;;;;;;;;;;;;;;;;;;;;;;                          ;;
@@ -715,40 +758,6 @@
     (lambda (path line parse-results check-results)
       (define warnings (assq-ref check-results 'warnings))
 
-      (define* (node-name line prefix type)
-        (regexp-substitute
-         #f
-         (string-match (string-append "\\" prefix "@" type " +") line) 'post))
-
-      (define (handle-node-type prefix type warnings)
-        (define current-node-name
-          (substring
-           (assq-ref check-results 'current-node)
-           1
-           (string-length (assq-ref check-results 'current-node))))
-
-        (lambda (line parse-results check-results)
-          (if
-           (and
-            (string=?
-             (node-name line prefix type)
-             (node-name
-              (string-append prefix current-node-name)
-              prefix
-              "node"))
-            (not
-             (= (string-length
-                 (substring line (string-length prefix) (string-length line)))
-                (string-length
-                 current-node-name))))
-           ((lambda _
-              (display
-               (string-append
-                "WARNING: " (node-name line prefix type)
-                " " type " and node are not aligned.\n\n"))
-              (+ 1 warnings)))
-           warnings)))
-
       ;; We have at least 3 cases we want to detect:
       ;; - a @chapter/@*section was changed and node was not
       ;; - a @chapter/@*section was not changed and node was
@@ -779,10 +788,10 @@
              (or (startswith line "+@chapter ")
                  (startswith line " @chapter ")))
         (acons 'warnings
-               ((handle-node-type
+               ((handle-texinfo-node-type
                  (substring line 0 1) ;; "+" or " "
                  "chapter"
-                 warnings)
+                 check-results)
                 line parse-results check-results)
                check-results))
 
@@ -798,10 +807,10 @@
              (or (startswith line "+@section ")
                  (startswith line " @section ")))
         (acons 'warnings
-               ((handle-node-type
+               ((handle-texinfo-node-type
                  (substring line 0 1) ;; "+" or " "
                  "section"
-                 warnings)
+                 check-results)
                 line parse-results check-results)
                check-results))
 
@@ -817,10 +826,10 @@
              (or (startswith line "+@subsection ")
                  (startswith line " @subsection ")))
         (acons 'warnings
-               ((handle-node-type
+               ((handle-texinfo-node-type
                  (substring line 0 1) ;; "+" or " "
                  "subsection"
-                 warnings)
+                 check-results)
                 line parse-results check-results)
                check-results))
 
@@ -836,10 +845,10 @@
              (or (startswith line "+@subsubsection ")
                  (startswith line " @subsubsection ")))
         (acons 'warnings
-               ((handle-node-type
+               ((handle-texinfo-node-type
                  (substring line 0 1) ;; "+" or " "
                  "subsubsection"
-                 warnings)
+                 check-results)
                 line parse-results check-results)
                check-results))
 
