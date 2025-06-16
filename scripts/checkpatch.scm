@@ -33,7 +33,7 @@
     (close-port port)
     results))
 
-(define (print-patch-name path)
+(define (print-file-name path)
   (define dashes
     (string-append
      (string-join (make-list (string-length path) "-") "")
@@ -70,14 +70,19 @@
 (define (handle-texinfo-node-type prefix type check-results)
   (define warnings (assq-ref check-results 'warnings))
   (define* (node-name line prefix type)
+    (define match
+      (if (string=? prefix "")
+          (string-match (string-append "@" type " +") line)
+          (string-match (string-append "\\" prefix "@" type " +") line)))
     (regexp-substitute
      #f
-     (string-match (string-append "\\" prefix "@" type " +") line) 'post))
+     match
+     'post))
 
   (define current-node-name
     (substring
      (assq-ref check-results 'current-node)
-     1
+     (string-length prefix)
      (string-length (assq-ref check-results 'current-node))))
 
   (lambda (line parse-results check-results)
@@ -119,9 +124,16 @@
   (line       rule-line)       ;; Runs if rule-line-match is true
   (end        rule-end))       ;; Runs once at the end, inconditionally
 
-(define parse-rules
-  (list
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                         ;;;;;;;;;;;;;;;;;;;;;;;;;                          ;;
+;;                         ;; Patch parsing logic ;;                          ;;
+;;                         ;;;;;;;;;;;;;;;;;;;;;;;;;                          ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(define patch-parse-rules
+  (list
    ;; Here's an example of a parse rule below. Since it runs each time it is
    ;; also tested. TODO: A a proper unit testing environment needs to
    ;; be added and then this could be moved to only run inside that
@@ -525,9 +537,9 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
-;;                                ;;;;;;;;;;;;                                ;;
-;;                                ;; Checks ;;                                ;;
-;;                                ;;;;;;;;;;;;                                ;;
+;;                             ;;;;;;;;;;;;;;;;;;                             ;;
+;;                             ;; Patch checks ;;                             ;;
+;;                             ;;;;;;;;;;;;;;;;;;                             ;;
 ;;                                                                            ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -540,7 +552,7 @@
              (run-line-match-rules port rules path parse-results defaults)))
      (run-end-rules path rules parse-results check-results)))))
 
-(define check-rules
+(define patch-check-rules
   (list
 
    ;; Here's an example of a check rule below. Since it runs each time it is
@@ -925,8 +937,212 @@
       check-results))))
 
 (define (test-patch path)
-  (let* ((parse-results (run-parse-rules parse-rules path))
-         (check-results (run-check-rules parse-results check-rules path)))
+  (let* ((parse-results (run-parse-rules patch-parse-rules path))
+         (check-results (run-check-rules parse-results patch-check-rules path)))
+    parse-results))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                           ;;;;;;;;;;;;;;;;;;;;;;                           ;;
+;;                           ;; File parse logic ;;                           ;;
+;;                           ;;;;;;;;;;;;;;;;;;;;;;                           ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define file-parse-rules
+  (list
+   ;; Here's an example of a parse rule below. Since it runs each time it is
+   ;; also tested. TODO: A a proper unit testing environment needs to
+   ;; be added and then this could be moved to only run inside that
+   ;; separate testing environment.
+   (make-rule
+    "Example empty rule"
+    (lambda (path _ results) results)
+    (lambda (path line _ results) #t)
+    (lambda (path line _ results) results)
+    (lambda (path _ results) results))
+
+   (make-rule
+    "Count lines"
+    (lambda (path _ results) (acons 'line 0 results))
+    (lambda (path line _ results) #t)
+    (lambda (path line _ results)
+      (acons 'line (+ 1 (assq-ref results 'line)) results))
+    (lambda (path _ results) results))
+
+   ;; We can also use rules for debugging the code, here are two
+   ;; examples below.
+
+   ;; (make-rule
+   ;;  "Debug: print lines."
+   ;;  (lambda (path _ results) results)
+   ;;  (lambda (path line _ results) #t)
+   ;;  (lambda (path line _ results)
+   ;;    (display "Count lines: line #")
+   ;;    (display (+ 1 (assq-ref results 'line)))
+   ;;    (display (string-append ": " line "\n"))
+   ;;    results)
+   ;;  (lambda (path _ results) results))
+
+   ;; (make-rule
+   ;;  "Debug: print results."
+   ;;  (lambda (path _ results) results)
+   ;;  (lambda (path line _ results) #f)
+   ;;  (lambda (path line _ results) results)
+   ;;  (lambda (path _ results)
+   ;;    (pk results)
+   ;;    results))
+   ))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                             ;;;;;;;;;;;;;;;;;                              ;;
+;;                             ;; File checks ;;                              ;;
+;;                             ;;;;;;;;;;;;;;;;;                              ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define file-check-rules
+  (list
+   ;; Here's an example of a check rule below. Since it runs each time it is
+   ;; also tested. TODO: A a proper unit testing environment needs to
+   ;; be added and then this could be moved to only run inside that
+   ;; separate testing environment.
+   (make-rule
+    "Example empty rule"
+    (lambda (path parse-results check-results) check-results)
+    (lambda (path line parse-results check-results) #t)
+    (lambda (path line parse-results check-results) check-results)
+    (lambda (path parse-results check-results) check-results))
+
+   (make-rule
+    "Count lines"
+    (lambda (path parse-results check-results) (acons 'line 0 check-results))
+    (lambda (path line parse-results check-results) #t)
+    (lambda (path line parse-results check-results)
+      (acons 'line (+ 1 (assq-ref check-results 'line)) check-results))
+    (lambda (path parse-results check-results) check-results))
+
+   (make-rule
+    "Check @node alignement in the manual"
+    (lambda (path parse-results check-results)
+      (acons 'current-node #f check-results))
+    (lambda (path line parse-results check-results)
+      (string-match "\\.texi$" path))
+    (lambda (path line parse-results check-results)
+      (define warnings (assq-ref check-results 'warnings))
+      (cond
+       ((startswith line "@node ")
+        (acons
+         'current-node
+         line
+         check-results))
+       ((and (assq-ref check-results 'current-node)
+             (startswith line "@chapter "))
+        (acons 'warnings
+               ((handle-texinfo-node-type
+                 ""
+                 "chapter"
+                 check-results)
+                line parse-results check-results)
+               check-results))
+
+       ;; Skip when nothing changed. Note that (assq-ref check-results
+       ;; 'current-node) is sometime false. So we cannot assume it is
+       ;; a string unless we check if it is not false before.
+       ((and (assq-ref check-results 'current-node)
+	     (startswith line "@section ")
+             (startswith (assq-ref check-results 'current-node) "@node "))
+               check-results)
+
+       ((and (assq-ref check-results 'current-node)
+             (startswith line "@section "))
+        (acons 'warnings
+               ((handle-texinfo-node-type
+                 ""
+                 "section"
+                 check-results)
+                line parse-results check-results)
+               check-results))
+
+       ;; Skip when nothing changed. Note that (assq-ref check-results
+       ;; 'current-node) is sometime false. So we cannot assume it is
+       ;; a string unless we check if it is not false before.
+       ((and (assq-ref check-results 'current-node)
+	     (startswith line "subsection ")
+             (startswith (assq-ref check-results 'current-node) "node "))
+               check-results)
+
+       ((and (assq-ref check-results 'current-node)
+             (startswith line "subsection "))
+        (acons 'warnings
+               ((handle-texinfo-node-type
+                 ""
+                 "subsection"
+                 check-results)
+                line parse-results check-results)
+               check-results))
+
+       ;; Skip when nothing changed. Note that (assq-ref check-results
+       ;; 'current-node) is sometime false. So we cannot assume it is
+       ;; a string unless we check if it is not false before.
+       ((and (assq-ref check-results 'current-node)
+	     (startswith line "@subsubsection ")
+             (startswith (assq-ref check-results 'current-node) "@node "))
+               check-results)
+
+       ((and (assq-ref check-results 'current-node)
+             (startswith line "@subsubsection "))
+        (acons 'warnings
+               ((handle-texinfo-node-type
+                 ""
+                 "subsubsection"
+                 check-results)
+                line parse-results check-results)
+               check-results))
+
+       (else check-results)))
+
+    (lambda (path parse-results check-results)
+      check-results))
+
+   (make-rule
+    "Track total errors and warnings"
+    (lambda (path parse-results check-results)
+      (acons 'warnings 0 (acons 'errors 0 check-results)))
+    (lambda (path line parse-results check-results) #t)
+    (lambda (path line parse-results check-results) check-results)
+    (lambda (path parse-results check-results)
+      (let* ((nr-lines (number->string (assq-ref parse-results 'line) 10))
+             (errors (assq-ref check-results 'errors))
+             (warnings (assq-ref check-results 'warnings))
+             (error-text
+              (string-append (number->string errors 10)
+                             (if (> errors 1) " errors, " " error, ")))
+             (warning-text
+              (string-append (number->string warnings 10)
+                             (if (> warnings 1) " warnings, " " warning, "))))
+        (display
+         (string-append
+          "total: " error-text warning-text nr-lines " lines checked\n\n"))
+        (if (or (> errors 0) (> warnings 0))
+            ((lambda _
+               (display
+                (string-append path " has style problems, please review.\n"))
+               (display
+                (string-append
+                 "NOTE: If any of the errors are false positives, "
+                 "please report them to the GNU Boot maintainers.\n"))))
+            (display
+             (string-append
+              path
+              " has no obvious style problems "
+              "and is ready for submission.\n"))))
+      check-results))))
+
+(define (test-file path)
+  (let* ((parse-results (run-parse-rules file-parse-rules path))
+         (check-results (run-check-rules parse-results file-check-rules path)))
     parse-results))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -950,23 +1166,51 @@
   (display (string-append
             "Usage: "
             progname
-            " [path/to/file.patch [path/to/file.patch ...]]\n"))
+            " [OPTIONS] [FILE [FILE ...]]\n"
+            "\n"
+            "Options:\n"
+            "\t--help print this help.\n"
+            "\t-f     don't treat FILE as a patch, but as regular source file instead.\n"))
   (exit exit-code))
 
 (define (main args)
-  (if (eq? (length args) 1)
-      (usage "checkpatch.pl" 64) ;; 64 is EX_USAGE in sysexits.h
-      (cond
-       ((or (not (in-tree-topdir?))
-            (not (in-git-dir?)))
-        ((lambda _
-           (display
-            (string-append
-             "Error: please run checkpatch.scm in the git top directory.\n"))
-           (exit 69)))) ;; 69 is EX_UNAVAILABLE in sysexits.h
-       (else
-        (map (lambda (path)
-               (if (> (length args) 2)
-                   (print-patch-name path))
-               (test-patch path))
-             (cdr args))))))
+  (cond
+   ((eq? (length args) 1)
+    (usage "checkpatch.pl" 64)) ;; 64 is EX_USAGE in sysexits.h
+   ((string=? (list-ref args 1) "--help")
+    (usage "checkpatch.pl" 0))
+   ((or (not (in-tree-topdir?))
+        (not (in-git-dir?)))
+    ((lambda _
+       (display
+        (string-append
+         "Error: please run checkpatch.scm in the git top directory.\n"))
+       (exit 69)))) ;; 69 is EX_UNAVAILABLE in sysexits.h
+   ((string=? (list-ref args 1) "-f")
+    (map (lambda (path)
+           (if (> (length args) 3)
+               (print-file-name path))
+           (test-file path))
+         (cddr args)))
+   (else
+    (let ((not-patch-files
+           (filter (lambda (arg)
+                     (not (string-match "\\.patch$" arg)))
+                   (cdr args))))
+      (if (> (length not-patch-files) 0)
+          ((lambda _
+             (if (> (length not-patch-files) 1)
+                 (display "ERROR: Some files doesn't end in .patch:\n")
+                 (display "ERROR: The following file doesn't end in .patch:\n"))
+             (for-each
+              (lambda (arg)
+                (display
+                 (string-append "- " arg "\n")))
+              not-patch-files)
+             (display "see the '-f' argument in 'checkpatch.scm --help' for how to check files.\n")
+
+             (exit 64))) ;; 64 is EX_USAGE in sysexits.h
+          (map (lambda (path)
+                 (if (> (length args) 2) (print-file-name path))
+                 (test-patch path))
+               (cdr args)))))))

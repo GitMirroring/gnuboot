@@ -47,37 +47,87 @@ test -f "${topdir}"/resources/wrapper/git || \
 # Test if checkpatch.scm correctly finds non-aligned nodes.                    #
 ################################################################################
 
-# This checks the "Add a minimal GNU Boot manual." commit which has
+# This checks the "Add a minimal GNU Boot manual." patch which adds
 # unaligned nodes.
 ./scripts/checkpatch.scm \
     "$(git format-patch -1 08b9e449e94e99c0ec924e2026dc650b63ddc3e5)" > \
-    "${tmpdir}"/checkpatch-test-unaligned-nodes.log 2>/dev/null || \
+    "${tmpdir}"/checkpatch-test-unaligned-nodes-patch.log 2>/dev/null || \
     fail "checkpatch.scm failed " \
-         "when trying to detect unaligned node in the manual."
+         "when trying to detect unaligned node in a patch touching the manual."
 
 while IFS= read -r line; do
-    grep -q "${line}" "${tmpdir}"/checkpatch-test-unaligned-nodes.log || \
-    fail "failed to detect unaligned node in the manual."
-done < tests/checkpatch-test-unaligned-nodes.ref
+    grep -q "${line}" "${tmpdir}"/checkpatch-test-unaligned-nodes-patch.log || \
+    fail "failed to detect unaligned node in a patch touching the manual."
+done < tests/checkpatch-test-unaligned-nodes-patch.ref
 
-echo "[ OK ] detected unaligned nodes in the manual."
+echo "[ OK ] detected unaligned nodes in a patch touching the manual."
 
-# This checks the "manual: Describe the GNU Boot project." commit
-# which has non-modified unaligned nodes.
+# This checks the manual file extracted from the "Add a minimal GNU Boot
+# manual." commit which adds unaligned nodes.
+git show \
+    "$(git ls-tree 08b9e449e94e99c0ec924e2026dc650b63ddc3e5 -- \
+       manual/gnuboot.texi | awk '{print $3}')" \
+    > "${tmpdir}"/gnuboot.texi
+
+./scripts/checkpatch.scm \
+    -f \
+    "${tmpdir}"/gnuboot.texi > \
+    "${tmpdir}"/checkpatch-test-unaligned-nodes-file.log 2>/dev/null || \
+    fail "checkpatch.scm failed " \
+         "when trying to detect unaligned node in the manual file."
+
+while IFS= read -r line; do
+    grep -q "${line}" "${tmpdir}"/checkpatch-test-unaligned-nodes-file.log || \
+    fail "failed to detect unaligned node in the manual file."
+done < tests/checkpatch-test-unaligned-nodes-file.ref
+
+echo "[ OK ] detected unaligned nodes in the manual file."
+
+# This checks the "manual: Describe the GNU Boot project." patch
+# which doesn't add any unaligned nodes.
 ./scripts/checkpatch.scm \
     "$(git format-patch -1 5303fab6a49796d69fc9176b715409f925d8f608)" > \
-    "${tmpdir}"/checkpatch-test-non-modified-unaligned-nodes.log \
+    "${tmpdir}"/checkpatch-test-non-modified-unaligned-nodes-patch.log \
     2>/dev/null || \
     fail "checkpatch.scm failed " \
-         "when checking non-modified unaligned nodes in the manual."
+         "when checking non-modified unaligned nodes " \
+         "in a patch touching the manual."
 
 while IFS= read -r line; do
     grep -q -L "${line}" \
-         "${tmpdir}"/checkpatch-test-non-modified-unaligned-nodes.log
-done < tests/checkpatch-test-non-modified-unaligned-nodes.ref && \
-    fail "warned against non-modified unaligned nodes in the manual."
+         "${tmpdir}"/checkpatch-test-non-modified-unaligned-nodes-patch.log
+done < tests/checkpatch-test-non-modified-unaligned-nodes-patch.ref && \
+    fail "warned against non-modified unaligned nodes " \
+         "in a patch touching the manual."
 
-echo "[ OK ] didn't warn against non-modified unaligned nodes in the manual."
+echo "[ OK ] didn't warn against non-modified unaligned nodes" \
+     "in a patch touching the manual."
+
+# This checks the manual file extracted from the "manual: align nodes and
+# require it too." commit which doesn't add any unaligned nodes.
+git show \
+    "$(git ls-tree 3cfb105dbc9dff5040be5ef461e14c6c1f8dace3 -- \
+       manual/gnuboot.texi | awk '{print $3}')" \
+    > "${tmpdir}"/gnuboot.texi
+
+./scripts/checkpatch.scm \
+    -f \
+    "${tmpdir}"/gnuboot.texi > \
+    "${tmpdir}"/checkpatch-test-non-modified-unaligned-nodes-file.log \
+    2>/dev/null || \
+    fail "checkpatch.scm failed" \
+         "when checking non-modified unaligned nodes" \
+         "in the manual file"
+
+while IFS= read -r line; do
+    grep -q -L "${line}" \
+         "${tmpdir}"/checkpatch-test-non-modified-unaligned-nodes-file.log
+done < tests/checkpatch-test-non-modified-unaligned-nodes-file.ref && \
+    fail "warned against non-modified unaligned nodes" \
+         "in the manual file"
+
+echo "[ OK ] didn't warn against non-modified unaligned nodes" \
+     "in the manual file."
 
 ################################################################################
 # Test if checkpatch.scm correctly finds missing Spanish translation.          #
