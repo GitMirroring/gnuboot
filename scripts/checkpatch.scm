@@ -816,7 +816,7 @@
        ((or (startswith line "+@node ") (startswith line " @node "))
         (acons
          'current-node
-         (substring line 0 (string-length line))
+         line
          check-results))
 
        ;; Skip when nothing changed. Note that (assq-ref check-results
