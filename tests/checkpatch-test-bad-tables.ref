@@ -1,0 +1,13 @@
+Error: different column length detected:
+       line 1: column lengths: (list 5 5)
+       line 3: column lengths: (list 1 3 5)
+       line 1: +-----+-----+
+       line 3: +-----+---+-+
+Error: different column length detected:
+       line 1: column lengths: (list 5 5)
+       line 4: column lengths: (list 1 9)
+       line 1: +-----+-----+
+       line 4: | Foo Bar | |
+Error: different column length detected:
+       line 1: column lengths: (list 5 5)
+       line 5: column lengths: (list 1 9)
