@@ -87,24 +87,24 @@
    (make-rule
     "Example empty rule"
     (lambda (path _ results) results)
-    (lambda (line _ results) #t)
-    (lambda (line _ results) results)
+    (lambda (path line _ results) #t)
+    (lambda (path line _ results) results)
     (lambda (path _ results) results))
 
    (make-rule
     "Count lines"
     (lambda (path _ results) (acons 'line 0 results))
-    (lambda (line _ results) #t)
-    (lambda (line _ results)
+    (lambda (path line _ results) #t)
+    (lambda (path line _ results)
       (acons 'line (+ 1 (assq-ref results 'line)) results))
     (lambda (path _ results) results))
 
    (make-rule
     "Find diff start"
     (lambda (path _ results) results)
-    (lambda (line _ results)
+    (lambda (path line _ results)
       (startswith line "diff --git "))
-    (lambda (line _ results)
+    (lambda (path line _ results)
       (acons 'diff-start
              (assq-ref results
                        'line) results))
@@ -114,8 +114,8 @@
    (make-rule
     "Retrieve Signed-off-by"
     (lambda (path _ results) (acons 'signed-off-by '() results))
-    (lambda (line _ results) (startswith line "Signed-off-by: "))
-    (lambda (line _ results)
+    (lambda (path line _ results) (startswith line "Signed-off-by: "))
+    (lambda (path line _ results)
       (let ((signed-off-by
              (string-join (cdr (string-split line #\ )) " ")))
         (acons 'signed-off-by
@@ -129,8 +129,8 @@
    (make-rule
     "Find commit author"
     (lambda (path _ results) results)
-    (lambda (line _ results) (startswith line "From: "))
-    (lambda (line _ results)
+    (lambda (path line _ results) (startswith line "From: "))
+    (lambda (path line _ results)
       (let ((commit-author (string-join (cdr (string-split line #\ )) " ")))
         (acons
          'commit-author
@@ -141,7 +141,7 @@
    (make-rule
     "Find commit hash"
     (lambda (path _ results) results)
-    (lambda (line _ results)
+    (lambda (path line _ results)
       ;; Example:
       ;; From 0df4fe5fadfb7f51c1c34dad10ca9e6e04c3fa18 Mon Sep 17 00:00:00 2001
       (and (not (startswith line "From: "))
@@ -149,7 +149,7 @@
            ;; We only want to match the first result, otherwise a 'From [...]
            ;; within the commit message will match.
            (not (assq-ref results 'commit-hash))))
-    (lambda (line _ results)
+    (lambda (path line _ results)
       (let ((commit-hash (list-ref (string-split line #\ ) 1)))
         (acons 'commit-hash commit-hash results)))
     (lambda (path _ results) results))
@@ -160,8 +160,8 @@
    (make-rule
     "Find commit date"
     (lambda (path _ results) results)
-    (lambda (line _ results) (startswith line "Date: "))
-    (lambda (line _ results)
+    (lambda (path line _ results) (startswith line "Date: "))
+    (lambda (path line _ results)
       (acons 'commit-date
              (string->date
               (string-join (cdr (string-split line #\ )) " ")
@@ -180,8 +180,8 @@
    (make-rule
     "Find patch subject"
     (lambda (path _ results) results)
-    (lambda (line _ results) (startswith line "Subject: "))
-    (lambda (line _ results)
+    (lambda (path line _ results) (startswith line "Subject: "))
+    (lambda (path line _ results)
       (let ((commit-subject (string-join (cdr (string-split line #\ )) " ")))
         (acons
          'commit-subject-line
@@ -195,7 +195,7 @@
    (make-rule
     "Find commit subject and message separator"
     (lambda (path _ results) results)
-    (lambda (line _ results)
+    (lambda (path line _ results)
       ;; TODO: Raise an exception if the line after the commit subject
       ;; line is not empty, and when handling it, complain that the
       ;; file is not a valid git patch.
@@ -205,7 +205,7 @@
        (string=? line "")
        (eq? (+ 1 (assq-ref results 'commit-subject-line))
             (assq-ref results 'line))))
-    (lambda (line _ results)
+    (lambda (path line _ results)
       (acons
           'commit-subject-message-separator-line
           (assq-ref results 'line)
@@ -218,11 +218,11 @@
    (make-rule
     "Find changelog end"
     (lambda (path _ results) results)
-    (lambda (line _ results)
+    (lambda (path line _ results)
       (and
        (assq-ref results 'commit-message-end-line)
        (string=? line "---")))
-    (lambda (line _ results)
+    (lambda (path line _ results)
       (acons 'changelog-end-line (assq-ref results 'line) results))
     (lambda (path _ results) results))
 
@@ -231,7 +231,7 @@
    (make-rule
     "Find commit message end"
     (lambda (path _ results) results)
-    (lambda (line _ results)
+    (lambda (path line _ results)
       ;; This matches the first "---" but there could be more as shown
       ;; in the example below:
       ;;     ---
@@ -241,15 +241,15 @@
       ;; we could also be in the ChangeLog.
       (and (string=? line "---")
            (not (assq-ref results 'commit-message-end-line))))
-    (lambda (line _ results)
+    (lambda (path line _ results)
           (acons 'commit-message-end-line (assq-ref results 'line) results))
     (lambda (path _ results) results))
 
    (make-rule
     "Find the end of the commit"
     (lambda (path _ results) results)
-    (lambda (line _ results) #f)
-    (lambda (line _ results) results)
+    (lambda (path line _ results) #f)
+    (lambda (path line _ results) results)
     (lambda (path _ results)
       (acons 'commit-end-line
              (if (assq-ref results 'changelog-end-line)
@@ -260,13 +260,13 @@
    (make-rule
     "Find commit message"
     (lambda (path _ results) results)
-    (lambda (line _ results)
+    (lambda (path line _ results)
       (and
        (not (assq-ref results 'commit-message-end-line))
        (assq-ref results 'commit-subject-message-separator-line)
        (> (assq-ref results 'line)
           (assq-ref results 'commit-subject-message-separator-line))))
-    (lambda (line _ results)
+    (lambda (path line _ results)
       (let ((commit-message
              (if (not (assq-ref results 'commit-message))
                  (list)
@@ -282,9 +282,9 @@
     (lambda (path _ results)
       (acons 'added-files
              '() results))
-    (lambda (line _ results)
+    (lambda (path line _ results)
       (and (startswith line " create mode ")))
-    (lambda (line _ results)
+    (lambda (path line _ results)
       (define line-parts
         (string-split line #\space))
       (define added-file
@@ -303,9 +303,9 @@
     (lambda (path _ results)
       (acons 'deleted-files
              '() results))
-    (lambda (line _ results)
+    (lambda (path line _ results)
       (and (startswith line " delete mode ")))
-    (lambda (line _ results)
+    (lambda (path line _ results)
       (define line-parts
         (string-split line #\space))
       (define deleted-file
@@ -324,9 +324,9 @@
     (lambda (path _ results)
       (acons 'current-diff-file #f
              (acons 'modified-files '() results)))
-    (lambda (line _ results)
+    (lambda (path line _ results)
       (startswith line "diff --git a/"))
-    (lambda (line _ results)
+    (lambda (path line _ results)
       (define line-parts
         (string-split line #\space))
       (define current-diff-file
@@ -359,8 +359,8 @@
    (make-rule
     "Track diff"
     (lambda (path _ results) results)
-    (lambda (line _ results) #t)
-    (lambda (line _ results)
+    (lambda (path line _ results) #t)
+    (lambda (path line _ results)
       (define diff-start
         0)
       (define diff-end
@@ -389,13 +389,13 @@
     (lambda (path _ results)
       (acons 'diff-path-added-proper-copyright
              '() results))
-    (lambda (line _ results)
+    (lambda (path line _ results)
       (and (startswith line "+")
            (assq-ref results
                      'current-diff-file)
            (> (assq-ref results
                         'diff-start) 0)))
-    (lambda (line _ results)
+    (lambda (path line _ results)
       (let ((diff-start (assq-ref results
                                   'diff-start))
             (diff-end (assq-ref results
@@ -429,8 +429,8 @@
    ;; (make-rule
    ;;  "Debug: print lines."
    ;;  (lambda (path _ results) results)
-   ;;  (lambda (line _ results) #t)
-   ;;  (lambda (line _ results)
+   ;;  (lambda (path line _ results) #t)
+   ;;  (lambda (path line _ results)
    ;;    (display "Count lines: line #")
    ;;    (display (+ 1 (assq-ref results 'line)))
    ;;    (display (string-append ": " line "\n"))
@@ -440,8 +440,8 @@
    ;; (make-rule
    ;;  "Debug: print results."
    ;;  (lambda (path _ results) results)
-   ;;  (lambda (line _ results) #f)
-   ;;  (lambda (line _ results) results)
+   ;;  (lambda (path line _ results) #f)
+   ;;  (lambda (path line _ results) results)
    ;;  (lambda (path _ results)
    ;;    (pk results)
    ;;    results))
@@ -454,17 +454,17 @@
    rules)
   results)
 
-(define (run-line-match-rules port rules parse-results results)
+(define (run-line-match-rules port rules path parse-results results)
   (define line (read-line port))
   (if (eof-object? line)
       results
       ((lambda _
          (for-each
           (lambda (rule)
-            (if ((rule-line-match rule) line parse-results results)
-                (set! results ((rule-line rule) line parse-results results))))
+            (if ((rule-line-match rule) path line parse-results results)
+                (set! results ((rule-line rule) path line parse-results results))))
           rules)
-         (run-line-match-rules port rules parse-results results)))))
+         (run-line-match-rules port rules path parse-results results)))))
 
 (define (run-end-rules path rules other-results results)
   (for-each
@@ -478,7 +478,7 @@
    path
    (lambda (path port)
      (let* ((defaults (set-defaults rules path #f '()))
-            (results (run-line-match-rules port rules #f defaults)))
+            (results (run-line-match-rules port rules path #f defaults)))
      (run-end-rules path rules #f results)))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -495,7 +495,7 @@
    (lambda (path port)
      (let* ((defaults (set-defaults rules path parse-results '()))
             (check-results
-             (run-line-match-rules port rules parse-results defaults)))
+             (run-line-match-rules port rules path parse-results defaults)))
      (run-end-rules path rules parse-results check-results)))))
 
 (define check-rules
@@ -508,8 +508,8 @@
    (make-rule
     "Example empty rule"
     (lambda (path parse-results check-results) check-results)
-    (lambda (line parse-results check-results) #t)
-    (lambda (line parse-results check-results) check-results)
+    (lambda (path line parse-results check-results) #t)
+    (lambda (path line parse-results check-results) check-results)
     (lambda (path parse-results check-results) check-results))
 
    (make-rule
@@ -569,15 +569,15 @@
                "       import them before with git am as well.\n"))
              (exit 69)) ;; 69 is EX_UNAVAILABLE in sysexits.h
             (else check-results)))
-    (lambda (line parse-results check-results) #t)
-    (lambda (line parse-results check-results) check-results)
+    (lambda (path line parse-results check-results) #t)
+    (lambda (path line parse-results check-results) check-results)
     (lambda (path parse-results check-results) check-results))
 
    (make-rule
     "Count lines"
     (lambda (path parse-results check-results) (acons 'line 0 check-results))
-    (lambda (line parse-results check-results) #t)
-    (lambda (line parse-results check-results)
+    (lambda (path line parse-results check-results) #t)
+    (lambda (path line parse-results check-results)
       (acons 'line (+ 1 (assq-ref check-results 'line)) check-results))
     (lambda (path parse-results check-results) check-results))
 
@@ -585,9 +585,9 @@
     "Track current file diff"
     (lambda (path parse-results check-results)
       (acons 'current-diff-file #f check-results))
-    (lambda (line parse-results check-results)
+    (lambda (path line parse-results check-results)
       (startswith line "diff --git a/"))
-    (lambda (line parse-results check-results)
+    (lambda (path line parse-results check-results)
       (define line-parts (string-split line #\space))
       (define current-diff-file #f)
       (if (> (length line-parts) 3)
@@ -606,10 +606,10 @@
     "Enforce commit size < 4KB"
     (lambda (path parse-results check-results)
       (acons 'commit-size 0 check-results))
-    (lambda (line parse-results check-results)
+    (lambda (path line parse-results check-results)
       (< (assq-ref check-results 'line)
          (assq-ref parse-results 'commit-end-line)))
-    (lambda (line parse-results check-results)
+    (lambda (path line parse-results check-results)
       (acons 'commit-size
              (+
               1 ;; for the \n
@@ -635,8 +635,8 @@
    (make-rule
     "Check for Signed-off-by"
     (lambda (path parse-results check-results) check-results)
-    (lambda (line parse-results check-results) #t)
-    (lambda (line parse-results check-results) check-results)
+    (lambda (path line parse-results check-results) #t)
+    (lambda (path line parse-results check-results) check-results)
     (lambda (path parse-results check-results)
       (let ((author (assq-ref parse-results 'commit-author)))
         (if (not (any (lambda (elm)
@@ -653,8 +653,8 @@
    (make-rule
     "Warn about missing translations"
     (lambda (path parse-results check-results) check-results)
-    (lambda (line parse-results check-results) #t)
-    (lambda (line parse-results check-results) check-results)
+    (lambda (path line parse-results check-results) #t)
+    (lambda (path line parse-results check-results) check-results)
     (lambda (path parse-results check-results)
       (define warnings (assq-ref check-results 'warnings))
 
@@ -706,9 +706,9 @@
    (make-rule
     "Check for colon in @node"
     (lambda (path parse-results check-results) check-results)
-    (lambda (line parse-results check-results)
+    (lambda (path line parse-results check-results)
       (startswith line "+@node "))
-    (lambda (line parse-results check-results)
+    (lambda (path line parse-results check-results)
       (define warnings (assq-ref check-results 'warnings))
 
       (define (node-name line)
@@ -731,9 +731,9 @@
    (make-rule
     "Check for comma in @node"
     (lambda (path parse-results check-results) check-results)
-    (lambda (line parse-results check-results)
+    (lambda (path line parse-results check-results)
       (startswith line "+@node "))
-    (lambda (line parse-results check-results)
+    (lambda (path line parse-results check-results)
       (define warnings (assq-ref check-results 'warnings))
 
       (define (node-name line)
@@ -759,13 +759,13 @@
     "Check @node alignement in the manual"
     (lambda (path parse-results check-results)
       (acons 'current-node #f check-results))
-    (lambda (line parse-results check-results)
+    (lambda (path line parse-results check-results)
       (and
        (assq-ref check-results 'current-diff-file)
        (string=?
        (assq-ref check-results 'current-diff-file)
        "manual/gnuboot.texi")))
-    (lambda (line parse-results check-results)
+    (lambda (path line parse-results check-results)
       (define warnings (assq-ref check-results 'warnings))
 
       (define* (node-name line prefix type)
@@ -905,8 +905,8 @@
     "Don't forget to review resources/wrapper/guix when bumping Guix revision"
     (lambda (path parse-results check-results)
       (acons 'guix-revision-modified #f check-results))
-    (lambda (line parse-results check-results) #t)
-    (lambda (line parse-results check-results)
+    (lambda (path line parse-results check-results) #t)
+    (lambda (path line parse-results check-results)
       (if (and
            (string? (assq-ref check-results 'current-diff-file))
            (string=? (assq-ref check-results 'current-diff-file)
@@ -938,8 +938,8 @@
     "Track total errors and warnings"
     (lambda (path parse-results check-results)
       (acons 'warnings 0 (acons 'errors 0 check-results)))
-    (lambda (line parse-results check-results) #t)
-    (lambda (line parse-results check-results) check-results)
+    (lambda (path line parse-results check-results) #t)
+    (lambda (path line parse-results check-results) check-results)
     (lambda (path parse-results check-results)
       (let* ((nr-lines (number->string (assq-ref parse-results 'line) 10))
              (errors (assq-ref check-results 'errors))
