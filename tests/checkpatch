@@ -161,6 +161,45 @@ done < tests/checkpatch-test-missing-spanish-translation.ref || \
 echo "[ OK ] identified updated spanish translation in the website."
 
 ################################################################################
+# Test if checkpatch.scm correctly finds non-aligned markdown tables columns   #
+################################################################################
+
+./scripts/checkpatch.scm \
+    -f tests/checkpatch-test-bad-tables.md > \
+    "${tmpdir}"/checkpatch-test-bad-tables.log 2>/dev/null || \
+    fail "checkpatch.scm failed " \
+         "when trying to detect unaligned columns inside tables in a markdown file."
+
+while IFS= read -r line; do
+    grep -q "${line}" "${tmpdir}"/checkpatch-test-bad-tables.log || \
+    fail "failed to detect unaligned columns inside tables in a markdown file."
+done < tests/checkpatch-test-bad-tables.ref
+
+echo "[ OK ] detected unaligned columns inside tables in a markdown file."
+
+# This checks the manual file extracted from the "website: status: clarify
+# what kind of T60 are supported." commit which has no unaligned tables.
+git show \
+    "$(git ls-tree 5a4ea74643d1014d420d01a59de0d89d50847d8f -- \
+       website/pages/status.md | awk '{print $3}')" \
+    > "${tmpdir}"/status.md
+
+./scripts/checkpatch.scm \
+    -f \
+    "${tmpdir}"/status.md > \
+    "${tmpdir}"/checkpatch-test-good-tables.log 2>/dev/null || \
+    fail "checkpatch.scm failed " \
+         "when trying to detect unaligned columns inside tables in a markdown file."
+
+while IFS= read -r line; do
+    grep -q -L "${line}" \
+         "${tmpdir}"/checkpatch-test-good-tables.log
+done < tests/checkpatch-test-bad-tables.ref && \
+    fail "warned against aligned columns inside tables in a markdown file."
+
+echo "[ OK ] didn't warn against aligned nodes in the manual file."
+
+################################################################################
 # Test checkpatch.scm with all the existing patches. It should not crash.      #
 ################################################################################
 

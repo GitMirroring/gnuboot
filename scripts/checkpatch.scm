@@ -18,6 +18,7 @@
 (use-modules (ice-9 popen))
 (use-modules (ice-9 rdelim))
 (use-modules (ice-9 regex))
+(use-modules ((rnrs base) #:select (assert)))
 (use-modules (srfi srfi-1))
 (use-modules (srfi srfi-9))
 (use-modules (srfi srfi-19))
@@ -949,6 +950,32 @@
 ;;                                                                            ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(define-record-type <table-data>
+  (make-table-data start end columns)
+  table-data?
+  (start   table-data-start)
+  (end     table-data-end)
+  (columns table-data-columns))
+
+(define*
+  (get-table-columns-length
+   line
+   #:key (separator #\+))
+  "Get the table column length of the given line. By default it operates on
+lines like '+---+---+' to get the columns lengths. By passing a separator
+character argument, it can also works on different tables or line formats."
+  (let* ((columns
+          (filter
+           (lambda (elm) (not (string=? "" elm)))
+           (string-split line separator)))
+         (column-length
+          (fold
+           (lambda (elm1 elm2)
+             (append (list (string-length elm1)) elm2))
+           '()
+           columns)))
+    column-length))
+
 (define file-parse-rules
   (list
    ;; Here's an example of a parse rule below. Since it runs each time it is
@@ -969,6 +996,56 @@
     (lambda (path line _ results)
       (acons 'line (+ 1 (assq-ref results 'line)) results))
     (lambda (path _ results) results))
+
+   (make-rule
+    "Parse tables"
+    (lambda (path _ results) (acons 'tables (list) results))
+    (lambda (path line _ results)
+      (string-match "\\.md$" path))
+    (lambda (path line _ results)
+      (let* ((line-nr (assq-ref results 'line))
+             (tables (assq-ref results 'tables))
+             (tables? (> (length tables) 0))
+             (separation-line (string-match "^\\+((-+\\+)+)$" line))
+             (row-line (string-match "^\\|.*\\|$" line))
+             (previous-line-in-table
+              (lambda (results)
+                (cond
+                 ((and tables? (not (table-data-end (car tables))))
+                  (eq? (+ 1 (table-data-start (car tables))) line-nr))
+                 ((and tables? (table-data-end (car tables)))
+                  (eq? (+ 1 (table-data-end (car tables))) line-nr))
+                 (else #f)))))
+        (cond
+         ((and separation-line (not tables?))
+          (let ((columns (get-table-columns-length line)))
+            (acons 'tables (list (make-table-data line-nr #f columns)) results)))
+
+         ((and separation-line (previous-line-in-table results))
+          (let ((start (table-data-start (car tables)))
+                (columns (table-data-columns (car tables))))
+            (list-set! tables 0 (make-table-data start line-nr columns))
+          (acons 'tables tables results)))
+
+         ((and separation-line (not (previous-line-in-table results)))
+          (let ((columns (get-table-columns-length line)))
+            (acons
+             'tables
+             (append (list (make-table-data line-nr #f columns)) tables)
+             results)))
+
+         ((and row-line (previous-line-in-table results))
+          (let ((start (table-data-start (car tables)))
+                (columns (table-data-columns (car tables))))
+            (list-set!
+             tables 0
+             (make-table-data start line-nr columns))
+            (acons 'tables tables results)))
+
+         (else results))))
+    (lambda (path _ results)
+;;      (pk (assq-ref results 'tables))
+      results))
 
    ;; We can also use rules for debugging the code, here are two
    ;; examples below.
@@ -1053,7 +1130,7 @@
        ((and (assq-ref check-results 'current-node)
 	     (startswith line "@section ")
              (startswith (assq-ref check-results 'current-node) "@node "))
-               check-results)
+        check-results)
 
        ((and (assq-ref check-results 'current-node)
              (startswith line "@section "))
@@ -1071,7 +1148,7 @@
        ((and (assq-ref check-results 'current-node)
 	     (startswith line "subsection ")
              (startswith (assq-ref check-results 'current-node) "node "))
-               check-results)
+        check-results)
 
        ((and (assq-ref check-results 'current-node)
              (startswith line "subsection "))
@@ -1089,7 +1166,7 @@
        ((and (assq-ref check-results 'current-node)
 	     (startswith line "@subsubsection ")
              (startswith (assq-ref check-results 'current-node) "@node "))
-               check-results)
+        check-results)
 
        ((and (assq-ref check-results 'current-node)
              (startswith line "@subsubsection "))
@@ -1103,6 +1180,82 @@
 
        (else check-results)))
 
+    (lambda (path parse-results check-results)
+      check-results))
+
+   (make-rule
+    "Check tables"
+    (lambda (path parse-results check-results) check-results)
+    (lambda (path line parse-results check-results)
+      (let* ((line-nr (assq-ref check-results 'line))
+             (tables (assq-ref parse-results 'tables))
+             (in-table?
+              (> (length (filter
+                          (lambda (elm)
+                            (and (<= (table-data-start elm) line-nr)
+                                 (>= (table-data-end elm) line-nr)))
+                          tables)) 0)))
+        in-table?))
+    (lambda (path line parse-results check-results)
+      (let* ((line-nr (assq-ref check-results 'line))
+             (tables (assq-ref parse-results 'tables))
+             (current-table
+              (car (filter
+                    (lambda (elm)
+                      (and (<= (table-data-start elm) line-nr)
+                           (>= (table-data-end elm) line-nr)))
+                    tables)))
+             (current-table-column-length
+              (table-data-columns current-table))
+             (current-line-column-length
+              (cond ((startswith line "+")
+                     (get-table-columns-length line))
+                    ((startswith line "|")
+                     (get-table-columns-length line #:separator #\|))
+                    (else
+                     (assert #f))))
+             (first-line
+              (string-append
+               (fold (lambda (elm1 elm2)
+                       (assert (> elm1 0))
+                       (string-append
+                        elm2
+                        (fold string-append "" (make-list elm1 "-"))
+                        "+"))
+                     "+"
+                     current-table-column-length))))
+        (if (not (equal? current-table-column-length
+                         current-line-column-length))
+            (let*
+                ((len (string-length (number->string line-nr)))
+                 (padding-left (if (> len 1)
+                                   ""
+                                   (fold string-append "" (make-list len " "))))
+                 (errors (assq-ref check-results 'errors))
+                 (display-line
+                  (lambda (line-nr line)
+                    (display
+                     (string-append
+                      "       line" padding-left (number->string line-nr) ": "
+                      line "\n"))))
+
+                 (display-column-lengths
+                  (lambda (line-nr column-lengths)
+                    (display
+                     (string-append
+                      "       line" padding-left (number->string line-nr)
+                      ": column lengths: (list "
+                      (string-join (map number->string column-lengths) " ")
+                      ")\n")))))
+              (display "Error: different column length detected:\n")
+              (display-column-lengths 1 current-table-column-length)
+              (display-column-lengths line-nr current-line-column-length)
+              (display-line 1 first-line)
+              (display-line line-nr line)
+              (display "\n")
+
+              (acons 'errors (+ 1 errors) check-results))
+            check-results)))
     (lambda (path parse-results check-results)
       check-results))
 

@@ -50,6 +50,13 @@ run_grub_script_check()
     done
 }
 
+run_markdown_check()
+{
+    for path in "$@" ; do
+	scripts/checkpatch.scm -f  "${path}" ; report "${path}"
+    done
+}
+
 printf "+---------------------------+\n"
 printf "| Running shellcheck tests: |\n"
 printf "+---------------------------+\n"
@@ -92,6 +99,14 @@ run_shellcheck \
     website/build.sh \
     website/check.sh \
     website/serve.sh
+
+# For now we only check markdown tables. This is why we only have markdown
+# files with tables below.
+run_markdown_check \
+    website/pages/docs/build/index.md \
+    website/pages/docs/history/index.md \
+    website/pages/status.es.md \
+    website/pages/status.md
 
 printf "+----------------------------------+\n"
 printf "| Running grub-script-check tests: |\n"
