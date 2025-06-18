@@ -771,13 +771,13 @@
        ;; 'current-node) is sometime false. So we cannot assume it is
        ;; a string unless we check if it is not false before.
        ((and (assq-ref check-results 'current-node)
-	     (startswith line " @chapter ")
+             (startswith line " @chapter ")
              (startswith (assq-ref check-results 'current-node) " @node "))
                check-results)
 
        ((and (assq-ref check-results 'current-node)
-	     (or (startswith line "+@chapter ")
-		 (startswith line " @chapter ")))
+             (or (startswith line "+@chapter ")
+                 (startswith line " @chapter ")))
         (acons 'warnings
                ((handle-node-type
                  (substring line 0 1) ;; "+" or " "
@@ -790,13 +790,13 @@
        ;; 'current-node) is sometime false. So we cannot assume it is
        ;; a string unless we check if it is not false before.
        ((and (assq-ref check-results 'current-node)
-	     (startswith line " @section ")
+             (startswith line " @section ")
              (startswith (assq-ref check-results 'current-node) " @node "))
                check-results)
 
        ((and (assq-ref check-results 'current-node)
-	     (or (startswith line "+@section ")
-		 (startswith line " @section ")))
+             (or (startswith line "+@section ")
+                 (startswith line " @section ")))
         (acons 'warnings
                ((handle-node-type
                  (substring line 0 1) ;; "+" or " "
@@ -809,13 +809,13 @@
        ;; 'current-node) is sometime false. So we cannot assume it is
        ;; a string unless we check if it is not false before.
        ((and (assq-ref check-results 'current-node)
-	     (startswith line " @subsection ")
+             (startswith line " @subsection ")
              (startswith (assq-ref check-results 'current-node) " @node "))
                check-results)
 
        ((and (assq-ref check-results 'current-node)
-	     (or (startswith line "+@subsection ")
-		 (startswith line " @subsection ")))
+             (or (startswith line "+@subsection ")
+                 (startswith line " @subsection ")))
         (acons 'warnings
                ((handle-node-type
                  (substring line 0 1) ;; "+" or " "
@@ -828,13 +828,13 @@
        ;; 'current-node) is sometime false. So we cannot assume it is
        ;; a string unless we check if it is not false before.
        ((and (assq-ref check-results 'current-node)
-	     (startswith line " @subsubsection ")
+             (startswith line " @subsubsection ")
              (startswith (assq-ref check-results 'current-node) " @node "))
                check-results)
 
        ((and (assq-ref check-results 'current-node)
-	     (or (startswith line "+@subsubsection ")
-		 (startswith line " @subsubsection ")))
+             (or (startswith line "+@subsubsection ")
+                 (startswith line " @subsubsection ")))
         (acons 'warnings
                ((handle-node-type
                  (substring line 0 1) ;; "+" or " "
