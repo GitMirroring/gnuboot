@@ -1,0 +1,45 @@
+# -*- mode: rec -*-
+# Copyright (C) 2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+upstream_project: Coreboot
+version: 4.11+
+needs_deblobbing: Yes
+computers_using_it: Asus: KCMA-D8, KFSN4, KGPE-D16
+since_gnu_boot_release: 0.1 RC1
+
+upstream_project: Coreboot
+version: 4.15+
+needs_deblobbing: Yes
+computers_using_it: All but Asus KCMA-D8, KFSN4, KGPE-D16
+since_gnu_boot_release: 0.1 RC1
+
+upstream_project: GRUB
+version: 2.06+
+needs_deblobbing: No
+computers_using_it: All supported computers
+since_gnu_boot_release: 0.1 RC6
+
+upstream_project: Memtest86+ for Coreboot
+version: v002+
+needs_deblobbing: No
+computers_using_it: All but Gigabyte GA-G41M-ES2L and Intel D510MO
+since_gnu_boot_release: 0.1 RC1
+
+upstream_project: SeaBIOS
+version: 1.14.0+
+needs_deblobbing: No
+computers_using_it: All supported computers
+since_gnu_boot_release: 0.1 RC1

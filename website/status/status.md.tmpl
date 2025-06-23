@@ -1,0 +1,178 @@
+title: GNU Boot status
+---
+
+Experimental support for some computers
+=======================================
+
+The support for the following computers is experimental:
+
+* Asus KCMA-D8
+* Asus KFSN4-DRE
+* Asus KGPE-D16
+* Technoethical D16
+* Vikings ASUS KCMA D8 mainboard and workstation
+* Vikings ASUS KGPE D16 mainboard
+
+See the [Experimental support for some
+computers](manual/gnuboot.html#Experimental-support-for-some-computers)
+subsection in the GNU Boot manual to understand what it means.
+
+GNU Boot 0.1 RC6 status
+=======================
+
+GNU_BOOT_0.1_RC6_STATUS_TABLE
+
+Stability:
+----------
+
+* Untested: The GNU Boot maintainers are not aware of anybody who
+  tested GNU Boot 0.1 RC6 on that computer. If you have GNU Boot on
+  this computer please report if it works or not (for instance by
+  opening a bug report).
+
+* Fail: #<bug number>: Someone tested GNU Boot 0.1 RC6 on that
+  computer and it either doesn't boot at all, can't boot any fully
+  free GNU/Linux distribution. It should also be confirmed that this
+  is a software issue and not a problem with the hardware like broken
+  RAM modules. The issue should also be described in a bug report that
+  is available at https://savannah.gnu.org/bugs/index.php?<bug number>
+  (this is the GNU Boot bug tracker).
+
+* Tested: Someone tested GNU Boot 0.1 RC6 on that computer and
+  reported to the GNU Boot that it at least booted fine.
+
+* Daily users: Some people contacted the GNU Boot maintainers and
+  volunteered to send bug reports if installing GNU Boot made the
+  computer unusable or very hard to use (like a memory corruption that
+  makes it impossible to boot certain GNU/Linux distributions or
+  crashes the computer randomly). If you want to help GNU Boot
+  with that, please contact the maintainers through a bug report.
+
+This release was built by neox on Trisquel Aramo (11.0.1) in a virtual machine
+running on a KGPE-D16 (which is itself running GNU Boot) and that is hosted by
+Libre en communs, a French non-profit that the current GNU Boot maintainers
+(GNUtoo and neox) are involved in.
+
+GNU Boot 0.1 RC5 status
+=======================
+
+GNU_BOOT_0.1_RC5_STATUS_TABLE
+
+See the status of GNU Boot 0.1 RC6 above for the meaning of the
+various fields.
+
+GNU Boot 0.1 RC4 status
+=======================
+
+GNU_BOOT_0.1_RC4_STATUS_TABLE
+
+See the status of GNU Boot 0.1 RC6 above for the meaning of the
+various fields.
+
+GNU Boot 0.1 RC3 status
+=======================
+
+GNU_BOOT_0.1_RC3_STATUS_TABLE
+
+See the status of GNU Boot 0.1 RC6 above for the meaning of the
+various fields.
+
+GNU Boot 0.1 RC2 status
+=======================
+
+There are no changes affecting images between GNU Boot 0.1 RC2 and GNU
+Boot 0.1 RC3 so it's not worth testing the RC2. It's better to test
+the RC3 directly. Yet GNU Boot maintainers tested some computers on
+the RC2 to reduce the risk of testers.
+
+GNU_BOOT_0.1_RC2_STATUS_TABLE
+
+See the status of GNU Boot 0.1 RC6 above for the meaning of the
+various fields.
+
+GNU Boot 0.1 RC1 status
+=======================
+
+GNU_BOOT_0.1_RC1_STATUS_TABLE
+
+See the status of GNU Boot 0.1 RC6 above for the meaning of the
+various fields.
+
+Upstream status
+===============
+
+COREBOOT_UPSTREAM_STATUS
+
+Coreboot status:
+----------------
+
+* Maintained / Unmaintained: GNU Boot depends on Coreboot to support
+  specific computers. So if Coreboot stops supporting a computer that
+  GNU Boot supports, then it will become harder and harder to support
+  that computer in GNU Boot over time and at some point GNU Boot will
+  likely stop supporting it unless someone adds back that computer in
+  Coreboot. And if a computer has no maintainer in Coreboot it
+  increases the likelihood that it will be removed at some point.
+
+* Removed: Coreboot already removed the support for this computer.
+
+* Similar to <another computer>: There is no official support for this
+  computer in Coreboot but using the code from the other computer
+  mentioned works.
+
+Coreboot GPU driver:
+--------------------
+
+* old GPU driver / new GPU driver: Some computers uses an old GPU
+  driver written in C that could have some stability issues that were
+  fixed in the new GPU driver written in ADA. When the field is blank,
+  it means that we didn't look at which GPU driver was used or its
+  stability.
+
+Upstream versions used by GNU Boot
+==================================
+
+UPSTREAM_VERSIONS
+
+Reproducible builds
+===================
+
+This tracks the status of reproducible builds in GNU Boot.
+
+See [Building GNU Boot from source
+chapter](../manual/gnuboot.html#Building-GNU-Boot-from-source) in the
+[GNU Boot manual](docs/#manuals) for more details about this issue.
+
+Also note that the table below is meant for the [GNU Boot
+images](../manual/gnuboot.html#index-flash-images) which is what gets
+installed and what interest more users.
+
+REPRODUCIBLE_BUILDS_STATUS
+
+Also note that not everything is in the table above:
+
+* The gnuboot-trisquel-grub.img file, which is produced by GNU Boot
+  and that is used during the automatic tests is reproducible. It can
+  be used as an example to make other components built with Guix
+  reproducible.
+
+Limitations
+===========
+
+* SeaBIOS images have no VGA support (Bug
+  [#65922](https://savannah.gnu.org/bugs/index.php?65922)). The consequence is
+  that users need to edit /etc/default/grub before installing and/or using
+  SeaBIOS images.
+
+* The website has many unreviewed pages. They can easily be identified as they
+  have a banner explaining the risk of using information on these pages.
+
+* GNU Boot has no good install and/or upgrade instructions. They have not been
+  properly reviewed and some of them are only for very technical people that
+  know what they are doing: some require to be an expert in electronics and
+  already know the proper safety procedures which are usually not documented
+  or even mentioned. This is precisely why these pages carry warnings that
+  explain the risks of blindly following these instructions without proper
+  professional training in electronics.
+
+* GNU Boot has now a manual but it's also incomplete.

@@ -1,0 +1,170 @@
+# Copyright (C) 2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+provenance: Coreboot
+path_inside_the_image: CBFS headers
+reproducible: Unknown
+usage: all images
+
+provenance: Coreboot
+path_inside_the_image: /bootblock
+reproducible: Unknown
+usage: all images
+
+provenance: Coreboot
+path_inside_the_image: /build_info
+reproducible: Unknown
+usage: all images
+
+provenance: Coreboot
+path_inside_the_image: /cmos.default
+reproducible: Unknown
+usage: all but 16MB macbook images
+
+provenance: Coreboot
+path_inside_the_image: /cmos_layout.bin
+reproducible: Unknown
+usage: all images
+
+provenance: Coreboot
+path_inside_the_image: /config
+reproducible: Unknown
+usage: all images
+
+provenance: Coreboot
+path_inside_the_image: /data_ccfl.vbt
+reproducible: N/A: not built
+usage: all images
+
+provenance: Coreboot
+path_inside_the_image: /data_led.vbt
+reproducible: N/A: not built
+usage: all images
+
+provenance: Coreboot
+path_inside_the_image: /vbt.bin
+reproducible: Unknown
+usage: computers with Intel GPU
+
+provenance: Coreboot
+path_inside_the_image: /fallback/dsdt.aml
+reproducible: Unknown
+usage: all images
+
+provenance: Coreboot
+path_inside_the_image: /fallback/postcar
+reproducible: Unknown
+usage: all but KGPE-D16 and KCMA-D8
+
+provenance: Coreboot
+path_inside_the_image: /fallback/ramstage
+reproducible: Unknown
+usage: all images
+
+provenance: Coreboot
+path_inside_the_image: /fallback/romstage
+reproducible: Unknown
+usage: all images
+
+provenance: Coreboot
+path_inside_the_image: /revision
+reproducible: Unknown
+usage: all images
+
+provenance: Coreboot
+path_inside_the_image: /rt8168-macaddress
+reproducible: Unknown
+usage: all images
+
+provenance: GRUB
+path_inside_the_image: /fallback/payload
+reproducible: Unknown
+usage: GRUB images
+
+provenance: GRUB
+path_inside_the_image: /img/grub2
+reproducible: Unknown
+usage: SeaBIOS images
+
+provenance: Memtest86+ for Coreboot
+path_inside_the_image: /img/memtest
+reproducible: Unknown
+usage: more than half of the images
+
+provenance: SeaBIOS
+path_inside_the_image: /fallback/payload
+reproducible: Unknown
+usage: SeaBIOS images
+
+provenance: SeaBIOS
+path_inside_the_image: /vgaroms/seavgabios.bin
+reproducible: Unknown
+usage: all images
+
+provenance: ich9gen
+path_inside_the_image: Intel flash descriptor
+reproducible: Yes: verified by checksum
+usage: GM45 ThinkPads
+
+provenance: ich9gen
+path_inside_the_image: Intel Gigabit ethernet partition
+reproducible: Yes: verified by checksum
+usage: GM45 ThinkPads
+
+provenance: GNU Boot build system
+path_inside_the_image: /background.png
+reproducible: Unknown
+usage: all but d945gclf and kfsn4-dre
+
+provenance: GNU Boot build system
+path_inside_the_image: /etc/only-load-option-roms
+reproducible: Unknown
+usage: all images
+
+provenance: GNU Boot build system
+path_inside_the_image: /etc/optionroms-checksum
+reproducible: Unknown
+usage: all images
+
+provenance: GNU Boot build system
+path_inside_the_image: /etc/pci-optionrom-exec
+reproducible: Unknown
+usage: all images
+
+provenance: GNU Boot build system
+path_inside_the_image: /etc/ps2-keyboard-spinup
+reproducible: Unknown
+usage: all images
+
+provenance: GNU Boot build system
+path_inside_the_image: /grub.cfg
+reproducible: Unknown
+usage: all but d945gclf and kfsn4-dre
+
+provenance: GNU Boot build system
+path_inside_the_image: /grubtest.cfg
+reproducible: Unknown
+usage: kfsn4-dre
+
+provenance: GNU Boot build system
+path_inside_the_image: pci1000,0072.rom
+reproducible: N/A: empty file
+usage: KGPE-D16 and KCMA-D8
+
+provenance: GNU Boot build system
+path_inside_the_image: pci1000,3050.rom
+reproducible: N/A: empty file
+usage: KGPE-D16 and KCMA-D8
+

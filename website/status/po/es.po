@@ -1,0 +1,195 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: gnuboot 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-26 17:04+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "all but 16MB macbook images"
+msgstr "todas las imagenes excluyendo imagenes para 16MB macbook"
+
+msgid "All but Asus KCMA-D8, KFSN4, KGPE-D16"
+msgstr "Todas excluyendo Asus KCMA-D8, KFSN4, KGPE-D16"
+
+msgid "all but d945gclf and kfsn4-dre"
+msgstr "todas las imagenes excluyendo imagenes para d945gclf y kfsn4-dre"
+
+msgid "All but Gigabyte GA-G41M-ES2L and Intel D510MO"
+msgstr "Todas excluyendo Gigabyte GA-G41M-ES2L y Intel D510MO"
+
+msgid "all but KGPE-D16 and KCMA-D8"
+msgstr "todas las imagenes excluyendo imagenes para KGPE-D16 y KCMA-D8"
+
+msgid "all images"
+msgstr "todas las imagenes"
+
+msgid "All supported computers"
+msgstr "Todas las Computadoras sostenidas"
+
+msgid "ASUS KCMA D8 mainboard and workstation with ECC RAM"
+msgstr "ASUS KCMA D8 mainboard and workstation con RAM ECC"
+
+msgid "ASUS KCMA D8 mainboard and workstation with non-ECC RAM"
+msgstr "ASUS KCMA D8 mainboard and workstation con RAM no-ECC"
+
+msgid "ASUS KGPE D16 mainboard with ECC RAM"
+msgstr "ASUS KGPE D16 mainboard con RAM ECC"
+
+msgid "ASUS KGPE D16 mainboard with non-ECC RAM"
+msgstr "ASUS KGPE D16 mainboard con RAM no-ECC"
+
+msgid "Computers using it"
+msgstr "Computadoras usando eso"
+
+msgid "Coreboot GPU driver"
+msgstr "Controlador de GPU de Coreboot"
+
+msgid "Coreboot status"
+msgstr "Estado de Coreboot"
+
+msgid "D16 with ECC RAM"
+msgstr "D16 con RAM ECC"
+
+msgid "D16 with non-ECC RAM"
+msgstr "D16 con RAM no-ECC"
+
+msgid "Fail: #66463"
+msgstr "Fallado: #66463"
+
+msgid "Fail: #66463 Fail: #66487"
+msgstr "Fallado: #66463,#66487"
+
+msgid "Fail: #66487"
+msgstr "Fallado: #66487"
+
+msgid "GM45 ThinkPads"
+msgstr "ThinkPads GM45"
+
+msgid "GRUB images"
+msgstr "imagenes GRUB"
+
+msgid "GRUB with high resolution graphics"
+msgstr "GRUB con gráficos alta resolución"
+
+msgid "GRUB with text-only low resolution"
+msgstr "GRUB con texto baja resolución"
+
+msgid "KCMA-D8 with ECC RAM"
+msgstr "KCMA-D8 con RAM ECC"
+
+msgid "KCMA-D8 with non-ECC RAM"
+msgstr "KCMA-D8 con RAM no-ECC"
+
+msgid "KGPE-D16 and KCMA-D8"
+msgstr "KGPE-D16 y KCMA-D8"
+
+msgid "KGPE-D16 with ECC RAM"
+msgstr "KGPE-D16 con RAM ECC"
+
+msgid "KGPE-D16 with non-ECC RAM"
+msgstr "KGPE-D16 con RAM no-ECC"
+
+msgid "Maintained"
+msgstr "Mantenido"
+
+msgid "Missing images"
+msgstr "Faltan imágenes"
+
+msgid "more than half of the images"
+msgstr "mas de la mitad de las imagenes"
+
+msgid "N/A: empty file"
+msgstr "N/A: archivo vacío"
+
+msgid "N/A: not built"
+msgstr "N/A: no construido"
+
+msgid "Needs deblobbing"
+msgstr "Necessita deblobbing"
+
+msgid "new GPU driver"
+msgstr "nuevo controlador de GPU"
+
+msgid "old GPU driver"
+msgstr "controlador de GPU antiguo"
+
+msgid "Path inside the image"
+msgstr "Ruta en la imagen"
+
+msgid "Provenance"
+msgstr "Provenida"
+
+msgid "Removed"
+msgstr "Removido"
+
+msgid "SeaBIOS images"
+msgstr "imagenes SeaBIOS"
+
+msgid "SeaBIOS with high resolution graphics"
+msgstr "SeaBIOS con gráficos alta resolución"
+
+msgid "SeaBIOS with text-only low resolution"
+msgstr "SeaBIOS con texto baja resolución"
+
+msgid "Similar to Intel D945GCLF"
+msgstr "Similar a Intel D945GCLF"
+
+msgid "Similar to ThinkPad T400"
+msgstr "Similar a ThinkPad T400"
+
+msgid "Since GNU Boot release"
+msgstr "Desde versión GNU Boot"
+
+msgid "Stability"
+msgstr "Estabilidad"
+
+msgid "Tested"
+msgstr "Probado"
+
+msgid "ThinkPad T60 with intel GPU"
+msgstr "ThinkPad T60 con GPU intel"
+
+msgid "Unknown"
+msgstr "Desconocido"
+
+msgid "Unmaintained"
+msgstr "Sin mantenimiento"
+
+msgid "Untested"
+msgstr "No probado"
+
+msgid "Usage"
+msgstr "Uso"
+
+msgid "Vendor"
+msgstr "Vendedor"
+
+msgid "Product"
+msgstr "Producto"
+
+msgid "Upstream project"
+msgstr "proyecto \"Upstream\" (Contracorriente)"
+
+msgid "Vendor, product"
+msgstr "Vendedor, Producto"
+
+msgid "Version"
+msgstr "Versión"
+
+msgid "Yes"
+msgstr "Sí"
+
+msgid "Yes: verified by checksum"
+msgstr "Sí: verificado por suma de verificación"

@@ -61,6 +61,10 @@ AC_DEFUN([CHECK_GNUBOOT_WEBSITE_COMMON_DEPENDENCIES],
   AC_CHECK_PROG([FOUND_TAR], [tar], [tar])
   AS_IF([test x"$FOUND_TAR" = x""],
         [AC_MSG_ERROR([tar was not found in PATH ($PATH)])])
+
+  AC_CHECK_PROG([FOUND_WGET], [wget], [wget])
+  AS_IF([test x"$FOUND_WGET" = x""],
+        [AC_MSG_ERROR([wget was not found in PATH ($PATH)])])
  ])
 
 # CHECK_GNUBOOT_MANUAL_DEPENDENCIES -- Check dependencies for the GNU Boot manual

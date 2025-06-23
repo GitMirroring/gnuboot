@@ -21,6 +21,7 @@ AC_INIT([gnuboot],[0.1],[gnuboot@gnu.org])
 AM_INIT_AUTOMAKE([foreign])
 AC_CONFIG_FILES([Makefile])
 
+AC_SUBST([GUILE_DSV_PATH], [])
 AC_SUBST([LBSSG_GIT_FOUND], [])
 AC_SUBST([LBSSG_PATH], [])
 AC_SUBST([LIGHTTPD_PORT], [])
@@ -54,6 +55,21 @@ AC_ARG_WITH([lighttpd-port],
                    default one (8086).])],
   [LIGHTTPD_PORT=$withval],
   [LIGHTTPD_PORT=8086])
+
+# --with-guile-dsv-path
+AC_ARG_WITH([guile-dsv-path],
+  [AS_HELP_STRING([--with-guile-dsv-path=PATH],
+                  [Use the guile-dsv v0.7.2 guile library from the given directory
+                  instead of downloading it from
+                  artyom-poptsov/guile-dsv on GitHub. If you download
+                  guile-dsv with the
+                  'git clone https://github.com/artyom-poptsov/guile-dsv -b v0.7.2'
+                  command you can simply use the
+                  '--with-guile-dsv-path=guile-dsv' argument.])],
+  [GUILE_DSV_PATH=`realpath $withval`],
+  [])
+
+AM_CONDITIONAL([WANT_GUILE_DSV_PATH], [test x"$GUILE_DSV_PATH" != x""])
 
 # --with-rsync-destination
 AC_ARG_WITH([rsync-destination],
@@ -134,6 +150,15 @@ AS_IF([test x"$guix" != x"yes"],
              [AC_MSG_ERROR(
               [Beautifulsoup was not found])])])
 
+# We depend on guile-dsv and guile-dsv has a wide support for Guile versions
+# and the module we use requires (string transform).
+GUILE_PKG([3.0 2.0 2.2])
+GUILE_MODULE_REQUIRED([guix records])
+GUILE_MODULE_REQUIRED([ice-9 format])
+GUILE_MODULE_REQUIRED([scheme documentation])
+GUILE_MODULE_REQUIRED([srfi srfi-1])
+GUILE_MODULE_REQUIRED([string transform])
+
 # We want to only set the Guix revision being used only in one place
 # to avoid forgetting to also update it on other places it would have
 # been set.
@@ -143,6 +168,9 @@ AC_OUTPUT
 AS_ECHO(["Configuration options:"])
 
 AS_ECHO(["    LIGHTTPD_PORT: $LIGHTTPD_PORT"])
+
+AS_IF([test x"$GUILE_DSV_PATH" != x""],
+      [AS_ECHO(["    GUILE_DSV_PATH: $GUILE_DSV_PATH"])])
 
 AS_ECHO(["    RSYNC_DESTINATION: $RSYNC_DESTINATION"])
 

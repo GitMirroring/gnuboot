@@ -10,8 +10,13 @@ easily build and deploy the GNU Boot website with very few commands.
 
 Without Guix
 -------------
-If you don't want to install Guix just to test the website, you will
-need to install the following dependencies (tested under Trisquel 11):
+
+If you don't want to update Guix (which can take a long time) just to test the
+website, you will need to install the list of dependencies below (tested under
+Trisquel 11). It will also make things a bit faster.
+
+Note that you still need to install Guix anyway as some of its libraries are
+being used by code we wrote, to generate the GNU Boot status.
 
 * autoconf
 * automake
@@ -22,6 +27,10 @@ need to install the following dependencies (tested under Trisquel 11):
 * graphicsmagick
 * graphviz
 * grep
+* guile-3.0
+* guile-3.0-dev
+* guile-library
+* guix
 * gzip
 * liburi-perl
 * lighttpd
@@ -34,6 +43,7 @@ need to install the following dependencies (tested under Trisquel 11):
 * texinfo
 * texlive-binaries
 * texlive-plain-generic
+* wget
 
 You can then use the following commands to build the website:
 $ ./autogen.sh
@@ -49,9 +59,12 @@ dependencies instead:
 * automake
 * coreutils
 * cvs
+* guile
+* guile-lib
 * guix
 * make
 * tar
+* wget
 
 But for making sure that the build doesn't take days with Guix, you
 will also need to make sure that bordeaux.guix.gnu.org is in the list
