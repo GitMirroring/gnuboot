@@ -1,4 +1,4 @@
-# Copyright (C) 2022-2024 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+# Copyright (C) 2022-2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -35,6 +35,46 @@
 
 # History
 /history/git-history.jpg
+
+# Status
+/status/0.1-rc1.es.md
+/status/0.1-rc1.md
+/status/0.1-rc2.es.md
+/status/0.1-rc2.md
+/status/0.1-rc3.es.md
+/status/0.1-rc3.md
+/status/0.1-rc4.es.md
+/status/0.1-rc4.md
+/status/0.1-rc5.es.md
+/status/0.1-rc5.md
+/status/0.1-rc6.es.md
+/status/0.1-rc6.md
+/status/coreboot-upstream-status.es.md
+/status/coreboot-upstream-status.md
+/status/dsv/**
+/status/locale/**
+/status/modules/**
+/status/reproducible-builds-status.es.md
+/status/reproducible-builds-status.md
+/status/status.es.md
+/status/status.es.md.post_0.1_rc1.es.md
+/status/status.es.md.post_0.1_rc2_pre_0.1_rc1.es.md
+/status/status.es.md.post_0.1_rc3_pre_0.1_rc2.es.md
+/status/status.es.md.post_0.1_rc4_pre_0.1_rc3.es.md
+/status/status.es.md.post_0.1_rc5_pre_0.1_rc4.es.md
+/status/status.es.md.post_0.1_rc6_pre_0.1_rc5.es.md
+/status/status.es.md.pre_0.1_rc6.es.md
+/status/status.md
+/status/status.md.post_0.1_rc1.md
+/status/status.md.post_0.1_rc2_pre_0.1_rc1.md
+/status/status.md.post_0.1_rc3_pre_0.1_rc2.md
+/status/status.md.post_0.1_rc4_pre_0.1_rc3.md
+/status/status.md.post_0.1_rc5_pre_0.1_rc4.md
+/status/status.md.post_0.1_rc6_pre_0.1_rc5.md
+/status/status.md.pre_0.1_rc6.md
+/status/temp/**
+/status/upstream-versions.es.md
+/status/upstream-versions.md
 
 # Manual
 /cmb10.657pk

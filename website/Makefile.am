@@ -19,6 +19,7 @@ SENTINEL =
 	all \
 	build \
 	check \
+	check-status \
 	help \
 	publish \
 	serve \
@@ -26,6 +27,10 @@ SENTINEL =
 if WANT_WEB_SYMLINKS_PATH
 	$(WEB_SYMLINKS_PATH)/COPYING \
 	$(WEB_SYMLINKS_PATH)/web-symlinks \
+endif
+	\
+if WANT_GUILE_DSV_PATH
+	status/dsv/table.scm \
 endif
 	$(SENTINEL)
 
@@ -138,6 +143,259 @@ endif
 
 history/git-history.jpg: history/git-history.dot
 	$(DOT_CMD) -T jpg history/git-history.dot > "$@"
+
+##########
+# status #
+##########
+
+ES_LOCALE = status/locale/es/LC_MESSAGES/gnuboot-generate-markdown-status-table.mo
+
+$(ES_LOCALE): status/po/es.po
+	install -m 755 -d status/locale/es/LC_MESSAGES
+	msgfmt $^ -o $@
+
+# guile-dsv is not widely packaged. To our knowledge it is only available in
+# Guix and Aur. Since table.scm only depend on guile and guile-lib, we can
+# simply ship it here. We need to allow both online and offline builds.
+if WANT_GUILE_DSV_PATH
+
+$(GUILE_DSV_PATH)/modules/dsv/table.scm.sha512: status/table.scm.sha512
+	echo "`cat $^ | awk '{print $$1}'` `echo $@ | sed 's/\.sha512$$//'`" > $@
+
+$(GUILE_DSV_PATH)/modules/dsv/table.scm: $(GUILE_DSV_PATH)/modules/dsv/table.scm.sha512
+	sha512sum --strict -c $^
+
+GUILE_DSV_TABLE_DEPS = \
+	status/table.scm.sha512 \
+	$(GUILE_DSV_PATH)/modules/dsv/table.scm
+
+status/modules/dsv/table.scm: $(GUILE_DSV_TABLE_DEPS)
+	echo "`cat status/table.scm.sha512 | \
+		awk '{print $$1}'` `echo $(GUILE_DSV_PATH)/modules/dsv/table.scm`" | \
+		sha512sum --status --quiet --strict -c
+	install -D -m 755 $(GUILE_DSV_PATH)/modules/dsv/table.scm $@
+	@sha512sum --strict -c status/table.scm.sha512
+
+else # WANT_GUILE_DSV_PATH
+GUILE_DSV_REPO = https://raw.githubusercontent.com/artyom-poptsov/guile-dsv
+GUILE_DSV_REV = cc140789e270127cea9400d926c2597e5619a3e9
+status/modules/dsv/table.scm: status/table.scm.sha512
+	mkdir -p status/modules/dsv/
+	sha512sum --status --quiet --strict -c $^ || wget \
+	$(GUILE_DSV_REPO)/$(GUILE_DSV_REV)/modules/dsv/table.scm \
+	-O $@
+	@sha512sum --strict -c $^
+endif # WANT_GUILE_DSV_PATH
+
+MD_STATUS_TABLE_0.1_RC1_DEPS = \
+	status/modules/dsv/table.scm \
+	status/common.scm \
+	status/generate-0.1-rc1-markdown-status-table.scm \
+	../resources/data/computers-0.1-rc1.rec \
+	$(ES_LOCALE) \
+	$(SENTINEL)
+
+MD_STATUS_TABLE_0.1_RC2_DEPS = \
+	status/modules/dsv/table.scm \
+	status/common.scm \
+	status/generate-0.1-rc1-markdown-status-table.scm \
+	../resources/data/computers-0.1-rc2.rec \
+	$(ES_LOCALE) \
+	$(SENTINEL)
+
+MD_STATUS_TABLE_0.1_RC4_DEPS = \
+	status/modules/dsv/table.scm \
+	status/common.scm \
+	status/generate-0.1-rc4-markdown-status-table.scm \
+	../resources/data/computers-0.1-rc4.rec \
+	$(ES_LOCALE) \
+	$(SENTINEL)
+
+status/0.1-rc1.md: $(MD_STATUS_TABLE_0.1_RC1_DEPS) ../resources/data/0.1-rc1.rec
+	status/generate-0.1-rc1-markdown-status-table.scm \
+		../resources/data/computers-0.1-rc1.rec \
+		../resources/data/0.1-rc1.rec \
+		"en" \
+	> $@
+
+status/0.1-rc2.md: $(MD_STATUS_TABLE_0.1_RC2_DEPS) ../resources/data/0.1-rc2.rec
+	status/generate-0.1-rc1-markdown-status-table.scm \
+		../resources/data/computers-0.1-rc2.rec \
+		../resources/data/0.1-rc2.rec \
+		"en" \
+	> $@
+
+status/0.1-rc3.md: $(MD_STATUS_TABLE_0.1_RC2_DEPS) ../resources/data/0.1-rc3.rec
+	status/generate-0.1-rc1-markdown-status-table.scm \
+		../resources/data/computers-0.1-rc2.rec \
+		../resources/data/0.1-rc3.rec \
+		"en" \
+	> $@
+
+status/0.1-rc4.md: $(MD_STATUS_TABLE_0.1_RC4_DEPS) ../resources/data/0.1-rc4.rec
+	status/generate-0.1-rc4-markdown-status-table.scm \
+		../resources/data/computers-0.1-rc4.rec \
+		../resources/data/0.1-rc4.rec \
+		"en" \
+	> $@
+
+status/0.1-rc5.md: $(MD_STATUS_TABLE_0.1_RC4_DEPS) ../resources/data/0.1-rc5.rec
+	status/generate-0.1-rc4-markdown-status-table.scm \
+		../resources/data/computers-0.1-rc4.rec \
+		../resources/data/0.1-rc5.rec \
+		"en" \
+	> $@
+
+status/0.1-rc6.md: $(MD_STATUS_TABLE_0.1_RC4_DEPS) ../resources/data/0.1-rc6.rec
+	status/generate-0.1-rc4-markdown-status-table.scm \
+		../resources/data/computers-0.1-rc4.rec \
+		../resources/data/0.1-rc6.rec \
+		"en" \
+	> $@
+
+status/0.1-rc1.es.md: $(MD_STATUS_TABLE_0.1_RC1_DEPS) ../resources/data/0.1-rc1.rec
+	status/generate-0.1-rc1-markdown-status-table.scm \
+		../resources/data/computers-0.1-rc1.rec \
+		../resources/data/0.1-rc1.rec \
+		"es" \
+	> $@
+
+status/0.1-rc2.es.md: $(MD_STATUS_TABLE_0.1_RC2_DEPS) ../resources/data/0.1-rc2.rec
+	status/generate-0.1-rc1-markdown-status-table.scm \
+		../resources/data/computers-0.1-rc2.rec \
+		../resources/data/0.1-rc2.rec \
+		"es" \
+	> $@
+
+status/0.1-rc3.es.md: $(MD_STATUS_TABLE_0.1_RC2_DEPS) ../resources/data/0.1-rc3.rec
+	status/generate-0.1-rc1-markdown-status-table.scm \
+		../resources/data/computers-0.1-rc2.rec \
+		../resources/data/0.1-rc3.rec \
+		"es" \
+	> $@
+
+status/0.1-rc4.es.md: $(MD_STATUS_TABLE_0.1_RC4_DEPS) ../resources/data/0.1-rc4.rec
+	status/generate-0.1-rc4-markdown-status-table.scm \
+		../resources/data/computers-0.1-rc4.rec \
+		../resources/data/0.1-rc4.rec \
+		"es" \
+	> $@
+
+status/0.1-rc5.es.md: $(MD_STATUS_TABLE_0.1_RC4_DEPS) ../resources/data/0.1-rc5.rec
+	status/generate-0.1-rc4-markdown-status-table.scm \
+		../resources/data/computers-0.1-rc4.rec \
+		../resources/data/0.1-rc5.rec \
+		"es" \
+	> $@
+
+status/0.1-rc6.es.md: $(MD_STATUS_TABLE_0.1_RC4_DEPS) ../resources/data/0.1-rc6.rec
+	status/generate-0.1-rc4-markdown-status-table.scm \
+		../resources/data/computers-0.1-rc4.rec \
+		../resources/data/0.1-rc6.rec \
+		"es" \
+	> $@
+
+COREBOOT_UPSTREAM_STATUS_TABLE_DEPS = \
+	status/modules/dsv/table.scm \
+	status/common.scm \
+	status/generate-coreboot-upstream-status.scm \
+	../resources/data/coreboot-upstream-status.rec \
+	$(ES_LOCALE) \
+	$(SENTINEL)
+
+status/coreboot-upstream-status.md: $(COREBOOT_UPSTREAM_STATUS_TABLE_DEPS)
+	status/generate-coreboot-upstream-status.scm \
+		../resources/data/coreboot-upstream-status.rec \
+		"en" \
+		> $@
+
+status/coreboot-upstream-status.es.md: $(COREBOOT_UPSTREAM_STATUS_TABLE_DEPS)
+	status/generate-coreboot-upstream-status.scm \
+		../resources/data/coreboot-upstream-status.rec \
+		"es" \
+		> $@
+
+UPSTREAM_VERSIONS_TABLE_DEPS = \
+	status/modules/dsv/table.scm \
+	status/common.scm \
+	status/generate-upstream-versions.scm \
+	../resources/data/upstream-versions.rec \
+	$(ES_LOCALE) \
+	$(SENTINEL)
+
+status/upstream-versions.md: $(UPSTREAM_VERSIONS_TABLE_DEPS)
+	status/generate-upstream-versions.scm \
+		../resources/data/upstream-versions.rec \
+		"en" \
+		> $@
+
+status/upstream-versions.es.md: $(UPSTREAM_VERSIONS_TABLE_DEPS)
+	status/generate-upstream-versions.scm \
+		../resources/data/upstream-versions.rec \
+		"es" \
+		> $@
+
+REPRODUCIBLE_BUILDS_STATUS_TABLE_DEPS = \
+	status/modules/dsv/table.scm \
+	status/common.scm \
+	status/generate-reproducible-builds-status.scm \
+	../resources/data/reproducible-builds-status.rec \
+	$(ES_LOCALE) \
+	$(SENTINEL)
+
+status/reproducible-builds-status.md: $(REPRODUCIBLE_BUILDS_STATUS_TABLE_DEPS)
+	status/generate-reproducible-builds-status.scm \
+		../resources/data/reproducible-builds-status.rec \
+		"en" \
+		> $@
+
+status/reproducible-builds-status.es.md: $(REPRODUCIBLE_BUILDS_STATUS_TABLE_DEPS)
+	status/generate-reproducible-builds-status.scm \
+		../resources/data/reproducible-builds-status.rec \
+		"es" \
+		> $@
+
+STATUS_PAGE_DEPS = \
+	status/0.1-rc1.md \
+	status/0.1-rc2.md \
+	status/0.1-rc3.md \
+	status/0.1-rc4.md \
+	status/0.1-rc5.md \
+	status/0.1-rc6.md \
+	status/coreboot-upstream-status.md \
+	status/reproducible-builds-status.md \
+	status/status.md.tmpl \
+	status/status.py \
+	status/upstream-versions.md \
+$(SENTINEL)
+
+ES_STATUS_PAGE_DEPS = \
+	status/0.1-rc1.es.md \
+	status/0.1-rc2.es.md \
+	status/0.1-rc3.es.md \
+	status/0.1-rc4.es.md \
+	status/0.1-rc5.es.md \
+	status/0.1-rc6.es.md \
+	status/coreboot-upstream-status.es.md \
+	status/reproducible-builds-status.es.md \
+	status/status.es.md.tmpl \
+	status/status.py \
+	status/upstream-versions.es.md \
+	$(SENTINEL)
+
+status/status.md: $(STATUS_PAGE_DEPS)
+	python3 status/status.py en > $@
+
+status/status.es.md: $(ES_STATUS_PAGE_DEPS)
+	python3 status/status.py es > $@
+
+# In a subsequent commit the non-generated status will be removed. Then the
+# status table presentation will be able to be changed if needed, and the
+# extra patches or hack can also be dropped if upstream doesn't have the time
+# to review them.
+check-status: status/status.md status/status.es.md
+	cmp status/status.md pages/status.md
+	cmp status/status.es.md pages/status.es.md
 
 #############
 # templates #
@@ -303,7 +561,7 @@ else
 BUILD_SH_CMD = ./build.sh
 endif
 
-build: site.cfg templates/footer.include $(GNUBOOT_MANUAL)
+build: site.cfg templates/footer.include $(GNUBOOT_MANUAL) check-status
 	$(BUILD_SH_CMD) $(BUILD_OPTIONS)
 
 ###################
