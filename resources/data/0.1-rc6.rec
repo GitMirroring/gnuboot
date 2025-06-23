@@ -1,0 +1,317 @@
+# -*- mode: rec -*-
+# Copyright (C) 2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+vendor: Acer
+product: G43T-AM3
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Apple
+product: MacBook 1,1
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Apple
+product: MacBook 2,1
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Apple
+product: iMac 5,2
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Asus
+product: KCMA-D8 with ECC RAM
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Asus
+product: KCMA-D8 with non-ECC RAM
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Asus
+product: KFSN4-DRE
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Asus
+product: KGPE-D16 with ECC RAM
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Asus
+product: KGPE-D16 with non-ECC RAM
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Gigabyte
+product: D945GCLF2D
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Fail: #66463
+
+vendor: Gigabyte
+product: GA-G41M-ES2L
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Intel
+product: D410PT
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Intel
+product: D510MO
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Intel
+product: D945GCLF
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Lenovo
+product: ThinkPad R400
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Lenovo
+product: ThinkPad R500
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Lenovo
+product: ThinkPad T400
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Lenovo
+product: ThinkPad T400s
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Lenovo
+product: ThinkPad T500
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Lenovo
+product: ThinkPad T60 with intel GPU
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Lenovo
+product: ThinkPad W500
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Lenovo
+product: ThinkPad X200
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Lenovo
+product: ThinkPad X200s
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Lenovo
+product: ThinkPad X200T
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Lenovo
+product: ThinkPad X301
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Lenovo
+product: ThinkPad X60
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Lenovo
+product: ThinkPad X60T
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Lenovo
+product: ThinkPad X60s
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Libiquity
+product: Taurinus X200
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Qemu
+product: PC (i440FX)
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Technoethical
+product: D16 with ECC RAM
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Technoethical
+product: D16 with non-ECC RAM
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Technoethical
+product: T400
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Technoethical
+product: T400s
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Technoethical
+product: T500
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Technoethical
+product: X200
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Technoethical
+product: X200s
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Technoethical
+product: X200 Tablet (X200T)
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Vikings
+product: ASUS KCMA D8 mainboard and workstation with ECC RAM
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Vikings
+product: ASUS KCMA D8 mainboard and workstation with non-ECC RAM
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Vikings
+product: ASUS KGPE D16 mainboard with ECC RAM
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Vikings
+product: ASUS KGPE D16 mainboard with non-ECC RAM
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+
+vendor: Vikings
+product: X200
+grub_high_resolution_graphics: Untested
+grub_text_only_low_resolution: Untested
+seabios_high_resolution_graphics: Untested
+seabios_text_only_low_resolution: Untested
+

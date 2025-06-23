@@ -1,0 +1,187 @@
+title: Estado de GNU Boot
+---
+
+Soporte experimental por algunos computadores
+=============================================
+
+El soporte por estos computadores es experimental:
+
+* Asus KCMA-D8
+* Asus KFSN4-DRE
+* Asus KGPE-D16
+* Technoethical D16
+* Vikings ASUS KCMA D8 mainboard and workstation
+* Vikings ASUS KGPE D16 mainboard
+
+See el [Experimental support for some
+computers](software/gnuboot/manual/gnuboot.html#Experimental-support-for-some-computers)
+subsección en el manual de GNU Boot para entender que significa.
+
+Estado de GNU Boot 0.1 RC6
+==========================
+
+GNU_BOOT_0.1_RC6_STATUS_TABLE
+
+Estabilidad:
+------------
+
+* No probado: Los mantenedores de GNU Boot no conocen a nadie que haya
+  probado GNU Boot 0.1 RC6 en esa computadora. Si tiene GNU Boot en esta
+  computadora, informe si funciona o no (por ejemplo, abriendo un informe
+  de error).
+
+* Fallado: #<número de error>: Alguien probó GNU Boot 0.1 RC6 en esa
+  computadora y no arrancó o no arrancó completamente ninguna
+  distribución de GNU con Linux. Se debe confirmar que sea un problema
+  software y no hardware hardware como módulos de RAM rotos.
+  Se debe describir el problema en un rapporto de incidencias que es
+  disponible en https://savannah.gnu.org/bugs/index.php?<número de
+  error> (esto es el rastreador de errores de GNU Boot).
+
+* Probado: Alguien probó GNU Boot 0.1 RC6 en esa computadora e informó a
+  GNU Boot que al menos arrancó bien.
+
+* Usuarios diarios: algunas personas que se pusieron en contacto con los
+  mantenedores de GNU Boot y se ofrecieron como voluntarios para enviar
+  informes de errores a cerca de si la instalación de GNU Boot hacía que
+  la computadora fuera inutilizable o muy difícil de usar (como una
+  corrupción de la memoria que imposibilita el inicio de ciertas
+  distribuciones de GNU con Linux o bloquea la computadora
+  aleatoriamente). Si desea ayudar a GNU Boot con esto, comuníquese con
+  los mantenedores a través de un informe de error.
+
+Este lanzamiento era compilado por neox con Trisquel Aramo (11.0.1) en
+una máquina virtual ejecutando en una KGPE-D16 (que ha GNU Boot) que
+es alojado por Libre en communs, que es una asociación donde los
+actuales mantenedores de GNU Boot (GNUtoo y neox) participan en.
+
+Estado de GNU Boot 0.1 RC5
+==========================
+
+GNU_BOOT_0.1_RC5_STATUS_TABLE
+
+Consulte el estado de GNU Boot 0.1 RC6 arriba para conocer el
+significado de los distintos campos.
+
+Estado de GNU Boot 0.1 RC4
+==========================
+
+GNU_BOOT_0.1_RC4_STATUS_TABLE
+
+Consulte el estado de GNU Boot 0.1 RC6 arriba para conocer el
+significado de los distintos campos.
+
+Estado de GNU Boot 0.1 RC3
+==========================
+
+GNU_BOOT_0.1_RC3_STATUS_TABLE
+
+Consulte el estado de GNU Boot 0.1 RC6 arriba para conocer el
+significado de los distintos campos.
+
+Estado de GNU Boot 0.1 RC2
+==========================
+
+No hay cambios que afecten a las imágenes entre GNU Boot 0.1 RC2 y GNU
+Boot 0.1 RC3, por lo que no vale la pena probar el RC2. Es mejor probar
+el RC3 directamente. Sin embargo, los mantenedores de GNU Boot probaron
+algunas computadoras en el RC2 para reducir el riesgo de los probadores.
+
+GNU_BOOT_0.1_RC2_STATUS_TABLE
+
+Consulte el estado de GNU Boot 0.1 RC6 arriba para conocer el
+significado de los distintos campos.
+
+Estado de GNU Boot 0.1 RC1
+==========================
+
+GNU_BOOT_0.1_RC1_STATUS_TABLE
+
+Consulte el estado de GNU Boot 0.1 RC6 arriba para conocer el
+significado de los distintos campos.
+
+Estado de "Upstream" (Contracorriente)
+======================================
+
+COREBOOT_UPSTREAM_STATUS
+
+Estado de Coreboot:
+-------------------
+
+* Mantenido/Sin mantenimiento: GNU Boot depende de Coreboot para admitir
+  computadoras específicas. Entonces, si Coreboot deja de admitir una
+  computadora que admite GNU Boot, con el tiempo será cada vez más difícil
+  admitir esa computadora en GNU Boot y, en algún momento, GNU Boot
+  probablemente dejará de admitirla a menos que alguien vuelva a agregar
+  esa computadora en Coreboot. Y si una computadora no tiene un mantenedor
+  en Coreboot, aumenta la probabilidad de que sea eliminada en algún
+  momento.
+
+* Removido: Coreboot ya eliminó el soporte para esta computadora.
+
+* Similar a <otra computadora>: No hay soporte oficial para esta
+  computadora en Coreboot, pero usar el código de la otra computadora
+  mencionada funciona.
+
+Controlador de GPU Coreboot:
+----------------------------
+
+* Controlador de GPU antiguo/controlador de GPU nuevo: algunas
+  computadoras utilizan un controlador de GPU antiguo escrito en C que
+  podría tener algunos problemas de estabilidad que se solucionaron en el
+  nuevo controlador de GPU escrito en ADA. Cuando el campo está en blanco,
+  significa que no miramos qué controlador de GPU se usó ni su
+  estabilidad.
+
+Versiones "Upstream" (Contracorriente) usadas por GNU Boot
+==========================================================
+
+UPSTREAM_VERSIONS
+
+Reproducible builds
+===================
+
+Este sigue el estado de las reproducible builds en GNU Boot.
+
+Consulte la página [Building GNU Boot from source
+chapter](../manual/gnuboot.html#Building-GNU-Boot-from-source) en inglés para
+más detalles.
+
+Ten en cuenta que el tabla que es abajo es para las [imágenes GNU
+Boot](../manual/gnuboot.html#index-flash-images) (en inglés) que son lo que
+son instaladas y son lo que interesa mas los usuarios.
+
+REPRODUCIBLE_BUILDS_STATUS
+
+Ten en cuenta que no todo es en el tabla que esta encima:
+
+* El archivo gnuboot-trisquel-grub.img, que es producido por GNU Boot
+  y que es usado durante las pruebas automáticas es reproducible.
+
+  Se puede usar como ejemplo para hacer reproducible otros componentes
+  construido con Guix.
+
+Limitaciones
+============
+
+* Las imágenes SeaBIOS no tienen suporte VGA (Bug
+  [#65922](https://savannah.gnu.org/bugs/index.php?65922)). La consecuencia es
+  que los usuarios deben editar /etc/default/grub antes de instalar y/o usar
+  imágenes SeaBIOS.
+
+* El sitio web tiene muchas pagines que no hayan repasadas.
+
+  Pueden ser identificadas fácilmente porque tienen una pancarta que explica
+  los riesgos de usar información en estas paginas.
+
+* GNU Boot no tiene instrucciones de instalación y/o de mejoramiento que son
+  buenas. No hayan repasadas correctamente, y algunas son para personas muchas
+  técnicas que saben lo que son haciendo: algunas paginas necesitan ser un
+  experto en electrónica y conocer las buenas procedimientos de seguridad que
+  usualmente non son documentadas ni siquiera mencionadas.
+
+  Es precisamente para eso que estas paginas tienen un aviso que explica los
+  riesgos de seguir estas instrucciones ciegamente sin haber formación
+  profesional en electrónicas.
+
+* GNU Boot ahora tiene un manual pero es incompleto.
