@@ -33,7 +33,7 @@ Estado de GNU Boot 0.1 RC6
 | Apple,           | No probado   | No probado   | No probado   | No probado   |
 +------------------+--------------+--------------+--------------+--------------+
 | Apple,           | No probado   | No probado   | No probado   | No probado   |
-| MacBook 2.1      |              |              |              |              |
+| MacBook 2,1      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Apple, iMac 5,2  | No probado   | No probado   | No probado   | No probado   |
 +------------------+--------------+--------------+--------------+--------------+
@@ -216,7 +216,7 @@ Estado de GNU Boot 0.1 RC5
 | Apple,           | No probado   | No probado   | No probado   | No probado   |
 +------------------+--------------+--------------+--------------+--------------+
 | Apple,           | No probado   | No probado   | No probado   | No probado   |
-| MacBook 2.1      |              |              |              |              |
+| MacBook 2,1      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Apple, iMac 5,2  | No probado   | No probado   | No probado   | No probado   |
 +------------------+--------------+--------------+--------------+--------------+
@@ -367,10 +367,10 @@ Estado de GNU Boot 0.1 RC4
 |                  | imágenes     |              | imágenes     | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
 | Apple,           | No probado   | No probado   | Fallado:     | Fallado:     |
-| MacBook 1.1      |              |              | #66487       | #66487       |
+| MacBook 1,1      |              |              | #66487       | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
 | Apple,           | No probado   | No probado   | Fallado:     | Fallado:     |
-| MacBook 2.1      |              |              | #66487       | #66487       |
+| MacBook 2,1      |              |              | #66487       | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
 | Apple, iMac 5,2  | No probado   | No probado   | Fallado:     | Fallado:     |
 |                  |              |              | #66487       | #66487       |
@@ -522,9 +522,9 @@ Estado de GNU Boot 0.1 RC3
 +---------------+----------------+-----------------+
 | Acer          | G43T-AM3       | No probado      |
 +---------------+----------------+-----------------+
-| Apple         | MacBook 1.1    | No probado      |
+| Apple         | MacBook 1,1    | No probado      |
 +---------------+----------------+-----------------+
-| Apple         | MacBook 2.1    | No probado      |
+| Apple         | MacBook 2,1    | No probado      |
 +---------------+----------------+-----------------+
 | Apple         | iMac 5,2       | No probado      |
 +---------------+----------------+-----------------+
@@ -620,9 +620,9 @@ algunas computadoras en el RC2 para reducir el riesgo de los probadores.
 |               |                |                 |
 |               |                |                 |
 +---------------+----------------+-----------------+
-| Apple         | MacBook 1.1    | No probado      |
+| Apple         | MacBook 1,1    | No probado      |
 +---------------+----------------+-----------------+
-| Apple         | MacBook 2.1    | No probado      |
+| Apple         | MacBook 2,1    | No probado      |
 +---------------+----------------+-----------------+
 | Apple         | iMac 5,2       | No probado      |
 +---------------+----------------+-----------------+
@@ -713,9 +713,9 @@ Estado de GNU Boot 0.1 RC1
 |               |                |                 |
 |               |                |                 |
 +---------------+----------------+-----------------+
-| Apple         | MacBook 1.1    | No probado      |
+| Apple         | MacBook 1,1    | No probado      |
 +---------------+----------------+-----------------+
-| Apple         | MacBook 2.1    | Probado         |
+| Apple         | MacBook 2,1    | Probado         |
 +---------------+----------------+-----------------+
 | Apple         | iMac 5,2       | No probado      |
 +---------------+----------------+-----------------+
@@ -802,9 +802,9 @@ Estado de "Upstream" (Contracorriente)
 +----------+-----------------+--------------------------+--------------------------------+
 | Vendedor | Producto        | Estado de Coreboot       | Controlador de GPU de Coreboot |
 +----------+-----------------+--------------------------+--------------------------------+
-| Apple    | MacBook 1.1     | Mantenido                | controlador de GPU antiguo     |
+| Apple    | MacBook 1,1     | Mantenido                | controlador de GPU antiguo     |
 +----------+-----------------+--------------------------+--------------------------------+
-| Apple    | MacBook 2.1     | Mantenido                | controlador de GPU antiguo     |
+| Apple    | MacBook 2,1     | Mantenido                | controlador de GPU antiguo     |
 +----------+-----------------+--------------------------+--------------------------------+
 | Apple    | iMac 5,2        | Mantenido                | controlador de GPU antiguo     |
 +----------+-----------------+--------------------------+--------------------------------+
