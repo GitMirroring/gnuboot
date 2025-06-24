@@ -91,7 +91,7 @@ Estado de GNU Boot 0.1 RC6
 | ThinkPad X200    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | No probado   | No probado   | No probado   | No probado   |
-|  ThinkPad X200S  |              |              |              |              |
+| ThinkPad X200S   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | No probado   | No probado   | No probado   | No probado   |
 | ThinkPad X200T   |              |              |              |              |
@@ -106,7 +106,7 @@ Estado de GNU Boot 0.1 RC6
 | ThinkPad X60T    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | No probado   | No probado   | No probado   | No probado   |
-|  ThinkPad X60s   |              |              |              |              |
+| ThinkPad X60s    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Libiquity,       | No probado   | No probado   | No probado   | No probado   |
 | Taurinus X200    |              |              |              |              |
@@ -271,7 +271,7 @@ Estado de GNU Boot 0.1 RC5
 | ThinkPad X200    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | No probado   | No probado   | No probado   | No probado   |
-|  ThinkPad X200S  |              |              |              |              |
+| ThinkPad X200S   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | No probado   | No probado   | No probado   | No probado   |
 | ThinkPad X200T   |              |              |              |              |
@@ -286,7 +286,7 @@ Estado de GNU Boot 0.1 RC5
 | ThinkPad X60T    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | No probado   | No probado   | No probado   | No probado   |
-|  ThinkPad X60s   |              |              |              |              |
+| ThinkPad X60s    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Libiquity,       | No probado   | No probado   | No probado   | No probado   |
 | Taurinus X200    |              |              |              |              |
@@ -425,7 +425,7 @@ Estado de GNU Boot 0.1 RC4
 | ThinkPad X200    |              |              | #66487       | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
-|  ThinkPad X200S  |              |              | #66487       | #66487       |
+| ThinkPad X200S   |              |              | #66487       | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
 | ThinkPad X200T   |              |              | #66487       | #66487       |
@@ -440,7 +440,7 @@ Estado de GNU Boot 0.1 RC4
 | ThinkPad X60T    |              |              | #66487       | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
-|  ThinkPad X60s   |              |              | #66487       | #66487       |
+| ThinkPad X60s    |              |              | #66487       | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
 | Libiquity,       | No probado   | No probado   | Fallado:     | Fallado:     |
 | Taurinus X200    |              |              | #66487       | #66487       |
