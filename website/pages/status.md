@@ -82,7 +82,7 @@ GNU Boot 0.1 RC6 status
 | ThinkPad T400    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | Untested     | Untested     | Untested     | Untested     |
-| ThinkPad T400S   |              |              |              |              |
+| ThinkPad T400s   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | Untested     | Untested     | Untested     | Untested     |
 | ThinkPad T500    |              |              |              |              |
@@ -267,7 +267,7 @@ GNU Boot 0.1 RC5 status
 | ThinkPad T400    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | Untested     | Untested     | Untested     | Untested     |
-| ThinkPad T400S   |              |              |              |              |
+| ThinkPad T400s   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | Tested       | Untested     | Untested     | Untested     |
 | ThinkPad T500    |              |              |              |              |
@@ -423,7 +423,7 @@ GNU Boot 0.1 RC4 status
 | ThinkPad T400    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
-| ThinkPad T400S   |              |              |              |              |
+| ThinkPad T400s   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | Tested       | Untested     | Fail: #66487 | Fail: #66487 |
 | ThinkPad T500    |              |              |              |              |
@@ -556,7 +556,7 @@ GNU Boot 0.1 RC3 status
 +---------------+--------------------+--------------+
 | Lenovo        | ThinkPad T400      | Untested     |
 +---------------+--------------------+--------------+
-| Lenovo        | ThinkPad T400S     | Untested     |
+| Lenovo        | ThinkPad T400s     | Untested     |
 +---------------+--------------------+--------------+
 | Lenovo        | ThinkPad T500      | Untested     |
 +---------------+--------------------+--------------+
@@ -654,7 +654,7 @@ the RC2 to reduce the risk of testers.
 +---------------+--------------------+--------------+
 | Lenovo        | ThinkPad T400      | Tested       |
 +---------------+--------------------+--------------+
-| Lenovo        | ThinkPad T400S     | Untested     |
+| Lenovo        | ThinkPad T400s     | Untested     |
 +---------------+--------------------+--------------+
 | Lenovo        | ThinkPad T500      | Untested     |
 +---------------+--------------------+--------------+
@@ -747,7 +747,7 @@ GNU Boot 0.1 RC1 status
 +---------------+--------------------+--------------+
 | Lenovo        | ThinkPad T400      | Tested       |
 +---------------+--------------------+--------------+
-| Lenovo        | ThinkPad T400S     | Untested     |
+| Lenovo        | ThinkPad T400s     | Untested     |
 +---------------+--------------------+--------------+
 | Lenovo        | ThinkPad T500      | Tested       |
 +---------------+--------------------+--------------+
