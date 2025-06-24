@@ -38,20 +38,24 @@ Estado de GNU Boot 0.1 RC6
 +------------------+--------------+--------------+--------------+--------------+
 | Apple, iMac 5,2  | No probado   | No probado   | No probado   | No probado   |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KCMA-D8    | Faltan       | No probado   | Faltan       | No probado   |
-| con RAM ECC      | imágenes     |              | imágenes     |              |
+| Asus,            | Faltan       | No probado   | Faltan       | No probado   |
+| KCMA-D8 con RAM  | imágenes     |              | imágenes     |              |
+| ECC              |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KCMA-D8    | Faltan       | No probado   | Faltan       | No probado   |
-| con RAM no-ECC   | imágenes     |              | imágenes     |              |
+| Asus,            | Faltan       | No probado   | Faltan       | No probado   |
+| KCMA-D8 con RAM  | imágenes     |              | imágenes     |              |
+| no-ECC           |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KFSN4-DRE  | Faltan       | Faltan       | Faltan       | No probado   |
 |                  | imágenes     | imágenes     | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KGPE-D16   | Faltan       | No probado   | Faltan       | No probado   |
-| con RAM ECC      | imágenes     |              | imágenes     |              |
+| Asus,            | Faltan       | No probado   | Faltan       | No probado   |
+| KGPE-D16 con RAM | imágenes     |              | imágenes     |              |
+| ECC              |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KGPE-D16   | Faltan       | No probado   | Faltan       | No probado   |
-| con RAM no-ECC   | imágenes     |              | imágenes     |              |
+| Asus,            | Faltan       | No probado   | Faltan       | No probado   |
+| KGPE-D16 con RAM | imágenes     |              | imágenes     |              |
+| no-ECC           |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Gigabyte,        | Faltan       | Faltan       | Faltan       | Fallado:     |
 | D945GCLF2D       | imágenes     | imágenes     | imágenes     | #66463       |
@@ -220,20 +224,24 @@ Estado de GNU Boot 0.1 RC5
 +------------------+--------------+--------------+--------------+--------------+
 | Apple, iMac 5,2  | No probado   | No probado   | No probado   | No probado   |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KCMA-D8    | Faltan       | No probado   | Faltan       | No probado   |
-| con RAM ECC      | imágenes     |              | imágenes     |              |
+| Asus,            | Faltan       | No probado   | Faltan       | No probado   |
+| KCMA-D8 con RAM  | imágenes     |              | imágenes     |              |
+| ECC              |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KCMA-D8    | Faltan       | No probado   | Faltan       | No probado   |
-| con RAM no-ECC   | imágenes     |              | imágenes     |              |
+| Asus,            | Faltan       | No probado   | Faltan       | No probado   |
+| KCMA-D8 con RAM  | imágenes     |              | imágenes     |              |
+| no-ECC           |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KFSN4-DRE  | Faltan       | Faltan       | Faltan       | No probado   |
 |                  | imágenes     | imágenes     | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KGPE-D16   | Faltan       | Probado      | Faltan       | No probado   |
-| con RAM ECC      | imágenes     |              | imágenes     |              |
+| Asus,            | Faltan       | Probado      | Faltan       | No probado   |
+| KGPE-D16 con RAM | imágenes     |              | imágenes     |              |
+| ECC              |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KGPE-D16   | Faltan       | No probado   | Faltan       | No probado   |
-| con RAM no-ECC   | imágenes     |              | imágenes     |              |
+| Asus,            | Faltan       | No probado   | Faltan       | No probado   |
+| KGPE-D16 con RAM | imágenes     |              | imágenes     |              |
+| no-ECC           |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Gigabyte,        | Faltan       | Faltan       | Faltan       | Fallado:     |
 | D945GCLF2D       | imágenes     | imágenes     | imágenes     | #66463       |
@@ -373,20 +381,24 @@ Estado de GNU Boot 0.1 RC4
 | Apple, iMac 5,2  | No probado   | No probado   | Fallado:     | Fallado:     |
 |                  |              |              | #66487       | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KCMA-D8    | Faltan       | No probado   | Faltan       | No probado   |
-| con RAM ECC      | imágenes     |              | imágenes     |              |
+| Asus,            | Faltan       | No probado   | Faltan       | No probado   |
+| KCMA-D8 con RAM  | imágenes     |              | imágenes     |              |
+| ECC              |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KCMA-D8    | Faltan       | No probado   | Faltan       | No probado   |
-| con RAM no-ECC   | imágenes     |              | imágenes     |              |
+| Asus,            | Faltan       | No probado   | Faltan       | No probado   |
+| KCMA-D8 con RAM  | imágenes     |              | imágenes     |              |
+| no-ECC           |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KFSN4-DRE  | Faltan       | Faltan       | Faltan       | Fallado:     |
 |                  | imágenes     | imágenes     | imágenes     | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KGPE-D16   | Faltan       | Probado      | Faltan       | Fallado:     |
-| con RAM ECC      | imágenes     |              | imágenes     | #66487       |
+| Asus,            | Faltan       | Probado      | Faltan       | Fallado:     |
+| KGPE-D16 con RAM | imágenes     |              | imágenes     | #66487       |
+| ECC              |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KGPE-D16   | Faltan       | No probado   | Faltan       | Fallado:     |
-| con RAM no-ECC   | imágenes     |              | imágenes     | #66487       |
+| Asus,            | Faltan       | No probado   | Faltan       | Fallado:     |
+| KGPE-D16 con RAM | imágenes     |              | imágenes     | #66487       |
+| no-ECC           |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Gigabyte,        | Faltan       | Faltan       | Faltan       | Fallado:     |
 | D945GCLF2D       | imágenes     | imágenes     | imágenes     | #66463,      |
