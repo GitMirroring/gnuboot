@@ -122,12 +122,11 @@ GNU Boot 0.1 RC6 status
 | PC (i440FX)      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | Untested     | Untested     | Untested     | Untested     |
-| D16              |              |              |              |              |
-| with ECC RAM     |              |              |              |              |
+| D16 with ECC RAM |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | Untested     | Untested     | Untested     | Untested     |
-| D16              |              |              |              |              |
-| with non-ECC RAM |              |              |              |              |
+| D16 with non-ECC |              |              |              |              |
+| RAM              |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | Untested     | Untested     | Untested     | Untested     |
 | T400             |              |              |              |              |
@@ -151,8 +150,8 @@ GNU Boot 0.1 RC6 status
 | Vikings,         | Missing      | Untested     | Missing      | Untested     |
 | ASUS KCMA D8     | images       |              | images       |              |
 | mainboard and    |              |              |              |              |
-| workstation      |              |              |              |              |
-| with ECC RAM     |              |              |              |              |
+| workstation with |              |              |              |              |
+| ECC RAM          |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings,         | Missing      | Untested     | Missing      | Untested     |
 | ASUS KCMA D8     | images       |              | images       |              |
@@ -307,12 +306,11 @@ GNU Boot 0.1 RC5 status
 | PC (i440FX)      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | Untested     | Untested     | Untested     | Untested     |
-| D16              |              |              |              |              |
-| with ECC RAM     |              |              |              |              |
+| D16 with ECC RAM |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | Untested     | Untested     | Untested     | Untested     |
-| D16              |              |              |              |              |
-| with non-ECC RAM |              |              |              |              |
+| D16 with non-ECC |              |              |              |              |
+| RAM              |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | Untested     | Untested     | Untested     | Untested     |
 | T400             |              |              |              |              |
@@ -336,8 +334,8 @@ GNU Boot 0.1 RC5 status
 | Vikings,         | Missing      | Untested     | Missing      | Untested     |
 | ASUS KCMA D8     | images       |              | images       |              |
 | mainboard and    |              |              |              |              |
-| workstation      |              |              |              |              |
-| with ECC RAM     |              |              |              |              |
+| workstation with |              |              |              |              |
+| ECC RAM          |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings,         | Missing      | Untested     | Missing      | Untested     |
 | ASUS KCMA D8     | images       |              | images       |              |
@@ -389,8 +387,8 @@ GNU Boot 0.1 RC4 status
 | KCMA-D8 with     | images       |              | images       |              |
 | non-ECC RAM      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus,            | Missing      | Missing      | Missing      | Fail: #66487 |
-| KFSN4-DRE        | images       | images       | images       |              |
+| Asus, KFSN4-DRE  | Missing      | Missing      | Missing      | Fail: #66487 |
+|                  | images       | images       | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus,            | Missing      | Tested       | Missing      | Fail: #66487 |
 | KGPE-D16 with    | images       |              | images       |              |
@@ -492,8 +490,8 @@ GNU Boot 0.1 RC4 status
 | Vikings,         | Missing      | Untested     | Missing      | Untested     |
 | ASUS KCMA D8     | images       |              | images       |              |
 | mainboard and    |              |              |              |              |
-| workstation      |              |              |              |              |
-| with ECC RAM     |              |              |              |              |
+| workstation with |              |              |              |              |
+| ECC RAM          |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings,         | Missing      | Untested     | Missing      | Untested     |
 | ASUS KCMA D8     | images       |              | images       |              |
