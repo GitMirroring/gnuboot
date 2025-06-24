@@ -98,7 +98,7 @@ GNU Boot 0.1 RC6 status
 | ThinkPad X200    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | Untested     | Untested     | Untested     | Untested     |
-|  ThinkPad X200S  |              |              |              |              |
+| ThinkPad X200S   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | Untested     | Untested     | Untested     | Untested     |
 | ThinkPad X200T   |              |              |              |              |
@@ -283,7 +283,7 @@ GNU Boot 0.1 RC5 status
 | ThinkPad X200    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | Untested     | Untested     | Untested     | Untested     |
-|  ThinkPad X200S  |              |              |              |              |
+| ThinkPad X200S   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | Untested     | Untested     | Untested     | Untested     |
 | ThinkPad X200T   |              |              |              |              |
@@ -439,7 +439,7 @@ GNU Boot 0.1 RC4 status
 | ThinkPad X200    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
-|  ThinkPad X200S  |              |              |              |              |
+| ThinkPad X200S   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
 | ThinkPad X200T   |              |              |              |              |
