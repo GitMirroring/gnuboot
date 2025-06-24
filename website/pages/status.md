@@ -98,7 +98,7 @@ GNU Boot 0.1 RC6 status
 | ThinkPad X200    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | Untested     | Untested     | Untested     | Untested     |
-| ThinkPad X200S   |              |              |              |              |
+| ThinkPad X200s   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | Untested     | Untested     | Untested     | Untested     |
 | ThinkPad X200T   |              |              |              |              |
@@ -283,7 +283,7 @@ GNU Boot 0.1 RC5 status
 | ThinkPad X200    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | Untested     | Untested     | Untested     | Untested     |
-| ThinkPad X200S   |              |              |              |              |
+| ThinkPad X200s   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | Untested     | Untested     | Untested     | Untested     |
 | ThinkPad X200T   |              |              |              |              |
@@ -439,7 +439,7 @@ GNU Boot 0.1 RC4 status
 | ThinkPad X200    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
-| ThinkPad X200S   |              |              |              |              |
+| ThinkPad X200s   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
 | ThinkPad X200T   |              |              |              |              |
@@ -567,7 +567,7 @@ GNU Boot 0.1 RC3 status
 +---------------+--------------------+--------------+
 | Lenovo        | ThinkPad X200      | Tested       |
 +---------------+--------------------+--------------+
-| Lenovo        | ThinkPad X200S     | Untested     |
+| Lenovo        | ThinkPad X200s     | Untested     |
 +---------------+--------------------+--------------+
 | Lenovo        | ThinkPad X200T     | Untested     |
 +---------------+--------------------+--------------+
@@ -665,7 +665,7 @@ the RC2 to reduce the risk of testers.
 +---------------+--------------------+--------------+
 | Lenovo        | ThinkPad X200      | Tested       |
 +---------------+--------------------+--------------+
-| Lenovo        | ThinkPad X200S     | Untested     |
+| Lenovo        | ThinkPad X200s     | Untested     |
 +---------------+--------------------+--------------+
 | Lenovo        | ThinkPad X200T     | Untested     |
 +---------------+--------------------+--------------+
@@ -758,7 +758,7 @@ GNU Boot 0.1 RC1 status
 +---------------+--------------------+--------------+
 | Lenovo        | ThinkPad X200      | Tested       |
 +---------------+--------------------+--------------+
-| Lenovo        | ThinkPad X200S     | Untested     |
+| Lenovo        | ThinkPad X200s     | Untested     |
 +---------------+--------------------+--------------+
 | Lenovo        | ThinkPad X200T     | Untested     |
 +---------------+--------------------+--------------+
