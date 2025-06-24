@@ -23,9 +23,9 @@ Estado de GNU Boot 0.1 RC6
 
 +------------------+--------------+--------------+--------------+--------------+
 | Vendedor,        | GRUB con     | GRUB con     | SeaBIOS con  | SeaBIOS con  |
-| Producto         | gráficos     | texto        | gráficos     | texto        |
-|                  | alta         | baja         | alta         | baja         |
-|                  | resolución   | resolución   | resolución   | resolución   |
+| Producto         | gráficos     | texto baja   | gráficos     | texto baja   |
+|                  | alta         | resolución   | alta         | resolución   |
+|                  | resolución   |              | resolución   |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Acer, G43T-AM3   | Faltan       | No probado   | Faltan       | No probado   |
 |                  | imágenes     |              | imágenes     |              |
@@ -205,9 +205,9 @@ Estado de GNU Boot 0.1 RC5
 
 +------------------+--------------+--------------+--------------+--------------+
 | Vendedor,        | GRUB con     | GRUB con     | SeaBIOS con  | SeaBIOS con  |
-| Producto         | gráficos     | texto        | gráficos     | texto        |
-|                  | alta         | baja         | alta         | baja         |
-|                  | resolución   | resolución   | resolución   | resolución   |
+| Producto         | gráficos     | texto baja   | gráficos     | texto baja   |
+|                  | alta         | resolución   | alta         | resolución   |
+|                  | resolución   |              | resolución   |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Acer, G43T-AM3   | Faltan       | No probado   | Faltan       | No probado   |
 |                  | imágenes     |              | imágenes     |              |
@@ -357,9 +357,9 @@ Estado de GNU Boot 0.1 RC4
 
 +------------------+--------------+--------------+--------------+--------------+
 | Vendedor,        | GRUB con     | GRUB con     | SeaBIOS con  | SeaBIOS con  |
-| Producto         | gráficos     | texto        | gráficos     | texto        |
-|                  | alta         | baja         | alta         | baja         |
-|                  | resolución   | resolución   | resolución   | resolución   |
+| Producto         | gráficos     | texto baja   | gráficos     | texto baja   |
+|                  | alta         | resolución   | alta         | resolución   |
+|                  | resolución   |              | resolución   |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Acer, G43T-AM3   | Faltan       | No probado   | Faltan       | Fallado:     |
 |                  | imágenes     |              | imágenes     | #66487       |
