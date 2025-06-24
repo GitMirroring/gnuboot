@@ -39,21 +39,24 @@ GNU Boot 0.1 RC6 status
 +------------------+--------------+--------------+--------------+--------------+
 | Apple, iMac 5,2  | Untested     | Untested     | Untested     | Untested     |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KCMA-D8    | Missing      | Untested     | Missing      | Untested     |
-| with ECC RAM     | images       |              | images       |              |
-+------------------+--------------+--------------+--------------+--------------+
-| Asus, KCMA-D8    | Missing      | Untested     | Missing      | Untested     |
-| with non-ECC     | images       |              | images       |              |
+| Asus,            | Missing      | Untested     | Missing      | Untested     |
+| KCMA-D8 with ECC | images       |              | images       |              |
 | RAM              |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Asus,            | Missing      | Untested     | Missing      | Untested     |
+| KCMA-D8 with     | images       |              | images       |              |
+| non-ECC RAM      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KFSN4-DRE  | Missing      | Missing      | Missing      | Untested     |
 |                  | images       | images       | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KGPE-D16   | Missing      | Untested     | Missing      | Untested     |
-| with ECC RAM     | images       |              | images       |              |
+| Asus,            | Missing      | Untested     | Missing      | Untested     |
+| KGPE-D16 with    | images       |              | images       |              |
+| ECC RAM          |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KGPE-D16   | Missing      | Untested     | Missing      | Untested     |
-| with non-ECC RAM | images       |              | images       |              |
+| Asus,            | Missing      | Untested     | Missing      | Untested     |
+| KGPE-D16 with    | images       |              | images       |              |
+| non-ECC RAM      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Gigabyte,        | Missing      | Missing      | Missing      | Fail: #66463 |
 | D945GCLF2D       | images       | images       | images       |              |
@@ -221,21 +224,24 @@ GNU Boot 0.1 RC5 status
 +------------------+--------------+--------------+--------------+--------------+
 | Apple, iMac 5,2  | Untested     | Untested     | Untested     | Untested     |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KCMA-D8    | Missing      | Untested     | Missing      | Untested     |
-| with ECC RAM     | images       |              | images       |              |
-+------------------+--------------+--------------+--------------+--------------+
-| Asus, KCMA-D8    | Missing      | Untested     | Missing      | Untested     |
-| with non-ECC     | images       |              | images       |              |
+| Asus,            | Missing      | Untested     | Missing      | Untested     |
+| KCMA-D8 with ECC | images       |              | images       |              |
 | RAM              |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
+| Asus,            | Missing      | Untested     | Missing      | Untested     |
+| KCMA-D8 with     | images       |              | images       |              |
+| non-ECC RAM      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KFSN4-DRE  | Missing      | Missing      | Missing      | Untested     |
 |                  | images       | images       | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KGPE-D16   | Missing      | Tested       | Missing      | Untested     |
-| with ECC RAM     | images       |              | images       |              |
+| Asus,            | Missing      | Tested       | Missing      | Untested     |
+| KGPE-D16 with    | images       |              | images       |              |
+| ECC RAM          |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KGPE-D16   | Missing      | Untested     | Missing      | Untested     |
-| with non-ECC RAM | images       |              | images       |              |
+| Asus,            | Missing      | Untested     | Missing      | Untested     |
+| KGPE-D16 with    | images       |              | images       |              |
+| non-ECC RAM      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Gigabyte,        | Missing      | Missing      | Missing      | Fail: #66463 |
 | D945GCLF2D       | images       | images       | images       |              |
@@ -375,20 +381,24 @@ GNU Boot 0.1 RC4 status
 +------------------+--------------+--------------+--------------+--------------+
 | Apple, iMac 5,2  | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KCMA-D8    | Missing      | Untested     | Missing      | Untested     |
-| with ECC RAM     | images       |              | images       |              |
+| Asus,            | Missing      | Untested     | Missing      | Untested     |
+| KCMA-D8 with ECC | images       |              | images       |              |
+| RAM              |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KCMA-D8    | Missing      | Untested     | Missing      | Untested     |
-| with non-ECC RAM | images       |              | images       |              |
+| Asus,            | Missing      | Untested     | Missing      | Untested     |
+| KCMA-D8 with     | images       |              | images       |              |
+| non-ECC RAM      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KFSN4-DRE  | Missing      | Missing      | Missing      | Fail: #66487 |
-|                  | images       | images       | images       |              |
+| Asus,            | Missing      | Missing      | Missing      | Fail: #66487 |
+| KFSN4-DRE        | images       | images       | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KGPE-D16   | Missing      | Tested       | Missing      | Fail: #66487 |
-| with ECC RAM     | images       |              | images       |              |
+| Asus,            | Missing      | Tested       | Missing      | Fail: #66487 |
+| KGPE-D16 with    | images       |              | images       |              |
+| ECC RAM          |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus, KGPE-D16   | Missing      | Untested     | Missing      | Fail: #66487 |
-| with non-ECC RAM | images       |              | images       |              |
+| Asus,            | Missing      | Untested     | Missing      | Fail: #66487 |
+| KGPE-D16 with    | images       |              | images       |              |
+| non-ECC RAM      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Gigabyte,        | Missing      | Missing      | Missing      | Fail: #66463 |
 | D945GCLF2D       | images       | images       | images       | Fail: #66487 |
