@@ -148,24 +148,24 @@ Estado de GNU Boot 0.1 RC6
 | Vikings,         | Faltan       | No probado   | Faltan       | No probado   |
 | ASUS KCMA D8     | imágenes     |              | imágenes     |              |
 | mainboard and    |              |              |              |              |
-| workstation      |              |              |              |              |
-| con RAM ECC      |              |              |              |              |
+| workstation con  |              |              |              |              |
+| RAM ECC          |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings,         | Faltan       | No probado   | Faltan       | No probado   |
 | ASUS KCMA D8     | imágenes     |              | imágenes     |              |
 | mainboard and    |              |              |              |              |
-| workstation      |              |              |              |              |
-| con RAM no-ECC   |              |              |              |              |
+| workstation con  |              |              |              |              |
+| RAM no-ECC       |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings,         | Faltan       | No probado   | Faltan       | No probado   |
 | ASUS KGPE D16    | imágenes     |              | imágenes     |              |
-| mainboard        |              |              |              |              |
-| con RAM ECC      |              |              |              |              |
+| mainboard con    |              |              |              |              |
+| RAM ECC          |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings,         | Faltan       | No probado   | Faltan       | No probado   |
 | ASUS KGPE D16    | imágenes     |              | imágenes     |              |
-| mainboard        |              |              |              |              |
-| con RAM no-ECC   |              |              |              |              |
+| mainboard con    |              |              |              |              |
+| RAM no-ECC       |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings, X200    | No probado   | No probado   | No probado   | No probado   |
 +------------------+--------------+--------------+--------------+--------------+
@@ -333,24 +333,24 @@ Estado de GNU Boot 0.1 RC5
 | Vikings,         | Faltan       | No probado   | Faltan       | No probado   |
 | ASUS KCMA D8     | imágenes     |              | imágenes     |              |
 | mainboard and    |              |              |              |              |
-| workstation      |              |              |              |              |
-| con RAM ECC      |              |              |              |              |
+| workstation con  |              |              |              |              |
+| RAM ECC          |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings,         | Faltan       | No probado   | Faltan       | No probado   |
 | ASUS KCMA D8     | imágenes     |              | imágenes     |              |
 | mainboard and    |              |              |              |              |
-| workstation      |              |              |              |              |
-| con RAM no-ECC   |              |              |              |              |
+| workstation con  |              |              |              |              |
+| RAM no-ECC       |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings,         | Faltan       | No probado   | Faltan       | No probado   |
 | ASUS KGPE D16    | imágenes     |              | imágenes     |              |
-| mainboard        |              |              |              |              |
-| con RAM ECC      |              |              |              |              |
+| mainboard con    |              |              |              |              |
+| RAM ECC          |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings,         | Faltan       | No probado   | Faltan       | No probado   |
 | ASUS KGPE D16    | imágenes     |              | imágenes     |              |
-| mainboard        |              |              |              |              |
-| con RAM no-ECC   |              |              |              |              |
+| mainboard con    |              |              |              |              |
+| RAM no-ECC       |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings, X200    | No probado   | No probado   | No probado   | No probado   |
 +------------------+--------------+--------------+--------------+--------------+
@@ -490,24 +490,24 @@ Estado de GNU Boot 0.1 RC4
 | Vikings,         | Faltan       | No probado   | Faltan       | No probado   |
 | ASUS KCMA D8     | imágenes     |              | imágenes     |              |
 | mainboard and    |              |              |              |              |
-| workstation      |              |              |              |              |
-| con RAM ECC      |              |              |              |              |
+| workstation con  |              |              |              |              |
+| RAM ECC          |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings,         | Faltan       | No probado   | Faltan       | No probado   |
 | ASUS KCMA D8     | imágenes     |              | imágenes     |              |
 | mainboard and    |              |              |              |              |
-| workstation      |              |              |              |              |
-| con RAM no-ECC   |              |              |              |              |
+| workstation con  |              |              |              |              |
+| RAM no-ECC       |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings,         | Faltan       | Probado      | Faltan       | Fallado:     |
 | ASUS KGPE D16    | imágenes     |              | imágenes     | #66487       |
-| mainboard        |              |              |              |              |
-| con RAM ECC      |              |              |              |              |
+| mainboard con    |              |              |              |              |
+| RAM ECC          |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings,         | Faltan       | No probado   | Faltan       | Fallado:     |
 | ASUS KGPE D16    | imágenes     |              | imágenes     | #66487       |
-| mainboard        |              |              |              |              |
-| con RAM no-ECC   |              |              |              |              |
+| mainboard con    |              |              |              |              |
+| RAM no-ECC       |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Vikings, X200    | No probado   | No probado   | Fallado:     | Fallado:     |
 |                  |              |              | #66487       | #66487       |
