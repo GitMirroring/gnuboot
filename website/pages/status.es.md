@@ -116,11 +116,11 @@ Estado de GNU Boot 0.1 RC6
 | Qemu,            | No probado   | No probado   | No probado   | No probado   |
 | PC (i440FX)      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   | No probado   | No probado   | No probado   | No probado   |
-| D16 con RAM ECC  |              |              |              |              |
+| Technoethical,   | Faltan       | No probado   | Faltan       | No probado   |
+| D16 con RAM ECC  | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   | No probado   | No probado   | No probado   | No probado   |
-| D16 con RAM      |              |              |              |              |
+| Technoethical,   | Faltan       | No probado   | Faltan       | No probado   |
+| D16 con RAM      | imágenes     |              | imágenes     |              |
 | no-ECC           |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | No probado   | No probado   | No probado   | No probado   |
@@ -298,11 +298,11 @@ Estado de GNU Boot 0.1 RC5
 | Qemu,            | No probado   | No probado   | No probado   | No probado   |
 | PC (i440FX)      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   | No probado   | No probado   | No probado   | No probado   |
-| D16 con RAM ECC  |              |              |              |              |
+| Technoethical,   | Faltan       | No probado   | Faltan       | No probado   |
+| D16 con RAM ECC  | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   | No probado   | No probado   | No probado   | No probado   |
-| D16 con RAM      |              |              |              |              |
+| Technoethical,   | Faltan       | No probado   | Faltan       | No probado   |
+| D16 con RAM      | imágenes     |              | imágenes     |              |
 | no-ECC           |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | No probado   | No probado   | No probado   | No probado   |
@@ -453,11 +453,11 @@ Estado de GNU Boot 0.1 RC4
 | Qemu,            | No probado   | No probado   | Fallado:     | Fallado:     |
 | PC (i440FX)      |              |              | #66487       | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   | No probado   | No probado   | Fallado:     | Fallado:     |
-| D16 con RAM ECC  |              |              | #66487       | #66487       |
+| Technoethical,   | Faltan       | No probado   | Faltan       | Fallado:     |
+| D16 con RAM ECC  | imágenes     |              | imágenes     | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   | No probado   | No probado   | Fallado:     | Fallado:     |
-| D16 con RAM      |              |              | #66487       | #66487       |
+| Technoethical,   | Faltan       | No probado   | Faltan       | Fallado:     |
+| D16 con RAM      | imágenes     |              | imágenes     | #66487       |
 | no-ECC           |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | No probado   | No probado   | Fallado:     | Fallado:     |

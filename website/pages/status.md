@@ -121,11 +121,11 @@ GNU Boot 0.1 RC6 status
 | Qemu,            | Untested     | Untested     | Untested     | Untested     |
 | PC (i440FX)      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   | Untested     | Untested     | Untested     | Untested     |
-| D16 with ECC RAM |              |              |              |              |
+| Technoethical,   | Missing      | Untested     | Missing      | Untested     |
+| D16 with ECC RAM | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   | Untested     | Untested     | Untested     | Untested     |
-| D16 with non-ECC |              |              |              |              |
+| Technoethical,   | Missing      | Untested     | Missing      | Untested     |
+| D16 with non-ECC | images       |              | images       |              |
 | RAM              |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | Untested     | Untested     | Untested     | Untested     |
@@ -305,11 +305,11 @@ GNU Boot 0.1 RC5 status
 | Qemu,            | Untested     | Untested     | Untested     | Untested     |
 | PC (i440FX)      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   | Untested     | Untested     | Untested     | Untested     |
-| D16 with ECC RAM |              |              |              |              |
+| Technoethical,   | Missing      | Untested     | Missing      | Untested     |
+| D16 with ECC RAM | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   | Untested     | Untested     | Untested     | Untested     |
-| D16 with non-ECC |              |              |              |              |
+| Technoethical,   | Missing      | Untested     | Missing      | Untested     |
+| D16 with non-ECC | images       |              | images       |              |
 | RAM              |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | Untested     | Untested     | Untested     | Untested     |
@@ -461,11 +461,11 @@ GNU Boot 0.1 RC4 status
 | Qemu,            | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
 | PC (i440FX)      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
-| D16 with ECC RAM |              |              |              |              |
+| Technoethical,   | Missing      | Untested     | Missing      | Fail: #66487 |
+| D16 with ECC RAM | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Technoethical,   | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
-| D16 with non-ECC |              |              |              |              |
+| Technoethical,   | Missing      | Untested     | Missing      | Fail: #66487 |
+| D16 with non-ECC | images       |              | images       |              |
 | RAM              |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
