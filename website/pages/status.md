@@ -379,11 +379,11 @@ GNU Boot 0.1 RC4 status
 +------------------+--------------+--------------+--------------+--------------+
 | Apple, iMac 5,2  | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus,            | Missing      | Untested     | Missing      | Untested     |
+| Asus,            | Missing      | Untested     | Missing      | Fail: #66487 |
 | KCMA-D8 with ECC | images       |              | images       |              |
 | RAM              |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus,            | Missing      | Untested     | Missing      | Untested     |
+| Asus,            | Missing      | Untested     | Missing      | Fail: #66487 |
 | KCMA-D8 with     | images       |              | images       |              |
 | non-ECC RAM      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
@@ -487,13 +487,13 @@ GNU Boot 0.1 RC4 status
 | X200 Tablet      |              |              |              |              |
 | (X200T)          |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Vikings,         | Missing      | Untested     | Missing      | Untested     |
+| Vikings,         | Missing      | Untested     | Missing      | Fail: #66487 |
 | ASUS KCMA D8     | images       |              | images       |              |
 | mainboard and    |              |              |              |              |
 | workstation with |              |              |              |              |
 | ECC RAM          |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Vikings,         | Missing      | Untested     | Missing      | Untested     |
+| Vikings,         | Missing      | Untested     | Missing      | Fail: #66487 |
 | ASUS KCMA D8     | images       |              | images       |              |
 | mainboard and    |              |              |              |              |
 | workstation with |              |              |              |              |
