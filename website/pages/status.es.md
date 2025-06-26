@@ -479,14 +479,14 @@ Estado de GNU Boot 0.1 RC4
 | X200 Tablet      |              |              | #66487       | #66487       |
 | (X200T)          |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Vikings,         | Faltan       | No probado   | Faltan       | No probado   |
-| ASUS KCMA D8     | imágenes     |              | imágenes     |              |
+| Vikings,         | Faltan       | No probado   | Faltan       | Fallado:     |
+| ASUS KCMA D8     | imágenes     |              | imágenes     | #66487       |
 | mainboard and    |              |              |              |              |
 | workstation con  |              |              |              |              |
 | RAM ECC          |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Vikings,         | Faltan       | No probado   | Faltan       | No probado   |
-| ASUS KCMA D8     | imágenes     |              | imágenes     |              |
+| Vikings,         | Faltan       | No probado   | Faltan       | Fallado:     |
+| ASUS KCMA D8     | imágenes     |              | imágenes     | #66487       |
 | mainboard and    |              |              |              |              |
 | workstation con  |              |              |              |              |
 | RAM no-ECC       |              |              |              |              |
