@@ -31,6 +31,7 @@ Estado de GNU Boot 0.1 RC6
 |                  | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Apple,           | No probado   | No probado   | No probado   | No probado   |
+| MacBook 1,1      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Apple,           | No probado   | No probado   | No probado   | No probado   |
 | MacBook 2,1      |              |              |              |              |
@@ -211,6 +212,7 @@ Estado de GNU Boot 0.1 RC5
 |                  | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Apple,           | No probado   | No probado   | No probado   | No probado   |
+| MacBook 1,1      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Apple,           | No probado   | No probado   | No probado   | No probado   |
 | MacBook 2,1      |              |              |              |              |
