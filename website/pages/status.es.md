@@ -398,7 +398,8 @@ Estado de GNU Boot 0.1 RC4
 | con RAM no-ECC   | imágenes     |              | imágenes     | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
 | Gigabyte,        | Faltan       | Faltan       | Faltan       | Fallado:     |
-| D945GCLF2D       | imágenes     | imágenes     | imágenes     |#66463,#66487 |
+| D945GCLF2D       | imágenes     | imágenes     | imágenes     | #66463,      |
+|                  |              |              |              | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
 | Gigabyte,        | Faltan       | No probado   | Faltan       | Fallado:     |
 | GA-G41M-ES2L     | imágenes     |              | imágenes     | #66487       |
