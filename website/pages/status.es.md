@@ -381,12 +381,12 @@ Estado de GNU Boot 0.1 RC4
 | Apple, iMac 5,2  | No probado   | No probado   | Fallado:     | Fallado:     |
 |                  |              |              | #66487       | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus,            | Faltan       | No probado   | Faltan       | No probado   |
-| KCMA-D8 con RAM  | imágenes     |              | imágenes     |              |
+| Asus,            | Faltan       | No probado   | Faltan       | Fallado:     |
+| KCMA-D8 con RAM  | imágenes     |              | imágenes     | #66487       |
 | ECC              |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Asus,            | Faltan       | No probado   | Faltan       | No probado   |
-| KCMA-D8 con RAM  | imágenes     |              | imágenes     |              |
+| Asus,            | Faltan       | No probado   | Faltan       | Fallado:     |
+| KCMA-D8 con RAM  | imágenes     |              | imágenes     | #66487       |
 | no-ECC           |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Asus, KFSN4-DRE  | Faltan       | Faltan       | Faltan       | Fallado:     |
