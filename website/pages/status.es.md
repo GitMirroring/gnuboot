@@ -59,12 +59,13 @@ Estado de GNU Boot 0.1 RC6
 | Gigabyte,        | Faltan       | Faltan       | Faltan       | Fallado:     |
 | D945GCLF2D       | imágenes     | imágenes     | imágenes     | #66463       |
 +------------------+--------------+--------------+--------------+--------------+
-| Gigabyte,        | No probado   | No probado   | No probado   | No probado   |
-| GA-G41M-ES2L     |              |              |              |              |
+| Gigabyte,        | Faltan       | No probado   | Faltan       | No probado   |
+| GA-G41M-ES2L     | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Intel, D410PT    | No probado   | No probado   | No probado   | No probado   |
 +------------------+--------------+--------------+--------------+--------------+
-| Intel, D510MO    | No probado   | No probado   | No probado   | No probado   |
+| Intel, D510MO    | Faltan       | No probado   | Faltan       | No probado   |
+|                  | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Intel, D945GCLF  | Faltan       | Faltan       | Faltan       | No probado   |
 |                  | imágenes     | imágenes     | imágenes     |              |
@@ -243,12 +244,13 @@ Estado de GNU Boot 0.1 RC5
 | Gigabyte,        | Faltan       | Faltan       | Faltan       | Fallado:     |
 | D945GCLF2D       | imágenes     | imágenes     | imágenes     | #66463       |
 +------------------+--------------+--------------+--------------+--------------+
-| Gigabyte,        | No probado   | No probado   | No probado   | No probado   |
-| GA-G41M-ES2L     |              |              |              |              |
+| Gigabyte,        | Faltan       | No probado   | Faltan       | No probado   |
+| GA-G41M-ES2L     | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Intel, D410PT    | No probado   | No probado   | No probado   | No probado   |
 +------------------+--------------+--------------+--------------+--------------+
-| Intel, D510MO    | No probado   | No probado   | No probado   | No probado   |
+| Intel, D510MO    | Faltan       | No probado   | Faltan       | No probado   |
+|                  | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Intel, D945GCLF  | Faltan       | Faltan       | Faltan       | No probado   |
 |                  | imágenes     | imágenes     | imágenes     |              |
@@ -398,14 +400,14 @@ Estado de GNU Boot 0.1 RC4
 | Gigabyte,        | Faltan       | Faltan       | Faltan       | Fallado:     |
 | D945GCLF2D       | imágenes     | imágenes     | imágenes     |#66463,#66487 |
 +------------------+--------------+--------------+--------------+--------------+
-| Gigabyte,        | No probado   | No probado   | Fallado:     | Fallado:     |
-| GA-G41M-ES2L     |              |              | #66487       | #66487       |
+| Gigabyte,        | Faltan       | No probado   | Faltan       | Fallado:     |
+| GA-G41M-ES2L     | imágenes     |              | imágenes     | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
 | Intel, D410PT    | No probado   | No probado   | Fallado:     | Fallado:     |
 |                  |              |              | #66487       | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
-| Intel, D510MO    | No probado   | No probado   | Fallado:     | Fallado:     |
-|                  |              |              | #66487       | #66487       |
+| Intel, D510MO    | Faltan       | No probado   | Faltan       | Fallado:     |
+|                  | imágenes     |              | imágenes     | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
 | Intel, D945GCLF  | Faltan       | Faltan       | Faltan       | Fallado:     |
 |                  | imágenes     | imágenes     | imágenes     | #66487       |
