@@ -19,7 +19,6 @@ SENTINEL =
 	all \
 	build \
 	check \
-	check-status \
 	help \
 	publish \
 	serve \
@@ -383,19 +382,16 @@ ES_STATUS_PAGE_DEPS = \
 	status/upstream-versions.es.md \
 	$(SENTINEL)
 
-status/status.md: $(STATUS_PAGE_DEPS)
+pages/status.md: $(STATUS_PAGE_DEPS)
 	python3 status/status.py en > $@
 
-status/status.es.md: $(ES_STATUS_PAGE_DEPS)
+pages/status.es.md: $(ES_STATUS_PAGE_DEPS)
 	python3 status/status.py es > $@
 
-# In a subsequent commit the non-generated status will be removed. Then the
-# status table presentation will be able to be changed if needed, and the
-# extra patches or hack can also be dropped if upstream doesn't have the time
-# to review them.
-check-status: status/status.md status/status.es.md
-	cmp status/status.md pages/status.md
-	cmp status/status.es.md pages/status.es.md
+GENERATED_STATUS_PAGES = \
+	pages/status.md \
+	pages/status.es.md \
+	$(SENTINEL)
 
 #############
 # templates #
@@ -561,7 +557,7 @@ else
 BUILD_SH_CMD = ./build.sh
 endif
 
-build: site.cfg templates/footer.include $(GNUBOOT_MANUAL) check-status
+build: site.cfg templates/footer.include $(GNUBOOT_MANUAL) $(GENERATED_STATUS_PAGES)
 	$(BUILD_SH_CMD) $(BUILD_OPTIONS)
 
 ###################
