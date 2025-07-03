@@ -43,8 +43,8 @@ install_packages()
 }
 
 if [ $EUID -ne 0 ]; then
-   printf "This script must be run as root\n"
-   exit 1
+    printf "This script must be run as root\n"
+    exit 1
 fi
 
 # Duplications are intentional. Please do not re-factor.
@@ -76,10 +76,10 @@ install_packages base-devel
 
 # for running the crostool script (to get mrc.bin file for t440p)
 install_packages \
-    sharutils \
     curl \
-    parted \
     e2fsprogs \
+    parted \
+    sharutils \
     unzip \
     "${sentinel}"
 
@@ -98,47 +98,47 @@ install_packages \
 # ------------------------------------------------------------
 
 install_packages \
-       base-devel \
-       perl \
-       "${sentinel}"
+    base-devel \
+    perl \
+    "${sentinel}"
 
 # Coreboot build dependencies (also requires build-essential and git)
 # ------------------------------------------------------------
 
 install_packages \
-    ncurses \
-    doxygen \
     acpica \
-    gdb \
-    flex \
-    bison \
     base-devel \
-    git \
-    openssl \
+    bison \
+    doxygen \
+    flex \
     gcc-ada \
+    gdb \
+    git \
+    ncurses \
+    openssl \
     "${sentinel}"
 
 # GRUB build dependencies (also requires build-essential, bison and flex)
 # ------------------------------------------------------------
 
 install_packages \
-    bdf-unifont \
     autogen \
-    help2man \
     base-devel \
+    bdf-unifont \
     bison \
-    flex \
-    ttf-dejavu \
-    texinfo \
-    rsync \
-    python \
-    libusb \
-    xz \
-    gawk \
     device-mapper \
-    fuse2 \
-    gettext \
+    flex \
     freetype2 \
+    fuse2 \
+    gawk \
+    gettext \
+    help2man \
+    libusb \
+    python \
+    rsync \
+    texinfo \
+    ttf-dejavu \
+    xz \
     "${sentinel}"
 
 # BucTS build dependencies (external script)
@@ -150,12 +150,12 @@ install_packages base-devel
 # ------------------------------------------------------------
 
 install_packages \
+    base-devel \
+    libftdi \
     libpciaccess \
+    libusb \
     pciutils \
     zlib \
-    libftdi \
-    base-devel \
-    libusb \
     "${sentinel}"
 
 # For running make check
@@ -172,7 +172,7 @@ install_packages \
     sed \
     tar \
     xz \
-    "${sentinel}"	
+    "${sentinel}"
 
 if [ -n "${to_install}" ] ; then
     pacman -S --needed --noconfirm packagekit
