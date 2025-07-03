@@ -131,6 +131,10 @@ So far the copyright headers were verified on the following files:
   aca12bde3f7af5b17969d57f7da1a8d700e0a36f ("website: serve.sh: update
   copyright headers.")
 
+* resources/dependencies/arch (details in the commit
+  50f40ecfc0fe164c20050139c49b4b2d8a3fec91 ("dependencies: arch:
+  update copyrights.")).
+
 * resources/dependencies/pureos-trisquel (details in the commit
   805127f0301294e41a4409a2c9a7d121214a594e ("dependencies: Trisquel
   10: Add copyright header.")).
