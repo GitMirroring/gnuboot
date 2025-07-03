@@ -28,72 +28,87 @@
 [ "x${DEBUG+set}" = 'xset' ] && set -v
 set -u -e
 
+to_install=""
+install_packages()
+{
+    for package in $@ ; do
+        if [ "${package}" = "$(packan -Qq "${package}")" ] ; then
+            continue
+        else
+            to_install="${to_install} ${package}"
+        fi
+    done
+}
+
 if [ $EUID -ne 0 ]; then
    printf "This script must be run as root\n"
    exit 1
 fi
-
-pacman -S --needed --noconfirm packagekit
 
 # Duplications are intentional. Please do not re-factor.
 #
 # This is so that they can moved to separate scripts.
 #
 
-pkcon -y --allow-reinstall install wget
+install_packages wget
 
 # For downloading source code
 # ------------------------------------------------------------
 
-pkcon -y --allow-reinstall install git
+install_packages git
 
 # For Tianocore and iPXE
 # TODO: check whether this is the full list
 
-pkcon -y --allow-reinstall install nasm perl-libwww python2 subversion
+install_packages nasm perl-libwww python2  subversion
 
 # For building source code:
 # ------------------------------------------------------------
 
-pkcon -y --allow-reinstall install base-devel
+install_packages base-devel
 
 # for running the crostool script (to get mrc.bin file for t440p)
-pkcon -y --allow-reinstall install sharutils curl parted e2fsprogs unzip
+install_packages sharutils curl parted e2fsprogs unzip
 
 # for cross-compiling ARM binaries
-pkcon -y --allow-reinstall install arm-none-eabi-gcc
+install_packages arm-none-eabi-gcc
 
 # Memtest86+ build dependencies
 # ------------------------------------------------------------
 
-pkcon -y --allow-reinstall install base-devel python2
+install_packages base-devel python2
 
 # i945-pwm build dependencies
 # ------------------------------------------------------------
 
-pkcon -y --allow-reinstall install base-devel perl
+install_packages base-devel perl
 
 # Coreboot build dependencies (also requires build-essential and git)
 # ------------------------------------------------------------
 
-pkcon -y --allow-reinstall install ncurses doxygen acpica gdb flex bison base-devel git openssl gcc-ada
+install_packages ncurses doxygen acpica gdb flex bison base-devel git openssl gcc-ada
 
 # GRUB build dependencies (also requires build-essential, bison and flex)
 # ------------------------------------------------------------
 
-pkcon -y --allow-reinstall install bdf-unifont autogen help2man base-devel bison flex ttf-dejavu texinfo rsync python libusb xz gawk device-mapper fuse2 gettext freetype2
+install_packages bdf-unifont autogen help2man base-devel bison flex ttf-dejavu texinfo rsync python libusb xz gawk device-mapper fuse2 gettext freetype2
 
 # BucTS build dependencies (external script)
 # ------------------------------------------------------------
 
-pkcon -y --allow-reinstall install base-devel
+install_packages base-devel
 
 # Flashrom build dependencies (also requires build-essential)
 # ------------------------------------------------------------
 
-pkcon -y --allow-reinstall install libpciaccess pciutils zlib libftdi base-devel libusb
+install_packages libpciaccess pciutils zlib libftdi base-devel libusb
 
 # For running make check
 # ----------------------
-pacman -S --needed shellcheck # lint
-pacman -S --needed awk git grep lzip make sed tar xz # u-boot-libre
+install_packages shellcheck # lint
+install_packages awk git grep lzip make sed tar xz # u-boot-libre
+
+if [ -n "${to_install}" ] ; then
+    pacman -S --needed --noconfirm packagekit
+    pkcon -y --allow-reinstall ${to_install}
+fi
