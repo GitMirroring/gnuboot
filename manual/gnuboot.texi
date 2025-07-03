@@ -320,17 +320,151 @@ the ARM architecture (which GNU Boot doesn't support yet):
 
 @end itemize
 
+@node       GNU boot and GNU Guix
+@subsection GNU boot and GNU Guix
+
 The GNU Guix package manager (which GNU Boot also reuses) also provide
 100% free boot software for some ARM computers. However the Guix
 packages are updated all the time and the Guix project doesn't provide
 any way for users to report that specific ARM computers work fine with
 the boot software they provide.
 
-There is also Canoeboot which is a 100% free software boot
-distribution similar to GNU Boot. Its goal is to remove nonfree
-software from Libreboot. It focuses more on having the latest software
-and many features, including some that are not available in the
-projects it reuses. Because of that it can be harder for users to use.
+@node       GNU boot and Canoeboot
+@subsection GNU boot and Canoeboot
+
+There is also Canoeboot which is a 100% free software boot distribution
+similar to GNU Boot. Its goal is to remove nonfree software from
+Libreboot.
+
+The main difference between both is that GNU Boot has a longer term
+focus.
+
+This has some wide reaching consequences that affect many
+areas. Because of that, the next subsubsection will give a few
+practical examples to show this in practice rather than trying to be
+exaustive.
+
+Also note that the GNU Boot maintainers don't know Canoeboot well
+enough as this would require them to spend a lot of time studying its
+documentation, source code an testing it and/or using it, to get first
+hand knowledge about it, to really evaluate the impact of Canoeboot
+choices and compare them to GNU Boot.
+
+So instead, the GNU Boot maintainers relied on a mix of discussion
+with Leah Rowe, the Canoeboot maintainer, and their own research, to
+get information about Canoeboot.
+
+@node          GNU boot and Canoeboot: features
+@subsubsection GNU boot and Canoeboot: features
+
+Compared to GNU Boot, Canoeboot focuses more on having the latest
+software, adding additional features not available in the projects it
+reuses (like modern full disk encryption with GRUB), and it also
+supports computers not yet supported by GNU Boot.
+
+In both cases this is sometimes done by modifying the project it
+reuses without contributing back the changes. While this saves a lot
+of time in the short and medium term, and that things seems to work
+as, according to its maintainer, Canoeboot and/or its community do
+test all these changes, it also makes it harder to keep these extra
+features and/or computers in the long run.
+
+As the project being reused and everything around evolve, the
+modifications need to be maintained and sometimes re-made to work with
+newer versions of the project being reused.
+
+The difficulty to keep these changes increase with the amount of such
+changes, their size and complexity, or the speed of the evolution of the
+projects being reused.
+
+Weather or not this will turn out to be an issue is hard to tell in
+advance because there are a lot of unknowns.
+
+Note that GNU Boot also has similar issues but instead of adding more
+modifications it tries to reduces their amount.
+
+@node          GNU boot and Canoeboot: fixes
+@subsubsection GNU boot and Canoeboot: fixes
+
+Another significant difference between both projects is that Canoeboot
+seems to have fixed a lot of issue since Libreboot 20220710 (the
+latest fully Libreboot version), while GNU Boot took a completely
+different approach: its goal is to re architecture many things, step
+by step, while taking great care of not breaking what worked in
+Libreboot 20220710. For instance GNU Boot is switching to GNU Guix to
+build its software and it is also making a proper manual.
+
+In the long run this enables GNU boot to solve more complex problem
+that would be really hard or impossible to solve with the current
+design of Canoeboot (like the ability to blindly trust the images
+built by someone else, or the ability to build and modify your own
+images faster, more easily and with way less risk) or have more
+standard documentation in the form of a manual.
+
+But this also means that shorter term fixes are often less good in GNU
+Boot because its contributors focus more on longer term fixes like the
+migration to GNU Guix.
+
+The real impact of all that is hard to evaluate in the usage of
+Canoeboot or GNU Boot in the short term as GNU Boot also changes less
+often than Canoeboot, and GNU Boot reports tests on its status page,
+while there is no such things for Canoeboot (however if things don't
+work people can also report bugs).
+
+As for the impact on the documentation, it is also somewhat similar:
+In GNU Boot, the information is being moved from the website to the
+manual, to be more consistent and easier to understand, but this is
+also done at the expense of the website which has fewer contributions.
+
+In Canoeboot the website is being improved instead. And here too, GNU
+Boot also has tracks the documentation through a scary banner on the
+website pages that weren't reviewed.
+
+In both cases this can enables GNU Boot to find issues and revisit
+many things to improve a lot the quality in the longer run, at the
+expense of quicker fixes and improvements. Canoeboot also does and/or
+did that in one way or another but there is no clear separation of
+what was reviewed or not.
+
+@node          GNU boot and Canoeboot: dependence on upstream
+@subsubsection GNU boot and Canoeboot: dependence on upstream
+
+Another difference is that nowadays the code and website of Canoeboot
+are closer to the current Libreboot than GNU Boot is.
+
+In practice it means that a lot of the work from Libreboot is reusable
+in Canoeboot with way less effort, but the downside is also that it is
+harder to tailor Canoeboot to the needs and habits of users and
+contributors that don't want to run nonfree software.
+
+An example is that at the time of writing, the most well tested
+distributions to build Canoeboot are not endorsed by the
+@uref{https://www.fsf.org/,Free Software Foundation}.
+
+It could be fixed but this would require either the maintainer or
+dedicated contributors to test everything with these distributions,
+and in this case, Canoeboot would not rely on the testing already done
+in Libreboot with non-endorsed distributions.
+
+Another way would be to require Libreboot to test everything with
+endorsed distributions as well, or to use endorsed distributions that
+are as close as possible to the most well tested distributions to
+build Canoeboot.
+
+In GNU Boot, there is the opposite situation: the project only
+requires to test with endorsed distribution(s), but it is also
+possible to install the most supported ones on top of another
+distribution with Guix's debootstrap (but this is not documented). The
+longer term fix in GNU Boot is to build everything in Guix, which can
+be installed more easily on top of many distributions.
+
+This difference of distributions support is reflected in the
+documentation of both projects as well, which assumes that users use
+or want to use certain distributions.
+
+Note that the pages of the GNU Boot website that weren't reviewed (and
+that have a scary warning because of that) might still assume that
+users use nonfree distributions.
 
 @node    How much free software is GNU Boot?
 @section How much free software is GNU Boot?
