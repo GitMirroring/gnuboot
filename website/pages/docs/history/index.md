@@ -121,15 +121,15 @@ Verified copyright headers
 So far the copyright headers were verified on the following files:
 
 * build (details in commit 1ccd450fec42ce426a00d075ad9b78a0b8c233ba
-  "build: Update copyright header.").
+  ("build: Update copyright header.")).
 
 * website/.gitignore (details in the commit
   722a8256ab031a533418cbcf27bedd0cd88b7660 ("website: .gitignore: add
-  copyright header.")
+  copyright header.")).
 
 * website/serve.sh (details in the commit
   aca12bde3f7af5b17969d57f7da1a8d700e0a36f ("website: serve.sh: update
-  copyright headers.")
+  copyright headers.")).
 
 * resources/dependencies/arch (details in the commit
   50f40ecfc0fe164c20050139c49b4b2d8a3fec91 ("dependencies: arch:
@@ -140,12 +140,12 @@ So far the copyright headers were verified on the following files:
   10: Add copyright header.")).
 
 * resources/grub/config/grub.cfg (details in commit
-  2695c97561405741200dc25f520a5ff649b7421f "grub.cfg: Add copyright
-  header.")
+  2695c97561405741200dc25f520a5ff649b7421f ("grub.cfg: Add copyright
+  header.")).
 
 * resources/packages/src/release (details in commit
- 65c0e57a550e8e6a8d80543585eeed66ad06cb64 "resources: packages: src:
- release: Update copyright header.")
+ 65c0e57a550e8e6a8d80543585eeed66ad06cb64 ("resources: packages: src:
+ release: Update copyright header.")).
 
 Also note that some files are there to stay (like the grub.cfg file
 above) but since we took the decision to migrate packages to Guix,
@@ -167,4 +167,4 @@ The following files have incomplete copyright headers:
 
 * website/pages/global.css (details in the commit
   612a3b51426eeddfbd8ada0de275eebf7e0ffe7f ("website: pages:
-  global.css: Add copyright header.")
+  global.css: Add copyright header.")).
