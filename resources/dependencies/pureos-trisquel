@@ -1,27 +1,28 @@
 #!/usr/bin/env bash
 
-# trisquel script: installs build dependencies for PureOS 10, Trisquel 9 and Trisquel 10.
+# trisquel script: installs build dependencies for PureOS 10, Trisquel
+# 9 and Trisquel 10.
 #
-#	Copyright (C) 2014-2016, 2020-2021 Leah Rowe <info@minifree.org>
-#	Copyright (C) 2016, Klemens Nanni <contact@autoboot.org>
-#	Copyright (C) 2020, Wei Mingzhi <whistler_wmz@users.sf.net>
-#	Copyright (C) 2021, madbehaviorus <mad.behaviorus@mailbox.org>
-#	Copyright (C) 2021, Ron Nazarov <noisytoot@disroot.org>
-#	Copyright (C) 2023, Adrien Bourmault <neox@gnu.org>
-#	Copyright (C) 2023-2024 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+# Copyright (C) 2014-2016, 2020-2021 Leah Rowe <info@minifree.org>
+# Copyright (C) 2016, Klemens Nanni <contact@autoboot.org>
+# Copyright (C) 2020, Wei Mingzhi <whistler_wmz@users.sf.net>
+# Copyright (C) 2021, madbehaviorus <mad.behaviorus@mailbox.org>
+# Copyright (C) 2021, Ron Nazarov <noisytoot@disroot.org>
+# Copyright (C) 2023, Adrien Bourmault <neox@gnu.org>
+# Copyright (C) 2023-2024 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 #
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
 #
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
 #
-#    You should have received a copy of the GNU General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
 [ "x${DEBUG+set}" = 'xset' ] && set -v
@@ -40,8 +41,8 @@ install_packages()
 }
 
 if [ $EUID -ne 0 ]; then
-   printf "This script must be run as root\n" 
-   exit 1
+    printf "This script must be run as root\n"
+    exit 1
 fi
 
 # Duplications are intentional. Please do not re-factor.
@@ -69,7 +70,7 @@ install_packages build-essential
 # for running the crostool script (to get mrc.bin file for t440p)
 install_packages sharutils curl parted e2fsprogs unzip
 
-# to use the right software versions and links for compiling 
+# to use the right software versions and links for compiling
 install_packages libtool pkg-config
 
 # for cross-compiling ARM binaries
@@ -79,9 +80,9 @@ install_packages gcc-arm-linux-gnueabi
 arch=${?}
 
 # For cross-compiling i686 target on x86_64 host.
-if [ "${arch}" -eq 0 ];	then
-	install_packages gcc-multilib libc6-i386 libc6-dev-i386
-	install_packages lib32stdc++6 g++-multilib dh-autoreconf
+if [ "${arch}" -eq 0 ]; then
+    install_packages gcc-multilib libc6-i386 libc6-dev-i386
+    install_packages lib32stdc++6 g++-multilib dh-autoreconf
 fi
 
 # Memtest86+ build dependencies
