@@ -182,6 +182,11 @@ Stability:
   crashes the computer randomly). If you want to help GNU Boot
   with that, please contact the maintainers through a bug report.
 
+This release was built by neox on Trisquel Aramo (11.0.1) in a virtual machine
+running on a KGPE-D16 (which is itself running GNU Boot) and that is hosted by
+Libre en communs, a French non-profit that the current GNU Boot maintainers
+(GNUtoo and neox) are involved in.
+
 GNU Boot 0.1 RC5 status
 =======================
 

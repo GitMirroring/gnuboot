@@ -180,6 +180,11 @@ Estabilidad:
   aleatoriamente). Si desea ayudar a GNU Boot con esto, comuníquese con
   los mantenedores a través de un informe de error.
 
+Este lanzamiento era compilado por neox con Trisquel Aramo (11.0.1) en
+una máquina virtual ejecutando en una KGPE-D16 (que ha GNU Boot) que
+es alojado por Libre en communs, que es una asociación donde los
+actuales mantenedores de GNU Boot (GNUtoo y neox) participan en.
+
 Estado de GNU Boot 0.1 RC5
 ==========================
 
