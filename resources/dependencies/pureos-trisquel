@@ -96,15 +96,13 @@ arch=${?}
 # For cross-compiling i686 target on x86_64 host.
 if [ "${arch}" -eq 0 ]; then
     install_packages \
-        gcc-multilib \
-        libc6-dev-i386 \
-        libc6-i386 \
-        "${sentinel}"
-
-    install_packages \
+	lib32z1-dev \
         dh-autoreconf \
         g++-multilib \
+        gcc-multilib \
         lib32stdc++6 \
+        libc6-dev-i386 \
+        libc6-i386 \
         "${sentinel}"
 fi
 
@@ -193,9 +191,6 @@ install_packages \
     pciutils \
     zlib1g-dev \
     "${sentinel}"
-
-# For cross-compiling i686 target on x86_64 host.
-[ "${arch}" -eq 0 ] && install_packages lib32z1-dev
 
 # For running make check
 # ----------------------
