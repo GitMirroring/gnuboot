@@ -890,14 +890,12 @@ Reproducible builds
 This tracks the status of reproducible builds in GNU Boot.
 
 See [Building GNU Boot from source
-chapter](https://www.gnu.org/software/gnuboot/web/manual/gnuboot.html#Building-GNU-Boot-from-source)
-in the [GNU Boot
-manual](http://localhost:8086/software/gnuboot/web/docs/#manuals) for
-more details about this issue.
+chapter](../manual/gnuboot.html#Building-GNU-Boot-from-source) in the
+[GNU Boot manual](docs/#manuals) for more details about this issue.
 
 Also note that the table below is meant for the [GNU Boot
-images](http://localhost:8086/software/gnuboot/web/manual/gnuboot.html#index-flash-images)
-which is what gets installed and what interest more users.
+images](../manual/gnuboot.html#index-flash-images) which is what gets
+installed and what interest more users.
 
 +------------------+------------------------------+--------------+-------------+
 | Provenance       | Path inside the image        | Reproducible | Usage       |
