@@ -2,14 +2,15 @@
 
 # arch script: installs build dependencies for Arch Linux
 #
-# Copyright (C) 2014-2016,2020,2021 Leah Rowe <leah@libreboot.org>
+# Copyright (C) 2014-2016,2020-2021 Leah Rowe <leah@libreboot.org>
 # Copyright (C) 2015,2016 Klemens Nanni <klemens@posteo.de>
 # Copyright (C) 2016 Arthur Heymans <arthur@aheymans.xyz>
 # Copyright (C) 2020 Wei Mingzhi <whistler_wmz@users.sf.net>
 # Copyright (C) 2021 madbehaviorus <mad.behaviorus@mailbox.org>
 # Copyright (C) 2021 qeeg <mszoopers@protonmail.com>
 # Copyright (C) 2021 Ron Nazarov <noisytoot@disroot.org>
-# Copyright (C) 2023 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+# Copyright (C) 2023, Adrien Bourmault <neox@gnu.org>
+# Copyright (C) 2023-2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -83,8 +84,27 @@ install_packages \
     unzip \
     "${sentinel}"
 
+# to use the right software versions and links for compiling
+install_packages \
+    libtool \
+    pkconf \
+    "${sentinel}"
+
 # for cross-compiling ARM binaries
 install_packages arm-none-eabi-gcc
+
+[ "$(uname -i)" = x86_64 ] || [ "$(uname -m)" = x86_64 ]
+arch=${?}
+
+# For cross-compiling i686 target on x86_64 host.
+# TODO: find and add zlib for i686.
+if [ "${arch}" -eq 0 ]; then
+    install_packages \
+        gcc \
+        lib32-gcc-libs \
+        lib32-glibc \
+        "${sentinel}"
+fi
 
 # Memtest86+ build dependencies
 # ------------------------------------------------------------
@@ -120,11 +140,14 @@ install_packages \
 
 # GRUB build dependencies (also requires build-essential, bison and flex)
 # ------------------------------------------------------------
+# This is separated from rest to reduce the diff with 'pureos-trisquel'.
+install_packages bdf-unifont
 
 install_packages \
+    autoconf \
     autogen \
+    automake \
     base-devel \
-    bdf-unifont \
     bison \
     device-mapper \
     flex \
@@ -133,7 +156,9 @@ install_packages \
     gawk \
     gettext \
     help2man \
+    libtool \
     libusb \
+    m4 \
     python \
     rsync \
     texinfo \
@@ -172,6 +197,16 @@ install_packages \
     sed \
     tar \
     xz \
+    "${sentinel}"
+
+# For building the website tarball
+install_packages \
+    graphicsmagick \
+    graphviz \
+    pandoc \
+    texinfo \
+    texlive \
+    texlive-plaingeneric \
     "${sentinel}"
 
 if [ -n "${to_install}" ] ; then
