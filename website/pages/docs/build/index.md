@@ -37,8 +37,19 @@ And these cannot build GNU Boot yet:
 * Guix: The issue is documented in the [Bug
  #66188](https://savannah.gnu.org/bugs/index.php?66188)
 
-If you don't use PureOS 10 (byzantium) or Trisquel 10 (nabia), there
-are many ways to run them on top of other GNU/Linux distributions.
+Since GNU Boot 0.1 RC6, the [GNU Boot status page][../../status.md]
+started including information on which distribution was used to build
+a given release ("This release was built [...] on Trisquel Aramo
+(11.0.1) [...].").
+
+Using the same distribution and version of the distribution lowers the
+risk of ending with a computer that doesn't boot anymore (for fixing
+that you will most likely need to disassemble your computer and use
+another computer and a flash programmer to recover it).
+
+Also note that you don't use PureOS 10 (byzantium) or Trisquel 10
+(nabia), there are many ways to run them on top of other GNU/Linux
+distributions.
 
 If you run Guix (either as an operating system or on top of another
 distribution), Parabola, Trisquel 10 (nabia), Trisquel 11 (aramo), you
