@@ -63,8 +63,8 @@ install_packages git
 # TODO: check whether this is the full list
 
 install_packages \
-    uuid-dev \
     nasm \
+    uuid-dev \
     "${sentinel}"
 
 # For building source code:
@@ -74,10 +74,10 @@ install_packages build-essential
 
 # for running the crostool script (to get mrc.bin file for t440p)
 install_packages \
-    sharutils \
     curl \
-    parted \
     e2fsprogs \
+    parted \
+    sharutils \
     unzip \
     "${sentinel}"
 
@@ -97,14 +97,14 @@ arch=${?}
 if [ "${arch}" -eq 0 ]; then
     install_packages \
         gcc-multilib \
-        libc6-i386 \
         libc6-dev-i386 \
+        libc6-i386 \
         "${sentinel}"
 
     install_packages \
-        lib32stdc++6 \
-        g++-multilib \
         dh-autoreconf \
+        g++-multilib \
+        lib32stdc++6 \
         "${sentinel}"
 fi
 
@@ -113,8 +113,8 @@ fi
 
 install_packages \
     build-essential \
-    python2.7 \
     python-is-python3 \
+    python2.7 \
     "${sentinel}"
 
 # i945-pwm build dependencies
@@ -129,16 +129,16 @@ install_packages \
 # ------------------------------------------------------------
 
 install_packages \
-    libncurses5-dev \
-    doxygen \
     acpica-tools \
-    gdb \
-    flex \
     bison \
     build-essential \
+    doxygen \
+    flex \
+    gdb \
     git \
-    libssl-dev \
     gnat \
+    libncurses5-dev \
+    libssl-dev \
     "${sentinel}"
 
 # GRUB build dependencies (also requires build-essential, bison and flex)
@@ -152,26 +152,26 @@ if ! grep -q 'VERSION_CODENAME="nabia"' /etc/os-release ; then
 fi
 
 install_packages \
-    libopts25 \
-    libselinux1-dev \
-    autogen \
-    m4 \
     autoconf \
-    help2man \
-    libopts25-dev \
-    libfont-freetype-perl \
+    autogen \
     automake \
     autotools-dev \
-    build-essential \
     bison \
+    build-essential \
     flex \
+    gawk \
+    help2man \
+    libdevmapper-dev \
+    libfont-freetype-perl \
+    libfreetype6-dev \
     libfuse-dev \
     liblzma-dev \
-    gawk \
-    libdevmapper-dev \
+    libopts25 \
+    libopts25-dev \
+    libselinux1-dev \
     libtool \
     libtool-bin \
-    libfreetype6-dev \
+    m4 \
     unifont \
     "${sentinel}"
 
@@ -184,14 +184,14 @@ install_packages build-essential
 # ------------------------------------------------------------
 
 install_packages \
-    libpci-dev \
-    pciutils \
-    zlib1g-dev \
-    libftdi-dev \
     build-essential \
+    libftdi-dev \
+    libpci-dev \
     libusb-1.0-0 \
     libusb-1.0-0-dev \
     libusb-dev \
+    pciutils \
+    zlib1g-dev \
     "${sentinel}"
 
 # For cross-compiling i686 target on x86_64 host.
