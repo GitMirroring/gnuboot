@@ -118,6 +118,7 @@ check: $(LOG)
 
 manuals: dvi html info pdf ps
 
+include resources/debian/Makefile.am
 include resources/packages/i945-thinkpads-install-utilities/Makefile.am
 
 help:
@@ -135,4 +136,6 @@ help:
 	@printf "\tmake manuals                               # %s\n" \
 		"Build 'dvi', 'html', 'info', 'pdf', and 'ps' manuals."
 	@printf "\t                                           # %s\n" \
-		"Note 'dvi', etc are also valid make targets.\n"
+		"Note 'dvi', etc are also valid make targets."
+	@printf "\tmake debian                                # %s\n" \
+		"Build Debian package of the GNU Boot info manual."

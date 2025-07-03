@@ -1,0 +1,11 @@
+Source: gnuboot-manual
+Maintainer: GNU Boot maintainers <gnuboot-patches@gnu.org>
+Section: misc
+Priority: optional
+Standards-Version: 0.1
+Build-Depends: autoconf, automake, debhelper-compat (= 13), libtool, pkg-config, texinfo
+
+Package: gnuboot-manual
+Architecture: all
+Depends:
+Description: GNU Boot manual.
