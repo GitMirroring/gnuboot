@@ -52,26 +52,41 @@ $endfor$
 $if(date)$
 <p class="date">$date$</p>
 $endif$
-<ul>
-<li><a href="/software/gnuboot/web/index.html">Home</a></li>
-<li><a href="/software/gnuboot/web/status.html">Status</a></li>
-<li><a href="/software/gnuboot/web/faq.html">FAQ</a></li>
-<li><a href="/software/gnuboot/web/docs/install/">Get GNU Boot</a></li>
-<li><a href="/software/gnuboot/web/docs/">Docs</a></li>
-<li><a href="/software/gnuboot/web/news.html">News</a></li>
-<li><a href="https://savannah.gnu.org/bugs/?group=gnuboot">Bugs</a></li>
-<li><a href="https://savannah.gnu.org/projects/gnuboot/">Savannah forge</a></li>
-<li><a href="/software/gnuboot/web/contribute.html">Helping GNU Boot</a></li>
-<li><a href="/software/gnuboot/web/contact.html">Contact</a></li>
-</ul>
+
+<div class="menu">
+  <ul>
+    <li><a href="/software/gnuboot/web/index.html">Home</a></li>
+    <li><a href="/software/gnuboot/web/status.html">Status</a></li>
+    <li><a href="/software/gnuboot/web/faq.html">FAQ</a></li>
+    <li><a href="/software/gnuboot/web/docs/install/">Get GNU Boot</a></li>
+    <li><a href="/software/gnuboot/web/docs/">Docs</a></li>
+    <li><a href="/software/gnuboot/web/news.html">News</a></li>
+    <li><a href="https://savannah.gnu.org/bugs/?group=gnuboot">Bugs</a></li>
+    <li><a href="https://savannah.gnu.org/projects/gnuboot/">Savannah forge</a></li>
+    <li><a href="/software/gnuboot/web/contribute.html">Helping GNU Boot</a></li>
+    <li><a href="/software/gnuboot/web/contact.html">Contact</a></li>
+  </ul>
+</div> <!-- class="menu" -->
 <hr/>
 $if(x-unreviewed)$
 <div class="warning_banner">
 <p>
-  The information on this page could be outdated or refer to other
-  boot software related projects instead of GNU Boot. We also need
-  help (ideally in the form of patches sent to the GNU Boot mailing
-  list) to fix this website. See
+  The information on this page have one or more of these issues:
+  <ul>
+    <li>
+      It could lack any safety warnings for handling substances
+      dangerous for Health. This is because some articles expects the
+      readers to either be (self) trained professional in electronics
+      repairs and know about how to handle these substances, or to not
+      attempt anythings that requires these skills themselves.
+    </li>
+    <li>It could be outdated.</li>
+    <li>It could refer to other boot software related projects instead
+    of GNU Boot.</li>
+  </ul>
+
+  We also need help (ideally in the form of patches sent to the GNU
+  Boot mailing list) to fix this website. See
   the <a href="/software/gnuboot/web/git.html">Helping GNU Boot</a>
   page for more details on how to contribute to GNU Boot.
 </p>

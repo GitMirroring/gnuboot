@@ -13,7 +13,7 @@
 	color:#ffffff;
 	margin:0 auto;
 	font-family:sans-serif;
-	line-height:5
+	line-height:2;
 }
 
 html{
@@ -32,16 +32,14 @@ code,pre,#TOC,a:hover{background:#eee}
 	max-width:60em;
 	margin:0 auto;
 	font-family:sans-serif;
-	line-height:1.4
 }
 h1,h2,h3,h4 {
 	margin-top:1.2em;
 	margin-bottom:0.6em;
 }
 a{color:#22d}
-.title>*, header ul>li, .nav ul>li,
+.title>*, .menu ul>li, .nav ul>li,
 #footer ul>li, .h:hover>*
-ul>li
 {
 	display:inline;
 	margin:.7%;
