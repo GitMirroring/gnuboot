@@ -34,8 +34,15 @@ We need help for reviewing and fixing this website (which also
 contains the documentation). Many pages are inherited from Libreboot
 and might be outdated or specific to Libreboot.
 
-In addition we also need help for testing releases and
-testing/updating the installation instructions.
+If you have a working flash chip programmer (this is special hardware
+that is required to install GNU Boot on some computers) and that you
+know how to use it without breaking computers, we really need your
+help, especially because few people know how to do that.
+
+We don't have good instructions yet for using such hardware safely, but
+until we do, we also need help from people who know how to use these,
+at least for testing untested releases and for testing or updating the
+installation instructions.
 
 We currently have a list of what computers aren't tested yet in the
 [bug 64754](https://savannah.gnu.org/bugs/?64754).

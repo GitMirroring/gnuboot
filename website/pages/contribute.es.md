@@ -36,8 +36,17 @@ Necesitamos ayuda para revisar y arreglar esta página web (que también
 contiene la documentación). Muchas páginas son heredadas de Libreboot y
 podrían estar desactualizadas o ser específicas de Libreboot.
 
-Además necesitamos ayuda para probar las nuevas versiones y
-probar/actualizar las instrucciones de instalación.
+Se tienes un programador flash que funcioná (esto es un hardware
+especial que es necesario para instalar GNU Boot en varios
+computadores) y que sabes como usar esto hardware sin romper
+computadores, necesitamos realmente tu ayuda, especialmente porque
+pocas personas saben hacer esto.
+
+Aún no tenemos buena instrucciones para usare esto hardware sin ningún
+percance, pero hasta que tengamos eso, necesitamos ayuda de personas
+que saben usar esto hardware, por lo menos para testar los
+lanzamientos no probado y para probar o actualizar instrucciones de
+instalación.
 
 Actualmente tenemos una lista de los computadores que aún no han sido
 probados en el [bug 64754](https://savannah.gnu.org/bugs/?64754).
