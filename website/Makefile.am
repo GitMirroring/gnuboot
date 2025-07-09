@@ -14,20 +14,104 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 SENTINEL =
 
-.PHONY: all build check help publish serve website.tar.gz
+.PHONY: \
+	all \
+	build \
+	check \
+	help \
+	publish \
+	serve \
+	website.tar.gz \
+if WANT_WEB_SYMLINKS_PATH
+	$(WEB_SYMLINKS_PATH)/COPYING \
+	$(WEB_SYMLINKS_PATH)/web-symlinks \
+endif
+	$(SENTINEL)
 
 all: help
 
 BUILD_OPTIONS :=
 GUIX_SHARE_OPTIONS := --share=`realpath ../`
 
+############
+# Untitled #
+############
+
 if WANT_UNTITLED_PATH
 BUILD_OPTIONS += --with-untitled-path $(UNTITLED_PATH)
 GUIX_SHARE_OPTIONS += --share=`realpath $(UNTITLED_PATH)`
 endif
 
-index.html: index.html.tmpl
-	sed -e "s#WEBSITE_PREFIX#$(WEBSITE_PREFIX)#g" "$^" > "$@"
+################
+# web-symlinks #
+################
+symlinks/symlinks.txt:
+	echo ". web" >> $@
+
+# This enables to use a modified version of web-symlinks or use it
+# offline if we have it downloaded somewhere.
+if WANT_WEB_SYMLINKS_PATH
+GUIX_SHARE_OPTIONS += --share=`realpath $(WEB_SYMLINKS_PATH)`
+
+# With ./configure --with-untitled-path=[...], we end up having a
+# specific revision that is set in build.sh. So here we also verify
+# the checksums for consistency.
+
+$(WEB_SYMLINKS_PATH)/COPYING.sha512: symlinks/COPYING.sha512
+	echo "`cat $^ | awk '{print $$1}'` `echo $@ | sed 's/\.sha512$$//'`" > $@
+
+$(WEB_SYMLINKS_PATH)/web-symlinks.sha512: symlinks/web-symlinks.sha512
+	echo "`cat $^ | awk '{print $$1}'` `echo $@ | sed 's/\.sha512$$//'`" > $@
+
+$(WEB_SYMLINKS_PATH)/COPYING: $(WEB_SYMLINKS_PATH)/COPYING.sha512
+	sha512sum --strict -c $^
+
+$(WEB_SYMLINKS_PATH)/web-symlinks: $(WEB_SYMLINKS_PATH)/web-symlinks.sha512
+	sha512sum --strict -c $^
+
+WEB_SYMLINKS_FILES = \
+	symlinks/symlinks.txt \
+	$(WEB_SYMLINKS_PATH)/COPYING \
+	$(WEB_SYMLINKS_PATH)/web-symlinks \
+	$(SENTINEL)
+
+# For the second transform, we need to remove the leading / as tar
+# already removes it when adding the $(WEB_SYMLINKS_PATH)/* files
+# (tar: Removing leading `/' from member names) and so if we don't
+# remove it from the transform argument, we end up with a substitution
+# that doesn't work.
+WEB_SYMLINKS_TRANSFORM = \
+	--transform='s%symlinks/symlinks.txt%.symlinks%' \
+	--transform="s%`echo $(WEB_SYMLINKS_PATH) | sed 's%^/%%'`%web-symlinks%" \
+	$(SENTINEL)
+else
+symlinks/web-symlinks/web-symlinks: symlinks/web-symlinks.sha512
+	mkdir -p symlinks/web-symlinks
+	sha512sum --status --quiet --strict -c $^ || cvs \
+		-f \
+		-d:pserver:anonymous@cvs.savannah.gnu.org:/sources/www \
+		co -d symlinks/web-symlinks www/symlinks/web-symlinks
+	@sha512sum --strict -c $^
+
+symlinks/web-symlinks/COPYING: symlinks/COPYING.sha512
+	mkdir -p symlinks/web-symlinks
+	sha512sum --status --quiet --strict -c $^ || cvs \
+		-f \
+		-d:pserver:anonymous@cvs.savannah.gnu.org:/sources/www \
+		co -d symlinks/web-symlinks www/symlinks/COPYING
+	@sha512sum --strict -c $^
+
+WEB_SYMLINKS_FILES = \
+	symlinks/symlinks.txt \
+	symlinks/web-symlinks/COPYING \
+	symlinks/web-symlinks/web-symlinks \
+	$(SENTINEL)
+
+WEB_SYMLINKS_TRANSFORM = \
+	--transform='s%symlinks.txt%.symlinks%' \
+	--transform='s%symlinks/%%' \
+	$(SENTINEL)
+endif
 
 GUIX_SHELL_CONTAINER = guix time-machine \
 	--commit=$(GUIX_REVISION) \
@@ -210,7 +294,7 @@ else
 CHECK_SH_CMD = ./check.sh
 endif
 
-check: build website.tar.gz index.html history/git-history.jpg
+check: build website.tar.gz history/git-history.jpg
 	rm -rf site/
 	mkdir -p site/$(WEBSITE_PREFIX)
 	tar xf website.tar.gz -C site/$(WEBSITE_PREFIX)
@@ -235,8 +319,11 @@ SERVE_SH_CMD = $(GUIX_SHELL_CONTAINER) \
 	--emulate-fhs \
 	bash \
 	coreutils \
+	findutils \
 	gzip \
 	lighttpd \
+	perl \
+	perl-uri \
 	sed \
 	tar \
 	-- \
@@ -266,7 +353,12 @@ publish: website.tar.gz
 		deploy/ \
 		$(RSYNC_DESTINATION)/
 
-website.tar.gz: build index.html history/git-history.jpg
+WEBSITE_TAR_GZ_DEPS = \
+	history/git-history.jpg \
+	$(WEB_SYMLINKS_FILES) \
+	$(SENTINEL)
+
+website.tar.gz: build $(WEBSITE_TAR_GZ_DEPS)
 	tar \
 		--exclude-vcs \
 		--format=gnu \
@@ -274,9 +366,10 @@ website.tar.gz: build index.html history/git-history.jpg
 		--sort=name \
 		-czf \
 		website.tar.gz \
-		untitled/www/lbwww/site \
-		index.html \
+		untitled/www/lbwww/site/ \
 		history/git-history.dot \
 		history/git-history.jpg \
-		--transform="s#untitled/www/lbwww/site#web#" \
-		--transform="s#^history/#web/history/#"
+		$(WEB_SYMLINKS_FILES) \
+		$(WEB_SYMLINKS_TRANSFORM) \
+		--transform="s#untitled/www/lbwww/site/##" \
+		$(SENTINEL)

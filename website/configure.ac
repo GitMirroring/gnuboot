@@ -24,6 +24,7 @@ AC_SUBST([LIGHTTPD_PORT], [])
 AC_SUBST([RSYNC_DESTINATION], [])
 AC_SUBST([UNTITLED_PATH], [])
 AC_SUBST([UNTITLED_GIT_FOUND], [])
+AC_SUBST([WEB_SYMLINKS_PATH], [])
 AC_SUBST([WEBSITE_PREFIX], [])
 
 # --enable-guix
@@ -60,6 +61,17 @@ AC_ARG_WITH([rsync-destination],
 
 AM_CONDITIONAL( [WANT_UNTITLED_PATH], [test x"$UNTITLED_PATH" != x""])
 
+# --with-web-symlinks-path
+AC_ARG_WITH([web-symlinks-path],
+  [AS_HELP_STRING([--with-web-symlinks-path=PATH],
+                  [Use the web-symlinks perl program from the given directory
+		   instead of downloading it from
+		   cvs.savannah.gnu.org:/sources/www with CVS.])],
+  [WEB_SYMLINKS_PATH=`realpath $withval`],
+  [])
+
+AM_CONDITIONAL([WANT_WEB_SYMLINKS_PATH], [test x"$WEB_SYMLINKS_PATH" != x""])
+
 # --with-untitled-path
 AC_ARG_WITH([untitled-path],
   [AS_HELP_STRING([--with-untitled-path=PATH],
@@ -92,6 +104,10 @@ AS_IF([test x"$FOUND_AWK" = x""],
 AC_CHECK_PROG([FOUND_CAT], [cat], [cat])
 AS_IF([test x"$FOUND_CAT" = x""],
       [AC_MSG_ERROR([cat was not found in PATH ($PATH)])])
+
+AC_CHECK_PROG([FOUND_CVS], [cvs], [cvs])
+AS_IF([test x"$FOUND_CVS" = x""],
+      [AC_MSG_ERROR([cvs was not found in PATH ($PATH)])])
 
 AC_CHECK_PROG([FOUND_MKDIR], [mkdir], [mkdir])
 AS_IF([test x"$FOUND_MKDIR" = x""],
@@ -172,7 +188,21 @@ AS_IF([test x"$guix" = x"yes"],
              [AC_CHECK_PROG([FOUND_LIGHTTPD], [lighttpd], [lighttpd])
               AS_IF([test x"$FOUND_LIGHTTPD" = x""],
                     [AC_MSG_ERROR(
-                    [lighttpd was not found in PATH ($PATH)])])],
+                    [lighttpd was not found in PATH ($PATH)])])
+
+              dnl serve.sh requires perl to run a perl program
+              dnl (web-symlinks) that generate symlinks from .symlinks
+              dnl files
+              AC_CHECK_PROG([FOUND_PERL], [perl], [perl])
+              AS_IF([test x"$FOUND_PERL" = x""],
+                    [AC_MSG_ERROR([perl was not found in PATH ($PATH)])])
+
+              dnl The perl program dnl (web-symlinks) that generate
+              dnl symlinks from .symlinks files requires the URI PERL
+              dnl module.
+              AS_IF([AC_CONFIG_COMMANDS([PERL_URI], [perl -e 'use URI;'])],
+                    [AS_ECHO(["checking the URI PERL module... done"])],
+                    [AC_MSG_ERROR([PERL URI was not found in PATH ($PATH)])])],
              [AC_CHECK_PROG([FOUND_FALSE], [false], [false])
               AS_IF([test x"$FOUND_FALSE" = x""],
                     [AC_MSG_ERROR(
@@ -212,5 +242,8 @@ AS_ECHO(["    RSYNC_DESTINATION: $RSYNC_DESTINATION"])
 
 AS_IF([test x"$UNTITLED_PATH" != x""],
       [AS_ECHO(["    UNTITLED_PATH: $UNTITLED_PATH"])])
+
+AS_IF([test x"$WEB_SYMLINKS_PATH" != x""],
+      [AS_ECHO(["    WEB_SYMLINKS_PATH: $WEB_SYMLINKS_PATH"])])
 
 AS_ECHO(["    WEBSITE_PREFIX: $WEBSITE_PREFIX"])

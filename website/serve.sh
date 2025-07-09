@@ -14,6 +14,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+# cvs -z3 -d:pserver:anonymous@cvs.savannah.gnu.org:/sources/www co www
+# cvs -z3 -d:pserver:anonymous@cvs.savannah.gnu.org:/sources/www/symlinks co symlinks/symlinks
+
 set -e
 
 usage()
@@ -41,6 +44,12 @@ fi
 mkdir -p "site/${prefix}"
 tar xf "${tarball}" -C "site/${prefix}"
 
+# Generate symlinks
+perl \
+    site/"${prefix}"/web-symlinks/web-symlinks \
+    --top "${PWD}"/site/"${prefix}"
+
+# Generate lighttpd.conf
 sed -e "s#LIGHTTPD_PORT#${lighttpd_port}#g" \
     "${basedir}/lighttpd.conf.tmpl" > \
     "${basedir}/lighttpd.conf"
