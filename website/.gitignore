@@ -29,6 +29,8 @@
 /website.tar.gz
 /pages/footer.include
 /pages/footer-git-commit.include
+/symlinks/CVS/**
+/symlinks/web-symlinks/**
 
 # History
 /history/git-history.jpg

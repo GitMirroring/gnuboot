@@ -89,21 +89,6 @@ test_tarball_pattern()
 	fi
 }
 
-test_tarball_savannah_cvs_constraints()
-{
-	name="$1"
-	tarball="$2"
-
-	nr_files=$(tar tf "${tarball}" | grep -c -v '/')
-
-	if [ "${nr_files}" = "1" ] ; then
-		echo "[ OK ] ${name}"
-	else
-		echo "[ !! ] ${name} failed"
-		exit 1
-	fi
-}
-
 run_directory_tests()
 {
 	directory="$1"
@@ -117,7 +102,7 @@ run_directory_tests()
 
 	test_directory_pattern "${directory_name}: html test" \
 			       "${directory}" \
-			       "${prefix}/web/.*\.html$"
+			       "${prefix}/.*\.html$"
 }
 
 run_tarball_tests()
@@ -128,9 +113,6 @@ run_tarball_tests()
 	filename="$(basename "${tarball}")"
 	test_tarball_pattern "${filename}: html test" "${tarball}" '\.html$'
 	test_tarball_pattern "${filename}: jpg test" "${tarball}" '\.jpg$'
-	test_tarball_savannah_cvs_constraints \
-	    "${filename}: Savannah CVS: Only /index.html in root directory" \
-	    "${tarball}"
 }
 
 # shellcheck disable=SC2166 # We want to make operator precedence

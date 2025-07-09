@@ -16,12 +16,14 @@ need to install the following dependencies (tested under Trisquel 11):
 * autoconf
 * automake
 * coreutils
+* cvs
 * gawk
 * git
 * graphicsmagick
 * graphviz
 * grep
 * gzip
+* liburi-perl
 * lighttpd
 * make
 * pandoc
@@ -44,6 +46,7 @@ dependencies instead:
 * autoconf
 * automake
 * coreutils
+* cvs
 * guix
 * make
 * tar
@@ -103,8 +106,8 @@ $ make serve
 
 If you don't use Guix, remember to do ./configure --disable-guix instead.
 
-Then you can point a browser to http://localhost:8086/software/gnuboot/web/ or
-to http://localhost:PORT/software/gnuboot/web/ if you changed the port through
+Then you can point a browser to http://localhost:8086/software/gnuboot/ or
+to http://localhost:PORT/software/gnuboot/ if you changed the port through
 ./configure options.
 
 The GNU Boot website build system takes care of some of the
@@ -171,7 +174,7 @@ directory:
     $ ./configure
     $ make publish
 
-Then you can point a browser to https://gnu.org/software/gnuboot/web/
+Then you can point a browser to https://gnu.org/software/gnuboot/
 
 References:
 -----------

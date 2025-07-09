@@ -201,6 +201,7 @@ install_packages \
 
 # For building the website tarball
 install_packages \
+    cvs \
     graphicsmagick \
     graphviz \
     pandoc \
