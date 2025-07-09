@@ -80,6 +80,16 @@ $if(x-unreviewed)$
       repairs and know about how to handle these substances, or to not
       attempt anythings that requires these skills themselves.
     </li>
+    <li>
+      It could lack background information or pointers to information
+      that explains how to not break computers. So far this only
+      applies to some articles that explain how to disassemble
+      computers and/or to modify modify the computers electronic
+      circuits: some of them expect the readers to either be (self)
+      trained professional in electronics repairs and know about how
+      to properly understand some advices to not break the electronic
+      circuit.
+    </li>
     <li>It could be outdated.</li>
     <li>It could refer to other boot software related projects instead
     of GNU Boot.</li>
