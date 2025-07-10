@@ -134,8 +134,6 @@ Overview
 * Why free boot software is important::
 * Why use GNU Boot::
 * Other free boot software distributions::
-* How much free software is GNU Boot?::
-* Limitations::
 
 Supported hardware and configurations
 
@@ -360,6 +358,87 @@ GNU Boot also has a long term focus, so it tries not to break users
 use cases, and tries as much as possible to fix issues in the projects
 it reuses instead of doing workarounds that impact users.
 
+@node       How much free software is GNU Boot?
+@subsection How much free software is GNU Boot?
+
+Being a GNU package, GNU Boot itself has to be 100% free software.
+
+If you find nonfree software in GNU Boot and/or any source code or
+binaries released by GNU Boot, please contact its maintainers by
+opening a bug report on its bug tracker at
+@url{https://savannah.gnu.org/bugs/?group=gnuboot}.
+
+But that doesn't mean that GNU Boot magically makes everything not
+provided by GNU Boot free software. For instance if you install a
+nonfree operating system, GNU Boot will try to run it.
+
+In some cases GNU Boot even runs nonfree software not provided by GNU
+Boot like nonfree GPUs drivers provided by the removable GPU
+card. @xref{Supported computer parts and peripherals} for more
+details about this issue and how to avoid running such nonfree
+software.
+
+To address problems like that the @uref{https://www.fsf.org/,Free
+Software Foundation} has created the
+@uref{https://ryf.fsf.org/,Respect Your Freedom hardware
+certification} to list hardware that works with only free software
+(with some very small exceptions for some components, see
+@uref{https://ryf.fsf.org/about/criteria, its criteria} for more
+details).
+
+In addition there is also
+@uref{https://www.fsfla.org/ikiwiki/blogs/lxo/draft/blob-fallacy,The
+Blob Fallacy article} or
+@uref{https://media.libreplanet.org/u/libreplanet/m/software-enshittification-or-freedom-it-s-not-a-hard-choice,
+a video of a presentation about the same issue at LibrePlanet 2024} by
+Alexandre Oliva that explains the related freedom issues with nonfree
+software provided by the hardware and how they compare with other kind
+of freedom issues (nonfree driver, nonfree firmware loaded
+automatically by Linux, etc).
+
+If we dig deeper, hardware supported by GNU Boot is also affected by
+additional issues. They are less problematic than the rest as the
+Respect Your Freedom hardware certification makes exception for these
+until we get free software replacements.
+
+All the (mass) storage devices (Hard disks, @acronym{SSD, Solid State
+Drive}, USB keys, SD cards, etc) have a builtin nonfree firmware. It
+is possible to avoid trusting these nonfree firmware by encrypting
+everything that is on these devices. How to do that will need to be
+added later on in this manual.
+
+In the case of laptops, there is however something more problematic
+for which we have no solution yet. The computers have a builtin
+nonfree firmware which handle the keyboard (which is extremely
+problematic), and various tasks related to power management (seting up
+the right voltages at boot, managing the battery, cutting power to the
+WiFi, the power management beeps, etc).
+
+In that case the way to go would be to find a way to make sure that
+people do work on addressing the issue by writing a free firmware to
+replace the nonfree firmware, and by finding a way to upgrade the
+nonfree firmware to a free one.
+
+The
+@uref{https://www.gnu.org/philosophy/free-hardware-designs.html,Free
+Hardware and Free Hardware Designs} also has good background on these
+topics as in some case hardware and firmware is indistinguishable, and
+so this also has consequences on freedom and/or on how to recognize
+the most problematic issues, which in turn is a useful tool for
+organizing the free software movement at large.
+
+@node       Limitations
+@subsection Limitations
+
+GNU Boot is fairly recent and doesn't have an official release
+yet.
+
+For the release we plan to have at least some install and upgrade
+instructions for some computers and an easy way for users to use GNU
+Boot.
+
+Also the latest GNU Boot release candidate was not tested yet with all
+the computers it's supposed to support (we badly need help for that).
 
 @node    Other free boot software distributions
 @section Other free boot software distributions
@@ -524,54 +603,97 @@ Note that the pages of the GNU Boot website that weren't reviewed (and
 that have a scary warning because of that) might still assume that
 users use nonfree distributions.
 
-@node    How much free software is GNU Boot?
-@section How much free software is GNU Boot?
+@node       How much free software are other distributions
+@subsection How much free software are other distributions
 
-Being a GNU package, GNU Boot itself is 100% free software. If you
-find nonfree software in GNU Boot and/or any source code or binaries
-released by GNU Boot, please contact its maintainers by opening a bug
-report on its bug tracker at
-@url{https://savannah.gnu.org/bugs/?group=gnuboot}.
+Apart from Parabola for ARM computers that only officially support
+computers that can boot with free software, all other distributions,
+which also includes Parabola for x86 computers also support computers
+that boot with nonfree software: these computers come with nonfree
+software pre-installed and these distributions reuse that software to
+boot.
 
-But that doesn't mean that GNU Boot magically makes everything not
-provided by GNU Boot free software.
+So the fact that a computer is supported by these distributions does
+not indicate that the computer can boot with fully free software.
 
-In some cases GNU Boot even runs nonfree software not provided by GNU
-Boot like nonfree GPUs drivers provided by the removable GPU
-card. @xref{Supported computer parts and peripherals} for more
-details about this issue and how to avoid running such nonfree
-software.
+Here are some examples for the GNU/Linux distributions. They all
+provide packages that only work with nonfree software that is already
+on the computer.
 
-To address problems like that the @uref{https://www.fsf.org/,Free
-Software Foundation} has created the
-@uref{https://ryf.fsf.org/,Respect Your Freedom hardware
-certification} to list hardware that works with only free software
-(with some very small exceptions for some components, see
-@uref{https://ryf.fsf.org/about/criteria, its criteria} for more
-details).
+@multitable  {Trisquel 11 (aramo)}          {u-boot-rpi-arm64}    {Works only with nonfree Raspberry PI bootloader}
 
-In addition there is also
-@uref{https://www.fsfla.org/ikiwiki/blogs/lxo/draft/blob-fallacy,The
-Blob Fallacy article} or
-@uref{https://media.libreplanet.org/u/libreplanet/m/software-enshittification-or-freedom-it-s-not-a-hard-choice,
-a video of a presentation about the same issue at LibrePlanet 2024} by
-Alexandre Oliva that explains the related freedom issues with nonfree
-software provided by the hardware and how they compare with other kind
-of freedom issues (nonfree driver, nonfree firmware loaded
-automatically by Linux, etc).
+@item        Distribution               @tab Package          @tab Support
 
-@node    Limitations
-@section Limitations
+@item        Guix                       @tab u-boot-rpi-arm64 @tab Works only with nonfree Raspberry PI bootloader
 
-GNU Boot is fairly recent and doesn't have an official release
-yet.
+@item        Parabola (x86)             @tab tp_smapi         @tab Works only with nonfree ThinkPad BIOS
 
-For the release we plan to have at least some install and upgrade
-instructions for some computers and an easy way for users to use GNU
-Boot.
+@item        PureOS                     @tab u-boot-rpi       @tab Works only with nonfree Raspberry PI bootloader
 
-Also the latest GNU Boot release candidate was not tested yet with all
-the computers it's supposed to support (we badly need help for that).
+@item        Trisquel 11 (aramo)        @tab u-boot-rpi       @tab Works only with nonfree Raspberry PI bootloader
+
+@end multitable
+
+As for Canoeboot, since June 2025, it also supports computers that
+boot with nonfree software. This nonfree software runs in a separate
+computer within Intel computers that is called Management Engine.
+
+On supported computers, this nonfree software, has access to the
+network and can take full control of the computer at any time (even
+once booted or when the computer seems to be powered off). This is
+even advertised by the Intel (the CPU manufacturer) as a feature to
+more easily control computers remotely.
+
+See the
+@uref{https://www.fsf.org/blogs/sysadmin/the-management-engine-an-attack-on-computer-users-freedom,
+The Intel Management Engine: an attack on computer users' freedom}
+article has more information on this issue.
+
+To limit the damage, Canoeboot kindly asks this nonfree software to
+not run the most problematic part of code (this includes the code that
+is responsible for the remote control) but also doesn't remove any of
+this code. Since this operating system is nonfree it is hard to really
+understand the impact of doing that.
+
+You may also be able to completely remove the most problematic part of
+this code yourself with
+@uref{https://github.com/corna/me_cleaner,me_cleaner}, but it is not
+possible to remove all of this nonfree code (otherwise Canoeboot would
+have done that). Here too it is hard to really understand the impact
+of running the remaining nonfree code to boot the computer.
+
+Really understanding the impact is extremely complex or impossible,
+basically because the code is nonfree.
+
+If need more details, there is some documentation on what these
+settings are supposed to do, like the
+@uref{https://web.archive.org/web/20170828150536/http://blog.ptsecurity.com/2017/08/disabling-intel-me.html,
+Disabling Intel ME 11 via undocumented mode} article by Positive
+Technologies, or the source code, documentation, bug reports and
+contributions of the me_cleaner project. All that shows that some
+nonfree code still run at boot, and all the affected computers don't
+necessarily run the exact same nonfree code, and research often
+analyze specific versions of this nonfree code, and not necessarily
+the code that you might be running if you use such computers with
+Canoeboot. In addition research tend to analyze specific part of the
+code only and not everything.
+
+Because of that, really knowing the danger of running the nonfree
+software code that is required to boot the computer is almost
+impossible, because even if you do a lot of research yourself, this
+would still need to be somehow reviewed by peers to get a bit more
+assurance it doesn't contain huge mistakes.
+
+So given the capabilities that kind of hardware and software has, it
+is a good idea to be extra cautious. So it would be best to avoid
+relying on computers with such issues if you can.
+
+Note that this issue is not limited to Intel, as recent CPU made by
+AMD also have somewhat similar issues. Most smartphones also have a
+similar issues, and even some ARM computers like the Raspberry PI also
+have a similar issue. See the
+@uref{https://web.archive.org/web/20220531105341/https://ownyourbits.com/2019/02/02/whats-wrong-with-the-raspberry-pi/,What’s
+wrong with the Raspberry Pi} for more details on the Raspberry Pi.
 
 @node    Supported hardware and configurations
 @chapter Supported hardware and configurations
@@ -1036,6 +1158,74 @@ however there is some exceptions as some hardware is non-standard and
 still required for booting, these are documented in the subsections
 below.
 
+@node       PCI and PCIe cards with software
+@subsection PCI and PCIe cards with software
+
+
+Some PCI or PCI express cards stores software (typically on a flash
+chip) that is meant to run by the boot software (typically a
+@acronym{BIOS, Basic Input/Output System} or @acronym{UEFI, Unified
+Extensible Firmware Interface}).
+
+When using GNU Boot SeaBIOS images, GNU Boot will run that software
+reguardless of if it's free or not. Most of the time this software is
+nonfree. The GNU Boot GRUB images won't run this software at all, so
+this is also one of the reasons why SeaBIOS images are reserved for
+more advanced users. @xref{GNU Boot images types} on the various
+images available.
+
+What this software does depends a lot on the card: GPUs typically
+contain a BIOS driver that enable to see something on the screen
+during boot, network cards contain code to use the card to boot the
+computer from the network, etc.
+
+Sometimes this software is not useful. For instance if you don't
+intend to boot from the network, you don't need to run that code.
+
+And sometimes the functionality provided by this code can even be very
+dangerous to use. For instance some SATA controllers contain code that
+can format disks with some vendor-specific format, but if you use
+that, since code is nonfree, if the card breaks, you end up not being
+able to read the data on your disks anymore unless the disk format is
+reimplemented with free software somehow.
+
+Things are not always bad though, as this software can sometimes be
+replaced with free software like with @uref{https://ipxe.org,iPXE} or
+@uref{https://directory.fsf.org/wiki/Sgabios,SGABIOS}.
+
+Beside doing that there are several ways of avoiding to run that
+software:
+
+@itemize
+
+@item You can simply use GNU Boot GRUB images and not use GNU
+      Boot SeaBIOS images. This will avoid running such software
+      completely. This is the simpliest solution and it also gives the
+      strongest guarantees as users can't accidentally run such software.
+
+@item You can get computers without PCI /PCIe cards that have builtin nonfree
+      software. All the hardware listed in the
+      @uref{https://ryf.fsf.org/,Respect Your Freedom hardware certification}
+      website should be okay. Another way would be to check the cards yourself,
+      but a tutorial on how to do that needs to be written.
+
+@item You can backup and erase the nonfree software present in
+      these cards with @uref{https://flashprog.org,flashprog} or
+      @uref{https://flashrom.org,flashrom}. This could be risky
+      to do and it may require to connect a flash chip programmer to these
+      cards and even disassemble them in some cases because flashprog or
+      flashrom only enable to reprogram very few cards from the computer they
+      are connected in. Here we also lack a tutorial on how to do that.
+
+@item You can modify the GNU Boot SeaBIOS images to tell it not
+      to run this software. The Free Software Foundation tech team has
+      a wiki. In
+      @uref{https://savannah.gnu.org/maintenance/fsf/hardware/disable-option-roms-with-cbfstool/,
+      the disable option roms with cbfstool article}, they explains how to
+      do that.
+
+@end itemize
+
 @node       Supported GPUs and graphics
 @subsection Supported GPUs and graphics
 
@@ -1365,6 +1555,17 @@ boot software (like Canoeboot, Coreboot, GNU Boot, Libreboot, etc)
 already installed, or by having someone do the installation for you
 (for instance in an install party, or by paying a company to do a
 "Installation Service" of an alternative boot software).
+
+Note that these distributions are very different: they do not support
+the same computers, and when they do, supporting them can require
+nonfree software (making it undesirable to support these computers in
+GNU Boot), even for computers supported by 100% free distributions
+like Canoeboot.
+
+@xref{Other free boot software distributions} and more specifically
+@pxref{How much free software are other distributions} for more
+details on the freedom implications of using other distributions than
+GNU Boot and what it means for hardware support.
 
 However if you know how to disassemble computers supported by GNU
 Boot, or that you can get help to do that, it is very strongly advised
