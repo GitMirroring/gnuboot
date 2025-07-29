@@ -197,62 +197,9 @@ See the [hardware compatibility list](docs/hardware/).
 Can you add support for more computers?
 ---------------------------------------
 
-Unless GNU Boot already works on computers that for some reasons are
-not yet listed as supported, there will be some more work to do than
-just testing and reporting what works.
-
-GNU Boot is a 100% free distribution similar to other 100% free
-distributions like Parabola or Trisquel, and like Parabola or
-Trisquel, it reuses other software to make something that can be
-installed.
-
-Most of the work on GNU Boot consists in testing already supported
-computers, improving the documentation and various packaging work.
-
-Like with many other free software projects, the GNU Boot maintainers
-are very busy running the project and doing improvements that will
-benefit the project in the long term, they most likely don't have the
-time to add support for newer computers themselves at the moment, but
-they can help you getting the job done with some guidance and by
-reviewing patches.
-
-So if you want to add a new computer, the first part of the job is to
-verify if the computer can boot and is usable without nonfree
-software. It's a good idea to start by reading the "Hardware
-compatibility" section of this FAQ to avoid the most common mistakes
-with that.
-
-Then once you're confident enough that your computer can boot with
-fully free software, you can open a bug report and/or contact the GNU
-boot project in one of its mailing list to notify the GNU Boot
-maintainers and other contributors about that as this way the
-information about this computer will not be lost.
-
-This way if you don't have time anymore to work on it, maybe it would
-interest other people later on, or maybe not. In addition, this will
-help you getting some feedback from other people to help you
-understand if you're on the the right track or not with the computer
-you want to add support for.
-
-Then once this is done, the computer will need to be supported well by
-other project: like Parabola or Trisquel, GNU Boot reuses other
-projects to support hardware. For instance Parabola relies on
-linux-libre for its drivers.
-
-GNU Boot relies on software like Coreboot or U-Boot instead. So you
-will have to add support for your computer in such projects. This
-can be very complicated to do if you're not used to work on low-level
-software like drivers, kernels, microcontrollers, etc, unless there is
-already a computer very similar to the one you want to add support for
-(in that case it might be a good way to get started, though expect to
-have to learn many things along the way).
-
-Once this is done, you can add support for that computer in GNU Boot
-by doing some packaging work, testing, and writing some
-documentation. This is relatively easy to do.
-
-The documentation on how to send patches to GNU Boot is available in
-the [contribute.md](contribute.md) page.
+See the [Support for more
+computers](contribute.md#support-for-more-computers) for information
+about this.
 
 Will the Purism laptops be supported?
 ----------------------------------------------------------------------
