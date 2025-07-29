@@ -323,3 +323,48 @@ have to learn many things along the way).
 Once this is done, you can add support for that computer in GNU Boot
 by doing some packaging work, testing, and writing some
 documentation. This is relatively easy to do.
+
+Misinformation
+--------------
+
+There is some misinformation on the internet on GNU Boot, the former
+Genuine Libreboot project (which is the ancestor of GNU Boot) and
+their maintainers.
+
+Note that opinions on GNU Boot or its ancestor, including negative
+ones are not misinformation.
+
+An example of misinformation that doesn't require a trigger warning is
+that it was the FSF who started the ancestor of GNU Boot.
+
+While some people employed at FSF helped significantly in various
+ways, most of the time indirectly (by helping people install GNU Boot,
+by enabling us to use rsync instead of CVS in the GNU infrastructure,
+etc), and that we appreciate a lot this help, most of the work on GNU
+Boot or its ancestor was not made by the FSF or its employees.
+
+This can easily be verified by looking at the GNU Boot release
+announcements and by downloading the GNU Boot source code and looking
+at the authors of the changes. Even anonymous contributions are
+recorded as such.
+
+All that is also easy to verify because GNU Boot also includes all
+former changes from Genuine Libreboot.
+
+As the GNU Boot maintainers are already busy with GNU Boot, they don't
+have the time nor the will to look into each of the misinformation
+out there (depending on the content and the amount of things to look
+at, this can also be toxic).
+
+So if you found obvious misinformation, insults, etc, on the internet,
+about GNU Boot or its maintainers, the way to deal with it is to not
+notify the GNU Boot maintainers about it but instead to archive it on
+https://web.archive.org/ and then to contact the service hosting this
+content to make it go away.
+
+If you instead found false information on the GNU Boot website or
+manual instead, since all that is already recorded in the changes
+history of GNU Boot, it is already archived, so the way to fix is
+either to notify the GNU Boot maintainers about it with a bug report
+or through one of the GNU Boot mailing list, or simply to send a patch
+to fix it.
