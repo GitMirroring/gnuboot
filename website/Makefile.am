@@ -1,4 +1,5 @@
 # Copyright (C) 2022-2024 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+# Copyright (C) 2025 Adrien 'neox' Bourmault <neox@gnu.org>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -114,6 +115,7 @@ WEB_SYMLINKS_TRANSFORM = \
 endif
 
 GUIX_SHELL_CONTAINER = guix time-machine \
+	--no-channel-files \
 	--commit=$(GUIX_REVISION) \
 	-- \
 	shell \
