@@ -159,7 +159,11 @@ Installing or upgrading GNU Boot images
 Using GNU Boot
 
 * Using GNU Boot with QEMU::
-* Security features::
+
+Security
+
+* Very basic introduction on security::
+* Security considerations when using GNU Boot::
 
 Maintenance and repairations
 
@@ -2012,7 +2016,7 @@ ftp.gnu.org/gnu/gnuboot/).
 
 But depending on your threat model, it could be a good idea to build
 GNU Boot from source yourself instead, to avoid certain security
-attacks. @xref{Security features} section for more context with
+attacks. @xref{Security} section for more context with
 security and threat models and @ref{Building GNU Boot from source}
 for more details about the security attacks mentioned above.
 
@@ -2280,24 +2284,221 @@ can also shut it down with the @emph{shutdown} command.
 @subsection Booting more distributions with QEMU
 
 
-@node    Security features
-@section Security features
-@cindex secure boot
+@node    Security
+@chapter Security
+
+@node    Very basic introduction on security
+@section Very basic introduction on security
+
+This section gives some basic and generic introduction to computer
+security and risk management with free software in mind. It is a
+pre-requisite to understand the next sections in the Security chapter.
+
+If you are already familiar with threat modelling, that you know how
+to choose software with security criteria in mind, but also with other
+criteria in mind as well, then you can skip this section and jump
+directly to the sections after this one that are directly related to
+GNU Boot.
+
+If not, note that very basic good practices like running only free
+software that comes from the distribution(s) you use, applying
+security updates and doing regular backups can help avoiding most of
+the issues most of the time because with free software, a lot of the
+security is non-intrusive and simply work without requiring the user
+to do anything.
+
+However sometimes this is not the case, so if you want to understand
+if you need to take extra steps to limit some risks you may find
+non-acceptable for your use cases, you can read at least this "Very
+basic introduction on security" section.
+
+Unfortunately most people don't know these things, and this most
+likely includes many members of the free software community as well.
+
+And without the basics here, seriously talking about computer security
+and risk management would be meaningless, missleading, or would be
+restricted to some very narrow topic that isn't necessarily relevant
+to most people.
+
+@node       Threat modelling or what security really is about
+@subsection Threat modelling or what security really is about
+
 @cindex threat modelling
 
-Note that security is a process. To really make it work you need to
-understand various threats and how to respond to them (this is called
-@dfn{threat modelling}), so what security feature to use or not to use
-depends on your life, use cases, etc.
+Security is a process. To really make it work you need to understand
+various threats and if or how to respond to them (this is called
+@dfn{threat modelling}). This depends on your life, your use cases,
+etc. It boils down to what is important to you and what is not.
+
+For instance if a Company that makes nonfree software lose money,
+this is probably problematic for them but it is likely not your
+problem, and it could even be a good thing, depending on the details.
+
+In contrast, if your computer is stolen, you could lose your data,
+and the person or entity that stole it may have access to all your
+files. You also might have a hard time getting another equivalent
+computer. Here the damage can depend a lot on how you live your life,
+on who / what entity stole the computer, or even if your computer has
+access to any important data at all, or if you can actually be in a
+situation where you can relatively easy get computer.
+
+All these are security threats but they don't threaten the same people
+or organisations in the same ways.
+
+In addition, sometimes there are security features like "encryption
+with LUKS", or "hard disk encryption" that can be promoted, that
+protects against some known attack (like someone or some entity
+stealing your laptop to access your data), but not everything in
+security can be classified as features and even features are part of
+bigger processes that respond to specific threats.
+
+For instance if you have "hard disk encryption" but that all your data
+are backed up in some other computers you don't trust and that you
+misunderstood the risks of doing that, then this could be really
+catastrophic.
+
+In addition some things are hard to fit into features. "Good code
+quality", or "I can trust the people doing this software because I
+know them well" or "I don't want to use this software because the
+people that do it know me personally and I feel unconfortable because
+of that even if I trust them" are not things that a given software
+project can easily advertize.
+
+Not everything is technical and sometimes it can boil down to things
+like "this project is well known, looks serious and Wikipedia also
+agrees on that", so it looks safer to use than "another project that
+advertize 100% security" because "according to my friends, 100%
+security doesn't exist" or that "the security features of this
+software create other security issues that affect you more than what
+it's supposed to fix".
 
 Also note that in general some security features also have downsides,
 such as making it harder to use the computer, making it harder to fix
 issues, etc, so not everybody might want these security features.
 
-As for security features typically found in other boot software, some
-computers vendor sell computers with what they call @dfn{secure
-boot}. When it cannot be turned off, it becomes an anti-feature and
-the @uref{https://www.fsf.org/,Free Software Foundation} calls it
+For instance "disk encryption" when it is really secure, makes the
+computer slower when copying very big files, makes recovering from
+data corruption harder, and you even need to remember a passphrase
+(that you could forget and so lose access to your data).
+
+Making sure that nobody else gets the passphrase is hard (you need to
+not be seen, recorded, filmed, etc when you type it, it needs to be
+random enough and long enough not to be guessed, etc). And finally all
+that can complicate backups as well depending on if you also want the
+backups to be encrypted as well or not.
+
+So not everybody wants to encrypt their disk, this is why GNU/Linux
+installers give users the choice of doing it or not doing it.
+
+Security is also not everything, for instance you might care more if a
+given software has features that you want, or if it fits you better,
+or has better long term availability guarantees or better support than
+a more secure one, etc.
+
+A big part of threat modelling is also, when you have things to
+protect, to also understand who or what to protect these things from.
+
+For instance a state doesn't have the same capabilities, goals, or
+even risk than an individual. So there are things states are willing
+to do that individuals are not and vice-versa. Attacks can also have
+costs for the attacker, so that also limit their use to situation
+where the gain outweighs the costs. But that is only useful if you
+first understand what is important for you.
+
+@node       Impact of malware
+@subsection Impact of malware
+
+People running 100% free software distributions usually don't end up
+with malware on their computers if they apply (security) updates.
+
+But this can happen to other people that run other GNU/Linux
+distributions with (very) bad luck and bad practices.
+
+If someone that runs GNU/Linux installs random software from places
+like Aur or Pip that don't do any checks on the software being
+provided through them, that software is sometimes malware, though this
+is quite rare and Aur or Pip typically communicate on such incidents
+and the specialized press talks about it.
+
+Places like Aur or Pip also provide nonfree software, and this is by
+design, so people runing 100% free software distributions try to avoid
+such places anyway.
+
+The consequences of installing malware is quite bad as the computer
+cannot be trusted anymore and the advertized solution is usually to
+reinstall completely the GNU/Linux distribution, which is relatively
+easy to do.
+
+This however brings additional problems that are much more complex to
+deal with:
+
+@itemize
+
+@item When restoring backups, people need to make sure they don't contain
+      code that, once restored, will re-infect the computer. Restoring
+      a backup of before the infection should be safe, but sometimes malware
+      take time (months) before being detected. And making sure that backups
+      made after the infection are safe is too complex for most computer users.
+
+@item Such advice (reinstalling GNU/Linux) also assumes that the malware didn't
+      infect the computer firmwares or boot software. Usually there
+      are also many security features in places to make that a lot harder
+      but they don't always work, especially with software that is installed
+      from untrusted sources when such sources don't limit what the software
+      can do through security mechanisms.
+
+@end itemize
+
+@node    Security considerations when using GNU Boot
+@section Security considerations when using GNU Boot
+
+If GNU Boot is already installed, Someone else than you that has
+physical access to the computer could Boot GNU/Linux and use flashrom
+to replace GNU Boot with a malicious modified version.
+
+If you run software that you don't trust that have or can get root
+permissions, it also has the ability to replace GNU Boot with a
+malicious modified version.
+
+If these things happens you will need to reinstall both GNU/Linux and
+GNU Boot. When doing that you will need not to run the potentially
+compromised GNU/Linux and GNU Boot installations that are on the
+computer.
+
+How to prevent such attacks needs to be added later on in this manual.
+
+If the attacker has access to significant resources, with the same
+attack vectors (through untrusted software or by booting GNU/Linux and
+using flashrom), it can also replace the firmware of various
+peripherals like keyboards, storage devices (SSDs, USB keys, etc) with
+malicious versions that can take control of the computer, but to do
+that it needs to dedicate or have dedicated resources to the specific
+families of chip present in these peripherals.
+
+Untrusted software can also come from cards that can be plugged in the
+computer, like GPUs or express-cards for laptops, so the same
+consideration apply for these.
+
+In the case of laptops, it would also be possible to replace the
+firmware that controls the keyboard and various other power management
+features. This is really problematic. @xref{How much free software is
+GNU Boot?} for more detail on the issue.
+
+These kind of attacks is not specific to GNU Boot though, however some
+GNU Boot configurations can be used to protect from some of these
+attacks. How to do that will need to be added later on in this manual.
+
+
+@node       Secure boot and restricted boot
+@subsection Secure boot and restricted boot
+
+@cindex secure boot
+
+A very common security feature typically found in other boot software
+that is part of many computers is called @dfn{secure boot}.
+
+When it cannot be turned off, it becomes an anti-feature and the
+@uref{https://www.fsf.org/,Free Software Foundation} calls it
 @dfn{restricted boot}.
 
 In 2012, the @uref{https://www.fsf.org/,Free Software Foundation}
