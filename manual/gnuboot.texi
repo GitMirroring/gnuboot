@@ -2577,6 +2577,146 @@ You can consult either the
 build instructions} or the @ref{Installation,,,guix,GNU Guix reference
 manual} for how to install Guix.
 
+@node    Security considerations when installing GNU Boot
+@section Security considerations when installing GNU Boot
+
+If you are installing GNU Boot, you could be in one of the
+situations described in the following subsections.
+
+All these need different security considerations.
+
+@node       Installing from a computer with a nonfree BIOS
+@subsection Installing from a computer with a nonfree BIOS
+
+To install GNU Boot on a given computer, you will simply run some
+software that does the installation for you.
+
+This software will replace the nonfree BIOS that is on the boot flash
+(@xref{boot software} for more information on what is a boot flash).
+
+The main issue with this approach is that the existing BIOS could be
+malicious and because of that there is no way to know if your computer
+was already compromised at the time of the installation.
+
+In practice it means that you will need another computer and a flash
+chip programmer to either check that the GNU Boot image you installed
+was not modified and/or to simply reinstall GNU Boot.
+
+Once done, you will also need to not boot anymmore your previous
+GNU/Linux installation and reinstall GNU/Linux as well. @xref{Impact
+of malware} for more details on the difficulties of doing that
+properly.
+
+@node       Installing from a computer with another boot software distribution
+@subsection Installing from a computer with another boot software distribution
+
+The security consideration here will depend a lot on the exact image
+you used. If it is fully free and that the computer was never
+compromised, the same condsideration than @ref{Security considerations
+when updating GNU Boot} do apply.
+
+Else it is mostly similar to @ref{Installing from a computer with a
+nonfree BIOS}.
+
+@xref{How much free software are other distributions} for information
+on the freedom of various boot software distributions. In addition, if
+the distribution you use is not listed there it most likely means that
+it either ships nonfree software and/or that it has no commitment to
+only include free software.
+
+@node       Installing with a 100% hardware flash chip programmer
+@subsection Installing with a 100% hardware flash chip programmer
+
+
+To do the installation you will need:
+@itemize
+@item A computer to install GNU Boot on.
+@item A 100% hardware flash chip programmer
+@item Another computer that runs the flashrom program
+@end itemize
+
+
+The setup should look more or less like that:
+
+@verbatim
++------------+        +-------------------+       +---------------------+
+| Boot flash | <----> | Flash programmer  | <---> | Flashrom running    |
+|            |        |                   |       | on another computer |
+|            |        |                   |       |                     |
++------------+        +-------------------+       +---------------------+
+ Hardware              Hardware                    Hardware + Software
+@end verbatim
+
+The previous subsections already explain how to deal with the computer
+that you are about to install GNU Boot on. For instance they explain
+the risk with the firmware that controls the keyboard on laptops.
+
+They also explain the risk of running untrusted code reguardless of if
+it comes from the Boot flash or the operating system that is installed
+on the laptop.
+
+The flash programmer being only hardware doesn't need special
+considerations.
+
+So the main concern here is to make sure that the computer running
+flashrom is trustworthy.
+
+How to bootstrap this trust will need to be added later on in this
+manual, but it boils down to adapting what is known as a key ceremony
+(especially how it was done for Let's Encrypt) to GNU Boot.
+
+In addition, if the boot flash or operating system of the computer
+that you install GNU Boot on is compromised, overwriting its content
+with a new GNU Boot image will get rid of the compromise.
+
+And if the operating system of that computer is also compromised, you
+will need to first (re)install GNU Boot, and then make sure reinstall
+the operating system without ever running the code from the previous
+installation. A way to do that could be to erase the disk on another
+computer, for instance with the @emph{wipe} command which comes
+from the @emph{wipe} package in Guix.
+
+@node       Installing with a flash chip programmer that has a firmware
+@subsection Installing with a flash chip programmer that has a firmware
+
+Compared to @ref{Installing with a 100% hardware flash chip
+programmer}, here we have one more complication: we need to trust
+the code that runs inside the flash chip programmer.
+
+In the case of the Zerocat Chipflasher v2 (@xref{Zerocat Chipflasher
+v2} for more details on this flash chip programmer), the builtin
+firmware is on a flash chip that uses the I2C protocol. This chip can
+simply be removed and the firmware can be loaded through the serial
+port instead. If you do that you then are in the same case than
+@ref{Installing with a 100% hardware flash chip programmer} which is
+way more simple.
+
+In other cases, like with a flash chip programmer made with an
+Arduino, things are more complex.
+
+The @uref{https://github.com/urjaman/frser-duino,frser-duino} firmware
+is free and it can easily be (re)built and installed into an Arduino
+to make it become a flashrom compatible flash chip programmer. Note
+that some Arduinos do require level shifter to be able to safely
+program the boot flash found on the computers supported by GNU Boot.
+
+However if you build a flash chip programmer with an Arduino, you also
+implicitely trust the bootloader of the Arduino you use. If you don't
+want to trust this bootloader, you will either need to completely get
+rid of the bootloader or build and install one yourself.
+
+Both solutions do require to use an FTDI chip to program the arduino
+processor directly without needing to run the bootloader code. This is
+for instance described in the
+@uref{https://arduino.stackexchange.com/questions/30564/ftdi-breakout-with-additional-isp-connector,FTDI
+Breakout with additional ISP connector} thread on stackoverflow. On an
+Arduino duemillanove this requires to solder 1 connector and to use 4
+female<->female jump wire cables and to use the avrdude software.
+
+It is also possible to use another Arduino and software to do these,
+but then it only shift the issue to the other Arduino that also has a
+bootloader that you might not want to trust.
+
 @node    Maintenance and repairations
 @chapter Maintenance and repairations
 
