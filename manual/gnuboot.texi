@@ -2545,6 +2545,38 @@ can use Guix to install the manual of older GRUB versions
 All the security mechanism described in the GRUB manual or GNU Boot
 website are compatible with users freedom.
 
+@node    Security considerations when updating GNU Boot
+@section Security considerations when updating GNU Boot
+
+All the consideration in @ref{Security considerations when using GNU
+Boot} apply.
+
+In addition when updating GNU Boot you will need to decide if you want
+to trust binary images provided by the GNU Boot project.
+
+If you do, it is a good idea to verify the signature to make sure that
+what you are about to install really comes from the GNU Boot
+maintainers. If you choose not to trust these binary images you will
+need to build GNU Boot from source.
+
+@xref{Building GNU Boot from source} for information that can help
+decide if (not) trusting the binaries is best for your or not.
+
+When you do that it is also a good idea to verify that the source code
+you use is signed by the GNU Boot maintainers (@xref{Authenticating
+the GNU Boot source code}).
+
+To do that you will need to install Guix. And here too it is a good
+idea to make sure that the installation method you use also checks
+signatures. For instance guix packages provided by distributions are
+signed, but the Guix installation script from the Guix project
+isn't.
+
+You can consult either the
+@uref{https://www.gnu.org/software/gnuboot/web/docs/build/,GNU Boot
+build instructions} or the @ref{Installation,,,guix,GNU Guix reference
+manual} for how to install Guix.
+
 @node    Maintenance and repairations
 @chapter Maintenance and repairations
 
