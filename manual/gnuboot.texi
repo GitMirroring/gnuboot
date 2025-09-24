@@ -3340,6 +3340,27 @@ this manual.
 @node    Maintenance and repairations
 @chapter Maintenance and repairations
 
+@node    Finding new laptop batteries
+@section Finding new laptop batteries
+
+In France or Germany, there are specialized shops that sells batteries
+for a wide range of devices, including laptops like the @emph{Lenovo
+ThinkPad X200}.
+
+Buying locally can also provide more assurance against targetted
+hardware modifications. @xref{Trusting hardware} for more details.
+
+Here are some examples of shops that sells batteries locally:
+
+@itemize
+@item 1001 piles shops in France
+@item Several shops Rue Mongallet, in Paris, France
+@end itemize
+
+When new batteries cannot be found anymore, it is also sometimes
+possible to ask some of these shop to make a new one from an older
+battery.
+
 @node    Replacing the boot flash on a desktop@comma{} server or workstation
 @section Replacing the boot flash on a desktop@comma{} server or workstation
 
