@@ -44,5 +44,24 @@ if [ ! -f configure ] || \
        [ ! -f Makefile ] || \
        [ ! -f resources/packages/i945-thinkpads-install-utilities/Makefile ] ; then
     ./autogen.sh
-    ./configure
+    if ! ./configure ; then
+        if grep -q 'error: /dev/kvm not found\.$' config.log ; then
+            echo "$0:" \
+                 "Cannot use /dev/kvm."
+
+            echo  "$0:" \
+                  "To disable KVM support, you can run" \
+                  "./configure --disable-kvm."
+
+            echo "$0:" \
+                 "However doing that will make some tests run very slowly."
+
+            echo "$0: Alternatively, if your processor supports KVM" \
+                 "(most processors do),"
+            echo "$0: you can try to fix this by adding" \
+                 "the proper permissions to /dev/kvm."
+
+            exit 1
+        fi
+    fi
 fi

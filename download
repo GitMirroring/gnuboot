@@ -28,10 +28,6 @@ set -u -e
 
 . resources/scripts/misc/sysexits.sh
 
-# Some scripts like the ones in resources/packages/i945-thinkpads-install-utilities need
-# Makefiles to be generated
-. resources/scripts/misc/generate-configure-makefiles.sh
-
 # set this when you want to modify each coreboot tree
 # for example, you want to test custom patches
 # NODELETE='' ./download coreboot
@@ -94,6 +90,10 @@ if [ $# -lt 1 ]; then
 	help
 	die "${EX_USAGE}" "Please specify arguments."
 fi
+
+# Some scripts like the ones in resources/packages/i945-thinkpads-install-utilities need
+# Makefiles to be generated
+. resources/scripts/misc/generate-configure-makefiles.sh
 
 package="${1}"
 shift 1
