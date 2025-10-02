@@ -1,0 +1,95 @@
+From f8ca050b4f3d6de65b42f298992db34439d9d07e Mon Sep 17 00:00:00 2001
+From: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+Date: Tue, 16 Sep 2025 19:38:11 +0200
+Subject: [PATCH 13/14] manual: security: add instruction to check images
+ signatures.
+
+Signed-off-by: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+---
+ manual/gnuboot.texi | 70 +++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 70 insertions(+)
+
+diff --git a/manual/gnuboot.texi b/manual/gnuboot.texi
+index 2dd889673d..f3bb715258 100644
+--- a/manual/gnuboot.texi
++++ b/manual/gnuboot.texi
+@@ -2355,6 +2355,76 @@ You can consult either the
+ build instructions} or the @ref{Installation,,,guix,GNU Guix reference
+ manual} for how to install Guix.
+ 
++@node       Checking the signatures of GNU Boot images
++@subsection Checking the signatures of GNU Boot images
++
++To verify the signatures of an image, you first need to copy the
++following inside the @emph{neox.asc} file:
++
++@verbatim
++-----BEGIN PGP PUBLIC KEY BLOCK-----
++
++mDMEZm2YmxYJKwYBBAHaRw8BAQdAWDcG3nLKPosKY1A7DABOYkWN3B2Hq4lhrIJx
++NnlQVie0KEFkcmllbiAnbmVveCcgQm91cm1hdWx0IDxuZW94QGEtbGVjLm9yZz6I
++lgQTFggAPhYhBOI8JqXe7sX6nN3Vele8JqNocRb2BQJmbZzfAhsDBQkDwmcABQsJ
++CAcCBhUKCQgLAgQWAgMBAh4BAheAAAoJEFe8JqNocRb2248BAOIQBGj4/2doph2Q
++sfYLyQOzMREaX5P9C2zmDZiaoXBVAQDsh1dvMsLfHpkRdYbRqo6uTU4QTlmL5qOH
++Cz2s0QyWC7QmQWRyaWVuICduZW94JyBCb3VybWF1bHQgPG5lb3hAZ251Lm9yZz6I
++mQQTFggAQQIbAwUJA8JnAAULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBOI8JqXe
++7sX6nN3Vele8JqNocRb2BQJmbZzsAhkBAAoJEFe8JqNocRb2D+IA/iYlSD/npaG8
++zlDIjjr7XUREFCB6fELSEYR0NKGT+wmGAP0dLdP4xG70anliz+76ik/pndHRZdof
++qQKQROEbXe/vCrgzBGZtmJsWCSsGAQQB2kcPAQEHQDZQd7U/DRPK5/qk35dzeG5d
++pnS/0FesbRrgZTSMHEsviH4EGBYIACYWIQTiPCal3u7F+pzd1XpXvCajaHEW9gUC
++Zm2YmwIbIAUJA8JnAAAKCRBXvCajaHEW9o68AP9VQXiDp5BWXSE6N2rz2+b/Dpck
++Ho0MMww2awmBvfU6xgD+OpkDEgo/in+m5PcbOXa8IqDC1fZZbGsLKEfBSiZhawG4
++OARmbZibEgorBgEEAZdVAQUBAQdA7nIe/ImvNJ8WZbA+ZcvxrwLbXLwu3XuCPiOc
++aIJw9zoDAQgHiH4EGBYIACYWIQTiPCal3u7F+pzd1XpXvCajaHEW9gUCZm2YmwIb
++DAUJA8JnAAAKCRBXvCajaHEW9gZBAQDJFP0bkwf3j3YuZROGGEsgwATfohbh8GYB
++y35gwjcaigD/fjDVjNnxjpqGFOLvEkSMZgjNpejar69Msf1sRH8tGAg=
++=Zqad
++-----END PGP PUBLIC KEY BLOCK-----
++@end verbatim
++
++You will then need to import the key into the GPG keyring. This can be
++done with the following command:
++
++@example
++gpg --import neox.asc
++@end example
++
++Once done you will be able to verify images signed by neox, one of the
++two GNU Boot maintainers who until now signed all the releases.
++
++To do that you will first need to download the images and their
++signature. For QEMU
++
++@itemize
++@item gnuboot-0.1-rc6_debug_qemu-pc_2mb.tar.xz
++@item gnuboot-0.1-rc6_debug_qemu-pc_2mb.tar.xz.sig
++@end itemize
++
++@example
++wget https://ftp.gnu.org/gnu/gnuboot/gnuboot-0.1-rc6/roms/gnuboot-0.1-rc6_debug_qemu-pc_2mb.tar.xz
++wget https://ftp.gnu.org/gnu/gnuboot/gnuboot-0.1-rc6/roms/gnuboot-0.1-rc6_debug_qemu-pc_2mb.tar.xz.sig
++@end example
++
++@example
++gpg --verify gnuboot-0.1-rc6_debug_qemu-pc_2mb.tar.xz.sig
++@end example
++
++@verbatim
++gpg: assuming signed data in 'gnuboot-0.1-rc6_debug_qemu-pc_2mb.tar.xz'
++gpg: Signature made Mon 24 Mar 2025 10:54:59 AM CET
++gpg:                using EDDSA key E23C26A5DEEEC5FA9CDDD57A57BC26A3687116F6
++gpg: Good signature from "Adrien 'neox' Bourmault <neox@gnu.org>" [unknown]
++gpg:                 aka "Adrien 'neox' Bourmault <neox@a-lec.org>" [unknown]
++gpg: WARNING: This key is not certified with a trusted signature!
++gpg:          There is no indication that the signature belongs to the owner.
++Primary key fingerprint: E23C 26A5 DEEE C5FA 9CDD  D57A 57BC 26A3 6871 16F6
++@end verbatim
++
++
++
+ @node    Security considerations when installing GNU Boot
+ @section Security considerations when installing GNU Boot
+ 
+-- 
+2.51.0
+

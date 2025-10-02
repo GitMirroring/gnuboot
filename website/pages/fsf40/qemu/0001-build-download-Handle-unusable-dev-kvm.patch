@@ -1,0 +1,108 @@
+From 864c300ebc643673f56c685b4c9b5c64cbe149ef Mon Sep 17 00:00:00 2001
+From: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+Date: Sun, 28 Sep 2025 02:07:31 +0200
+Subject: [PATCH 1/2] build, download: Handle unusable /dev/kvm.
+
+So far non-usable /dev/kvm was not handled in ./build or ./download
+scripts.
+
+Not being able to use /dev/kvm brings in serious performance
+degradation, so in that case we cannot silently disable KVM usage.
+
+So here too need users to take action and decide what is better for
+them (between not using KVM or giving the current user permission to
+use /dev/kvm).
+
+Bug-report: https://savannah.gnu.org/bugs/?66225
+Signed-off-by: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+---
+ build                                         |  8 +++----
+ download                                      |  8 +++----
+ .../misc/generate-configure-makefiles.sh      | 21 ++++++++++++++++++-
+ 3 files changed, 28 insertions(+), 9 deletions(-)
+
+diff --git a/build b/build
+index 3b27f05efc..b9a619ce33 100755
+--- a/build
++++ b/build
+@@ -31,10 +31,6 @@ projectname="$(cat projectname)"
+ 
+ . resources/scripts/misc/sysexits.sh
+ 
+-# Some scripts like the ones in resources/packages/i945-thinkpads-install-utilities need
+-# Makefiles to be generated
+-. resources/scripts/misc/generate-configure-makefiles.sh
+-
+ # This is for backward compatibility: before the list of "modes" was
+ # auto-detected, but there isn't a 1:1 matching between modes and
+ # packages tasks (build, clean, etc).
+@@ -114,6 +110,10 @@ fi
+ 
+ [ "${task}" = "--help" ] && help && exit 0
+ 
++# Some scripts like the ones in resources/packages/i945-thinkpads-install-utilities need
++# Makefiles to be generated
++. resources/scripts/misc/generate-configure-makefiles.sh
++
+ if [ $# -gt 1 ]; then
+ 
+ 	package="${2}"
+diff --git a/download b/download
+index 4e26476bba..09dc8e39c9 100755
+--- a/download
++++ b/download
+@@ -28,10 +28,6 @@ set -u -e
+ 
+ . resources/scripts/misc/sysexits.sh
+ 
+-# Some scripts like the ones in resources/packages/i945-thinkpads-install-utilities need
+-# Makefiles to be generated
+-. resources/scripts/misc/generate-configure-makefiles.sh
+-
+ # set this when you want to modify each coreboot tree
+ # for example, you want to test custom patches
+ # NODELETE='' ./download coreboot
+@@ -95,6 +91,10 @@ if [ $# -lt 1 ]; then
+ 	die "${EX_USAGE}" "Please specify arguments."
+ fi
+ 
++# Some scripts like the ones in resources/packages/i945-thinkpads-install-utilities need
++# Makefiles to be generated
++. resources/scripts/misc/generate-configure-makefiles.sh
++
+ package="${1}"
+ shift 1
+ [ "${package}" = "--help" ] && help && exit 0
+diff --git a/resources/scripts/misc/generate-configure-makefiles.sh b/resources/scripts/misc/generate-configure-makefiles.sh
+index 4161151b0d..d62345a95b 100755
+--- a/resources/scripts/misc/generate-configure-makefiles.sh
++++ b/resources/scripts/misc/generate-configure-makefiles.sh
+@@ -44,5 +44,24 @@ if [ ! -f configure ] || \
+        [ ! -f Makefile ] || \
+        [ ! -f resources/packages/i945-thinkpads-install-utilities/Makefile ] ; then
+     ./autogen.sh
+-    ./configure
++    if ! ./configure ; then
++        if grep -q 'error: /dev/kvm not found\.$' config.log ; then
++            echo "$0:" \
++                 "Cannot use /dev/kvm."
++
++            echo  "$0:" \
++                  "To disable KVM support, you can run" \
++                  "./configure --disable-kvm."
++
++            echo "$0:" \
++                 "However doing that will make some tests run very slowly."
++
++            echo "$0: Alternatively, if your processor supports KVM" \
++                 "(most processors do),"
++            echo "$0: you can try to fix this by adding" \
++                 "the proper permissions to /dev/kvm."
++
++            exit 1
++        fi
++    fi
+ fi
+-- 
+2.51.0
+

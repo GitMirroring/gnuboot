@@ -1,0 +1,34 @@
+From f2b01a47a4b0f1a606b6b8d7bc70490f58126eed Mon Sep 17 00:00:00 2001
+From: DiffieHellman via Gnuboot-patches <gnuboot-patches@gnu.org>
+Date: Mon, 8 Jan 2024 21:32:20 +1100
+Subject: [PATCH] Added workman keymap.
+
+Haven't been able to test it yet, but it should just work.
+
+Generated with; grub-kbdcomp -o workman.gkb workman
+---
+ resources/grub/keymap/workman.gkb | Bin 0 -> 2572 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 resources/grub/keymap/workman.gkb
+
+diff --git a/resources/grub/keymap/workman.gkb b/resources/grub/keymap/workman.gkb
+new file mode 100644
+index 0000000000000000000000000000000000000000..3c7315ddcf2d4cab96bae99af1bd09d44f9c5fe2
+GIT binary patch
+literal 2572
+zcmeIzXHQd67{GB(a!#Ut1>d;$-pXu23sNi;5pd()d$0Iu{G9$CNRuY|qJ5z^F+Rz!
+z+>*P({og~Qy-;t~mRlPJew`J+ddE{9@QOFw=Ob@<#$BHCgvY#Kke9sYHMh9OZSL@a
+zM||QiM>xtcj&p*OoZ>Wxh<n_~I@Ys^{S0%3Ys6gTAv?LrJ`Qk@n8AVX149fm!YE_Z
+zs58z4i!9MSZQmPAF;9y*W|(G{Nn+x9dx(47OWc3#AN#~Hv44{|HqIHx#d%}m+(WBd
+z)qcc%R5djhzQhcZw7E!wWfr)=Sz0uiW|lL|vB*4i&N0peOPuF2n;By(+t|)^b`Z~R
+z7rTk)*XhsZYJWHUjA#3quf%*|iY<I2p5q9k#ON>SFX=DoFX=DoFX=DoFX=DoFX=Do
+zFRdN5_Sxw#zIFPG?Oyxq<z0*O#rqQXT=m3#R5dFu{Ex1GS$|o7S$|o7S$|o7S$|o7
+zS$|o7S%10v@89XKm-VmvxPG^z?Rbx>p8xCLA6fs3{)+yJ{)+yJ{)+yJ{)+yJ{)+yJ
+b{z`WP{q*;{|G)jLe?Ph}T+#O5T>pLoi@lU-
+
+literal 0
+HcmV?d00001
+
+-- 
+2.51.0
+

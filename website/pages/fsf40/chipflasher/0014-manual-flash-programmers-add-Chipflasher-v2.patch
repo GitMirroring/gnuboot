@@ -1,0 +1,138 @@
+From c6d7a1e0dde2303fb659f4eeebd67f44a67ce64d Mon Sep 17 00:00:00 2001
+From: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+Date: Thu, 18 Sep 2025 01:49:33 +0200
+Subject: [PATCH 14/14] manual: flash programmers: add Chipflasher v2.
+
+Signed-off-by: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+---
+ manual/gnuboot.texi | 107 +++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 105 insertions(+), 2 deletions(-)
+
+diff --git a/manual/gnuboot.texi b/manual/gnuboot.texi
+index f3bb715258..9f375e93d7 100644
+--- a/manual/gnuboot.texi
++++ b/manual/gnuboot.texi
+@@ -2005,6 +2005,109 @@ is needed as this programmer has a builtin socket for them.
+ @item        Lenovo ThinkPad X200 with MX25L6405D  @tab No
+ @end multitable
+ 
++@node       Zerocat Chipflasher v2 and its variations
++@subsection Zerocat Chipflasher v2 and its variations
++
++The Chipflasher v2 is shipped with a builtin free firmware that is
++compatible with flashrom and that can be replaced: Zerocat provides
++documentation that explains you how to do that and alternative
++firmwares do exist.
++
++Zerocat also provides documentation that seems sufficient to build a
++Chipflasher yourself and they even sells kits, though we didn't test
++building one ourselves.
++
++The builtin free firmware is capable of controlling various hardware
++components to adapt to a wide variety of electrical / electronic
++conditions typically found when programming laptops boot flash.
++
++Building your own slightly different version the Chipflasher and/or
++installing another firmware that is completely different has real
++impacts on both the compatibility with laptops boot flash and the way
++of using the Chipflasher.
++
++All these differences can be useful, otherwise the Chipflasher v2
++official documentation on the Zerocat website or the chipflasher git
++repository would not document all these in depth.
++
++In order to support well the Zerocat Chipflasher v2 and potentially
++its various variations as well, we chose to take into account these
++differences by considering Zerocat Chipflasher v2 with hardware and
++software variations as flash programmers distinct from the Zerocat
++Chipflasher v2.
++
++So for instance a Zerocat Chipflasher v2 without any builtin firmware,
++with a different firmware than the one that came with the Chipflasher
++v2 (like kick2-connect instead of kick2-flashrom), or a Zerocat
++Chipflasher DevKit (for instance that you built yourself) will be
++considered as distinct flash programmers.
++
++@node          Zerocat Chipflasher v2
++@subsubsection Zerocat Chipflasher v2
++
++The Chipflasher v2 from Zerocat can be used without having to solder
++anything. It is shipped with a Pomona 5252 IC TEST CLIP for SOIC 16,
++an adapter for DIP-8 flash chips and various cables.
++
++Since the Zerocat Chipflasher v2 has a builtin (free) firmware, using
++that makes things much more easy (for instance it is compatible with a
++wide variety of USB serial port adapters), but in some situations that
++can have security implications (as the firmware can for instance be
++modified while shipping the flasher).
++
++For the security implications, @pxref{Security} for more background on
++security first, and then for the security related to using flash chip
++programmers without or with builtin firmwares, @pxref{Installing with
++a 100% hardware flash chip programmer} and @ref{Installing with a
++flash chip programmer that has a firmware}.
++
++@multitable {Lenovo ThinkPad X200 with MX25L6405D}     {works?}
++@headitem    Boot flash                            @tab Works?
++@item        Lenovo ThinkPad X200 with MX25L6405D  @tab Yes
++@end multitable
++
++@node          Zerocat Chipflasher v2 without builtin firmware
++@subsubsection Zerocat Chipflasher v2 without builtin firmware
++
++The Chipflasher v2 without builtin firmware from Zerocat can be used
++without having to solder anything. It is shipped with a Pomona 5252 IC
++TEST CLIP for SOIC 16, an adapter for DIP-8 flash chips and various
++cables.
++
++It is also shipped with a firmware by default. This firmware is
++located in a flash chip that is inside a DIP-8 socket. This means that
++you can remove this flash chip.
++
++If you are not used to do removing chips from DIP-8 sockets, you might
++consider using some specialized tools to help (like a scalpel, some
++tweezers for stamps that you can try to put between the chip and the
++socket to remove the chip without bending its pins, or a chip
++extractor).
++
++While doing that, you might also need to protect the Chipflasher v2
++from static electricity, as this tend reduce the lifespan of
++electronics. You could for instance by using an antistatic wrist
++strap. Alternatives like touching some electrical ground also exist
++but you need to know what you are doing.
++
++Once done you will still need to load a firmware into the Chipflasher,
++but the firmware will come straight from the computer that will
++control the Chipflasher.
++
++While this avoids security issues, since there is no builtin firmware
++anymore, you will need to build and load this firmware yourself. The
++official Chipflasher v2 documentation from Zerocat explains how to do
++that. Ideally you will also need to find a way to verify the
++signatures of the source code of this firmware. And finally loading
++the fimrware may not work with all serial port adapters, though
++compatbility has already been improved over time.
++
++For the security implications, @pxref{Security} for more background on
++security first, and then for the security related to using flash chip
++programmers without or with builtin firmwares, @pxref{Installing with
++a 100% hardware flash chip programmer} and @ref{Installing with a
++flash chip programmer that has a firmware}.
++
+ @node    Installing or upgrading GNU Boot images
+ @chapter Installing or upgrading GNU Boot images
+ 
+@@ -2264,8 +2367,8 @@ GNU Boot?} for more detail on the issue.
+ 
+ These kind of attacks is not specific to GNU Boot though, however some
+ GNU Boot configurations can be used to protect from some of these
+-attacks. How to do that will need to be added later on in this manual.
+-
++attacks. How to do that will need to be added later on in this
++manual. @xref{Secure boot and restricted boot} for more details.
+ 
+ @node       Secure boot and restricted boot
+ @subsection Secure boot and restricted boot
+-- 
+2.51.0
+

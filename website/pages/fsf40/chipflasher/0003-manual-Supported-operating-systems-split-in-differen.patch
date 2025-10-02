@@ -1,0 +1,62 @@
+From af78689026d229f1f25d2f7591cb228d9796557a Mon Sep 17 00:00:00 2001
+From: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+Date: Thu, 6 Mar 2025 00:36:19 +0100
+Subject: [PATCH 03/14] manual: Supported operating systems: split in different
+ nodes.
+
+Having everything in one node makes it harder to read.
+
+Signed-off-by: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+---
+ manual/gnuboot.texi | 14 +++++++++++++-
+ 1 file changed, 13 insertions(+), 1 deletion(-)
+
+diff --git a/manual/gnuboot.texi b/manual/gnuboot.texi
+index 328840a11f..d6a3c009d1 100644
+--- a/manual/gnuboot.texi
++++ b/manual/gnuboot.texi
+@@ -1336,6 +1336,9 @@ these and welcome contributions in this area.
+ @node    Supported operating systems
+ @section Supported operating systems
+ 
++@node       GNU/Linux
++@subsection GNU/Linux
++
+ While GNU Boot should be able to boot almost any GNU/Linux
+ distribution, but in some cases some configuration might be needed by
+ the GNU Boot user. The cases that do and don't require configuration
+@@ -1356,7 +1359,10 @@ Trisquel 11 (aramo), one of the free distributions to make sure that
+ it can boot fine without needing any special configuration from the
+ user.
+ 
+-However sometimes fully free distributions also propose experimental
++@node          Non-standard GNU/Linux configurations
++@subsubsection Non-standard GNU/Linux configurations
++
++Sometimes fully free distributions also propose experimental
+ or non-standard configurations for very specific use cases. For
+ instance Guix has experimental support for GNU Hurd, an experimental
+ kernel from the GNU project, and Trisquel supports the Xen kernel,
+@@ -1368,6 +1374,9 @@ might require some configuration from the user. Also we would need
+ help from users to report what works and doesn't work or what
+ workarounds are needed to make them work with GNU Boot.
+ 
++@node          Nonfree distributions
++@subsubsection Nonfree distributions
++
+ The cases that are known not to require any configuration might also
+ work with any GNU/Linux distributions (even the nonfree ones), however
+ the GNU Boot project doesn't want to force contributors to download or
+@@ -1375,6 +1384,9 @@ run nonfree software to test changes, so it relies on voulounteers
+ already running such distributions to report bugs in case something
+ doesn't work as it should.
+ 
++@node       Other operating systems
++@subsection Other operating systems
++
+ As for other operating systems, there is some documentation on how to
+ boot some of them (like some BSD operating systems) on the GNU Boot
+ website, but again we need help from voulonteers already running such
+-- 
+2.51.0
+

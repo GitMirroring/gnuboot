@@ -1,0 +1,48 @@
+From d0c59b24bb995a8583a3359654ac28b3ccf70216 Mon Sep 17 00:00:00 2001
+From: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+Date: Thu, 24 Apr 2025 19:46:23 +0200
+Subject: [PATCH 04/14] manual: GRUB images: add information about grub.cfg
+ implemntation / limitations.
+
+Signed-off-by: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+---
+ manual/gnuboot.texi | 23 +++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
+
+diff --git a/manual/gnuboot.texi b/manual/gnuboot.texi
+index d6a3c009d1..2f76f6cc23 100644
+--- a/manual/gnuboot.texi
++++ b/manual/gnuboot.texi
+@@ -1755,6 +1755,29 @@ screen):
+       `c' for a command-line.
+ @end verbatim
+ 
++@node    GRUB images requirements
++@section GRUB images requirements
++
++@node       GRUB: Supported configuration files
++@subsection GRUB: Supported configuration files
++
++@node          grub.cfg
++@subsubsection grub.cfg
++
++When booting, the GNU Boot GRUB image selects the first entry, which
++is @emph{Load Operating System (incl. fully encrypted disks)}.
++
++It has limited heuristics to find LVM, raid and encrypted partitions.
++
++Once it finds a filesystem, it tries to find the gnuboot_grub.cfg,
++osboot_grub.cfg, autoboot_grub.cfg, coreboot_grub.cfg, grub.cfg, in
++that order, in the boot, grub, grub2, boot/grub, or boot/grub2
++directories.
++
++So if it loads the wrong distribution, you can put grub commands that
++load the right distribution in /boot/gnuboot_grub.cfg in the partition
++it loads the wrong distribution from.
++
+ @node    Flash programmers
+ @chapter Flash programmers
+ 
+-- 
+2.51.0
+

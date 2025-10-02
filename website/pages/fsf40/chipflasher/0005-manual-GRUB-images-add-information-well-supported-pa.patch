@@ -1,0 +1,33 @@
+From 67730292834e11e9f29bebf0ab52dce53854884b Mon Sep 17 00:00:00 2001
+From: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+Date: Thu, 24 Apr 2025 19:45:13 +0200
+Subject: [PATCH 05/14] manual: GRUB images: add information well supported
+ partitions.
+
+Signed-off-by: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+---
+ manual/gnuboot.texi | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/manual/gnuboot.texi b/manual/gnuboot.texi
+index 2f76f6cc23..dd050b94f0 100644
+--- a/manual/gnuboot.texi
++++ b/manual/gnuboot.texi
+@@ -1778,6 +1778,14 @@ So if it loads the wrong distribution, you can put grub commands that
+ load the right distribution in /boot/gnuboot_grub.cfg in the partition
+ it loads the wrong distribution from.
+ 
++@node       GRUB: Supported partitions
++@subsection GRUB: Supported partitions
++
++@node          GRUB: GPT (GUID Partition Table) and MBR (Master boot record)
++@subsubsection GRUB: GPT (GUID Partition Table) and MBR (Master boot record)
++
++The GRUB images support GPT and MBR partitions.
++
+ @node    Flash programmers
+ @chapter Flash programmers
+ 
+-- 
+2.51.0
+
