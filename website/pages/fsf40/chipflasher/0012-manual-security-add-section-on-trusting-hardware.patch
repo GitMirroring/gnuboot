@@ -1,0 +1,56 @@
+From 170bfcf0b2f8688ef695569dd48160d63e4818f6 Mon Sep 17 00:00:00 2001
+From: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+Date: Thu, 18 Sep 2025 02:11:26 +0200
+Subject: [PATCH 12/14] manual: security: add section on trusting hardware.
+
+Signed-off-by: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+---
+ manual/gnuboot.texi | 32 ++++++++++++++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
+
+diff --git a/manual/gnuboot.texi b/manual/gnuboot.texi
+index 80ac8b03c0..2dd889673d 100644
+--- a/manual/gnuboot.texi
++++ b/manual/gnuboot.texi
+@@ -2495,6 +2495,38 @@ It is also possible to use another Arduino and software to do these,
+ but then it only shift the issue to the other Arduino that also has a
+ bootloader that you might not want to trust.
+ 
++@node    Trusting hardware
++@section Trusting hardware
++
++Like with software, someone else than you that has physical access to
++hardware (like the computer you use, your flash chip programmer, etc)
++can also modify the hardware to do malicious things. An well known
++example is hardware keyloggers.
++
++This can often be detected with visual inspection of the
++circuits. Making modified chips is also possible and probably
++relatively cheap with various chip packaging processes and
++technologies (probably around 10 000 Euros to assemble different
++components in a single chip, this is commonly done for RAM and CPU /
++System on a chip for instance).
++
++@c TODO: reference with bunny and wire bonding.
++
++Another possible workaround would be to try to get hardware in ways
++that don't enable an attacker to target you and/or communities you
++belong to in advance, for instance by not ordering online, etc.
++
++Once done you could then install only free software on this hardware,
++and then use various temper-evident ways to seal it (and that also
++make sure that somebody else cannot do the exact same seal). Along
++with other software access control, this is also a good way to make
++sure that the software on the laptop isn't modified by someone else.
++
++And it also enable you to modify everything you wish: if you do that
++you probably know it, or write about it, and you then need to re-do
++the seals. How to do all that will need to be explained later on in
++this manual.
++
+ @node    Maintenance and repairations
+ @chapter Maintenance and repairations
+ 
+-- 
+2.51.0
+

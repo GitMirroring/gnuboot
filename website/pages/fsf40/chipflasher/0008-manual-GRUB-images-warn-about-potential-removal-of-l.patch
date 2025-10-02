@@ -1,0 +1,34 @@
+From 23ea675948d4b420db17d12c37f05259f3f13901 Mon Sep 17 00:00:00 2001
+From: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+Date: Thu, 24 Apr 2025 19:42:13 +0200
+Subject: [PATCH 08/14] manual: GRUB images: warn about potential removal of
+ less common partitions.
+
+Signed-off-by: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+---
+ manual/gnuboot.texi | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/manual/gnuboot.texi b/manual/gnuboot.texi
+index 193e06ca29..7c1f4fef4f 100644
+--- a/manual/gnuboot.texi
++++ b/manual/gnuboot.texi
+@@ -1813,6 +1813,15 @@ don't support these RAID cards yet ( @xref{Unsupported hardware
+ supported by projects reused by GNU Boot}). Help is welcome for
+ identifying if we can add support for these.
+ 
++@node          other partition types
++@subsubsection other partition types
++
++Right now, GNU Boot probably supports more partition types. We are
++considering removing them in GNU Boot.
++
++Would they be missed if we remove them from GNU Boot? If so please
++contact us.
++
+ @node    Flash programmers
+ @chapter Flash programmers
+ 
+-- 
+2.51.0
+

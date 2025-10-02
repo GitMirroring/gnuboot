@@ -1,0 +1,879 @@
+From 032d59e1672706479fc049f4a23b52165086acf8 Mon Sep 17 00:00:00 2001
+From: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+Date: Wed, 26 Mar 2025 17:11:37 +0100
+Subject: [PATCH 2/2] manual: Document how to use GNU Boot with QEMU.
+
+Before the only documented way to use QEMU to run GNU Boot was to
+"look in the GNU Boot source code as GNU Boot uses QEMU to run some
+automatic tests that boots Trisquel 11 (aramo)." which in practice
+means that users had to find these and then adapt the commands to boot
+another image than the one produced by the GNU Boot automatic tests.
+
+Users could also ignore that advice and directly try to get something
+working by trial and error. The problem is that this is also hard as
+many parameters need to be right:
+
+- The machine need to be set to pc as so far we only provide images
+  for pc and not q35.
+
+- To make SATA emulation fast and/or to make sure that the boot
+  doesn't take too long, we need a lot more parameters than just -hda
+  <path/to/image>.
+
+  We also don't use qcow2 on purpose as it minimize the difference
+  with a real installation.
+
+  By default QEMU autodetects the file type, and the VM should boot
+  even with raw images, but when that happens it prints the following
+  warning:
+
+      WARNING: Image format was not specified for 'Makefile' and probing
+               guessed raw.
+               Automatically detecting the format is dangerous for raw
+               images, write operations on block 0 will be restricted.
+               Specify the 'raw' format explicitly to remove the
+               restrictions.
+
+  Since we also want to give users fully working commands, we cannot
+  use -hda and have to instead tell QEMU that we are using a raw
+  image.
+
+- The RAM size also need to be adjusted to match the image of the
+  distribution while at the same time not eating too much RAM in case
+  people don't have a lot of RAM. This can happen if people got a
+  compatible computer but didn't add more RAM yet. So here providing
+  known good images can help making sure the RAM usage is minimal.
+
+So now users also have the option to just follow instructions to get
+something working. And since we don't hide the QEMU commands, users
+also have an easier starting point to boot the distribution of their
+choice.
+
+In addition to all that, users also need to handle the case where
+/dev/kvm doesn't have the right permissions. Skipping that would make
+the boot very slow. The loss of speed is somewhat acceptable on
+extremely minimalist distributions images without Xorg or Wayland
+and/or a kernel and an initramfs.
+
+However we also want empower users to run the distributions they wish,
+and for instance the default Trisquel installer comes with a full
+blown desktop environment, and if we didn't make users adjust the
+/dev/kvm permissions, it would make running distributions like
+Trisquel much harder.
+
+Signed-off-by: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+---
+ Makefile.am                          |   2 +
+ configure.ac                         |   3 +
+ guix-revision.sh                     |  20 +++
+ manual/.gitignore                    |   3 +
+ manual/Makefile.am                   |  27 ++-
+ manual/build-guix-i686-linux.sh.in   |  21 +++
+ manual/build-guix-x86_64-linux.sh.in |  21 +++
+ manual/gnuboot.texi                  | 246 +++++++++++++++++++++++++--
+ manual/guix-i686-linux.scm           |  25 +++
+ manual/guix-x86_64-linux.scm         |  25 +++
+ resources/packages/manual/clean      |  19 +++
+ resources/packages/manual/distclean  |  37 ++++
+ resources/packages/manual/test       |  86 ++++++++++
+ tests/lint                           |   5 +
+ website/Makefile.am                  |  14 +-
+ website/configure.ac                 |   5 +
+ 16 files changed, 542 insertions(+), 17 deletions(-)
+ create mode 100755 manual/build-guix-i686-linux.sh.in
+ create mode 100755 manual/build-guix-x86_64-linux.sh.in
+ create mode 100644 manual/guix-i686-linux.scm
+ create mode 100644 manual/guix-x86_64-linux.scm
+ create mode 100755 resources/packages/manual/clean
+ create mode 100755 resources/packages/manual/distclean
+ create mode 100755 resources/packages/manual/test
+
+diff --git a/Makefile.am b/Makefile.am
+index 54eede6088..e53d60a3f3 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -74,12 +74,14 @@ release: $(LOG)
+ 	set -o pipefail ; ./build release gnuboot-source 2>&1 | tee -a $(LOG)
+ 	set -o pipefail ; ./build test roms              2>&1 | tee -a $(LOG)
+ 	set -o pipefail ; ./build test release           2>&1 | tee -a $(LOG)
++	set -o pipefail ; ./build test manual            2>&1 | tee -a $(LOG)
+ 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
+ 
+ clean:
+ 	./build clean cbutils
+ 	./build clean i945-thinkpads-install-utilities
+ 	./build clean ich9utils
++	./build clean manual
+ 	./build clean payloads
+ 	./build clean seabios
+ 	./build clean grub
+diff --git a/configure.ac b/configure.ac
+index 4d15062f61..5cf85b85dd 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -113,6 +113,9 @@ printf 'build_cpu=%s\n' "$build_cpu" >> config.sh
+ printf 'kvm=%s # kvm possible values: yes, no\n' "$kvm" >> config.sh
+ chmod +x config.sh
+ 
++# We also need to generate a definition file for the manual.
++`dirname $0`/guix-revision.sh print-texinfo > "$srcdir/manual/guix-revision.texi"
++
+ AC_OUTPUT
+ 
+ AS_ECHO(["Configuration options:"])
+diff --git a/guix-revision.sh b/guix-revision.sh
+index 5d835421a4..28b82e5139 100755
+--- a/guix-revision.sh
++++ b/guix-revision.sh
+@@ -17,6 +17,21 @@
+ . "$(dirname "$0")"/resources/scripts/misc/sysexits.sh
+ 
+ GUIX_REVISION="8e2f32cee982d42a79e53fc1e9aa7b8ff0514714"
++GUIX_REVISION_NAME="1.4.0"
++
++print_texinfo()
++{
++    progname="$1"
++
++    printf "@c The variables below are generated by %s\n" \
++	   "${progname}"
++    printf '@set GUIX_REVISION %s\n' \
++	   "${GUIX_REVISION}"
++    printf '@set GUIX_REVISION_NAME %s\n' \
++	   "${GUIX_REVISION_NAME}"
++    printf "@c The variables above are generated by %s\n" \
++	   "${progname}"
++}
+ 
+ usage()
+ {
+@@ -24,6 +39,7 @@ usage()
+ 
+     printf "Usage: %s [options]\n" "${progname}"
+     printf "   or: %s print-variable GUIX_REVISION\n" "${progname}"
++    printf "   or: %s print-texinfo\n" "${progname}"
+     printf "\n"
+     printf "Available options:\n"
+     printf "\t-h, --help\n"
+@@ -41,10 +57,14 @@ elif [ $# -eq 1 ] && [ "$1" = "-h" ] ; then
+ elif [ $# -eq 2 ] && [ "$1" = "print-variable" ] ; then
+     if [ "$2" = "GUIX_REVISION" ] ; then
+         echo "${GUIX_REVISION}"
++    elif [ "$2" = "GUIX_REVISION_NAME" ] ; then
++        echo "${GUIX_REVISION_NAME}"
+     else
+         usage "${progname}"
+         exit "${EX_USAGE}"
+     fi
++elif [ $# -eq 1 ] && [ "$1" = "print-texinfo" ] ; then
++    print_texinfo "${progname}"
+ else
+     usage "${progname}"
+     exit "${EX_USAGE}"
+diff --git a/manual/.gitignore b/manual/.gitignore
+index 2143a4f1b8..5b078044df 100644
+--- a/manual/.gitignore
++++ b/manual/.gitignore
+@@ -22,11 +22,14 @@
+ /images/SOIC-16.eps
+ 
+ # dvi, html, info, pdf, ps targets
++/build-guix-i686-linux.sh
++/build-guix-x86_64-linux.sh
+ /gnuboot.dvi
+ /gnuboot.info
+ /gnuboot.pdf
+ /gnuboot.ps
+ /gnuboot.t2d/
+ /gnuboot.t2p/
++/guix-revision.texi
+ /stamp-vti
+ /version.texi
+\ No newline at end of file
+diff --git a/manual/Makefile.am b/manual/Makefile.am
+index 93bfbe3562..cbf1257669 100644
+--- a/manual/Makefile.am
++++ b/manual/Makefile.am
+@@ -14,16 +14,26 @@
+ # along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ info_TEXINFOS = gnuboot.texi
+ 
+-# This also contains the pictures dependencies as no other workaround
+-# documented in the "9.4.1 Built Sources Example" node of the automake
+-# work for this case (we don't want to type make all before building
+-# the various document formats).
++# This also contains the pictures dependencies and other files as well
++# as no other workaround documented in the "9.4.1 Built Sources
++# Example" node of the automake work for this case (we don't want to
++# type make all before building the various document formats).
+ gnuboot_TEXINFOS = \
++	build-guix-i686-linux.sh \
++	build-guix-x86_64-linux.sh \
+ 	fdl-1.3.texi \
++	guix-i686-linux.scm \
++	guix-revision.texi \
++	guix-x86_64-linux.scm \
+ 	images/SOIC-16.eps \
+ 	images/SOIC-16.png
+ 
+ CLEANFILES = \
++	build-guix-i686-linux.sh \
++	build-guix-x86_64-linux.sh \
++	guix-i686-linux.scm \
++	guix-revision.texi \
++	guix-x86_64-linux.scm \
+ 	images/SOIC-16.eps \
+ 	images/SOIC-16.png
+ 
+@@ -37,3 +47,12 @@ dist_infoimage_DATA = \
+ 	gm convert "$<" "$(srcdir)/$@"
+ .jpeg.eps:
+ 	gm convert "$<" "$(srcdir)/$@"
++
++build-guix-%-linux.sh: build-guix-%-linux.sh.in
++	m4 -DGUIX_REVISION=$(GUIX_REVISION) $^ | \
++		sed 's/#.*//' | \
++		sed '/^$$/d' > $@
++	chmod +x $@
++
++guix-revision.texi:
++	../$(srcdir)/guix-revision.sh print-texinfo > $@
+diff --git a/manual/build-guix-i686-linux.sh.in b/manual/build-guix-i686-linux.sh.in
+new file mode 100755
+index 0000000000..63e4d494be
+--- /dev/null
++++ b/manual/build-guix-i686-linux.sh.in
+@@ -0,0 +1,21 @@
++#!/usr/bin/env bash
++# Copyright (C) 2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU General Public License for more details.
++#
++# You should have received a copy of the GNU General Public License
++# along with this program.  If not, see <https://www.gnu.org/licenses/>.
++install -m 644 \
++    "$(guix time-machine \
++       --commit=GUIX_REVISION \
++       -- \
++       system image --system=i686-linux guix-i686-linux.scm)" \
++       rootfs-i686.img
+diff --git a/manual/build-guix-x86_64-linux.sh.in b/manual/build-guix-x86_64-linux.sh.in
+new file mode 100755
+index 0000000000..42a7642370
+--- /dev/null
++++ b/manual/build-guix-x86_64-linux.sh.in
+@@ -0,0 +1,21 @@
++#!/usr/bin/env bash
++# Copyright (C) 2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU General Public License for more details.
++#
++# You should have received a copy of the GNU General Public License
++# along with this program.  If not, see <https://www.gnu.org/licenses/>.
++install -m 644 \
++    "$(guix time-machine \
++       --commit=GUIX_REVISION \
++       -- \
++       system image --system=x86_64-linux guix-x86_64-linux.scm)" \
++      rootfs-x86_64.img
+diff --git a/manual/gnuboot.texi b/manual/gnuboot.texi
+index a295e66e7f..7b1b7e65af 100644
+--- a/manual/gnuboot.texi
++++ b/manual/gnuboot.texi
+@@ -2,6 +2,7 @@
+ @c %**start of header
+ @setfilename gnuboot.info
+ @include version.texi
++@include guix-revision.texi
+ @settitle GNU Boot @value{VERSION}
+ 
+ @c Define a new index for options.
+@@ -9,6 +10,7 @@
+ @c Combine everything into one index (arbitrarily chosen to be the
+ @c concept index).
+ @syncodeindex op cp
++@codequoteundirected on
+ @c %**end of header
+ 
+ @copying
+@@ -1548,13 +1550,24 @@ understand.
+ @node    Using GNU Boot with QEMU
+ @section Using GNU Boot with QEMU
+ 
+-The GNU Boot project also release images for QEMU.
++The GNU Boot project also release images for QEMU. They can be useful
++for trying GNU Boot, especially the GRUB images, to see how to boot
++various distributions. If you contribute to GNU Boot, they can also be
++useful to run quick tests tests.
+ 
+-If you just want to try an image to see how it looks like you can use
+-the following command:
++However note that testing with these QEMU images don't fully replace
++tests on real computers. For instance a distribution or operating
++system might work on QEMU but not work on real hardware due to an
++incomplete graphic driver for the real hardware GPU.
++
++@node       Quick test with QEMU
++@subsection Quick test with QEMU
++
++If you just want to try an image to see how it looks like, after
++installing QEMU, you can use the following command:
+ 
+ @example
+-qemu-system-x86_64 -M pc \
++qemu-system-i386 -M pc \
+ -bios grub_qemu-pc_2mb_corebootfb_usqwerty.rom
+ @end example
+ 
+@@ -1562,16 +1575,225 @@ Here you need to replace
+ @emph{grub_qemu-pc_2mb_corebootfb_usqwerty.rom} by the
+ path to the image you want to try.
+ 
+-For a more complete example, you can look in the GNU Boot source code
+-as GNU Boot uses QEMU to run some automatic tests that boots Trisquel
+-11 (aramo).
++If you don't have @emph{qemu-system-i386} you can either ask users of
++your distribution for help, to understand which package you need to
++install, or use @emph{qemu-system-x86_64} instead.
++
++Alternatively, the @emph{qemu} package from Guix also provides both
++(@emph{qemu-system-i386} and @emph{qemu-system-x86_64}).
++
++@c We don't want the qemu-system-i386 command to be split between 2 pages as
++@c users are expected to copy-paste it in a terminal, and we don't want
++@c "Chapter 5: Using GNU Boot <page number>" to end up in the middle of the
++@c command.
++@page
++
++@node       Booting a distribution with QEMU
++@subsection Booting a distribution with QEMU
++
++In the previous section (@ref{Quick test with QEMU}) we didn't boot a
++distribution.
++
++To boot an x86 32bit distribution, you can use the following (QEMU) command:
++
++@example
++qemu-system-i386 \
++-bios grub_qemu-pc_2mb_corebootfb_usqwerty.rom \
++-M pc \
++-m 128M \
++-cpu kvm32 \
++-enable-kvm \
++-blockdev \
++'@{"driver":"file","filename":"rootfs-i686.img","node-name":"libvirt-1-storage"@}' \
++-blockdev \
++'@{"node-name":"libvirt-1-format","driver":"raw","file":"libvirt-1-storage"@}' \
++-device \
++'@{"driver":"virtio-scsi-pci","id":"scsi0","bus":"pci.0","addr":"0x4"@}' \
++-device \
++'@{"driver":"ahci","id":"sata0","bus":"pci.0","addr":"0x5"@}' \
++-device \
++'@{"driver":"ide-hd","bus":"sata0.0","drive":"libvirt-1-format","id":"sata0-0-0"@}'
++@end example
++
++If it fails with the following error:
++@example
++qemu-system-i386: failed to initialize kvm: Permission denied
++@end example
++
++You can fix that by removing the -enable-kvm from the command
++above. It will always work but it will make booting the virtual
++machine slower.
++
++Alternatively, you can try to fix this by adding the proper
++permissions to /dev/kvm. To do that you can either consult your
++distribution documentation / wiki or ask other users of that
++distribution for help. Also, this will only work if your processor
++supports KVM (most computer do).
++
++In addition, for the command to work you will also need to provide the
++@emph{rootfs-i686.img} file (otherwise it will fail with @emph{Could
++not open 'rootfs-i686.img': No such file or directory}).
++
++If you don't know how to do that, you can install Guix first (it can
++be installed on top of another GNU/Linux distribution) and generate it
++with Guix.
++
++You can consult either the
++@uref{https://www.gnu.org/software/gnuboot/web/docs/build/,GNU Boot
++build instructions} or the @ref{Installation,,,guix,GNU Guix reference
++manual} for how to install Guix.
++
++Then for distributions (like PureOS or Trisquel) that provide Guix
++versions older than @value{GUIX_REVISION_NAME}, or if you don't know
++the Guix version you have, you will need to update Guix with the
++following commands:
++@example
++guix pull
++@end example
++
++It could take a long time though (maybe 1 hour or more depending on
++the speed of the computer and network).
++
++Then make sure you are using the latest Guix with the following
++command (this needs to be done each time you use a new shell and want
++to use the latest Guix when Guix is installed on top of another
++distribution):
++
++@example
++hash guix
++@end example
++
++@c We don't want the content of guix-i686-linux.scm or the command used to
++@c generate the rootfs-i686.img file to be split between 2 pages, as users
++@c are expected to copy-paste the content of guix-i686-linux.scm (which is
++@c displayed as-is in the manual) in a file (named guix-i686-linux.scm), and
++@c then copy paste the command, as otherwise "Chapter 5: Using GNU Boot
++@c <page number>" would end up in that file and command.
++@page
++
++Then you can copy the following inside the guix-i686-linux.scm file:
++
++@verbatiminclude guix-i686-linux.scm
++
++And finally you can generate the @emph{rootfs-i686.img} file with the
++following command:
++
++@verbatiminclude build-guix-i686-linux.sh
++
++This will create the @emph{rootfs-i686.img} that you need in the
++current directory.
++
++You can then boot it with the QEMU command we gave before. You should
++then see this:
++
++@example
++This is the GNU system.  Welcome.
++guix-i686-linux login: _
++@end example
++
++You then can login as the @emph{root} user with no password (by typing
++@emph{root} and then pressing the @emph{ENTER} key), and once done you
++can shut it down with the @emph{shutdown} command.
++
++To use this with another distribution or image, you will have to find
++a way to download or generate the rootfs-i686.img file that contains
++the distribution that you want to test yourself and adapt the QEMU
++command accordingly.
++
++@xref{Booting an x86 64bit distribution with QEMU} for an example with
++a different image.
++
++@c We don't want the qemu-system-x86_64 command to be split between 2 pages as
++@c users are expected to copy-paste it in a terminal, and we don't want
++@c "Chapter 5: Using GNU Boot <page number>" to end up in the middle of the
++@c command.
++@page
++
++@node       Booting an x86 64bit distribution with QEMU
++@subsection Booting an x86 64bit distribution with QEMU
++
++In the previous subsection (@ref{Booting a distribution with QEMU}) we
++booted a 32bit distribution as it works fast on both 32bit and 64bit
++x86 computers and it uses less RAM.
++
++In this example we need 256 MiB of RAM (It is set in the command below
++with @emph{-m 256M}).
++
++So to boot an x86 64bit distribution, you can use the following
++command:
++
++@example
++qemu-system-x86_64 \
++-bios grub_qemu-pc_2mb_corebootfb_usqwerty.rom \
++-M pc \
++-m 256M \
++-cpu kvm64 \
++-enable-kvm \
++-blockdev \
++'@{"driver":"file","filename":"rootfs-x86_64.img","node-name":"libvirt-1-storage"@}' \
++-blockdev \
++'@{"node-name":"libvirt-1-format","driver":"raw","file":"libvirt-1-storage"@}' \
++-device \
++'@{"driver":"virtio-scsi-pci","id":"scsi0","bus":"pci.0","addr":"0x4"@}' \
++-device \
++'@{"driver":"ahci","id":"sata0","bus":"pci.0","addr":"0x5"@}' \
++-device \
++'@{"driver":"ide-hd","bus":"sata0.0","drive":"libvirt-1-format","id":"sata0-0-0"@}'
++@end example
++
++Here too, if it fails with the following error:
++@example
++qemu-system-x86_64: failed to initialize kvm: Permission denied
++@end example
++
++You can also fix that by removing the -enable-kvm from the command
++above. It will always work but it will make booting the virtual
++machine slower. @pxref{Booting a distribution with QEMU} for pointers
++on how to make -enable-kvm work to not make the virtual machine boot
++slower.
++
++Here you will need to provide the @emph{rootfs-x86_64.img} file.
++
++If you don't know how to do that, like mentionneed in the previous
++section (@ref{Booting a distribution with QEMU}), you can install Guix
++and update it if necessary.
++
++Once done don't forget to run this command to use the latest Guix:
++
++@example
++hash guix
++@end example
++
++@c We don't want the content of guix-x86_64-linux.scm or the command used to
++@c generate the rootfs-x86_64.img file to be split between 2 pages, as users
++@c are expected to copy-paste the content of guix-x86_64-linux.scm (which is
++@c displayed as-is in the manual) in a file (named guix-x86_64-linux.scm), and
++@c then copy paste the command, as otherwise "Chapter 5: Using GNU Boot
++@c <page number>" would end up in that file and command.
++@page
++
++You can then copy the following inside the guix-x86_64-linux.scm file:
++
++@verbatiminclude guix-x86_64-linux.scm
++
++And finally you can generate the @emph{rootfs-x86_64.img} file with the
++following command:
++
++@verbatiminclude build-guix-x86_64-linux.sh
++
++Once booted, you should then see this:
++@example
++This is the GNU system.  Welcome.
++guix-x86_64-linux login: _
++@end example
++
++Here too, you can login as the @emph{root} user with no password
++(@pxref{Booting a distribution with QEMU} for more details), and you
++can also shut it down with the @emph{shutdown} command.
+ 
+-Also note that the GNU Boot images for QEMU can be useful in some
+-situations, but it doesn't fully replace tests run on real computers.
++@node       Booting more distributions with QEMU
++@subsection Booting more distributions with QEMU
+ 
+-For instance a distribution or operating system might work on QEMU but
+-not work on real hardware due to an incomplete graphic driver for the
+-real hardware GPU.
+ 
+ @node    Security features
+ @section Security features
+diff --git a/manual/guix-i686-linux.scm b/manual/guix-i686-linux.scm
+new file mode 100644
+index 0000000000..7046a72bcf
+--- /dev/null
++++ b/manual/guix-i686-linux.scm
+@@ -0,0 +1,25 @@
++;;; This file is free software; you can redistribute it and/or modify it
++;;; under the terms of the GNU General Public License as published by
++;;; the Free Software Foundation; either version 3 of the License, or (at
++;;; your option) any later version.
++;;;
++;;; This file is distributed in the hope that it will be useful, but
++;;; WITHOUT ANY WARRANTY; without even the implied warranty of
++;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++;;; GNU General Public License for more details.
++;;;
++;;; You should have received a copy of the GNU General Public License
++;;; along with this file.  If not, see <http://www.gnu.org/licenses/>.
++(use-modules (gnu) (gnu bootloader) (gnu packages linux))
++(operating-system
++  (host-name "guix-i686-linux")
++  (kernel linux-libre-lts)
++  (bootloader (bootloader-configuration
++               (bootloader grub-bootloader)
++               (targets '(file-system-label "Guix_image"))
++               (terminal-outputs '(console))))
++  (file-systems (append (list (file-system
++                                (device (file-system-label "Guix_image"))
++                                (mount-point "/")
++                                (type "ext4")))
++                        %base-file-systems)))
+diff --git a/manual/guix-x86_64-linux.scm b/manual/guix-x86_64-linux.scm
+new file mode 100644
+index 0000000000..390680a2d1
+--- /dev/null
++++ b/manual/guix-x86_64-linux.scm
+@@ -0,0 +1,25 @@
++;;; This file is free software; you can redistribute it and/or modify it
++;;; under the terms of the GNU General Public License as published by
++;;; the Free Software Foundation; either version 3 of the License, or (at
++;;; your option) any later version.
++;;;
++;;; This file is distributed in the hope that it will be useful, but
++;;; WITHOUT ANY WARRANTY; without even the implied warranty of
++;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++;;; GNU General Public License for more details.
++;;;
++;;; You should have received a copy of the GNU General Public License
++;;; along with this file.  If not, see <http://www.gnu.org/licenses/>.
++(use-modules (gnu) (gnu bootloader) (gnu packages linux))
++(operating-system
++  (host-name "guix-x86_64-linux")
++  (kernel linux-libre)
++  (bootloader (bootloader-configuration
++               (bootloader grub-bootloader)
++               (targets '(file-system-label "Guix_image"))
++               (terminal-outputs '(console))))
++  (file-systems (append (list (file-system
++                                (device (file-system-label "Guix_image"))
++                                (mount-point "/")
++                                (type "ext4")))
++                        %base-file-systems)))
+diff --git a/resources/packages/manual/clean b/resources/packages/manual/clean
+new file mode 100755
+index 0000000000..c3a4533010
+--- /dev/null
++++ b/resources/packages/manual/clean
+@@ -0,0 +1,19 @@
++#!/usr/bin/env bash
++#
++# Copyright (C) 2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU General Public License for more details.
++#
++# You should have received a copy of the GNU General Public License
++# along with this program.  If not, see <https://www.gnu.org/licenses/>.
++
++# shellcheck disable=SC2068
++"$(dirname "$0")"/distclean $@
+diff --git a/resources/packages/manual/distclean b/resources/packages/manual/distclean
+new file mode 100755
+index 0000000000..2799d23d36
+--- /dev/null
++++ b/resources/packages/manual/distclean
+@@ -0,0 +1,37 @@
++#!/usr/bin/env bash
++#
++# Copyright (C) 2023,2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU General Public License for more details.
++#
++# You should have received a copy of the GNU General Public License
++# along with this program.  If not, see <https://www.gnu.org/licenses/>.
++
++# shellcheck source=resources/scripts/tasks/distclean.sh
++. "$(dirname "$0")"/../../scripts/tasks/distclean.sh
++
++distclean_manual()
++{
++    # We only remove the generated rootfs. This is because the
++    # generated manuals don't have any clean rules inside Makefile or
++    # manual/Makefile. So tracking all these files would bring in too
++    # much maintenance costs, and it may even be specific to autoconf,
++    # automake or other autotools components versions. Depending on
++    # git (with git clean -dfX) is also not a good idea as we want to
++    # also be able to build GNU Boot from source tarballs at some
++    # point.
++    rm -f \
++       manual/rootfs-i686.img \
++       manual/rootfs-x86_64.img
++}
++
++# shellcheck disable=SC2068
++distclean_main distclean_manual $@
+diff --git a/resources/packages/manual/test b/resources/packages/manual/test
+new file mode 100755
+index 0000000000..4bef2d9c75
+--- /dev/null
++++ b/resources/packages/manual/test
+@@ -0,0 +1,86 @@
++#!/usr/bin/env bash
++# Copyright (C) 2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU General Public License for more details.
++#
++# You should have received a copy of the GNU General Public License
++# along with this program.  If not, see <https://www.gnu.org/licenses/>.
++set -e
++
++topdir="$(realpath "$(dirname "$(dirname "$(dirname "$(dirname "$0")")")")")"
++progname="resources/packages/manual/test"
++
++. "${topdir}"/resources/scripts/misc/sysexits.sh
++
++usage()
++{
++    local progname="$1"
++
++    printf "Usage: %s [options]\n\n" "${progname}"
++    printf "Available options:\n"
++    printf "\t-h, --help\n"
++    printf "\t\tDisplay this help and exit.\n"
++}
++
++# The manual (and the commands that we test in
++# test_build_guix_system_images) depend on files that are generated by
++# ./configure.
++generate_autotools_files()
++{
++    cd "${topdir}"
++    resources/scripts/misc/generate-configure-makefiles.sh
++}
++
++test_build_manual()
++{
++    cd "${topdir}"
++
++    for ext in html pdf info ; do
++	make "${ext}"
++    done
++}
++
++# The build scripts tested in tihs function are meant to be included
++# verbatim in the GNU Boot manual as commands, not scripts. Because of
++# that they lack '#!/bin/env bash' and they also refer to files that
++# users are instructed to create in the current directory (these are
++# in manual/ and also included verbatim in the manual). This is why we
++# really have to go in the manual directory and that we use bash
++# <script> to test things.
++
++test_build_guix_system_images()
++{
++    cd "${topdir}/manual"
++
++    source "${topdir}"/config.sh
++
++    if [ "${build_cpu}" = "x86_64" ] ; then
++	bash build-guix-x86_64-linux.sh
++    fi
++    bash build-guix-i686-linux.sh
++}
++
++test_manual()
++{
++    generate_autotools_files
++    test_build_manual
++    test_build_guix_system_images
++}
++
++if [ $# -eq 1 ] && { [ "$1" = "-h" ] || [ "$1" == "--help" ] ;} ; then
++    usage "${progname}"
++    exit 0
++elif [ $# -eq 0 ] ; then
++    test_manual
++else
++    usage "${progname}"
++    exit "${EX_USAGE}"
++fi
+diff --git a/tests/lint b/tests/lint
+index 8165239e39..0d520ad401 100755
+--- a/tests/lint
++++ b/tests/lint
+@@ -54,6 +54,8 @@ run_shellcheck \
+     guix-revision.sh \
+     modify \
+     update \
++    manual/build-guix-i686-linux.sh.in \
++    manual/build-guix-x86_64-linux.sh.in \
+     resources/packages/coreboot/distclean \
+     resources/packages/descriptors/distclean \
+     resources/packages/grub/distclean \
+@@ -62,6 +64,9 @@ run_shellcheck \
+     resources/packages/i945-thinkpads-install-utilities/download \
+     resources/packages/i945-thinkpads-install-utilities/module \
+     resources/packages/ich9utils/distclean \
++    resources/packages/manual/clean \
++    resources/packages/manual/distclean \
++    resources/packages/manual/test \
+     resources/packages/memtest86plus/distclean \
+     resources/packages/payloads/distclean \
+     resources/packages/release/test \
+diff --git a/website/Makefile.am b/website/Makefile.am
+index e2229ea647..d34181dd31 100644
+--- a/website/Makefile.am
++++ b/website/Makefile.am
+@@ -1,4 +1,4 @@
+-# Copyright (C) 2022-2024 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
++# Copyright (C) 2022-2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+ # Copyright (C) 2025 Adrien 'neox' Bourmault <neox@gnu.org>
+ #
+ # This program is free software: you can redistribute it and/or modify
+@@ -197,6 +197,15 @@ endif
+ 		`git --no-pager show --no-patch HEAD --pretty="%h"` > $@ ; \
+ 	fi
+ 
++../manual/build-guix-%-linux.sh: ../manual/build-guix-%-linux.sh.in
++	m4 -DGUIX_REVISION=$(GUIX_REVISION) $^ | \
++		sed 's/#.*//' | \
++		sed '/^$$/d' > $@
++	chmod +x $@
++
++../manual/guix-revision.texi:
++	../../$(srcdir)/guix-revision.sh print-texinfo > $@
++
+ # If we use GNUBOOT_MANUAL_DEPENDENCIES, autoreconf 2.71 will output the
+ # following warning:
+ #     Makefile.am:115: warning: variable 'GNUBOOT_MANUAL_DEPENDENCIES' is
+@@ -207,8 +216,11 @@ endif
+ # *_SOURCES, so we used GNUBOOT_MANUAL_FILES to avoid conflicts or
+ # potentially unintended side effects.
+ GNUBOOT_MANUAL_FILES = \
++	../manual/build-guix-i686-linux.sh \
++	../manual/build-guix-x86_64-linux.sh \
+ 	../manual/fdl-1.3.texi \
+ 	../manual/gnuboot.texi \
++	../manual/guix-revision.texi \
+ 	../manual/images/SOIC-16.png \
+ 	../manual/version.texi \
+ 	Makefile \
+diff --git a/website/configure.ac b/website/configure.ac
+index 9eb03c3e80..8a95f4d9cc 100644
+--- a/website/configure.ac
++++ b/website/configure.ac
+@@ -234,6 +234,11 @@ AS_IF([test x"$guix" = x"yes"],
+              [AC_MSG_ERROR(
+               [tex was not found in PATH ($PATH)])])])
+ 
++# We want to only set the Guix revision being used only in one place
++# to avoid forgetting to also update it on other places it would have
++# been set.
++`dirname $0`/../guix-revision.sh print-texinfo > ../manual/guix-revision.texi
++
+ AC_OUTPUT
+ AS_ECHO(["Configuration options:"])
+ 
+-- 
+2.51.0
+
