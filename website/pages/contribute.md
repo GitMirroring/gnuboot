@@ -205,9 +205,9 @@ Please also sign-off your patches, which you can configure with:
 Once you have submitted your patch, the GNU Boot maintainers will be
 notified via the mailing list and will start reviewing it.
 
-All the patches that are added to GNU Boot require the agreement of
-two maintainers. The maintainer agreement is often indicated with text
-like that:
+All the patches that are added to GNU Boot require (at least) the
+agreement of its two maintainers. The maintainer agreement is often
+indicated with text like that:
 
 	Acked-by: <maintainer name> <maintainer email>.
 
@@ -223,6 +223,17 @@ That 'gnuboot-next' branch can also be used when the GNU Boot
 maintainers agree to merge the patches but need to wait for the
 approval of the GNU project for instance if there are legal questions
 that also require the approval of the GNU Project.
+
+Translations
+------------
+
+If your patch contains a Spanish translation, or touches files that
+are in English but that are also translated in Spanish, it will also
+require the agreement of Jordán 'iShareFreedom' / isf who is responsible for
+translations.
+
+Technical contributions that impact translations in some way will also
+require the agreement of Jordán 'iShareFreedom' / isf.
 
 Testing for common issues in patches
 ------------------------------------
