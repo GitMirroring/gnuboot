@@ -609,6 +609,8 @@ algunas computadoras en el RC2 para reducir el riesgo de los probadores.
 +---------------+----------------+-----------------+
 | Vendedor      | Producto       | Estabilidad     |
 +---------------+----------------+-----------------+
+| Acer          | G43T-AM3       | No probado      |
++---------------+----------------+-----------------+
 | Apple         | MacBook 1,1    | No probado      |
 +---------------+----------------+-----------------+
 | Apple         | MacBook 2,1    | No probado      |
@@ -696,6 +698,8 @@ Estado de GNU Boot 0.1 RC1
 
 +---------------+----------------+-----------------+
 | Vendedor      | Producto       | Estabilidad     |
++---------------+----------------+-----------------+
+| Acer          | G43T-AM3       | No probado      |
 +---------------+----------------+-----------------+
 | Apple         | MacBook 1,1    | No probado      |
 +---------------+----------------+-----------------+
