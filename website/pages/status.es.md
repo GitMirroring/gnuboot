@@ -599,7 +599,8 @@ Estado de GNU Boot 0.1 RC3
 |               | (X200T)        |                 |
 +---------------+----------------+-----------------+
 | Vikings       | ASUS KCMA D8   | No probado      |
-|               | and workstation|                 |
+|               | mainboard and  |                 |
+|               | workstation    |                 |
 +---------------+----------------+-----------------+
 | Vikings       | ASUS KGPE D16  | Probado         |
 |               | mainboard      |                 |
@@ -697,7 +698,8 @@ algunas computadoras en el RC2 para reducir el riesgo de los probadores.
 |               | (X200T)        |                 |
 +---------------+----------------+-----------------+
 | Vikings       | ASUS KCMA D8   | No probado      |
-|               | and workstation|                 |
+|               | mainboard and  |                 |
+|               | workstation    |                 |
 +---------------+----------------+-----------------+
 | Vikings       | ASUS KGPE D16  | No probado      |
 |               | mainboard      |                 |
@@ -788,7 +790,8 @@ Estado de GNU Boot 0.1 RC1
 |               | (X200T)        |                 |
 +---------------+----------------+-----------------+
 | Vikings       | ASUS KCMA D8   | No probado      |
-|               | and workstation|                 |
+|               | mainboard and  |                 |
+|               | workstation    |                 |
 +---------------+----------------+-----------------+
 | Vikings       | ASUS KGPE D16  | Probado         |
 |               | mainboard      |                 |
