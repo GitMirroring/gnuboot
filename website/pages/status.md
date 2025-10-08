@@ -564,8 +564,8 @@ GNU Boot 0.1 RC3 status
 +---------------+--------------------+--------------+
 | Lenovo        | ThinkPad T500      | Untested     |
 +---------------+--------------------+--------------+
-| Lenovo        | ThinkPad T60       | Untested     |
-|               | with intel GPU     |              |
+| Lenovo        | ThinkPad T60 with  | Untested     |
+|               | intel GPU          |              |
 +---------------+--------------------+--------------+
 | Lenovo        | ThinkPad W500      | Untested     |
 +---------------+--------------------+--------------+
@@ -605,8 +605,8 @@ GNU Boot 0.1 RC3 status
 |               | (X200T)            |              |
 +---------------+--------------------+--------------+
 | Vikings       | ASUS KCMA D8       | Untested     |
-|               | mainboard          |              |
-|               | and workstation    |              |
+|               | mainboard and      |              |
+|               | workstation        |              |
 +---------------+--------------------+--------------+
 | Vikings       | ASUS KGPE D16      | Tested       |
 |               | mainboard          |              |
@@ -662,8 +662,8 @@ the RC2 to reduce the risk of testers.
 +---------------+--------------------+--------------+
 | Lenovo        | ThinkPad T500      | Untested     |
 +---------------+--------------------+--------------+
-| Lenovo        | ThinkPad T60       | Tested       |
-|               | with intel GPU     |              |
+| Lenovo        | ThinkPad T60 with  | Tested       |
+|               | intel GPU          |              |
 +---------------+--------------------+--------------+
 | Lenovo        | ThinkPad W500      | Untested     |
 +---------------+--------------------+--------------+
@@ -703,8 +703,8 @@ the RC2 to reduce the risk of testers.
 |               | (X200T)            |              |
 +---------------+--------------------+--------------+
 | Vikings       | ASUS KCMA D8       | Untested     |
-|               | mainboard          |              |
-|               | and workstation    |              |
+|               | mainboard and      |              |
+|               | workstation        |              |
 +---------------+--------------------+--------------+
 | Vikings       | ASUS KGPE D16      | Untested     |
 |               | mainboard          |              |
@@ -755,8 +755,8 @@ GNU Boot 0.1 RC1 status
 +---------------+--------------------+--------------+
 | Lenovo        | ThinkPad T500      | Tested       |
 +---------------+--------------------+--------------+
-| Lenovo        | ThinkPad T60       | Tested       |
-|               | with intel GPU     |              |
+| Lenovo        | ThinkPad T60 with  | Tested       |
+|               | intel GPU          |              |
 +---------------+--------------------+--------------+
 | Lenovo        | ThinkPad W500      | Tested       |
 +---------------+--------------------+--------------+
@@ -794,8 +794,8 @@ GNU Boot 0.1 RC1 status
 |               | (X200T)            |              |
 +---------------+--------------------+--------------+
 | Vikings       | ASUS KCMA D8       | Untested     |
-|               | mainboard          |              |
-|               | and workstation    |              |
+|               | mainboard and      |              |
+|               | workstation        |              |
 +---------------+--------------------+--------------+
 | Vikings       | ASUS KGPE D16      | Tested       |
 |               | mainboard          |              |
