@@ -83,8 +83,8 @@ Estado de GNU Boot 0.1 RC6
 | ThinkPad T500    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | No probado   | No probado   | No probado   | No probado   |
-| ThinkPad T60     |              |              |              |              |
-| with intel GPU   |              |              |              |              |
+| ThinkPad T60 con |              |              |              |              |
+| GPU intel        |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | No probado   | No probado   | No probado   | No probado   |
 | ThinkPad W500    |              |              |              |              |
@@ -265,8 +265,8 @@ Estado de GNU Boot 0.1 RC5
 | ThinkPad T500    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | No probado   | No probado   | No probado   | No probado   |
-| ThinkPad T60     |              |              |              |              |
-| with intel GPU   |              |              |              |              |
+| ThinkPad T60 con |              |              |              |              |
+| GPU intel        |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | No probado   | No probado   | No probado   | No probado   |
 | ThinkPad W500    |              |              |              |              |
@@ -420,8 +420,8 @@ Estado de GNU Boot 0.1 RC4
 | ThinkPad T500    |              |              | #66487       | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
-| ThinkPad T60     |              |              | #66487       | #66487       |
-| with intel GPU   |              |              |              |              |
+| ThinkPad T60 con |              |              | #66487       | #66487       |
+| GPU intel        |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | No probado   | No probado   | Fallado:     | Fallado:     |
 | ThinkPad W500    |              |              | #66487       | #66487       |
