@@ -466,27 +466,17 @@ the required dependencies:
 
 ```
 $ git clone https://git.savannah.gnu.org/git/gnuboot.git
-$ cd guix
-$ guix shell -C autoconf automake bash coreutils diffutils findutils gawk \
-  gcc-toolchain graphicsmagick grep guix libtool m4 make sed tar \
-  texinfo texlive-collection-fontsrecommended \
-  texlive-collection-latexrecommended texlive-epsf \
-  texlive-scheme-basic texlive-texdoc which -- bash
+$ cd guix/website
 ```
 
 Once this is done you should be inside a Guix shell, and you can build
 the manual with these commands:
 
 ```
-[env]$ sed "s%#\!/usr/bin/env bash%#\!$(which bash)%" -i guix-revision.sh
-[env]$ bash ./autogen.sh
-[env]$ bash ./configure --disable-kvm
-[env]$ make pdf
+[env]$ ./autogen.sh
+[env]$ ./configure
+[env]$ make pages/manual/gnuboot.pdf
 ```
-
-You can also avoid using Guix to build the manual, and it works with
-Trisquel, but since GNU Boot will check for Guix presence, you will
-still need either to install it.
 
 Building the website
 --------------------
