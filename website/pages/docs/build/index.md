@@ -47,29 +47,25 @@ risk of ending with a computer that doesn't boot anymore (for fixing
 that you will most likely need to disassemble your computer and use
 another computer and a flash programmer to recover it).
 
-Also note that you don't use PureOS 10 (byzantium) or Trisquel 10
-(nabia), there are many ways to run them on top of other GNU/Linux
-distributions.
+Note that there are many ways to run (specific versions of) PureOS or
+Trisquel on top of another GNU/Linux distributions.
 
-If you run Guix (either as an operating system or on top of another
-distribution), Parabola, Trisquel 10 (nabia), Trisquel 11 (aramo), you
-can use debootstrap to create a chroot of Trisquel 11 (aramo) or
-PureOS 10 (byzantium). Here are the packages you need to install
-depending on your distribution:
+The easiest way to do that safely is to first install Guix (either as
+an operating system or on top of another distribution), update it (for
+both security fixes and to have the latest packages), and then install
+debootstrap with Guix, and create a chroot of the desired distribution
+with it. The debootstrap provided by Guix will verify the Trisquel or
+PureOS signatures by default.
 
-+----------------+-----------------------+-------------------------------------+
-| Host distro    | Chroot distro         | Required packages                   |
-+----------------+-----------------------+-------------------------------------+
-| Guix           | PureOS 10 (byzantium) | debootstrap                         |
-+----------------+-----------------------+-------------------------------------+
-| Guix           | Trisquel 10 or 11     | debootstrap                         |
-+----------------+-----------------------+-------------------------------------+
-| Parabola       | PureOS 10 (byzantium) | debootstrap, pureos-archive-keyring |
-+----------------+-----------------------+-------------------------------------+
-| Parabola       | Trisquel 10 (nabia)   | debootstrap, trisquel-keyring       |
-+----------------+-----------------------+-------------------------------------+
-| Trisquel >= 10 | Trisquel 10 (nabia)   | debootstrap, trisquel-keyring       |
-+----------------+-----------------------+-------------------------------------+
+Parabola's debootstrap can also create both PureOS and Trisquel
+chroots, but you need to install the pureos-archive-keyring and
+trisquel-keyring packages to make sure the PureOS or Trisquel
+signatures are checked.
+
+The other distributions tend to not package both Trisquel and PureOS
+keyring packages. Trisquel doesn't have a PureOS keyring package, and
+PureOS doesn't have a Trisquel keyring package, and all the other
+distributions probably don't have either.
 
 Once you have a chroot, you can either configure it and chroot inside
 or convert it to run inside container engines like LXC, LXD, Docker
