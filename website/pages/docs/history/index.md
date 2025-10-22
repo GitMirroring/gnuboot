@@ -68,23 +68,40 @@ repository has more details on the first releases.
 
 So far we know about these tarball releases before git:
 
-+------------------------------+----------+---------------------------------------------------------------------+
-| Release                      | date     | URL                                                                 |
-+------------------------------+----------+---------------------------------------------------------------------+
-| 1st release                  | 20131212 | https://rsync.libreboot.org/oldstable/20131212/X60_source.tar.gz    |
-+------------------------------+----------+---------------------------------------------------------------------+
-| 2nd release                  | 20131213 | https://rsync.libreboot.org/oldstable/20131213/X60_source.tar.gz    |
-+------------------------------+----------+---------------------------------------------------------------------+
-| 3rd release                  | 20131214 | https://rsync.libreboot.org/oldstable/20131214/X60_source.tar.gz    |
-+------------------------------+----------+---------------------------------------------------------------------+
-| 4th release                  | 20140221 | https://rsync.libreboot.org/oldstable/20140221/X60_source.tar.gz    |
-+------------------------------+----------+---------------------------------------------------------------------+
-| 5th release, first revision  | lost     | lost                                                                |
-+------------------------------+----------+---------------------------------------------------------------------+
-| 5th release, second revision | 20140622 | https://rsync.libreboot.org/oldstable/20140622/libreboot_src.tar.gz |
-+------------------------------+----------+---------------------------------------------------------------------+
-| 6th release, first beta      | 20140711 | https://rsync.libreboot.org/oldstable/20140711/libreboot_src.tar.gz |
-+------------------------------+----------+---------------------------------------------------------------------+
+1st release
+-----------
+date: 20131212
+URL: https://rsync.libreboot.org/oldstable/20131212/X60_source.tar.gz
+
+2nd release
+-----------
+date: 20131213
+URL: https://rsync.libreboot.org/oldstable/20131213/X60_source.tar.gz
+
+3rd release
+-----------
+date: 20131214
+URL: https://rsync.libreboot.org/oldstable/20131214/X60_source.tar.gz
+
+4th release
+-----------
+date: 20140221
+URL: https://rsync.libreboot.org/oldstable/20140221/X60_source.tar.gz
+
+5th release, first revision
+---------------------------
+date: lost
+URL: lost
+
+5th release, second revision
+-----------------------------
+date: 20140622
+URL: https://rsync.libreboot.org/oldstable/20140622/libreboot_src.tar.gz
+
+6th release, first beta
+-----------------------
+date: 20140711
+URL: https://rsync.libreboot.org/oldstable/20140711/libreboot_src.tar.gz
 
 The "6th release, first beta" is also available in git, but we don't
 know yet if the git commit and the tarball are equivalent, so we
