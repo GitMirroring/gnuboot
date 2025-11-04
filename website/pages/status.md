@@ -887,8 +887,8 @@ Coreboot GPU driver:
   it means that we didn't look at which GPU driver was used or its
   stability.
 
-Upstream versions used GNU Boot
-===============================
+Upstream versions used by GNU Boot
+==================================
 
 +--------------+---------+------------+-----------------------------+----------+
 | Upstream     | Version | Needs      | Computers using it          | Since    |
