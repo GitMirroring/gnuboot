@@ -1024,19 +1024,20 @@ Also note that not everything is in the table above:
 Limitations
 ===========
 
-+------------------+----------------------------------------+---------------------------------------------------------+
-| Component        | Limitations                            | Bug number                                              |
-+------------------+----------------------------------------+---------------------------------------------------------+
-| SeaBIOS images   | - No VGA support                       | [#65922](https://savannah.gnu.org/bugs/index.php?65922) |
-|                  |   => Require to edit /etc/default/grub |                                                         |
-+------------------+----------------------------------------+---------------------------------------------------------+
-| Install          | - Only for technical people            |                                                         |
-| instructions     |                                        |                                                         |
-+------------------+----------------------------------------+---------------------------------------------------------+
-| Upgrade          | - Only for technical people            |                                                         |
-| instructions     |                                        |                                                         |
-+------------------+----------------------------------------+---------------------------------------------------------+
-| Website          | - No proper manual                     |                                                         |
-+------------------+----------------------------------------+---------------------------------------------------------+
-| Website          | - Many unreviewed pages                |                                                         |
-+------------------+----------------------------------------+---------------------------------------------------------+
+* SeaBIOS images have no VGA support (Bug
+  [#65922](https://savannah.gnu.org/bugs/index.php?65922)). The consequence is
+  that users need to edit /etc/default/grub before installing and/or using
+  SeaBIOS images.
+
+* The website has many unreviewed pages. They can easily be identified as they
+  have a banner explaining the risk of using information on these pages.
+
+* GNU Boot has no good install and/or upgrade instructions. They have not been
+  properly reviewed and some of them are only for very technical people that
+  know what they are doing: some require to be an expert in electronics and
+  already know the proper safety procedures which are usually not documented
+  or even mentioned. This is precisely why these pages carry warnings that
+  explain the risks of blindly following these instructions without proper
+  professional training in electronics.
+
+* GNU Boot has now a manual but it's also incomplete.
