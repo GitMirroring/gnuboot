@@ -839,7 +839,13 @@ Despite all that, some organizations like the FSF, GNU or Libre en
 Communs manage to run infrastructure with computers that have these
 issues. But this requires specific know how or workarounds.
 
-For instance if you want to use these computers as remote servers, you
+If GNU Boot debug images are available for the computer, it is very
+strongly advised to use them and to setup the computer in a way that
+enable to easily retrieve the logs through the serial port during
+boot. This can help a lot diagnose issue and find workaround when the
+computer doesn't boot (this can happen).
+
+In addition, if you want to use these computers as remote servers, you
 will need to know how to build a system that can reboot the computer
 remotely even if it is crashed, and also make sure that the system you
 build doesn't depend on nonfree software.
