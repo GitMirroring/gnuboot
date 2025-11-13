@@ -850,6 +850,17 @@ will need to know how to build a system that can reboot the computer
 remotely even if it is crashed, and also make sure that the system you
 build doesn't depend on nonfree software.
 
+Even if you use these computers as workstation, you will also need to be
+able to completely disconnect the computer from the electricity very
+frequently in order to be able to boot successfully. This can be
+achieved by connecting the KGPE-D16 to a power strip that has an on/off
+button and having the button in a place that is easily reachable. This
+is required because many cheap power supply buttons are not good enough
+and still let electricity go through from time to time. Once done, if a
+boot fail, you will need to power off the power strip, wait a bit for
+the mainboard and everything else that is connected to that power strip
+to discharge, and to power it on again and retry to boot.
+
 In contrast, such knowledge is not required for running GNU Boot on
 well supported computers like a ThinkPad X200, even if they are used
 as servers.
