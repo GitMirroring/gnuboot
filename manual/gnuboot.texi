@@ -88,6 +88,29 @@ not a lot of people).
 
 @end macro @c fastestxeightysixcomputer
 
+@macro computerWithSSIEEBFormFactor
+
+The mainboard of this computer is not in the ATX, but in the SSI-EEB
+format. This has several consequences:
+
+@itemize
+@item It is harder to find compatible cases, especially for workstation
+      use. We don't know if this also applies to server compatible
+      cases or not as SSI-EEB may be more common among servers.
+
+@item The mainboard is bigger and more fragile. This mainboard is very
+      sensitive to bending. It can also be more easily damaged by
+      static electricity, so it is a good idea to always use an antistatic
+      wrist strap (and to connect it to a ground independent from the
+      computer) when touching the mainboard and/or components connected
+      to the mainboard that are inside the computer case. Special
+      consideration might be required for building computers with this
+      mainboard.
+
+@end itemize
+
+@end macro @c computerWithSSIEEBFormFactor
+
 @c +-----------------------------------------------------------------+
 @c |                          End of macros                          |
 @c +-----------------------------------------------------------------+
@@ -931,6 +954,7 @@ Here are some details on this computer:
 @end multitable
 
 @fastestxeightysixcomputer
+@computerWithSSIEEBFormFactor
 @experimentalComputer
 
 @node          Asus KGPE-D16: How to build a computer with this mainboard.
