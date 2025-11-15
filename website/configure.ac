@@ -17,10 +17,10 @@ AC_INIT([gnuboot],[0.1],[gnuboot@gnu.org])
 AM_INIT_AUTOMAKE([foreign])
 AC_CONFIG_FILES([Makefile])
 
+AC_SUBST([LBSSG_GIT_FOUND], [])
+AC_SUBST([LBSSG_PATH], [])
 AC_SUBST([LIGHTTPD_PORT], [])
 AC_SUBST([RSYNC_DESTINATION], [])
-AC_SUBST([UNTITLED_PATH], [])
-AC_SUBST([UNTITLED_GIT_FOUND], [])
 AC_SUBST([WEB_SYMLINKS_PATH], [])
 AC_SUBST([WEBSITE_PREFIX], [])
 
@@ -73,16 +73,16 @@ AC_ARG_WITH([web-symlinks-path],
 
 AM_CONDITIONAL([WANT_WEB_SYMLINKS_PATH], [test x"$WEB_SYMLINKS_PATH" != x""])
 
-# --with-untitled-path
-AC_ARG_WITH([untitled-path],
-  [AS_HELP_STRING([--with-untitled-path=PATH],
-                  [Use a local untitled directory from PATH instead of downloading
+# --with-lbssg-path
+AC_ARG_WITH([lbssg-path],
+  [AS_HELP_STRING([--with-lbssg-path=PATH],
+                  [Use a local lbssg directory from PATH instead of downloading
 		   a specific version from
-		   https://git.sr.ht/~libreboot/untitled .])],
-  [UNTITLED_PATH=$withval],
+		   https://codeberg.org/libreboot/lbssg .])],
+  [LBSSG_PATH=$withval],
   [])
 
-AM_CONDITIONAL( [WANT_UNTITLED_PATH], [test x"$UNTITLED_PATH" != x""])
+AM_CONDITIONAL( [WANT_LBSSG_PATH], [test x"$LBSSG_PATH" != x""])
 
 # --with-website-prefix
 AC_ARG_WITH([website-prefix],
@@ -260,8 +260,8 @@ AS_ECHO(["    LIGHTTPD_PORT: $LIGHTTPD_PORT"])
 
 AS_ECHO(["    RSYNC_DESTINATION: $RSYNC_DESTINATION"])
 
-AS_IF([test x"$UNTITLED_PATH" != x""],
-      [AS_ECHO(["    UNTITLED_PATH: $UNTITLED_PATH"])])
+AS_IF([test x"$LBSSG_PATH" != x""],
+      [AS_ECHO(["    LBSSG_PATH: $LBSSG_PATH"])])
 
 AS_IF([test x"$WEB_SYMLINKS_PATH" != x""],
       [AS_ECHO(["    WEB_SYMLINKS_PATH: $WEB_SYMLINKS_PATH"])])

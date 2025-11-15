@@ -106,7 +106,7 @@ The website is in the GNU Boot source code inside the website/pages directory.
 
 It is currently written in Markdown, specifically the Pandoc version
 of it and the static HTML pages are generated with
-[Untitled](https://untitled.vimuser.org/), a static website generator.
+[lbssg](https://libreboot.org/docs/sitegen), a static website generator.
 
 The documentation that explains how to build it is in the
 [README](https://git.savannah.gnu.org/cgit/gnuboot.git/tree/website/README)

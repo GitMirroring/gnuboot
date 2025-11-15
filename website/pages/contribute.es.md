@@ -112,7 +112,7 @@ website/pages.
 
 Actualmente está escrito en Markdown, concretamente en su versión
 Pandoc, y las páginas HTML estáticas se generan con
-[Untitled](https://untitled.vimuser.org/), un generador de sitios web
+[lbssg](https://libreboot.org/docs/sitegen), un generador de sitios web
 estáticos.
 
 La documentación que explica cómo construirlo se encuentra en

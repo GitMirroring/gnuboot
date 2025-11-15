@@ -100,10 +100,10 @@ Sitio web
 El sitio web está en el código fuente de GNU Boot dentro del directorio
 /site.
 
-Actualmente está escrito en Markdown, específicamente la versión Pandoc
-y las páginas HTML estáticas se generan con
-[Untitled](https://untitled.vimuser.org/), un generador de sitios web
-estáticos.
+Actualmente está escrito en Markdown, específicamente la versión
+Pandoc y las páginas HTML estáticas se generan con
+[lbssg](https://libreboot.org/docs/sitegen), un generador de sitios
+web estáticos.
 
 Su documentación se encuentra en el
 [README](https://git.savannah.gnu.org/cgit/gnuboot.git/tree/website/README)

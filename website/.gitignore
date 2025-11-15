@@ -19,13 +19,13 @@
 /configure
 /id_oauth2_bearer
 /install-sh
+/lbssg/
 /lighttpd.conf
 /Makefile
 /Makefile.in
 /missing
 /site/**
 /site.cfg
-/untitled/
 /website-raw.tar.gz
 /website.tar.gz
 /pages/footer.include

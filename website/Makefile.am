@@ -34,13 +34,13 @@ all: help
 BUILD_OPTIONS :=
 GUIX_SHARE_OPTIONS := --share=`realpath ../`
 
-############
-# Untitled #
-############
+#########
+# lbssg #
+#########
 
-if WANT_UNTITLED_PATH
-BUILD_OPTIONS += --with-untitled-path $(UNTITLED_PATH)
-GUIX_SHARE_OPTIONS += --share=`realpath $(UNTITLED_PATH)`
+if WANT_LBSSG_PATH
+BUILD_OPTIONS += --with-lbssg-path $(LBSSG_PATH)
+GUIX_SHARE_OPTIONS += --share=`realpath $(LBSSG_PATH)`
 endif
 
 ################
@@ -54,7 +54,7 @@ symlinks/symlinks.txt:
 if WANT_WEB_SYMLINKS_PATH
 GUIX_SHARE_OPTIONS += --share=`realpath $(WEB_SYMLINKS_PATH)`
 
-# With ./configure --with-untitled-path=[...], we end up having a
+# With ./configure --with-lbssg-path=[...], we end up having a
 # specific revision that is set in build.sh. So here we also verify
 # the checksums for consistency.
 
@@ -152,7 +152,7 @@ templates/footer-git-commit.include:
 	rm -f $@
 
 	printf "This page was generated with %s from the commit %s\n" \
-		"[Untitled](https://untitled.vimuser.org/)" \
+		"[lbssg](https://libreboot.org/docs/sitegen)" \
 		"`git show --no-patch HEAD --pretty=\"%h\"`" \
 		>> $@
 
@@ -411,12 +411,12 @@ website-raw.tar.gz: build $(WEBSITE_TAR_GZ_DEPS)
 		--sort=name \
 		-czf \
 		$@ \
-		untitled/www/lbwww/site/ \
+		lbssg/www/lbwww/site/ \
 		history/git-history.dot \
 		history/git-history.jpg \
 		$(WEB_SYMLINKS_FILES) \
 		$(WEB_SYMLINKS_TRANSFORM) \
-		--transform="s#untitled/www/lbwww/site/##" \
+		--transform="s#lbssg/www/lbwww/site/##" \
 		$(SENTINEL)
 
 if WANT_GUIX
