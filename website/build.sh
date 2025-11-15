@@ -48,12 +48,12 @@ sync_repo()
 
 	if [ -z "${src_path}" ] && [ ! -d "${dst_path}" ] ; then
 		git clone "${src_uri}" "${dst_path}"
-		git -C "${dst_path}" checkout "${src_revision}"
+		git -C "${dst_path}" checkout -f "${src_revision}"
 	elif [ ! -d "${dst_path}" ] ; then
 		mkdir -p "$(dirname "${dst_path}")"
 		cp -a "${src_path}" "${dst_path}"
 		if [ -n "${src_revision}" ] ; then
-			git -C "${dst_path}" checkout "${src_revision}"
+			git -C "${dst_path}" checkout -f "${src_revision}"
 		fi
 	elif [ -z "${src_path}" ] ; then
 		localrev="$(git -C "${dst_path}" --no-pager \
@@ -85,7 +85,7 @@ sync_repo()
 		rm -rf "${dst_path}"
 		cp -a "${src_path}" "${dst_path}"
 		if [ -n "${src_revision}" ] ; then
-			git -C "${dst_path}" checkout "${src_revision}"
+			git -C "${dst_path}" checkout -f "${src_revision}"
 		fi
 	fi
 }
