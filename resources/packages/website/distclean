@@ -31,7 +31,7 @@ distclean_website()
     website/Makefile \
     website/Makefile.in \
     website/missing \
-    website/untitled/ \
+    website/lbssg/ \
     website/website.tar.gz
 }
 
