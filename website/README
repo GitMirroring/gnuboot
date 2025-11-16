@@ -80,7 +80,7 @@ complete on a ThinkPad X200.
 If your Guix installation is recent enough it should already have it
 and the following command should print 'bordeaux.guix.gnu.org is
 enabled':
-$ guix repl force-bordeaux-substitute.scm check
+$ guix repl build/force-bordeaux-substitute.scm check
 
 If instead you need to add it, it will print 'bordeaux.guix.gnu.org is
 disabled'.

@@ -14,24 +14,24 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 /aclocal.m4
 /autom4te.cache/
+/build/lighttpd.conf
 /config.log
 /config.status
 /configure
 /id_oauth2_bearer
 /install-sh
 /lbssg/
-/lighttpd.conf
 /Makefile
 /Makefile.in
 /missing
 /site/**
-/site.cfg
 /website-raw.tar.gz
 /website.tar.gz
 /pages/footer.include
 /pages/footer-git-commit.include
 /symlinks/CVS/**
 /symlinks/web-symlinks/**
+/templates/site.cfg
 
 # History
 /history/git-history.jpg
