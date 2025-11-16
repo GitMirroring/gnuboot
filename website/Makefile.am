@@ -24,7 +24,7 @@ ACLOCAL_AMFLAGS = -I m4
 	help \
 	publish \
 	serve \
-	website-raw.tar.gz \
+	website-raw.tar \
 if WANT_WEB_SYMLINKS_PATH
 	$(WEB_SYMLINKS_PATH)/COPYING \
 	$(WEB_SYMLINKS_PATH)/web-symlinks \
@@ -591,24 +591,24 @@ else
 CHECK_SH_CMD = ./check.sh
 endif
 
-check: build website.tar.gz history/git-history.jpg
+check: build website.tar history/git-history.jpg
 	rm -rf site/
 	mkdir -p site/$(WEBSITE_PREFIX)
-	tar xf website.tar.gz -C site/$(WEBSITE_PREFIX)
+	tar xf website.tar -C site/$(WEBSITE_PREFIX)
 	$(CHECK_SH_CMD) --website-prefix $(WEBSITE_PREFIX) \
 		--directory site
 	$(CHECK_SH_CMD) --website-prefix $(WEBSITE_PREFIX) \
-		--tarball website.tar.gz
+		--tarball website.tar
 
 help:
 	@printf "%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n" \
 		"Available commands:" \
-		"help           # Print this help" \
-		"build          # Build the website" \
-		"serve          # run lighttpd on localhost:$(LIGHTTPD_PORT)" \
-		"publish        # Publish the website to https://gnu.org/$(WEBSITE_PREFIX)" \
-		"check          # Run automatic tests" \
-		"website.tar.gz # Create a tarball of the website"
+		"help        # Print this help" \
+		"build       # Build the website" \
+		"serve       # run lighttpd on localhost:$(LIGHTTPD_PORT)" \
+		"publish     # Publish the website to https://gnu.org/$(WEBSITE_PREFIX)" \
+		"check       # Run automatic tests" \
+		"website.tar # Create a tarball of the website"
 
 ################
 # manual tests #
@@ -640,9 +640,9 @@ serve:
 		"To enable it, run './configure --enable-lighttpd'."
 	@false
 else
-serve: website.tar.gz
+serve: website.tar
 	$(SERVE_SH_CMD) --website-prefix $(WEBSITE_PREFIX) \
-			website.tar.gz $(LIGHTTPD_PORT)
+			website.tar $(LIGHTTPD_PORT)
 endif
 
 ##########################
@@ -650,10 +650,10 @@ endif
 ##########################
 
 RSYNC_OPTIONS := -av --progress --delete
-publish: website.tar.gz
+publish: website.tar
 	rm -rf deploy
 	mkdir -p deploy
-	tar xf website.tar.gz -C deploy
+	tar xf website.tar -C deploy
 	rsync $(RSYNC_OPTIONS) \
 		deploy/ \
 		$(RSYNC_DESTINATION)/
@@ -667,13 +667,13 @@ WEBSITE_TAR_GZ_DEPS = \
 	$(WEB_SYMLINKS_FILES) \
 	$(SENTINEL)
 
-website-raw.tar.gz: build $(WEBSITE_TAR_GZ_DEPS)
+website-raw.tar: build $(WEBSITE_TAR_GZ_DEPS)
 	tar \
 		--exclude-vcs \
 		--format=gnu \
 		--owner=0 --group=0 --numeric-owner \
 		--sort=name \
-		-czf \
+		-cf \
 		$@ \
 		lbssg/www/lbwww/site/ \
 		history/git-history.dot \
@@ -691,5 +691,5 @@ else
 PRETTIFY_ARCHIVE_PY = python3 prettify-archive.py
 endif
 
-website.tar.gz: website-raw.tar.gz
+website.tar: website-raw.tar
 	$(PRETTIFY_ARCHIVE_PY) $^ $@
