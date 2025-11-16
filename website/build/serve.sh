@@ -31,7 +31,7 @@ if [ $# -ne 3 ] && [ $# -ne 4 ] && [ "$1" != "--website-prefix" ] ; then
 	usage "serve.sh"
 fi
 
-basedir="$(dirname "$(realpath "$0")")"
+basedir="$(dirname $(dirname "$(realpath "$0")"))"
 
 prefix="$2"
 tarball="$3"
@@ -51,7 +51,7 @@ perl \
 
 # Generate lighttpd.conf
 sed -e "s#LIGHTTPD_PORT#${lighttpd_port}#g" \
-    "${basedir}/lighttpd.conf.tmpl" > \
-    "${basedir}/lighttpd.conf"
+    "${basedir}/build/lighttpd.conf.tmpl" > \
+    "${basedir}/build/lighttpd.conf"
 
-lighttpd -f lighttpd.conf -D
+lighttpd -f ${basedir}/build/lighttpd.conf -D
