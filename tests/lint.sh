@@ -96,9 +96,9 @@ run_shellcheck \
     tests/checkpatch/checkpatch.sh \
     tests/distclean.sh \
     tests/lint.sh \
-    website/build.sh \
-    website/check.sh \
-    website/serve.sh
+    website/build/build.sh \
+    website/build/check.sh \
+    website/build/serve.sh
 
 # For now we only check markdown tables. This is why we only have markdown
 # files with tables below.

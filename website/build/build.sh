@@ -118,7 +118,7 @@ copy_website()
 
 	rm -rf "${dst_path}"
 	mkdir -p "${dst_path}"
-	cp site.cfg "${dst_path}"
+	cp templates/site.cfg "${dst_path}"
 
 	# We still copy pages/ as the Makefile copies the manual and
 	# potentially other things there.
