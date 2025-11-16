@@ -211,7 +211,7 @@ AS_IF([test x"$guix" = x"yes"],
                     [AC_MSG_ERROR(
                     [lighttpd was not found in PATH ($PATH)])])
 
-              dnl serve.sh requires perl to run a perl program
+              dnl build/serve.sh requires perl to run a perl program
               dnl (web-symlinks) that generate symlinks from .symlinks
               dnl files
               AC_CHECK_PROG([FOUND_PERL], [perl], [perl])

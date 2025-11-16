@@ -59,7 +59,7 @@ if WANT_WEB_SYMLINKS_PATH
 GUIX_SHARE_OPTIONS += --share=`realpath $(WEB_SYMLINKS_PATH)`
 
 # With ./configure --with-lbssg-path=[...], we end up having a
-# specific revision that is set in build.sh. So here we also verify
+# specific revision that is set in build/build.sh. So here we also verify
 # the checksums for consistency.
 
 $(WEB_SYMLINKS_PATH)/COPYING.sha512: symlinks/COPYING.sha512
@@ -124,7 +124,7 @@ GUIX_SHELL_CONTAINER = \
 	--system=i686-linux \
 	--container \
 	`$(srcdir)/../resources/wrapper/guix \
-		repl force-bordeaux-substitute.scm force` \
+		repl build/force-bordeaux-substitute.scm force` \
 	$(SENTINEL)
 
 ###########
@@ -422,7 +422,7 @@ templates/footer.include: templates/footer.include.tmpl templates/footer-git-com
 		templates/footer-git-commit.include \
 		> $@
 
-site.cfg: site.cfg.tmpl
+templates/site.cfg: templates/site.cfg.tmpl
 	sed -e "s#WEBSITE_PREFIX#$(WEBSITE_PREFIX)#g" "$^" > "$@"
 
 ##########
@@ -552,12 +552,12 @@ BUILD_SH_CMD = $(GUIX_SHELL_CONTAINER) \
 	pandoc \
 	sed \
 	-- \
-	./build.sh
+	build/build.sh
 else
-BUILD_SH_CMD = ./build.sh
+BUILD_SH_CMD = build/build.sh
 endif
 
-build: site.cfg templates/footer.include $(GNUBOOT_MANUAL) $(GENERATED_STATUS_PAGES)
+build: templates/site.cfg templates/footer.include $(GNUBOOT_MANUAL) $(GENERATED_STATUS_PAGES)
 	$(BUILD_SH_CMD) $(BUILD_OPTIONS)
 
 ###################
@@ -577,9 +577,9 @@ CHECK_SH_CMD = $(GUIX_SHELL_CONTAINER) \
 	sed \
 	tar \
 	-- \
-	./check.sh
+	build/check.sh
 else
-CHECK_SH_CMD = ./check.sh
+CHECK_SH_CMD = build/check.sh
 endif
 
 check: build website.tar history/git-history.jpg
@@ -619,9 +619,9 @@ SERVE_SH_CMD = $(GUIX_SHELL_CONTAINER) \
 	sed \
 	tar \
 	-- \
-	./serve.sh
+	build/serve.sh
 else
-SERVE_SH_CMD = ./serve.sh
+SERVE_SH_CMD = build/serve.sh
 endif
 
 if ! WANT_LIGHTTPD
@@ -677,9 +677,9 @@ website-raw.tar: build $(WEBSITE_TAR_GZ_DEPS)
 if WANT_GUIX
 PRETTIFY_ARCHIVE_PY = \
 	$(GUIX_SHELL_CONTAINER) \
-	python python-beautifulsoup4 -- python3 prettify-archive.py
+	python python-beautifulsoup4 -- python3 build/prettify-archive.py
 else
-PRETTIFY_ARCHIVE_PY = python3 prettify-archive.py
+PRETTIFY_ARCHIVE_PY = python3 build/prettify-archive.py
 endif
 
 website.tar: website-raw.tar
