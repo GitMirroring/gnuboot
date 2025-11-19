@@ -29,19 +29,19 @@ CPU compatibility
 virt).* 6300 series needs microcode updates, so avoid those CPUs. 6100
 series is too old, and mostly untested.
 
-Board status (compatibility) {#boardstatus}
+Board status (compatibility)
 ============================
 
 See <https://raptorengineeringinc.com/coreboot/kgpe-d16-status.php>.
 
-Form factor {#formfactor}
+Form factor
 ===========
 
 These boards use the SSI EEB 3.61 form factor; make sure that your case
 supports this. This form factor is similar to E-ATX in that the size is
 identical, but the position of the screws are different.
 
-IPMI iKVM module add-on {#ipmi}
+IPMI iKVM module add-on
 =======================
 
 Don't use it. It uses proprietary firmware and adds a backdoor (remote
@@ -51,7 +51,7 @@ unsigned (possibly to replace) and physically separate from the
 mainboard since it's on the add-on module, which you don't have to
 install.
 
-Flash chips {#flashchips}
+Flash chips
 ===========
 
 2MiB flash chips are included by default, on these boards. It's on a
@@ -70,13 +70,13 @@ extractor. These can be found online. See
 This guide shows how to flash the chip:\
 [25xx NOR flashing guide](../install/spi.html)
 
-Native graphics initialization {#graphics}
+Native graphics initialization
 ==============================
 
 Only text-mode is known to work, but linux(kernel) can initialize the
 framebuffer display (if it has KMS - kernel mode setting).
 
-Current issues {#issues}
+Current issues
 ==============
 
 -   LRDIMM memory modules are currently incompatible
@@ -101,7 +101,7 @@ Current issues {#issues}
     the very least, it's not a major inconvenience to not have it).
 -   Graphics: only text-mode works. See [\#graphics](#graphics)
 
-Hardware specifications {#specifications}
+Hardware specifications
 -----------------------
 
 The information here is adapted, from the ASUS website.
@@ -157,7 +157,7 @@ The information here is adapted, from the ASUS website.
 -   *Additional Slot 1:* PIKE slot (for SAS drives. See notes above)
 -   Follow SSI Location\#
 
-### Form factor {#form-factor}
+### Form factor
 
 -   SSI EEB 3.61 (12"x13")
 
