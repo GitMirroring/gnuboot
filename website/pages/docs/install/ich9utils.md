@@ -70,7 +70,7 @@ when building ROM images for these machines.
 Alternatively, you can just clone `ich9utils` directly and run `make` in the
 directory, and run the `ich9gen` program directly.
 
-ICH9 show utility {#ich9show}
+ICH9 show utility
 ================
 
 The *ich9show* utility outputs the entire contents of the descriptor and GbE
@@ -78,7 +78,7 @@ regions in a given ROM image as supplied by the user. Output is in Markdown
 format (Pandoc variant) so that it can be converted easily into various
 formats. It could even be piped *directly* into pandoc!
 
-ICH9 gen utility {#ich9gen}
+ICH9 gen utility
 ================
 
 When you simply run `ich9gen` without any arguments, it generates
@@ -180,7 +180,7 @@ practise, you can boot a Linux kernel with access to lower memory disabled
 which will make software re-flashing impossible (unless you reboot with such
 memory protections disabled, e.g. `iomem=relaxed` kernel parameter).
 
-ICH9 deblob utility {#ich9deblob}
+ICH9 deblob utility
 ===================
 
 This was the tool originally used to disable the ME on X200 (later
@@ -259,7 +259,7 @@ descriptor and 8K gbe regions, which will then be safe to flash. Refer
 back to [index.html/\#gm45](index.html/#gm45) for how to flash
 it.
 
-demefactory utility {#demefactory}
+demefactory utility
 ===================
 
 This utility has never been tested, officially, but it *should* work.
@@ -292,7 +292,7 @@ development getting the ME removed on GM45. They are useful for
 background information. This could not have been done without sgsit's
 help.
 
-Early notes {#early_notes}
+Early notes
 -----------
 
 -   <http://www.intel.co.uk/content/dam/doc/datasheet/io-controller-hub-10-family-datasheet.pdf>
@@ -314,7 +314,7 @@ Early notes {#early_notes}
     what the X201 uses:
     <http://www.intel.co.uk/content/dam/www/public/us/en/documents/datasheets/6-chipset-c200-chipset-datasheet.pdf>
 
-Flash chips {#flashchips}
+Flash chips
 -----------
 -   X200 laptop (Mocha-1):
     ICH9-M overrides ifd permissions with a strap connected to GPIO33 pin (see IRC notes below)
@@ -332,7 +332,7 @@ Flash chips {#flashchips}
     the ones with AMT (alongside the ME), whereas the 32Mb chips contain
     only the ME.
 
-Early development notes {#early_development_notes}
+Early development notes
 -----------------------
 
     Start (hex) End (hex)   Length (hex)    Area Name
@@ -402,7 +402,7 @@ X200. End justified means, and the utility is no longer needed since the
 ich9deblob utility (documented on this page) can now be used to create
 deblobbed descriptors.
 
-GBE (gigabit ethernet) region in SPI flash {#gbe_region}
+GBE (gigabit ethernet) region in SPI flash
 ------------------------------------------
 
 Of the 8K, about 95% is 0xFF. The data is the gbe region is fully
@@ -433,7 +433,7 @@ is set to put gbe directly after the initial 4K flash descriptor. So the
 first 4K of the ROM is the descriptor, and then the next 8K is the gbe
 region.
 
-### GBE region: change MAC address {#gbe_region_changemacaddress}
+### GBE region: change MAC address
 
 According to the datasheet, it's supposed to add up to 0xBABA but can
 actually be others on the X200.
@@ -465,7 +465,7 @@ Look at `ich9deblob.c` in ich9utils.
     to 0xBABA. In other words, the checksum is 0xBABA minus the total of
     the first 0x3E 16bit numbers (unsigned), ignoring any overflow.
 
-Flash descriptor region {#flash_descriptor_region}
+Flash descriptor region
 -----------------------
 
 <http://www.intel.co.uk/content/dam/doc/datasheet/io-controller-hub-9-datasheet.pdf>
@@ -528,7 +528,7 @@ So, *x << 12 = address*
 
 If it's in descriptor mode, then the first 4 bytes will be 5A A5 F0 0F.
 
-platform data partition in boot flash (factory.rom / lenovo bios) {#platform_data_region}
+platform data partition in boot flash (factory.rom / lenovo bios)
 -----------------------------------------------------------------
 
 Basically useless for Libreboot, since it appears to be a blob. Removing

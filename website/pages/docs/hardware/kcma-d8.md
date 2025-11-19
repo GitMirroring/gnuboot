@@ -92,7 +92,7 @@ AMD CPUs are generally better engineered than Intel ones, and work much nicer
 without updates compared to Intel CPUs, but CPU manufacturers design their chips
 to accept updates for a reason!
 
-Board status (compatibility) {#boardstatus}
+Board status (compatibility)
 ============================
 
 There are two ways to identify a supported KCMA-D8 board:
@@ -111,14 +111,14 @@ For help locating these identifying markers, see [ASUS documentation for determi
 For more detailed information regarding the coreboot port, see
 <https://raptorengineeringinc.com/coreboot/kcma-d8-status.php>
 
-Form factor {#formfactor}
+Form factor
 ===========
 
 This board is ATX form factor. While the [ATX standard, version 2.2](https://web.archive.org/web/20120725150314/http://www.formfactors.org/developer/specs/atx2_2.pdf)
 specifies board dimensions 305mm x 244mm, this board measures 305mm x 253mm;
 please ensure that your case supports this extra ~cm in width.
 
-IPMI iKVM module add-on {#ipmi}
+IPMI iKVM module add-on
 =======================
 
 Don't use it. It uses proprietary firmware and adds a backdoor (remote
@@ -128,7 +128,7 @@ unsigned (possible to replace) and physically separate from the
 mainboard since it's on the add-on module, which you don't have to
 install.
 
-Flash chips {#flashchips}
+Flash chips
 ===========
 
 2MiB flash chips are included by default, on these boards. It's on a
@@ -145,7 +145,7 @@ extractor. These can be found online. See
 Ideally, you should not hot-swap. Only remove the IC when the system is
 powered down and disconnected from mains.
 
-Native graphics initialization {#graphics}
+Native graphics initialization
 ==============================
 
 Only text-mode is known to work, but linux(kernel) can initialize the
@@ -159,7 +159,7 @@ performance won't be as high in Nouveau, compared to the non-free Nvidia driver
 because the Nouveau driver can't increase the GPU clock (it doesn't know how,
 as of 18 March 2021).
 
-Current issues {#issues}
+Current issues
 ==============
 
 -   Opteron 4100 series CPUs are currently incompatible
@@ -207,7 +207,7 @@ considerations:
     the very least, it's not a major inconvenience to not have it).
 -   Graphics: only text-mode works. See [\#graphics](#graphics)
 
-Hardware specifications {#specifications}
+Hardware specifications
 -----------------------
 
 Check the ASUS website.

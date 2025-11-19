@@ -222,7 +222,7 @@ Intel remote access to a computer where it is present.
 
 Intel themselves even admitted it, publicly.
 
-Why is the latest Intel hardware unsupported in GNU Boot? {#intel}
+Why is the latest Intel hardware unsupported in GNU Boot?
 -----------------------------------------------------------
 
 It is unlikely that any post-2008 Intel hardware will ever be supported in
@@ -231,7 +231,7 @@ GNU Boot project recommends avoiding all modern Intel hardware. If you have an
 Intel based system affected by the problems described below, then you should
 get rid of it as soon as possible*. The main issues are as follows:
 
-### Intel Management Engine (ME) {#intelme}
+### Intel Management Engine (ME)
 
 NOTE: The information below is slightly out of date. Nowadays, Intel ME does
 not run on an ARC coprocessor, but instead runs on a modified Intel 486 based
@@ -396,7 +396,7 @@ Also see (effort to disable the ME):
 <https://www.coreboot.org/pipermail/coreboot/2016-November/082331.html>
 - look at the whole thread
 
-### Firmware Support Package (FSP) {#fsp}
+### Firmware Support Package (FSP)
 
 On all recent Intel systems, coreboot support has revolved around
 integrating a blob (for each system) called the *FSP* (firmware support
@@ -415,7 +415,7 @@ the proprietary FSP blob cannot be trusted at all.** In fact, several
 SMM rootkits have been demonstrated in the wild (use a search engine to
 find them).
 
-### CPU microcode updates {#microcode}
+### CPU microcode updates
 
 All modern x86 CPUs (from Intel and AMD) use what is called *microcode*.
 CPUs are extremely complex, and difficult to get right, so the circuitry
@@ -488,7 +488,7 @@ supported by GNU Boot. The GNU Boot project is actively ignoring all
 modern Intel hardware at this point, and focusing on alternative
 platforms.**
 
-Why is the latest AMD hardware unsupported in GNU Boot? {#amd}
+Why is the latest AMD hardware unsupported in GNU Boot?
 ----------------------------------------------------------------------------
 
 It is extremely unlikely that any modern AMD hardware will ever be
@@ -608,7 +608,7 @@ addition to the "usual" engineering and software development firms.
 This also affects whistleblowers, or anyone who needs actual privacy and
 security.
 
-What *can* I use, then? {#whatcaniuse}
+What *can* I use, then?
 -------------------------
 
 GNU Boot has support for AMD hardware of Family 15h (Bulldozer or

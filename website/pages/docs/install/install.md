@@ -322,7 +322,7 @@ example of the push pin as a proof of concept:
 
 [You must flash it externally](spi.html)
 
-#### ThinkPad X60/X60S/X60T/T60 with Lenovo BIOS {#flashrom_lenovobios}
+#### ThinkPad X60/X60S/X60T/T60 with Lenovo BIOS
 
 **I forgot to actually add the flashrom patches in the Libreboot 20211122
 release. When you see the notes below about `_sst` and `_mx`, for now just use

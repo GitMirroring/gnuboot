@@ -5,14 +5,14 @@ x-unreviewed: true
 This guide is for those who want libreboot on their Intel GA-G41M-ES2L
 motherboard while they still have the original BIOS present.
 
-Flash chip size {#flashchips}
+Flash chip size
 ===============
 
 Use this to find out:
 
     flashrom -p internal
 
-Flashing instructions {#clip}
+Flashing instructions
 =====================
 
 Refer to [spi.html](spi.html) for how to set up an SPI programmer for
