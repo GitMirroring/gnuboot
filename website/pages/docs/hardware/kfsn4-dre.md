@@ -8,14 +8,14 @@ for building a high-powered workstation. Powered by libreboot.
 Flashing instructions can be found at
 [../install/\#flashrom](../install/#flashrom)
 
-Form factor {#formfactor}
+Form factor
 ===========
 
 These boards use the SSI EEB 3.61 form factor; make sure that your case
 supports this. This form factor is similar to E-ATX in that the size is
 identical, but the position of the screws are different.
 
-Flash chips {#flashchips}
+Flash chips
 ===========
 
 These boards use LPC flash (not SPI), in a PLCC socket. The default
@@ -28,7 +28,7 @@ example of a 2MiB (16Mbits) chip, which might work. It is believed that
 extractor. These can be found online. See
 <http://www.coreboot.org/Developer_Manual/Tools#Chip_removal_tools>*
 
-Native graphics initialization {#graphics}
+Native graphics initialization
 ==============================
 
 Native graphics initialization exists (XGI Z9s) for this board.
@@ -39,7 +39,7 @@ Memory
 
 DDR2 533/667 Registered ECC. 16 slots. Total capacity up to 64GiB.
 
-Hex-core CPUs {#hexcore}
+Hex-core CPUs
 =============
 
 PCB revision 1.05G is the latest version of this board and the best one
@@ -53,7 +53,7 @@ To be sure your board supports a CPU check the official ASUS website here:
 
 If you are running a Hex-Core CPU on any board version, please contact us.
 
-Board configurations {#configurations}
+Board configurations
 ==============
 There are 7 different configurations of this board: "standard", 2S, iKVM,
 iKVM/IST, SAS, SAS/iKVM and SAS/iKVM/IST.
@@ -72,7 +72,7 @@ Note: the SAS functionality is **not supported** by libreboot.
 The IST versions with PCB revision 1.05G are the ones who are believed to
 support the six core Opteron Istanbul processors (2400 and 8400 series).
 
-Current issues {#issues}
+Current issues
 ==============
 
 -   There seems to be a 30 second bootblock delay (observed by

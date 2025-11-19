@@ -35,7 +35,7 @@ there is a Git repository that you can download from. Go here:
 
 [How to download GNU Boot from Git](contribute.html)
 
-FTP mirrors {#ftp}
+FTP mirrors
 -------------
 
 These mirrors are recommended, since they use TLS (https://) encryption.
