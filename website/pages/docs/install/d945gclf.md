@@ -10,7 +10,7 @@ D945GCLF2D also reported working by a user.
 For information about this board, go to
 [../hardware/d945gclf.html](../hardware/d945gclf.html)
 
-Flashing instructions {#clip}
+Flashing instructions
 =====================
 
 Refer to [spi.html](spi.html) for how to re-flash externally.

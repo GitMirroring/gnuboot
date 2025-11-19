@@ -16,7 +16,7 @@ the screws on page 114 (with title "1130 Keyboard bezel") are swapped
 and if you follow the HMM you will punch a hole through the bezel in the
 upper right corner.
 
-Serial port {#serial_port}
+Serial port
 -----------
 
 EHCI debug might not be needed. It has been reported that the docking
@@ -60,14 +60,14 @@ CPU paste required
 
 See [\#paste](#paste).
 
-Flash chip size {#flashchips}
+Flash chip size
 ===============
 
 Use this to find out:
 
     flashrom -p internal
 
-MAC address {#macaddress}
+MAC address
 ===========
 
 Refer to [mac\_address.html](../hardware/mac_address.html).

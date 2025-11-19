@@ -13,13 +13,13 @@ ROM properly first. Although ROM images are provided pre-built in
 libreboot, there are some modifications that you need to make to the one
 you chose before flashing. (instructions referenced later in this guide)
 
-Libreboot T400 {#t400}
+Libreboot T400
 ==============
 
 You may also be interested in the smaller, more portable [Libreboot
 T400](t400_external.html).
 
-Serial port {#serial_port}
+Serial port
 -----------
 
 EHCI debug might not be needed. It has been reported that the docking
@@ -59,14 +59,14 @@ CPU paste required
 
 See [\#paste](#paste).
 
-Flash chip size {#flashchips}
+Flash chip size
 ===============
 
 Use this to find out:
 
     flashrom -p internal
 
-MAC address {#macaddress}
+MAC address
 ===========
 
 Refer to [mac\_address.html](../hardware/mac_address.html).

@@ -10,7 +10,7 @@ The most common cause of a brick is operator error, when flashing a ROM image.
 In *most* cases, the cause will be that there is no bootblock, or an invalid
 one.
 
-Brick type 1: bucts not reset. {#bucts_brick}
+Brick type 1: bucts not reset.
 ==============================
 
 You still have Lenovo BIOS, or you had libreboot running and you flashed
@@ -51,7 +51,7 @@ applied!):
 still has Lenovo BIOS running, using those instructions:
 <http://www.coreboot.org/Board:lenovo/x60/Installation>.
 
-Brick type 2: bad ROM image {#recovery}
+Brick type 2: bad ROM image
 ===========================================
 
 In this instance, you might have flashed a ROM without the top bootblock copied
