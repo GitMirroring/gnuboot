@@ -169,9 +169,13 @@ The following pages are currently out of sync:
 * pages/contribute.es.md
 
 The pages/status.es.md is also out of sync on the website, and in git
-in the main or fsf40 branches, but there was work done (which is in
-the gnuboot-next branch) to bring it back in sync. Here what is
-important is to review that work and correct it if it is wrong.
+in the main or fsf40 branches, but there was work done in [the
+05b294076ac3a388f9bc2c170c9e199ee3ce9aee patch ("website: sync
+pages/status.md and
+pages/status.es.md.")](spanish/0001-website-sync-pages-status.md-and-pages-status.es.md.patch)
+which is also in the gnuboot-next branch) to bring it back in
+sync. Here what is important is to review that work and correct it if
+it is wrong.
 
 To do this work you will have to first coordinate with Jordán
 'iShareFreedom' / isf for that work as isf should soon become the
