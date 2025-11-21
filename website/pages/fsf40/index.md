@@ -108,6 +108,36 @@ if you reviewed it:
   most likely be thanked for reporting the issue in the patch in one
   way or another.
 
+Help review the manual:
+-----------------------
+
+While every change that made it in the GNU Boot manual were reviewed
+by the GNU Boot maintainers, we feel that the manual is extremely
+important and we want it to be of very high quality and to also meet
+users needs.
+
+This task would require to respond to some questions. You can skip
+some questions if you wish:
+
+* Does the manual contain mistakes?
+
+* What are your computer skills? Do you use GNU Boot? And is the
+  manual easy to understand or are there parts that you didn't
+  understand?
+
+* We plan to add installation instructions in the manual, as well as
+  information on how to do maintenance and potentially reparations as
+  well on computers supported by GNU Boot. Once that would be done,
+  would the manual meet your expectations? Are there other things
+  missing in the manual? And here too, what are your computer skills?
+  Do you use GNU Boot?
+
+The idea behind asking "What are your computer skills? Do you use GNU
+Boot?" is to understand what kind of users to target in the manual
+and/or where to put the efforts.
+
+We also welcome suggestions and/or feedback on the manual in general.
+
 Website: improve "DiffieHellman"'s patches
 ------------------------------------------
 
