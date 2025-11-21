@@ -412,7 +412,7 @@ reuse pictures under a free license with a clear copyright
 situation. The pictures that we have already on the GNU Boot website
 should be pretty safe to use.
 
-You can apply these patches first in case you want to know how the
+The following patches were applied so that you know how the
 Chipflasher v2 will be added in the list of flash programmers inside
 the manual:
 
@@ -459,7 +459,7 @@ be seen with the 'dmesg' command):
 So this task would be to help the ChipFlasher creator to fix these
 issues and also test adapters at bigger speed.
 
-For more background here are some patches that shows how the
+For more background here are some applied patches that shows how the
 ChipFlasher v2 might be integrated in the GNU Boot manual:
 
 * [0009-manual-move-security-in-its-own-chapter.patch](chipflasher/0009-manual-move-security-in-its-own-chapter.patch)
