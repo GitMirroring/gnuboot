@@ -155,7 +155,7 @@ and/or where to put the efforts.
 
 We also welcome suggestions and/or feedback on the manual in general.
 
-website: help with Spanish translations
+Website: help with Spanish translations
 ---------------------------------------
 
 We have some pages that are translated in Spanish, and the top
