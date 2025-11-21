@@ -280,7 +280,7 @@ Remove nonfree software in arm-trusted-firmware in free GNU/Linux distros
 -------------------------------------------------------------------------
 
 [Leah Rowe found a nonfree hdcp.bin in GNU
-Boot](https://lists.gnu.org/archive/html/gnuboot-patches/2024-10/msg00028.html).
+Boot](https://web.archive.org/web/20250831183645/https://lists.gnu.org/archive/html/gnuboot-patches/2024-10/msg00028.html).
 
 This issue has long been fixed in GNU Boot, but it's not fixed in
 GNU/Linux distributions.
@@ -291,9 +291,10 @@ distributions](https://www.gnu.org/distros/free-distros.html), but also
 to notify other distributions like Debian that have a policy against
 the inclusion of nonfree software in some of their repositories.
 
-The [Bug #66246](https://savannah.gnu.org/bugs/?66246) is an example
-of how we dealt with a similar issue after finding nonfree software in
-vboot.
+The [Bug
+#66246](https://web.archive.org/web/20250513221412/https://savannah.gnu.org/bugs/?66246)
+is an example of how we dealt with a similar issue after finding
+nonfree software in vboot.
 
 This is also important for GNU Boot because we can't add ARM support
 by shipping nonfree software.
