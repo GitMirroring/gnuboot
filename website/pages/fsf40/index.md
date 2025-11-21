@@ -155,6 +155,29 @@ and/or where to put the efforts.
 
 We also welcome suggestions and/or feedback on the manual in general.
 
+website: help with Spanish translations
+---------------------------------------
+
+We have some pages that are translated in Spanish, and the top
+priority here is to synchronize the English and the Spanish
+translations.
+
+You will have to first coordinate with Jordán 'iShareFreedom' / isf
+for that work as isf should soon become the person responsible for
+Spanish translations in GNU Boot (isf is currently reviewing the patch
+that clarifies that).
+
+And isf is also available in #gnuboot during the FSF 40 Hackathon and
+is also available by email.
+
+Once the modifications are validated by isf, they will still need to
+go through the GNU Boot maintainers only the maintainers can push
+modifications to the GNU Boot source code and/or website.
+
+Once the Spanish and English translations are in synchronized, you
+could try to identify what are the most important things left to
+translate (it could be some specific pages, the manual, etc).
+
 Website: improve "DiffieHellman"'s patches
 ------------------------------------------
 
