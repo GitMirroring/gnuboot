@@ -13,6 +13,7 @@ of these source logos because it makes it easier to modify them and/or
 to generate additional background for additional resolutions.
 
 Signed-off-by: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+Acked-by: Adrien 'neox' Bourmault <neox@gnu.org>
 ---
  artwork/README.md                             |   12 +
  artwork/generate-background-picture.sh        |  109 +

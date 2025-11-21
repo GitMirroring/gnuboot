@@ -62,6 +62,7 @@ blown desktop environment, and if we didn't make users adjust the
 Trisquel much harder.
 
 Signed-off-by: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+Acked-by: Adrien 'neox' Bourmault <neox@gnu.org>
 ---
  Makefile.am                          |   2 +
  configure.ac                         |   3 +

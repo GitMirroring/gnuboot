@@ -15,6 +15,7 @@ use /dev/kvm).
 
 Bug-report: https://savannah.gnu.org/bugs/?66225
 Signed-off-by: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+Acked-by: Adrien 'neox' Bourmault <neox@gnu.org>
 ---
  build                                         |  8 +++----
  download                                      |  8 +++----
