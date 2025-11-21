@@ -276,33 +276,6 @@ This is extremely important for GNU Boot as Guix for several reasons:
 This would also benefit Replicant as well as its blog is being
 migrated to Haunt which is only packaged in Guix.
 
-Remove nonfree software in arm-trusted-firmware in free GNU/Linux distros
--------------------------------------------------------------------------
-
-[Leah Rowe found a nonfree hdcp.bin in GNU
-Boot](https://web.archive.org/web/20250831183645/https://lists.gnu.org/archive/html/gnuboot-patches/2024-10/msg00028.html).
-
-This issue has long been fixed in GNU Boot, but it's not fixed in
-GNU/Linux distributions.
-
-This task would consist in removing this nonfree software in Guix, and
-all [free GNU/Linux
-distributions](https://www.gnu.org/distros/free-distros.html), but also
-to notify other distributions like Debian that have a policy against
-the inclusion of nonfree software in some of their repositories.
-
-The [Bug
-#66246](https://web.archive.org/web/20250513221412/https://savannah.gnu.org/bugs/?66246)
-is an example of how we dealt with a similar issue after finding
-nonfree software in vboot.
-
-This is also important for GNU Boot because we can't add ARM support
-by shipping nonfree software.
-
-This would also benefit Replicant as well that needs a free bootloader
-and will probably use Guix and/or GNU Boot to go forward with the port
-of Replicant to the Pinephone.
-
 Investigate nonfree software in u-boot
 --------------------------------------
 
@@ -514,6 +487,59 @@ ChipFlasher v2 might be integrated in the GNU Boot manual:
 * [0013-manual-security-add-instruction-to-check-images-sign.patch](chipflasher/0013-manual-security-add-instruction-to-check-images-sign.patch)
 
 * [0014-manual-flash-programmers-add-Chipflasher-v2.patch](chipflasher/0014-manual-flash-programmers-add-Chipflasher-v2.patch)
+
+Completed tasks
+===============
+
+Remove nonfree software in arm-trusted-firmware in free GNU/Linux distros
+-------------------------------------------------------------------------
+
+The description of the task was the following:
+
+```
+[Leah Rowe found a nonfree hdcp.bin in GNU
+Boot](https://web.archive.org/web/20250831183645/https://lists.gnu.org/archive/html/gnuboot-patches/2024-10/msg00028.html).
+
+This issue has long been fixed in GNU Boot, but it's not fixed in
+GNU/Linux distributions.
+
+This task would consist in removing this nonfree software in Guix, and
+all [free GNU/Linux
+distributions](https://www.gnu.org/distros/free-distros.html), but also
+to notify other distributions like Debian that have a policy against
+the inclusion of nonfree software in some of their repositories.
+
+The [Bug
+#66246](https://web.archive.org/web/20250513221412/https://savannah.gnu.org/bugs/?66246)
+is an example of how we dealt with a similar issue after finding
+nonfree software in vboot.
+
+This is also important for GNU Boot because we can't add ARM support
+by shipping nonfree software.
+
+This would also benefit Replicant as well that needs a free bootloader
+and will probably use Guix and/or GNU Boot to go forward with the port
+of Replicant to the Pinephone.
+```
+
+Jiyu (info@jiyu.dev) completed the task and wrote [a
+report](https://nextcloud.jiyu.dev/s/KcZYtiEq3ENy7Dk/download/hdcpbin.org)
+about it and also answered questions about it on #gnuboot in
+Libera.Chat.
+
+While Jiyu found that Fedora is affected, Jiyu also found out that the
+binary was not present (anymore) in Guix, Debian, and probably not in
+Dynebolic, Trisquel and PureOS either as according to Jiyu they "seem
+to be using the DSFG version indeed".
+
+The arm-trusted-firmware was absent from Dragora, Hyperbola, Parabola,
+LibreCMC and ProteanOS.
+
+GNUtoo also confirmed that the nonfree binary was gone in both Guix
+(with guix build --source) and The git version of the Debian package.
+
+So GNU Boot has now one blob less to worry about. Thanks a lot for the
+work.
 
 Dependencies
 ============
