@@ -4,6 +4,7 @@ Date: Thu, 18 Sep 2025 01:49:33 +0200
 Subject: [PATCH 14/14] manual: flash programmers: add Chipflasher v2.
 
 Signed-off-by: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+Acked-by: Adrien 'neox' Bourmault <neox@gnu.org>
 ---
  manual/gnuboot.texi | 107 +++++++++++++++++++++++++++++++++++++++++++-
  1 file changed, 105 insertions(+), 2 deletions(-)

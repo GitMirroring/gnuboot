@@ -4,6 +4,7 @@ Date: Thu, 18 Sep 2025 02:11:26 +0200
 Subject: [PATCH 12/14] manual: security: add section on trusting hardware.
 
 Signed-off-by: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+Acked-by: Adrien 'neox' Bourmault <neox@gnu.org>
 ---
  manual/gnuboot.texi | 32 ++++++++++++++++++++++++++++++++
  1 file changed, 32 insertions(+)

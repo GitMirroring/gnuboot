@@ -358,22 +358,6 @@ You can apply these patches first in case you want to know how the
 Chipflasher v2 will be added in the list of flash programmers inside
 the manual:
 
-* [0001-manual-distinguish-distros-from-the-hardware-they-su.patch](chipflasher/0001-manual-distinguish-distros-from-the-hardware-they-su.patch)
-
-* [0002-manual-add-bootloader-s-supported-with-SeaBIOS-image.patch](chipflasher/0002-manual-add-bootloader-s-supported-with-SeaBIOS-image.patch)
-
-* [0003-manual-Supported-operating-systems-split-in-differen.patch](chipflasher/0003-manual-Supported-operating-systems-split-in-differen.patch)
-
-* [0004-manual-GRUB-images-add-information-about-grub.cfg-im.patch](chipflasher/0004-manual-GRUB-images-add-information-about-grub.cfg-im.patch)
-
-* [0005-manual-GRUB-images-add-information-well-supported-pa.patch](chipflasher/0005-manual-GRUB-images-add-information-well-supported-pa.patch)
-
-* [0006-manual-GRUB-images-add-information-about-LVM2-partit.patch](chipflasher/0006-manual-GRUB-images-add-information-about-LVM2-partit.patch)
-
-* [0007-manual-GRUB-images-add-information-about-RAID-partit.patch](chipflasher/0007-manual-GRUB-images-add-information-about-RAID-partit.patch)
-
-* [0008-manual-GRUB-images-warn-about-potential-removal-of-l.patch](chipflasher/0008-manual-GRUB-images-warn-about-potential-removal-of-l.patch)
-
 * [0009-manual-move-security-in-its-own-chapter.patch](chipflasher/0009-manual-move-security-in-its-own-chapter.patch)
 
 * [0010-manual-security-add-section-about-updating-GNU-Boot.patch](chipflasher/0010-manual-security-add-section-about-updating-GNU-Boot.patch)
@@ -419,22 +403,6 @@ issues and also test adapters at bigger speed.
 
 For more background here are some patches that shows how the
 ChipFlasher v2 might be integrated in the GNU Boot manual:
-
-* [0001-manual-distinguish-distros-from-the-hardware-they-su.patch](chipflasher/0001-manual-distinguish-distros-from-the-hardware-they-su.patch)
-
-* [0002-manual-add-bootloader-s-supported-with-SeaBIOS-image.patch](chipflasher/0002-manual-add-bootloader-s-supported-with-SeaBIOS-image.patch)
-
-* [0003-manual-Supported-operating-systems-split-in-differen.patch](chipflasher/0003-manual-Supported-operating-systems-split-in-differen.patch)
-
-* [0004-manual-GRUB-images-add-information-about-grub.cfg-im.patch](chipflasher/0004-manual-GRUB-images-add-information-about-grub.cfg-im.patch)
-
-* [0005-manual-GRUB-images-add-information-well-supported-pa.patch](chipflasher/0005-manual-GRUB-images-add-information-well-supported-pa.patch)
-
-* [0006-manual-GRUB-images-add-information-about-LVM2-partit.patch](chipflasher/0006-manual-GRUB-images-add-information-about-LVM2-partit.patch)
-
-* [0007-manual-GRUB-images-add-information-about-RAID-partit.patch](chipflasher/0007-manual-GRUB-images-add-information-about-RAID-partit.patch)
-
-* [0008-manual-GRUB-images-warn-about-potential-removal-of-l.patch](chipflasher/0008-manual-GRUB-images-warn-about-potential-removal-of-l.patch)
 
 * [0009-manual-move-security-in-its-own-chapter.patch](chipflasher/0009-manual-move-security-in-its-own-chapter.patch)
 

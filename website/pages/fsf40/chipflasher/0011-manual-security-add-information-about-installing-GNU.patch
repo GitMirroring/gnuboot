@@ -5,6 +5,7 @@ Subject: [PATCH 11/14] manual: security: add information about installing GNU
  Boot.
 
 Signed-off-by: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+Acked-by: Adrien 'neox' Bourmault <neox@gnu.org>
 ---
  manual/gnuboot.texi | 140 ++++++++++++++++++++++++++++++++++++++++++++
  1 file changed, 140 insertions(+)
