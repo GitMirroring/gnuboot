@@ -340,7 +340,7 @@ Test the workman keyboard patch
 
 Unfortunately nobody tested it so it was never included.
 
-The following patches can help with testing:
+The following patches were applied to help with testing:
 
 * [0001-build-download-Handle-unusable-dev-kvm.patch](qemu/0001-build-download-Handle-unusable-dev-kvm.patch)
 * [0002-manual-Document-how-to-use-GNU-Boot-with-QEMU.patch](qemu/0002-manual-Document-how-to-use-GNU-Boot-with-QEMU.patch)
