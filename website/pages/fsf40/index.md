@@ -80,6 +80,34 @@ task](#website-improve-diffiehellmans-patches) touches the following files:
 So it might be easier if you don't touch these to avoid conflicting
 changes in case someone else wants to work on this other task.
 
+Help review or test patches:
+---------------------------
+
+In GNU Boot, reviewing patches from non-maintainers is done in a
+similar time frame than other free software projects (around 1 or 2
+weeks to get some feedback). However maintainers also make patches,
+and reviewing them takes way more time.
+
+This has led to a huge backlog of patches. Here you can help by
+reviewing some patches that are in the gnuboot-next branch.
+
+In GNU Boot anybody is welcome for reviewing patches, and here the
+idea is to do that and try to find any mistakes in the patches, test
+them, ask questions related to the patches to their author(s), etc.
+
+You will most likely be mentioned in one way or another in the patch
+if you reviewed it:
+
+* You can just test patches thoroughly, in that case we usually add
+  "Tested-by: <author> <email>" to the patch.
+
+* If you also review the patch thoroughly, we can add "Reviewed-by:
+  <author> <email>".
+
+* If you reviewed partially a patch and just found an error, you'll
+  most likely be thanked for reporting the issue in the patch in one
+  way or another.
+
 Website: improve "DiffieHellman"'s patches
 ------------------------------------------
 
