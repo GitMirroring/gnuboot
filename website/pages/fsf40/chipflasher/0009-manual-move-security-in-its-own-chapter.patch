@@ -42,6 +42,7 @@ using GNU Boot" section, and we moved the information about secure
 boot and restricted boot under a subsection of that section.
 
 Signed-off-by: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+Acked-by: Adrien 'neox' Bourmault <neox@gnu.org>
 ---
  manual/gnuboot.texi | 227 +++++++++++++++++++++++++++++++++++++++++---
  1 file changed, 214 insertions(+), 13 deletions(-)

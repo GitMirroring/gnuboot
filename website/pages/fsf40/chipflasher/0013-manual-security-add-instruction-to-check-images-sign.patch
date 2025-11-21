@@ -5,6 +5,7 @@ Subject: [PATCH 13/14] manual: security: add instruction to check images
  signatures.
 
 Signed-off-by: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+Acked-by: Adrien 'neox' Bourmault <neox@gnu.org>
 ---
  manual/gnuboot.texi | 70 +++++++++++++++++++++++++++++++++++++++++++++
  1 file changed, 70 insertions(+)
