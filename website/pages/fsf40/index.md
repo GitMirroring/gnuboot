@@ -162,10 +162,21 @@ We have some pages that are translated in Spanish, and the top
 priority here is to synchronize the English and the Spanish
 translations.
 
-You will have to first coordinate with Jordán 'iShareFreedom' / isf
-for that work as isf should soon become the person responsible for
-Spanish translations in GNU Boot (isf is currently reviewing the patch
-that clarifies that).
+The following pages are currently out of sync:
+
+* pages/git.es.md
+
+* pages/contribute.es.md
+
+The pages/status.es.md is also out of sync on the website, and in git
+in the main or fsf40 branches, but there was work done (which is in
+the gnuboot-next branch) to bring it back in sync. Here what is
+important is to review that work and correct it if it is wrong.
+
+To do this work you will have to first coordinate with Jordán
+'iShareFreedom' / isf for that work as isf should soon become the
+person responsible for Spanish translations in GNU Boot (isf is
+currently reviewing the patch that clarifies that).
 
 And isf is also available in #gnuboot during the FSF 40 Hackathon and
 is also available by email.
