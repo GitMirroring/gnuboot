@@ -1,0 +1,229 @@
+From 05b294076ac3a388f9bc2c170c9e199ee3ce9aee Mon Sep 17 00:00:00 2001
+From: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+Date: Tue, 4 Nov 2025 12:37:15 +0100
+Subject: [PATCH] website: sync pages/status.md and pages/status.es.md.
+
+Signed-off-by: Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+---
+ website/pages/status.es.md | 195 +++++++++++++++++++++++++++++++++++++
+ website/pages/status.md    |   1 -
+ 2 files changed, 195 insertions(+), 1 deletion(-)
+
+diff --git a/website/pages/status.es.md b/website/pages/status.es.md
+index c5e1ec69d4..003a633db5 100644
+--- a/website/pages/status.es.md
++++ b/website/pages/status.es.md
+@@ -898,3 +898,198 @@ Controlador de GPU Coreboot:
+   nuevo controlador de GPU escrito en ADA. Cuando el campo está en blanco,
+   significa que no miramos qué controlador de GPU se usó ni su
+   estabilidad.
++
++Versiones "Upstream" (Contracorriente) usadas por GNU Boot
++==========================================================
++
+++-------------------+---------+------------+------------------------+----------+
++| proyecto          | Versión | Necessita  | Computadoras usando    | Desde    |
++| "Upstream"        |         | deblobbing | eso                    | versión  |
++| (Contracorriente) |         |            |                        | GNU Boot |
+++-------------------+---------+------------+------------------------+----------+
++| Coreboot          | 4.11+   | Sí         | Asus: KCMA-D8, KFSN4,  | 0.1 RC1  |
++|                   |         |            | KGPE-D16               |          |
+++-------------------+---------+------------+------------------------+----------+
++| Coreboot          | 4.15+   | Sí         | Todas excluyendo Asus  | 0.1 RC1  |
++|                   |         |            | KCMA-D8, KFSN4,        |          |
++|                   |         |            | KGPE-D16               |          |
+++-------------------+---------+------------+------------------------+----------+
++| GRUB              | 2.06+   | No         | Todas las Computadoras | 0.1 RC6  |
++|                   |         |            | sostenidas             |          |
+++-------------------+---------+------------+------------------------+----------+
++| Memtest86+ for    | v002+   | No         | Todas excluyendo       | 0.1 RC1  |
++| Coreboot          |         |            | Gigabyte GA-G41M-ES2L  |          |
++|                   |         |            | y Intel D510MO         |          |
+++-------------------+---------+------------+------------------------+----------+
++| SeaBIOS           | 1.14.0+ | No         | Todas las Computadoras | 0.1 RC1  |
++|                   |         |            | sostenidas             |          |
+++-------------------+---------+------------+------------------------+----------+
++
++Reproducible builds
++===================
++
++Este sigue el estado de las reproducible builds en GNU Boot.
++
++Consulte la página [Building GNU Boot from source
++chapter](../manual/gnuboot.html#Building-GNU-Boot-from-source) en inglés para
++más detalles.
++
++Ten en cuenta que el tabla que es abajo es para las [imágenes GNU
++Boot](../manual/gnuboot.html#index-flash-images) (en inglés) que son lo que
++son instaladas y son lo que interesa mas los usuarios.
++
+++------------------+----------------------------+--------------+-------------+
++| Provenida        | Ruta en la imagen          | Reproducible | Uso         |
+++------------------+----------------------------+--------------+-------------+
++| Coreboot         | CBFS headers               | Desconocido  | todas las   |
++|                  |                            |              | imagenes    |
+++------------------+----------------------------+--------------+-------------+
++| Coreboot         | /bootblock                 | Desconocido  | todas las   |
++|                  |                            |              | imagenes    |
+++------------------+----------------------------+--------------+-------------+
++| Coreboot         | /build_info                | Desconocido  | todas las   |
++|                  |                            |              | imagenes    |
+++------------------+----------------------------+--------------+-------------+
++| Coreboot         | /cmos.default              | Desconocido  | todas las   |
++|                  |                            |              | imagenes    |
++|                  |                            |              | excluyendo  |
++|                  |                            |              | imagenes    |
++|                  |                            |              | para 16MB   |
++|                  |                            |              | macbook     |
+++------------------+----------------------------+--------------+-------------+
++| Coreboot         | /cmos_layout.bin           | Desconocido  | todas las   |
++|                  |                            |              | imagenes    |
+++------------------+----------------------------+--------------+-------------+
++| Coreboot         | /config                    | Desconocido  | todas las   |
++|                  |                            |              | imagenes    |
+++------------------+----------------------------+--------------+-------------+
++| Coreboot         | /data_ccfl.vbt             | N/A: no      | todas las   |
++|                  |                            | construido   | imagenes    |
+++------------------+----------------------------+--------------+-------------+
++| Coreboot         | /data_led.vbt              | N/A: no      | todas las   |
++|                  |                            | construido   | imagenes    |
+++------------------+----------------------------+--------------+-------------+
++| Coreboot         | /vbt.bin                   | Desconocido  | computers   |
++|                  |                            |              | with Intel  |
++|                  |                            |              | GPU         |
+++------------------+----------------------------+--------------+-------------+
++| Coreboot         | /fallback/dsdt.aml         | Desconocido  | todas las   |
++|                  |                            |              | imagenes    |
+++------------------+----------------------------+--------------+-------------+
++| Coreboot         | /fallback/postcar          | Desconocido  | todas las   |
++|                  |                            |              | imagenes    |
++|                  |                            |              | excluyendo  |
++|                  |                            |              | imagenes    |
++|                  |                            |              | para        |
++|                  |                            |              | KGPE-D16 y  |
++|                  |                            |              | KCMA-D8     |
+++------------------+----------------------------+--------------+-------------+
++| Coreboot         | /fallback/ramstage         | Desconocido  | todas las   |
++|                  |                            |              | imagenes    |
+++------------------+----------------------------+--------------+-------------+
++| Coreboot         | /fallback/romstage         | Desconocido  | todas las   |
++|                  |                            |              | imagenes    |
+++------------------+----------------------------+--------------+-------------+
++| Coreboot         | /revision                  | Desconocido  | todas las   |
++|                  |                            |              | imagenes    |
+++------------------+----------------------------+--------------+-------------+
++| Coreboot         | /rt8168-macaddress         | Desconocido  | todas las   |
++|                  |                            |              | imagenes    |
+++------------------+----------------------------+--------------+-------------+
++| GRUB             | /fallback/payload          | Desconocido  | imagenes    |
++|                  |                            |              | GRUB        |
+++------------------+----------------------------+--------------+-------------+
++| GRUB             | /img/grub2                 | Desconocido  | imagenes    |
++|                  |                            |              | SeaBIOS     |
+++------------------+----------------------------+--------------+-------------+
++| Memtest86+ for   | /img/memtest               | Desconocido  | mas de la   |
++| Coreboot         |                            |              | mitad de    |
++|                  |                            |              | las         |
++|                  |                            |              | imagenes    |
+++------------------+----------------------------+--------------+-------------+
++| SeaBIOS          | /fallback/payload          | Desconocido  | imagenes    |
++|                  |                            |              | SeaBIOS     |
+++------------------+----------------------------+--------------+-------------+
++| SeaBIOS          | /vgaroms/seavgabios.bin    | Desconocido  | todas las   |
++|                  |                            |              | imagenes    |
+++------------------+----------------------------+--------------+-------------+
++| ich9gen          | Intel flash descriptor     | Sí:          | ThinkPads   |
++|                  |                            | verificado   | GM45        |
++|                  |                            | por suma de  |             |
++|                  |                            | verificación |             |
+++------------------+----------------------------+--------------+-------------+
++| ich9gen          | Intel Gigabit ethernet     | Sí:          | ThinkPads   |
++|                  | partition                  | verificado   | GM45        |
++|                  |                            | por suma de  |             |
++|                  |                            | verificación |             |
+++------------------+----------------------------+--------------+-------------+
++| GNU Boot build   | /background.png            | Desconocido  | todas las   |
++| system           |                            |              | imagenes    |
++|                  |                            |              | excluyendo  |
++|                  |                            |              | imagenes    |
++|                  |                            |              | para        |
++|                  |                            |              | d945gclf y  |
++|                  |                            |              | kfsn4-dre   |
+++------------------+----------------------------+--------------+-------------+
++| GNU Boot build   | /etc/only-load-option-roms | Desconocido  | todas las   |
++| system           |                            |              | imagenes    |
+++------------------+----------------------------+--------------+-------------+
++| GNU Boot build   | /etc/optionroms-checksum   | Desconocido  | todas las   |
++| system           |                            |              | imagenes    |
+++------------------+----------------------------+--------------+-------------+
++| GNU Boot build   | /etc/pci-optionrom-exec    | Desconocido  | todas las   |
++| system           |                            |              | imagenes    |
+++------------------+----------------------------+--------------+-------------+
++| GNU Boot build   | /etc/ps2-keyboard-spinup   | Desconocido  | todas las   |
++| system           |                            |              | imagenes    |
+++------------------+----------------------------+--------------+-------------+
++| GNU Boot build   | /grub.cfg                  | Desconocido  | todas las   |
++| system           |                            |              | imagenes    |
++|                  |                            |              | excluyendo  |
++|                  |                            |              | imagenes    |
++|                  |                            |              | para        |
++|                  |                            |              | d945gclf y  |
++|                  |                            |              | kfsn4-dre   |
+++------------------+----------------------------+--------------+-------------+
++| GNU Boot build   | /grubtest.cfg              | Desconocido  | kfsn4-dre   |
++| system           |                            |              |             |
+++------------------+----------------------------+--------------+-------------+
++| GNU Boot build   | pci1000,0072.rom           | N/A: archivo | KGPE-D16 y  |
++| system           |                            | vacío        | KCMA-D8     |
+++------------------+----------------------------+--------------+-------------+
++| GNU Boot build   | pci1000,3050.rom           | N/A: archivo | KGPE-D16 y  |
++| system           |                            | vacío        | KCMA-D8     |
+++------------------+----------------------------+--------------+-------------+
++
++Ten en cuenta que no todo es en el tabla que esta encima:
++
++* El archivo gnuboot-trisquel-grub.img, que es producido por GNU Boot
++  y que es usado durante las pruebas automáticas es reproducible.
++
++  Se puede usar como ejemplo para hacer reproducible otros componentes
++  construido con Guix.
++
++Limitaciones
++============
++
++* Las imágenes SeaBIOS no tienen suporte VGA (Bug
++  [#65922](https://savannah.gnu.org/bugs/index.php?65922)). La consecuencia es
++  que los usuarios deben editar /etc/default/grub antes de instalar y/o usar
++  imágenes SeaBIOS.
++
++* El sitio web tiene muchas pagines que no hayan repasadas.
++
++  Pueden ser identificadas fácilmente porque tienen una pancarta que explica
++  los riesgos de usar información en estas paginas.
++
++* GNU Boot no tiene instrucciones de instalación y/o de mejoramiento que son
++  buenas. No hayan repasadas correctamente, y algunas son para personas muchas
++  técnicas que saben lo que son haciendo: algunas paginas necesitan ser un
++  experto en electrónica y conocer las buenas procedimientos de seguridad que
++  usualmente non son documentadas ni siquiera mencionadas.
++
++  Es precisamente para eso que estas paginas tienen un aviso que explica los
++  riesgos de seguir estas instrucciones ciegamente sin haber formación
++  profesional en electrónicas.
++
++* GNU Boot ahora tiene un manual pero es incompleto.
+diff --git a/website/pages/status.md b/website/pages/status.md
+index bcf520492e..5ca3b26fb4 100644
+--- a/website/pages/status.md
++++ b/website/pages/status.md
+@@ -1,7 +1,6 @@
+ title: GNU Boot status
+ ---
+ 
+-
+ Experimental support for some computers
+ =======================================
+ 
+-- 
+2.34.1
+
