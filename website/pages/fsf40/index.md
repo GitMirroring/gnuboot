@@ -16,6 +16,23 @@ your work getting into GNU Boot as-is by picking tasks that are easy
 for you, and that you have a chance to finish, and to polish for
 inclusion into GNU Boot.
 
+You could also be interested in tasks that are not below, for instance
+to make GNU Boot better suit your needs and/or because you care about
+issues we may not even thought of or that we didn't add below because
+it would make the list too long. Doing all that is also fine: The GNU
+Boot maintainers are available during the FSF40 hackathon, so it can
+be a good occasion to get some help to contribute to GNU Boot, even
+for tasks not listed below.
+
+If you want to work on tasks that are not defined below, if you're not
+already familiar with the [GNU Boot contribution
+instructions](https://www.gnu.org/software/gnuboot/contribute.html),
+it is strongly advised to read them and/or to consult with the GNU
+Boot maintainers before starting working on your task because in the
+past we had contributions that were out of scope for GNU Boot, and
+because of that we could not really use them, and we don't want to
+waste anybody's time (this obviously includes your time as well).
+
 Tasks that don't require any specific hardware or software
 ==========================================================
 
