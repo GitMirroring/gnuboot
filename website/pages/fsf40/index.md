@@ -512,20 +512,17 @@ Remove nonfree software in arm-trusted-firmware in free GNU/Linux distros
 The description of the task was the following:
 
 ```
-[Leah Rowe found a nonfree hdcp.bin in GNU
-Boot](https://web.archive.org/web/20250831183645/https://lists.gnu.org/archive/html/gnuboot-patches/2024-10/msg00028.html).
+[Leah Rowe found a nonfree hdcp.bin in GNU Boot](https://web.archive.org/web/20250831183645/https://lists.gnu.org/archive/html/gnuboot-patches/2024-10/msg00028.html).
 
 This issue has long been fixed in GNU Boot, but it's not fixed in
 GNU/Linux distributions.
 
 This task would consist in removing this nonfree software in Guix, and
-all [free GNU/Linux
-distributions](https://www.gnu.org/distros/free-distros.html), but also
+all [free GNU/Linux distributions](https://www.gnu.org/distros/free-distros.html), but also
 to notify other distributions like Debian that have a policy against
 the inclusion of nonfree software in some of their repositories.
 
-The [Bug
-#66246](https://web.archive.org/web/20250513221412/https://savannah.gnu.org/bugs/?66246)
+The [Bug #66246](https://web.archive.org/web/20250513221412/https://savannah.gnu.org/bugs/?66246)
 is an example of how we dealt with a similar issue after finding
 nonfree software in vboot.
 
@@ -537,8 +534,7 @@ and will probably use Guix and/or GNU Boot to go forward with the port
 of Replicant to the Pinephone.
 ```
 
-Jiyu (info@jiyu.dev) completed the task and wrote [a
-report](https://nextcloud.jiyu.dev/s/KcZYtiEq3ENy7Dk/download/hdcpbin.org)
+Jiyu (info@jiyu.dev) completed the task and wrote [a report](https://nextcloud.jiyu.dev/s/KcZYtiEq3ENy7Dk/download/hdcpbin.org)
 about it and also answered questions about it on #gnuboot in
 Libera.Chat.
 
