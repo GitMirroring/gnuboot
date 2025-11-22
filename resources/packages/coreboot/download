@@ -249,8 +249,8 @@ if [ "${deleteblobs}" = "true" ]; then
 		bloblist="resources/coreboot/${cbtree}/blobs.list"
 		if [ -f "${bloblist}" ]; then
 			for blobfile in $(cat "${bloblist}"); do
-				printf "Deleting blob: 'coreboot/%s/%s'\n" "${cbtree}" "${blobfile}"
-				rm -f "coreboot/${cbtree}/${blobfile}"
+				printf "Deleting blob(s): 'coreboot/%s/%s'\n" "${cbtree}" "${blobfile}"
+				rm -Rf "coreboot/${cbtree}/${blobfile}"
 			done
 		fi
 		rmlist="resources/coreboot/${cbtree}/rm.list"
