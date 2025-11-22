@@ -5,7 +5,7 @@
 3rdparty/arm-trusted-firmware/plat/rockchip/rk3399/drivers/dp/hdcp.bin
 3rdparty/chromeec/test/legacy_nvmem_dump.h
 3rdparty/chromeec/third_party/bmi260/accelgyro_bmi260_config_tbin.h
-3rdparty/vboot/tests/futility/data/*
+3rdparty/vboot/tests/futility/data/
 src/vendorcode/amd/agesa/f14/Proc/CPU/Family/0x14/F14MicrocodePatch0500000B.c
 src/vendorcode/amd/agesa/f14/Proc/CPU/Family/0x14/F14MicrocodePatch0500001A.c
 src/vendorcode/amd/agesa/f14/Proc/CPU/Family/0x14/F14MicrocodePatch05000029.c
