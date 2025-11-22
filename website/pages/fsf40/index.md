@@ -242,7 +242,7 @@ Bug-report: https://savannah.gnu.org/bugs/?12345
 
 Having broken links isn't nice and so this should be fixed.
 
-In this case the following patch could help, as we also need to
+In this case the following patch has been applied, as we also need to
 properly integrate the SVG source code of the logos we have in GNU
 Boot:
 
