@@ -49,7 +49,7 @@ fi
 # ------------------------------------------------------------------------------
 
 # download it using git
-git clone https://notabug.org/libreboot/ich9utils.git
+git clone https://forge.a-lec.org/GNUBoot/ich9utils
 
 if [ ! -d "ich9utils" ]; then
     printf "ich9utils not downloaded; check network connection?\n\n"
