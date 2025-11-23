@@ -23,6 +23,7 @@ src/vendorcode/amd/agesa/f16kb/Proc/CPU/Family/0x16/KB/F16KbId7001MicrocodePatch
 src/vendorcode/amd/agesa/f16kb/Proc/GNB/Modules/GnbInitKB/AlibSsdtKB.h
 src/vendorcode/amd/agesa/f16kb/Proc/GNB/Modules/GnbInitKB/GnbSamuPatchKB.h
 src/vendorcode/amd/agesa/f16kb/Proc/GNB/Modules/GnbInitKB/GnbSmuFirmwareKB.h
+src/vendorcode/cavium/bdk/libbdk-hal/if/bdk-if-phy-vetesse-8514.c
 src/vendorcode/cavium/bdk/libbdk-hal/if/bdk-if-phy-vetesse.c
 src/vendorcode/intel/fsp1_0/baytrail/absf/minnowmax_1gb.absf
 src/vendorcode/intel/fsp1_0/baytrail/absf/minnowmax_2gb.absf
