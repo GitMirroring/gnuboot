@@ -51,17 +51,11 @@ GUIX_PACK_COMMAND = \
 $(PACK_NAME): \
 	$(RELEASE_DIR)/$(PACK_NAME)-deb-pack.deb \
 	$(RELEASE_DIR)/$(PACK_NAME)-tarball-pack.tar.gz \
-	$(RELEASE_DIR)/packages_src.tar \
-	$(RELEASE_DIR)/gnuboot_src.tar
+	$(RELEASE_DIR)/packages_src.tar
 
 # To better fit in the current package structure
 $(PACK_NAME)-download: $(PACK_NAME)
 $(PACK_NAME)-module: $(PACK_NAME)
-
-# TODO: Make sure the tarball is reproducible
-$(RELEASE_DIR)/gnuboot_src.tar:  Makefile
-	install -d $(RELEASE_DIR)
-	$(TOPDIR)/resources/git/git -C $(TOPDIR) archive HEAD > $@
 
 # TODO: Use Guix to produce a source package to make it reproducible
 $(RELEASE_DIR)/packages_src.tar:  Makefile
@@ -113,9 +107,6 @@ $(PACK_NAME)-help:
 		"make $(PACK_NAME)-module    #" \
 		"Alias to $(PACK_NAME) for compatibility."
 
-	@printf "\t%s %s\n"                              \
-		"make $(RELEASE_DIR)/gnuboot_src.tar  #" \
-		"Release the GNU Boot source code."
 	@printf "\t%s %s\n"                              \
 		"make $(RELEASE_DIR)/packages_src.tar #" \
 		"Relase the source code corresponding to the package binaries."
