@@ -1661,7 +1661,6 @@ use. Compared with SeaBIOS images with text-only low resolution:
 
 @end itemize
 
-
 @node    SeaBIOS images requirements
 @section SeaBIOS images requirements
 
@@ -2006,6 +2005,41 @@ filesystems the distributions or operating system use to boot.
 
 If you're unsure what filesystem to use, having a @emph{/boot}
 filesystem with @emph{ext4} should work in all cases.
+
+If you don't know if you have a separate @emph{/boot} filesystem, you
+can check it with the following command:
+
+@example:
+mount | grep '/boot'
+@end example
+
+If it prints nothing then it means that you don't have a separate
+@emph{/boot} filesystem.
+
+In that case it is possible to create one but it is not trivial to
+come up with instructions that work in all cases. An alternative here
+would be to backup all your data and the list of applications you use,
+reinstall GNU/Linux and then restore your data and reinstall the
+applications you had. This might work because most installers do
+create a @emph{/boot} filesystem by default.
+
+The following distributions are known to create a @emph{/boot} by
+default during the installation:
+
+@itemize
+@item Trisquel 11 (aramo) when selecting the default
+      (@emph{Erase disk and install Trisquel}) with the graphical
+      installer (@emph{trisquel_11.0_amd64.iso}).
+
+@end itemize
+
+If you do have a @emph{/boot} filesystem, the output of the command
+above should look more or less like that (it might change a bit
+depending on your configuration and/or your distribution):
+
+@example:
+/dev/sda1 on /boot type ext4 (rw,relatime)
+@end example
 
 Also note that in the review of the support of various filesystems
 below doesn't take into account things like resizing the filesystems
