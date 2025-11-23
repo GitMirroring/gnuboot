@@ -49,11 +49,8 @@ to get WiFi that work with free software, etc, and they work with the
 hardware you bring to them. So if the hardware has defects they won't
 be able to fix it.
 
-Known install parties:
-
-* In May 2024 there was a GNU Boot install party at the Libreplanet
-  conference. Since this conference happens every year, you might want
-  to check next year(s) if there is a GNU Boot install party there.
+See the [events page](../../events/) for previous, current, or future
+install parties.
 
 Installation instructions
 =========================
