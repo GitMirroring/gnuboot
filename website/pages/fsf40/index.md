@@ -2,11 +2,22 @@
 title: FSF40 Hackathon
 ...
 
-Introduction
+Foreword
 ============
 
-GNU Boot participates in the [FSF40
-hackathon](https://www.fsf.org/events/fsf40-hackathon).
+GNU Boot participated in the [FSF40
+hackathon](https://www.fsf.org/events/fsf40-hackathon), which lasted from November 21, 2025, 10:00 a.m. (EST) to
+November 23, 2025, 10:00 a.m. (EST).
+
+This page remains an archive of this event, and the present tense should be
+understood as past tense.
+
+When the FSF40 Hackathon started, the GNU Boot repository was at commit
+39c70840617d2fd849284919232b0cc09384a96c. You can see it as a reference commit
+for every patch listed in the tasks summary.
+
+Introduction
+============
 
 As part of this hackathon GNU Boot has worked on defining some tasks
 that you might be interested in contributing to.
