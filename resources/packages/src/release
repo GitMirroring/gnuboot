@@ -57,7 +57,7 @@ mkdir -p "${srcdir}/"
 
 printf "%s" "${version}" > "${srcdir}"/version
 
-modlist="coreboot grub i945-thinkpads-install-utilities memtest86plus seabios ich9utils"
+modlist="coreboot grub i945-thinkpads-install-utilities memtest86plus seabios"
 dirlist="resources"
 filelist="download build README.md COPYING Makefile update version versiondate projectname"
 

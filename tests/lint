@@ -63,7 +63,6 @@ run_shellcheck \
     resources/packages/i945-thinkpads-install-utilities/distclean \
     resources/packages/i945-thinkpads-install-utilities/download \
     resources/packages/i945-thinkpads-install-utilities/module \
-    resources/packages/ich9utils/distclean \
     resources/packages/manual/clean \
     resources/packages/manual/distclean \
     resources/packages/manual/test \

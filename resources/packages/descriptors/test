@@ -14,7 +14,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-. resources/scripts/misc/sysexits.sh
+topdir="$(realpath "$(dirname "$(dirname "$(dirname "$(dirname "$0")")")")")"
+
+. "${topdir}"/resources/scripts/misc/sysexits.sh
 
 usage()
 {
@@ -28,7 +30,7 @@ usage()
 
 test_descriptors()
 {
-    sha512sum -c resources/packages/descriptors/descriptors.sha512
+    sha512sum -c "${topdir}"/resources/packages/descriptors/descriptors.sha512
 }
 
 if [ $# -eq 1 ] && { [ "$1" = "-h" ] || [ "$1" == "--help" ] ;} ; then

@@ -54,12 +54,13 @@ Another project: <http://io.netgarage.org/me/>
 ich9utils
 =========
 
-You can find `ich9utils` on the [Git page](../../contribute.md) or you can download
-`lbmk` from the same page and run the following command in there:
+The ich9utils utilities can be found at an [old location where
+ Libreboot was previously
+ hosted](https://notabug.org/libreboot/ich9utils.git).
 
-    ./build module ich9utils
-
-You can also find it in the source code tar archives, on Libreboot releases.
+Alternatively, you can also consult the
+resources/packages/descriptors/build file to understand how to build
+ich9utils with Guix.
 
 In `lbmk`, you can use the following command to generate descriptors:
 
