@@ -43,7 +43,28 @@
     (file-name (git-file-name "coreboot" coreboot-version))
     (sha256
      (base32
-      "125qw98f8zfhq0d5rpawxsjghqxwmg6yha1r1dqmwbxd7i12bj8f"))))
+      "125qw98f8zfhq0d5rpawxsjghqxwmg6yha1r1dqmwbxd7i12bj8f"))
+    (snippet
+     #~(begin
+         (use-modules (guix build utils))
+         (for-each
+          delete-file
+          (list
+           ;; The data.1.bin and data.4.bin were found thanks
+           ;; to the Canoeboot nuke.list that is in
+           ;; config/coreboot/default/nuke.list. Both files
+           ;; are ELF files and they do contain code
+           ;; (verified with strings).
+           "tests/data/lib/lzma-test/data.1.bin"
+           "tests/data/lib/lzma-test/data.4.bin"
+           ;; This contains an array named init_script_rev_a with a
+           ;; lot of hexadecimal values. It is unclear if it is code
+           ;; or data but the array name suggest it is code.
+           "src/vendorcode/cavium/bdk/libbdk-hal/if/bdk-if-phy-vetesse-8514.c"
+           ;; This one is in
+           ;; resources/coreboot/fam15h_rdimm/blobs.list and it
+           ;; contains a firmware whose source code is missing.
+           "src/vendorcode/cavium/bdk/libbdk-hal/if/bdk-if-phy-vetesse.c"))))))
 
 (define-public bucts
   (package
