@@ -291,45 +291,6 @@ This is extremely important for GNU Boot as Guix for several reasons:
 This would also benefit Replicant as well as its blog is being
 migrated to Haunt which is only packaged in Guix.
 
-Investigate nonfree software in u-boot
---------------------------------------
-
-Recent u-boot probably have nonfree software. So these would require
-to investigate the following:
-
-[The Debian Copyrights file for
-u-boot](https://metadata.ftp-master.debian.org/changelogs/main/u/u-boot/u-boot_2025.01-3_copyright)
-doesn't seems to list nonfree software in u-boot, however there is
-clearly nonfree code.
-
-Recent u-boot still have the
-drivers/usb/host/xhci-rcar-r8a779x_usb3_v3.h which nonfree code in it
-and a nonfree license. The arch/x86/dts/microcode/ directory is also
-still present. See the [blobs.list](blobs.list) file from GNU Boot
-source codefor more details.
-
-In addition there is also the [GNU Boot Bug
-#64904](https://savannah.gnu.org/bugs/?64904) that raises additional concerns about u-boot.
-
-Here this task consist in investigating what happened in Debian to
-make sure we are on the right track, and contacting all [free
-GNU/Linux distribution](https://www.gnu.org/distros/free-distros.html)
-and other distributions as well that have a policy against the
-inclusion of nonfree software in some of their repositories.
-
-It might also require to contribute to
-[common-distros](https://www.gnu.org/distros/common-distros.html) in
-case some nonfree distributions changed policies.
-
-Once the investigation is done, the task would consist in fixing this
-issue in [free GNU/Linux
-distribution](https://www.gnu.org/distros/free-distros.html),
-especially Guix as GNU Boot wants to reuse Guix to add ARM support.
-
-This would also benefit Replicant as well that needs a free bootloader
-and will probably use Guix and/or GNU Boot to go forward with the port
-of Replicant to the Pinephone.
-
 Remove nonfree software in vboot in free GNU/Linux distros
 ----------------------------------------------------------
 
@@ -549,6 +510,65 @@ GNUtoo also confirmed that the nonfree binary was gone in both Guix
 
 So GNU Boot has now one blob less to worry about. Thanks a lot for the
 work.
+
+Investigate nonfree software in u-boot
+--------------------------------------
+
+The description of the task was the following:
+
+> Recent u-boot probably have nonfree software. So these would require
+> to investigate the following:
+>
+> [The Debian Copyrights file for
+> u-boot](https://metadata.ftp-master.debian.org/changelogs/main/u/u-boot/u-boot_2025.01-3_copyright)
+> doesn't seems to list nonfree software in u-boot, however there is
+> clearly nonfree code.
+>
+> Recent u-boot still have the
+> drivers/usb/host/xhci-rcar-r8a779x_usb3_v3.h which nonfree code in it
+> and a nonfree license. The arch/x86/dts/microcode/ directory is also
+> still present. See the [blobs.list](blobs.list) file from GNU Boot
+> source codefor more details.
+>
+> In addition there is also the [GNU Boot Bug
+> #64904](https://savannah.gnu.org/bugs/?64904) that raises additional
+> concerns about u-boot.
+>
+> Here this task consist in investigating what happened in Debian to
+> make sure we are on the right track, and contacting all [free
+> GNU/Linux distribution](https://www.gnu.org/distros/free-distros.html)
+> and other distributions as well that have a policy against the
+> inclusion of nonfree software in some of their repositories.
+>
+> It might also require to contribute to
+> [common-distros](https://www.gnu.org/distros/common-distros.html) in
+> case some nonfree distributions changed policies.
+>
+> Once the investigation is done, the task would consist in fixing this
+> issue in [free GNU/Linux
+> distribution](https://www.gnu.org/distros/free-distros.html),
+> especially Guix as GNU Boot wants to reuse Guix to add ARM support.
+>
+> This would also benefit Replicant as well that needs a free bootloader
+> and will probably use Guix and/or GNU Boot to go forward with the port
+> of Replicant to the Pinephone.
+
+Jiyu (info@jiyu.dev) completed the task: 3 nonfree files were found in
+the Guix u-boot package and [a
+fix](https://codeberg.org/guix/guix/pulls/4403) was sent to Guix. The
+fix was tested and validated by a GNU Boot maintainer.
+
+Jiyu also managed to [report the issue to
+Debian](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1121239):
+this way Trisquel will have an easier time fixing the issue if it is
+affected.
+
+Normally Debian should fix it as in the past, a GNU Boot maintainer
+reported freedom issues in the vboot-utils Debian package and it ended
+up being fixed in the package.
+
+Jiyu also updated the [GNU Boot bug that tracks issues within
+u-boot](https://savannah.gnu.org/bugs/?67727).
 
 Dependencies
 ============
