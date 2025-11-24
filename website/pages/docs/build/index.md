@@ -164,11 +164,11 @@ to build an image for a specific computer).
 To build GNU Boot you must first ensure that all build dependencies
 are installed.
 
-If you are running PureOS 10 (byzantium), Trisquel 10 (nabia) or
-Trisquel 11 (aramo), you can run the following command as it takes
-care of installing all the required dependencies for you:
+If you are running a supported distribution, you can run the following
+command as it takes care of installing all the required dependencies
+for you:
 
-    sudo make install-dependencies-pureos-trisquel
+    sudo make install-dependencies
 
 You can then build everything with this command:
 
