@@ -114,8 +114,8 @@ include resources/packages/i945-thinkpads-install-utilities/Makefile.am
 
 help:
 	@printf "Available make commands/targets :\n"
-	@printf "\t# Install required dependencies on PureOS 10 (byzantium).\n"
-	@printf "\tsudo make install-dependencies-pureos-trisquel\n\n" \
+	@printf "\t# Install required dependencies to build GNU Boot.\n"
+	@printf "\tsudo make install-dependencies\n\n" \
 	@printf "\tmake release                               # %s\n" \
 		"Build a GNU Boot release."
 	@printf "\tmake clean                                 # %s\n" \
