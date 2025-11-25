@@ -61,6 +61,7 @@ $(RELEASE_DIR)/packages_src.tar:  Makefile
 		source $(TOPDIR)/resources/scripts/misc/guix.sh && \
 		source_guix_profile && \
 		$(TOPDIR)/resources/wrapper/guix build \
+		--system=i686-linux \
 		-c $(GUIX_BUILD_MAX_CORES) \
 		--sources=transitive \
 		$(GUIX_PACKAGE_NAMES) | sort -u`
