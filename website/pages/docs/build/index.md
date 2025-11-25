@@ -209,6 +209,11 @@ You can specify more than one argument:
 
 ROM images appear under the newly created `bin/` directory in the build system.
 
+If for any reasons, the build is interrupted, you will need to delete
+both the bin/ and bin-dbg/ directories if they exist, otherwise the
+build system will assume that the build went fine and this might
+create issues later on, especially if you want to build a release.
+
 For other commands, simply read the `Makefile` in your favourite text
 editor.  The `Makefile` is simple, because each commands run a simple
 script, so it's very easy to know what commands are available by
