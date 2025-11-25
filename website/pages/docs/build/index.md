@@ -53,7 +53,7 @@ distributions.
 
 If you run Guix (either as an operating system or on top of another
 distribution), Parabola, Trisquel 10 (nabia), Trisquel 11 (aramo), you
-can use debootstrap to create a chroot of Trisquel 10 (nabia) or
+can use debootstrap to create a chroot of Trisquel 11 (aramo) or
 PureOS 10 (byzantium). Here are the packages you need to install
 depending on your distribution:
 
@@ -62,7 +62,7 @@ depending on your distribution:
 +----------------+-----------------------+-------------------------------------+
 | Guix           | PureOS 10 (byzantium) | debootstrap                         |
 +----------------+-----------------------+-------------------------------------+
-| Guix           | Trisquel 10 (nabia)   | debootstrap                         |
+| Guix           | Trisquel 10 or 11     | debootstrap                         |
 +----------------+-----------------------+-------------------------------------+
 | Parabola       | PureOS 10 (byzantium) | debootstrap, pureos-archive-keyring |
 +----------------+-----------------------+-------------------------------------+
