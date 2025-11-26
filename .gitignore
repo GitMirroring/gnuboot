@@ -47,3 +47,8 @@ config.status
 configure
 install-sh
 missing
+
+# Generated backgrounds. We also want the following to be generic
+# enough to support various resolutions.
+/background*x*.png
+/background*x*.png.scaled_*.png
