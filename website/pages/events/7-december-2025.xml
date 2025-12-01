@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2024,2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+
+     Permission is granted to copy, distribute and/or modify this document
+     under the terms of the GNU Free Documentation License, Version 1.3
+     or any later version published by the Free Software Foundation;
+     with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+     A copy of the license is included in the website/COPYING directory.
+  -->
+<event>
+  <title>Paris: Install party 100% libre à PSL-XXL</title>
+  <start-date>2025-12-07</start-date>
+  <start-hour>10:00</start-hour>
+  <end-hour>18:00</end-hour>
+  <description><![CDATA[
+<p>
+Lors du <a href="https://www.samedis-du-libre.org/article18.html">PSL-XXL</a>, en plus de l’install party classique,
+il y aura aussi une install party 100% libre dans la même salle mais dans un coin séparé.
+</p>
+
+<h3>Pourquoi on fait ça?</h3>
+
+<p>
+  La plupart des distributions ne sont pas 100% libres : en plus des
+  logiciels libres, <a href="https://www.gnu.org/distros/common-distros.fr.html">elle incluent aussi plus ou moins de code pas libre</a>,
+  notamment pour faire marcher le matériel. Certaines vont jusqu'a redistribuer
+  pleins d'applications non-libres.
+</p>
+
+<p>
+  Cela pose des problèmes de sécurité et de liberté plus ou moins
+  importants selon le type de code non libre utilisé.
+</p>
+
+<p>
+  Les distributions 100% libres n’ont pas ce genre de problèmes mais
+  par contre elles sont compatibles avec beaucoup moins de
+  matériel. Du coup ça demande d'utiliser du matériel compatible ou de
+  s'adapter.
+</p>
+
+<p>
+  Avoir une install partie 100% libre en parallèle permet de mieux
+  répondre à toutes ces problématiques.
+</p>
+
+<p>
+  En pratique:
+  <ul>
+    <li>
+      On pourra présenter les problématiques liées au 100% libres et
+      répondre aux questions diverses.
+    </li>
+    <li>
+      Les personnes pourront venir tester leur matériel pour savoir
+      s’il est compatible avec des distributions 100% libres, et
+      contribuer à une base de donnée qui recense la compatibilité
+      matériel avec les distributions 100% libre si on le souhaite
+      (<a href="https://h-node.org/">h-node</a>).
+    </li>
+    <li>
+    On pourra installer <a href="https://www.gnu.org/distros/free-distros.fr.html">des distributions GNU/Linux 100% libres</a>,
+    <a href="https://www.gnu.org/distros/free-non-gnu-distros.fr.html">ou une distribution Android 100% libre</a>, sur n’importe quel matériel supporté par la distribution (y compris des ordinateurs ARM, des téléphones, etc). Distributions supportées:
+        <ul>
+          <li><a href="https://dragora.org/index.html">Dragora</a>
+          <li><a href="https://dyne.org/dynebolic/">Dynebolic</a>
+          <li><a href="https://guix.gnu.org/">Guix</a>
+          <li><a href="https://www.hyperbola.info/">Hyperbola</a></li>
+          <li><a href="https://librecmc.org/">LibreCMC</a></li>
+          <li><a href="https://www.parabola.nu/">Parabola</a></li>
+          <li><a href="https://pureos.net/">PureOS</a></li>
+	  <li><a href="https://www.replicant.us/">Replicant</a> (A noter que Replicant n'est pas à jour niveau sécurité).</li>
+          <li><a href="https://trisquel.info/">Trisquel</a></li>
+        </ul>
+    </li>
+    <li>
+    On pourra aussi installer Canoeboot ou GNU Boot. GNU Boot est un
+    remplacement 100% libre du logiciel de démarrage (BIOS / UEFI) de
+    l'ordinateur. Cela nécessite des ordinateurs compatibles (voir <a href="https://www.gnu.org/software/gnuboot/">le site de GNU Boot</a> ou de <a href="https://canoeboot.org/">Canoeboot</a> pour plus de détails).
+    Pensez à venir tôt pour ce genre installations.
+
+    A noter que même si Canoeboot est 100% libre, il ne remplace pas tout les logiciels de démarrage.
+    </li>
+    <li>
+      Pour les personnes qui ne veulent pas ou ne peuvent pas changer de
+      distributions il y a aussi des projets qui redistribuent du logiciel
+      indépendamment de la distribution que l’on utilise déjà, comme Guix,
+      GSRC, ELPA, Hackage, etc. Et on peut aussi informer sur les problème
+      que l’on peut avoir quand ce genre de projets ne redistribuent pas
+      que du libre (examples : Pip, R, Snap, Docker HUB, les addons
+      firefox ou dans des jeux, etc).
+    </li>
+  </ul>
+</p>
+
+<p>
+Les mêmes conseils que pour l’install partie généraliste s’appliquent aussi :
+avoir fait des sauvegardes des fichiers importants, arriver le plus tôt possible, etc.
+</p>
+]]></description>
+    <place_name>
+      Cité des sciences et de l'industrie; Carrefour Numérique niveau -1
+    </place_name>
+    <address>30 avenue Corentin Cariou</address>
+    <city>Paris</city>
+
+    <region>Île-de-France</region>
+    <url>https://gnu.org/software/gnuboot/events</url>
+    <!-- We don't have a private contact address yet, and the Agenda
+         du Libre sends mails with links that enable to modify the
+         events, and so these mails can't be made public.
+      -->
+    <contact>GNUtoo@cyberdimension.org</contact>
+    <submitter>GNUtoo@cyberdimension.org</submitter>
+    <!-- We can't have 1 tag per line, they must be separated by
+         exactly one space
+      -->
+    <tags>canoeboot dragora dynebolic elpa gnuboot gsrc guix h-node hackage hyperbola librecmc parabola proteanos pureos replicant trisquel</tags>
+</event>
