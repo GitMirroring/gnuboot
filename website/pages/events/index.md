@@ -13,8 +13,8 @@ forgot to update this page.
   Hamburg, Germany, with an install party and presentation(s).
 
 * 6 and 7 December 2025: GNU Boot participates in a [100% free install
-  party](https://www.samedis-du-libre.org/article20.html#install_party_entierement_libre)
-  within a bigger install party in Paris, France.
+  party](https://www.agendadulibre.org/events/34007) within a bigger
+  install party in Paris, France.
 
 * 21 November 2025 from 10:00 AM to 23 November 2025 to 10:00 AM: GNU
   Boot participates to the FSF40 hackathon, online. See the [FSF40
