@@ -365,8 +365,8 @@ make_grubrom_from_keymap() {
 		cp "${grubcfg}" "${tmpgrubcfg}"
 		cp "${grubtestcfg}" "${tmpgrubtestcfg}"
 	fi
-	"${cbfstool_path}" "${tmprom}" add -f "${tmpgrubcfg}" -n grub.cfg -t raw
-	"${cbfstool_path}" "${tmprom}" add -f "${tmpgrubtestcfg}" -n grubtest.cfg -t raw
+	"${cbfstool_path}" "${tmprom}" add -f "${tmpgrubcfg}" -n grub.cfg -t raw  -c lzma
+	"${cbfstool_path}" "${tmprom}" add -f "${tmpgrubtestcfg}" -n grubtest.cfg -t raw -c lzma
 	rm -f "${tmpgrubcfg}" "${tmpgrubtestcfg}"
 
 	backgroundfile=""
@@ -381,7 +381,7 @@ make_grubrom_from_keymap() {
 		generate_background_picture 1280 800 "${backgroundfile}"
 	fi
 
-	"${cbfstool_path}" "${tmprom}" add -f ${backgroundfile} -n background.png -t raw
+	"${cbfstool_path}" "${tmprom}" add -f ${backgroundfile} -n background.png -t raw -c lzma
 
 	printf "%s\n" "${tmprom}"
 }
