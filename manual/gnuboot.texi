@@ -2240,8 +2240,11 @@ or issues at the time of writing.
 
 GNU Boot does support the F2FS filesystems, however we don't have
 extensive use of it, so we are not very familiar with it. Though it
-should be stable and we are also not aware of any limitations or
-issues at the time of writing.
+should be stable.
+
+One limitation we are aware of is that F2FS partitions with the
+extra_attr can't be read with GRUB. We are not aware of other
+limitations at the time of writing.
 
 @node          NILFS2
 @subsubsection NILFS2
