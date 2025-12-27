@@ -338,11 +338,13 @@ generate_background_picture()
 }
 
 # make a rom in /tmp/ and then print the path of that ROM
-make_grubrom_from_keymap() {
+make_grubrom_from_keymap()
+{
 	target_keymap="${1}"
 	target_cbrom="${2}"
 	cbfstool_path="${3}"
 	target_grubelf_cbfs_path="${4}" # e.g. fallback/payload
+	backgroundfile="${5}"
 
 	grubelf="payload/grub/grub_${target_keymap}.elf"
 	grubcfg="payload/grub/grub_${target_keymap}.cfg"
@@ -369,19 +371,12 @@ make_grubrom_from_keymap() {
 	"${cbfstool_path}" "${tmprom}" add -f "${tmpgrubtestcfg}" -n grubtest.cfg -t raw
 	rm -f "${tmpgrubcfg}" "${tmpgrubtestcfg}"
 
-	backgroundfile=""
-	# TODO: don't hardcode this check. do it in board.cfg per
-	# board or even in GRUB at runtime.
-
-	if [ "${board}" = "x60" ] || [ "${board}" = "t60_intelgpu" ]; then
-		backgroundfile="background1024x768.png"
-		generate_background_picture 1024 768 "${backgroundfile}"
-	else
-		backgroundfile="background1280x800.png"
-		generate_background_picture 1280 800 "${backgroundfile}"
-	fi
-
-	"${cbfstool_path}" "${tmprom}" add -f ${backgroundfile} -n background.png -t raw
+	"${cbfstool_path}" \
+		"${tmprom}" \
+		add \
+		-f "${backgroundfile}" \
+		-n background.png \
+		-t raw
 
 	printf "%s\n" "${tmprom}"
 }
@@ -392,6 +387,8 @@ mkRomsWithGrub() {
 	displaymode="${2}"
 	firstpayloadname="${3}" # allow values: grub, seabios, seabios_withgrub
 	kind="${4}"
+	backgroundfile="${5}"
+
 	romdest=${romdir}
 	name_prefix=""
 
@@ -423,7 +420,12 @@ mkRomsWithGrub() {
 			grub_path_in_cbfs="img/grub2"
 		fi
 
-		tmpgrubrom="$(make_grubrom_from_keymap "${keymap}" "${tmprompath}" "${cbfstool}" "${grub_path_in_cbfs}")"
+		tmpgrubrom="$(make_grubrom_from_keymap \
+						       "${keymap}" \
+						       "${tmprompath}"
+						       "${cbfstool}" \
+						       "${grub_path_in_cbfs}" \
+						       "${backgroundfile}")"
 
 		# Having too much image types complicates things too much for
 		# users. So we even if we can build 2 type of SeaBIOS images,
@@ -446,8 +448,10 @@ mkRomsWithGrub() {
 mkRoms() {
 	cbcfgpath="${1}"
 	displaymode="${2}"
-	destdir=${3}
+	destdir="${3}"
 	kind="${4}"
+	backgroundfile="${5}"
+
 	romdest=${romdir}
 	name_prefix=""
 
@@ -481,13 +485,25 @@ mkRoms() {
 		else
 			tmprom=$(mktemp -t coreboot_rom.XXXXXXXXXX)
 			cp "${corebootrom}" "${tmprom}"
-			mkRomsWithGrub "${tmprom}" "${displaymode}" "seabios_withgrub" ${kind}
+
+			mkRomsWithGrub \
+				"${tmprom}" \
+				"${displaymode}" \
+				"seabios_withgrub" \
+				"${kind}" \
+				"${backgroundfile}"
+
 			rm -f "${tmprom}"
 		fi
 	fi
 
 	if [ "${payload_grub}" = "y" ]; then
-		mkRomsWithGrub "${corebootrom}" "${displaymode}" "grub" ${kind}
+		mkRomsWithGrub \
+			"${corebootrom}" \
+			"${displaymode}" \
+			"grub" \
+			"${kind}" \
+			"${backgroundfile}"
 	fi
 }
 
@@ -496,8 +512,25 @@ for displaymode in corebootfb txtmode; do
 	DEBUGIMG=1
 	REGULARIMG=0
 
+	# TODO: Convert to real Guix packages in order to not rebuild
+	# the same image multiple time, but still rebuild it
+	# automatically when necessary.
+	backgroundfile=""
+	if [ "${board}" = "x60" ] || [ "${board}" = "t60_intelgpu" ]; then
+		backgroundfile="background1024x768.png"
+		generate_background_picture 1024 768 "${backgroundfile}"
+	else
+		backgroundfile="background1280x800.png"
+		generate_background_picture 1280 800 "${backgroundfile}"
+	fi
+
 	# make regular image
-	mkRoms "${cbcfgpath}" "${displaymode}" ${romdir} ${REGULARIMG}
+	mkRoms \
+		"${cbcfgpath}" \
+		"${displaymode}" \
+		"${romdir}" \
+		"${REGULARIMG}" \
+		"${backgroundfile}"
 
 	# check that a debug configuration exists
 	if [ -f "${cbcfgpath}.debug" ]; then
@@ -506,7 +539,12 @@ for displaymode in corebootfb txtmode; do
 		[ -d "${dbgdir}/" ] || mkdir -p "${dbgdir}/"
 
 		# make debug image
-		mkRoms "${cbcfgpath}.debug" "${displaymode}" ${dbgdir} ${DEBUGIMG}
+		mkRoms \
+			"${cbcfgpath}.debug" \
+			"${displaymode}" \
+			"${dbgdir}" \
+			"${DEBUGIMG}" \
+			"${backgroundfile}"
 	fi
 done
 
