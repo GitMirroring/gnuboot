@@ -516,12 +516,15 @@ for displaymode in corebootfb txtmode; do
 	# the same image multiple time, but still rebuild it
 	# automatically when necessary.
 	backgroundfile=""
-	if [ "${board}" = "x60" ] || [ "${board}" = "t60_intelgpu" ]; then
-		backgroundfile="background1024x768.png"
-		generate_background_picture 1024 768 "${backgroundfile}"
-	else
-		backgroundfile="background1280x800.png"
-		generate_background_picture 1280 800 "${backgroundfile}"
+	if [ -f resources/coreboot/"${board}"/config/corebootfb ] ; then
+		if [ "${board}" = "x60" ] || \
+			[ "${board}" = "t60_intelgpu" ]; then
+			backgroundfile="background1024x768.png"
+			generate_background_picture 1024 768 "${backgroundfile}"
+		else
+			backgroundfile="background1280x800.png"
+			generate_background_picture 1280 800 "${backgroundfile}"
+		fi
 	fi
 
 	# make regular image
