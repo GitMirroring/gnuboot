@@ -61,7 +61,7 @@ test_build_guix_system_images()
 {
     cd "${topdir}/manual"
 
-    source "${topdir}"/config.sh
+    source "${topdir}"/conf.sh
 
     if [ "${build_cpu}" = "x86_64" ] ; then
 	bash build-guix-x86_64-linux.sh

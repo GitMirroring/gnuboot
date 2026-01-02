@@ -29,7 +29,7 @@ usage()
 
 run_qemu_x86_64()
 {
-    source config.sh
+    source conf.sh
 
     gnuboot_img_path="$1"
     rootfs_path="$2"
@@ -63,7 +63,7 @@ run_qemu_x86_64()
 
 check_gnuboot_with_lvm()
 {
-    source config.sh
+    source conf.sh
 
     test_name="$1"
     gnuboot_image_path="$2"
