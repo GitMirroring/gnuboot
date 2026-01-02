@@ -31,11 +31,8 @@ eval "$("${topdir}"/guix-revision.sh print-shell)"
 
 source "${topdir}"/resources/scripts/misc/sysexits.sh
 
-# We need ${GUIX_BUILD_MAX_CORES}
-if [ ! -f "${topdir}"/config.sh ] ; then
-    printf "\n" > /dev/stderr
-    printf "ERROR: config.sh not found in GNU Boot top directory (%s)\n" \
-           "${topdir}" > /dev/stderr
+topdir_source_config_error()
+{
     printf "To fix it run the following commands:\n" > /dev/stderr
     printf "\n" > /dev/stderr
     printf "    cd '%s'\n" \
@@ -52,8 +49,24 @@ if [ ! -f "${topdir}"/config.sh ] ; then
            "sections" \
            >/dev/stderr
     exit "${EX_NOINPUT}"
+}
+
+# We need ${GUIX_BUILD_MAX_CORES}
+if [ ! -f "${topdir}"/conf.sh ] ; then
+    printf "\n" > /dev/stderr
+    printf "ERROR: conf.sh not found in GNU Boot top directory (%s)\n" \
+           "${topdir}" > /dev/stderr
+    topdir_source_config_error
 fi
-source "${topdir}"/config.sh
+
+source "${topdir}"/conf.sh
+
+if [ "${GUIX_REVISION}" != "230aa373f315f247852ee07dff34146e9b480aec" ] ; then
+    printf "\n" > /dev/stderr
+    printf "ERROR: The conf.sh file that is in %s is outdated.\n" \
+           "${topdir}" > /dev/stderr
+    topdir_source_config_error
+fi
 
 # We need -C resources/wrapper/channels.scm to make sure to only use
 # the default channels provided by Guix.
