@@ -51,7 +51,7 @@ usage()
 
 build_trisquel_netinst_x86_64()
 {
-    source "${topdir}"/config.sh
+    source "${topdir}"/conf.sh
     source "${topdir}"/resources/scripts/misc/guix.sh
     source_guix_profile
 
@@ -71,7 +71,7 @@ return_trisquel_netinst_x86_64_iso()
 
 build_guix_qemu_x86_64()
 {
-    source "${topdir}"/config.sh
+    source "${topdir}"/conf.sh
     source "${topdir}"/resources/scripts/misc/guix.sh
     source_guix_profile
 
@@ -90,7 +90,7 @@ build_guix_qemu_x86_64()
 
 build_trisquel_preseed_x86_64_img()
 {
-    source "${topdir}"/config.sh
+    source "${topdir}"/conf.sh
     source "${topdir}"/resources/scripts/misc/guix.sh
     source_guix_profile
 
@@ -101,7 +101,7 @@ build_trisquel_preseed_x86_64_img()
 
 build_trisquel_grub_img()
 {
-    source "${topdir}"/config.sh
+    source "${topdir}"/conf.sh
     source "${topdir}"/resources/scripts/misc/guix.sh
     source_guix_profile
 
@@ -112,7 +112,7 @@ build_trisquel_grub_img()
 
 build_trisquel_rootfs_img()
 {
-    source "${topdir}"/config.sh
+    source "${topdir}"/conf.sh
     source "${topdir}"/resources/scripts/misc/guix.sh
     source_guix_profile
 
@@ -204,7 +204,7 @@ return_trisquel_rootfs_img()
 
 download_roms()
 {
-    source "${topdir}"/config.sh
+    source "${topdir}"/conf.sh
 
     # We use a Trisquel rootfs for automatic testing. Trisquel 10.0
     # LTS (nabia) still supports i686 and it is supported until April

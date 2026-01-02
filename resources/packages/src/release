@@ -27,7 +27,7 @@ set -x
 [ "x${DEBUG+set}" = 'xset' ] && set -v
 set -u -e
 
-source config.sh
+source conf.sh
 
 projectname="$(cat projectname)"
 
