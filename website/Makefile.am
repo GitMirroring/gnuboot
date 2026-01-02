@@ -178,9 +178,10 @@ MAKEINFO_CMD = $(GUIX_SHELL_CONTAINER) \
 	texlive-cm \
 	texlive-epsf \
 	texlive-kpathsea \
-	texlive-latex-base \
+	texlive-latex-bin \
 	texlive-metafont \
-	texlive-tex-texinfo \
+	texlive-mfware-bin \
+	texlive-texinfo \
 	-- \
 	makeinfo
 else

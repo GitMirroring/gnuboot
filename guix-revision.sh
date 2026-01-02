@@ -16,8 +16,8 @@
 
 . "$(dirname "$0")"/resources/scripts/misc/sysexits.sh
 
-GUIX_REVISION='8e2f32cee982d42a79e53fc1e9aa7b8ff0514714'
-GUIX_REVISION_NAME='1.4.0'
+GUIX_REVISION='2d4ed08662714ea46cfe0b41ca195d1ef845fd1b'
+GUIX_REVISION_NAME='1.5.0 RC1'
 
 print_shell()
 {
