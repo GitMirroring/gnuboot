@@ -72,6 +72,8 @@ guix_v1_2_0="a099685659b4bfa6b3218f84953cbb7ff9e88063"
 guix_v1_3_0="a0178d34f582b50e9bdbb0403943129ae5b560ff"
 # shellcheck disable=SC2034
 guix_v1_4_0="8e2f32cee982d42a79e53fc1e9aa7b8ff0514714"
+# shellcheck disable=SC2034
+guix_v1_5_0="230aa373f315f247852ee07dff34146e9b480aec"
 
 guix_known_versions=" \
     0.0 \
@@ -108,9 +110,11 @@ guix_known_versions=" \
     1.4.0 \
     1.4.0rc1 \
     1.4.0rc2 \
+    1.5.0rc1 \
+    1.5.0 \
 "
 
-guix_latest_release="1.4.0"
+guix_latest_release="1.5.0"
 
 source_guix_profile()
 {
@@ -247,6 +251,8 @@ guix_next_version()
             echo "1.3.0" ; return ${true} ;;
         "1.3.0")
             echo "1.4.0" ; return ${true} ;;
+        "1.4.0")
+            echo "1.5.0" ; return ${true} ;;
     esac
 
     if is_known_version "${version}" && is_rc_version "${version}"; then
