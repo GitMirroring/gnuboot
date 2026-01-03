@@ -3575,6 +3575,24 @@ if you don't care about having your computer lasting a long time, you
 will also need to learn similar things in order to avoid risks for
 your health, and also the health of the people around you.
 
+@node    Replacing the boot flash on a desktop@comma{} server or workstation
+@section Replacing the boot flash on a desktop@comma{} server or workstation
+
+You don't necessarily need to do it yourself, but if you want your
+computer to last, you will need to know what needs to be done and what
+safety precautions needs to be taken in order to make sure that the
+people doing the maintenance follow them to not damage the hardware.
+
+Often the same maintenance operations can also be used to install GNU
+Boot (with a flash chip programmer), or to upgrade components of the
+computers to bring it modern standards whenever possible and/or to
+replace components that don't work with nonfree software.
+
+If you want to do any of these maintenance operations yourself, even
+if you don't care about having your computer lasting a long time, you
+will also need to learn similar things in order to avoid risks for
+your health, and also the health of the people around you.
+
 @node    Disassembling a computer
 @section Disassembling a computer
 
