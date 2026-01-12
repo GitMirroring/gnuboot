@@ -3156,7 +3156,14 @@ images built with a repository downloaded with git.
 @node    Downloading the GNU Boot source code with git
 @section Downloading the GNU Boot source code with git
 
-You can download the GNU Boot source code with the following command:
+To download GNU Boot you first need to have git installed. To do that
+you can run the following command:
+
+@example
+$ sudo apt install git
+@end example
+
+You can then download the GNU Boot source code with the following command:
 
 @example
 $ git clone https://git.savannah.gnu.org/git/gnuboot.git
