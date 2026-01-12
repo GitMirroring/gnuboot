@@ -3206,9 +3206,14 @@ dde4223088cbfe8a347626638d32902ba2323b25 \
 -k origin/keyring
 @end example
 
-It should then print the following text:
+Depending on the Guix version, it could print something like that (for recent versions):
 @example
 guix git: successfully authenticated commit dde4223088cbfe8a347626638d32902ba2323b25
+@end example
+
+or something like that (if you just installed guix from Trisquel 11 (aramo)):
+@example
+Authenticating commits dde4223 to 4a77965 (241 new commits)...
 @end example
 
 @xref{Invoking guix git authenticate,,,guix,GNU Guix manual} or
