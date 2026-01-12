@@ -101,20 +101,20 @@ benefits, you will need to install Guix on top of a supported
 distribution to build GNU Boot binaries.
 
 There are many ways to install Guix, and they are well documented in
-the [Guix manual](https://guix.gnu.org/en/manual/) especially in the
-[Installation](https://guix.gnu.org/en/manual/en/html_node/Installation.html)
+the [Guix manual](https://guix.gnu.org/manual/) especially in the
+[Installation](https://guix.gnu.org/manual/en/html_node/Installation.html)
 chapter.
 
 It is also a good idea to "enable substitutes" not to have to build
 every packages and dependencies from source. If the installation
 instructions you followed don't mention that, you can still find
 documentation on it in the [Substitutes
-chapter](https://guix.gnu.org/en/manual/en/guix.html#Substitutes) in
+chapter](https://guix.gnu.org/manual/en/guix.html#Substitutes) in
 the Guix manual.
 
 Once Guix is installed, users are advised to update it with guix pull
 as explained in the [Invoking guix
-pull](https://guix.gnu.org/en/manual/en/html_node/Invoking-guix-pull.html)
+pull](https://guix.gnu.org/manual/en/html_node/Invoking-guix-pull.html)
 manual section to avoid any potential security issues.
 
 In some cases (especially if you don't enable substitutes, and that
@@ -140,7 +140,7 @@ point it might use too much storage space.
 Guix users are able to to decide when to free up space by running the
 'guix gc' command manually, but they can also control what to remove
 with various criteria. The [Invoking guix gc Guix manual
-section](https://guix.gnu.org/en/manual/devel/en/html_node/Invoking-guix-gc.html)
+section](https://guix.gnu.org/manual/devel/en/html_node/Invoking-guix-gc.html)
 has more details on how to do that.
 
 Building GNU Boot binaries
