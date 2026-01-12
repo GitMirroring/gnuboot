@@ -3109,10 +3109,16 @@ every packages and dependencies from source. If the installation
 instructions you followed don't mention that, you can still find
 documentation on it in the @ref{Substitutes,,,guix,GNU Guix manual}.
 
-While building GNU Boot is supposed to work with out of the box once
-Guix is installed, users are advised to update the Guix daemon as
-explained in the @ref{Upgrading Guix,,,guix,GNU Guix manual} to avoid
-any security issues.
+If you're in a hurry you can simply run the following command (it will
+also take care of enabling some substitutes):
+@example
+sudo apt install guix
+@end example
+
+However, while building GNU Boot is supposed to work with out of the
+box once Guix is installed, users are advised to update the Guix
+daemon as explained in the @ref{Upgrading Guix,,,guix,GNU Guix manual}
+to avoid any security issues.
 
 In some cases (especially if you don't enable substitutes, and that
 you have many CPU cores and not enough RAM per cores), building with
