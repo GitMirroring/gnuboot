@@ -3065,7 +3065,7 @@ or without the help of the GnuPG software.
 Wikipedia has a bit more information on the problem in its
 @uref{https://en.wikipedia.org/wiki/Web_of_trust,Web of trust} article,
 and the @uref{https://www.gnupg.org/gph,The GNU Privacy Handbook} has
-@uref{https://www.gnupg.org/gph/en/manual/x547.html,a section about
+@uref{https://www.gnupg.org/gph/en/manual.html#AEN554,a section about
 Building your web of trust}, that contains advises on how to do that,
 especially in the part about "Key validation".
 
