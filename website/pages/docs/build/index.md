@@ -112,10 +112,11 @@ documentation on it in the [Substitutes
 chapter](https://guix.gnu.org/manual/en/guix.html#Substitutes) in
 the Guix manual.
 
-Once Guix is installed, users are advised to update it with guix pull
-as explained in the [Invoking guix
-pull](https://guix.gnu.org/manual/en/html_node/Invoking-guix-pull.html)
-manual section to avoid any potential security issues.
+While building GNU Boot is supposed to work with out of the box once
+Guix is installed, users are advised to update the Guix daemon as
+explained in the [Upgrading
+Guix](https://guix.gnu.org/manual/devel/en/html_node/Upgrading-Guix.html)
+manual section to avoid any security issues.
 
 In some cases (especially if you don't enable substitutes, and that
 you have many CPU cores and not enough RAM per cores), building with
