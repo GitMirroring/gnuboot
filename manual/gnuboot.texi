@@ -15,7 +15,7 @@
 
 @copying
 
-Copyright @copyright{} 2024-2025 Denis 'GNUtoo' Carikli.
+Copyright @copyright{} 2023-2026 Denis 'GNUtoo' Carikli.
 
 Copyright @copyright{} 2024 Adrien 'neox' Bourmault.
 
@@ -171,7 +171,12 @@ Maintenance and repairations
 
 Building GNU Boot from source
 
+* Supported distributions for building GNU Boot binaries::
+* Installing Guix::
+* Building from tarballs and/or offline::
+* Downloading the GNU Boot source code with git::
 * Authenticating the GNU Boot source code::
+* Building GNU Boot binaries::
 
 Helping GNU Boot
 
@@ -3005,28 +3010,176 @@ following URL:
 prevent network attacks from tempering with the souce code you are
 downloading.
 
-Note that at the moment, building GNU Boot from tarballs is
-unsupported, so you will have to download GNU Boot from git and build
-from git.
+@node    Supported distributions for building GNU Boot binaries
+@section Supported distributions for building GNU Boot binaries
+
+GNU Boot is currently based on the latest version of Libreboot that
+doesn't ship nonfree software, and it also uses an older version of
+Coreboot to support certain computers that are not supported anymore
+in Coreboot. Because of that the versions of various software that GNU
+Boot builds are old and cannot be built anymore on recent
+distributions.
+
+While there is work to fix that by both updating that software to more
+recent versions and to also also allow to build older versions on
+newer distributions, in the meantime we need to workaround this issue
+by using specific distributions to build GNU Boot.
+
+People managed to build GNU Boot with the following distributions:
+
+@itemize
+@item PureOS 10 (byzantium)
+@item Trisquel 10 (nabia)
+@item Trisquel 11 (aramo)
+@end itemize
+
+And these cannot build GNU Boot yet:
+
+@itemize
+@item Guix: The issue is documented in the
+      @uref{https://savannah.gnu.org/bugs/index.php?66188,Bug#66188}
+@end itemize
+
+Since GNU Boot 0.1 RC6, the
+@uref{https://www.gnu.org/software/gnuboot/status,GNU Boot status
+page} started including information on which distribution was used to
+build a given release ("This release was built [...] on Trisquel Aramo
+(11.0.1) [...].").
+
+Using the same distribution and version of the distribution lowers the
+risk of ending with a computer that doesn't boot anymore (for fixing
+that you will most likely need to disassemble your computer and use
+another computer and a flash programmer to recover it).
+
+Also note that you don't use PureOS 10 (byzantium) or Trisquel 10
+(nabia), there are many ways to run them on top of other GNU/Linux
+distributions.
+
+If you run Guix (either as an operating system or on top of another
+distribution), Parabola, Trisquel 10 (nabia), Trisquel 11 (aramo), you
+can use debootstrap to create a chroot of Trisquel 11 (aramo) or
+PureOS 10 (byzantium). Here are the packages you need to install
+depending on your distribution:
+
+@multitable {Trisquel >= 10} {PureOS 10 (byzantium)}    {debootstrap, pureos-archive-keyring}
+@item       Host distro      @tab Chroot distro         @tab Required packages
+@item       Guix             @tab PureOS 10 (byzantium) @tab debootstrap
+@item       Guix             @tab Trisquel 10 or 11     @tab debootstrap
+@item       Parabola         @tab PureOS 10 (byzantium) @tab debootstrap, pureos-archive-keyring
+@item       Parabola         @tab Trisquel 10 (nabia)   @tab debootstrap, trisquel-keyring
+@item       Trisquel >= 10   @tab Trisquel 10 (nabia)   @tab debootstrap, trisquel-keyring
+@end multitable
+
+Once you have a chroot, you can either configure it and chroot inside
+or convert it to run inside container engines like LXC, LXD, Docker
+(with debuerreotype if your distribution has a package for it), etc.
+
+It is also possible to install Trisquel 10 (nabia) or PureOS in a
+virtual machine. Note that PureOS doesn't sign its releases so we
+copied the official PureOS checksums found in several subdirectories
+in https://downloads.puri.sm/byzantium in
+resources/distros/pureos/20230614/ in the GNU Boot repository. The
+commits of GNU Boot are usually signed by its maintainers, so it's
+also possible to have a full chain of trust.
+
+PureOS also has docker images on Docker Hub, and it also
+@uref{https://hub.docker.com/r/pureos/byzantium,has one for PureOS
+byzantium}. On Docker Hub, The PureOS images made by Puri.sm are the
+only images that follow the @uref{https://www.gnu.org/distros/,Free
+Distro Guidelines}. Also note that it is not possible to easily check
+the integrity of images coming from docker hub so by using them you
+blindly trust Docker Hub. The only way to check the images is to
+create your own image and compare it with the one hosted on docker
+hub.
+
+@node    Installing Guix
+@section Installing Guix
+
+While GNU Boot doesn't build yet on top of Guix, it started using some
+Guix packages to build part of GNU Boot. While this provides many
+benefits, you will need to install Guix on top of a supported
+distribution to build GNU Boot binaries.
+
+There are many ways to install Guix, and they are well documented in
+the @ref{,,,guix,GNU Guix manual} especially in the
+@ref{Installation,,,guix,GNU Guix manual}.
+
+It is also a good idea to "enable substitutes" not to have to build
+every packages and dependencies from source. If the installation
+instructions you followed don't mention that, you can still find
+documentation on it in the @ref{Substitutes,,,guix,GNU Guix manual}.
+
+While building GNU Boot is supposed to work with out of the box once
+Guix is installed, users are advised to update the Guix daemon as
+explained in the @ref{Upgrading Guix,,,guix,GNU Guix manual} to avoid
+any security issues.
+
+In some cases (especially if you don't enable substitutes, and that
+you have many CPU cores and not enough RAM per cores), building with
+Guix can fail.
+
+At the time of writing, Guix can use about 2GiB per core for
+updates. Building packages can also use some RAM but the types of
+packages that GNU Boot will build are unlikely to require that much
+RAM per core.
+
+If even with substitutes enabled the build still fails due to the lack
+of RAM, or if you don't want to enable substitutes, it is also
+possible to limit the amount of RAM used by limiting the number of
+cores used by Guix by passing --with-guix-build-cores=1 to the GNU
+boot ./configure script. This will pass the '-c 1' and '-M 1' options
+to guix build.
+
+Finally Guix keeps the files it downloads or builds (in /gnu/store) in
+order to speed up things, but if you use Guix extensively, at some
+point it might use too much storage space.
+
+Guix users are able to to decide when to free up space by running the
+'guix gc' command manually, but they can also control what to remove
+with various criteria. The @ref{Invoking guix gc,,,guix,GNU Guix
+manual} has more details on how to do that.
+
+@node    Building from tarballs and/or offline
+@section Building from tarballs and/or offline
+
+At the moment, building GNU Boot from a tarballs is unsupported, so
+you will have to build GNU boot from a git repository.
+
+GNU Boot also releases git bundles, so you might also be able to build
+GNU Boot with them, but even with that, you will still need to
+download source code from the Internet.
+
+In addition, some instructions need to be written to do that, and we
+also need to make sure that the result is doesn't differ too much from
+images built with a repository downloaded with git.
+
+@node    Downloading the GNU Boot source code with git
+@section Downloading the GNU Boot source code with git
+
+You can download the GNU Boot source code with the following command:
+
+@example
+$ git clone https://git.savannah.gnu.org/git/gnuboot.git
+@end example
 
 @node    Authenticating the GNU Boot source code
 @section Authenticating the GNU Boot source code
 
-As explained on the
-@uref{https://www.gnu.org/software/gnuboot/docs/build/,GNU Boot
-build instructions} on the GNU Boot website, to build GNU Boot you
-will need to install Guix first (it can be installed on top of another
-GNU/Linux distribution).
+Once the GNU Boot source code has been downloaded, it might be a good
+idea to check if it wasn't modified.
 
-You can consult either the
-@uref{https://www.gnu.org/software/gnuboot/docs/build/,GNU Boot
-build instructions} or the @ref{Installation,,,guix,GNU Guix
-reference manual} for how to do that.
+This way if for some reasons the source code was modified, it will be
+detected. This can also protect other people as checking also improves
+the probability of catching active attacks. If you're unsure if it's
+worth the effort, @xref{Security} for an introduction to security and
+threat modelling.
 
-Once this is done you can download the GNU Boot source code with the
-following command and go into it:
+If you want to do that, once you downloaded the GNU Boot source code
+(@pxref{Downloading the GNU Boot source code with git} if you missed
+it) and installed Guix, you then need to go inside the GNU Boot source
+code:
+
 @example
-$ git clone https://git.savannah.gnu.org/git/gnuboot.git
 $ cd gnuboot
 @end example
 
@@ -3068,6 +3221,16 @@ and the @uref{https://www.gnupg.org/gph,The GNU Privacy Handbook} has
 @uref{https://www.gnupg.org/gph/en/manual.html#AEN554,a section about
 Building your web of trust}, that contains advises on how to do that,
 especially in the part about "Key validation".
+
+@node    Building GNU Boot binaries
+@section Building GNU Boot binaries
+
+Once all the above is done, you can then follow the rest of the
+instructions on the
+@uref{https://www.gnu.org/software/gnuboot/docs/build/,GNU Boot build
+instructions} page on the GNU Boot website.
+
+We need help to finish migrating them to this manual.
 
 @node    Helping GNU Boot
 @chapter Helping GNU Boot

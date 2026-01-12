@@ -5,144 +5,28 @@ title: Build GNU Boot binaries
 This guide documents how to compile GNU Boot binaries from the
 available source code.
 
-At the time of writing users wanting to build binaries need to
-download the [GNU Boot source
-code](https://git.savannah.gnu.org/cgit/gnuboot.git/) with git.
+Perquisites
+===========
 
-Supported distributions for building GNU Boot binaries:
-=======================================================
+To build GNU Boot, you first need to:
 
-GNU Boot is currently based on the latest version of Libreboot that
-doesn't ship nonfree software, and it also uses an older version of
-Coreboot to support certain computers that are not supported anymore
-in Coreboot. Because of that the versions of various software that GNU
-Boot builds are old and cannot be built anymore on recent
-distributions.
+* Use a compatible GNU/Linux distribution and/or install it on top of
+  the distribution you use.
 
-While there is work to fix that by both updating that software to more
-recent versions and to also also allow to build older versions on
-newer distributions, in the meantime we need to workaround this issue
-by using specific distributions to build GNU Boot.
+* Install Guix on top of the compatible GNU/Linux distribution.
 
-People managed to build GNU Boot with the following distributions:
+* Download the GNU Boot source code.
 
-* PureOS 10 (byzantium)
+* Optionally, also verify the provenance of the GNU Boot source code
+  with Guix.
 
-* Trisquel 10 (nabia)
+Since we're moving more and more of the website to the manual, this
+has now moved to the [Building GNU Boot from source
+chapter](../../manual/gnuboot.html#Building-GNU-Boot-from-source)
+of the GNU Boot manual.
 
-* Trisquel 11 (aramo)
-
-And these cannot build GNU Boot yet:
-
-* Guix: The issue is documented in the [Bug
- #66188](https://savannah.gnu.org/bugs/index.php?66188)
-
-Since GNU Boot 0.1 RC6, the [GNU Boot status page][../../status.md]
-started including information on which distribution was used to build
-a given release ("This release was built [...] on Trisquel Aramo
-(11.0.1) [...].").
-
-Using the same distribution and version of the distribution lowers the
-risk of ending with a computer that doesn't boot anymore (for fixing
-that you will most likely need to disassemble your computer and use
-another computer and a flash programmer to recover it).
-
-Also note that you don't use PureOS 10 (byzantium) or Trisquel 10
-(nabia), there are many ways to run them on top of other GNU/Linux
-distributions.
-
-If you run Guix (either as an operating system or on top of another
-distribution), Parabola, Trisquel 10 (nabia), Trisquel 11 (aramo), you
-can use debootstrap to create a chroot of Trisquel 11 (aramo) or
-PureOS 10 (byzantium). Here are the packages you need to install
-depending on your distribution:
-
-+----------------+-----------------------+-------------------------------------+
-| Host distro    | Chroot distro         | Required packages                   |
-+----------------+-----------------------+-------------------------------------+
-| Guix           | PureOS 10 (byzantium) | debootstrap                         |
-+----------------+-----------------------+-------------------------------------+
-| Guix           | Trisquel 10 or 11     | debootstrap                         |
-+----------------+-----------------------+-------------------------------------+
-| Parabola       | PureOS 10 (byzantium) | debootstrap, pureos-archive-keyring |
-+----------------+-----------------------+-------------------------------------+
-| Parabola       | Trisquel 10 (nabia)   | debootstrap, trisquel-keyring       |
-+----------------+-----------------------+-------------------------------------+
-| Trisquel >= 10 | Trisquel 10 (nabia)   | debootstrap, trisquel-keyring       |
-+----------------+-----------------------+-------------------------------------+
-
-Once you have a chroot, you can either configure it and chroot inside
-or convert it to run inside container engines like LXC, LXD, Docker
-(with debuerreotype if your distribution has a package for it), etc.
-
-It is also possible to install Trisquel 10 (nabia) or PureOS in a
-virtual machine. Note that PureOS doesn't sign its releases so we
-copied the official PureOS checksums found in several subdirectories
-in https://downloads.puri.sm/byzantium in
-resources/distros/pureos/20230614/ in the GNU Boot repository. The
-commits of GNU Boot are usually signed by its maintainers, so it's
-also possible to have a full chain of trust.
-
-PureOS also has docker images on Docker Hub, and it also [has one for
-PureOS byzantium](https://hub.docker.com/r/pureos/byzantium). On
-Docker Hub, The PureOS images made by Puri.sm are the only images that
-follow the [Free Distro
-Guidelines](https://www.gnu.org/distros/). Also note that it is not
-possible to easily check the integrity of images coming from docker
-hub so by using them you blindly trust Docker Hub. The only way to
-check the images is to create your own image and compare it with the
-one hosted on docker hub.
-
-Guix
-====
-While GNU Boot doesn't build yet on top of Guix, it started using some
-Guix packages to build part of GNU Boot. While this provides many
-benefits, you will need to install Guix on top of a supported
-distribution to build GNU Boot binaries.
-
-There are many ways to install Guix, and they are well documented in
-the [Guix manual](https://guix.gnu.org/manual/) especially in the
-[Installation](https://guix.gnu.org/manual/en/html_node/Installation.html)
-chapter.
-
-It is also a good idea to "enable substitutes" not to have to build
-every packages and dependencies from source. If the installation
-instructions you followed don't mention that, you can still find
-documentation on it in the [Substitutes
-chapter](https://guix.gnu.org/manual/en/guix.html#Substitutes) in
-the Guix manual.
-
-While building GNU Boot is supposed to work with out of the box once
-Guix is installed, users are advised to update the Guix daemon as
-explained in the [Upgrading
-Guix](https://guix.gnu.org/manual/devel/en/html_node/Upgrading-Guix.html)
-manual section to avoid any security issues.
-
-In some cases (especially if you don't enable substitutes, and that
-you have many CPU cores and not enough RAM per cores), building with
-Guix can fail.
-
-At the time of writing, Guix can use about 2GiB per core for
-updates. Building packages can also use some RAM but the types of
-packages that GNU Boot will build are unlikely to require that much
-RAM per core.
-
-If even with substitutes enabled the build still fails due to the lack
-of RAM, or if you don't want to enable substitutes, it is also
-possible to limit the amount of RAM used by limiting the number of
-cores used by Guix by passing --with-guix-build-cores=1 to the GNU
-boot ./configure script. This will pass the '-c 1' and '-M 1' options
-to guix build.
-
-Finally Guix keeps the files it downloads or builds (in /gnu/store) in
-order to speed up things, but if you use Guix extensively, at some
-point it might use too much storage space.
-
-Guix users are able to to decide when to free up space by running the
-'guix gc' command manually, but they can also control what to remove
-with various criteria. The [Invoking guix gc Guix manual
-section](https://guix.gnu.org/manual/devel/en/html_node/Invoking-guix-gc.html)
-has more details on how to do that.
+Once all that is done, you can then come back to this page and proceed
+to the "Building GNU Boot binaries" section below.
 
 Building GNU Boot binaries
 ==========================
