@@ -33,15 +33,22 @@ Building GNU Boot binaries
 
 The GNU Boot build system has some configuration options. While the
 defaults are good for most users, the way it is implemented requires
-you to run the following command first:
+you to install some depencies first:
+
+    sudo apt install autoconf libtool make
+
+Once this is done you need run the following command:
+
     ./autogen.sh
 
-And if you don't need to change the defaults, you can then run the
+If you don't need to change the defaults, you can then run the
 following command:
+
     ./configure
 
 If you want to look at which settings can be changed you can use the
 following command which explains various options and how to do that:
+
     ./configure --help
 
 Once this is done, you can either use the `Makefile` or some shell
