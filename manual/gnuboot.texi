@@ -176,7 +176,10 @@ Building GNU Boot from source
 * Building from tarballs and/or offline::
 * Downloading the GNU Boot source code with git::
 * Authenticating the GNU Boot source code::
-* Building GNU Boot binaries::
+* Initializing the GNU Build system::
+* Configuring the GNU Boot build::
+* Installing dependencies for building GNU Boot::
+* Building a GNU Boot release::
 
 Helping GNU Boot
 
@@ -3240,15 +3243,191 @@ and the @uref{https://www.gnupg.org/gph,The GNU Privacy Handbook} has
 Building your web of trust}, that contains advises on how to do that,
 especially in the part about "Key validation".
 
-@node    Building GNU Boot binaries
-@section Building GNU Boot binaries
+@node    Initializing the GNU Build system
+@section Initializing the GNU Build system
 
-Once all the above is done, you can then follow the rest of the
-instructions on the
-@uref{https://www.gnu.org/software/gnuboot/docs/build/,GNU Boot build
-instructions} page on the GNU Boot website.
+GNU Boot uses the GNU Build system (also known as autotools). Compared
+to other build syste, this build system is very flexible, and it is
+way more familiar and easier to use for end users.
 
-We need help to finish migrating them to this manual.
+It requires the installation of some dependencies. You can install
+them with the following command:
+
+@example
+sudo apt install autoconf libtool make
+@end example
+
+It requires you to generate some files. To do that you first need to
+make sure you are in the gnuboot directory. If you did @emph{cd
+gnuboot} before in the same terminal, then everything is fine, if not,
+you need to run the @emph{cd gnuboot} commands.
+
+Then you can then need to run the following command to generate the
+required files:
+
+@example
+./autogen.sh
+@end example
+
+Once done you can proceed to the @ref{Installing dependencies for
+building GNU Boot} section.
+
+@node    Configuring the GNU Boot build
+@section Configuring the GNU Boot build
+
+Once the GNU Build system is initialized (@pxref{Initializing the GNU
+Build system} for how to do that), we can then use it to install the
+dependencies required for building GNU Boot.
+
+To do that you need to first run the configure script. This can be
+done with the following command:
+
+@example
+./configure
+@end example
+
+It will check if everything is fine. When it happens the output will
+look more or less like that:
+
+@example
+[...]
+config.status: creating Makefile
+config.status: creating manual/Makefile
+config.status: creating resources/packages/i945-thinkpads-install-utilities/Makefile
+config.status: executing depfiles commands
+config.status: executing libtool commands
+Configuration options:
+    GUIX_BUILD_MAX_CORES: not limited.
+    KVM: enabled
+    build_cpu: x86_64
+@end example
+
+If it didn't detect any errors or that you don't need to change the
+way things are built (for instance to use less resources or workaround
+the lack of some CPU features), you can simply continue to the next
+section (@ref{Installing dependencies for building GNU Boot}).
+
+If it detects any errors or that you want or need to limit the amounts
+of resources GNU Boot uses during the build, you might need to change
+the build configuration.
+
+The full list of options is available with the following command:
+@example
+./configure --help
+@end example
+
+However this also contains many options that are not unused by GNU
+Boot yet. The following options are however taken into account by GNU
+Boot:
+
+@itemize
+@item --disable-kvm
+@item --with-guix-build-max-cores=N
+@item --with-xz-extra-args="ARG ARG [...]"
+@end itemize
+
+They are sometimes mentionned in the rest of this manual. To learn
+what they do you can also use the command mentionned above and try to
+find the options above in the command output:
+
+@example
+./configure --help
+@end example
+
+In the case of the @emph{--disable-kvm} option, there is also some
+documentation on the underlying problem in @ref{Booting a distribution
+with QEMU}. Note that the options is named almost in the same way but
+it affects two different programs (GNU Boot and QEMU).
+
+Though we end up with exactly the same issue in QEMU and GNU Boot
+because GNU Boot uses QEMU during some tests if you use a 64bit
+distribution to build GNU Boot.
+
+In the case of @emph{--with-guix-build-max-cores=N}, there is also
+some documentation in the @ref{Installing Guix}.
+
+@node    Installing dependencies for building GNU Boot
+@section Installing dependencies for building GNU Boot
+
+Once the GNU Build system is initialized and configured
+(@pxref{Initializing the GNU Build system} and @pxref{Configuring the
+GNU Boot build} for how to do that), you can finally proceed to
+install the required dependencies.
+
+Once you are in the gnuboot directory, you can simply run the
+following command to do that:
+@example
+sudo make install-dependencies
+@end example
+
+This will take care of detecting the distribution you use and
+installing the dependencies from your distribution. @xref{Supported
+distributions for building GNU Boot binaries} for a list of
+distributions on which this is supposed to work.
+
+If for some reasons it fails on a supported distribution, this is a
+bug and this should be reported to GNU Boot either on the
+@uref{https://lists.gnu.org/mailman/listinfo/gnuboot-patches,gnuboot-patches
+mailing list} or on
+@uref{https://savannah.gnu.org/bugs/?group=gnuboot,Savannah}.
+
+@node    Building a GNU Boot release
+@section Building a GNU Boot release
+
+Once the GNU Build system is initialized, configured and that the
+build dependencies are also installed (@pxref{Initializing the GNU
+Build system}, @ref{Configuring the GNU Boot build} and
+@ref{Installing dependencies for building GNU Boot} for how to do
+that), you can finally proceed to building the same files than with a
+GNU Boot release.
+
+To do that you can run the following command:
+@example
+make release
+@end example
+
+It will take many hours as it builds images for all the supported
+computers, and it also build the website, the manual, etc, exactly
+like for a GNU Boot release.
+
+If for any reasons, the build is interrupted, you will need to delete
+both the bin/ and bin-dbg/ directories if they exist, otherwise the
+build system will assume that the build went fine and this might
+create issues later on, especially if you want to build a release.
+
+Once done it will create many files which are described below:
+
+@itemize
+@item release/roms/: Inside this directory, each archive contains
+      the images for a supported computer. @xref{Supported computers}
+      and @ref{GNU Boot images} for more details.
+@item release/roms-dbg/: Inside this directory, each archive contains
+      the images for a supported computer.
+      @xref{Supported serial ports} for more details on debug images.
+      The @emph{resources/coreboot/README.debug} file inside the GNU
+      Boot source code details the difference between debug images
+      and regular images.
+@item release/i945-thinkpads-install/: This directory has tools
+      (and their corresponding source code) required for installing GNU
+      Boot on some computers without the need of a flash programmer,
+      however we don't have good documentation yet on how to use these.
+      Only certain computers are compatible.
+@item release/gnuboot-[...]_src.tar.xz: Source code of projects reused
+      by GNU Boot (Coreboot, GRUB, etc).
+@item release/gnuboot-website-[...].tar.gz: GNU Boot website (HTML files,
+      GNU Boot manual).
+@item release/gnuboot-source-[...].bundle: Complete GNU Boot source code.
+@item release/lbssg-[...].bundle: Source code for the static website
+      generator used to build the GNU Boot website.
+@end itemize
+
+If you instead just want to build an image for your computer, see
+instead the
+@uref{https://www.gnu.org/software/gnuboot/docs/build/,instructions
+for building GNU Boot binaries} on the GNU Boot website.
+
+Also note that these instructions also depend on some of the
+instructions above in this manual.
 
 @node    Helping GNU Boot
 @chapter Helping GNU Boot
