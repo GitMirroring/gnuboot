@@ -20,7 +20,13 @@ topdir="$(realpath "$(dirname "$(dirname "$(dirname "$0")")")")"
 # We need ${GUIX_REVISION}
 eval "$("${topdir}"/guix-revision.sh print-shell)"
 
-guix="guix time-machine --no-channel-files --commit=${GUIX_REVISION} -- "
+# We need the --no-channel-files option, but it was only introduced in
+# the Guix commit 9c8098424b5be3abf21144c74162ec39c0c2e799 ("pull,
+# time-machine: Add '-q' to ignore channel files.") which is after
+# Guix 1.4.0, so we first use time-machine without this option to get
+# the option in the second time-machine.
+guix="guix time-machine --commit=9c8098424b5be3abf21144c74162ec39c0c2e799"
+guix="${guix} -- time-machine --no-channel-files --commit=${GUIX_REVISION} --"
 
 if [ "$#" -eq 1 ] && [ "$1" == "-h" ] ; then
     ${guix} -h
