@@ -172,7 +172,7 @@ test_release_dir()
 
     release_files="${release_files}"" ""${dir}"/gnuboot-source-"${rev}".bundle
 
-    release_files="${release_files}"" ""${dir}"/untitled-"${rev}".bundle
+    release_files="${release_files}"" ""${dir}"/lbssg-"${rev}".bundle
 
     release_files="${release_files}"" ""${dir}"/gnuboot-website-"${rev}".tar.gz
 

@@ -30,7 +30,7 @@ usage()
     printf "\t\tDisplay this help and exit.\n"
 }
 
-download_untitled()
+download_lbssg()
 {
     cd website
     ./autogen.sh
@@ -42,7 +42,7 @@ if [ $# -eq 1 ] && { [ "$1" = "-h" ] || [ "$1" == "--help" ] ;} ; then
     usage "${progname}"
     exit 0
 elif [ $# -eq 0 ] ; then
-    download_untitled
+    download_lbssg
 else
     usage "${progname}"
     exit ${EX_USAGE}
