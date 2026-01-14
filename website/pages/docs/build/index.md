@@ -1,101 +1,38 @@
 ---
-title: Build GNU Boot binaries
+title: Build GNU Boot binaries for specific computers
 ...
 
-This guide documents how to compile GNU Boot binaries from the
-available source code.
+This guide documents how to compile GNU Boot binaries for a specific
+computer.
 
-Perquisites
-===========
+The [Building GNU Boot from source
+chapter](../../manual/gnuboot.html#Building-GNU-Boot-from-source) of
+the GNU Boot manual instead documents how to build a GNU Boot release,
+which builds binaries for all the computers supported by GNU Boot.
 
-To build GNU Boot, you first need to:
+If you instead want to build only a specific computer instead (like
+the ThinkPad X200 with 8MiB boot flash), you first need to follow the
+manual to setup the build.
 
-* Use a compatible GNU/Linux distribution and/or install it on top of
-  the distribution you use.
+But instead of running the following command:
 
-* Install Guix on top of the compatible GNU/Linux distribution.
+    make release
 
-* Download the GNU Boot source code.
-
-* Optionally, also verify the provenance of the GNU Boot source code
-  with Guix.
-
-Since we're moving more and more of the website to the manual, this
-has now moved to the [Building GNU Boot from source
-chapter](../../manual/gnuboot.html#Building-GNU-Boot-from-source)
-of the GNU Boot manual.
-
-Once all that is done, you can then come back to this page and proceed
-to the "Building GNU Boot binaries" section below.
+you can instead follow the "Building GNU Boot binaries" section below.
 
 Building GNU Boot binaries
 ==========================
 
-The GNU Boot build system has some configuration options. While the
-defaults are good for most users, the way it is implemented requires
-you to install some depencies first:
-
-    sudo apt install autoconf libtool make
-
-Once this is done you need run the following command:
-
-    ./autogen.sh
-
-If you don't need to change the defaults, you can then run the
-following command:
-
-    ./configure
-
-If you want to look at which settings can be changed you can use the
-following command which explains various options and how to do that:
-
-    ./configure --help
-
-Once this is done, you can either use the `Makefile` or some shell
-scripts to build GNU Boot.
-
-The `Makefile` is much more simple to use but offers less flexibility
-(for instance there is a single command to build all images but no way
-to build an image for a specific computer).
-
-To build GNU Boot you must first ensure that all build dependencies
-are installed.
-
-If you are running a supported distribution , you can run the
-following command as it takes care of installing all the required
-dependencies for you:
-
-    sudo make install-dependencies
-
-You can then build everything with this command:
-
-    make release
-
-When the compilation ends this should have created images for all the
-computers supported by GNU Boot in release/roms/. For instance if you
-are building GNU Boot 0.1 RC1 the image for the Thinkpad X60 will be
-in release/roms/gnuboot-0.1-rc1_x60.tar.xz.
-
-It will also create an archive of all the upstream source code used to
-build GNU Boot but without any nonfree software in it. For GNU Boot
-0.1 RC1 the archive will be in release/gnuboot-0.1-rc1_src.tar.xz.
-
-If you use git revisions that are not releases you might instead end
-up with something like '0.2-10-g1234abcdefg' instead of '0.1-rc1'
-inside the file names. For the curious, that part of the filename is
-computed with the 'git describe HEAD' command.
-
-If instead you only want to build all the images and not build an
-archive of the source code you can use this command:
-
-    make
-
-If you only wish to build a limited set of images, you can use the
-build script directly:
+If you only wish to build images for a specific computer, once the GNU
+Build system is initialized, configured and that the build
+dependencies are also installed, you can use the build script (that is
+also used by the GNU Build system) directly:
 
     ./build boot roms x200_8mb
 
-You can specify more than one argument:
+Here it will build images for the ThinkPad X200 with 8MiB boot flash.
+
+You can also specify more than one argument to build for multiple computers:
 
     ./build boot roms x200_8mb x60
 
