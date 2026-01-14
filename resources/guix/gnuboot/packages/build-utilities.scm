@@ -31,7 +31,7 @@
      (origin
        (method git-fetch)
        (uri (git-reference
-              (url "https://notabug.org/libreboot/ich9utils.git")
+              (url "https://forge.a-lec.org/GNUBoot/ich9utils")
               (commit "53749b0c6f7c5778bdd1ec2b91cd230626752579")))
        (file-name (git-file-name "coreboot" version))
        (sha256
