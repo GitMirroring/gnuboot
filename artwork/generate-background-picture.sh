@@ -90,7 +90,11 @@ generate_picture()
        -thumbnail "${thumbnail_hres}"x"${thumbnail_vres}" \
        -background "${background_color}" \
        -gravity center \
-       -extent "${hres}"x"${vres}" "${filename}"
+       -extent "${hres}"x"${vres}" \
+       -type Palette \
+       +map \
+       -quality 100 \
+       "${filename}"
 }
 
 progname="generate-background-picture.sh"
