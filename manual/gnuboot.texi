@@ -15,7 +15,7 @@
 
 @copying
 
-Copyright @copyright{} 2024 Denis 'GNUtoo' Carikli.
+Copyright @copyright{} 2024-2025 Denis 'GNUtoo' Carikli.
 
 Copyright @copyright{} 2024 Adrien 'neox' Bourmault.
 
