@@ -103,8 +103,12 @@ if [ $# -lt 1 ]; then
 fi
 
 task="${1}"
+package=""
+if [ $# -gt 1 ]; then
+	package="${2}"
+fi
 
-if [ "${task}" != "dependencies" ]; then
+if [ "${task}" != "install" ] || [ "${package}" != "dependencies" ] ; then
 	./resources/scripts/misc/versioncheck
 fi
 
@@ -115,10 +119,7 @@ fi
 . resources/scripts/misc/generate-configure-makefiles.sh
 
 if [ $# -gt 1 ]; then
-
-	package="${2}"
 	shift 2
-
 	case "${package}" in
 		list)
 			tasks_paths=$(list_tasks_paths "${task}")
