@@ -15,6 +15,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+# This is required to make the "${cmd//+([[:space:]])/ }" work. And
+# the "${cmd//+([[:space:]])/ }" is required to make shellcheck happy:
+# sed works fine but shellcheck complains, and I didn't find a way to
+# remove the complaint as '# shellcheck disable=SC2124' needs to be
+# right before the statement with sed, but that statement ends up
+# several lines below the printf. See "3.5.8.1 Pattern Matching" in
+# the bash info manual for more details.
+shopt -s extglob
+
 topdir="$(realpath "$(dirname "$(dirname "$(dirname "$0")")")")"
 
 # We need ${GUIX_REVISION}
@@ -25,17 +34,30 @@ eval "$("${topdir}"/guix-revision.sh print-shell)"
 # time-machine: Add '-q' to ignore channel files.") which is after
 # Guix 1.4.0, so we first use time-machine without this option to get
 # the option in the second time-machine.
-guix="guix time-machine --commit=9c8098424b5be3abf21144c74162ec39c0c2e799"
-guix="${guix} -- time-machine --no-channel-files --commit=${GUIX_REVISION} --"
+guix_wrapper()
+{
+    # shellcheck disable=SC2124
+    cmd="guix time-machine \
+         --commit=9c8098424b5be3abf21144c74162ec39c0c2e799 \
+         -- \
+         time-machine --no-channel-files --commit=${GUIX_REVISION} \
+         -- $@"
+
+    printf "$0: '%s' => '%s'\n" \
+           "$0 $*" \
+           "${cmd//+([[:space:]])/ }" \
+           > /dev/stderr
+    ${cmd}
+}
 
 if [ "$#" -eq 1 ] && [ "$1" == "-h" ] ; then
-    ${guix} -h
+    guix_wrapper -h
 elif [ "$#" -eq 1 ] && [ "$1" == "--help" ] ; then
-    ${guix} --help
+    guix_wrapper --help
 elif [ "$#" -eq 1 ] && [ "$1" == "-V" ] ; then
-    ${guix} -V
+    guix_wrapper -V
 elif [ "$#" -eq 1 ] && [ "$1" == "--version" ] ; then
-    ${guix} --version
+    guix_wrapper --version
 elif [ "$#" -gt 1 ] ; then
     command="$1"
     shift 1
@@ -90,7 +112,7 @@ elif [ "$#" -gt 1 ] ; then
         "time-machine")
             ;&
         "upgrade")
-            ${guix} \
+            guix_wrapper \
                 "${command}" \
                 -L "${topdir}"/resources/guix/ \
                 -L "${topdir}"/resources/guix/gnuboot/patches/ \
@@ -121,7 +143,7 @@ elif [ "$#" -gt 1 ] ; then
         "publish")
             ;&
         "weather")
-            ${guix} "${command}" "$@"
+            guix_wrapper "${command}" "$@"
             ;;
         *)
             printf "%s: Error: unknown command %s.\n" \
@@ -130,5 +152,5 @@ elif [ "$#" -gt 1 ] ; then
             ;;
         esac
 else
-    ${guix} "$@"
+    guix_wrapper "$@"
 fi
