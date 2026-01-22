@@ -3107,11 +3107,6 @@ There are many ways to install Guix, and they are well documented in
 the @ref{,,,guix,GNU Guix manual} especially in the
 @ref{Installation,,,guix,GNU Guix manual}.
 
-It is also a good idea to "enable substitutes" not to have to build
-every packages and dependencies from source. If the installation
-instructions you followed don't mention that, you can still find
-documentation on it in the @ref{Substitutes,,,guix,GNU Guix manual}.
-
 If you're in a hurry you can simply run the following command (it will
 also take care of enabling some substitutes):
 @example
@@ -3123,25 +3118,117 @@ box once Guix is installed, users are advised to update the Guix
 daemon as explained in the @ref{Upgrading Guix,,,guix,GNU Guix manual}
 to avoid any security issues.
 
-In some cases (especially if you don't enable substitutes, and that
-you have many CPU cores and not enough RAM per cores), building with
-Guix can fail.
+@node       Enabling Guix substitutes
+@subsection Enabling Guix substitutes
 
-At the time of writing, Guix can use about 2GiB per core for
+Once Guix is installed, It is very strongly advised to to @emph{enable
+substitutes}.
+
+If you don't, Guix will build everything from source. This has many
+implications.
+
+First, the build time will most likely take more than one day. This is
+because unlike other distributions, Guix bootstraps compilers to
+improve freedom and security. And doing that result in extremely long
+build times. @xref{The Full-Source Bootstrap,,,guix,the GNU Guix
+manual} for more details.
+
+Then, packages that built in the past might not build anymore (see the
+@uref{http://guix.gnu.org/en/blog/2024/adventures-on-the-quest-for-long-term-reproducible-deployment/,Adventures
+on the quest for long-term reproducible deployment} blog post for more
+details and how to workaround the issue.
+
+Finally, if you don't have enourh RAM, or not enough RAM per CPU
+cores, building with Guix can also fail (@pxref{GNU Boot configuration
+for Guix} for how to workaround this issue).
+
+If the instructions to install Guix you followed didn't mention how to
+enable substitutes, you can still find documentation on it in the
+@ref{Substitutes,,,guix,GNU Guix manual}.
+
+@node       Enabling Guix all substitutes servers
+@subsection Enabling Guix all substitutes servers
+
+Recent versions of Guix have both the @emph{ci.guix.gnu.org} and
+@emph{bordeaux.guix.gnu.org} substitute server enabled, while older
+versions only have the former. GNU Boot needs to have both servers
+enabled.
+
+If you don't enable both, the build could be really slow
+(@pxref{Enabling Guix substitutes} for more details).
+
+To check if you also have bordeaux.guix.gnu.org, you can use the
+following command:
+
+@c We can't use website/force-bordeaux-substitute.scm because that requires to
+@c have downloaded the GNU Boot source code first.
+@example
+sudo grep -q \
+     '#7D602902D3A2DBB83F8A0FB98602A754C5493B0B778C8D1DD4E0F41DE14DE34F#' \
+     /etc/guix/acl && echo "bordeaux.guix.gnu.org enabled"
+@end example
+
+If it prints @emph{bordeaux.guix.gnu.org enabled} then you have
+bordeaux.guix.gnu.org enabled. If not you need to enable it.
+
+To do that you first need to create a file with the
+bordeaux.guix.gnu.org.pub public key (and trust this manual that this
+is really the right public key):
+
+@example
+cat > bordeaux.guix.gnu.org.pub << EOF
+(public-key (ecc (curve Ed25519)
+(q #7D602902D3A2DBB83F8A0FB98602A754C5493B0B778C8D1DD4E0F41DE14DE34F#)))
+EOF
+@end example
+
+And to then authorize the @emph{bordeaux.guix.gnu.org} public key:
+
+@example
+sudo guix archive --authorize < bordeaux.guix.gnu.org.pub
+@end example
+
+Alternatively, if you do not want to blindly trust the command above
+(which comes from this manual and not from Guix), you could simply
+update Guix and get the file from Guix instead, but updating Guix the
+first time can be quite long to do.
+
+To do that first update Guix:
+
+@example
+guix pull
+@end example
+
+Then authorize the @emph{bordeaux.guix.gnu.org} public key that comes
+from Guix:
+
+@example
+sudo guix archive --authorize < \
+~/.config/guix/current/share/guix/bordeaux.guix.gnu.org.pub
+@end example
+
+@node       GNU Boot configuration for Guix
+@subsection GNU Boot configuration for Guix
+
+At the time of writing, Guix can use about 2GiB of RAM per core for
 updates. Building packages can also use some RAM but the types of
 packages that GNU Boot will build are unlikely to require that much
 RAM per core.
 
-If even with substitutes enabled the build still fails due to the lack
-of RAM, or if you don't want to enable substitutes, it is also
-possible to limit the amount of RAM used by limiting the number of
-cores used by Guix by passing --with-guix-build-cores=1 to the GNU
-boot ./configure script. This will pass the '-c 1' and '-M 1' options
-to guix build.
+Even with substitutes enabled the build can still fails due to the
+lack of RAM, because GNU Boot builds packages that are not in Guix.
 
-Finally Guix keeps the files it downloads or builds (in /gnu/store) in
-order to speed up things, but if you use Guix extensively, at some
-point it might use too much storage space.
+If you are affected, it is possible to limit the amount of RAM used
+during the build by limiting the number of cores used by Guix by
+passing --with-guix-build-cores=1 to the GNU boot ./configure
+script. This will pass the '-c 1' and '-M 1' options to guix build.
+
+@node       Managing space with Guix
+@subsection Managing space with Guix
+
+Guix keeps the files it downloads or builds (in /gnu/store) in order
+to speed up things, but if you use Guix extensively, at some point it
+might use too much storage space.
 
 Guix users are able to to decide when to free up space by running the
 'guix gc' command manually, but they can also control what to remove
