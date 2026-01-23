@@ -148,6 +148,7 @@ Flash programmers
 
 * Practical freedoms with flash programmers::
 * Safety considerations with flash programmers::
+* Limiting the risk right now, in absence of good instructions::
 * Setup and components needed to use a flash programmer::
 * Flash chip package::
 * Known issues with flash programmers::
@@ -1916,6 +1917,76 @@ flash programmers (@pxref{Security} for more details on that).
 While the above may be scary, there are are also cases where taking
 risks is justified by the situation, but you need to be aware of the
 risks you take.
+
+@node    Limiting the risk right now, in absence of good instructions
+@section Limiting the risk right now, in absence of good instructions
+
+Instructions that explain how to mitigate these risks are being worked
+on, and when they are ready, they will be added in this manual.
+
+So if you find compatible computers in very good conditions and/or
+with the stock nonfree BIOS, it might be a good idea to refrain from
+using a flash chip programmer for now, until there are better
+instructions to do it.
+
+If you still want or need to use a flash chip programmer right now,
+and can can't wait for better instructions, below are some extremely
+basic and incomplete advices to limit (some of) the risks.
+
+If your computer has a removable flash chip programmer, then any
+programmer will probably work. If you use a bad programmer, in the
+worst case, you are only risking the flash chip, and it can be
+replaced (@pxref {Replacing the boot flash on a desktop@comma{}
+server or workstation}). So the risks that remain are related to
+disassembling a computer.
+
+If instead you have a non-removable flash chip (like in the cases of
+all supported laptops), then the instructions to limit as much as
+possible the risks mentioned above will rely on the Chipflasher from
+Zerocat. So if you can, it is a good idea to buy one now while they
+are available.
+
+It is also a good idea to do that now to support the Chipflasher
+project, to make sure the person behind continues to produce it as
+making a new batch/version of the hardware requires significant
+expenses.
+
+This is important because the only alternative to the Chipflasher we
+know requires nonfree software (it has nonfree firmware(s) and even
+requires to run Windows), and it is probably less safe to use anyway
+because the Chipflasher has really advanced mechanism to limit damage.
+
+In addition, understanding how much "protection" other flash
+programmers that use nonfree software provide would be way too much
+time consuming because we lack the source code, schematics, for these
+programmers. And this also needs to be combined with the lack of good
+hardware documentation on the computers supported by GNU Boot. Both
+issues combined make it way harder to understand the risk. In contrast
+the Chipflasher is free software and hardware and it is documented
+extensively.
+
+The Chipflasher also has a dedicated manual that is very detailed, and
+it also now ships with a firmware that is compatible with flashrom,
+which also has its own manual (which is available with the @emph{man
+flashrom} command in Trisquel 11 (aramo) once the flashrom package has
+been installed (this can be done with the @emph{sudo apt install
+flashrom} command)). So it should be relatively easy to use even in
+the absence of specific instructions for GNU Boot.
+
+If something doesn't work, the Chipflasher manual has information on
+the @acronym{LEDs,light-emitting diodes} used for diagnostics, and
+also on the jumpers that can configure some of its behavior (that can
+be required if the Chipflasher doesn't find any flash chip).
+
+So if we need to give only one advice, using the Chipflasher from
+Zerocat is probably the one that reduces the most the risk of damage
+for the computers and/or yourself in cases where the boot flash is not
+removable.
+
+Note that we also want to document the use of other flash programmers
+if they can be used without downloading / installing nonfree software,
+because even if they carry risks, they cover additional use cases:
+some are way cheaper, people might already have some of them, etc.
 
 @node    Setup and components needed to use a flash programmer
 @section Setup and components needed to use a flash programmer
