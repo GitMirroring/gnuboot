@@ -121,7 +121,7 @@ This manual is for GNU Boot version @value{VERSION}.
 * Flash programmers::
 * Installing or upgrading GNU Boot images::
 * Using GNU Boot::
-* Maintenance and repairations::
+* Maintenance and repairs::
 * Building GNU Boot from source::
 * Helping GNU Boot::				How to contribute to GNU Boot
 * GNU Free Documentation License::		Copying and sharing this documentation.
@@ -165,7 +165,7 @@ Security
 * Very basic introduction on security::
 * Security considerations when using GNU Boot::
 
-Maintenance and repairations
+Maintenance and repairs
 
 * Replacing the boot flash on a desktop@comma{} server or workstation::
 
@@ -2930,8 +2930,8 @@ you probably know it, or write about it, and you then need to re-do
 the seals. How to do all that will need to be explained later on in
 this manual.
 
-@node    Maintenance and repairations
-@chapter Maintenance and repairations
+@node    Maintenance and repairs
+@chapter Maintenance and repairs
 
 @node    Replacing the boot flash on a desktop@comma{} server or workstation
 @section Replacing the boot flash on a desktop@comma{} server or workstation
