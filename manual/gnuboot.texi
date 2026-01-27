@@ -4107,7 +4107,7 @@ look more or less like that:
 [...]
 config.status: creating Makefile
 config.status: creating manual/Makefile
-config.status: creating resources/packages/i945-thinkpads-install-utilities/Makefile
+config.status: creating resources/packages/i945-thinkpads-install-utils/Makefile
 config.status: executing depfiles commands
 config.status: executing libtool commands
 Configuration options:

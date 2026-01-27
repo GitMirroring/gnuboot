@@ -22,7 +22,7 @@ TOPDIR = .
 
 DESTDIR ?= $(TOPDIR)/release
 
-PACK_NAME = i945-thinkpads-install-utilities
+PACK_NAME = i945-thinkpads-install-utils
 
 GUIX_PACKAGE_NAMES ?= bucts flashrom-bucts
 RELEASE_DIR = $(DESTDIR)/i945-thinkpads-install
@@ -41,7 +41,7 @@ RELEASE_DIR = $(DESTDIR)/i945-thinkpads-install
 
 THINKPADS_INSTALL_UTILS_DEPS = \
 	$(TOPDIR)/config.sh \
-	$(TOPDIR)/resources/packages/i945-thinkpads-install-utilities/Makefile	\
+	$(TOPDIR)/resources/packages/i945-thinkpads-install-utils/Makefile \
 	$(TOPDIR)/resources/wrapper/guix \
 	$(SENTINEL)
 

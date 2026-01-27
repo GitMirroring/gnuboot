@@ -57,7 +57,7 @@ mkdir -p "${srcdir}/"
 
 printf "%s" "${version}" > "${srcdir}"/version
 
-modlist="coreboot grub i945-thinkpads-install-utilities memtest86plus seabios"
+modlist="coreboot grub i945-thinkpads-install-utils memtest86plus seabios"
 dirlist="resources"
 filelist="download build README.md COPYING Makefile update version versiondate projectname"
 
@@ -68,14 +68,14 @@ for modname in ${modlist}; do
 done
 
 for dir in ${modlist} ${dirlist}; do
-    # The i945-thinkpads-install-utilities package uses guix to build things.
+    # The i945-thinkpads-install-utils package uses guix to build things.
     # Because of that the build and download phases are the same because if guix
     # has substitutes enabled, and if upstream has substitutes for what we
     # build, guix only download the resulting binaries. Since nothing is built
     # in the current directory and that everything happens through guix, after
     # downloading and/or building the guix packages, the results are installed
     # directly into the GNU Boot release directory.
-    if [ "${dir}" = "i945-thinkpads-install-utilities" ] ; then
+    if [ "${dir}" = "i945-thinkpads-install-utils" ] ; then
 	continue
     fi
     cp -R "${dir}/" "${srcdir}/"
