@@ -78,7 +78,7 @@ release: $(LOG)
 
 clean:
 	./build clean cbutils
-	./build clean i945-thinkpads-install-utilities
+	./build clean i945-thinkpads-install-utils
 	./build clean ich9utils
 	./build clean manual
 	./build clean payloads
@@ -110,7 +110,7 @@ check: $(LOG)
 manuals: dvi html info pdf ps
 
 include resources/debian/Makefile.am
-include resources/packages/i945-thinkpads-install-utilities/Makefile.am
+include resources/packages/i945-thinkpads-install-utils/Makefile.am
 
 help:
 	@printf "Available make commands/targets :\n"
@@ -122,8 +122,8 @@ help:
 		"Remove all the files being built in GNU Boot."
 	@printf "\tmake crossgcc-clean                        # %s\n" \
 		"Remove the builds of the crossgcc toolchain."
-	@printf "\tmake i945-thinkpads-install-utilities-help # %s\n" \
-		"Print i945-thinkpads-install-utilities targets help."
+	@printf "\tmake i945-thinkpads-install-utils-help # %s\n" \
+		"Print i945-thinkpads-install-utils targets help."
 	@printf "\tmake manuals                               # %s\n" \
 		"Build 'dvi', 'html', 'info', 'pdf', and 'ps' manuals."
 	@printf "\t                                           # %s\n" \

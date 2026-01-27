@@ -18,7 +18,7 @@ AM_INIT_AUTOMAKE([foreign])
 AC_CONFIG_FILES([
     Makefile
     manual/Makefile
-    resources/packages/i945-thinkpads-install-utilities/Makefile
+    resources/packages/i945-thinkpads-install-utils/Makefile
 ])
 
 AC_SUBST([ENABLE_KVM], [])

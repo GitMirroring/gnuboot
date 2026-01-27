@@ -129,7 +129,7 @@ Example of downloading an individual module:
 
     ./download grub
 
-    ./download i945-thinkpads-install-utilities
+    ./download i945-thinkpads-install-utils
 
 Third, build all of the modules:
 --------------------------------
@@ -155,7 +155,7 @@ Example of building specific modules:
 
     ./build module seabios
 
-    ./build module i945-thinkpads-install-utilities
+    ./build module i945-thinkpads-install-utils
 
 Commands are available to *clean* a module, which basically runs make-clean.
 You can list these commands:

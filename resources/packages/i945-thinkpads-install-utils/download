@@ -16,4 +16,4 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 set -x
 
-make i945-thinkpads-install-utilities-clean
+make i945-thinkpads-install-utils-download
