@@ -59,7 +59,7 @@ help() {
 	possible values for 'package':
 	$(list_packages)
 
-	Example:	./download i945-thinkpads-install-utilities
+	Example:	./download i945-thinkpads-install-utils
 	Example:	./download coreboot
 
 	Some package options allow for additional parameters:
@@ -91,7 +91,7 @@ if [ $# -lt 1 ]; then
 	die "${EX_USAGE}" "Please specify arguments."
 fi
 
-# Some scripts like the ones in resources/packages/i945-thinkpads-install-utilities need
+# Some scripts like the ones in resources/packages/i945-thinkpads-install-utils need
 # Makefiles to be generated
 . resources/scripts/misc/generate-configure-makefiles.sh
 

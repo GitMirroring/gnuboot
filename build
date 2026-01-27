@@ -81,7 +81,7 @@ help() {
 	$(list_tasks)
 
 	Example:	./build module all
-	Example:	./build module i945-thinkpads-install-utilities
+	Example:	./build module i945-thinkpads-install-utils
 	Example:	./build boot roms qemu-pc_2mb
 	Example:	./build clean all
 
@@ -114,7 +114,7 @@ fi
 
 [ "${task}" = "--help" ] && help && exit 0
 
-# Some scripts like the ones in resources/packages/i945-thinkpads-install-utilities need
+# Some scripts like the ones in resources/packages/i945-thinkpads-install-utils need
 # Makefiles to be generated
 . resources/scripts/misc/generate-configure-makefiles.sh
 

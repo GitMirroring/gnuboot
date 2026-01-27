@@ -42,7 +42,7 @@ fi
 
 if [ ! -f configure ] || \
        [ ! -f Makefile ] || \
-       [ ! -f resources/packages/i945-thinkpads-install-utilities/Makefile ] ; then
+       [ ! -f resources/packages/i945-thinkpads-install-utils/Makefile ] ; then
     ./autogen.sh
     if ! ./configure ; then
         if grep -q 'error: /dev/kvm not found\.$' config.log ; then

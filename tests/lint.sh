@@ -73,10 +73,10 @@ run_shellcheck \
     resources/packages/dependencies/install \
     resources/packages/descriptors/distclean \
     resources/packages/grub/distclean \
-    resources/packages/i945-thinkpads-install-utilities/clean \
-    resources/packages/i945-thinkpads-install-utilities/distclean \
-    resources/packages/i945-thinkpads-install-utilities/download \
-    resources/packages/i945-thinkpads-install-utilities/module \
+    resources/packages/i945-thinkpads-install-utils/clean \
+    resources/packages/i945-thinkpads-install-utils/distclean \
+    resources/packages/i945-thinkpads-install-utils/download \
+    resources/packages/i945-thinkpads-install-utils/module \
     resources/packages/manual/clean \
     resources/packages/manual/distclean \
     resources/packages/manual/test \
