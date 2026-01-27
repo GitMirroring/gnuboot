@@ -18,7 +18,7 @@
 # along with GNU Guix.  If not, see <http://www.gnu.org/licenses/>.
 
 # TODO: Use Guix to produce a source package to make it reproducible
-release/guix_transitive_sources.tar:  Makefile
+release/guix_transitive_sources.tar: $(THINKPADS_INSTALL_UTILS_DEPS)
 	install -d release
 	tar cf $@ \
 		`$(TOPDIR)/resources/wrapper/guix build \
