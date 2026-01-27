@@ -27,6 +27,14 @@ PACK_NAME = i945-thinkpads-install-utilities
 GUIX_PACKAGE_NAMES ?= bucts flashrom-bucts
 RELEASE_DIR = $(DESTDIR)/i945-thinkpads-install
 
+.PHONY: \
+	$(PACK_NAME) \
+	$(PACK_NAME)-clean \
+	$(PACK_NAME)-distclean \
+	$(PACK_NAME)-download \
+	$(PACK_NAME)-module \
+	$(SENTINEL)
+
 # We enable caching by not making this configurable and so when the
 # Makefile isn't updated, the Guix revision doesn't change, so we
 # don't need to rebuild anything.
@@ -41,8 +49,6 @@ GUIX_PACK_COMMAND = \
 	--system=i686-linux \
 	--symlink=/usr/local/bin/bucts=bin/bucts \
 	--symlink=/usr/local/bin/flashrom-bucts=sbin/flashrom-bucts
-
-.PHONY: $(PACK_NAME) $(PACK_NAME)-clean $(PACK_NAME)-distclean $(PACK_NAME)-download $(PACK_NAME)-module
 
 $(PACK_NAME): \
 	$(RELEASE_DIR)/$(PACK_NAME)-deb-pack.deb \
