@@ -1,4 +1,4 @@
-# Copyright (C) 2023-2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+# Copyright (C) 2023-2026 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -33,7 +33,7 @@ RELEASE_DIR = $(DESTDIR)/i945-thinkpads-install
 
 GUIX_PACK_COMMAND = \
 	source $(TOPDIR)/config.sh && \
-	source resources/scripts/misc/guix.sh && \
+	source $(TOPDIR)/resources/scripts/misc/guix.sh && \
 	source_guix_profile && \
 	$(TOPDIR)/resources/wrapper/guix pack \
 	-R \
