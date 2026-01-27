@@ -89,7 +89,7 @@ release: $(LOG)
 
 clean:
 	./build clean cbutils
-	./build clean i945-thinkpads-install-utilities
+	./build clean i945-thinkpads-install-utils
 	./build clean ich9utils
 	./build clean manual
 	./build clean payloads
@@ -113,7 +113,7 @@ install-dependencies: $(LOG)
 manuals: dvi html info pdf ps
 
 include resources/debian/Makefile.am
-include resources/packages/i945-thinkpads-install-utilities/Makefile.am
+include resources/packages/i945-thinkpads-install-utils/Makefile.am
 # The src Makefile use variable(s) from i945-thinkpads-install-utilities/Makefile
 include resources/packages/src/Makefile.am
 
@@ -127,8 +127,8 @@ help:
 		"Remove all the files being built in GNU Boot."
 	@printf "\tmake crossgcc-clean                        # %s\n" \
 		"Remove the builds of the crossgcc toolchain."
-	@printf "\tmake i945-thinkpads-install-utilities-help # %s\n" \
-		"Print i945-thinkpads-install-utilities targets help."
+	@printf "\tmake i945-thinkpads-install-utils-help     # %s\n" \
+		"Print i945-thinkpads-install-utils targets help."
 	@printf "\tmake guix-transitive-sources-help          # %s\n" \
 		"Print guix-transitive-sources targets help."
 	@printf "\tmake manuals                               # %s\n" \
