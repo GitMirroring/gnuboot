@@ -39,6 +39,12 @@ RELEASE_DIR = $(DESTDIR)/i945-thinkpads-install
 # Makefile isn't updated, the Guix revision doesn't change, so we
 # don't need to rebuild anything.
 
+THINKPADS_INSTALL_UTILS_DEPS = \
+	$(TOPDIR)/config.sh \
+	$(TOPDIR)/resources/packages/i945-thinkpads-install-utilities/Makefile	\
+	$(TOPDIR)/resources/wrapper/guix \
+	$(SENTINEL)
+
 GUIX_PACK_COMMAND = \
 	source $(TOPDIR)/config.sh && \
 	source $(TOPDIR)/resources/scripts/misc/guix.sh && \
@@ -60,7 +66,7 @@ $(PACK_NAME)-download: $(PACK_NAME)
 $(PACK_NAME)-module: $(PACK_NAME)
 
 # TODO: Use Guix to produce a source package to make it reproducible
-$(RELEASE_DIR)/packages_src.tar:  Makefile
+$(RELEASE_DIR)/packages_src.tar: $(THINKPADS_INSTALL_UTILS_DEPS)
 	install -d $(RELEASE_DIR)
 	tar cf $@ \
 		`source $(TOPDIR)/config.sh && \
@@ -72,13 +78,13 @@ $(RELEASE_DIR)/packages_src.tar:  Makefile
 		--sources=transitive \
 		$(GUIX_PACKAGE_NAMES) | sort -u`
 
-$(RELEASE_DIR)/$(PACK_NAME)-deb-pack.deb: Makefile
+$(RELEASE_DIR)/$(PACK_NAME)-deb-pack.deb: $(THINKPADS_INSTALL_UTILS_DEPS)
 	install -d $(RELEASE_DIR)
 	install \
 	`$(GUIX_PACK_COMMAND) --format="deb" $(GUIX_PACKAGE_NAMES)` \
 	$@
 
-$(RELEASE_DIR)/$(PACK_NAME)-tarball-pack.tar.gz: Makefile
+$(RELEASE_DIR)/$(PACK_NAME)-tarball-pack.tar.gz: $(THINKPADS_INSTALL_UTILS_DEPS)
 	install -d $(RELEASE_DIR)
 	install \
 	`$(GUIX_PACK_COMMAND) --format="tarball" $(GUIX_PACKAGE_NAMES)` \
