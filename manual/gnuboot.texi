@@ -507,8 +507,8 @@ So instead, the GNU Boot maintainers relied on a mix of discussion
 with Leah Rowe, the Canoeboot maintainer, and their own research, to
 get information about Canoeboot.
 
-@node          GNU boot and Canoeboot: features
-@subsubsection GNU boot and Canoeboot: features
+@node          Features
+@subsubsection Features
 
 Compared to GNU Boot, Canoeboot focuses more on having the latest
 software, adding additional features not available in the projects it
@@ -536,8 +536,8 @@ advance because there are a lot of unknowns.
 Note that GNU Boot also has similar issues but instead of adding more
 modifications it tries to reduces their amount.
 
-@node          GNU boot and Canoeboot: fixes
-@subsubsection GNU boot and Canoeboot: fixes
+@node          Fixes
+@subsubsection Fixes
 
 Another significant difference between both projects is that Canoeboot
 seems to have fixed a lot of issue since Libreboot 20220710 (the
@@ -579,8 +579,8 @@ expense of quicker fixes and improvements. Canoeboot also does and/or
 did that in one way or another but there is no clear separation of
 what was reviewed or not.
 
-@node          GNU boot and Canoeboot: dependence on upstream
-@subsubsection GNU boot and Canoeboot: dependence on upstream
+@node          Dependence on upstream
+@subsubsection Dependence on upstream
 
 Another difference is that nowadays the code and website of Canoeboot
 are closer to the current Libreboot than GNU Boot is.
@@ -926,8 +926,8 @@ Here are some details on this computer:
 @fastestxeightysixcomputer
 @experimentalComputer
 
-@node          Asus KGPE-D16: How to build a computer with this mainboard.
-@subsubsection Asus KGPE-D16: How to build a computer with this mainboard.
+@node          How to build a computer with this mainboard.
+@subsubsection How to build a computer with this mainboard.
 
 @computerWithSlowUSBKeyboard
 
@@ -1571,8 +1571,8 @@ use. Compared with SeaBIOS images with text-only low resolution:
 @node    SeaBIOS images requirements
 @section SeaBIOS images requirements
 
-@node       SeaBIOS: Supported filesystems and partitions
-@subsection SeaBIOS: Supported filesystems and partitions
+@node       Filesystems and partitions supported by SeaBIOS
+@subsection Filesystems and partitions supported by SeaBIOS
 
 SeaBIOS images don't need to support any filesystems because SeaBIOS
 is a BIOS interface implementation and BIOSes don't need to support
@@ -1590,11 +1590,11 @@ record} and
 @uref{https://en.wikipedia.org/wiki/BIOS_Boot_partition,BIOS Boot
 partition} articles.
 
-@node       SeaBIOS: Supported bootloaders
-@subsection SeaBIOS: Supported bootloaders
+@node       Bootloaders supported by SeaBIOS
+@subsection Bootloaders supported by SeaBIOS
 
-@node          SeaBIOS: GRUB (on MBR or BIOS boot partition)
-@subsubsection SeaBIOS: GRUB (on MBR or BIOS boot partition)
+@node          GRUB on MBR or BIOS boot partition
+@subsubsection GRUB on MBR or BIOS boot partition
 
 GRUB, when shipped from a GNU/Linux distribution, typically uses a
 graphic driver that is incompatible with GNU Boot. Because of that you
@@ -1775,8 +1775,8 @@ screen):
 @node    GRUB images requirements
 @section GRUB images requirements
 
-@node       GRUB: Supported configuration files
-@subsection GRUB: Supported configuration files
+@node       Configuration files supported by GRUB
+@subsection Configuration files supported by GRUB
 
 @node          grub.cfg
 @subsubsection grub.cfg
@@ -1795,23 +1795,23 @@ So if it loads the wrong distribution, you can put grub commands that
 load the right distribution in /boot/gnuboot_grub.cfg in the partition
 it loads the wrong distribution from.
 
-@node       GRUB: Supported partitions
-@subsection GRUB: Supported partitions
+@node       Partitions supported by GRUB images
+@subsection Partitions supported by GRUB images
 
-@node          GRUB: GPT (GUID Partition Table) and MBR (Master boot record)
-@subsubsection GRUB: GPT (GUID Partition Table) and MBR (Master boot record)
+@node          GPT (GUID Partition Table) and MBR (Master boot record)
+@subsubsection GPT (GUID Partition Table) and MBR (Master boot record)
 
 The GRUB images support GPT and MBR partitions.
 
-@node          GRUB: LVM2
-@subsubsection GRUB: LVM2
+@node          LVM2
+@subsubsection LVM2
 
 While basic usage of LVM2 is supported and well tested, it also has
 various backends like for RAID0, RAID5, etc, and these are not well
 tested and might not all be supported.
 
-@node          GRUB: GNU/Linux RAID
-@subsubsection GRUB: GNU/Linux RAID
+@node          GNU/Linux RAID
+@subsubsection GNU/Linux RAID
 
 GNU Boot GRUB images support some RAID combinations, but we also lack
 information on which ones do and don't work. Please contact us if you
@@ -1821,8 +1821,8 @@ Due to limitations in the grub configuration of the GNU Boot GRUB
 images, we only support 10 RAID volumes (md/0 to md/9), help is
 welcome to fix that.
 
-@node          GRUB: RAID formats of RAID card vendors
-@subsubsection GRUB: RAID formats of RAID card vendors
+@node          RAID formats of RAID card vendors
+@subsubsection RAID formats of RAID card vendors
 
 While some GNU/Linux distributions support that, this is completely
 untested in GNU Boot and it is probably not supported. In addition we

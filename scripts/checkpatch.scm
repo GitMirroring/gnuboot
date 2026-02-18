@@ -703,6 +703,31 @@
        warnings check-results)))
 
    (make-rule
+    "Check for colon in @node"
+    (lambda (path parse-results check-results) check-results)
+    (lambda (line parse-results check-results)
+      (startswith line "+@node "))
+    (lambda (line parse-results check-results)
+      (define warnings (assq-ref check-results 'warnings))
+
+      (define (node-name line)
+        (regexp-substitute
+         #f
+         (string-match "\\+@node +" line) 'post))
+
+      (define (node-has-colon line)
+	(not (string=? (string-filter (lambda (c) (eq? c #\:)) (node-name line)) "")))
+
+      (if (node-has-colon line)
+	  (let ((warnings (assq-ref check-results 'warnings)))
+	    (display
+             (string-append
+              "WARNING: node \"" (node-name line) "\" has a colun (':').\n\n"))
+	    (acons 'warnings (+ warnings 1) check-results))
+	  check-results))
+    (lambda (path parse-results check-results) check-results))
+
+   (make-rule
     "Check @node alignement in the manual"
     (lambda (path parse-results check-results)
       (acons 'current-node #f check-results))

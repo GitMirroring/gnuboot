@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (C) 2023-2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+# Copyright (C) 2023-2026 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -78,6 +78,42 @@ done < tests/checkpatch-test-non-modified-unaligned-nodes.ref && \
     fail "warned against non-modified unaligned nodes in the manual."
 
 echo "[ OK ] didn't warn against non-modified unaligned nodes in the manual."
+
+################################################################################
+# Test if checkpatch.scm correctly finds colon (':') in node names             #
+################################################################################
+
+# This checks the "manual: GRUB images: add information about RAID
+# partitions." commit which adds node names with colons.
+./scripts/checkpatch.scm \
+    "$(git format-patch -1 b228639da2d3700014cf21f5e36ea7d9dddc0132)" > \
+    "${tmpdir}"/checkpatch-test-nodes-with-colon.log 2>/dev/null || \
+    fail "checkpatch.scm failed " \
+         "when trying to detect node with colon (':') in the manual."
+
+while IFS= read -r line; do
+    grep -q "${line}" "${tmpdir}"/checkpatch-test-nodes-with-colon.log || \
+    fail "failed to detect node with colon (':') in the manual."
+done < tests/checkpatch-test-nodes-with-colon.ref
+
+echo "[ OK ] detected nodes with colon in the manual."
+
+# This checks the "manual: flash programmers: add Chipflasher v2."
+# commit which add nodes names without colon.
+./scripts/checkpatch.scm \
+    "$(git format-patch -1 1dfdcec2f34517912f2e6c29c5e4fc30209679ff)" > \
+    "${tmpdir}"/checkpatch-test-nodes-without-colon.log \
+    2>/dev/null || \
+    fail "checkpatch.scm failed " \
+         "when checking for node without colon (':') in the manual."
+
+while IFS= read -r line; do
+    grep -q -L "${line}" \
+         "${tmpdir}"/checkpatch-test-nodes-without-colon.log
+done < tests/checkpatch-test-nodes-without-colon.ref && \
+    fail "warned against nodes names without colon (':') the manual."
+
+echo "[ OK ] didn't warn against nodes names without colon (':') in the manual."
 
 ################################################################################
 # Test if checkpatch.scm correctly finds missing Spanish translation.          #
