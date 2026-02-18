@@ -944,9 +944,6 @@ Here are some details on this computer:
 @item        Boot flash:   @tab Non-removable (soldered)
 @end multitable
 
-@node          Lenovo ThinkPad X60 builtin card reader
-@subsubsection Lenovo ThinkPad X60 builtin card reader
-
 @cardreaderPCIe
 
 @node       Lenovo ThinkPad X60s
@@ -962,9 +959,6 @@ Here are some details on this computer:
 @item        Boot flash:   @tab Non-removable (soldered)
 @end multitable
 
-@node          Lenovo ThinkPad X60s builtin card reader
-@subsubsection Lenovo ThinkPad X60s builtin card reader
-
 @cardreaderPCIe
 
 @node       Lenovo ThinkPad X60T
@@ -979,9 +973,6 @@ Here are some details on this computer:
 @item        CPU:          @tab Non-removable (soldered)
 @item        Boot flash:   @tab Non-removable (soldered)
 @end multitable
-
-@node          Lenovo ThinkPad X60T builtin card reader
-@subsubsection Lenovo ThinkPad X60T builtin card reader
 
 @cardreaderPCIe
 
@@ -1022,9 +1013,6 @@ The ThinkPad X200 has one of these CPUs:
 @item Intel Core 2 Duo P8800 (64bit, 2 cores, 2.66GHz)
 @end itemize
 
-@node          Lenovo ThinkPad X200 builtin card reader
-@subsubsection Lenovo ThinkPad X200 builtin card reader
-
 @cardreaderUSB
 
 @node       Lenovo ThinkPad X200s
@@ -1039,9 +1027,6 @@ Here are some details on this computer:
 @item        CPU:            @tab Non-removable (soldered)
 @item        Boot flash:     @tab Non-removable (soldered)
 @end multitable
-
-@node          Lenovo ThinkPad X200s builtin card reader
-@subsubsection Lenovo ThinkPad X200s builtin card reader
 
 @cardreaderUSB
 
@@ -1058,9 +1043,6 @@ Here are some details on this computer:
 @item        Boot flash:     @tab Non-removable (soldered)
 @end multitable
 
-@node          Lenovo ThinkPad X200T builtin card reader
-@subsubsection Lenovo ThinkPad X200T builtin card reader
-
 @cardreaderUSB
 
 @node       Libiquity Taurinus X200
@@ -1075,9 +1057,6 @@ Here are some details on this computer:
 @item        CPU:            @tab Non-removable (soldered)
 @item        Boot flash:     @tab Non-removable (soldered)
 @end multitable
-
-@node           Taurinus X200 builtin card reader
-@subsubsection  Taurinus X200 builtin card reader
 
 @cardreaderUSB
 
@@ -1094,8 +1073,6 @@ Here are some details on this computer:
 @item        Boot flash:     @tab Non-removable (soldered)
 @end multitable
 
-@subsubsection Technoethical X200 builtin card reader
-
 @cardreaderUSB
 
 @node       Technoethical X200s
@@ -1110,8 +1087,6 @@ Here are some details on this computer:
 @item        CPU:            @tab Non-removable (soldered)
 @item        Boot flash:     @tab Non-removable (soldered)
 @end multitable
-
-@subsubsection Technoethical X200s builtin card reader
 
 @cardreaderUSB
 
@@ -1128,9 +1103,6 @@ Here are some details on this computer:
 @item        Boot flash:     @tab Non-removable (soldered)
 @end multitable
 
-@node          Technoethical X200T builtin card reader
-@subsubsection Technoethical X200T builtin card reader
-
 @cardreaderUSB
 
 @node       Vikings X200
@@ -1145,9 +1117,6 @@ Here are some details on this computer:
 @item        CPU:            @tab Non-removable (soldered)
 @item        Boot flash:     @tab Non-removable (soldered)
 @end multitable
-
-@node          Vikings X200 builtin card reader
-@subsubsection Vikings X200 builtin card reader
 
 @cardreaderUSB
 
