@@ -728,6 +728,33 @@
     (lambda (path parse-results check-results) check-results))
 
    (make-rule
+    "Check for comma in @node"
+    (lambda (path parse-results check-results) check-results)
+    (lambda (line parse-results check-results)
+      (startswith line "+@node "))
+    (lambda (line parse-results check-results)
+      (define warnings (assq-ref check-results 'warnings))
+
+      (define (node-name line)
+        (regexp-substitute
+         #f
+         (string-match "\\+@node +" line) 'post))
+
+      (define (node-has-comma line)
+	(or
+	 (not (string=? (string-filter (lambda (c) (eq? c #\,)) (node-name line)) ""))
+	 (string-match "@comma\\{\\}" (node-name line))))
+
+      (if (node-has-comma line)
+	  (let ((warnings (assq-ref check-results 'warnings)))
+	    (display
+             (string-append
+              "WARNING: node \"" (node-name line) "\" has a comma (',').\n\n"))
+	    (acons 'warnings (+ warnings 1) check-results))
+	  check-results))
+    (lambda (path parse-results check-results) check-results))
+
+   (make-rule
     "Check @node alignement in the manual"
     (lambda (path parse-results check-results)
       (acons 'current-node #f check-results))

@@ -116,6 +116,42 @@ done < tests/checkpatch-test-nodes-without-colon.ref && \
 echo "[ OK ] didn't warn against nodes names without colon (':') in the manual."
 
 ################################################################################
+# Test if checkpatch.scm correctly finds comma (',') in node names             #
+################################################################################
+
+# This checks the "manual: Add section about flash programmers."
+# commit which adds comma names with colons.
+./scripts/checkpatch.scm \
+    "$(git format-patch -1 352aac31b493a1db4af1665e3df511c05d41d811)" > \
+    "${tmpdir}"/checkpatch-test-nodes-with-comma.log 2>/dev/null || \
+    fail "checkpatch.scm failed " \
+         "when trying to detect node with comma (',') in the manual."
+
+while IFS= read -r line; do
+    grep -q "${line}" "${tmpdir}"/checkpatch-test-nodes-with-comma.log || \
+    fail "failed to detect node with comma (',') in the manual."
+done < tests/checkpatch-test-nodes-with-comma.ref
+
+echo "[ OK ] detected nodes with comma in the manual."
+
+# This checks the "manual: flash programmers: add Chipflasher v2."
+# commit which add nodes names without comma.
+./scripts/checkpatch.scm \
+    "$(git format-patch -1 1dfdcec2f34517912f2e6c29c5e4fc30209679ff)" > \
+    "${tmpdir}"/checkpatch-test-nodes-without-comma.log \
+    2>/dev/null || \
+    fail "checkpatch.scm failed " \
+         "when checking for node without colon (':') in the manual."
+
+while IFS= read -r line; do
+    grep -q -L "${line}" \
+         "${tmpdir}"/checkpatch-test-nodes-without-colon.log
+done < tests/checkpatch-test-nodes-without-comma.ref && \
+    fail "warned against nodes names without colon (':') the manual."
+
+echo "[ OK ] didn't warn against nodes names without colon (':') in the manual."
+
+################################################################################
 # Test if checkpatch.scm correctly finds missing Spanish translation.          #
 ################################################################################
 

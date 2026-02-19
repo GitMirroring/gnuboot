@@ -169,7 +169,7 @@ Security
 
 Maintenance and repairs
 
-* Replacing the boot flash on a desktop@comma{} server or workstation::
+* Replacing removable boot flash chips::
 
 Building GNU Boot from source
 
@@ -3113,8 +3113,8 @@ tolerance for bending are low.
 Having heavy @uref{https://en.wikipedia.org/wiki/Heat_sink,heat sink}
 and/or big mainboards can increase the risks of bending.
 
-@node    Replacing the boot flash on a desktop@comma{} server or workstation
-@section Replacing the boot flash on a desktop@comma{} server or workstation
+@node    Replacing removable boot flash chips
+@section Replacing removable boot flash chips
 
 First, @pxref{Disassembling a computer} if you care about not damaging
 your computer, because you will most likely need to disassemble the
