@@ -1559,6 +1559,10 @@ partition} articles.
 @node       Bootloaders supported by SeaBIOS
 @subsection Bootloaders supported by SeaBIOS
 
+@menu
+* GRUB on MBR or BIOS boot partition::
+@end menu
+
 @node          GRUB on MBR or BIOS boot partition
 @subsubsection GRUB on MBR or BIOS boot partition
 
@@ -1743,6 +1747,10 @@ screen):
 
 @node       Configuration files supported by GRUB
 @subsection Configuration files supported by GRUB
+
+@menu
+* grub.cfg::
+@end menu
 
 @node          grub.cfg
 @subsubsection grub.cfg
@@ -2222,6 +2230,10 @@ for more details about the security attacks mentioned above.
 Once GNU Boot is downloaded or built, you will need to understand
 which files you need to install or upgrade. @xref{Supported hardware
 and configurations} chapter for more details on how to do that.
+
+@menu
+* Installation and upgrade instructions::
+@end menu
 
 @node    Installation and upgrade instructions
 @section Installation and upgrade instructions
@@ -2776,6 +2788,10 @@ You can consult either the
 build instructions} or the @ref{Installation,,,guix,GNU Guix reference
 manual} for how to install Guix.
 
+@menu
+* Checking the signatures of GNU Boot images::
+@end menu
+
 @node       Checking the signatures of GNU Boot images
 @subsection Checking the signatures of GNU Boot images
 
@@ -3112,6 +3128,10 @@ tolerance for bending are low.
 
 Having heavy @uref{https://en.wikipedia.org/wiki/Heat_sink,heat sink}
 and/or big mainboards can increase the risks of bending.
+
+@menu
+* Replacing removable boot flash chips::
+@end menu
 
 @node    Replacing removable boot flash chips
 @section Replacing removable boot flash chips
