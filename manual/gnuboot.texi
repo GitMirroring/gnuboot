@@ -926,9 +926,6 @@ Here are some details on this computer:
 @fastestxeightysixcomputer
 @experimentalComputer
 
-@node          How to build a computer with this mainboard.
-@subsubsection How to build a computer with this mainboard.
-
 @computerWithSlowUSBKeyboard
 
 @node       Lenovo ThinkPad X60
