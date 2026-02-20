@@ -3017,7 +3017,7 @@ technologies (probably around 10 000 Euros to assemble different
 components in a single chip, this is commonly done for RAM and CPU /
 System on a chip for instance).
 
-@c TODO: reference with bunny and wire bonding.
+@c TODO: reference with bunnie (Andrew Huang) and wire bonding.
 
 Another possible workaround would be to try to get hardware in ways
 that don't enable an attacker to target you and/or communities you
