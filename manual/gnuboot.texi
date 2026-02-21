@@ -3696,7 +3696,7 @@ risk of ending with a computer that doesn't boot anymore (for fixing
 that you will most likely need to disassemble your computer and use
 another computer and a flash programmer to recover it).
 
-Also note that you don't use PureOS 10 (byzantium) or Trisquel 10
+Also note that if you don't use PureOS 10 (byzantium) or Trisquel 10
 (nabia), there are many ways to run them on top of other GNU/Linux
 distributions.
 
