@@ -28,9 +28,49 @@
       (string=? (substring str 0 (string-length value)) value)      #f))
 
 (define (read-file path func)
+  "Run FUN on the content of the file at PATH."
   (define results #f)
   (let ((port (open-input-file path)))
     (set! results (func path port))
+    (close-port port)
+    results))
+
+;; TODO: factorize with get-git-file-hash
+;; TODO: check for git command presence
+(define (get-git-commit-hash revision)
+  (let* ((command (string-join
+                   (list
+                    "git"
+                    "--no-pager"
+                    "show"
+                    "--no-patch"
+                    "--pretty=%H"
+                    revision) " "))
+         (port (open-input-pipe command))
+         (line (read-line port))
+         (file-hash line))
+    (close-pipe port)
+    file-hash))
+
+(define (get-git-file-hash commit-hash path)
+  (let* ((command (string-join (list "git" "--no-pager" "ls-tree" commit-hash "--" path) " "))
+         (port (open-input-pipe command))
+         (line (read-line port))
+         (split-line
+          (string-split
+           line
+           (lambda (c) (or (eqv? c #\ ) (eqv? c #\tab)))))
+         (file-hash (list-ref split-line 2)))
+    (close-pipe port)
+    file-hash))
+
+(define (read-file-from-commit commit-hash path func)
+  "Run FUNC on the content of PATH at git COMMIT-HASH"
+  (define results #f)
+  (let* ((file-hash (get-git-file-hash commit-hash path))
+         (command (string-join (list "git" "show" file-hash) " "))
+         (port (open-input-pipe command)))
+    (set! results (func commit-hash path port))
     (close-port port)
     results))
 
@@ -49,7 +89,7 @@
             ((port
               (open-pipe*
                OPEN_READ
-               "git" "ls-tree" commit "--" path))
+               "git" "--no-pager" "ls-tree" commit "--" path))
              (str (read-line port)))
           str))))
 
@@ -78,6 +118,146 @@ email string (without the '<' and '>')."
       (substring line 0 (- email-start 2)))
 
     (cons author email)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;                     ;;
+;;                   ;; Copyright header parsing logic ;;                     ;;
+;;                   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;                     ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define (copyright-line? line)
+  (define copyright-regex
+    "Copyright \\(C\\) [0-9]{4}*")
+  (if
+   (string-match copyright-regex line)
+   #t
+   #f))
+
+;; TODO: should we use (guix records) instead of srfi-9 records? It
+;; would bring sanitizer to make sure for instance the copyright years
+;; are valid integers and represent a valid year. In practice this
+;; means that we could add many checks directly in the record. The
+;; downside is that it would also require to have Guix installed as a
+;; dependency, and the GNU Boot website is for now supposed to be
+;; built without Guix, not only to make it easy to package, but also
+;; to not require new contributors to have to wait for a guix pull
+;; that now runs twice.
+(define-record-type <copyright-notice>
+  (make-copyright-notice author email years line)
+  copyright-notice?
+  ;; Author and/or copyright-notice owner name
+  (author copyright-notice-author set-copyright-notice-author!)
+  ;; Author and/or copyright-notice owner email
+  (email  copyright-notice-email  set-copyright-notice-email!)
+  ;; List of copyright-notice years
+  (years  copyright-notice-years  set-copyright-notice-years!)
+  ;; For debugging
+  (line   copyright-notice-line   set-copyright-notice-line!))
+
+(define (append-copyright-notice-years old new)
+  (assert (or (string? (copyright-notice-author old))
+              (eq? (copyright-notice-author old) #f)))
+  (assert (or (string? (copyright-notice-email old))
+              (eq? (copyright-notice-email old) #f)))
+  (assert (equal? (copyright-notice-author old)
+                  (copyright-notice-author new)))
+  (assert (equal? (copyright-notice-email old)
+                  (copyright-notice-email new)))
+  (make-copyright-notice
+   (copyright-notice-author old)
+   (copyright-notice-email  old)
+   (append (copyright-notice-years old) (copyright-notice-years new))
+   (copyright-notice-line old)))
+
+(define (parse-copyright-line line)
+  (define (extract-single-date match)
+    (if match
+        (list
+         (string->number
+          (match:substring
+           (string-match "[0-9]{4}" (match:substring match)))))
+        '()))
+
+  (define (extract-date-range match)
+    (if match
+        (let* ((range
+                 (match:substring
+                 (string-match "[0-9]{4}-[0-9]{4}" (match:substring match))))
+               (range-elements (string-split range #\-))
+               (start (string->number (car range-elements)))
+               (end (string->number (cadr range-elements))))
+          ;; TODO: error if start >= end
+          (iota (+ (- end start) 1) start))
+        '()))
+
+  (define (extract-dates line results)
+    "Extract dates from LINE and return a list containing a
+copyright-notice record and the (unparsed) rest of the line."
+    (let* ((date-range (string-match "[0-9]{4}-[0-9]{4}[ ,]" line))
+           (single-date (string-match "[0-9]{4}[ ,]" line))
+           (date-match-data
+            (cond
+             ((and date-range single-date
+                   (< (match:start date-range)
+                      (match:start single-date)))
+              (cons
+               (make-copyright-notice
+                #f
+                #f
+                (extract-date-range date-range)
+                line)
+               (substring line (match:end date-range))))
+             ((and date-range single-date
+                   (< (match:start single-date)
+                      (match:start date-range)))
+              (cons
+               (make-copyright-notice
+                #f
+                #f
+                (extract-single-date single-date)
+                line)
+               (substring line (match:end single-date))))
+             (date-range
+              (cons
+               (make-copyright-notice
+                #f
+                #f
+                (extract-date-range date-range)
+                line)
+               (substring line (match:end date-range))))
+             (single-date
+              (cons
+               (make-copyright-notice
+                #f
+                #f
+                (extract-single-date single-date)
+                line)
+               (substring line (match:end single-date))))
+             (else
+              #f))))
+
+      (if date-match-data
+          (extract-dates
+           (cdr date-match-data)
+           (if (not results)
+               (car date-match-data)
+               (append-copyright-notice-years
+                results
+                (car date-match-data))))
+          (list results line))))
+
+  (let* ((results (extract-dates line #f))
+         (notice (car results))
+         ;; TODO: transform in cons to be able to do cdr
+         (line (cadr results))
+         (author-and-email (extract-author-and-email line))
+         (author (car author-and-email))
+         (email  (cdr author-and-email)))
+      (set-copyright-notice-author! notice author)
+      (set-copyright-notice-email!  notice email)
+    notice))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
@@ -207,14 +387,14 @@ email string (without the '<' and '>')."
     (lambda (path line _ results)
       (let* ((commit-author-and-email
 	      (extract-author-and-email
-	       (string-join (cdr (string-split line #\ )) " "))))
+	       (string-join (cdr (string-split line #\ )) " ")))
+	     (author (car commit-author-and-email))
+	     (email (cdr commit-author-and-email)))
+
         (acons
          'commit-email
-	 (cdr commit-author-and-email)
-         (acons
-          'commit-author
-          (car commit-author-and-email)
-          results))))
+	 email
+         (acons 'commit-author author results))))
     (lambda (path _ results) results))
 
    (make-rule
@@ -464,6 +644,30 @@ email string (without the '<' and '>')."
     (lambda (path _ results) results))
 
    (make-rule
+    "Example empty rule"
+    (lambda (path _ results) results)
+    (lambda (path line _ results) #t)
+    (lambda (path line _ results)
+      (if (and
+	   (assq-ref results 'current-diff-file)
+	   (assq-ref results 'commit-hash))
+	  (read-file-from-commit
+	       (assq-ref results 'commit-hash)
+	       (assq-ref results 'current-diff-file)
+	       ;; TODO: replace again with same their own logic to run rules
+	       (lambda (commit-hash path port)
+		 ;; (pk commit-hash path port)
+		 (display "")
+		 )
+
+	       ))
+
+
+      results)
+    (lambda (path _ results)
+      results))
+
+   (make-rule
     "Check for copyrights inside the patch"
     (lambda (path _ results)
       (acons 'diff-path-added-proper-copyright
@@ -502,7 +706,13 @@ email string (without the '<' and '>')."
                                   'diff-path-added-proper-copyright)
                         (list current-diff-file)) results)
          results)))
-    (lambda (path _ results) results))
+    (lambda (path _ results)
+      ;; This should get parse results as well
+      
+;;      (if (not (assq-ref results 'diff-path-added-proper-copyright))
+;;	  error
+;;	  )
+      results))
 
    ;; We can also use rules for debugging the code, here are two
    ;; examples below.
@@ -984,6 +1194,71 @@ email string (without the '<' and '>')."
        warnings check-results)))
 
    (make-rule
+    "Example empty rule"
+    (lambda (path parse-results check-results) check-results)
+    (lambda (path line parse-results check-results) #t)
+    (lambda (path line parse-results check-results) check-results)
+    (lambda (path parse-results check-results)
+      (define commit-author (assq-ref parse-results 'commit-author))
+      (define commit-email (assq-ref parse-results 'commit-email))
+      (define commit-year (date-year (assq-ref parse-results 'commit-date)))
+
+      (define (get-copyright-lines path)
+        (assq-ref
+         (run-parse-rules-at-commit
+          file-at-commit-parse-rules
+          (get-git-commit-hash
+           (string-append (assq-ref parse-results 'commit-hash) "~1"))
+          path)
+         'copyright-lines))
+
+      (define (get-copyright-notice copyright-lines author)
+        (if copyright-lines
+            (let ((results (filter
+                            (lambda (elm)
+                              (string=? (copyright-notice-author elm) author))
+                            copyright-lines)))
+              ;; If found, we should have only 1 result because we should
+              ;; have only 1 line per author.
+              (assert (= 1 (length results)))
+              (car results))
+            #f))
+
+      (for-each
+       (lambda (path)
+         (let* ((copyright-lines (get-copyright-lines path))
+                (commit-author-copyright-line
+                 (get-copyright-notice copyright-lines commit-author)))
+
+           ;; TODO: some files dont't have any copyright lines, so
+           ;; copyright-lines will be #f. We need to add logic to not
+           ;; check certain files (like the website), add specific
+           ;; code for other (the manual) and have a warning on
+           ;; others.
+           (if copyright-lines
+               (if (null?
+                    (filter
+                     (lambda (elm)
+                       (eq? elm commit-year))
+                     (copyright-notice-years commit-author-copyright-line)))
+                   (display
+		    (string-append
+		     "WARNING: "
+		     "missing "
+		     (number->string commit-year)
+		     " copyright for \""
+		     commit-author
+		     "\" in "
+		     path
+		     ".\n"))))))
+       (assq-ref parse-results 'modified-files))
+
+      ;; (1) find author
+      ;; (2) check if mail is the same
+      ;; (3) check if year is there
+      check-results))
+
+   (make-rule
     "Track total errors and warnings"
     (lambda (path parse-results check-results)
       (acons 'warnings 0 (acons 'errors 0 check-results)))
@@ -1377,6 +1652,197 @@ character argument, it can also works on different tables or line formats."
   (let* ((parse-results (run-parse-rules file-parse-rules path))
          (check-results (run-check-rules parse-results file-check-rules path)))
     check-results))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                      ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;                      ;;
+;;                      ;; File at commit parse logic ;;                      ;;
+;;                      ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;                      ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; TODO: factorize with file rules
+(define file-at-commit-parse-rules
+  (list
+   ;; Here's an example of a parse rule below. Since it runs each time it is
+   ;; also tested. TODO: A a proper unit testing environment needs to
+   ;; be added and then this could be moved to only run inside that
+   ;; separate testing environment.
+   (make-rule
+    "Example empty rule"
+    (lambda (commit path _ results) results)
+    (lambda (commit path line _ results) #t)
+    (lambda (commit path line _ results) results)
+    (lambda (commit path _ results) results))
+
+   (make-rule
+    "Count lines"
+    (lambda (commit path _ results) (acons 'line 0 results))
+    (lambda (commit path line _ results) #t)
+    (lambda (commit path line _ results)
+      (acons 'line (+ 1 (assq-ref results 'line)) results))
+    (lambda (commit path _ results) results))
+
+   (make-rule
+    "Retrieve copyrights"
+    (lambda (commit path _ results) results)
+    (lambda (commit path line _ results) #t)
+    (lambda (commit path line _ results)
+      (define previous-copyright-lines
+	(or
+	 (assq-ref results 'copyright-lines)
+	 '()))
+
+      (if (copyright-line? line)
+	  (acons 'copyright-lines
+		 (append previous-copyright-lines
+			 (list (parse-copyright-line line)))
+		 results)
+	  results))
+    (lambda (commit path _ results) results))
+
+   
+   ;; We can also use rules for debugging the code, here are two
+   ;; examples below.
+
+   ;; (make-rule
+   ;;  "Debug: print lines."
+   ;;  (lambda (commit path _ results) results)
+   ;;  (lambda (commit path line _ results) #t)
+   ;;  (lambda (commit path line _ results)
+   ;;    (display "Count lines: line #")
+   ;;    (display (+ 1 (assq-ref results 'line)))
+   ;;    (display (string-append ": " line "\n"))
+   ;;    results)
+   ;;  (lambda (commit path _ results) results))
+
+   ;; (make-rule
+   ;;  "Debug: print results."
+   ;;  (lambda (commit path _ results) results)
+   ;;  (lambda (commit path line _ results) #f)
+   ;;  (lambda (commit path line _ results) results)
+   ;;  (lambda (commit path _ results)
+   ;;    (pk results)
+   ;;    results))
+   ))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                        ;;;;;;;;;;;;;;;;;;;;;;;;;;;                         ;;
+;;                        ;; File at commit checks ;;                         ;;
+;;                        ;;;;;;;;;;;;;;;;;;;;;;;;;;;                         ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define file-at-commit-check-rules
+  (list
+   ;; Here's an example of a check rule below. Since it runs each time it is
+   ;; also tested. TODO: A a proper unit testing environment needs to
+   ;; be added and then this could be moved to only run inside that
+   ;; separate testing environment.
+   (make-rule
+    "Example empty rule"
+    (lambda (commit path parse-results check-results) check-results)
+    (lambda (commit path line parse-results check-results) #t)
+    (lambda (commit path line parse-results check-results) check-results)
+    (lambda (commit path parse-results check-results) check-results))
+
+   (make-rule
+    "Count lines"
+    (lambda (commit path parse-results check-results) (acons 'line 0 check-results))
+    (lambda (commit path line parse-results check-results) #t)
+    (lambda (commit path line parse-results check-results)
+      (acons 'line (+ 1 (assq-ref check-results 'line)) check-results))
+    (lambda (commit path parse-results check-results) check-results))
+
+   (make-rule
+    "Track total errors and warnings"
+    (lambda (commit path parse-results check-results)
+      (acons 'warnings 0 (acons 'errors 0 check-results)))
+    (lambda (commit path line parse-results check-results) #t)
+    (lambda (commit path line parse-results check-results) check-results)
+    (lambda (commit path parse-results check-results)
+      (let* ((nr-lines (number->string (assq-ref parse-results 'line) 10))
+             (errors (assq-ref check-results 'errors))
+             (warnings (assq-ref check-results 'warnings))
+             (error-text
+              (string-append (number->string errors 10)
+                             (if (> errors 1) " errors, " " error, ")))
+             (warning-text
+              (string-append (number->string warnings 10)
+                             (if (> warnings 1) " warnings, " " warning, "))))
+        (display
+         (string-append
+          "total: " error-text warning-text nr-lines " lines checked\n\n"))
+        (if (or (> errors 0) (> warnings 0))
+            ((lambda _
+               (display
+                (string-append
+		 path " at commit " commit
+		 "has style problems, please review.\n"))
+               (display
+                (string-append
+                 "NOTE: If any of the errors are false positives, "
+                 "please report them to the GNU Boot maintainers.\n"))))))
+      check-results))))
+
+(define (set-defaults-at-commit rules commit path parse-results results)
+  (for-each
+   (lambda (rule)
+     (set! results ((rule-default rule) commit path parse-results results)))
+   rules)
+  results)
+
+(define (run-line-match-rules-at-commit port rules commit path parse-results results)
+  (define line (read-line port))
+  (if (eof-object? line)
+      results
+      ((lambda _
+         (for-each
+          (lambda (rule)
+            (if ((rule-line-match rule) commit path line parse-results results)
+                (set! results ((rule-line rule) commit path line parse-results results))))
+          rules)
+         (run-line-match-rules-at-commit port rules commit path parse-results results)))))
+
+(define (run-end-rules-at-commit commit path rules other-results results)
+  (for-each
+   (lambda (rule)
+     (set! results ((rule-end rule) commit path other-results results)))
+   rules)
+  results)
+
+;; TODO: factorize
+(define (run-parse-rules-at-commit rules commit path)
+  (read-file-from-commit
+   commit
+   path
+   (lambda (commit path port)
+     (let* ((defaults
+	      (set-defaults-at-commit rules commit path #f '()))
+            (results
+	     (run-line-match-rules-at-commit
+	      port rules commit path #f defaults)))
+     (run-end-rules-at-commit commit path rules #f results)))))
+
+;; TODO: factorize
+(define (run-check-rules-at-commit parse-results rules commit path)
+  (read-file-from-commit
+   commit
+   path
+   (lambda (commit path port)
+     (let* ((defaults (set-defaults-at-commit rules commit path parse-results '()))
+            (check-results
+             (run-line-match-rules-at-commit port rules commit path parse-results defaults)))
+     (run-end-rules-at-commit commit path rules parse-results check-results)))))
+
+;; TODO: factorize
+(define (test-file-at-commit commit path)
+  (let* ((parse-results
+	  (run-parse-rules-at-commit file-at-commit-parse-rules commit path))
+         (check-results (run-check-rules-at-commit parse-results file-at-commit-check-rules commit path)))
+    check-results))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;

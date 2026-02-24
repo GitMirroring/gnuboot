@@ -44,6 +44,54 @@ test -f "${topdir}"/resources/wrapper/git || \
     fail "resources/wrapper/git not found."
 
 ################################################################################
+# Test if checkpatch.scm correctly finds missing copyright headers.            #
+################################################################################
+
+# This checks the "packages: i945-thinkpads-install-utilities:
+# packages_src.tar: Add forgetten Guix system." patch which adds a
+# modification without updating the copyright header.
+./scripts/checkpatch.scm \
+    "$(git format-patch -1 c69dcd3e1690f6867d3063748bbdcb40069f2861)" > \
+    "${tmpdir}"/checkpatch-test-missing-copyright-year.log 2>/dev/null || \
+    fail "checkpatch.scm failed " \
+         "when trying to detect missing copyright year(s)."
+
+while IFS= read -r line; do
+    grep -q "${line}" "${tmpdir}"/checkpatch-test-missing-copyright-year.log || \
+    fail "failed to detect missing copyright year(s)."
+done < tests/checkpatch-test-missing-copyright-year.ref
+
+echo "[ OK ] detected missing copyright year."
+
+# This checks the "wrappers: add Guix wrapper and use it." patch which
+# adds a modification that doesn't require updating the copyright header.
+./scripts/checkpatch.scm \
+    "$(git format-patch -1 f633e7597ed7d2f26687bf1e079d2b62dde5cf3a)" > \
+    "${tmpdir}"/checkpatch-test-no-copyright-update-needed.log 2>/dev/null || \
+    fail "checkpatch.scm failed " \
+         "when trying to detect missing copyright year(s) when no update was needed."
+
+while IFS= read -r line; do
+    grep -q "${line}" "${tmpdir}"/checkpatch-test-no-copyright-update-needed.log && \
+    fail "warned against missing copyright year(s) when no update was needed."
+done < tests/checkpatch-test-missing-copyright-year.ref
+
+echo "[ OK ] didn't warn about missing copyright year(s) when no update was needed."
+
+# # This checks the "website: events: 6/7 December 2025: do a separate
+# # announce." patch which adds a file with the proper copyright header.
+# ./scripts/checkpatch.scm \
+#     "$(git format-patch -1 8ee50ee178f2dd5bfb4b6e4b8cfd47ec55cf896a)" > \
+#     "${tmpdir}"/checkpatch-test-unaligned-nodes-patch.log 2>/dev/null || \
+#     fail "checkpatch.scm failed " \
+#          "when trying to detect unaligned node in a patch touching the manual."
+
+# # This checks the "" patch which correctly updates the copyright
+# # header.
+
+# # echo "[ OK ] TODO."
+
+################################################################################
 # Test if checkpatch.scm correctly finds non-aligned nodes.                    #
 ################################################################################
 
