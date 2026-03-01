@@ -991,7 +991,7 @@
 (define (test-patch path)
   (let* ((parse-results (run-parse-rules patch-parse-rules path))
          (check-results (run-check-rules parse-results patch-check-rules path)))
-    parse-results))
+    check-results))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
@@ -1195,7 +1195,7 @@
 (define (test-file path)
   (let* ((parse-results (run-parse-rules file-parse-rules path))
          (check-results (run-check-rules parse-results file-check-rules path)))
-    parse-results))
+    check-results))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
