@@ -70,6 +70,61 @@
            (string=? modified-file-path file-path))
          (assq-ref parse-results 'modified-files)))))
 
+(define (extract-author-and-email line)
+  "Extract author and email in an 'Author <email>' line. This will
+preserve spaces and return a list containing the author string and
+email string (without the '<' and '>')."
+  (let* ((email-end (string-rindex line #\>))
+         (email-start
+          (if (and (string-rindex line #\<)
+                   (> (string-length line)
+                      (+ 1 (string-rindex line #\<))))
+              (+ 1 (string-rindex line #\<))
+              #f))
+         (email-start
+          (if (and email-start email-end
+                   (> email-end email-start))
+              email-start
+              #f))
+         (email-end
+          (if (and email-start email-end
+                   (> email-end email-start))
+              email-end
+              #f))
+         (email
+          (if (and email-start email-end)
+              (substring line email-start email-end)
+              #f))
+         (author
+          (if email
+              ;; At email-start -1 we have the '<' and at email-start -2 we
+              ;; have a space between the author and the email.
+              (if (and email-start (> email-start 2))
+                  (substring line 0 (- email-start 2))
+                  #f)
+              line))
+         (author
+          (if (or (not author) (string=? author ""))
+              #f
+              author)))
+    (cons author email)))
+
+;; Automatic tests for extract-author-and-email.
+(assert
+ (equal?
+  (extract-author-and-email "Jason Self")
+  (cons "Jason Self" #f)))
+
+(assert
+ (equal?
+  (extract-author-and-email "<info@minifree.org>")
+  (cons #f "info@minifree.org")))
+
+(assert
+ (equal?
+  (extract-author-and-email "")
+  (cons #f #f)))
+
 (define (scheme-file? path)
   "Returns #t if it's a scheme file, returns #f otherwise."
   (or
@@ -199,15 +254,20 @@
    ;; when handling it, complain that the file is not a valid git
    ;; patch.
    (make-rule
-    "Find commit author"
+    "Find commit author and email"
     (lambda (path _ results) results)
     (lambda (path line _ results) (startswith line "From: "))
     (lambda (path line _ results)
-      (let ((commit-author (string-join (cdr (string-split line #\ )) " ")))
+      (let* ((commit-author-and-email
+              (extract-author-and-email
+               (string-join (cdr (string-split line #\ )) " "))))
         (acons
-         'commit-author
-         commit-author
-         results)))
+         'commit-email
+         (cdr commit-author-and-email)
+         (acons
+          'commit-author
+          (car commit-author-and-email)
+          results))))
     (lambda (path _ results) results))
 
    (make-rule
@@ -476,6 +536,8 @@
                                          'current-diff-file))
             (commit-author (assq-ref results
                                      'commit-author))
+            (commit-email (assq-ref results
+                                     'commit-email))
             (commit-year (date-year (assq-ref results
                                               'commit-date))))
         ;; Example: Copyright (C) 2024 Some Name <mail@domain.org>
@@ -487,7 +549,7 @@
            (number->string commit-year 10) ;Year
            ".*" ;We can have multiple years
            " " ;We have at least 1 space before the author line
-           commit-author) line)
+           commit-author " <" commit-email ">") line)
          (acons 'diff-path-added-proper-copyright
                 (append (assq-ref results
                                   'diff-path-added-proper-copyright)
@@ -710,13 +772,15 @@
     (lambda (path line parse-results check-results) #t)
     (lambda (path line parse-results check-results) check-results)
     (lambda (path parse-results check-results)
-      (let ((author (assq-ref parse-results 'commit-author)))
+      (let* ((author (assq-ref parse-results 'commit-author))
+             (email (assq-ref parse-results 'commit-email))
+             (author-and-email (string-append author " <" email ">")))
         (if (not (any (lambda (elm)
-                        (string=? author elm))
+                        (string=? author-and-email elm))
                       (assq-ref parse-results 'signed-off-by)))
             ((lambda _
                (display
-                (string-append "ERROR: Missing Signed-off-by: " author "\n\n"))
+                (string-append "ERROR: Missing Signed-off-by: " author-and-email "\n\n"))
                (acons
                 'errors
                 (+ 1 (assq-ref check-results 'errors)) check-results)))
