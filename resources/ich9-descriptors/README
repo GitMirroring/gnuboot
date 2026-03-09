@@ -1,0 +1,44 @@
+About
+=====
+
+This software is part of the GNU Project. On computers with an ICH9
+Southbridge, the boot flash can have a partition table and some
+partitions in it.
+
+Here this can generate the data that goes inside the partition table
+and the Gigabit Ethernet partition.
+
+Why?
+====
+
+This could also have been moved within Guix package in GNU Boot,
+however adding the proper boilierplate to use autotools and so on
+enable to have something that can also be packaged by other
+distributions as well with less efforts.
+
+History
+=======
+
+This software was written to replace the ich9utils program written for
+Libreboot with bincfg and ifdtool which enables to have more
+fine-grained control over the generated files.
+
+At first the goal was to generate the exact same files to provide a
+drop-in replacement before being able to modify the files to catch up
+with Coreboot settings.
+
+License
+=======
+
+This software is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or (at
+your option) any later version.
+
+It is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+for more details.
+
+You should have received a copy of the GNU General Public License
+along with this software.  If not, see <http://www.gnu.org/licenses/>.

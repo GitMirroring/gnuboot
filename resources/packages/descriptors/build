@@ -24,7 +24,7 @@ set -u -e
 
 topdir="$(realpath "$(dirname "$(dirname "$(dirname "$(dirname "$0")")")")")"
 
-build_ich9utils()
+build_ich9_descriptors()
 {
     source "${topdir}"/config.sh
     source "${topdir}"/resources/scripts/misc/guix.sh
@@ -36,18 +36,13 @@ build_ich9utils()
             -L "${topdir}"/resources/guix/ \
             -L "${topdir}"/resources/guix/gnuboot/patches/ \
             --system=i686-linux \
-            ich9utils
+            gnuboot-ich9-descriptors
 }
 
-ich9gen="$(build_ich9utils)/bin/ich9gen"
-
-[ -d "${topdir}/descriptors/" ] || mkdir -p "${topdir}/descriptors/"
-[ -d "${topdir}/descriptors/ich9m/" ] || mkdir -p "${topdir}/descriptors/ich9m/"
-rm -f "${topdir}"descriptors/ich9m/*
-# ich9gen generate files in the current directory
-(
-    cd "${topdir}"/descriptors/ich9m/
-    "${ich9gen}"
-)
+# Keep the compatibility with the other packages (in
+# resources/packages) for now.
+rm -rf "${topdir}"/descriptors/
+mkdir -p "${topdir}/descriptors/ich9m/"
+cp $(build_ich9_descriptors)/share/*.bin "${topdir}/descriptors/ich9m/"
 
 "${topdir}"/resources/packages/descriptors/test
