@@ -147,6 +147,7 @@ Supported hardware and configurations
 Flash programmers
 
 * Practical freedoms with flash programmers::
+* Safety considerations with flash programmers::
 * Setup and components needed to use a flash programmer::
 * Flash chip package::
 * Known issues with flash programmers::
@@ -1877,6 +1878,44 @@ Boot images that you use. Since GNU Boot is slowly switching to Guix
 to build the software it reuses, and that Guix has lots of ways to
 customize software, over time this will also enable you to customize
 GNU Boot even more to better suit your needs.
+
+@node    Safety considerations with flash programmers
+@section Safety considerations with flash programmers
+
+When using a flash chip programmer, depending on the computer, the
+following can happen if you don't take any precautions:
+
+@itemize
+
+@item It can completely break the computer, beyond repair. It already
+      happened multiple times.
+
+@item You can end up with whining capacitors. It already happened at
+      least once.
+
+@item You could also see not notice any issue. Or have issues, like a
+      shorter lifespan of the computer and/or its peripherals that is
+      real but that you don't correlate to not having taken any
+      precautions, or even issues nobody heard of yet, without being
+      necessarily be able to correlate them to the lack of precautions.
+
+@item Some computers could also catch fire during reprogramming if you
+      have a setup that can provide a huge amount of current. Most
+      programmers are not capable of that, so for this to happen you probably
+      need to use a dedicated power supply for powering the flash chip.
+      We are not aware of that having happened but we know it could be
+      possible with at least the ThinkPad T60.
+      Though it's probably too dangerous to try to confirm if the
+      ThinkPad T60 can really catch fire.
+
+@end itemize
+
+While we're at it, there are also security consideration with many
+flash programmers (@pxref{Security} for more details on that).
+
+While the above may be scary, there are are also cases where taking
+risks is justified by the situation, but you need to be aware of the
+risks you take.
 
 @node    Setup and components needed to use a flash programmer
 @section Setup and components needed to use a flash programmer
