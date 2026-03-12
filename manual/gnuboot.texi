@@ -1991,7 +1991,8 @@ be required if the Chipflasher doesn't find any flash chip).
 So if we need to give only one advice, using the Chipflasher from
 Zerocat is probably the one that reduces the most the risk of damage
 for the computers and/or yourself in cases where the boot flash is not
-removable.
+removable. The second advice would be to look at the risks mentionned
+in @ref{Disassembling a computer}.
 
 Note that we also want to document the use of other flash programmers
 if they can be used without downloading / installing nonfree software,
@@ -3073,8 +3074,85 @@ if you don't care about having your computer lasting a long time, you
 will also need to learn similar things in order to avoid risks for
 your health, and also the health of the people around you.
 
+@node    Disassembling a computer
+@section Disassembling a computer
+
+Proper instructions that explain how to mitigate the risks when doing
+that with more details, proper validation, and that are easy to follow
+will need to be be added later on in this manual.
+
+In the meantime we instead provide generic advises on how to limit
+risks and point to other resources. When combined together, with all
+that you should be able to disassemble a computer while also limiting
+and/or understanding the risks.
+
+If you think we missed some topics below or that you have specific
+suggestions for improvements, please contact us on the gnuboot-patches
+mailing list.
+
+@node       Instructions for disassembling specific computers
+@subsection Instructions for disassembling specific computers
+
+Having instructions to disassemble specific computer models can help a
+lot to avoid breaking connectors, computer cases plastics, etc.
+
+But they are often not enough as other type of damage can also be done
+even if the instructions are right and are followed well.
+
+That kind of instructions can be found in multiple places. The most
+obvious place to look at would be the GNU Boot website. Canoeboot and
+Libreboot also have instructions for disassembling computers.
+
+In all these cases the instructions are under free licenses (and the
+licenses are even compatible), so they can easily be redistributed and
+reused and if something is wrong they can be fixed.
+
+If you know other instructions under free licenses that can apply to
+computers supported by GNU Boot, please contact GNU Boot in the
+gnuboot-patches mailing list.
+
+Note that some well known instructions like the ones provided by
+iFixit or Lenovo are under nonfree licenses.
+
+@node       Static electricity
+@subsection Static electricity
+
+To limit the damage done when disassembling a computer, you will need
+to learn
+@uref{https://en.wikipedia.org/wiki/Static_electricity#Removal_and_prevention,how
+to avoid damage done by static electricity}.
+
+Anti-static protection may not always be needed, but knowing when it
+is needed is complex as it depend a lot on the chips being used (that
+information is sometimes mentioned in the chip documentation), on the
+age or type of the anti-static protection builtin the printed circuits
+(if they are any), etc, so at the end of the day it's easier to always
+protect against anti-static electricity than having to evaluate the
+risks.
+
+@node       Not breaking components
+@subsection Not breaking components
+
+Not touching the electronic components also helps in general as
+@uref{https://en.wikipedia.org/wiki/Capacitor,capacitors} can be
+broken if they move too much.
+
+@node       Not breaking the printed circuits
+@subsection Not breaking the printed circuits
+
+In the case where you have a desktop, workstation or server computer,
+extra care is needed to not bend the mainboard as in some cases the
+tolerance for bending are low.
+
+Having heavy @uref{https://en.wikipedia.org/wiki/Heat_sink,heat sink}
+and/or big mainboards can increase the risks of bending.
+
 @node    Replacing the boot flash on a desktop@comma{} server or workstation
 @section Replacing the boot flash on a desktop@comma{} server or workstation
+
+First, @pxref{Disassembling a computer} if you care about not damaging
+your computer, because you will most likely need to disassemble the
+computer to access the boot flash.
 
 If you break the boot flash (for instance by breaking its pins, using
 a bad flash chip programmer, or using it incorrectly), it can easily
