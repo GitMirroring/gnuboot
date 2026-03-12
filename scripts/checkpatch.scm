@@ -104,6 +104,7 @@
   "Extract author and email in an 'Author <email>' line. This will
 preserve spaces and return a list containing the author string and
 email string (without the '<' and '>')."
+  (pk 'dbg-line line)
   (let ((email-end   (string-rindex line #\>))
 	(email-start (+ 1 (string-rindex line #\<))))
     (assert email-start)
@@ -252,6 +253,7 @@ copyright-notice record and the (unparsed) rest of the line."
          (notice (car results))
          ;; TODO: transform in cons to be able to do cdr
          (line (cadr results))
+	 ;; TODO: FIXME: some copyright lines don't have emails
          (author-and-email (extract-author-and-email line))
          (author (car author-and-email))
          (email  (cdr author-and-email)))
@@ -1686,8 +1688,12 @@ character argument, it can also works on different tables or line formats."
    (make-rule
     "Retrieve copyrights"
     (lambda (commit path _ results) results)
-    (lambda (commit path line _ results) #t)
     (lambda (commit path line _ results)
+      (pk 'retrieve-at-line line (copyright-line? line))
+      (copyright-line? line))
+    (lambda (commit path line _ results)
+      (pk path)
+      (pk 'retrieve-copyrights line)
       (define previous-copyright-lines
 	(or
 	 (assq-ref results 'copyright-lines)
