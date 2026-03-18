@@ -118,13 +118,16 @@ endif
 
 if WANT_GUIX
 
+BORDEAUX_SUBSTITUTE_URL = \
+	$(shell $(srcdir)/../resources/wrapper/guix \
+		repl force-bordeaux-substitute.scm force)
+
 GUIX_SHELL_CONTAINER = \
 	$(srcdir)/../resources/wrapper/guix \
 	shell \
 	--system=i686-linux \
 	--container \
-	`$(srcdir)/../resources/wrapper/guix \
-		repl force-bordeaux-substitute.scm force` \
+	$(BORDEAUX_SUBSTITUTE_URL) \
 	$(SENTINEL)
 endif
 
