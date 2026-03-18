@@ -29,18 +29,14 @@ topdir="$(realpath "$(dirname "$(dirname "$(dirname "$0")")")")"
 # We need ${GUIX_REVISION}
 eval "$("${topdir}"/guix-revision.sh print-shell)"
 
-# We need the --no-channel-files option, but it was only introduced in
-# the Guix commit 9c8098424b5be3abf21144c74162ec39c0c2e799 ("pull,
-# time-machine: Add '-q' to ignore channel files.") which is after
-# Guix 1.4.0, so we first use time-machine without this option to get
-# the option in the second time-machine.
+# We need -C resources/wrapper/channels.scm to make sure to only use
+# the default channels provided by Guix.
 guix_wrapper()
 {
     # shellcheck disable=SC2124
     cmd="guix time-machine \
-         --commit=9c8098424b5be3abf21144c74162ec39c0c2e799 \
-         -- \
-         time-machine --no-channel-files --commit=${GUIX_REVISION} \
+          -C ""${topdir}""/resources/wrapper/channels.scm \
+         --commit=${GUIX_REVISION} \
          -- $@"
 
     printf "$0: '%s' => '%s'\n" \
