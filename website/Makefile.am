@@ -1,4 +1,4 @@
-# Copyright (C) 2022-2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+# Copyright (C) 2022-2026 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 # Copyright (C) 2025 Adrien 'neox' Bourmault <neox@gnu.org>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -116,6 +116,8 @@ WEB_SYMLINKS_TRANSFORM = \
 	$(SENTINEL)
 endif
 
+if WANT_GUIX
+
 GUIX_SHELL_CONTAINER = \
 	$(srcdir)/../resources/wrapper/guix \
 	shell \
@@ -124,6 +126,7 @@ GUIX_SHELL_CONTAINER = \
 	`$(srcdir)/../resources/wrapper/guix \
 		repl force-bordeaux-substitute.scm force` \
 	$(SENTINEL)
+endif
 
 if WANT_GUIX
 DOT_CMD = $(GUIX_SHELL_CONTAINER) \
