@@ -1,4 +1,4 @@
-;;; Copyright © 2024 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+;;; Copyright © 2024,2026 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 ;;; Copyright © 2024 Adrien 'neox' Bourmault <neox@gnu.org>
 ;;;
 ;;; This file is part of GNU Boot.
@@ -29,7 +29,7 @@
 (cond ((and
 	(eq? (length (program-arguments)) 2)
 	(string=? (list-ref (program-arguments) 1) "force"))
-       (if (authorized-key? (string->canonical-sexp bordeaux.guix.gnu.org))
+       (if (not (authorized-key? (string->canonical-sexp bordeaux.guix.gnu.org)))
 	   (display "--substitute-urls=https://bordeaux.guix.gnu.org")))
 
       ((and
