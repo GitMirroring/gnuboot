@@ -19,35 +19,43 @@
 (use-modules (gcrypt pk-crypto))
 (use-modules (guix pki))
 
+;; The default since Guix 1.4.0
+(define %default-substitute-urls
+  '("https://bordeaux.guix.gnu.org"
+    "https://ci.guix.gnu.org"))
+
 (define bordeaux.guix.gnu.org
   "(public-key
      (ecc
        (curve Ed25519)
        (q #7D602902D3A2DBB83F8A0FB98602A754C5493B0B778C8D1DD4E0F41DE14DE34F#)))")
 
-
 (cond ((and
-	(eq? (length (program-arguments)) 2)
-	(string=? (list-ref (program-arguments) 1) "force"))
-       (if (not (authorized-key? (string->canonical-sexp bordeaux.guix.gnu.org)))
-	   (display "--substitute-urls=https://bordeaux.guix.gnu.org")))
-
+        (eq? (length (program-arguments)) 2)
+        (string=? (list-ref (program-arguments) 1) "force"))
+       (if (not (authorized-key?
+                 (string->canonical-sexp bordeaux.guix.gnu.org)))
+           (display
+            (string-append
+             "--substitute-urls=\""
+             (string-join %default-substitute-urls " ")
+             "\""))))
       ((and
-	(eq? (length (program-arguments)) 2)
-	(string=? (list-ref (program-arguments) 1) "check"))
+        (eq? (length (program-arguments)) 2)
+        (string=? (list-ref (program-arguments) 1) "check"))
        (if (authorized-key? (string->canonical-sexp bordeaux.guix.gnu.org))
-	   (display "bordeaux.guix.gnu.org is enabled\n")
-	   (display "bordeaux.guix.gnu.org is disabled\n")))
+           (display "bordeaux.guix.gnu.org is enabled\n")
+           (display "bordeaux.guix.gnu.org is disabled\n")))
 
       (#t ((lambda _
-	     (display
-	      (string-append
-	       "Usage: "
-	       "guix repl force-bordeaux-substitute.scm check # "
-	       "check if bordeaux.guix.gnu.org is enabled or not.\n"))
-	     (display
-	      (string-append
-	       "Usage: "
-	       "guix repl force-bordeaux-substitute.scm force # "
-	       "print '--substitute-urls=https://bordeaux.guix.gnu.org' "
-	       "if bordeaux.guix.gnu.org is enabled.\n"))))))
+             (display
+              (string-append
+               "Usage: "
+               "guix repl force-bordeaux-substitute.scm check # "
+               "check if bordeaux.guix.gnu.org is enabled or not.\n"))
+             (display
+              (string-append
+               "Usage: "
+               "guix repl force-bordeaux-substitute.scm force # "
+               "print '--substitute-urls=https://bordeaux.guix.gnu.org' "
+               "if bordeaux.guix.gnu.org is enabled.\n"))))))
