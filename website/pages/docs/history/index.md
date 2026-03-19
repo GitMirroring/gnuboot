@@ -164,6 +164,9 @@ So far the copyright headers were verified on the following files:
  65c0e57a550e8e6a8d80543585eeed66ad06cb64 ("resources: packages: src:
  release: Update copyright header.")).
 
+* .gitignore (details in commit 10b589cef997f471f9d0c5e1fac4f9343ab0cf3b
+  (".gitignore: add proper copyright header.").
+
 Also note that some files are there to stay (like the grub.cfg file
 above) but since we took the decision to migrate packages to Guix,
 another way to help improve the copyright headers situation is to
