@@ -242,6 +242,35 @@ done < tests/checkpatch-test-missing-spanish-translation.ref || \
 echo "[ OK ] identified updated spanish translation in the website."
 
 ################################################################################
+# Test if checkpatch.scm correctly finds tabs in .scm files                    #
+################################################################################
+./scripts/checkpatch.scm \
+    -f tests/scm-file-with-tabs.scm > \
+    "${tmpdir}"/checkpatch-test-scm-file-with-tabs.log 2>/dev/null || \
+    fail "checkpatch.scm failed " \
+         "when trying to detect tabs inside an .scm file."
+
+while IFS= read -r line; do
+    grep -q "${line}" "${tmpdir}"/checkpatch-test-scm-file-with-tabs.log || \
+    fail "failed to detect tabs inside an .scm file."
+done < tests/checkpatch-test-scm-file-with-tabs.ref
+
+echo "[ OK ] detected tabs inside an .scm file."
+
+./scripts/checkpatch.scm \
+    -f tests/scm-file-without-tabs.scm > \
+    "${tmpdir}"/checkpatch-test-scm-file-without-tabs.log 2>/dev/null || \
+    fail "checkpatch.scm failed " \
+         "when trying to detect tabs inside an .scm file with no tabs."
+
+while IFS= read -r line; do
+    grep -q "${line}" "${tmpdir}"/checkpatch-test-scm-file-without-tabs.log && \
+    fail "detected tabs inside an .scm file with no tabs."
+done < tests/checkpatch-test-scm-file-without-tabs.ref
+
+echo "[ OK ] didn't detected tabs inside an .scm file with no tabs."
+
+################################################################################
 # Test checkpatch.scm with all the existing patches. It should not crash.      #
 ################################################################################
 
