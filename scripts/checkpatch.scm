@@ -27,6 +27,15 @@
       (string=? (substring str 0 (string-length value)) value)
       #f))
 
+(define (endswith str value)
+  (if (>= (string-length str) (string-length value))
+      (string=?
+       (substring str
+                  (- (string-length str) (string-length value))
+                  (string-length str))
+       value)
+      #f))
+
 (define (read-file path func)
   (define results #f)
   (let ((port (open-input-file path)))
@@ -59,6 +68,13 @@
          (lambda (modified-file-path)
            (string=? modified-file-path file-path))
          (assq-ref parse-results 'modified-files)))))
+
+(define (scheme-file? path)
+  "Returns #t if it's a scheme file, returns #f otherwise."
+  (or
+   (endswith path ".scm")
+   (string=? (basename path) ".guix-authorizations")
+   (string=? path "resources/distros/guix/bordeaux.guix.gnu.org.pub")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
@@ -1158,6 +1174,24 @@
 
     (lambda (path parse-results check-results)
       check-results))
+
+   (make-rule
+    "Check for tabs in scheme files"
+    (lambda (path parse-results check-results) check-results)
+    (lambda (path line parse-results check-results)
+      (and (scheme-file? path)
+           (string-match "\t" line)))
+    (lambda (path line parse-results check-results)
+      (let ((errors (assq-ref check-results 'errors))
+            (line-nr (assq-ref check-results 'line)))
+        (display
+         (string-append
+          "ERROR: "
+          "Tab found in file " path" at line " (number->string line-nr) ": "
+          line
+          "\n"))
+        (acons 'errors (+ 1 errors) check-results)))
+    (lambda (path parse-results check-results) check-results))
 
    (make-rule
     "Track total errors and warnings"
