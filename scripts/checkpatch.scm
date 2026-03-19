@@ -1,6 +1,6 @@
 #!/usr/bin/env -S guile -e main -s
 !#
-;; Copyright (C) 2024-2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+;; Copyright (C) 2024-2026 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 ;;
 ;; This program is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -23,8 +23,9 @@
 (use-modules (srfi srfi-19))
 
 (define (startswith str value)
-  (if (> (string-length str) (string-length value))
-      (string=? (substring str 0 (string-length value)) value)      #f))
+  (if (>= (string-length str) (string-length value))
+      (string=? (substring str 0 (string-length value)) value)
+      #f))
 
 (define (read-file path func)
   (define results #f)
