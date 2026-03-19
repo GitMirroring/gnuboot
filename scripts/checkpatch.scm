@@ -270,21 +270,33 @@ email string (without the '<' and '>')."
    #t
    #f))
 
-(define* (copyright-header? path line-nr line #:key (ignore-empty-lines #f))
+(define* (copyright-header?
+          path line-nr line data
+          #:key (ignore-empty-lines #f))
   "Returns #t if the LINE is part of the file header. If an empty line
-is found, it will return the IGNORE_EMPTY_LINES value."
+is found, it will return the IGNORE_EMPTY_LINES value. The DATA
+argument should be a hash table of size 1 * number of paths that is
+passed accross multiple calls of copyright-header?."
   (cond
    ((scheme-file? path)
     (cond ((eq? line-nr 1)
+             (hashq-set! data (string->symbol path) line)
            (or (startswith line "#!/usr/bin/env -S guile ")
                (startswith line ";")
                (if ignore-empty-lines
                    (string=? line "")
                    #f)))
-          ;; TODO: remember line 1 from path
-          ((eq? line-nr 2)
+          ((and (eq? line-nr 2)
+                (assq-ref data path)
+                (startswith (hashq-ref data (string->symbol path)) ";"))
+           (or (startswith line ";")
+               (if ignore-empty-lines
+                   (string=? line "")
+                   #f)))
+          ((and (eq? line-nr 2)
+                (startswith (hashq-ref data (string->symbol path))
+                            "#!/usr/bin/env -S guile "))
            (or (string=? line "!#")
-               (startswith line ";")
                (if ignore-empty-lines
                    (string=? line "")
                    #f)))
@@ -1389,12 +1401,15 @@ character argument, it can also works on different tables or line formats."
    (make-rule
     "Parse copyright header"
     (lambda (path _ results)
-      (acons 'copyright-header-end-line 0
-             (acons 'copyright-header-done #f results)))
+      (acons 'copyright-header?-data
+             (make-hash-table 1)
+             (acons 'copyright-header-end-line 0
+                    (acons 'copyright-header-done #f results))))
     (lambda (path line _ results)
       (not (assq-ref results 'copyright-header-done)))
     (lambda (path line _ results)
       (if (copyright-header? path (assq-ref results 'line) line
+                             (assq-ref results 'copyright-header?-data)
                              #:ignore-empty-lines #t)
           (acons 'copyright-header-end-line (assq-ref results 'line) results)
           (acons 'copyright-header-done #t results)))
