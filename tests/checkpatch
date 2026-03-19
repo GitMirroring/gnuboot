@@ -310,6 +310,30 @@ done < tests/checkpatch-test-bad-tables.ref && \
 echo "[ OK ] didn't warn against aligned nodes in the manual file."
 
 ################################################################################
+# Test if checkpatch.scm correctly finds copyright headers in files            #
+################################################################################
+
+# shellcheck disable=SC2046
+./scripts/checkpatch.scm -f $(git ls-files) \
+    1>"${tmpdir}"/checkpatch-unhandled-copyright-headers.log 2>/dev/null || \
+    fail "checkpatch.scm failed " \
+         "when trying to detect unhandled copyright headers."
+
+grep \
+    "ERROR: missing copyrights in" \
+    "${tmpdir}"/checkpatch-unhandled-copyright-headers.log | \
+    sed 's#^.\{29\}##g' | \
+    sort -u > \
+        "${tmpdir}"/checkpatch-unhandled-copyright-headers.ref
+
+cmp \
+    tests/checkpatch-unhandled-copyright-headers.ref \
+    "${tmpdir}"/checkpatch-unhandled-copyright-headers.ref || \
+    fail "Mismatch between detected and known unhandled copyright headers."
+
+echo "[ OK ] detected known unhandled copyright headers."
+
+################################################################################
 # Test checkpatch.scm with all the existing patches. It should not crash.      #
 ################################################################################
 
