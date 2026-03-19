@@ -972,6 +972,31 @@
        warnings check-results)))
 
    (make-rule
+    "Check for tabs being added in scheme files"
+    (lambda (path parse-results check-results) check-results)
+    (lambda (path line parse-results check-results)
+      (and (assq-ref check-results 'current-diff-file)
+           (scheme-file? (assq-ref check-results 'current-diff-file))
+           ;; This file adds tabs for automatic testing of
+           ;; checkpatch.scm.
+           (not
+            (string=? "tests/scm-file-with-tabs.scm"
+                      (assq-ref check-results 'current-diff-file)))
+           (startswith line "+")
+           (string-match "\t" line)))
+    (lambda (path line parse-results check-results)
+      (let ((errors (assq-ref check-results 'errors))
+            (line-nr (assq-ref check-results 'line)))
+        (display
+         (string-append
+          "ERROR: "
+          "Tab found in file " path" at line " (number->string line-nr) ": "
+          line
+          "\n"))
+        (acons 'errors (+ 1 errors) check-results)))
+    (lambda (path parse-results check-results) check-results))
+
+   (make-rule
     "Track total errors and warnings"
     (lambda (path parse-results check-results)
       (acons 'warnings 0 (acons 'errors 0 check-results)))
