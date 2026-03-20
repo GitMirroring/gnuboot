@@ -1,6 +1,3 @@
-artwork/gnuboot_logo_dark.svg
-artwork/gnuboot_logo_light.svg
-artwork/gnuboot_logo.svg
 resources/coreboot/d510mo_16mb/board.cfg
 resources/coreboot/d510mo/board.cfg
 resources/coreboot/d945gclf_16mb/board.cfg
@@ -89,8 +86,6 @@ resources/guix/gnuboot/patches/flashrom-1.2.patch
 resources/memtest86plus/patch/0001-fix-memtest86-linker-error-during-build.patch
 resources/seabios/patches/0001-use-python3-specifically-in-scripts.patch
 resources/u-boot/default/blobs.list
-website/pages/events/6-december-2025.xml
-website/pages/events/7-december-2025.xml
 website/pages/events/fsf40/chipflasher/0001-manual-distinguish-distros-from-the-hardware-they-su.patch
 website/pages/events/fsf40/chipflasher/0002-manual-add-bootloader-s-supported-with-SeaBIOS-image.patch
 website/pages/events/fsf40/chipflasher/0003-manual-Supported-operating-systems-split-in-differen.patch
