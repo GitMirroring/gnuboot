@@ -306,13 +306,23 @@ passed accross multiple calls of copyright-header?."
                         #f)))))
    ((endswith path ".css")
     (cond ((eq? line-nr 1)
+           (hashq-set! data (string->symbol path) line)
            (string=? line "/*"))
-          ;; TODO: differenciate last line from intermediate lines in
-          ;; case we have '*/' before '* '.
-          (else
+          ((eq? line-nr 2)
+           (let ((prev (hashq-ref data (string->symbol path))))
+             (hashq-set! data (string->symbol path) line)
+             (and
+              (string=? prev "/*")
+              (or (string=? line " *")
+                  (startswith line " * ")))))
+          ((or (string=? (hashq-ref data (string->symbol path)) " *")
+               (startswith (hashq-ref data (string->symbol path)) " * "))
+           (hashq-set! data (string->symbol path) line)
            (or (string=? line " *")
-               (string=? line " */")
-               (startswith line " * ")))))
+               (startswith line " * ")
+               (string=? line " */")))
+          (else
+           #f)))
    ;; Simple path-based rules
    (else
     (let ((comment
