@@ -1913,18 +1913,37 @@ character argument, it can also works on different tables or line formats."
     (lambda (path line parse-results check-results) #t)
     (lambda (path line parse-results check-results) check-results)
     (lambda (path parse-results check-results)
-      (define file-has-copyrights?
-       (or
-        (not (eq? #f (assq-ref parse-results 'copyright-lines)))
-        (not (file-should-have-copyrights? path))))
-      (if (not file-has-copyrights?)
+      (define file-has-copyright?
+        (if (endswith path ".patch")
+            ;; Git patches usually have the same information than
+            ;; regular copyright headers, and it is standardized so we
+            ;; require git patches for now. Debian patch tagging
+            ;; guidelines is also standarized so if people want to
+            ;; bring in non-git patches, implementing Debian's patch
+            ;; tagging guidelines would enable to import non-git
+            ;; patches.
+            (let* ((parse-results
+                    (run-parse-rules patch-parse-rules path))
+                   (author?
+                    (not (eq? (assq-ref parse-results 'commit-author) #f)))
+                   (email?
+                    (not (eq? (assq-ref parse-results 'commit-email) #f)))
+                   (date?
+                    (not (eq? (assq-ref parse-results 'commit-date) #f))))
+              (and author?
+                   email?
+                   date?))
+            (or
+             (not (eq? #f (assq-ref parse-results 'copyright-lines)))
+             (not (file-should-have-copyrights? path)))))
+      (if (not file-has-copyright?)
           (let ((errors (assq-ref check-results 'errors)))
             (display
              (string-append "ERROR: missing copyrights in " path "\n"))
             (acons 'errors (+ 1 errors) check-results))
           check-results)))
 
-    (make-rule
+   (make-rule
     "Track total errors and warnings"
     (lambda (path parse-results check-results)
       (acons 'warnings 0 (acons 'errors 0 check-results)))
