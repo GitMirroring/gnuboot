@@ -23,6 +23,12 @@
 (use-modules (srfi srfi-9))
 (use-modules (srfi srfi-19))
 
+(define (append-results results kv-list)
+  (fold (lambda (cur prev)
+          (acons (car cur) (cdr cur) prev))
+        results
+        kv-list))
+
 (define (startswith str value)
   (if (>= (string-length str) (string-length value))
       (string=? (substring str 0 (string-length value)) value)
@@ -689,13 +695,11 @@ copyright-notice record and the (unparsed) rest of the line."
       (let* ((commit-author-and-email
               (extract-author-and-email
                (string-join (cdr (string-split line #\ )) " "))))
-        (acons
-         'commit-email
-         (cdr commit-author-and-email)
-         (acons
-          'commit-author
-          (car commit-author-and-email)
-          results))))
+        (append-results
+         results
+         (list
+          (cons 'commit-author (car commit-author-and-email))
+          (cons 'commit-email  (cdr commit-author-and-email))))))
     (lambda (path _ results) results))
 
    (make-rule
@@ -745,13 +749,11 @@ copyright-notice record and the (unparsed) rest of the line."
       (startswith line "Subject: "))
     (lambda (path line _ results)
       (let ((commit-subject (string-join (cdr (string-split line #\ )) " ")))
-        (acons
-         'commit-subject-line
-         (assq-ref results 'line)
-         (acons
-          'commit-subject
-          commit-subject
-          results))))
+        (append-results
+         results
+         (list
+          (cons 'commit-subject-line (assq-ref results 'line))
+          (cons 'commit-subject      commit-subject)))))
     (lambda (path _ results) results))
 
    (make-rule
@@ -876,8 +878,11 @@ copyright-notice record and the (unparsed) rest of the line."
    (make-rule
     "Find modified files and track current file diff"
     (lambda (path _ results)
-      (acons 'current-diff-file #f
-             (acons 'modified-files '() results)))
+        (append-results
+         results
+         (list
+          (cons 'current-diff-file #f)
+          (cons 'modified-files '()))))
     (lambda (path line _ results)
       (startswith line "diff --git a/"))
     (lambda (path line _ results)
@@ -900,10 +905,12 @@ copyright-notice record and the (unparsed) rest of the line."
                               (assq-ref results 'deleted-files))))
                 (set! modified-file
                       (list path)))))
-      (acons 'modified-files
-             (append (assq-ref results 'modified-files) modified-file)
-             (acons 'current-diff-file current-diff-file
-                    results)))
+        (append-results
+         results
+         (list
+          (cons 'modified-files
+                (append (assq-ref results 'modified-files) modified-file))
+          (cons 'current-diff-file current-diff-file))))
     (lambda (path _ results) results))
 
    (make-rule
@@ -1585,10 +1592,12 @@ character argument, it can also works on different tables or line formats."
    (make-rule
     "Parse copyright header"
     (lambda (path _ results)
-      (acons 'copyright-header?-data
-             (make-hash-table 1)
-             (acons 'copyright-header-end-line 0
-                    (acons 'copyright-header-done #f results))))
+        (append-results
+         results
+         (list
+          (cons 'copyright-header?-data (make-hash-table 1))
+          (cons 'copyright-header-end-line 0)
+          (cons 'copyright-header-done #f))))
     (lambda (path line _ results)
       (not (assq-ref results 'copyright-header-done)))
     (lambda (path line _ results)
@@ -1944,7 +1953,11 @@ character argument, it can also works on different tables or line formats."
    (make-rule
     "Track total errors and warnings"
     (lambda (path parse-results check-results)
-      (acons 'warnings 0 (acons 'errors 0 check-results)))
+        (append-results
+         check-results
+         (list
+          (cons 'warnings 0)
+          (cons 'errors 0))))
     (lambda (path line parse-results check-results) #t)
     (lambda (path line parse-results check-results) check-results)
     (lambda (path parse-results check-results)
