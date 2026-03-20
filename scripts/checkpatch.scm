@@ -435,6 +435,130 @@ passed accross multiple calls of copyright-header?."
                   #f))
           #f)))))
 
+;; TODO: should we use (guix records) instead of srfi-9 records? It
+;; would bring sanitizer to make sure for instance the copyright years
+;; are valid integers and represent a valid year. In practice this
+;; means that we could add many checks directly in the record. The
+;; downside is that it would also require to have Guix installed as a
+;; dependency, and the GNU Boot website is for now supposed to be
+;; built without Guix, not only to make it easy to package, but also
+;; to not require new contributors to have to wait for a guix pull
+;; that now runs twice.
+(define-record-type <copyright-notice>
+  (make-copyright-notice author email years line)
+  copyright-notice?
+  ;; Author and/or copyright-notice owner name
+  (author copyright-notice-author set-copyright-notice-author!)
+  ;; Author and/or copyright-notice owner email
+  (email  copyright-notice-email  set-copyright-notice-email!)
+  ;; List of copyright-notice years
+  (years  copyright-notice-years  set-copyright-notice-years!)
+  ;; For debugging
+  (line   copyright-notice-line   set-copyright-notice-line!))
+
+(define (append-copyright-notice-years old new)
+  (assert (or (string? (copyright-notice-author old))
+              (eq? (copyright-notice-author old) #f)))
+  (assert (or (string? (copyright-notice-email old))
+              (eq? (copyright-notice-email old) #f)))
+  (assert (equal? (copyright-notice-author old)
+                  (copyright-notice-author new)))
+  (assert (equal? (copyright-notice-email old)
+                  (copyright-notice-email new)))
+  (make-copyright-notice
+   (copyright-notice-author old)
+   (copyright-notice-email  old)
+   (append (copyright-notice-years old) (copyright-notice-years new))
+   (copyright-notice-line old)))
+
+(define (parse-copyright-line line)
+  (define (extract-single-date match)
+    (if match
+        (list
+         (string->number
+          (match:substring
+           (string-match "[0-9]{4}" (match:substring match)))))
+        '()))
+
+  (define (extract-date-range match)
+    (if match
+        (let* ((range
+                 (match:substring
+                 (string-match "[0-9]{4}-[0-9]{4}" (match:substring match))))
+               (range-elements (string-split range #\-))
+               (start (string->number (car range-elements)))
+               (end (string->number (cadr range-elements))))
+          ;; TODO: error if start >= end
+          (iota (+ (- end start) 1) start))
+        '()))
+
+  (define (extract-dates line results)
+    "Extract dates from LINE and return a list containing a
+copyright-notice record and the (unparsed) rest of the line."
+    (let* ((date-range (string-match "[0-9]{4}-[0-9]{4}[ ,]" line))
+           (single-date (string-match "[0-9]{4}[ ,]" line))
+           (date-match-data
+            (cond
+             ((and date-range single-date
+                   (< (match:start date-range)
+                      (match:start single-date)))
+              (cons
+               (make-copyright-notice
+                #f
+                #f
+                (extract-date-range date-range)
+                line)
+               (substring line (match:end date-range))))
+             ((and date-range single-date
+                   (< (match:start single-date)
+                      (match:start date-range)))
+              (cons
+               (make-copyright-notice
+                #f
+                #f
+                (extract-single-date single-date)
+                line)
+               (substring line (match:end single-date))))
+             (date-range
+              (cons
+               (make-copyright-notice
+                #f
+                #f
+                (extract-date-range date-range)
+                line)
+               (substring line (match:end date-range))))
+             (single-date
+              (cons
+               (make-copyright-notice
+                #f
+                #f
+                (extract-single-date single-date)
+                line)
+               (substring line (match:end single-date))))
+             (else
+              #f))))
+
+      (if date-match-data
+          (extract-dates
+           (cdr date-match-data)
+           (if (not results)
+               (car date-match-data)
+               (append-copyright-notice-years
+                results
+                (car date-match-data))))
+          (list results line))))
+
+  (let* ((results (extract-dates line #f))
+         (notice (car results))
+         ;; TODO: transform in cons to be able to do cdr
+         (line (cadr results))
+         (author-and-email (extract-author-and-email line))
+         (author (car author-and-email))
+         (email  (cdr author-and-email)))
+      (set-copyright-notice-author! notice author)
+      (set-copyright-notice-email!  notice email)
+    notice))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
 ;;                        ;;;;;;;;;;;;;;;;;;;;;;;;;;;                         ;;
@@ -1495,7 +1619,7 @@ character argument, it can also works on different tables or line formats."
          '()))
       (acons 'copyright-lines
              (append previous-copyright-lines
-                     (list line))
+                     (list (parse-copyright-line line)))
              results))
     (lambda (path _ results) results))
 
