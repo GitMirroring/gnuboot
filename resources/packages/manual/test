@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Copyright (C) 2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+# Copyright (C) 2025-2026 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,7 +17,6 @@ set -e
 
 topdir="$(realpath "$(dirname "$(dirname "$(dirname "$(dirname "$0")")")")")"
 progname="resources/packages/manual/test"
-rev="$("${topdir}"/resources/wrapper/git describe --tags HEAD)"
 
 . "${topdir}"/resources/scripts/misc/sysexits.sh
 
