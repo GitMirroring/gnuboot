@@ -965,18 +965,22 @@ copyright-notice record and the (unparsed) rest of the line."
                                      'commit-author))
             (commit-email (assq-ref results
                                      'commit-email))
-            (commit-year (date-year (assq-ref results
-                                              'commit-date))))
+            (commit-year
+             (if (assq-ref results 'commit-date)
+                 (date-year (assq-ref results 'commit-date))
+                 #f)))
+
         ;; Example: Copyright (C) 2024 Some Name <mail@domain.org>
         (if
-         (string-match
-          (string-append
-           "Copyright[ ]\\(C\\)[ ]" ;"Copyright (C) "
-           ".*" ;We can have multiple years
-           (number->string commit-year 10) ;Year
-           ".*" ;We can have multiple years
-           " " ;We have at least 1 space before the author line
-           commit-author " <" commit-email ">") line)
+         (and commit-year
+              (string-match
+               (string-append
+                "Copyright[ ]\\(C\\)[ ]" ;"Copyright (C) "
+                ".*" ;We can have multiple years
+                (number->string commit-year 10) ;Year
+                ".*" ;We can have multiple years
+                " " ;We have at least 1 space before the author line
+                commit-author " <" commit-email ">") line))
          (acons 'diff-path-added-proper-copyright
                 (append (assq-ref results
                                   'diff-path-added-proper-copyright)
