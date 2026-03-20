@@ -132,6 +132,12 @@ email string (without the '<' and '>')."
    (string=? (basename path) ".guix-authorizations")
    (string=? path "resources/distros/guix/bordeaux.guix.gnu.org.pub")))
 
+(define (xml-file? path)
+  "Returns #t if it's an XML file, returns #f otherwise."
+  (or
+   (endswith path ".xml")
+   (endswith path ".svg")))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
 ;;                   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;                     ;;
@@ -323,6 +329,50 @@ passed accross multiple calls of copyright-header?."
                (string=? line " */")))
           (else
            #f)))
+   ((xml-file? path)
+    (define (intermediate-start-line? line)
+      (or (startswith line (make-string 5 #\ ))
+          (string=? line "")))
+    (cond
+     ;; First line found
+     ((string=? line "<!--")
+      (hashq-set! data (string->symbol path) line)
+      #t)
+     ;; Second line found
+     ((and (hashq-ref data (string->symbol path))
+           (string=? (hashq-ref data (string->symbol path)) "<!--"))
+      (hashq-set! data (string->symbol path) line)
+      (intermediate-start-line? line))
+     ;; Last line found
+     ((and
+       (hashq-ref data (string->symbol path))
+       (intermediate-start-line? (hashq-ref data (string->symbol path)))
+       (string=? line "  -->"))
+      (hashq-set! data (string->symbol path) line)
+      #t)
+     ;; Intermediate line found
+     ((and
+       (hashq-ref data (string->symbol path))
+       (intermediate-start-line? (hashq-ref data (string->symbol path)))
+       (not (string=? line "  -->")))
+      (hashq-set! data (string->symbol path) line)
+      #t)
+     ;; There are usually other lines before the copyright header like
+     ;; <?xml [...]>. We want to skip these to be able to later on
+     ;; find the real starting line. Note that we also don't handle
+     ;; single line comments <!-- [...] --> on purpose as they are too
+     ;; short to contain proper copyright information, so these will
+     ;; be skipped too.
+     ((eq? (hashq-ref data (string->symbol path)) #f)
+      'skip)
+     ;; After the final -->. This requires to have the copyright
+     ;; information in the first multi-line comment. It is possible to
+     ;; implement some sort of 'EAGAIN if nothing is found but the
+     ;; copyright information is usually in the first multi-line
+     ;; comment so we want to require that for consistency, so there
+     ;; is no point in doing such implementation.
+     (else
+      #f)))
    ;; Simple path-based rules
    (else
     (let ((comment
@@ -1418,11 +1468,17 @@ character argument, it can also works on different tables or line formats."
     (lambda (path line _ results)
       (not (assq-ref results 'copyright-header-done)))
     (lambda (path line _ results)
-      (if (copyright-header? path (assq-ref results 'line) line
-                             (assq-ref results 'copyright-header?-data)
-                             #:ignore-empty-lines #t)
-          (acons 'copyright-header-end-line (assq-ref results 'line) results)
-          (acons 'copyright-header-done #t results)))
+      (define header?
+        (copyright-header? path (assq-ref results 'line) line
+                           (assq-ref results 'copyright-header?-data)
+                           #:ignore-empty-lines #t))
+      (cond
+       ((eq? header? 'skip)
+        results)
+       ((eq? header? #t)
+        (acons 'copyright-header-end-line (assq-ref results 'line) results))
+       ((eq? header? #f)
+        (acons 'copyright-header-done #t results))))
     (lambda (path _ results) results))
 
    (make-rule
