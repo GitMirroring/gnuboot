@@ -2020,7 +2020,9 @@ character argument, it can also works on different tables or line formats."
             "\n"
             "Options:\n"
             "\t--help print this help.\n"
-            "\t-f     don't treat FILE as a patch, but as regular source file instead.\n"))
+            "\t-f     "
+            "don't treat FILE as a patch, but as regular source file instead"
+            ".\n"))
   (exit exit-code))
 
 (define (main args)
