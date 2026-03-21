@@ -1128,7 +1128,8 @@ copyright-notice record and the (unparsed) rest of the line."
 
    (make-rule
     "Count lines"
-    (lambda (path parse-results check-results) (acons 'line 0 check-results))
+    (lambda (path parse-results check-results)
+      (acons 'line 0 check-results))
     (lambda (path line parse-results check-results) #t)
     (lambda (path line parse-results check-results)
       (acons 'line (+ 1 (assq-ref check-results 'line)) check-results))
@@ -1199,7 +1200,8 @@ copyright-notice record and the (unparsed) rest of the line."
                       (assq-ref parse-results 'signed-off-by)))
             ((lambda _
                (display
-                (string-append "ERROR: Missing Signed-off-by: " author-and-email "\n\n"))
+                (string-append
+                 "ERROR: Missing Signed-off-by: " author-and-email "\n\n"))
                (acons
                 'errors
                 (+ 1 (assq-ref check-results 'errors)) check-results)))
@@ -1272,7 +1274,9 @@ copyright-notice record and the (unparsed) rest of the line."
          (string-match "\\+@node +" line) 'post))
 
       (define (node-has-colon line)
-        (not (string=? (string-filter (lambda (c) (eq? c #\:)) (node-name line)) "")))
+        (not (string=?
+              (string-filter (lambda (c) (eq? c #\:)) (node-name line))
+              "")))
 
       (if (node-has-colon line)
           (let ((warnings (assq-ref check-results 'warnings)))
@@ -1298,7 +1302,9 @@ copyright-notice record and the (unparsed) rest of the line."
 
       (define (node-has-comma line)
         (or
-         (not (string=? (string-filter (lambda (c) (eq? c #\,)) (node-name line)) ""))
+         (not (string=?
+               (string-filter (lambda (c) (eq? c #\,)) (node-name line))
+               ""))
          (string-match "@comma\\{\\}" (node-name line))))
 
       (if (node-has-comma line)
@@ -1419,8 +1425,7 @@ copyright-notice record and the (unparsed) rest of the line."
 
        (else check-results)))
 
-    (lambda (path parse-results check-results)
-      check-results))
+    (lambda (path parse-results check-results) check-results))
 
    (make-rule
     "Don't forget to review resources/wrapper/guix when bumping Guix revision"
@@ -1448,8 +1453,10 @@ copyright-notice record and the (unparsed) rest of the line."
            (set! warnings (+ 1 warnings))
            (display
             (string-append
-             "WARNING: guix-revision.sh was updated but not resources/wrapper/guix.\n"
-             "         Make sure to review resources/wrapper/guix when updating "
+             "WARNING: "
+             "guix-revision.sh was updated but not resources/wrapper/guix.\n"
+             "         "
+             "Make sure to review resources/wrapper/guix when updating "
              "the Guix revision.\n\n")))))
       (acons
        'warnings
