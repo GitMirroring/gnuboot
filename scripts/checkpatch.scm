@@ -1022,7 +1022,8 @@ copyright-notice record and the (unparsed) rest of the line."
          (for-each
           (lambda (rule)
             (if ((rule-line-match rule) path line parse-results results)
-                (set! results ((rule-line rule) path line parse-results results))))
+                (set! results
+                      ((rule-line rule) path line parse-results results))))
           rules)
          (run-line-match-rules port rules path parse-results results)))))
 
