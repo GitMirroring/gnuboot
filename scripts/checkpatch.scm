@@ -2056,7 +2056,10 @@ character argument, it can also works on different tables or line formats."
                 (display
                  (string-append "- " arg "\n")))
               not-patch-files)
-             (display "see the '-f' argument in 'checkpatch.scm --help' for how to check files.\n")
+             (display
+              (string-append
+               "see the '-f' argument in 'checkpatch.scm --help' "
+               "for how to check files.\n"))
 
              (exit 64))) ;; 64 is EX_USAGE in sysexits.h
           (map (lambda (path)
