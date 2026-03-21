@@ -647,7 +647,8 @@ copyright-notice record and the (unparsed) rest of the line."
 
    (make-rule
     "Count lines"
-    (lambda (path _ results) (acons 'line 0 results))
+    (lambda (path _ results)
+      (acons 'line 0 results))
     (lambda (path line _ results) #t)
     (lambda (path line _ results)
       (acons 'line (+ 1 (assq-ref results 'line)) results))
@@ -659,16 +660,15 @@ copyright-notice record and the (unparsed) rest of the line."
     (lambda (path line _ results)
       (startswith line "diff --git "))
     (lambda (path line _ results)
-      (acons 'diff-start
-             (assq-ref results
-                       'line) results))
-    (lambda (path _ results)
-      results))
+      (acons 'diff-start (assq-ref results 'line) results))
+    (lambda (path _ results) results))
 
    (make-rule
     "Retrieve Signed-off-by"
-    (lambda (path _ results) (acons 'signed-off-by '() results))
-    (lambda (path line _ results) (startswith line "Signed-off-by: "))
+    (lambda (path _ results)
+      (acons 'signed-off-by '() results))
+    (lambda (path line _ results)
+      (startswith line "Signed-off-by: "))
     (lambda (path line _ results)
       (let ((signed-off-by
              (string-join (cdr (string-split line #\ )) " ")))
@@ -683,7 +683,8 @@ copyright-notice record and the (unparsed) rest of the line."
    (make-rule
     "Find commit author and email"
     (lambda (path _ results) results)
-    (lambda (path line _ results) (startswith line "From: "))
+    (lambda (path line _ results)
+      (startswith line "From: "))
     (lambda (path line _ results)
       (let* ((commit-author-and-email
               (extract-author-and-email
@@ -719,7 +720,8 @@ copyright-notice record and the (unparsed) rest of the line."
    (make-rule
     "Find commit date"
     (lambda (path _ results) results)
-    (lambda (path line _ results) (startswith line "Date: "))
+    (lambda (path line _ results)
+      (startswith line "Date: "))
     (lambda (path line _ results)
       (acons 'commit-date
              (string->date
@@ -739,7 +741,8 @@ copyright-notice record and the (unparsed) rest of the line."
    (make-rule
     "Find patch subject"
     (lambda (path _ results) results)
-    (lambda (path line _ results) (startswith line "Subject: "))
+    (lambda (path line _ results)
+      (startswith line "Subject: "))
     (lambda (path line _ results)
       (let ((commit-subject (string-join (cdr (string-split line #\ )) " ")))
         (acons
@@ -765,10 +768,9 @@ copyright-notice record and the (unparsed) rest of the line."
        (eq? (+ 1 (assq-ref results 'commit-subject-line))
             (assq-ref results 'line))))
     (lambda (path line _ results)
-      (acons
-          'commit-subject-message-separator-line
-          (assq-ref results 'line)
-          results))
+      (acons 'commit-subject-message-separator-line
+             (assq-ref results 'line)
+             results))
     (lambda (path _ results) results))
 
    ;; TODO: Raise an exception if there is more than two lines with
@@ -830,17 +832,13 @@ copyright-notice record and the (unparsed) rest of the line."
              (if (not (assq-ref results 'commit-message))
                  (list)
                  (append (assq-ref results 'commit-message) (list line)))))
-        (acons
-         'commit-message
-         commit-message
-         results)))
+        (acons 'commit-message commit-message results)))
     (lambda (path _ results) results))
 
    (make-rule
     "Find added files"
     (lambda (path _ results)
-      (acons 'added-files
-             '() results))
+      (acons 'added-files '() results))
     (lambda (path line _ results)
       (and (startswith line " create mode ")))
     (lambda (path line _ results)
@@ -854,14 +852,12 @@ copyright-notice record and the (unparsed) rest of the line."
       (acons 'added-files
              (append (assq-ref results 'added-files) added-file)
              results))
-    (lambda (path _ results)
-      results))
+    (lambda (path _ results) results))
 
    (make-rule
     "Find deleted files"
     (lambda (path _ results)
-      (acons 'deleted-files
-             '() results))
+      (acons 'deleted-files '() results))
     (lambda (path line _ results)
       (and (startswith line " delete mode ")))
     (lambda (path line _ results)
@@ -875,8 +871,7 @@ copyright-notice record and the (unparsed) rest of the line."
       (acons 'deleted-files
              (append (assq-ref results 'deleted-files) deleted-file)
              results))
-    (lambda (path _ results)
-      results))
+    (lambda (path _ results) results))
 
    (make-rule
     "Find modified files and track current file diff"
@@ -886,12 +881,9 @@ copyright-notice record and the (unparsed) rest of the line."
     (lambda (path line _ results)
       (startswith line "diff --git a/"))
     (lambda (path line _ results)
-      (define line-parts
-        (string-split line #\space))
-      (define current-diff-file
-        #f)
-      (define modified-file
-        '())
+      (define line-parts (string-split line #\space))
+      (define current-diff-file #f)
+      (define modified-file     '())
       (if (> (length line-parts) 3)
           ;; Example: b/www/x60t_unbrick/0009.JPG
           (let* ((part3 (list-ref line-parts 3))
@@ -912,18 +904,15 @@ copyright-notice record and the (unparsed) rest of the line."
              (append (assq-ref results 'modified-files) modified-file)
              (acons 'current-diff-file current-diff-file
                     results)))
-    (lambda (path _ results)
-      results))
+    (lambda (path _ results) results))
 
    (make-rule
     "Track diff"
     (lambda (path _ results) results)
     (lambda (path line _ results) #t)
     (lambda (path line _ results)
-      (define diff-start
-        0)
-      (define diff-end
-        0)
+      (define diff-start 0)
+      (define diff-end   0)
       (if (and (assq-ref results
                          'current-diff-file)
                (startswith line "@@"))
@@ -946,8 +935,7 @@ copyright-notice record and the (unparsed) rest of the line."
    (make-rule
     "Check for copyrights inside the patch"
     (lambda (path _ results)
-      (acons 'diff-path-added-proper-copyright
-             '() results))
+      (acons 'diff-path-added-proper-copyright '() results))
     (lambda (path line _ results)
       (and (startswith line "+")
            (assq-ref results
