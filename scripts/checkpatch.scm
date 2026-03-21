@@ -1575,7 +1575,8 @@ character argument, it can also works on different tables or line formats."
 
    (make-rule
     "Count lines"
-    (lambda (path _ results) (acons 'line 0 results))
+    (lambda (path _ results)
+      (acons 'line 0 results))
     (lambda (path line _ results) #t)
     (lambda (path line _ results)
       (acons 'line (+ 1 (assq-ref results 'line)) results))
@@ -1624,7 +1625,8 @@ character argument, it can also works on different tables or line formats."
 
    (make-rule
     "Parse tables"
-    (lambda (path _ results) (acons 'tables (list) results))
+    (lambda (path _ results)
+      (acons 'tables (list) results))
     (lambda (path line _ results)
       (string-match "\\.md$" path))
     (lambda (path line _ results)
@@ -1644,7 +1646,9 @@ character argument, it can also works on different tables or line formats."
         (cond
          ((and separation-line (not tables?))
           (let ((columns (get-table-columns-length line)))
-            (acons 'tables (list (make-table-data line-nr #f columns)) results)))
+            (acons 'tables
+                   (list (make-table-data line-nr #f columns))
+                   results)))
 
          ((and separation-line (previous-line-in-table results))
           (let ((start (table-data-start (car tables)))
