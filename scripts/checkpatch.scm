@@ -1724,7 +1724,8 @@ character argument, it can also works on different tables or line formats."
 
    (make-rule
     "Count lines"
-    (lambda (path parse-results check-results) (acons 'line 0 check-results))
+    (lambda (path parse-results check-results)
+      (acons 'line 0 check-results))
     (lambda (path line parse-results check-results) #t)
     (lambda (path line parse-results check-results)
       (acons 'line (+ 1 (assq-ref check-results 'line)) check-results))
@@ -1810,8 +1811,7 @@ character argument, it can also works on different tables or line formats."
 
        (else check-results)))
 
-    (lambda (path parse-results check-results)
-      check-results))
+    (lambda (path parse-results check-results) check-results))
 
    (make-rule
     "Check for tabs in scheme files"
@@ -1904,8 +1904,7 @@ character argument, it can also works on different tables or line formats."
 
               (acons 'errors (+ 1 errors) check-results))
             check-results)))
-    (lambda (path parse-results check-results)
-      check-results))
+    (lambda (path parse-results check-results) check-results))
 
    (make-rule
     "Check if the file has some copyrights in it"
