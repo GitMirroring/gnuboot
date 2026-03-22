@@ -79,15 +79,16 @@
     (close-pipe port)
     file-hash))
 
-(define (read-file-from-commit commit-hash path func)
+(define (read-file-from-commit commit-hash)
   "Run FUNC on the content of PATH at git COMMIT-HASH"
-  (define results #f)
-  (let* ((file-hash (get-git-file-hash commit-hash path))
-         (command (string-join (list "git" "--no-pager" "show" file-hash) " "))
-         (port (open-input-pipe command)))
-    (set! results (func commit-hash path port))
-    (close-port port)
-    results))
+  (lambda (path func)
+    (define results #f)
+    (let* ((file-hash (get-git-file-hash commit-hash path))
+           (command (string-join (list "git" "--no-pager" "show" file-hash) " "))
+           (port (open-input-pipe command)))
+      (set! results (func path port))
+      (close-port port)
+      results)))
 
 (define (print-file-name path)
   (define dashes
@@ -2078,8 +2079,10 @@ character argument, it can also works on different tables or line formats."
             " [OPTIONS] [FILE [FILE ...]]\n"
             "\n"
             "Options:\n"
-            "\t--help print this help.\n"
-            "\t-f     "
+            "\t--help         print this help.\n"
+            "\t-c REVISION    "
+            "Requires -f. Uses the given file from the given git REVISION.\n"
+            "\t-f             "
             "don't treat FILE as a patch, but as regular source file instead"
             ".\n"))
   (exit exit-code))
@@ -2097,6 +2100,20 @@ character argument, it can also works on different tables or line formats."
         (string-append
          "Error: please run checkpatch.scm in the git top directory.\n"))
        (exit 69)))) ;; 69 is EX_UNAVAILABLE in sysexits.h
+   ((or (and (> (length args) 4)
+             (string=? (list-ref args 1) "-c")
+             (string=? (list-ref args 3) "-f"))
+        (and (> (length args) 4)
+             (string=? (list-ref args 1) "-f")
+             (string=? (list-ref args 2) "-c")))
+    (let ((rev (if (string=? (list-ref args 1) "-c")
+                   (list-ref args 2)
+                   (list-ref args 3))))
+      (map (lambda (path)
+             (if (> (length args) 5)
+                 (print-file-name path))
+             (test-file (read-file-from-commit (get-git-commit-hash rev)) path))
+           (cddddr args))))
    ((string=? (list-ref args 1) "-f")
     (map (lambda (path)
            (if (> (length args) 3)
