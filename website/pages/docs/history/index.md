@@ -141,7 +141,7 @@ So far the copyright headers were verified on the following files:
   ("build: Update copyright header.")).
 
 * website/.gitignore (details in the commit
-  722a8256ab031a533418cbcf27bedd0cd88b7660 ("website: .gitignore: add
+  e378b45440af17b61d52337379dba317d569b922 ("website: .gitignore: add
   copyright header.")).
 
 * website/serve.sh (details in the commit
