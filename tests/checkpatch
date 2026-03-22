@@ -51,7 +51,8 @@ test -f "${topdir}"/resources/wrapper/git || \
 # This checks the "Add a minimal GNU Boot manual." commit which has
 # unaligned nodes.
 ./scripts/checkpatch.scm \
-    "$(git format-patch -1 08b9e449e94e99c0ec924e2026dc650b63ddc3e5)" > \
+    "$(git format-patch -1 -o "${tmpdir}" \
+           08b9e449e94e99c0ec924e2026dc650b63ddc3e5)" > \
     "${tmpdir}"/checkpatch-test-unaligned-nodes.log 2>/dev/null || \
     fail "checkpatch.scm failed " \
          "when trying to detect unaligned node in the manual."
@@ -66,7 +67,8 @@ echo "[ OK ] detected unaligned nodes in the manual."
 # This checks the "manual: Describe the GNU Boot project." commit
 # which has non-modified unaligned nodes.
 ./scripts/checkpatch.scm \
-    "$(git format-patch -1 5303fab6a49796d69fc9176b715409f925d8f608)" > \
+    "$(git format-patch -1 -o "${tmpdir}" \
+           5303fab6a49796d69fc9176b715409f925d8f608)" > \
     "${tmpdir}"/checkpatch-test-non-modified-unaligned-nodes.log \
     2>/dev/null || \
     fail "checkpatch.scm failed " \
@@ -164,7 +166,8 @@ echo "[ OK ] didn't warn against nodes names without colon (':') in the manual."
 # text top-left." commit where website/pages/status.es.md exists, but
 # the commit only updates website/pages/status.md.
 ./scripts/checkpatch.scm \
-    "$(git format-patch -1 4c46963c3dd2a9f26fb48363a5b7c8395be61f5a)" > \
+    "$(git format-patch -1 -o "${tmpdir} "\
+           4c46963c3dd2a9f26fb48363a5b7c8395be61f5a)" > \
     "${tmpdir}"/checkpatch-test-missing-spanish-translation.log 2>/dev/null
 
 while IFS= read -r line; do
@@ -177,7 +180,8 @@ echo "[ OK ] detected missing spanish translation in the website."
 # This checks the "website: status: 0.1 RC4: mark Vikings D16 as
 # tested" commit where the Spanish translation is correctly updated.
 ./scripts/checkpatch.scm \
-    "$(git format-patch -1 1f07a190bab3fb06c6adca70d72355a149ee09b3)" > \
+    "$(git format-patch -1 -o "${tmpdir}" \
+           1f07a190bab3fb06c6adca70d72355a149ee09b3)" > \
     "${tmpdir}"/checkpatch-test-updated-spanish-translation.log 2>/dev/null
 
 while IFS= read -r line; do
@@ -198,8 +202,8 @@ echo "[ .. ] Checking if any existing patch makes checkpatch.scm crash."
 # Libreboot git repo: 149273c6742aeed14ec1aaca019f552cfb109457")) is
 # huge: it is 19 MiB, and it takes a while to process, even with a
 # KGPE-D16, so it is better to skip it.
-patches="$("${topdir}"/resources/wrapper/git format-patch \
-    639f71f6e92407aafa03d7c364215c2f162367e1 -o "${tmpdir}")"
+patches="$("${topdir}"/resources/wrapper/git format-patch -o "${tmpdir}" \
+    639f71f6e92407aafa03d7c364215c2f162367e1)"
 
 # shellcheck disable=SC2086
 "${topdir}"/scripts/checkpatch.scm ${patches} | sed 's#^#       #g' || \
