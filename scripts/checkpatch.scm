@@ -65,7 +65,7 @@
             ((port
               (open-pipe*
                OPEN_READ
-               "git" "ls-tree" commit "--" path))
+               "git" "--no-pager" "ls-tree" commit "--" path))
              (str (read-line port)))
           str))))
 
