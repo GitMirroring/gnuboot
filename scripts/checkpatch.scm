@@ -50,6 +50,45 @@
     (close-port port)
     results))
 
+(define (get-git-commit-hash revision)
+  (let* ((command (string-join
+                   (list
+                    "git"
+                    "--no-pager"
+                    "show"
+                    "--no-patch"
+                    "--pretty=%H"
+                    revision) " "))
+         (port (open-input-pipe command))
+         (line (read-line port))
+         (file-hash line))
+    (close-pipe port)
+    file-hash))
+
+(define (get-git-file-hash commit-hash path)
+  (let* ((command
+          (string-join
+           (list "git" "--no-pager" "ls-tree" commit-hash "--" path) " "))
+         (port (open-input-pipe command))
+         (line (read-line port))
+         (split-line
+          (string-split
+           line
+           (lambda (c) (or (eqv? c #\ ) (eqv? c #\tab)))))
+         (file-hash (list-ref split-line 2)))
+    (close-pipe port)
+    file-hash))
+
+(define (read-file-from-commit commit-hash path func)
+  "Run FUNC on the content of PATH at git COMMIT-HASH"
+  (define results #f)
+  (let* ((file-hash (get-git-file-hash commit-hash path))
+         (command (string-join (list "git" "--no-pager" "show" file-hash) " "))
+         (port (open-input-pipe command)))
+    (set! results (func commit-hash path port))
+    (close-port port)
+    results))
+
 (define (print-file-name path)
   (define dashes
     (string-append
