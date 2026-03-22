@@ -654,9 +654,9 @@ copyright-notice record and the (unparsed) rest of the line."
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
-;;                          ;;;;;;;;;;;;;;;;;;;;;;;                           ;;
-;;                          ;; Rules definitions ;;                           ;;
-;;                          ;;;;;;;;;;;;;;;;;;;;;;;                           ;;
+;;                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;                   ;;
+;;                  ;; Rules definition and applications ;;                   ;;
+;;                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;                   ;;
 ;;                                                                            ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -668,6 +668,67 @@ copyright-notice record and the (unparsed) rest of the line."
   (line-match rule-line-match) ;; Runs each line, returns true/false
   (line       rule-line)       ;; Runs if rule-line-match is true
   (end        rule-end))       ;; Runs once at the end, inconditionally
+
+(define (set-defaults context rules path parse-results results)
+  (for-each
+   (lambda (rule)
+     (set! results ((rule-default rule) context path parse-results results)))
+   rules)
+  results)
+
+(define (run-line-match-rules context port rules path parse-results results)
+  (define line (read-line port))
+  (if (eof-object? line)
+      results
+      ((lambda _
+         (for-each
+          (lambda (rule)
+            (if ((rule-line-match rule) context path line parse-results results)
+                (set! results
+                      ((rule-line rule)
+                       context path line parse-results results))))
+          rules)
+         (run-line-match-rules
+          context port rules path parse-results results)))))
+
+(define (run-end-rules context path rules other-results results)
+  (for-each
+   (lambda (rule)
+     (set! results ((rule-end rule) context path other-results results)))
+   rules)
+  results)
+
+(define (run-parse-rules read-func context rules path)
+  (read-func
+   path
+   (lambda (path port)
+     (let* ((defaults (set-defaults context rules path #f '()))
+            (results (run-line-match-rules
+                      context port rules path #f defaults)))
+     (run-end-rules context path rules #f results)))))
+
+(define (run-check-rules read-func context parse-results rules path)
+  (read-func
+   path
+   (lambda (path port)
+     (let* ((defaults (set-defaults context rules path parse-results '()))
+            (check-results
+             (run-line-match-rules
+              context port rules path parse-results defaults)))
+     (run-end-rules context path rules parse-results check-results)))))
+
+(define (test-patch read-func path)
+  (let* ((parse-results
+          (run-parse-rules
+           read-func
+           (list (cons 'runtime 'parse-patch))
+           patch-parse-rules path))
+         (check-results
+          (run-check-rules
+           read-func
+           (list (cons 'runtime 'check-patch))
+           parse-results patch-check-rules path)))
+    check-results))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
@@ -1046,44 +1107,6 @@ copyright-notice record and the (unparsed) rest of the line."
    ;;    results))
    ))
 
-(define (set-defaults context rules path parse-results results)
-  (for-each
-   (lambda (rule)
-     (set! results ((rule-default rule) context path parse-results results)))
-   rules)
-  results)
-
-(define (run-line-match-rules context port rules path parse-results results)
-  (define line (read-line port))
-  (if (eof-object? line)
-      results
-      ((lambda _
-         (for-each
-          (lambda (rule)
-            (if ((rule-line-match rule) context path line parse-results results)
-                (set! results
-                      ((rule-line rule)
-                       context path line parse-results results))))
-          rules)
-         (run-line-match-rules
-          context port rules path parse-results results)))))
-
-(define (run-end-rules context path rules other-results results)
-  (for-each
-   (lambda (rule)
-     (set! results ((rule-end rule) context path other-results results)))
-   rules)
-  results)
-
-(define (run-parse-rules context rules path)
-  (read-file
-   path
-   (lambda (path port)
-     (let* ((defaults (set-defaults context rules path #f '()))
-            (results (run-line-match-rules
-                      context port rules path #f defaults)))
-     (run-end-rules context path rules #f results)))))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
 ;;                             ;;;;;;;;;;;;;;;;;;                             ;;
@@ -1091,16 +1114,6 @@ copyright-notice record and the (unparsed) rest of the line."
 ;;                             ;;;;;;;;;;;;;;;;;;                             ;;
 ;;                                                                            ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(define (run-check-rules context parse-results rules path)
-  (read-file
-   path
-   (lambda (path port)
-     (let* ((defaults (set-defaults context rules path parse-results '()))
-            (check-results
-             (run-line-match-rules
-              context port rules path parse-results defaults)))
-     (run-end-rules context path rules parse-results check-results)))))
 
 (define patch-check-rules
   (list
@@ -1572,17 +1585,6 @@ copyright-notice record and the (unparsed) rest of the line."
               "and is ready for submission.\n"))))
       check-results))))
 
-(define (test-patch path)
-  (let* ((parse-results
-          (run-parse-rules
-           (list (cons 'runtime 'parse-patch))
-           patch-parse-rules path))
-         (check-results
-          (run-check-rules
-           (list (cons 'runtime 'check-patch))
-           parse-results patch-check-rules path)))
-    check-results))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
 ;;                           ;;;;;;;;;;;;;;;;;;;;;;                           ;;
@@ -1981,6 +1983,7 @@ character argument, it can also works on different tables or line formats."
             ;; patches.
             (let* ((parse-results
                     (run-parse-rules
+                     read-file
                      (list (cons 'runtime 'parse-file))
                      patch-parse-rules path))
                    (author?
@@ -2040,11 +2043,13 @@ character argument, it can also works on different tables or line formats."
               "and is ready for submission.\n"))))
       check-results))))
 
-(define (test-file path)
+(define (test-file read-func path)
   (let* ((parse-results (run-parse-rules
+                         read-func
                          (list (cons 'runtime 'parse-file))
                          file-parse-rules path))
          (check-results (run-check-rules
+                         read-func
                          (list (cons 'runtime 'check-file))
                          parse-results file-check-rules path)))
     check-results))
@@ -2096,7 +2101,7 @@ character argument, it can also works on different tables or line formats."
     (map (lambda (path)
            (if (> (length args) 3)
                (print-file-name path))
-           (test-file path))
+           (test-file read-file path))
          (cddr args)))
    (else
     (let ((not-patch-files
@@ -2121,5 +2126,5 @@ character argument, it can also works on different tables or line formats."
              (exit 64))) ;; 64 is EX_USAGE in sysexits.h
           (map (lambda (path)
                  (if (> (length args) 2) (print-file-name path))
-                 (test-patch path))
+                 (test-patch read-file path))
                (cdr args)))))))
