@@ -322,6 +322,32 @@ cmp \
 echo "[ OK ] detected known unhandled copyright headers."
 
 ################################################################################
+# Test checkpatch.scm with a commit(s) that contains a patch(es).              #
+################################################################################
+
+# The commit c18e78555d120568062554cdaebbe780f95c6073
+#  ("ressources/coreboot/fam15h*: fix building crossgcc 8.3.0 (fixes
+#  #64870)") can't be used here as the Author doesn't match the
+#  signed-off-by.
+
+# This checks the "wrappers: add Guix wrapper and use it." commit
+# which modifies scripts/checkpatch.scm without updating the
+# copyright.
+./scripts/checkpatch.scm \
+    "$(git format-patch -1 -o "${tmpdir}" \
+           f633e7597ed7d2f26687bf1e079d2b62dde5cf3a)" > \
+    "${tmpdir}"/checkpatch-test-missing-copyright-update.log 2>/dev/null || \
+    fail "checkpatch.scm failed " \
+         "when trying to detect missing copyright update in a patch."
+
+while IFS= read -r line; do
+    grep -q "${line}" "${tmpdir}"/checkpatch-test-missing-copyright-update.log || \
+    fail "failed to detect missing copyright update in a patch."
+done < tests/checkpatch-test-missing-copyright-update.ref
+
+echo "[ OK ] detected missing copyright update."
+
+################################################################################
 # Test checkpatch.scm with all the existing patches. It should not crash.      #
 ################################################################################
 
