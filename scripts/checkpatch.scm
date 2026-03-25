@@ -718,16 +718,16 @@ copyright-notice record and the (unparsed) rest of the line."
               context port rules path parse-results defaults)))
      (run-end-rules context path rules parse-results check-results)))))
 
-(define (test-patch read-func path)
+(define (test-patch read-func parse-context check-context path)
   (let* ((parse-results
           (run-parse-rules
            read-func
-           (list (cons 'runtime 'parse-patch))
+           parse-context
            patch-parse-rules path))
          (check-results
           (run-check-rules
            read-func
-           (list (cons 'runtime 'check-patch))
+           check-context
            parse-results patch-check-rules path)))
     check-results))
 
@@ -2143,5 +2143,9 @@ character argument, it can also works on different tables or line formats."
              (exit 64))) ;; 64 is EX_USAGE in sysexits.h
           (map (lambda (path)
                  (if (> (length args) 2) (print-file-name path))
-                 (test-patch read-file path))
+                 (test-patch
+                  read-file
+                  (list (cons 'runtime 'parse-patch))
+                  (list (cons 'runtime 'check-patch))
+                  path))
                (cdr args)))))))
