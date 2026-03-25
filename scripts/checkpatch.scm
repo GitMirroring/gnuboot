@@ -491,7 +491,7 @@ passed accross multiple calls of copyright-header?."
 ;; to not require new contributors to have to wait for a guix pull
 ;; that now runs twice.
 (define-record-type <copyright-notice>
-  (make-copyright-notice author email years line)
+  (make-copyright-notice author email years patch file-path line)
   copyright-notice?
   ;; Author and/or copyright-notice owner name
   (author copyright-notice-author set-copyright-notice-author!)
@@ -500,6 +500,8 @@ passed accross multiple calls of copyright-header?."
   ;; List of copyright-notice years
   (years  copyright-notice-years  set-copyright-notice-years!)
   ;; For debugging
+  (patch   copyright-notice-patch   set-copyright-notice-patch!)
+  (file-path   copyright-notice-file-path   set-copyright-notice-file-path!)
   (line   copyright-notice-line   set-copyright-notice-line!))
 
 (define (append-copyright-notice-years old new)
@@ -511,13 +513,19 @@ passed accross multiple calls of copyright-header?."
                   (copyright-notice-author new)))
   (assert (equal? (copyright-notice-email old)
                   (copyright-notice-email new)))
+  (assert (equal? (copyright-notice-patch old)
+                  (copyright-notice-patch new)))
+  (assert (equal? (copyright-notice-file-path old)
+                  (copyright-notice-file-path new)))
   (make-copyright-notice
    (copyright-notice-author old)
    (copyright-notice-email  old)
    (append (copyright-notice-years old) (copyright-notice-years new))
+   (copyright-notice-patch old)
+   (copyright-notice-file-path old)
    (copyright-notice-line old)))
 
-(define (parse-copyright-line line)
+(define (parse-copyright-line patch file-path line)
   (define (extract-single-date match)
     (if match
         (list
@@ -553,7 +561,7 @@ copyright-notice record and the (unparsed) rest of the line."
                 #f
                 #f
                 (extract-date-range date-range)
-                line)
+                patch file-path line)
                (substring line (match:end date-range))))
              ((and date-range single-date
                    (< (match:start single-date)
@@ -563,7 +571,7 @@ copyright-notice record and the (unparsed) rest of the line."
                 #f
                 #f
                 (extract-single-date single-date)
-                line)
+                patch file-path line)
                (substring line (match:end single-date))))
              (date-range
               (cons
@@ -571,7 +579,7 @@ copyright-notice record and the (unparsed) rest of the line."
                 #f
                 #f
                 (extract-date-range date-range)
-                line)
+                patch file-path line)
                (substring line (match:end date-range))))
              (single-date
               (cons
@@ -579,7 +587,7 @@ copyright-notice record and the (unparsed) rest of the line."
                 #f
                 #f
                 (extract-single-date single-date)
-                line)
+                patch file-path line)
                (substring line (match:end single-date))))
              (else
               #f))))
@@ -604,6 +612,21 @@ copyright-notice record and the (unparsed) rest of the line."
       (set-copyright-notice-author! notice author)
       (set-copyright-notice-email!  notice email)
     notice))
+
+      (define (author-email-year-in-copyright-notice? notice author email year)
+        "Returns #t if the given author and email match the one in the NOTICE
+and if the year is included in the list of years in the
+notice. Returns #f otherwise."
+        (and (if (and author (copyright-notice-author notice))
+                 (string=? author (copyright-notice-author notice))
+                 ;; Handle cases when author is #f
+                 (eq? author (copyright-notice-author notice)))
+             (if (and email (copyright-notice-email notice))
+                 (string=? email (copyright-notice-email notice))
+                 ;; Handle cases when email is #f
+                 (eq? email (copyright-notice-email notice)))
+             (any
+              (lambda (elm) (eq? year elm)) (copyright-notice-years notice))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
@@ -1038,50 +1061,6 @@ copyright-notice record and the (unparsed) rest of the line."
           (if (not (eq? diff-start 0))
               (acons 'diff-start diff-start results)
               (acons 'diff-end diff-end results))))
-    (lambda (context path _ results) results))
-
-   (make-rule
-    "Check for copyrights inside the patch"
-    (lambda (context path _ results)
-      (acons 'diff-path-added-proper-copyright '() results))
-    (lambda (context path line _ results)
-      (and (startswith line "+")
-           (assq-ref results
-                     'current-diff-file)
-           (> (assq-ref results
-                        'diff-start) 0)))
-    (lambda (context path line _ results)
-      (let ((diff-start (assq-ref results
-                                  'diff-start))
-            (diff-end (assq-ref results
-                                'diff-end))
-            (current-diff-file (assq-ref results
-                                         'current-diff-file))
-            (commit-author (assq-ref results
-                                     'commit-author))
-            (commit-email (assq-ref results
-                                     'commit-email))
-            (commit-year
-             (if (assq-ref results 'commit-date)
-                 (date-year (assq-ref results 'commit-date))
-                 #f)))
-
-        ;; Example: Copyright (C) 2024 Some Name <mail@domain.org>
-        (if
-         (and commit-year
-              (string-match
-               (string-append
-                "Copyright[ ]\\(C\\)[ ]" ;"Copyright (C) "
-                ".*" ;We can have multiple years
-                (number->string commit-year 10) ;Year
-                ".*" ;We can have multiple years
-                " " ;We have at least 1 space before the author line
-                commit-author " <" commit-email ">") line))
-         (acons 'diff-path-added-proper-copyright
-                (append (assq-ref results
-                                  'diff-path-added-proper-copyright)
-                        (list current-diff-file)) results)
-         results)))
     (lambda (context path _ results) results))
 
    ;; We can also use rules for debugging the code, here are two
@@ -1553,6 +1532,82 @@ copyright-notice record and the (unparsed) rest of the line."
     (lambda (context path parse-results check-results) check-results))
 
    (make-rule
+    "Check if the author copyright wasn't updated"
+    (lambda (context path parse-results check-results) check-results)
+    (lambda (context path line parse-results check-results) #t)
+    (lambda (context path line parse-results check-results) check-results)
+    (lambda (context path patch-parse-results patch-check-results)
+      (define commit-hash (assq-ref patch-parse-results 'commit-hash))
+      (define commit-author (assq-ref patch-parse-results 'commit-author))
+      (define commit-email (assq-ref patch-parse-results 'commit-email))
+      (define commit-date (assq-ref patch-parse-results 'commit-date))
+      (assert (not (eq? commit-hash #f)))
+      (assert (not (eq? commit-author #f)))
+      (assert (not (eq? commit-email #f)))
+      (assert (not (eq? commit-date #f)))
+      (define commit-year (date-year commit-date))
+      (assert (not (eq? commit-year #f)))
+      (define warnings (assq-ref patch-check-results 'warnings))
+      (define has-copyright-note
+        (if (assq-ref patch-parse-results 'has-copyright-note)
+            (assq-ref patch-parse-results 'has-copyright-note)
+            #f))
+
+      (for-each
+       (lambda (modified-file)
+         (define file-parse-results
+           (run-parse-rules
+            (read-file-from-commit (assq-ref patch-parse-results 'commit-hash))
+            (list (cons 'runtime 'parse-patch))
+            file-parse-rules
+            modified-file))
+
+         (if (and
+              (file-should-have-copyrights? modified-file)
+              (not (if (assq-ref file-parse-results 'copyright-lines)
+                       (any
+                        (lambda (notice)
+                          (author-email-year-in-copyright-notice?
+                           notice
+                           commit-author commit-email commit-year))
+                        (assq-ref file-parse-results 'copyright-lines))
+                       #f)))
+             ((lambda _
+                (display
+                 (string-append
+                  "WARNING: "
+                  "unless the patch is only adding missing copyrights[1], the "
+                  (number->string commit-year)
+                  " copyright for \""
+                  commit-author
+                  "\" (" commit-email ") is missing in "
+                  modified-file ".\n"))
+                (set! has-copyright-note #t)
+                (set! warnings (+ 1 warnings))))))
+       (assq-ref patch-parse-results 'modified-files))
+      (append-results
+       patch-check-results
+       (list
+        (cons 'has-copyright-note has-copyright-note)
+        (cons 'warnings warnings)))))
+
+   (make-rule
+    "Print note at the end"
+    (lambda (context path parse-results check-results) check-results)
+    (lambda (context path line parse-results check-results) #t)
+    (lambda (context path line parse-results check-results) check-results)
+    (lambda (context path parse-results check-results)
+      (if
+       (assq-ref check-results 'has-copyright-note)
+       (display
+        (string-append
+         "\nNotes:\n------\n[1] "
+         "checkpatch.scm gives false positives with patches that add missing "
+         "copyright when the commit year is newer than the years of the "
+         "missing copyrights being added.\n")))
+      check-results))
+
+   (make-rule
     "Track total errors and warnings"
     (lambda (context path parse-results check-results)
       (acons 'warnings 0 (acons 'errors 0 check-results)))
@@ -1681,7 +1736,7 @@ character argument, it can also works on different tables or line formats."
          '()))
       (acons 'copyright-lines
              (append previous-copyright-lines
-                     (list (parse-copyright-line line)))
+                     (list (parse-copyright-line #f path line)))
              results))
     (lambda (context path _ results) results))
 

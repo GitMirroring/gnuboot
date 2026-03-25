@@ -1,0 +1,3 @@
+WARNING: unless the patch is only adding missing copyrights\[1\], the 2025 copyright for "Denis 'GNUtoo' Carikli" (GNUtoo@cyberdimension.org) is missing in resources/packages/i945-thinkpads-install-utilities/Makefile.am\.
+WARNING: unless the patch is only adding missing copyrights\[1\], the 2025 copyright for "Denis 'GNUtoo' Carikli" (GNUtoo@cyberdimension.org) is missing in resources/packages/roms/download\.
+WARNING: unless the patch is only adding missing copyrights\[1\], the 2025 copyright for "Denis 'GNUtoo' Carikli" (GNUtoo@cyberdimension.org) is missing in scripts/checkpatch.scm\.
