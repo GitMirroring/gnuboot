@@ -1,6 +1,6 @@
 #!/usr/bin/env -S guile -e main -s
 !#
-;; Copyright (C) 2024 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
+;; Copyright (C) 2024-2025 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 ;;
 ;; This program is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
