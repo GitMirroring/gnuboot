@@ -87,9 +87,9 @@ run_shellcheck \
     resources/packages/website/distclean \
     resources/scripts/misc/sysexits.sh \
     resources/scripts/tasks/distclean.sh \
-    tests/checkpatch \
-    tests/distclean \
-    tests/lint \
+    tests/checkpatch.sh \
+    tests/distclean.sh \
+    tests/lint.sh \
     website/build.sh \
     website/check.sh
 

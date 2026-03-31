@@ -245,7 +245,7 @@ email string (without the '<' and '>')."
         (endswith path ".sum"))
     #f)
 
-   ;; TODO: tests/checkpatch doesn't support yet comments in these
+   ;; TODO: tests/checkpatch.sh doesn't support yet comments in these
    ;; files.
    ((and
      (string=? (dirname path) "tests")
@@ -463,10 +463,11 @@ passed accross multiple calls of copyright-header?."
             ((string=? path "resources/wrapper/git") "#")
             ((string=? path "resources/wrapper/gitconfig") "#")
             ((string=? path "resources/wrapper/guix") "#")
-            ((string=? path "tests/checkpatch") "#")
-            ((string=? path "tests/lint") "#")
-            ((string=? path "tests/targets") "#")
-            ((string=? path "tests/u-boot-libre") "#")
+            ((string=? path "tests/checkpatch.sh") "#")
+            ((string=? path "tests/distclean.sh") "#")
+            ((string=? path "tests/lint.sh") "#")
+            ((string=? path "tests/targets.sh") "#")
+            ((string=? path "tests/u-boot-libre.sh") "#")
             ((string=? path "website/lighttpd.conf.tmpl") "#")
             ((string=? path "website/site.cfg.tmpl") "#")
             ((string=? path "website/symlinks/symlinks.txt") "#")

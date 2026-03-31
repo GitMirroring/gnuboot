@@ -20,7 +20,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
+SENTINEL =
 SUBDIRS = manual
 
 # For making pipefail work.
@@ -110,14 +110,6 @@ install-dependencies: $(LOG)
 	set -o pipefail ; ./build install dependencies 2>&1 | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
-check: $(LOG)
-	echo 'Makefile: running $@ target' >> $(LOG)
-	set -o pipefail ; ./tests/lint       2>&1 | tee -a $(LOG)
-	set -o pipefail ; ./tests/distclean  2>&1 | tee -a $(LOG)
-	set -o pipefail ; ./tests/targets    2>&1 | tee -a $(LOG)
-	set -o pipefail ; ./tests/checkpatch 2>&1 | tee -a $(LOG)
-	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
-
 manuals: dvi html info pdf ps
 
 include resources/debian/Makefile.am
@@ -145,3 +137,12 @@ help:
 		"Note 'dvi', etc are also valid make targets."
 	@printf "\tmake debian                                # %s\n" \
 		"Build Debian package of the GNU Boot info manual."
+
+SH_LOG_COMPILER = bash
+TEST_EXTENSIONS = .sh
+TESTS = \
+	tests/lint.sh \
+	tests/distclean.sh \
+	tests/targets.sh \
+	tests/checkpatch.sh \
+	$(SENTINEL)
