@@ -1151,12 +1151,12 @@ notice. Returns #f otherwise."
          (else (return #f))))
 
       (cond ((not commit-hash)
-             (display "Error: the patch has no commit hash.\n")
+             (display "ERROR: the patch has no commit hash.\n")
              (exit 69)) ;; 69 is EX_UNAVAILABLE in sysexits.h
             ((not (commit-hash-in-git? commit-hash))
              (display
               (string-append
-               "Error: the patch commit hash (" commit-hash ") is not\n"
+               "ERROR: the patch commit hash (" commit-hash ") is not\n"
                "       in git. To fix it, you need to import the patche(s) "
                "with the following\n"
                "       command:\n"
