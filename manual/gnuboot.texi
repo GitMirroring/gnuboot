@@ -771,6 +771,7 @@ following computers:
 @item Lenovo ThinkPad X60T
 @item Lenovo ThinkPad X60s
 @item Libiquity Taurinus X200
+@item Minifree Libreboot T400 (experimental)
 @item Qemu PC (i440FX)
 @item Technoethical D16 (experimental)
 @item Technoethical T400
@@ -1097,6 +1098,49 @@ Here are some details on this computer:
 
 @cardreaderUSB
 
+@node       Minifree Libreboot T400 (experimental)
+@subsection Minifree Libreboot T400 (experimental)
+
+This computer worked with Libreboot at the time where it was still
+fully free, so it should normally also work with GNU Boot, but we miss
+a lot of information on what modifications were made by Minifree so
+this is why it is set as experimental.
+
+Two users that had a Minifree Libreboot T400 ran flashrom on it and it
+gave back the following flash chip:
+
+@itemize
+@item Macronix W25Q128.V (16MiB)
+@item Winbond W25X32 (4MiB) (on a Libreboot T400 bought in December 2020)
+@end itemize
+
+Leah Rowe who manages Minifree said that she replaced the flash chip
+on the X200, X200S and X200 Tablet, T400, W500, T500 to a 16MB Winbond
+W25Q128FVSIG flash chip which is consistent with one of the test made
+by one of the users of this computer and from what we heard as well.
+
+So the W25X32 (4MiB) is a mystery so far (TODO: contact the user and
+Leah to learn more about it, and verify that it was really a
+"Libreboot T400" from minifree and not some other offering from
+Minifree (like another T400, maybe sold cheaper without the usual
+changes / work, etc)).
+
+On the T400 (and also W500 and T500) she also replaced the CPU by Core
+2 Quad Q9000[1][2][3][4].
+
+@c [1]https://web.archive.org/web/20240206011234/https://thonkpeasant.xyz/guides/other/quad.html
+@c [2]https://mas.to/@libreleah/107520940565876594
+@c [3]https://mas.to/@libreleah/113005342614771015
+@c [4]https://av.vimuser.org/t500.webm
+
+TODO: Look at the links and improve the text above, also add all other
+models she mentionned and make the information she gave a macro to
+include in the other Libreboot computers serie from Minifree.
+
+TODO in another patch: also make a macro to deal with the WiFi cards
+that aren't replaced in regular ThinkPad T400 but that are remplacer
+in the vendors that formerly had the RYF certification.
+
 @node       Technoethical X200
 @subsection Technoethical X200
 
@@ -1314,6 +1358,7 @@ port enabled:
 @item Asus KGPE-D16
 @item Lenovo ThinkPad T400
 @item Lenovo ThinkPad T400S
+@item Minifree Libreboot T400
 @item Qemu PC (i440FX)
 @item Technoethical T400
 @item Technoethical T400s
