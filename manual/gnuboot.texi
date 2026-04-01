@@ -799,6 +799,7 @@ following computers:
 @item Lenovo ThinkPad X60T
 @item Lenovo ThinkPad X60s
 @item Libiquity Taurinus X200
+@item Minifree Libreboot T400
 @item Qemu PC (i440FX)
 @item Technoethical D16 (experimental)
 @item Technoethical T400
@@ -1109,6 +1110,55 @@ Here are some details on this computer:
 
 @cardreaderUSB
 
+@node       Minifree Libreboot T400
+@subsection Minifree Libreboot T400
+
+Here are some details on this computer:
+
+@multitable {Boot flash:}     {Non-removable (soldered)}
+@item        Vendor:      @tab Minifree
+@item        Product:     @tab Libreboot T400
+@item        Max RAM:     @tab 8GiB
+@item        CPU:         @tab Removable, TODO socket
+@item        Boot flash:  @tab Non-removable (soldered)
+@end multitable
+
+@node          Minifree Libreboot T400 builtin boot flash
+@subsubsection Minifree Libreboot T400 builtin boot flash
+
+The Minifree Libreboot T400 came with one of these boot flash:
+
+@itemize
+@item Winbond W25Q128.V (16MiB)
+@end itemize
+
+@node          Minifree Libreboot T400 builtin CPU
+@subsubsection Minifree Libreboot T400 builtin CPU
+
+The ThinkPad X200 has one of these CPUs:
+
+@itemize
+@item Intel Core 2 Quad Q9000 (64bit, 4 cores, TODO GHz)
+@end itemize
+
+We don't know if other CPUs were used as well.
+
+In addition, on the T400 (and also W500 and T500) she also replaced
+the CPU by Core 2 Quad Q9000[1][2][3][4].
+
+@c [1]https://web.archive.org/web/20240206011234/https://thonkpeasant.xyz/guides/other/quad.html
+@c [2]https://mas.to/@libreleah/107520940565876594
+@c [3]https://mas.to/@libreleah/113005342614771015
+@c [4]https://av.vimuser.org/t500.webm
+
+TODO: Look at the links and improve the text above, also add all other
+models she mentionned and make the information she gave a macro to
+include in the other Libreboot computers serie from Minifree.
+
+TODO in another patch: also make a macro to deal with the WiFi cards
+that aren't replaced in regular ThinkPad T400 but that are remplacer
+in the vendors that formerly had the RYF certification.
+
 @node       Technoethical X200
 @subsection Technoethical X200
 
@@ -1326,6 +1376,7 @@ port enabled:
 @item Asus KGPE-D16
 @item Lenovo ThinkPad T400
 @item Lenovo ThinkPad T400S
+@item Minifree Libreboot T400
 @item Qemu PC (i440FX)
 @item Technoethical T400
 @item Technoethical T400s
@@ -3185,6 +3236,27 @@ tolerance for bending are low.
 Having heavy @uref{https://en.wikipedia.org/wiki/Heat_sink,heat sink}
 and/or big mainboards can increase the risks of bending.
 
+@node    Soldering
+@section Soldering
+
+Sometimes people might want to advanced hardware modifications or
+repairs that require soldering.
+
+Unless you do it very often, soldering is not very risky for the
+health.
+
+If you make sure that the electronic circuits involved are not powered
+on (or are not a battery), the main risk with soldering is to break
+hardware.
+
+The @uref{https://mightyohm.com/soldercomic,Soldering is easy here's
+how to do it} guide, under the CC-BY license, has been used to teach
+children how to solder.
+
+If you do it often, it might be worth investing in some kind of fume
+extractor and/or other protective equipement as the fumes, etc, are
+bad for the health and can create asthma, cataract, etc.
+
 @menu
 * Replacing removable boot flash chips::
 @end menu
@@ -3254,6 +3326,33 @@ information on that).
 You might also need a flash programmer and another computer to put GNU
 Boot on the new boot flash (@pxref{Flash programmers} for more
 details on flash chip programmers).
+
+@c @node    Replacing non-removable boot flash chips
+@c @section Replacing non-removable boot flash chips
+
+@c On computers where the flash chip is not removable, it is still
+@c possible to replace it by a bigger or different one.
+
+@c If the new flash chip you want to use isn't mentionned in the GNU Boot
+@c manual yet, see @xref{Replacing removable boot flash chips} to
+@c understand which flash chip models can work or not.
+
+@c Once this is out of the way, you will need o
+
+@c @c: TODO: (1) check license (2) split between flash chip and CPU
+@c modification.
+
+@c [4]https://av.vimuser.org/t500.webm
+
+@node    Intel Core 2 Quad core modification
+@section Intel Core 2 Quad core modification
+
+By default, many core 2 duo laptops don't support 
+
+@uref{https://web.archive.org/web/20240206011234/https://thonkpeasant.xyz/guides/other/quad.html,TODO}
+
+@c [4]https://av.vimuser.org/t500.webm
+
 
 @node    Building GNU Boot from source
 @chapter Building GNU Boot from source

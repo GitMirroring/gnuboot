@@ -118,6 +118,9 @@ GNU Boot 0.1 RC6 status
 | Libiquity,       | Untested     | Untested     | Untested     | Untested     |
 | Taurinus X200    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
+| Minifree,        | Untested     | Untested     | Untested     | Untested     |
+| Libreboot T400   |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
 | Qemu,            | Untested     | Untested     | Untested     | Untested     |
 | PC (i440FX)      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
@@ -302,6 +305,9 @@ GNU Boot 0.1 RC5 status
 | Libiquity,       | Untested     | Untested     | Untested     | Untested     |
 | Taurinus X200    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
+| Minifree,        | Untested     | Untested     | Untested     | Untested     |
+| Libreboot T400   |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
 | Qemu,            | Untested     | Untested     | Untested     | Untested     |
 | PC (i440FX)      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
@@ -458,6 +464,9 @@ GNU Boot 0.1 RC4 status
 | Libiquity,       | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
 | Taurinus X200    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
+| Minifree,        | Untested     | Untested     | Untested     | Untested     |
+| Libreboot T400   |              |              |              |              |
++------------------+--------------+--------------+--------------+--------------+
 | Qemu,            | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
 | PC (i440FX)      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
@@ -577,6 +586,8 @@ GNU Boot 0.1 RC3 status
 +---------------+--------------------+--------------+
 | Libiquity     | Taurinus X200      | Untested     |
 +---------------+--------------------+--------------+
+| Minifree      | Libreboot T400     | Untested     |
++---------------+--------------------+--------------+
 | Qemu          | PC (i440FX)        | Untested     |
 +---------------+--------------------+--------------+
 | Technoethical | D16                | Tested       |
@@ -672,6 +683,8 @@ the RC2 to reduce the risk of testers.
 +---------------+--------------------+--------------+
 | Libiquity     | Taurinus X200      | Tested       |
 +---------------+--------------------+--------------+
+| Minifree      | Libreboot T400     | Untested     |
++---------------+--------------------+--------------+
 | Qemu          | PC (i440FX)        | Tested       |
 +---------------+--------------------+--------------+
 | Technoethical | D16                | Untested     |
@@ -761,6 +774,8 @@ GNU Boot 0.1 RC1 status
 | Lenovo        | ThinkPad X60s      | Untested     |
 +---------------+--------------------+--------------+
 | Libiquity     | Taurinus X200      | Tested       |
++---------------+--------------------+--------------+
+| Minifree      | Libreboot T400     | Untested     |
 +---------------+--------------------+--------------+
 | Technoethical | D16                | Tested       |
 +---------------+--------------------+--------------+
