@@ -97,7 +97,7 @@ clean:
 	./build clean grub
 	./build clean memtest86plus
 	./build clean rom_images
-	rm -f tests/checkpatch-test-unaligned-nodes.log
+	rm -f tests/checkpatch/checkpatch-test-unaligned-nodes.log
 
 crossgcc-clean:
 	./build clean crossgcc
@@ -144,5 +144,5 @@ TESTS = \
 	tests/lint.sh \
 	tests/distclean.sh \
 	tests/targets.sh \
-	tests/checkpatch.sh \
+	tests/checkpatch/checkpatch.sh \
 	$(SENTINEL)

@@ -37,7 +37,7 @@ printf "+--------------------------------------+\n"
 printf "| Running scripts/checkpatch.scm test: |\n"
 printf "+--------------------------------------+\n"
 
-topdir="$(dirname "$(dirname "$(realpath "$0")")")"
+topdir="$(dirname "$(dirname "$(dirname "$(realpath "$0")")")")"
 tmpdir="$(mktemp -d)"
 
 test -f "${topdir}"/scripts/checkpatch.scm || fail "checkpatch.scm not found."
@@ -60,7 +60,7 @@ test -f "${topdir}"/resources/wrapper/git || \
 while IFS= read -r line; do
     grep -q "${line}" "${tmpdir}"/checkpatch-test-unaligned-nodes-patch.log || \
     fail "failed to detect unaligned node in a patch touching the manual."
-done < tests/checkpatch-test-unaligned-nodes-patch.ref
+done < tests/checkpatch/checkpatch-test-unaligned-nodes-patch.ref
 
 echo "[ OK ] detected unaligned nodes in a patch touching the manual."
 
@@ -77,7 +77,7 @@ echo "[ OK ] detected unaligned nodes in a patch touching the manual."
 while IFS= read -r line; do
     grep -q "${line}" "${tmpdir}"/checkpatch-test-unaligned-nodes-file.log || \
     fail "failed to detect unaligned node in the manual file."
-done < tests/checkpatch-test-unaligned-nodes-file.ref
+done < tests/checkpatch/checkpatch-test-unaligned-nodes-file.ref
 
 echo "[ OK ] detected unaligned nodes in the manual file."
 
@@ -95,7 +95,7 @@ echo "[ OK ] detected unaligned nodes in the manual file."
 while IFS= read -r line; do
     grep -q -L "${line}" \
          "${tmpdir}"/checkpatch-test-non-modified-unaligned-nodes-patch.log
-done < tests/checkpatch-test-non-modified-unaligned-nodes-patch.ref && \
+done < tests/checkpatch/checkpatch-test-non-modified-unaligned-nodes-patch.ref && \
     fail "warned against non-modified unaligned nodes " \
          "in a patch touching the manual."
 
@@ -117,7 +117,7 @@ echo "[ OK ] didn't warn against non-modified unaligned nodes" \
 while IFS= read -r line; do
     grep -q -L "${line}" \
          "${tmpdir}"/checkpatch-test-non-modified-unaligned-nodes-file.log
-done < tests/checkpatch-test-non-modified-unaligned-nodes-file.ref && \
+done < tests/checkpatch/checkpatch-test-non-modified-unaligned-nodes-file.ref && \
     fail "warned against non-modified unaligned nodes" \
          "in the manual file"
 
@@ -140,7 +140,7 @@ echo "[ OK ] didn't warn against non-modified unaligned nodes" \
 while IFS= read -r line; do
     grep -q "${line}" "${tmpdir}"/checkpatch-test-nodes-with-colon.log || \
     fail "failed to detect node with colon (':') in the manual."
-done < tests/checkpatch-test-nodes-with-colon.ref
+done < tests/checkpatch/checkpatch-test-nodes-with-colon.ref
 
 echo "[ OK ] detected nodes with colon in the manual."
 
@@ -157,7 +157,7 @@ echo "[ OK ] detected nodes with colon in the manual."
 while IFS= read -r line; do
     grep -q -L "${line}" \
          "${tmpdir}"/checkpatch-test-nodes-without-colon.log
-done < tests/checkpatch-test-nodes-without-colon.ref && \
+done < tests/checkpatch/checkpatch-test-nodes-without-colon.ref && \
     fail "warned against nodes names without colon (':') the manual."
 
 echo "[ OK ] didn't warn against nodes names without colon (':') in the manual."
@@ -178,7 +178,7 @@ echo "[ OK ] didn't warn against nodes names without colon (':') in the manual."
 while IFS= read -r line; do
     grep -q "${line}" "${tmpdir}"/checkpatch-test-nodes-with-comma.log || \
     fail "failed to detect node with comma (',') in the manual."
-done < tests/checkpatch-test-nodes-with-comma.ref
+done < tests/checkpatch/checkpatch-test-nodes-with-comma.ref
 
 echo "[ OK ] detected nodes with comma in the manual."
 
@@ -195,7 +195,7 @@ echo "[ OK ] detected nodes with comma in the manual."
 while IFS= read -r line; do
     grep -q -L "${line}" \
          "${tmpdir}"/checkpatch-test-nodes-without-colon.log
-done < tests/checkpatch-test-nodes-without-comma.ref && \
+done < tests/checkpatch/checkpatch-test-nodes-without-comma.ref && \
     fail "warned against nodes names without colon (':') the manual."
 
 echo "[ OK ] didn't warn against nodes names without colon (':') in the manual."
@@ -214,7 +214,7 @@ echo "[ OK ] didn't warn against nodes names without colon (':') in the manual."
 
 while IFS= read -r line; do
     grep -q "${line}" "${tmpdir}"/checkpatch-test-missing-spanish-translation.log
-done < tests/checkpatch-test-missing-spanish-translation.ref || \
+done < tests/checkpatch/checkpatch-test-missing-spanish-translation.ref || \
     fail "failed to detect missing spanish translation in the website."
 
 echo "[ OK ] detected missing spanish translation in the website."
@@ -228,7 +228,7 @@ echo "[ OK ] detected missing spanish translation in the website."
 
 while IFS= read -r line; do
     ! grep -q "${line}" "${tmpdir}"/checkpatch-test-updated-spanish-translation.log
-done < tests/checkpatch-test-missing-spanish-translation.ref || \
+done < tests/checkpatch/checkpatch-test-missing-spanish-translation.ref || \
     fail "failed to indentify updated spanish translation in the website."
 
 echo "[ OK ] identified updated spanish translation in the website."
@@ -237,7 +237,7 @@ echo "[ OK ] identified updated spanish translation in the website."
 # Test if checkpatch.scm correctly finds tabs in .scm files                    #
 ################################################################################
 ./scripts/checkpatch.scm \
-    -f tests/scm-file-with-tabs.scm > \
+    -f tests/checkpatch/scm-file-with-tabs.scm > \
     "${tmpdir}"/checkpatch-test-scm-file-with-tabs.log 2>/dev/null || \
     fail "checkpatch.scm failed " \
          "when trying to detect tabs inside an .scm file."
@@ -245,12 +245,12 @@ echo "[ OK ] identified updated spanish translation in the website."
 while IFS= read -r line; do
     grep -q "${line}" "${tmpdir}"/checkpatch-test-scm-file-with-tabs.log || \
     fail "failed to detect tabs inside an .scm file."
-done < tests/checkpatch-test-scm-file-with-tabs.ref
+done < tests/checkpatch/checkpatch-test-scm-file-with-tabs.ref
 
 echo "[ OK ] detected tabs inside an .scm file."
 
 ./scripts/checkpatch.scm \
-    -f tests/scm-file-without-tabs.scm > \
+    -f tests/checkpatch/scm-file-without-tabs.scm > \
     "${tmpdir}"/checkpatch-test-scm-file-without-tabs.log 2>/dev/null || \
     fail "checkpatch.scm failed " \
          "when trying to detect tabs inside an .scm file with no tabs."
@@ -258,7 +258,7 @@ echo "[ OK ] detected tabs inside an .scm file."
 while IFS= read -r line; do
     grep -q "${line}" "${tmpdir}"/checkpatch-test-scm-file-without-tabs.log && \
     fail "detected tabs inside an .scm file with no tabs."
-done < tests/checkpatch-test-scm-file-without-tabs.ref
+done < tests/checkpatch/checkpatch-test-scm-file-without-tabs.ref
 
 echo "[ OK ] didn't detected tabs inside an .scm file with no tabs."
 
@@ -267,7 +267,7 @@ echo "[ OK ] didn't detected tabs inside an .scm file with no tabs."
 ################################################################################
 
 ./scripts/checkpatch.scm \
-    -f tests/checkpatch-test-bad-tables.md > \
+    -f tests/checkpatch/checkpatch-test-bad-tables.md > \
     "${tmpdir}"/checkpatch-test-bad-tables.log 2>/dev/null || \
     fail "checkpatch.scm failed " \
          "when trying to detect unaligned columns inside tables in a markdown file."
@@ -275,7 +275,7 @@ echo "[ OK ] didn't detected tabs inside an .scm file with no tabs."
 while IFS= read -r line; do
     grep -q "${line}" "${tmpdir}"/checkpatch-test-bad-tables.log || \
     fail "failed to detect unaligned columns inside tables in a markdown file."
-done < tests/checkpatch-test-bad-tables.ref
+done < tests/checkpatch/checkpatch-test-bad-tables.ref
 
 echo "[ OK ] detected unaligned columns inside tables in a markdown file."
 
@@ -292,7 +292,7 @@ echo "[ OK ] detected unaligned columns inside tables in a markdown file."
 while IFS= read -r line; do
     grep -q -L "${line}" \
          "${tmpdir}"/checkpatch-test-good-tables.log
-done < tests/checkpatch-test-bad-tables.ref && \
+done < tests/checkpatch/checkpatch-test-bad-tables.ref && \
     fail "warned against aligned columns inside tables in a markdown file."
 
 echo "[ OK ] didn't warn against aligned nodes in the manual file."
@@ -315,7 +315,7 @@ grep \
         "${tmpdir}"/checkpatch-unhandled-copyright-headers.ref
 
 cmp \
-    tests/checkpatch-unhandled-copyright-headers.ref \
+    tests/checkpatch/checkpatch-unhandled-copyright-headers.ref \
     "${tmpdir}"/checkpatch-unhandled-copyright-headers.ref || \
     fail "Mismatch between detected and known unhandled copyright headers."
 
@@ -343,7 +343,7 @@ echo "[ OK ] detected known unhandled copyright headers."
 while IFS= read -r line; do
     grep -q "${line}" "${tmpdir}"/checkpatch-test-missing-copyright-update.log || \
     fail "failed to detect missing copyright update in a patch."
-done < tests/checkpatch-test-missing-copyright-update.ref
+done < tests/checkpatch/checkpatch-test-missing-copyright-update.ref
 
 echo "[ OK ] detected missing copyright update."
 
