@@ -245,8 +245,8 @@ email string (without the '<' and '>')."
         (endswith path ".sum"))
     #f)
 
-   ;; TODO: tests/checkpatch.sh doesn't support yet comments in these
-   ;; files.
+   ;; TODO: tests/checkpatch/checkpatch.sh doesn't support yet
+   ;; comments in these files.
    ((and
      (string=? (dirname path) "tests")
      (endswith (basename path) ".ref"))
@@ -463,7 +463,7 @@ passed accross multiple calls of copyright-header?."
             ((string=? path "resources/wrapper/git") "#")
             ((string=? path "resources/wrapper/gitconfig") "#")
             ((string=? path "resources/wrapper/guix") "#")
-            ((string=? path "tests/checkpatch.sh") "#")
+            ((string=? path "tests/checkpatch/checkpatch.sh") "#")
             ((string=? path "tests/distclean.sh") "#")
             ((string=? path "tests/lint.sh") "#")
             ((string=? path "tests/targets.sh") "#")
@@ -1516,7 +1516,7 @@ notice. Returns #f otherwise."
            ;; This file adds tabs for automatic testing of
            ;; checkpatch.scm.
            (not
-            (string=? "tests/scm-file-with-tabs.scm"
+            (string=? "tests/checkpatch/scm-file-with-tabs.scm"
                       (assq-ref check-results 'current-diff-file)))
            (startswith line "+")
            (string-match "\t" line)))

@@ -1,2 +1,0 @@
-ERROR: Tab found in file tests/scm-file-with-tabs.scm at line 15: 	(display "Hello world with tab")
-ERROR: Tab found in file tests/scm-file-with-tabs.scm at line 19: (display	"A tab again")
