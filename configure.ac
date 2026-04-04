@@ -22,6 +22,7 @@ AC_CONFIG_FILES([
     resources/packages/src/Makefile
 ])
 
+AC_SUBST([COMPONENT], [])
 AC_SUBST([ENABLE_KVM], [])
 AC_SUBST([GUIX_BUILD_MAX_CORES], [])
 AC_SUBST([XZ_EXTRA_ARGS], [])
@@ -44,16 +45,42 @@ AC_SUBST([XZ_EXTRA_ARGS], [])
 #   to start downloading Guix 1.4.0 packages. So that can make things
 #   a lot faster.
 
+AC_ARG_ENABLE(component,
+  [  --enable-component=[COMPONENT]
+                          Only build COMPONENT
+                          COMPONENT={all,images,manual,website} (default=all)],
+  [AS_CASE([$enableval],
+            [all|images|manual],
+            [COMPONENT=$enableval],
+            [AC_MSG_ERROR([Unknown component $enableval])])],
+  [COMPONENT="all"])
+
+AS_CASE([$COMPONENT],
+        [all],
+	[AC_SUBST([BUILD_IMAGES], [true])
+         AC_SUBST([BUILD_MANUAL], [true])],
+        [manual],
+	[AC_SUBST([BUILD_IMAGES], [false])
+         AC_SUBST([BUILD_MANUAL], [true])],
+        [images],
+	[AC_SUBST([BUILD_IMAGES], [true])
+         AC_SUBST([BUILD_MANUAL], [false])])
+
+AM_CONDITIONAL( [BUILD_MANUAL], [test x"$BUILD_MANUAL" = x"true"])
+AM_CONDITIONAL( [BUILD_IMAGES], [test x"$BUILD_IMAGES" = x"true"])
+
 AC_SUBST([GUIX_REVISION],
          [`\`dirname $0\`/guix-revision.sh print-variable GUIX_REVISION`])
 
-# --enable-kvm
-AC_ARG_ENABLE(kvm,
-  [AS_HELP_STRING([--disable-kvm],
-                  [Disable KVM virtualization when building VMs.
-                   (default=enabled)])],
-  [kvm="$enableval"],
-  [kvm="yes"])
+AS_IF([$BUILD_IMAGES],
+      [# --enable-kvm
+       AC_ARG_ENABLE(kvm,
+       [AS_HELP_STRING([--disable-kvm],
+                       [Disable KVM virtualization when building VMs.
+                       (default=enabled)])],
+       [kvm="$enableval"],
+       [kvm="yes"])
+])
 
 AM_CONDITIONAL( [WANT_KVM], [test x"$kvm" = x"yes"])
 
@@ -121,10 +148,14 @@ AC_OUTPUT
 
 AS_ECHO(["Configuration options:"])
 
-AS_IF([test x"$GUIX_BUILD_MAX_CORES" = x"0"],
-      AS_ECHO(["    GUIX_BUILD_MAX_CORES: not limited."]),
-      AS_ECHO(["    GUIX_BUILD_MAX_CORES: $GUIX_BUILD_MAX_CORES"]))
-AS_IF([test x"$kvm" = x"yes"],
-      [AS_ECHO(["    KVM: enabled"])],
-      [AS_ECHO(["    KVM: disabled"])])
+AS_ECHO(["    Component(s): $COMPONENT"])
+dnl It doesn't make sense to use KVM or Guix to build something else
+dnl than the GNU Boot images.
+AS_IF([$BUILD_IMAGES],
+      [AS_IF([test x"$GUIX_BUILD_MAX_CORES" = x"0"],
+             AS_ECHO(["    GUIX_BUILD_MAX_CORES: not limited."]),
+             AS_ECHO(["    GUIX_BUILD_MAX_CORES: $GUIX_BUILD_MAX_CORES"]))
+       AS_IF([test x"$kvm" = x"yes"],
+             [AS_ECHO(["    KVM: enabled"])],
+             [AS_ECHO(["    KVM: disabled"])])])
 AS_ECHO(["    build_cpu: $build_cpu"])

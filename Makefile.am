@@ -43,7 +43,9 @@ SHELL := bash
 
 LOG = make-$(shell date '+%s').log
 
+if BUILD_IMAGES
 all: roms
+endif # BUILD_IMAGES
 
 $(LOG):
 	@echo -n "git revision: "  >> $@
@@ -99,26 +101,31 @@ clean:
 	./build clean rom_images
 	rm -f tests/checkpatch/checkpatch-test-unaligned-nodes.log
 
-crossgcc-clean:
-	./build clean crossgcc
-
 distclean:
 	./build distclean all
+
+if BUILD_MANUAL
+manuals: dvi html info pdf ps
+include resources/debian/Makefile.am
+endif BUILD_MANUAL
+
+if BUILD_IMAGES
+crossgcc-clean:
+	./build clean crossgcc
 
 install-dependencies: $(LOG)
 	echo 'Makefile: running $@ target' >> $(LOG)
 	set -o pipefail ; ./build install dependencies 2>&1 | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
-manuals: dvi html info pdf ps
-
-include resources/debian/Makefile.am
 include resources/packages/i945-thinkpads-install-utils/Makefile.am
 # The src Makefile use variable(s) from i945-thinkpads-install-utilities/Makefile
 include resources/packages/src/Makefile.am
+endif # BUILD_IMAGES
 
 help:
 	@printf "Available make commands/targets :\n"
+if BUILD_IMAGES
 	@printf "\t# Install required dependencies to build GNU Boot.\n"
 	@printf "\tsudo make install-dependencies\n\n" \
 	@printf "\tmake release                               # %s\n" \
@@ -131,12 +138,15 @@ help:
 		"Print i945-thinkpads-install-utils targets help."
 	@printf "\tmake guix-transitive-sources-help          # %s\n" \
 		"Print guix-transitive-sources targets help."
+endif # BUILD_IMAGES
+if BUILD_MANUAL
 	@printf "\tmake manuals                               # %s\n" \
 		"Build 'dvi', 'html', 'info', 'pdf', and 'ps' manuals."
 	@printf "\t                                           # %s\n" \
 		"Note 'dvi', etc are also valid make targets."
 	@printf "\tmake debian                                # %s\n" \
 		"Build Debian package of the GNU Boot info manual."
+endif # BUILD_MANUAL
 
 SH_LOG_COMPILER = bash
 TEST_EXTENSIONS = .sh
