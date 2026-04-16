@@ -60,8 +60,6 @@ AC_ARG_WITH([rsync-destination],
   [RSYNC_DESTINATION=$withval],
   [RSYNC_DESTINATION=wwwcvs@gnu.org:/var/www/software/gnuboot])
 
-AM_CONDITIONAL( [WANT_UNTITLED_PATH], [test x"$UNTITLED_PATH" != x""])
-
 # --with-web-symlinks-path
 AC_ARG_WITH([web-symlinks-path],
   [AS_HELP_STRING([--with-web-symlinks-path=PATH],
@@ -94,8 +92,6 @@ AC_ARG_WITH([website-prefix],
      prefix to /test/ instead of the default one (software/gnuboot).])],
   [WEBSITE_PREFIX=$withval],
   [WEBSITE_PREFIX=software/gnuboot])
-
-AM_CONDITIONAL( [WANT_UNTITLED_PATH], [test x"$UNTITLED_PATH" != x""])
 
 # Check dependencies
 AC_CHECK_PROG([FOUND_AWK], [awk], [awk])
