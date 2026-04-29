@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+#
+#	 Copyright (C) 2020 Leah Rowe <info@minifree.org>
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+# This script assumes that the current working directory is the root
+# of libreboot_src or libreboot git
+
+[ "x${DEBUG+set}" = 'xset' ] && set -v
+set -u -e
+
+topdir="$(realpath "$(dirname "$(dirname "$(dirname "$(dirname "$0")")")")")"
+
+build_grub_kbd()
+{
+    "${topdir}"/resources/wrapper/guix \
+     build \
+     --system=i686-linux \
+    gnuboot-grub-kbd
+}
+
+# Keep the compatibility with the other packages (in
+# resources/packages) for now.
+for kbd in "$(build_grub_kbd)"/share/gnuboot-grub-kbd/*.gkb ; do
+    install -m 644 "${kbd}" -t "${topdir}/resources/grub/keymap/"
+done
