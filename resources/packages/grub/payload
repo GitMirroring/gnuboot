@@ -39,6 +39,10 @@ grub_mkstandalone="${grubdir}"/bin/grub-mkstandalone
 
 rm -f payload/grub/*
 
+# Later on, we will generate the keyboard layout ourselves intead of
+# using binary files, so check their checksums now.
+resources/packages/grub-kbd/test
+
 # Separate GRUB payload per keymap. This saves space in the ROM, otherwise
 # a lot of space would be used if every keymap was stored in a single image
 
