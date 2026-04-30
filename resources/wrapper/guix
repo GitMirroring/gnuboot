@@ -24,7 +24,7 @@
 # the bash info manual for more details.
 shopt -s extglob
 
-topdir="$(realpath "$(dirname "$(dirname "$(dirname "$0")")")")"
+topdir="$(realpath "$(dirname "$(dirname "$(dirname "$(realpath "$0")")")")")"
 
 # We need ${GUIX_REVISION}
 eval "$("${topdir}"/guix-revision.sh print-shell)"
