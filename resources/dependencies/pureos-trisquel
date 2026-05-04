@@ -111,7 +111,6 @@ fi
 install_packages \
     build-essential \
     python-is-python3 \
-    python2.7 \
     "${sentinel}"
 
 # i945-pwm build dependencies
