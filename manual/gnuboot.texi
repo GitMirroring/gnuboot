@@ -108,12 +108,10 @@ not a lot of people).
 @contents
 
 
-@ifnottex
 @node Top
 @top GNU Boot
 
 This manual is for GNU Boot version @value{VERSION}.
-@end ifnottex
 
 @menu
 * Overview::					General purpose and information.
