@@ -121,6 +121,7 @@ This manual is for GNU Boot version @value{VERSION}.
 * Flash programmers::
 * Installing or upgrading GNU Boot images::
 * Using GNU Boot::
+* Security::
 * Maintenance and repairs::
 * Building GNU Boot from source::
 * Helping GNU Boot::				How to contribute to GNU Boot
