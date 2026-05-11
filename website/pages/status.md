@@ -912,11 +912,11 @@ Reproducible builds
 This tracks the status of reproducible builds in GNU Boot.
 
 See [Building GNU Boot from source
-chapter](../manual/gnuboot.html#Building-GNU-Boot-from-source) in the
+chapter](manual/gnuboot.html#Building-GNU-Boot-from-source) in the
 [GNU Boot manual](docs/#manuals) for more details about this issue.
 
 Also note that the table below is meant for the [GNU Boot
-images](../manual/gnuboot.html#index-flash-images) which is what gets
+images](manual/gnuboot.html#index-flash-images) which is what gets
 installed and what interest more users.
 
 +------------------+------------------------------+--------------+-------------+
