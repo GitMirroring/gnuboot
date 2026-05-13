@@ -135,19 +135,12 @@ AC_DEFUN([CHECK_GNUBOOT_WEBSITE_NOTGUIX_DEPENDENCIES],
                [AC_MSG_ERROR(
                [lighttpd was not found in PATH ($PATH)])])
 
-         dnl serve.sh requires perl to run a perl program
-         dnl (web-symlinks) that generate symlinks from .symlinks
-         dnl files
-         AC_CHECK_PROG([FOUND_PERL], [perl], [perl])
-         AS_IF([test x"$FOUND_PERL" = x""],
-               [AC_MSG_ERROR([perl was not found in PATH ($PATH)])])
-
-         dnl The perl program dnl (web-symlinks) that generate
-         dnl symlinks from .symlinks files requires the URI PERL
+         dnl The perl program (web-symlinks) that generate
+         dnl symlinks from .symlinks files requires perl and the URI PERL
          dnl module.
-         AS_IF([AC_CONFIG_COMMANDS([PERL_URI], [perl -e 'use URI;'])],
-               [AS_ECHO(["checking the URI PERL module... done"])],
-               [AC_MSG_ERROR([PERL URI was not found in PATH ($PATH)])])],
+         AC_PROG_PERL([5.0.0])
+         AC_PROG_PERL_MOD([URI])
+	],
         [AC_CHECK_PROG([FOUND_FALSE], [false], [false])
          AS_IF([test x"$FOUND_FALSE" = x""],
                [AC_MSG_ERROR(
