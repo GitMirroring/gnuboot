@@ -63,6 +63,22 @@ AC_DEFUN([CHECK_GNUBOOT_WEBSITE_COMMON_DEPENDENCIES],
         [AC_MSG_ERROR([tar was not found in PATH ($PATH)])])
  ])
 
+# CHECK_GNUBOOT_MANUAL_DEPENDENCIES -- Check dependencies for the GNU Boot manual
+#
+# Usage: CHECK_GNUBOOT_MANUAL_DEPENDENCIES
+#
+AC_DEFUN([CHECK_GNUBOOT_MANUAL_DEPENDENCIES],
+ [AC_CHECK_PROG([FOUND_MAKEINFO], [makeinfo], [makeinfo])
+  AS_IF([test x"$FOUND_MAKEINFO" = x""],
+        [AC_MSG_ERROR(
+         [makeinfo was not found in PATH ($PATH)])])
+
+  AC_CHECK_PROG([FOUND_TEX], [tex], [tex])
+  AS_IF([test x"$FOUND_TEX" = x""],
+        [AC_MSG_ERROR(
+         [tex was not found in PATH ($PATH)])])
+ ])
+
 # CHECK_GNUBOOT_WEBSITE_NOTGUIX_DEPENDENCIES -- Check dependencies for non Guix builds
 #
 # Usage: CHECK_GNUBOOT_WEBSITE_NOTGUIX_DEPENDENCIES(want_lighttpd)
@@ -137,11 +153,6 @@ AC_DEFUN([CHECK_GNUBOOT_WEBSITE_NOTGUIX_DEPENDENCIES],
                [AC_MSG_ERROR(
                [false was not found in PATH ($PATH)])])])
 
-  AC_CHECK_PROG([FOUND_MAKEINFO], [makeinfo], [makeinfo])
-  AS_IF([test x"$FOUND_MAKEINFO" = x""],
-        [AC_MSG_ERROR(
-         [makeinfo was not found in PATH ($PATH)])])
-
   AC_CHECK_PROG([FOUND_PANDOC], [pandoc], [pandoc])
   AS_IF([test x"$FOUND_PANDOC" = x""],
         [AC_MSG_ERROR(
@@ -157,8 +168,5 @@ AC_DEFUN([CHECK_GNUBOOT_WEBSITE_NOTGUIX_DEPENDENCIES],
         [AC_MSG_ERROR(
          [test was not found in PATH ($PATH)])])
 
-  AC_CHECK_PROG([FOUND_TEX], [tex], [tex])
-  AS_IF([test x"$FOUND_TEX" = x""],
-        [AC_MSG_ERROR(
-         [tex was not found in PATH ($PATH)])])
+  CHECK_GNUBOOT_MANUAL_DEPENDENCIES
  ])
