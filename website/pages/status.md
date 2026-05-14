@@ -106,7 +106,7 @@ GNU Boot 0.1 RC6 status
 | Lenovo,          | Untested     | Untested     | Untested     | Untested     |
 | ThinkPad X301    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| Lenovo,          | Tested       | Untested     | Untested     | Untested     |
 | ThinkPad X60     |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | Untested     | Untested     | Untested     | Untested     |
