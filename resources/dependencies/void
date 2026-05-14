@@ -41,15 +41,25 @@ xbps-install -y git
 # For Tianocore and iPXE
 # TODO: check whether this is the full list
 
-xbps-install -y nasm perl-LWP python subversion
+xbps-install -y \
+             nasm \
+             perl-LWP \
+             python \
+             subversion
 
 # For building source code:
 # ------------------------------------------------------------
 
-xbps-install -y base-devel libtool
+xbps-install -y \
+             base-devel \
+             libtool
 
 # for running the crostool script (to get mrc.bin file for t440p)
-xbps-install -y sharutils curl parted e2fsprogs unzip
+xbps-install -y sharutils \
+              curl \
+              parted \
+              e2fsprogs \
+              unzip
 
 # for cross-compiling ARM binaries
 xbps-install -y cross-arm-none-eabi-gcc
@@ -57,22 +67,53 @@ xbps-install -y cross-arm-none-eabi-gcc
 # Memtest86+ build dependencies
 # ------------------------------------------------------------
 
-xbps-install -y base-devel python
+xbps-install -y \
+              base-devel \
+              python
 
 # i945-pwm build dependencies
 # ------------------------------------------------------------
 
-xbps-install -y base-devel perl
+xbps-install -y \
+              base-devel \
+              perl
 
 # Coreboot build dependencies (also requires build-essential and git)
 # ------------------------------------------------------------
 
-xbps-install -y ncurses doxygen acpica-utils gdb flex bison base-devel git openssl gcc-ada
+xbps-install -y \
+              ncurses \
+              doxygen \
+              acpica-utils \
+              gdb \
+              flex \
+              bison \
+              base-devel \
+              git \
+              openssl \
+              gcc-ada
 
 # GRUB build dependencies (also requires build-essential, bison and flex)
 # ------------------------------------------------------------
 
-xbps-install -y font-unifont-bdf autogen help2man base-devel bison flex dejavu-fonts-ttf texinfo rsync python3 libusb xz gawk device-mapper fuse gettext freetype
+xbps-install -y \
+              font-unifont-bdf \
+              autogen \
+              help2man \
+              base-devel \
+              bison \
+              flex \
+              dejavu-fonts-ttf \
+              texinfo \
+              rsync \
+              python3 \
+              libusb \
+              xz \
+              gawk \
+              device-mapper \
+              fuse \
+              gettext \
+              freetype
 
 # BucTS build dependencies (external script)
 # ------------------------------------------------------------
@@ -82,9 +123,27 @@ xbps-install -y base-devel
 # Flashrom build dependencies (also requires build-essential)
 # ------------------------------------------------------------
 
-xbps-install -y libpciaccess pciutils zlib libftdi1 base-devel libusb
+xbps-install -y \
+              libpciaccess \
+              pciutils \
+              zlib \
+              libftdi1 \
+              base-devel \
+              libusb
 
 # For running make check
 # ----------------------
-xbps-install -y shellcheck # lint
-xbps-install -y gawk git grep lzip make sed tar xz # u-boot-libre
+
+# lint
+xbps-install -y shellcheck
+
+# u-boot-libre
+xbps-install -y \
+              gawk \
+              git \
+              grep \
+              lzip \
+              make \
+              sed \
+              tar \
+              xz
