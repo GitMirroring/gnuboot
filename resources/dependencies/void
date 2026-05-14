@@ -57,8 +57,8 @@ xbps-install -y \
 # for running the crostool script (to get mrc.bin file for t440p)
 xbps-install -y sharutils \
               curl \
-              parted \
               e2fsprogs \
+              parted \
               unzip
 
 # for cross-compiling ARM binaries
@@ -82,38 +82,38 @@ xbps-install -y \
 # ------------------------------------------------------------
 
 xbps-install -y \
-              ncurses \
-              doxygen \
               acpica-utils \
-              gdb \
-              flex \
-              bison \
               base-devel \
+              bison \
+              doxygen \
+              flex \
+              gcc-ada \
+              gdb \
               git \
-              openssl \
-              gcc-ada
+              ncurses \
+              openssl
 
 # GRUB build dependencies (also requires build-essential, bison and flex)
 # ------------------------------------------------------------
 
 xbps-install -y \
-              font-unifont-bdf \
               autogen \
-              help2man \
               base-devel \
               bison \
-              flex \
               dejavu-fonts-ttf \
-              texinfo \
-              rsync \
-              python3 \
-              libusb \
-              xz \
-              gawk \
               device-mapper \
+              flex \
+              font-unifont-bdf \
+              freetype \
               fuse \
+              gawk \
               gettext \
-              freetype
+              help2man \
+              libusb \
+              python3 \
+              rsync \
+              texinfo \
+              xz
 
 # BucTS build dependencies (external script)
 # ------------------------------------------------------------
@@ -124,12 +124,12 @@ xbps-install -y base-devel
 # ------------------------------------------------------------
 
 xbps-install -y \
-              libpciaccess \
-              pciutils \
-              zlib \
-              libftdi1 \
               base-devel \
-              libusb
+              libftdi1 \
+              libpciaccess \
+              libusb \
+              pciutils \
+              zlib
 
 # For running make check
 # ----------------------
