@@ -64,10 +64,10 @@ pkcon -y --allow-reinstall install \
 
 # for running the crostool script (to get mrc.bin file for t440p)
 pkcon -y --allow-reinstall install \
-      sharutils \
       curl \
-      parted \
       e2fsprogs \
+      parted \
+      sharutils \
       unzip
 
 # for cross-compiling ARM binaries
@@ -91,42 +91,42 @@ pkcon -y --allow-reinstall install \
 # ------------------------------------------------------------
 
 pkcon -y --allow-reinstall install \
-      gcc-gnat \
-      ncurses-devel \
-      doxygen \
       acpica-tools \
-      gdb \
-      flex \
       bison \
+      bzip2 \
+      doxygen \
+      flex \
       gcc \
+      gcc-gnat \
+      gdb \
       git \
-      openssl-devel \
       gprbuild \
-      bzip2
+      ncurses-devel \
+      openssl-devel
 
 # GRUB build dependencies (also requires build-essential, bison and flex)
 # ------------------------------------------------------------
 
 pkcon -y --allow-reinstall install \
-      unifont-fonts \
       autogen \
-      help2man \
-      gcc \
       bison \
-      flex \
       dejavu-fonts-all \
-      texinfo \
-      rsync \
-      python \
-      libusb \
-      xz \
-      gawk \
       device-mapper \
-      fuse \
-      gettext \
+      flex \
       freetype-devel \
+      fuse \
+      gawk \
+      gcc \
+      gettext \
+      help2man \
       intltool \
-      libselinux-devel
+      libselinux-devel \
+      libusb \
+      python \
+      rsync \
+      texinfo \
+      unifont-fonts \
+      xz
 
 # BucTS build dependencies (external script)
 # ------------------------------------------------------------
@@ -137,11 +137,11 @@ pkcon -y --allow-reinstall install gcc
 # ------------------------------------------------------------
 
 pkcon -y --allow-reinstall install \
-      pciutils-devel \
-      zlib-devel \
-      libftdi-devel \
       gcc \
-      libusb-devel
+      libftdi-devel \
+      libusb-devel \
+      pciutils-devel \
+      zlib-devel
 
 # For running make check
 # ----------------------
