@@ -960,10 +960,13 @@ installed and what interest more users.
 +------------------+------------------------------+--------------+-------------+
 | Coreboot         | * /rt8168-macaddress         | Unknown      | all images  |
 +------------------+------------------------------+--------------+-------------+
-| GRUB             | * /fallback/payload          | Unknown      | GRUB images |
+| GRUB             | * /fallback/payload          | Yes: verified| GRUB images |
+|                  |                              | by checksums |             |
+|                  |                              | [1]          |             |
 +------------------+------------------------------+--------------+-------------+
-| GRUB             | * /img/grub2                 | Unknown      | SeaBIOS     |
-|                  |                              |              | images      |
+| GRUB             | * /img/grub2                 | Yes: verified| SeaBIOS     |
+|                  |                              | by checksums | images      |
+|                  |                              | [1]          |             |
 +------------------+------------------------------+--------------+-------------+
 | Memtest86+       | * /img/memtest               | Unknown      | more than   |
 | for Coreboot     |                              |              | half of the |
@@ -975,10 +978,10 @@ installed and what interest more users.
 | SeaBIOS          | * /vgaroms/seavgabios.bin    | Unknown      | all images  |
 +------------------+------------------------------+--------------+-------------+
 | ich9gen          | * Intel flash descriptor     | Yes: verified| GM45        |
-|                  |                              | by checksum  | ThinkPads   |
+|                  |                              | by checksums | ThinkPads   |
 +------------------+------------------------------+--------------+-------------+
 | ich9gen          | * Intel Gigabit ethernet     | Yes: verified| GM45        |
-|                  |   partition                  | by checksum  | ThinkPads   |
+|                  |   partition                  | by checksums | ThinkPads   |
 +------------------+------------------------------+--------------+-------------+
 | GNU Boot         | * /background.png            | Unknown      | all but     |
 | build system     |                              |              | d945gclf and|
@@ -996,12 +999,12 @@ installed and what interest more users.
 | GNU Boot         | * /etc/ps2-keyboard-spinup   | Unknown      | all images  |
 | build system     |                              |              |             |
 +------------------+------------------------------+--------------+-------------+
-| GNU Boot         | * /grub.cfg                  | Unknown      | all but     |
-| build system     |                              |              | d945gclf and|
+| GNU Boot         | * /grub.cfg                  | Yes: verified| all but     |
+| build system     |                              | by checksums | d945gclf and|
 |                  |                              |              | kfsn4-dre   |
 +------------------+------------------------------+--------------+-------------+
-| GNU Boot         | * /grubtest.cfg              | Unknown      | kfsn4-dre   |
-| build system     |                              |              |             |
+| GNU Boot         | * /grubtest.cfg              | Yes: verified| kfsn4-dre   |
+| build system     |                              | by checksums |             |
 +------------------+------------------------------+--------------+-------------+
 | GNU Boot         |* pci1000,0072.rom            | N/A: empty   | KGPE-D16    |
 | build system     |                              | file         | and KCMA-D8 |
@@ -1017,9 +1020,15 @@ Also note that not everything is in the table above:
   be used as an example to make other components built with Guix
   reproducible.
 
-* The grub-coreboot Guix package that GNU Boot reuses should be
-  reproductible and it can be checked with Guix instructions and/or
-  commands to check for reproducibility.
+[1] The creation of these files reuses the grub-coreboot package, and
+    by default, a binary package (called substitute) will be
+    downloaded from the Guix build servers (called substitute
+    servers). In that case, the checksums are not useful to check the
+    grub-coreboot package as the exact same binary will be downloaded
+    each time. However the grub-coreboot package used is reproducible
+    but it needs to be checked with the Guix commands and instructions
+    to check for reproducibility. So the reproducibility here combines
+    both the Guix package and the checksums.
 
 Limitations
 ===========
