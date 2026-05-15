@@ -964,10 +964,15 @@ installed and what interest more users.
 +------------------+----------------------------+--------------+-------------+
 | Coreboot         | /rt8168-macaddress         | Unknown      | all images  |
 +------------------+----------------------------+--------------+-------------+
-| GRUB             | /fallback/payload          | Unknown      | GRUB images |
+| GRUB             | /fallback/payload          | Yes:         | GRUB images |
+|                  |                            | verified by  |             |
+|                  |                            | checksums    |             |
+|                  |                            | [1]          |             |
 +------------------+----------------------------+--------------+-------------+
-| GRUB             | /img/grub2                 | Unknown      | SeaBIOS     |
-|                  |                            |              | images      |
+| GRUB             | /img/grub2                 | Yes:         | SeaBIOS     |
+|                  |                            | verified by  | images      |
+|                  |                            | checksums    |             |
+|                  |                            | [1]          |             |
 +------------------+----------------------------+--------------+-------------+
 | Memtest86+ for   | /img/memtest               | Unknown      | more than   |
 | Coreboot         |                            |              | half of the |
@@ -1003,13 +1008,14 @@ installed and what interest more users.
 | GNU Boot build   | /etc/ps2-keyboard-spinup   | Unknown      | all images  |
 | system           |                            |              |             |
 +------------------+----------------------------+--------------+-------------+
-| GNU Boot build   | /grub.cfg                  | Unknown      | all but     |
-| system           |                            |              | d945gclf    |
-|                  |                            |              | and         |
+| GNU Boot build   | /grub.cfg                  | Yes:         | all but     |
+| system           |                            | verified by  | d945gclf    |
+|                  |                            | checksums    | and         |
 |                  |                            |              | kfsn4-dre   |
 +------------------+----------------------------+--------------+-------------+
-| GNU Boot build   | /grubtest.cfg              | Unknown      | kfsn4-dre   |
-| system           |                            |              |             |
+| GNU Boot build   | /grubtest.cfg              | Yes:         | kfsn4-dre   |
+| system           |                            | verified by  |             |
+|                  |                            | checksums    |             |
 +------------------+----------------------------+--------------+-------------+
 | GNU Boot build   | pci1000,0072.rom           | N/A: empty   | KGPE-D16    |
 | system           |                            | file         | and KCMA-D8 |
@@ -1025,9 +1031,15 @@ Also note that not everything is in the table above:
   be used as an example to make other components built with Guix
   reproducible.
 
-* The grub-coreboot Guix package that GNU Boot reuses should be
-  reproductible and it can be checked with Guix instructions and/or
-  commands to check for reproducibility.
+[1] The creation of these files reuses the grub-coreboot package, and
+    by default, a binary package (called substitute) will be
+    downloaded from the Guix build servers (called substitute
+    servers). In that case, the checksums are not useful to check the
+    grub-coreboot package as the exact same binary will be downloaded
+    each time. However the grub-coreboot package used is reproducible
+    but it needs to be checked with the Guix commands and instructions
+    to check for reproducibility. So the reproducibility here combines
+    both the Guix package and the checksums.
 
 Limitations
 ===========
