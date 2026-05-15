@@ -24,7 +24,7 @@ release/guix_transitive_sources.tar:  Makefile
 		`$(TOPDIR)/resources/wrapper/guix build \
 		--system=i686-linux \
 		--sources=transitive \
-		$(GUIX_PACKAGE_NAMES) | sort -u`
+		$(GUIX_PACKAGE_NAMES) grub-coreboot | sort -u`
 
 guix-transitive-sources-help:
 	@printf "\t%s %s\n" \

@@ -898,7 +898,7 @@ Upstream versions used in GNU Boot 0.1 RC3
 | Coreboot         |   4.15+ | Yes        | All but Asus KCMA-D8, KFSN4,       |
 |                  |         |            | KGPE-D16.                          |
 +------------------+---------+------------+------------------------------------+
-| GRUB             |   2.06+ | No         | All supported computers            |
+| GRUB             |   2.12  | No         | All supported computers            |
 +------------------+---------+------------+------------------------------------+
 | Memtest86+       |         |            | All but Gigabyte GA-G41M-ES2L and  |
 | for Coreboot     |   v002+ | No         | Intel D510MO                       |
@@ -1016,6 +1016,10 @@ Also note that not everything is in the table above:
   and that is used during the automatic tests is reproducible. It can
   be used as an example to make other components built with Guix
   reproducible.
+
+* The grub-coreboot Guix package that GNU Boot reuses should be
+  reproductible and it can be checked with Guix instructions and/or
+  commands to check for reproducibility.
 
 Limitations
 ===========
