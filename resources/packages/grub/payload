@@ -76,4 +76,6 @@ for keylayoutfile in resources/grub/keymap/*.gkb; do
 	       "${keymap}"
 done
 
+"${topdir}"/resources/packages/grub/test
+
 printf "Done! Check payload/grub/ to see the files.\n\n"
