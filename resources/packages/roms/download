@@ -51,10 +51,6 @@ usage()
 
 build_trisquel_netinst_x86_64()
 {
-    source "${topdir}"/config.sh
-    source "${topdir}"/resources/scripts/misc/guix.sh
-    source_guix_profile
-
     # The trisquel-netinst_11.0_amd64.iso package is architecture
     # independent.
     "${topdir}"/resources/wrapper/guix build \
@@ -71,10 +67,6 @@ return_trisquel_netinst_x86_64_iso()
 
 build_guix_qemu_x86_64()
 {
-    source "${topdir}"/config.sh
-    source "${topdir}"/resources/scripts/misc/guix.sh
-    source_guix_profile
-
     # There are two qemu packages: qemu and qemu-minimal. For now qemu
     # was used as (1) it enabled easier testing as with some extra we
     # can run the distributions in a graphical environment and (2) it
@@ -90,10 +82,6 @@ build_guix_qemu_x86_64()
 
 build_trisquel_preseed_x86_64_img()
 {
-    source "${topdir}"/config.sh
-    source "${topdir}"/resources/scripts/misc/guix.sh
-    source_guix_profile
-
     "${topdir}"/resources/wrapper/guix build \
             --system=i686-linux \
             gnuboot-trisquel-preseed.img
@@ -101,10 +89,6 @@ build_trisquel_preseed_x86_64_img()
 
 build_trisquel_grub_img()
 {
-    source "${topdir}"/config.sh
-    source "${topdir}"/resources/scripts/misc/guix.sh
-    source_guix_profile
-
     "${topdir}"/resources/wrapper/guix build \
             --system=i686-linux \
             gnuboot-trisquel-grub.img
@@ -112,10 +96,6 @@ build_trisquel_grub_img()
 
 build_trisquel_rootfs_img()
 {
-    source "${topdir}"/config.sh
-    source "${topdir}"/resources/scripts/misc/guix.sh
-    source_guix_profile
-
     "${topdir}"/resources/wrapper/guix build \
             --system=i686-linux \
             rootfs.img
