@@ -19,6 +19,7 @@ AC_CONFIG_FILES([
     Makefile
     manual/Makefile
     resources/packages/i945-thinkpads-install-utilities/Makefile
+    resources/packages/src/Makefile
 ])
 
 AC_SUBST([ENABLE_KVM], [])

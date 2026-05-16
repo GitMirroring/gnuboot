@@ -24,6 +24,8 @@ DESTDIR ?= $(TOPDIR)/release
 
 PACK_NAME = i945-thinkpads-install-utilities
 
+# GUIX_PACKAGE_NAMES is also used by
+# resources/packages/guix-transitive-sources/Makefile.am
 GUIX_PACKAGE_NAMES ?= bucts flashrom-bucts
 RELEASE_DIR = $(DESTDIR)/i945-thinkpads-install
 
@@ -43,21 +45,11 @@ GUIX_PACK_COMMAND = \
 
 $(PACK_NAME): \
 	$(RELEASE_DIR)/$(PACK_NAME)-deb-pack.deb \
-	$(RELEASE_DIR)/$(PACK_NAME)-tarball-pack.tar.gz \
-	$(RELEASE_DIR)/packages_src.tar
+	$(RELEASE_DIR)/$(PACK_NAME)-tarball-pack.tar.gz
 
 # To better fit in the current package structure
 $(PACK_NAME)-download: $(PACK_NAME)
 $(PACK_NAME)-module: $(PACK_NAME)
-
-# TODO: Use Guix to produce a source package to make it reproducible
-$(RELEASE_DIR)/packages_src.tar:  Makefile
-	install -d $(RELEASE_DIR)
-	tar cf $@ \
-		`$(TOPDIR)/resources/wrapper/guix build \
-		--system=i686-linux \
-		--sources=transitive \
-		$(GUIX_PACKAGE_NAMES) | sort -u`
 
 $(RELEASE_DIR)/$(PACK_NAME)-deb-pack.deb: Makefile
 	install -d $(RELEASE_DIR)
@@ -93,10 +85,6 @@ $(PACK_NAME)-help:
 	@printf "\t%s %s\n"                     \
 		"make $(PACK_NAME)-module    #" \
 		"Alias to $(PACK_NAME) for compatibility."
-
-	@printf "\t%s %s\n"                              \
-		"make $(RELEASE_DIR)/packages_src.tar #" \
-		"Relase the source code corresponding to the package binaries."
 	@printf "\t%s %s\n"                                              \
 		"make $(RELEASE_DIR)/$(PACK_NAME)-deb-pack.deb        #" \
 		"Release a Debian package of the binaries."

@@ -26,6 +26,17 @@ SUBDIRS = manual
 # For making pipefail work.
 SHELL := bash
 
+# Keep things simple for now, we could probably use SUFFIXES later on
+# when the Makefiles will be really respecting the GNU standards.
+%.tar.xz: %.tar
+	xz \
+	-9e \
+	--compress \
+	--force \
+	--keep \
+	--verbose \
+	$<
+
 .PHONY: all check download modules ich9m-descriptors payloads roms release \
 	clean crossgcc-clean  \
 	install-dependencies
@@ -111,6 +122,8 @@ manuals: dvi html info pdf ps
 
 include resources/debian/Makefile.am
 include resources/packages/i945-thinkpads-install-utilities/Makefile.am
+# The src Makefile use variable(s) from i945-thinkpads-install-utilities/Makefile
+include resources/packages/src/Makefile.am
 
 help:
 	@printf "Available make commands/targets :\n"
@@ -124,6 +137,8 @@ help:
 		"Remove the builds of the crossgcc toolchain."
 	@printf "\tmake i945-thinkpads-install-utilities-help # %s\n" \
 		"Print i945-thinkpads-install-utilities targets help."
+	@printf "\tmake guix-transitive-sources-help          # %s\n" \
+		"Print guix-transitive-sources targets help."
 	@printf "\tmake manuals                               # %s\n" \
 		"Build 'dvi', 'html', 'info', 'pdf', and 'ps' manuals."
 	@printf "\t                                           # %s\n" \
