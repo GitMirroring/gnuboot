@@ -32,9 +32,6 @@ RELEASE_DIR = $(DESTDIR)/i945-thinkpads-install
 # don't need to rebuild anything.
 
 GUIX_PACK_COMMAND = \
-	source $(TOPDIR)/config.sh && \
-	source resources/scripts/misc/guix.sh && \
-	source_guix_profile && \
 	$(TOPDIR)/resources/wrapper/guix pack \
 	-R \
 	--save-provenance \
@@ -57,12 +54,8 @@ $(PACK_NAME)-module: $(PACK_NAME)
 $(RELEASE_DIR)/packages_src.tar:  Makefile
 	install -d $(RELEASE_DIR)
 	tar cf $@ \
-		`source $(TOPDIR)/config.sh && \
-		source $(TOPDIR)/resources/scripts/misc/guix.sh && \
-		source_guix_profile && \
-		$(TOPDIR)/resources/wrapper/guix build \
+		`$(TOPDIR)/resources/wrapper/guix build \
 		--system=i686-linux \
-		-c $(GUIX_BUILD_MAX_CORES) \
 		--sources=transitive \
 		$(GUIX_PACKAGE_NAMES) | sort -u`
 
