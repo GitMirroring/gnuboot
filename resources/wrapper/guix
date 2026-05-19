@@ -29,6 +29,19 @@ topdir="$(realpath "$(dirname "$(dirname "$(dirname "$(realpath "$0")")")")")"
 # We need ${GUIX_REVISION}
 eval "$("${topdir}"/guix-revision.sh print-shell)"
 
+source "${topdir}"/resources/scripts/misc/sysexits.sh
+
+# We need ${GUIX_BUILD_MAX_CORES}
+if [ ! -f "${topdir}"/config.sh ] ; then
+    echo "config.sh not found in GNU Boot top directory (""${topdir}"")"
+    echo "To fix it run the following commands:"
+    echo "    cd ""${topdir}"""
+    echo "    ./autogen.sh"
+    echo "    ./configure"
+    exit "${EX_NOINPUT}"
+fi
+source "${topdir}"/config.sh
+
 # We need -C resources/wrapper/channels.scm to make sure to only use
 # the default channels provided by Guix.
 guix_wrapper()
@@ -58,10 +71,33 @@ elif [ "$#" -gt 1 ] ; then
     command="$1"
     shift 1
 
-    # Some commands support -L, some other don't. This only need to
-    # match the commands provided by Guix's ${GUIX_REVISION}.
     case "${command}" in
-        "archive")
+	# The commands below support -L arguments.
+        "edit")
+            ;&
+        "graph")
+            ;&
+        "lint")
+            ;&
+        "refresh")
+            ;&
+        "repl")
+            ;&
+        "search")
+            ;&
+        "show")
+            ;&
+        "size")
+            ;&
+        "style")
+	    guix_wrapper \
+                "${command}" \
+                -L "${topdir}"/resources/guix/ \
+                -L "${topdir}"/resources/guix/gnuboot/patches/ \
+                "$@"
+            ;;
+	# The commands below support -L and --cores=NUM arguments.
+	"archive")
             ;&
         "build")
             ;&
@@ -69,17 +105,11 @@ elif [ "$#" -gt 1 ] ; then
             ;&
         "deploy")
             ;&
-        "edit")
-            ;&
         "environment")
-            ;&
-        "graph")
             ;&
         "home")
             ;&
         "install")
-            ;&
-        "lint")
             ;&
         "pack")
             ;&
@@ -87,31 +117,25 @@ elif [ "$#" -gt 1 ] ; then
             ;&
         "pull")
             ;&
-        "refresh")
-            ;&
         "remove")
             ;&
-        "repl")
-            ;&
-        "search")
-            ;&
         "shell")
-            ;&
-        "show")
-            ;&
-        "size")
-            ;&
-        "style")
             ;&
         "system")
             ;&
         "upgrade")
             guix_wrapper \
                 "${command}" \
+		--cores=${GUIX_BUILD_MAX_CORES} \
                 -L "${topdir}"/resources/guix/ \
                 -L "${topdir}"/resources/guix/gnuboot/patches/ \
                 "$@"
             ;;
+	# The command below supports --cores but not -L.
+        "time-machine")
+            guix_wrapper "${command}" --cores=${GUIX_BUILD_MAX_CORES} "$@"
+            ;;
+	# The commands below support nor --cores nor -L.
         "challenge")
             ;&
         "container")
@@ -135,8 +159,6 @@ elif [ "$#" -gt 1 ] ; then
         "processes")
             ;&
         "publish")
-            ;&
-        "time-machine")
             ;&
         "weather")
             guix_wrapper "${command}" "$@"
