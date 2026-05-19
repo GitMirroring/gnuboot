@@ -3288,8 +3288,8 @@ depending on your distribution:
 @item       Host distro      @tab Chroot distro         @tab Required packages
 @item       Guix             @tab PureOS 10 (byzantium) @tab debootstrap
 @item       Guix             @tab Trisquel 10 or 11     @tab debootstrap
-@item       Parabola         @tab PureOS 10 (byzantium) @tab debootstrap, pureos-archive-keyring
-@item       Parabola         @tab Trisquel 10 (nabia)   @tab debootstrap, trisquel-keyring
+@item       Parabola         @tab PureOS 10 (byzantium) @tab debootstrap
+@item       Parabola         @tab Trisquel 10 (nabia)   @tab debootstrap
 @item       Trisquel >= 10   @tab Trisquel 10 (nabia)   @tab debootstrap, trisquel-keyring
 @end multitable
 
