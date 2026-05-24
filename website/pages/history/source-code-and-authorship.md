@@ -1,4 +1,4 @@
-title: GNU Boot source code history
+title: GNU Boot source code history and copyright authorship
 ---
 
 Introduction
@@ -37,10 +37,7 @@ relationship with the Libreboot project either.
 
 Researching all that ourselves is time consuming. So until now we
 tried to save what was useful for understanding the GNU Boot history
-without doing too much research (on the material) ourselves. Here are
-the pages we kept (and that we modified a bit to add more context):
-
-* [authors.html](authors.html)
+without doing too much research (on the material) ourselves.
 
 Git history
 ===========

@@ -37,7 +37,8 @@ Information for developers
 ==========================
 
 -   [How to compile the GNU Boot source code](build/)
--   [GNU Boot source code history and provenance](history/)
+-   [GNU Boot source code history and
+    provenance](../history/source-code-and-authorship.html)
 -   [GRUB payload](grub/)
 -   [Past release announcements](history/news/)
 
