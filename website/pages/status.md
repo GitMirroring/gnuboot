@@ -922,101 +922,101 @@ Also note that the table below is meant for the [GNU Boot
 images](manual/gnuboot.html#index-flash-images) which is what gets
 installed and what interest more users.
 
-+------------------+------------------------------+--------------+-------------+
-| Provenance       | Path inside the image        | Reproducible | Usage       |
-+------------------+------------------------------+--------------+-------------+
-| Coreboot         | * CBFS headers               | Unknown      | all images  |
-+------------------+------------------------------+--------------+-------------+
-| Coreboot         | * /bootblock                 | Unknown      | all images  |
-+------------------+------------------------------+--------------+-------------+
-| Coreboot         | * /build_info                | Unknown      | all images  |
-+------------------+------------------------------+--------------+-------------+
-| Coreboot         | * /cmos.default              | Unknown      | all but     |
-|                  |                              |              | 16MB        |
-|                  |                              |              | MacBook     |
-|                  |                              |              | images      |
-+------------------+------------------------------+--------------+-------------+
-| Coreboot         | * /cmos_layout.bin           | Unknown      | all images  |
-+------------------+------------------------------+--------------+-------------+
-| Coreboot         | * /config                    | Unknown      | all images  |
-+------------------+------------------------------+--------------+-------------+
-| Coreboot         | * /data_ccfl.vbt             | N/A: not     | all images  |
-|                  |                              | built        |             |
-+------------------+------------------------------+--------------+-------------+
-| Coreboot         | * /data_led.vbt              | N/A: not     | all images  |
-|                  |                              | built        |             |
-+------------------+------------------------------+--------------+-------------+
-| Coreboot         | * /vbt.bin                   | Unknown      | computers   |
-|                  |                              |              | with Intel  |
-|                  |                              |              | GPU         |
-+------------------+------------------------------+--------------+-------------+
-| Coreboot         | * /fallback/dsdt.aml         | Unknown      | all images  |
-+------------------+------------------------------+--------------+-------------+
-| Coreboot         | * /fallback/postcar          | Unknown      | all but     |
-|                  |                              |              | KGPE-D16    |
-|                  |                              |              | and KCMA-D8 |
-+------------------+------------------------------+--------------+-------------+
-| Coreboot         | * /fallback/ramstage         | Unknown      | all images  |
-+------------------+------------------------------+--------------+-------------+
-| Coreboot         | * /fallback/romstage         | Unknown      | all images  |
-+------------------+------------------------------+--------------+-------------+
-| Coreboot         | * /revision                  | Unknown      | all images  |
-+------------------+------------------------------+--------------+-------------+
-| Coreboot         | * /rt8168-macaddress         | Unknown      | all images  |
-+------------------+------------------------------+--------------+-------------+
-| GRUB             | * /fallback/payload          | Unknown      | GRUB images |
-+------------------+------------------------------+--------------+-------------+
-| GRUB             | * /img/grub2                 | Unknown      | SeaBIOS     |
-|                  |                              |              | images      |
-+------------------+------------------------------+--------------+-------------+
-| Memtest86+ for   | * /img/memtest               | Unknown      | more than   |
-| Coreboot         |                              |              | half of the |
-|                  |                              |              | images      |
-+------------------+------------------------------+--------------+-------------+
-| SeaBIOS          | * /fallback/payload          | Unknown      | SeaBIOS     |
-|                  |                              |              | images      |
-+------------------+------------------------------+--------------+-------------+
-| SeaBIOS          | * /vgaroms/seavgabios.bin    | Unknown      | all images  |
-+------------------+------------------------------+--------------+-------------+
-| ich9gen          | * Intel flash descriptor     | Yes:         | GM45        |
-|                  |                              | verified by  | ThinkPads   |
-|                  |                              | checksums    |             |
-+------------------+------------------------------+--------------+-------------+
-| ich9gen          | * Intel Gigabit ethernet     | Yes:         | GM45        |
-|                  |   partition                  | verified by  | ThinkPads   |
-|                  |                              | checksums    |             |
-+------------------+------------------------------+--------------+-------------+
-| GNU Boot build   | * /background.png            | Unknown      | all but     |
-| system           |                              |              | d945gclf    |
-|                  |                              |              | and         |
-|                  |                              |              | kfsn4-dre   |
-+------------------+------------------------------+--------------+-------------+
-| GNU Boot build   | * /etc/only-load-option-roms | Unknown      | all images  |
-| system           |                              |              |             |
-+------------------+------------------------------+--------------+-------------+
-| GNU Boot build   | * /etc/optionroms-checksum   | Unknown      | all images  |
-| system           |                              |              |             |
-+------------------+------------------------------+--------------+-------------+
-| GNU Boot build   | * /etc/pci-optionrom-exec    | Unknown      | all images  |
-| system           |                              |              |             |
-+------------------+------------------------------+--------------+-------------+
-| GNU Boot build   | * /etc/ps2-keyboard-spinup   | Unknown      | all images  |
-| system           |                              |              |             |
-+------------------+------------------------------+--------------+-------------+
-| GNU Boot build   | * /grub.cfg                  | Unknown      | all but     |
-| system           |                              |              | d945gclf    |
-|                  |                              |              | and         |
-|                  |                              |              | kfsn4-dre   |
-+------------------+------------------------------+--------------+-------------+
-| GNU Boot build   | * /grubtest.cfg              | Unknown      | kfsn4-dre   |
-| system           |                              |              |             |
-+------------------+------------------------------+--------------+-------------+
-| GNU Boot build   |* pci1000,0072.rom            | N/A: empty   | KGPE-D16    |
-| system           |                              | file         | and KCMA-D8 |
-+------------------+------------------------------+--------------+-------------+
-| GNU Boot build   |* pci1000,3050.rom            | N/A: empty   | KGPE-D16    |
-| system           |                              | file         | and KCMA-D8 |
-+------------------+------------------------------+--------------+-------------+
++------------------+----------------------------+--------------+-------------+
+| Provenance       | Path inside the image      | Reproducible | Usage       |
++------------------+----------------------------+--------------+-------------+
+| Coreboot         | CBFS headers               | Unknown      | all images  |
++------------------+----------------------------+--------------+-------------+
+| Coreboot         | /bootblock                 | Unknown      | all images  |
++------------------+----------------------------+--------------+-------------+
+| Coreboot         | /build_info                | Unknown      | all images  |
++------------------+----------------------------+--------------+-------------+
+| Coreboot         | /cmos.default              | Unknown      | all but     |
+|                  |                            |              | 16MB        |
+|                  |                            |              | MacBook     |
+|                  |                            |              | images      |
++------------------+----------------------------+--------------+-------------+
+| Coreboot         | /cmos_layout.bin           | Unknown      | all images  |
++------------------+----------------------------+--------------+-------------+
+| Coreboot         | /config                    | Unknown      | all images  |
++------------------+----------------------------+--------------+-------------+
+| Coreboot         | /data_ccfl.vbt             | N/A: not     | all images  |
+|                  |                            | built        |             |
++------------------+----------------------------+--------------+-------------+
+| Coreboot         | /data_led.vbt              | N/A: not     | all images  |
+|                  |                            | built        |             |
++------------------+----------------------------+--------------+-------------+
+| Coreboot         | /vbt.bin                   | Unknown      | computers   |
+|                  |                            |              | with Intel  |
+|                  |                            |              | GPU         |
++------------------+----------------------------+--------------+-------------+
+| Coreboot         | /fallback/dsdt.aml         | Unknown      | all images  |
++------------------+----------------------------+--------------+-------------+
+| Coreboot         | /fallback/postcar          | Unknown      | all but     |
+|                  |                            |              | KGPE-D16    |
+|                  |                            |              | and KCMA-D8 |
++------------------+----------------------------+--------------+-------------+
+| Coreboot         | /fallback/ramstage         | Unknown      | all images  |
++------------------+----------------------------+--------------+-------------+
+| Coreboot         | /fallback/romstage         | Unknown      | all images  |
++------------------+----------------------------+--------------+-------------+
+| Coreboot         | /revision                  | Unknown      | all images  |
++------------------+----------------------------+--------------+-------------+
+| Coreboot         | /rt8168-macaddress         | Unknown      | all images  |
++------------------+----------------------------+--------------+-------------+
+| GRUB             | /fallback/payload          | Unknown      | GRUB images |
++------------------+----------------------------+--------------+-------------+
+| GRUB             | /img/grub2                 | Unknown      | SeaBIOS     |
+|                  |                            |              | images      |
++------------------+----------------------------+--------------+-------------+
+| Memtest86+ for   | /img/memtest               | Unknown      | more than   |
+| Coreboot         |                            |              | half of the |
+|                  |                            |              | images      |
++------------------+----------------------------+--------------+-------------+
+| SeaBIOS          | /fallback/payload          | Unknown      | SeaBIOS     |
+|                  |                            |              | images      |
++------------------+----------------------------+--------------+-------------+
+| SeaBIOS          | /vgaroms/seavgabios.bin    | Unknown      | all images  |
++------------------+----------------------------+--------------+-------------+
+| ich9gen          | Intel flash descriptor     | Yes:         | GM45        |
+|                  |                            | verified by  | ThinkPads   |
+|                  |                            | checksums    |             |
++------------------+----------------------------+--------------+-------------+
+| ich9gen          | Intel Gigabit ethernet     | Yes:         | GM45        |
+|                  | partition                  | verified by  | ThinkPads   |
+|                  |                            | checksums    |             |
++------------------+----------------------------+--------------+-------------+
+| GNU Boot build   | /background.png            | Unknown      | all but     |
+| system           |                            |              | d945gclf    |
+|                  |                            |              | and         |
+|                  |                            |              | kfsn4-dre   |
++------------------+----------------------------+--------------+-------------+
+| GNU Boot build   | /etc/only-load-option-roms | Unknown      | all images  |
+| system           |                            |              |             |
++------------------+----------------------------+--------------+-------------+
+| GNU Boot build   | /etc/optionroms-checksum   | Unknown      | all images  |
+| system           |                            |              |             |
++------------------+----------------------------+--------------+-------------+
+| GNU Boot build   | /etc/pci-optionrom-exec    | Unknown      | all images  |
+| system           |                            |              |             |
++------------------+----------------------------+--------------+-------------+
+| GNU Boot build   | /etc/ps2-keyboard-spinup   | Unknown      | all images  |
+| system           |                            |              |             |
++------------------+----------------------------+--------------+-------------+
+| GNU Boot build   | /grub.cfg                  | Unknown      | all but     |
+| system           |                            |              | d945gclf    |
+|                  |                            |              | and         |
+|                  |                            |              | kfsn4-dre   |
++------------------+----------------------------+--------------+-------------+
+| GNU Boot build   | /grubtest.cfg              | Unknown      | kfsn4-dre   |
+| system           |                            |              |             |
++------------------+----------------------------+--------------+-------------+
+| GNU Boot build   | pci1000,0072.rom           | N/A: empty   | KGPE-D16    |
+| system           |                            | file         | and KCMA-D8 |
++------------------+----------------------------+--------------+-------------+
+| GNU Boot build   | pci1000,3050.rom           | N/A: empty   | KGPE-D16    |
+| system           |                            | file         | and KCMA-D8 |
++------------------+----------------------------+--------------+-------------+
 
 Also note that not everything is in the table above:
 
