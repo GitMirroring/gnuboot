@@ -33,11 +33,13 @@ source "${topdir}"/resources/scripts/misc/sysexits.sh
 
 # We need ${GUIX_BUILD_MAX_CORES}
 if [ ! -f "${topdir}"/config.sh ] ; then
-    echo "config.sh not found in GNU Boot top directory (""${topdir}"")"
-    echo "To fix it run the following commands:"
-    echo "    cd ""${topdir}"""
-    echo "    ./autogen.sh"
-    echo "    ./configure"
+    printf "config.sh not found in GNU Boot top directory (%s)\n" \
+	   "${topdir}" \
+	   > /dev/stderr
+    printf "To fix it run the following commands:\n"
+    printf "    cd %s\n" > /dev/stderr
+    printf "    ./autogen.sh\n" > /dev/stderr
+    printf "    ./configure\n" > /dev/stderr
     exit "${EX_NOINPUT}"
 fi
 source "${topdir}"/config.sh
