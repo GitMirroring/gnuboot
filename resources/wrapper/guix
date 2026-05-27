@@ -37,7 +37,7 @@ if [ ! -f "${topdir}"/config.sh ] ; then
 	   "${topdir}" \
 	   > /dev/stderr
     printf "To fix it run the following commands:\n"
-    printf "    cd %s\n" > /dev/stderr
+    printf "    cd '%s'\n" > /dev/stderr
     printf "    ./autogen.sh\n" > /dev/stderr
     printf "    ./configure\n" > /dev/stderr
     exit "${EX_NOINPUT}"
