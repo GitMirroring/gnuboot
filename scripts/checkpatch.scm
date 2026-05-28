@@ -1558,6 +1558,13 @@ Texinfo node name). Returns the first invalid character found or #f."
        warnings check-results)))
 
    (make-rule
+    "Keep the GRUB revision and the status in sync"
+    (lambda (path parse-results check-results) check-results)
+    (lambda (path line parse-results check-results) #t)
+    (lambda (path line parse-results check-results) check-results)
+    (lambda (path parse-results check-results) check-results))
+   
+   (make-rule
     "Check for tabs being added in scheme files"
     (lambda (context path parse-results check-results) check-results)
     (lambda (context path line parse-results check-results)
