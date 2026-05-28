@@ -14,4 +14,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-autoreconf -vfi "$@"
+# On some distributions (for instance PureOS 10 (byzantium)), we need
+# to run autoreconf twice, othrewise it fails.
+autoreconf -vfi "$@" || autoreconf -vfi "$@"
