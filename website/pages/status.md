@@ -878,7 +878,7 @@ Upstream versions used in GNU Boot 0.1 RC3
 | Coreboot         |   4.15+ | Yes        | All but Asus KCMA-D8, KFSN4,       |
 |                  |         |            | KGPE-D16.                          |
 +------------------+---------+------------+------------------------------------+
-| GRUB             |   2.06+ | No         | All supported computers            |
+| GRUB             |   2.12+ | No         | All supported computers            |
 +------------------+---------+------------+------------------------------------+
 | Memtest86+       |         |            | All but Gigabyte GA-G41M-ES2L and  |
 | for Coreboot     |   v002+ | No         | Intel D510MO                       |
