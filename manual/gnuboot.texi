@@ -3374,10 +3374,6 @@ just stated and isn't complete yet, so in the meantime if you care
 about this type of risks, it might be a good idea to build GNU Boot
 from source yourself.
 
-The GNU Boot website has instructions for building GNU Boot at the
-following URL:
-@url{https://www.gnu.org/software/gnuboot/docs/build/}.
-
 @xref{Authenticating the GNU Boot source code} as GNU Boot has ways to
 prevent network attacks from tempering with the souce code you are
 downloading.
