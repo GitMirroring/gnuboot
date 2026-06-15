@@ -91,7 +91,7 @@ GNU Boot 0.1 RC6 status
 | Lenovo,          | Untested     | Untested     | Untested     | Untested     |
 | ThinkPad W500    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| Lenovo,          | Tested       | Untested     | Untested     | Untested     |
 | ThinkPad X200    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | Untested     | Untested     | Untested     | Untested     |
