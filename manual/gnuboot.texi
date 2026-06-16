@@ -487,7 +487,7 @@ nonfree firmware to a free one.
 
 The
 @uref{https://www.gnu.org/philosophy/free-hardware-designs.html,Free
-Hardware and Free Hardware Designs} also has good background on these
+Hardware and Free Hardware Designs} article also has good background on these
 topics as in some case hardware and firmware is indistinguishable, and
 so this also has consequences on freedom and/or on how to recognize
 the most problematic issues, which in turn is a useful tool for
