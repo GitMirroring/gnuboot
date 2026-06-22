@@ -271,7 +271,7 @@ GNU Boot 0.1 RC5 status
 | Lenovo,          | Tested       | Untested     | Untested     | Untested     |
 | ThinkPad T500    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| Lenovo,          | Untested     | Tested       | Untested     | Untested     |
 | ThinkPad T60     |              |              |              |              |
 | with intel GPU   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
