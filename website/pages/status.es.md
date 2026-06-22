@@ -272,7 +272,7 @@ Estado de GNU Boot 0.1 RC5
 | Lenovo,          | Probado      | No probado   | No probado   | No probado   |
 | ThinkPad T500    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          | No probado   | No probado   | No probado   | No probado   |
+| Lenovo,          | No probado   | Probado      | No probado   | No probado   |
 | ThinkPad T60 con |              |              |              |              |
 | GPU intel        |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
