@@ -3,26 +3,26 @@ title: MacBook2,1 and MacBook1,1
 x-unreviewed: true
 ...
 
-There is an Apple laptop called the macbook1,1 from 2006 which uses the
+There is an Apple laptop called the MacBook 1,1 from 2006 which uses the
 same i945 chipset as the ThinkPad X60/T60. A developer (Mono Moosbart) ported
-the Macbook2,1 to coreboot, working alongside Vladimir Serbinenko. The ROM
-images also work on the macbook1,1. Libreboot's support and documentation for
-this is based on the Libreboot project, which also supports macbook2,1
+the MacBook 2,1 to coreboot, working alongside Vladimir Serbinenko. The ROM
+images also work on the MacBook 1,1. Libreboot's support and documentation for
+this is based on the Libreboot project, which also supports MacBook 2,1
 
-Some macbook2,1 models are late 2006, others are early 2007.
-You do not need to use external flashing equipment when flashing the MacBook2,1
-but the MacBook1,1 requires external flashing equipment while running Apple EFI
+Some MacBook 2,1 models are late 2006, others are early 2007.
+You do not need to use external flashing equipment when flashing the MacBook 2,1
+but the MacBook 1,1 requires external flashing equipment while running Apple EFI
 firmware.
 
-Macbook2,1 laptops come with Core 2 Duo processors
-which support 64-bit operating systems (and 32-bit). The MacBook1,1
+MacBook 2,1 laptops come with Core 2 Duo processors
+which support 64-bit operating systems (and 32-bit). The MacBook 1,1
 uses Core Duo processors (supports 32-bit OS but not 64-bit), and it is
 believed that this is the only difference.
 
 Compatibility
 =============
 
-The following pages list many models of MacBook1,1 and MacBook2,1:
+The following pages list many models of MacBook 1,1 and MacBook 2,1:
 
 * <http://www.everymac.com/ultimate-mac-lookup/?search_keywords=MacBook1,1>
 * <http://www.everymac.com/ultimate-mac-lookup/?search_keywords=MacBook2,1>
@@ -30,13 +30,13 @@ The following pages list many models of MacBook1,1 and MacBook2,1:
 Models
 ------
 
-Specifically (Order No. / Model No. / CPU) for macbook 1,1:
+Specifically (Order No. / Model No. / CPU) for MacBook 1,1:
 
 * MA255LL/A / A1181 (EMC 2092) / Core Duo T2500 *(tested - working)*
 * MA254LL/A / A1181 (EMC 2092) / Core Duo T2400 *(tested - working)*
 * MA472LL/A / A1181 (EMC 2092) / Core Duo T2500 (untested)
 
-For macbook 2,1:
+For MacBook 2,1:
 
 * MA699LL/A / A1181 (EMC 2121) / Intel Core 2 Duo T5600 *(tested -
     working)*
@@ -52,18 +52,20 @@ For macbook 2,1:
 Internal flashing
 =================
 
-Macbook2,1 can always be flashed internally, even if running Apple firmware:
+The MacBook 2,1 can always be flashed internally, even if running
+Apple firmware:
 
     sudo flashrom -p internal:laptop=force_I_want_a_brick,boardmismatch=force -w your.rom
 
-Macbook1,1 same as above, but if running Apple firmware see below for
-external flashing.
+For the MacBook 1,1 same as above, but if running Apple firmware see
+below for external flashing.
 
 External flashing
 =================
 
-macbook1,1 requires external flashing, if running the default Apple firmware.
-macbook2,1 can be flased internally, regardless.
+The MacBook 1,1 requires external flashing, if running the default
+Apple firmware. The MacBook 2,1 can be flased internally, regardless.
+
 If running coreboot, libreboot or Libreboot, you can already internally re-flash.
 
 [This page shows disassembly
@@ -80,13 +82,14 @@ Refer to the following guide:\
 [Externally rewrite 25xx NOR flash via SPI protocol](../install/spi.md)
 
 You need to replace OS X with GNU+Linux before flashing Libreboot. (OSX
-won't run at all in Libreboot), if you wish to internally flash on a macbook21.
+won't run at all in Libreboot), if you wish to internally flash on a MacBook 2,1.
 Libreboot won't boot OSX either (well, maybe with Tianocore it would, but that's
 untested and OSX is inferior to GNU+Linux). In general you should think of
-your Macbook like a regular laptop, for the purposes of anything coreboot.
+your MacBook like a regular laptop, for the purposes of anything coreboot.
 
-If it's a macbook2,1 with the core2duo processors, you can run
-a 64-bit distro. For macbook 1,1 the CPU probably only has 32-bit support.
+If it's a MacBook 2,1 with the core2duo processors, you can run a
+64-bit distro. For the MacBook 1,1 the CPU probably only has 32-bit
+support.
 
 GNU+Linux on Apple EFI firmware
 ===============================
@@ -113,9 +116,11 @@ There is one mouse button only, however multiple finger tapping
 works. Battery life is poor compared to X60/T60. The Apple logo on the
 back is a hole, exposing the backlight, which means that it glows. You
 should [cover it up](http://cweiske.de/tagebuch/tuxbook.htm).
-The MacBook2,1 consumes more power with libreboot than with the Apple EFI firmware, which means it overheats a lot.
 
-*The MacBook2,1 comes with a webcam which does not work with free
+The MacBook 2,1 consumes more power with libreboot than with the Apple
+EFI firmware, which means it overheats a lot.
+
+*The MacBook 2,1 comes with a webcam which does not work with free
 software. Webcams are a privacy and security risk; cover it up! Or
 remove it.*
 
@@ -128,7 +133,8 @@ temperature is much lower most of the time, as is power consumption. However,
 you might still benefit from the steps below, just not as much as you would have
 previously benefited.*
 
-The MacBook2,1 overheats a lot with libreboot, we still don't know why but a simple workaround is to install macfanctld.
+The MacBook 2,1 overheats a lot with libreboot, we still don't know
+why but a simple workaround is to install macfanctld.
 
 Macfanctld is available on the default repos of many distributions.
 
