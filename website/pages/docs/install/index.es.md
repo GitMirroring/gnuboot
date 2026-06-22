@@ -10,7 +10,7 @@ computadores que funcionan sin software no libre.
 
 Algunos (no todos) de los computadores que recibieron la certificación
 son compatibles con GNU Boot. En el caso de
-[Technoetical](https://ryf.fsf.org/vendors/Technoethical), los
+[Technoethical](https://ryf.fsf.org/vendors/Technoethical), los
 computadores que son compatibles ya vienen con GNU Boot instalado.
 
 Como las empresas que figuran en la certificación son empresas, también
