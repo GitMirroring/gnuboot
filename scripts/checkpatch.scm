@@ -638,17 +638,18 @@ notice. Returns #f otherwise."
 ;;                                                                            ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(define* (texinfo-node-name line prefix type)
+  (define match
+    (if (string=? prefix "")
+        (string-match (string-append "@" type " +") line)
+        (string-match (string-append "\\" prefix "@" type " +") line)))
+  (regexp-substitute
+   #f
+   match
+   'post))
+
 (define (handle-texinfo-node-type prefix type check-results)
   (define warnings (assq-ref check-results 'warnings))
-  (define* (node-name line prefix type)
-    (define match
-      (if (string=? prefix "")
-          (string-match (string-append "@" type " +") line)
-          (string-match (string-append "\\" prefix "@" type " +") line)))
-    (regexp-substitute
-     #f
-     match
-     'post))
 
   (define current-node-name
     (substring
@@ -660,8 +661,8 @@ notice. Returns #f otherwise."
     (if
      (and
       (string=?
-       (node-name line prefix type)
-       (node-name
+       (texinfo-node-name line prefix type)
+       (texinfo-node-name
         (string-append prefix current-node-name)
         prefix
         "node"))
@@ -673,7 +674,7 @@ notice. Returns #f otherwise."
      ((lambda _
         (display
          (string-append
-          "WARNING: " (node-name line prefix type)
+          "WARNING: " (texinfo-node-name line prefix type)
           " " type " and node are not aligned.\n\n"))
         (+ 1 warnings)))
      warnings)))
