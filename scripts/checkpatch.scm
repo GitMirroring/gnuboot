@@ -22,7 +22,8 @@
   #:use-module ((rnrs base) #:select (assert))
   #:use-module (srfi srfi-1)
   #:use-module (srfi srfi-9)
-  #:use-module (srfi srfi-19))
+  #:use-module (srfi srfi-19)
+  #:export (texinfo-node-invalid-string))
 
 (define (append-results results kv-list)
   (fold (lambda (cur prev)
@@ -649,9 +650,46 @@ notice. Returns #f otherwise."
    match
    'post))
 
-(define (handle-texinfo-node-type prefix type check-results)
-  (define warnings (assq-ref check-results 'warnings))
+;; According to the texinfo info manual "Node names containing
+;; periods, commas, colons or parentheses (including @-commands which
+;; produce any of these) can confuse Info readers.".
+(define (texinfo-node-invalid-string name)
+  "Look if there is any forbidden characters in NAME (which is the
+Texinfo node name). Returns the first invalid character found or #f."
+  (let ((chars (string->list name)))
+    (cond
+     ;; Periods
+     ((not (null? (filter (lambda (elm) (equal? #\. elm)) chars)))
+      ".")
+     ((string-contains name "@.")
+      "@.")
+     ((string-contains name "@U{002E}")
+      "@U{002E}")
+     ;; Commas
+     ((not (null? (filter (lambda (name) (equal? #\, name)) chars)))
+      ",")
+     ((string-contains name "@comma{}")
+      "@comma{}")
+     ((string-contains name "@U{002C}")
+      "@U{002C}")
+     ;; Colons
+     ((not (null? (filter (lambda (name) (equal? #\: name)) chars)))
+      ":")
+     ((string-contains name "@U{003A}")
+      "@U{003A}")
+     ;; Parentheses
+     ((not (null? (filter (lambda (name) (equal? #\( name)) chars)))
+      "(")
+     ((string-contains name "@U{0028}")
+      "@U{0028}")
+     ((not (null? (filter (lambda (name) (equal? #\) name)) chars)))
+      ")")
+     ((string-contains name "@U{0029}")
+      "@U{0029}")
+     (else #f))))
 
+(define (handle-texinfo-node-type-alignment prefix type check-results)
+  (define warnings (assq-ref check-results 'warnings))
   (define current-node-name
     (substring
      (assq-ref check-results 'current-node)
@@ -659,26 +697,35 @@ notice. Returns #f otherwise."
      (string-length (assq-ref check-results 'current-node))))
 
   (lambda (line parse-results check-results)
-    (if
-     (and
-      (string=?
-       (texinfo-node-name line prefix type)
-       (texinfo-node-name
-        (string-append prefix current-node-name)
-        prefix
-        "node"))
-      (not
-       (= (string-length
-           (substring line (string-length prefix) (string-length line)))
-          (string-length
-           current-node-name))))
-     ((lambda _
+    (cond
+     ((and
+       (string=? (texinfo-node-name line prefix type)
+		 (texinfo-node-name
+		  (string-append prefix current-node-name)
+		  prefix
+		  "node"))
+       (not
+	(= (string-length
+            (substring line (string-length prefix) (string-length line)))
+           (string-length
+            current-node-name))))
         (display
          (string-append
           "WARNING: " (texinfo-node-name line prefix type)
           " " type " and node are not aligned.\n\n"))
-        (+ 1 warnings)))
-     warnings)))
+        (+ 1 warnings))
+     ((texinfo-node-invalid-string (texinfo-node-name line prefix type))
+      (display
+       (string-append
+        "WARNING: " (texinfo-node-name line prefix type)
+        " contains at least 1 invalid character: '"
+	(texinfo-node-invalid-string (texinfo-node-name line prefix type))
+	"'.\n\n"))
+      (+ 1 warnings))
+     (else warnings))))
+
+(define (handle-texinfo-node-type prefix type check-results)
+  (handle-texinfo-node-type-alignment prefix type check-results))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
