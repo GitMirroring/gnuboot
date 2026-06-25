@@ -149,10 +149,12 @@ if BUILD_MANUAL
 endif # BUILD_MANUAL
 
 SH_LOG_COMPILER = bash
-TEST_EXTENSIONS = .sh
+SCM_LOG_COMPILER = guile -L scripts
+TEST_EXTENSIONS = .sh .scm
 TESTS = \
 	tests/lint.sh \
 	tests/distclean.sh \
 	tests/targets.sh \
 	tests/checkpatch/checkpatch.sh \
+	scripts/test-checkpatch.scm \
 	$(SENTINEL)

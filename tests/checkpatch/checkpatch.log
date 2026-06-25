@@ -1,0 +1,5 @@
++--------------------------------------+
+| Running scripts/checkpatch.scm test: |
++--------------------------------------+
+[ !! ] scripts/checkpatch.scm test failed: checkpatch.scm failed  when trying to detect unaligned node in a patch touching the manual.
+FAIL tests/checkpatch/checkpatch.sh (exit status: 1)
