@@ -1,4 +1,4 @@
-#!/usr/bin/env -S guile -e main -s
+#!/usr/bin/env -S guile -e (@@(checkpatch)main) -s
 !#
 ;; Copyright (C) 2024-2026 Denis 'GNUtoo' Carikli <GNUtoo@cyberdimension.org>
 ;;
@@ -15,13 +15,14 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-(use-modules (ice-9 popen))
-(use-modules (ice-9 rdelim))
-(use-modules (ice-9 regex))
-(use-modules ((rnrs base) #:select (assert)))
-(use-modules (srfi srfi-1))
-(use-modules (srfi srfi-9))
-(use-modules (srfi srfi-19))
+(define-module (checkpatch)
+  #:use-module (ice-9 popen)
+  #:use-module (ice-9 rdelim)
+  #:use-module (ice-9 regex)
+  #:use-module ((rnrs base) #:select (assert))
+  #:use-module (srfi srfi-1)
+  #:use-module (srfi srfi-9)
+  #:use-module (srfi srfi-19))
 
 (define (append-results results kv-list)
   (fold (lambda (cur prev)
