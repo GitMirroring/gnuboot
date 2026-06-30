@@ -56,6 +56,13 @@ AC_ARG_WITH([lighttpd-port],
   [LIGHTTPD_PORT=$withval],
   [LIGHTTPD_PORT=8086])
 
+# --enable-generate-locales
+AC_ARG_ENABLE(generate-locales,
+  [AS_HELP_STRING([--enable-generate-locales], [Generate locales required for the translations (default=disabled)])],
+  [generate_locales=$enableval],
+  [generate_locales="no"])
+AM_CONDITIONAL( [WANT_GENERATE_LOCALES], [test x"$generate_locales" = x"yes"])
+
 # --with-guile-dsv-path
 AC_ARG_WITH([guile-dsv-path],
   [AS_HELP_STRING([--with-guile-dsv-path=PATH],

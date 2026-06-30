@@ -158,8 +158,9 @@ history/git-history.jpg: history/git-history.dot
 # Status locale(s) #
 ####################
 
+if WANT_GENERATE_LOCALES
 locale/es_ES.UTF-8/LC_IDENTIFICATION:
-	mkdir locale
+	mkdir -p locale
 	localedef -f UTF-8 -i es_ES locale/es_ES.UTF-8
 
 ES_LOCALE = status/locale/es/LC_MESSAGES/gnuboot-generate-markdown-status-table.mo
@@ -167,6 +168,20 @@ ES_LOCALE = status/locale/es/LC_MESSAGES/gnuboot-generate-markdown-status-table.
 $(ES_LOCALE): status/po/es.po locale/es_ES.UTF-8/LC_IDENTIFICATION
 	install -m 755 -d status/locale/es/LC_MESSAGES
 	LOCPATH=locale msgfmt status/po/es.po -o $@
+
+locale/en_US.UTF-8/LC_IDENTIFICATION:
+	mkdir -p locale
+	localedef -f UTF-8 -i en_US locale/en_US.UTF-8
+
+US_LOCALE = locale/en_US.UTF-8/LC_IDENTIFICATION
+
+LOCALES = \
+	$(ES_LOCALE) \
+	$(US_LOCALE)
+
+else # WANT_GENERATE_LOCALES
+LOCALES =
+endif # WANT_GENERATE_LOCALES
 
 ##########
 # status #
@@ -177,7 +192,7 @@ STATUS_TABLE_0.1_RC1_DEPS = \
 	status/common.scm \
 	status/generate-0.1-rc1-status-table.scm \
 	../resources/data/computers-0.1-rc1.rec \
-	$(ES_LOCALE) \
+	$(LOCALES) \
 	$(SENTINEL)
 
 STATUS_TABLE_0.1_RC2_DEPS = \
@@ -185,7 +200,7 @@ STATUS_TABLE_0.1_RC2_DEPS = \
 	status/common.scm \
 	status/generate-0.1-rc1-status-table.scm \
 	../resources/data/computers-0.1-rc2.rec \
-	$(ES_LOCALE) \
+	$(LOCALES) \
 	$(SENTINEL)
 
 STATUS_TABLE_0.1_RC4_DEPS = \
@@ -193,7 +208,7 @@ STATUS_TABLE_0.1_RC4_DEPS = \
 	status/common.scm \
 	status/generate-0.1-rc4-status-table.scm \
 	../resources/data/computers-0.1-rc4.rec \
-	$(ES_LOCALE) \
+	$(LOCALES) \
 	$(SENTINEL)
 
 COREBOOT_UPSTREAM_STATUS_TABLE_DEPS = \
@@ -201,7 +216,7 @@ COREBOOT_UPSTREAM_STATUS_TABLE_DEPS = \
 	status/common.scm \
 	status/generate-coreboot-upstream-status.scm \
 	../resources/data/coreboot-upstream-status.rec \
-	$(ES_LOCALE) \
+	$(LOCALES) \
 	$(SENTINEL)
 
 UPSTREAM_VERSIONS_TABLE_DEPS = \
@@ -209,7 +224,7 @@ UPSTREAM_VERSIONS_TABLE_DEPS = \
 	status/common.scm \
 	status/generate-upstream-versions.scm \
 	../resources/data/upstream-versions.rec \
-	$(ES_LOCALE) \
+	$(LOCALES) \
 	$(SENTINEL)
 
 REPRODUCIBLE_BUILDS_STATUS_TABLE_DEPS = \
@@ -217,7 +232,7 @@ REPRODUCIBLE_BUILDS_STATUS_TABLE_DEPS = \
 	status/common.scm \
 	status/generate-reproducible-builds-status.scm \
 	../resources/data/reproducible-builds-status.rec \
-	$(ES_LOCALE) \
+	$(LOCALES) \
 	$(SENTINEL)
 
 # guile-dsv is not widely packaged. To our knowledge it is only available in

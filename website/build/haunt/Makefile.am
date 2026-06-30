@@ -14,14 +14,25 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+if WANT_GENERATE_LOCALES
+SET_LOCPATH = export LOCPATH=locale ;
+LOCALE_DEPS = $(LOCALES)
+PRESERVE_LOCPATH = --preserve="^LOCPATH$$"
+else # WANT_GENERATE_LOCALES
+SET_LOCPATH =
+LOCPATH =
+LOCALE_DEPS =
+endif # WANT_GENERATE_LOCALES
+
 if WANT_GUIX
 # The --expose is for enabling git to retrieve the commit hash and subject.
 # And since we're using Guix 1.4.0, we can't simply use the glibc's C.UTF-8
 # builtin locale, and we need guile to be able to use UTF-8 locales in order
 # for haunt to properly handle UTF-8 markdown files.
-HAUNT_BUILD_CMD = \
+HAUNT_BUILD_CMD = $(SET_LOCPATH) \
 	$(GUIX_SHELL_CONTAINER) \
 	--share=`realpath ..` \
+	$(PRESERVE_LOCPATH) \
 	bash \
 	git \
 	glibc-locales \
@@ -29,7 +40,7 @@ HAUNT_BUILD_CMD = \
 	-- \
 	haunt build
 else
-HAUNT_BUILD_CMD = haunt build
+HAUNT_BUILD_CMD = $(LOCPATH) haunt build
 endif
 
 build/haunt/0.1-rc1.html: $(STATUS_TABLE_0.1_RC1_DEPS) ../resources/data/0.1-rc1.rec
@@ -136,8 +147,7 @@ HAUNT_BUILD_DEPS = \
 	$(GNUBOOT_MANUAL) \
 	$(HAUNT_STATUS_PAGES)
 
-
-haunt-build: $(HAUNT_BUILD_DEPS)  $(HAUNT_STATUS_PAGE_DEPS)
+haunt-build: $(HAUNT_BUILD_DEPS) $(HAUNT_STATUS_PAGE_DEPS) $(LOCALE_DEPS)
 	$(HAUNT_BUILD_CMD)
 	find build/haunt/site/software/gnuboot/ \
 		-name "*.html" -type f \

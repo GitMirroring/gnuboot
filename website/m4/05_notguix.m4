@@ -21,15 +21,37 @@
 ## CHECK_GNUBOOT_WEBSITE_COMMON_DEPENDENCIES  -- Check for common dependencies between Guix and non Guix builds
 ## CHECK_GNUBOOT_WEBSITE_NOTGUIX_DEPENDENCIES -- Check dependencies for non Guix builds
 
+# AC_MSG_ERROR_LOCALE_NOT_FOUND -- Print error message telling what to do when a locale is not found.
+#
+# Usage: AC_MSG_ERROR_LOCALE_NOT_FOUND
+#
+AC_DEFUN([AC_MSG_ERROR_LOCALE_NOT_FOUND],
+         [AC_MSG_ERROR([The es_ES.utf8 locale was not found.
+You can either:
+- Consult your distribution documentation on how to generate it.
+- Use ./configure --generate-locales instead.])])
+
+AC_DEFUN([CHECK_GNUBOOT_WEBSITE_LOCALE_DEPENDENCIES],
+         [AS_IF([test x"generate_locales" = x"no"],
+	        [# Default locale
+                 AC_CHECK_LOCALE([FOUND_LOCALES], [es_US.utf8], [yes])
+                 AS_IF([test x"$FOUND_LOCALES" = x""],
+                       [AC_MSG_ERROR_LOCALE_NOT_FOUND])
+
+                 # Additional locales
+                 AC_CHECK_LOCALE([FOUND_LOCALES], [es_ES.utf8], [yes])
+                 AS_IF([test x"$FOUND_LOCALES" = x""],
+                       [AC_MSG_ERROR_LOCALE_NOT_FOUND])])])
+
 # CHECK_GNUBOOT_WEBSITE_COMMON_DEPENDENCIES -- Check for common dependencies between Guix and non Guix builds
 #
 # Usage: CHECK_GNUBOOT_WEBSITE_COMMON_DEPENDENCIES
 #
 AC_DEFUN([CHECK_GNUBOOT_WEBSITE_COMMON_DEPENDENCIES],
- [AC_CHECK_LOCALE([FOUND_LOCALES], [es_ES.utf8], [yes])
-  AS_IF([test x"$FOUND_LOCALES" = x""],
-        [AC_MSG_ERROR([The es_ES.utf8 locale was not found. Try TODO.])])
+ [# Check for the required locales
+  CHECK_GNUBOOT_WEBSITE_LOCALE_DEPENDENCIES
 
+  # Check for other dependencies
   AC_CHECK_PROG([FOUND_AWK], [awk], [awk])
   AS_IF([test x"$FOUND_AWK" = x""],
         [AC_MSG_ERROR([awk was not found in PATH ($PATH)])])
