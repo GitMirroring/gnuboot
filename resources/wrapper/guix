@@ -68,6 +68,23 @@ if [ "${GUIX_REVISION}" != "09be58292f6c8795d7e9723a58d9b32c8177cf34" ] ; then
     topdir_source_config_error
 fi
 
+# # We need to be able to access locales and potentially other things
+# # made available through the Guix profile.
+# if [ -f "${HOME}"/.config/guix/current/etc/profile ] ; then
+#     GUIX_PROFILE="${HOME}"/.config/guix/current
+
+#     # For some reasons using "# shellcheck
+#     # source=${HOME}/.config/guix/current/etc/profile" doesn't
+#     # work, so we need to tell shellcheck not to test that file.
+#     # shellcheck disable=SC1091
+#     . "$GUIX_PROFILE"/etc/profile
+
+#     # unset GUIX_PROFILE
+# fi
+# # We always export GUIX_LOCPATH even if the path doesn't exist as it
+# # can also be created by adding glibc-locales to the guix shell.
+# export GUIX_LOCPATH="$HOME"/.guix-profile/lib/locale
+
 # We need -C resources/wrapper/channels.scm to make sure to only use
 # the default channels provided by Guix.
 guix_wrapper()

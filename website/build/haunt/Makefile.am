@@ -29,10 +29,9 @@ if WANT_GUIX
 # And since we're using Guix 1.4.0, we can't simply use the glibc's C.UTF-8
 # builtin locale, and we need guile to be able to use UTF-8 locales in order
 # for haunt to properly handle UTF-8 markdown files.
-HAUNT_BUILD_CMD = $(SET_LOCPATH) \
+HAUNT_BUILD_CMD = \
 	$(GUIX_SHELL_CONTAINER) \
 	--share=`realpath ..` \
-	$(PRESERVE_LOCPATH) \
 	bash \
 	git \
 	glibc-locales \
