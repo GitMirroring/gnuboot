@@ -173,14 +173,14 @@ This manual is for GNU Boot version @value{VERSION}.
 * Security::
 * Maintenance and repairs::
 * Building GNU Boot from source::
-* Helping GNU Boot::				How to contribute to GNU Boot
+* Contributing to GNU Boot::			How to contribute to GNU Boot
 * GNU Free Documentation License::		Copying and sharing this documentation.
 * Concept index::				Index of concepts.
 
 @detailmenu
  --- The Detailed Node Listing ---
 
-Overview
+Overview lping
 
 * What is GNU Boot::
 * Why free boot software is important::
@@ -233,7 +233,7 @@ Building GNU Boot from source
 * Installing dependencies for building GNU Boot::
 * Building a GNU Boot release::
 
-Helping GNU Boot
+Contributing to GNU Boot
 
 GNU Free Documentation License
 
@@ -3778,11 +3778,177 @@ for building GNU Boot binaries} on the GNU Boot website.
 Also note that these instructions also depend on some of the
 instructions above in this manual.
 
-@node    Helping GNU Boot
-@chapter Helping GNU Boot
+@node    Contributing to GNU Boot
+@chapter Contributing to GNU Boot
 
 @node    Documentation
 @section Documentation
+
+@node       GNU Boot documentation
+@subsection GNU Boot documentation
+
+The documentation on GNU Boot is scattered around between this manual
+and the GNU Boot website.
+
+The website has more information, but the manual is more consistent
+and the information is of higher quality. And GNU Boot is migrating
+the information from its website to this manual.
+
+In addition the GNU Boot manual is available in multiple formats:
+The @uref{https://www.gnu.org/software/gnuboot/manual/gnuboot.pdf,PDFs}
+and @uref{https://www.gnu.org/software/gnuboot/manual/gnuboot.html,
+HTML} manuals can be downloaded on the GNU Boot website, and it is
+also packaged as an info manual in Parabola.
+
+Note that for the HTML manual, it is a good idea to use the ``Save
+Page As …'' function of your browser instead of ``Save Link As …'' to
+get the picture(s) as well.
+
+@node       Upstream documentation
+@subsection Upstream documentation
+
+While contibuting to GNU Boot it is also often necessary to access
+manuals from the projects GNU Boot depends on.
+
+The GNU project has @uref{https://www.gnu.org/manual/, online manuals},
+but they don't always keep manuals corresponding to the (older)
+version of the software you are using and GNU Boot also depends on a
+few projects that are not part of GNU.
+
+And in most cases, GNU Boot (also) uses the software that comes from
+the distribution you use, so having the the manual for the exact
+version of the software you use is best.
+
+Another option is to use the manuals provided by your
+distribution. For instance if you want to contribute to this manual,
+you will need texinfo and the texinfo packages often comes with a
+manual.
+
+In other cases the manual is available in a separate package, like
+with the @emph{make} package that comes without the manual, so in
+Trisquel you need to install @emph{make-doc} to be able to get the
+manual as well.
+
+Once @emph{make-doc} is installed, you can either point a browser to
+the @file{/usr/share/doc/make-doc/make.html/index.html} URL by running
+the following command:
+
+@example
+abrowser /usr/share/doc/make-doc/make.html/index.html
+@end example
+
+The content of the make-doc package can be viewed with the following
+command on PureOS or Trisquel or other Debian based distributions:
+
+@example
+dpkg -L make-doc
+@end example
+
+This can help determining what kind of documentation a package contains.
+
+On other distributions the command can be different but they would
+have something equivalent. For instance in Hyperbola, Parabola or
+other distributions based on Arch Linux, it can be done with this
+command instead:
+
+@example
+pacman -Q -l make
+@end example
+
+Another option is to use the info manual reader. It has the same key
+bindings than Emacs, and the
+@uref{https://www.gnu.org/software/emacs/refcards/pdf/survival.pdf,GNU
+Emacs Survival Card} documents some basic key bindings like searching
+for a string.
+
+To show the make info manual you can use:
+@example
+info make
+@end example
+
+Alternatively you can also see the same manual in Emacs. Emacs can
+show pictures (the GNU Boot and Guix manual have some). To do that you
+can use the following Emacs command (see the survival card above to
+understand how to type it):
+
+@example
+M-X info
+@end example
+
+And you'll see a list of manuals, and inside you should see the make
+manual at some point:
+
+@example
+* Make: (make).                 Remake files automatically.
+@end example
+
+And you can then click on @emph{Make} to go to the manual.
+
+@node       Guix documentation
+@subsection Guix documentation
+
+Guix provides a way to select a very specific version of Guix, and GNU
+Boot takes advantage of that.
+
+This means that the Guix version / revision used by GNU Boot may or
+may not correspond to the version provided by your distribution, and
+it may not even correspond to the latest Guix release.
+
+Because of that, you will mostly (also) need a manual that correspond
+to the Guix version used by GNU Boot.
+
+Right now GNU Boot uses Guix @value{GUIX_REVISION_NAME} which
+corresponds to the last Guix revision at the time of writing.
+
+Thanks to that we can find the
+@uref{https://guix.gnu.org/manual/@value{GUIX_REVISION_NAME}/,GNU Guix Reference Manual}
+online.
+
+It is also possible to view the info manual with this command:
+
+@example
+guix time-machine --commit=v@value{GUIX_REVISION_NAME} -- shell texinfo guix -- info guix
+@end example
+
+The following command will launch the emacs available in Guix
+@value{GUIX_REVISION_NAME}, and it has access to the @value{GUIX_REVISION_NAME} manual:
+
+@example
+guix time-machine --commit=v@value{GUIX_REVISION_NAME} -- shell emacs guix -- emacs
+@end example
+
+The two commands above do work even for Guix revisions that are
+between releases (by replacing v@value{GUIX_REVISION_NAME} by a Guix
+git commit as per @ref{Invoking guix time-machine,,,guix,the GNU Guix
+manual}).
+
+The Guix manual can then be found here:
+
+@example
+System administration
+* Guix: (guix).                 Manage installed software and system
+                                  configuration.
+@end example
+
+And once we click on @emph{Guix}, we can see that the version is
+really Guix @value{GUIX_REVISION_NAME}:
+
+@example
+File: guix.info,  Node: Top,  Next: Introduction,  Up: (dir)
+
+GNU Guix
+********
+
+This document describes GNU Guix version 1.5.0rc1, a functional package
+management tool written for the GNU system.
+@end example
+
+In case of releases, it sometimes have things like 'rc1' appended to
+the version in cases of releases. This is a side effect of how Guix
+and git work and it should be ignored.
+
+@node    Helping GNU Boot
+@section Helping GNU Boot
 
 The GNU Boot project needs help with this manual, specifically on
 moving information from the GNU Boot website to this manual.
