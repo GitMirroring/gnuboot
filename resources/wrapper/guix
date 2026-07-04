@@ -61,7 +61,7 @@ fi
 
 source "${topdir}"/conf.sh
 
-if [ "${GUIX_REVISION}" != "230aa373f315f247852ee07dff34146e9b480aec" ] ; then
+if [ "${GUIX_REVISION}" != "09be58292f6c8795d7e9723a58d9b32c8177cf34" ] ; then
     printf "\n" > /dev/stderr
     printf "ERROR: The conf.sh file that is in %s is outdated.\n" \
            "${topdir}" > /dev/stderr

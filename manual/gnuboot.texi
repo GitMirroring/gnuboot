@@ -4784,29 +4784,40 @@ Because of that, you will mostly (also) need a manual that correspond
 to the Guix version used by GNU Boot.
 
 Right now GNU Boot uses Guix @value{GUIX_REVISION_NAME} which
-corresponds to the last Guix revision at the time of writing.
+corresponds to the last Guix revision that touched the grub-coreboot
+Guix package at the time of writing.
 
-Thanks to that we can find the
-@uref{https://guix.gnu.org/manual/@value{GUIX_REVISION_NAME}/,GNU Guix Reference Manual}
-online.
+Because it's not a proper Guix release, there is no online manual for
+this revision.
 
-It is also possible to view the info manual with this command:
+But it is possible to view the info manual with this command:
 
 @example
-guix time-machine --commit=v@value{GUIX_REVISION_NAME} -- shell texinfo guix -- info guix
+guix time-machine \
+     --commit=v@value{GUIX_REVISION} \
+     -- \
+     shell texinfo guix \
+     -- \
+     info guix
 @end example
 
 The following command will launch the emacs available in Guix
-@value{GUIX_REVISION_NAME}, and it has access to the @value{GUIX_REVISION_NAME} manual:
+@value{GUIX_SHORT_REVISION}, and it has access to the Guix
+@value{GUIX_SHORT_REVISION} manual:
 
 @example
-guix time-machine --commit=v@value{GUIX_REVISION_NAME} -- shell emacs guix -- emacs
+guix time-machine \
+     --commit=v@value{GUIX_REVISION} \
+     -- \
+     shell emacs guix \
+     -- \
+     emacs
 @end example
 
 The two commands above do work even for Guix revisions that are
-between releases (by replacing v@value{GUIX_REVISION_NAME} by a Guix
-git commit as per @ref{Invoking guix time-machine,,,guix,the GNU Guix
-manual}).
+between releases as well as Guix releases (by replacing
+v@value{GUIX_REVISION_NAME} by a Guix git commit as per @ref{Invoking
+guix time-machine,,,guix,the GNU Guix manual}).
 
 The Guix manual can then be found here:
 
