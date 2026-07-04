@@ -54,5 +54,5 @@ build-guix-%-linux.sh: build-guix-%-linux.sh.in
 		sed '/^$$/d' > $@
 	chmod +x $@
 
-guix-revision.texi:
+guix-revision.texi: ../$(srcdir)/guix-revision.sh
 	../$(srcdir)/guix-revision.sh print-texinfo > $@
