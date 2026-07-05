@@ -246,7 +246,7 @@ Estado de GNU Boot 0.1 RC5
 | Gigabyte,        | Faltan       | Faltan       | Faltan       | Fallado:     |
 | D945GCLF2D       | imágenes     | imágenes     | imágenes     | #66463       |
 +------------------+--------------+--------------+--------------+--------------+
-| Gigabyte,        | Faltan       | No probado   | Faltan       | No probado   |
+| Gigabyte,        | Faltan       | Probado      | Faltan       | No probado   |
 | GA-G41M-ES2L     | imágenes     |              | imágenes     |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Intel, D410PT    | No probado   | No probado   | No probado   | No probado   |

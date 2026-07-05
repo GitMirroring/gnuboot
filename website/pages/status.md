@@ -245,7 +245,7 @@ GNU Boot 0.1 RC5 status
 | Gigabyte,        | Missing      | Missing      | Missing      | Fail: #66463 |
 | D945GCLF2D       | images       | images       | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Gigabyte,        | Missing      | Untested     | Missing      | Untested     |
+| Gigabyte,        | Missing      | Tested       | Missing      | Untested     |
 | GA-G41M-ES2L     | images       |              | images       |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Intel, D410PT    | Untested     | Untested     | Untested     | Untested     |
