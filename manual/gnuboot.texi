@@ -171,7 +171,7 @@ This manual is for GNU Boot version @value{VERSION}.
 * Installing or upgrading GNU Boot images::
 * Using GNU Boot::
 * Security::
-* Maintenance and repairs::
+* Hardware maintenance / repairs / modifications ::
 * Building GNU Boot from source::
 * Contributing to GNU Boot::			How to contribute to GNU Boot
 * GNU Free Documentation License::		Copying and sharing this documentation.
@@ -217,7 +217,7 @@ Security
 * Very basic introduction on security::
 * Security considerations when using GNU Boot::
 
-Maintenance and repairs
+Hardware maintenance / repairs / modifications
 
 * Replacing removable boot flash chips::
 
@@ -3085,8 +3085,8 @@ you probably know it, or write about it, and you then need to re-do
 the seals. How to do all that will need to be explained later on in
 this manual.
 
-@node    Maintenance and repairs
-@chapter Maintenance and repairs
+@node    Hardware maintenance / repairs / modifications
+@chapter Hardware maintenance / repairs / modifications
 
 If you want to continue using the same computer for a very long time
 (more than 3 or 5 years), some maintenance will need to be done at
@@ -3106,6 +3106,11 @@ If you want to do any of these maintenance operations yourself, even
 if you don't care about having your computer lasting a long time, you
 will also need to learn similar things in order to avoid risks for
 your health, and also the health of the people around you.
+
+In addition the same knowledge can also be useful to improve and/or
+adapt your computer to various use cases. For instance the same
+knowledge is required to replacing a failing hard disk or switch to a
+bigger @acronym{SSD, Solid State Drive}.
 
 @node    Disassembling a computer
 @section Disassembling a computer
@@ -3199,6 +3204,15 @@ To do that you need to use a boot flash of the same chip package
 (@pxref{Flash chip package} to understand what is a chip package) and
 storage size and that uses the SPI protocol (currently all supported
 computers use SPI boot flash).
+
+You will also need the flash chip size to be supported by GNU Boot. To
+verify that, you can download the GNU Boot images for your computer
+and check what size they are (like 512KiB, 2MiB, 4MiB, 8MiB, 16MiB).
+
+If the size you need is lacking, you might want to consider
+contributing to GNU Boot for adding it, in order to be able to use the
+next releases and not have to maintain your changes. @xref{Boot flash
+sizes} for more details.
 
 To check the compatibility of the chip with Flashrom you can use the
 following command:
@@ -3965,6 +3979,38 @@ where to send bug reports, etc).
 
 @node    Adding support for additional computers
 @section Adding support for additional computers
+
+@node       Boot flash sizes
+@subsection Boot flash sizes
+
+At first sight, adding a new boot flash size for a computer can be as
+easy as looking at the differences between computers like
+kgpe-d16-rdimm_2mb and kgpe-d16-rdimm_16mb and deducing what change is
+required for instance to add a 8mb version.
+
+If you look at computers using the same chipset for comparison, you
+will not miss things like the Intel flash descriptor or additional
+configuration required by the size change.
+
+However if you use flash sizes bigger than the ones already supported
+by GNU Boot, it would also be wise to also check the various chipset
+documentations (like southbridge, northbridge, etc) that are in
+between the flash chip and the CPU to make sure that bigger sizes are
+visible at boot. If not you might need to find workaround to still
+make that work by only using a portion of the boot flash during boot.
+
+In addition this documentation might also document other constraints
+that the flash chip need to respect.
+
+In any case in GNU Boot we also want to add that kind of information
+in this manual, so it would be a good thing to send a patch or bug
+report with the information (maximum flash chip sizes and constraints)
+and the reference along the way.
+
+In addition, if you use a computer supported by GNU Boot whose boot
+flash isn't mentionned in this manual, we are also interested in the
+information (which should be communicated either in a patch or a bug
+report).
 
 @node       Asus Chromebook C201
 @subsection Asus Chromebook C201
