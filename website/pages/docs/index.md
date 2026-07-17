@@ -41,6 +41,12 @@ Information for developers
 -   [GNU Boot source code history and provenance](history/)
 -   [Depthcharge payload](depthcharge/) (**Libreboot 20160907 only**)
 -   [GRUB payload](grub/)
+-   [Past release announcements](history/news/)
+
+Help for organizing events
+==========================
+
+-    [Past event announcements](history/events/)
 
 Other information
 =================

@@ -1,0 +1,108 @@
+From MAILER-DAEMON Fri Sep 08 17:06:31 2023
+Received: from list by lists.gnu.org with archive (Exim 4.90_1)
+	id 1qeigR-0007Lx-Lp
+	for mharc-gnuboot@gnu.org; Fri, 08 Sep 2023 17:06:31 -0400
+Received: from eggs.gnu.org ([2001:470:142:3::10])
+ by lists.gnu.org with esmtps (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.90_1) (envelope-from <kernel@cyberdimension.org>)
+ id 1qeeFg-00084p-AK
+ for gnuboot@gnu.org; Fri, 08 Sep 2023 12:22:36 -0400
+Received: from cyberdimension.org ([80.67.179.20]
+ helo=gnutoo.cyberdimension.org)
+ by eggs.gnu.org with esmtps (TLS1.2:ECDHE_RSA_CHACHA20_POLY1305:256)
+ (Exim 4.90_1) (envelope-from <kernel@cyberdimension.org>)
+ id 1qeeFc-0006bL-Ia
+ for gnuboot@gnu.org; Fri, 08 Sep 2023 12:22:35 -0400
+Received: from gnutoo.cyberdimension.org (localhost [127.0.0.1])
+ by cyberdimension.org (OpenSMTPD) with ESMTP id a15eba17
+ for <gnuboot@gnu.org>; Fri, 8 Sep 2023 16:22:28 +0000 (UTC)
+Received: from primary_laptop (localhost [::1])
+ by gnutoo.cyberdimension.org (OpenSMTPD) with ESMTP id 67600bf9
+ for <gnuboot@gnu.org>; Fri, 8 Sep 2023 16:22:28 +0000 (UTC)
+Date: Fri, 8 Sep 2023 18:22:11 +0200
+From: Denis 'GNUtoo' Carikli <kernel@cyberdimension.org>
+To: gnuboot@gnu.org
+Subject: Testers needed for GNU Boot 0.1 RC1.
+Message-ID: <20230908182211.6284654a@primary_laptop>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.37; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
+Content-Type: multipart/signed; boundary="Sig_/kBy7cL8LwhMGpLJWbpcCpdu";
+ protocol="application/pgp-signature"; micalg=pgp-sha256
+Received-SPF: pass client-ip=80.67.179.20;
+ envelope-from=kernel@cyberdimension.org; helo=gnutoo.cyberdimension.org
+X-Spam_score_int: -18
+X-Spam_score: -1.9
+X-Spam_bar: -
+X-Spam_report: (-1.9 / 5.0 requ) BAYES_00=-1.9, SPF_HELO_PASS=-0.001,
+ SPF_PASS=-0.001 autolearn=ham autolearn_force=no
+X-Spam_action: no action
+X-Mailman-Approved-At: Fri, 08 Sep 2023 17:06:30 -0400
+X-BeenThere: gnuboot@gnu.org
+X-Mailman-Version: 2.1.29
+Precedence: list
+List-Id: <gnuboot.gnu.org>
+List-Unsubscribe: <https://lists.gnu.org/mailman/options/gnuboot>,
+ <mailto:gnuboot-request@gnu.org?subject=unsubscribe>
+List-Archive: <https://lists.gnu.org/archive/html/gnuboot>
+List-Post: <mailto:gnuboot@gnu.org>
+List-Help: <mailto:gnuboot-request@gnu.org?subject=help>
+List-Subscribe: <https://lists.gnu.org/mailman/listinfo/gnuboot>,
+ <mailto:gnuboot-request@gnu.org?subject=subscribe>
+X-List-Received-Date: Fri, 08 Sep 2023 16:22:36 -0000
+
+--Sig_/kBy7cL8LwhMGpLJWbpcCpdu
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
+
+Hi,
+
+GNU Boot has published its first release candidate, and we need help
+for testing, at first from people who are able to recover from
+computers that don't boot anymore.
+
+This is because, while we have very minimal changes on top of the code
+used by the last Libreboot release that didn't contain nonfree
+software, we didn't test all the images ourselves yet, so there is still
+risks of ending up with computers that don't boot anymore.
+
+If the code works fine, we will most likely be able to release it as-is
+but we (the current maintainers) still have a lot of work to do before
+the release.=20
+
+For instance we still need to integrate the code from the website, find
+good ways to deploy it, make sure that the installation documentation
+works (for instance by asking for help from testers and fixing it), etc.
+
+As for accepting patches, we're not ready yet to do that yet, but we
+plan to have that done for the first release, or before that depending
+on how things work.
+
+For reporting what images work, you can reply to this mail (or open a
+bug report).
+
+Denis.
+
+--Sig_/kBy7cL8LwhMGpLJWbpcCpdu
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEeC+d2+Nrp/PU3kkGX138wUF34mMFAmT7SjMACgkQX138wUF3
+4mPt1A//SmknVXL9Mx5cM8aLsvaVJmHyRxc3jmX5gg5Q/8mK6kYQyDCCZ48JhUm0
+tGVv1JwkU9zgr6+OCNFBPKpSxb5u3FWSfaVPoUd05o4yE9HC4H1XuhLhjaxtTCcl
+aKJKSP6ZvWWOOk7j/rZIZZHhFjm1+aE7xwBreAUgMG+B76gUcHqnRBigXR2PH94Q
+LevbSH8oTpToUKg86S3piEMRTiRcD5YQ3iyArWbw8gK24zn1TOScmucenWIOPuJ/
+I38GB1yVBHncKezzy53l1P9Y4QNM1bSL1nC2hsiGr8w9Pd/v41oAq9yvBuB6J1rB
+IlLhiEHmlSwHL4d3mTdxJGMawGXpYjnz8S0Cw2utvQTwl1XviTAqav/46G+jsviY
+om4mt66MJKiGQYdw1KUjPYdhXKzonNIeZnCQLli6v7i6vK+Lgn/ViqXVeItSxcKv
+7BZ97cObqQC5pdB1tI/w5T+Q6WI4azUMzdBUOMc4+eHY7XS6G/SbFIeLQE9ZlcNh
+Q/9+WtywEHvol80bb+gZRBFIBxKaHjkBjJxpAU1TBAes+lczMfBKcDBSUaKeepBm
+DkarZqcCw190oM1Aj1zAEBuP1QcR9aBybD/x1tu7gXZ4Wx6sfgY8RAIC8rVUaWEW
+3/HgvQUBHTZ2aktgEDvRNyMCNBxjsnkcNH934NmcUjScOHrOuJA=
+=WU7M
+-----END PGP SIGNATURE-----
+
+--Sig_/kBy7cL8LwhMGpLJWbpcCpdu--
+
+
