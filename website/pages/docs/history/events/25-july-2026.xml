@@ -24,7 +24,7 @@
 
   <p> Pour savoir si cet événement est pour vous, vous pouvez lire le
   programme ci dessous.</p>
-  
+
 <h3>Liens</h3>
 
 <ul>
@@ -33,10 +33,11 @@
 
 <li><a href="https://guix.gnu.org/">GNU Guix</a></li>
 
-<li><a href="https://www.zerocat.org/chipflasher.html">Zerocat Chipflasher</a></li>
+<li><a href="https://www.zerocat.org/chipflasher.html">Zerocat
+Chipflasher</a></li>
 
 </ul>
-  
+
 <h3>Programme</h3>
 
 <ul>
@@ -84,5 +85,5 @@ décider de ne pas suivre le programme si ça convient pas.</p>
     <!-- We can't have 1 tag per line, they must be separated by
          exactly one space
       -->
-    <tags>gnuboot guix zerocat</tags>
+    <tags>gnuboot guix zerocat reunion</tags>
 </event>
