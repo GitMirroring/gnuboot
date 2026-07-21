@@ -16,6 +16,9 @@ to make announce new events.
 Files with an incomplete copyright header
 =========================================
 
+- [25-july-2026.xml](25-july-2026.xml) : Meeting announce for the
+  [Agenda Du libre](https://www.agendadulibre.org/) in French
+
 - [6-december-2025.xml](6-december-2025.xml) : Install party for the
   [Agenda Du libre](https://www.agendadulibre.org/) in French
 
