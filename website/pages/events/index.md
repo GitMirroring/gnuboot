@@ -8,6 +8,10 @@ Note that some of the event below are recurring events, so you might
 want to check when the event takes place the next year in the case we
 forgot to update this page.
 
+* 25 July 2026: GNU Boot participates in a [GNU Boot + Zerocat
+  Chipflasher meeting](https://www.agendadulibre.org/events/35504) in
+  Paris, France.
+
 * 27 to 30 December 2025: GNU Boot participates in the
   [39C3](https://www.ccc.de/en/updates/2025/39c3-power-cycles) in
   Hamburg, Germany, with an install party and presentation(s).
