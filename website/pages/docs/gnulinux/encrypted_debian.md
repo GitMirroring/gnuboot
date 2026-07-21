@@ -78,9 +78,6 @@ If you are on a 32-bit system (e.g. X60):
 [This guide](grub_boot_installer.md) shows how to create a boot USB
 drive with the Debian ISO image.
 
-*This guide is only for the GRUB payload. If you use the depthcharge payload,
-ignore this section entirely.*
-
 Note: on some thinkpads, a faulty DVD drive can cause the cryptomount -a step
 during boot to fail. If this happens to you, try removing the drive.
 

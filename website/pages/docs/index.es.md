@@ -43,7 +43,6 @@ Información para desarrolladores
 
 -   [Cómo compilar el código fuente de GNU Boot](build/)
 -   [Historia y procedencia del código fuente de GNU Boot](history/)
--   [Depthcharge payload](depthcharge/) (**Sólo en Libreboot 20160907**)
 -   [GRUB payload](grub/)
 
 Información adicional
