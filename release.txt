@@ -1,0 +1,281 @@
+GNU Boot 0.1 RC7:
+-----------------
+
+We just released GNU Boot 0.1 RC7. Even if this release contains
+mostly bug fixes, we still need help from testers as many people are
+afraid to install images that are not guaranteed to work.
+
+Beside bug fixes, it also contains many improvements related to the
+the manual and website (more in the next sections).
+
+Safety improvements
+-------------------
+
+- The GNU/Linux distribution used to build a given releases is now
+  documented. This help limit the risk of non-working images if you
+  build images yourself (this is also now documented in the manual).
+
+- We found advices that were dangerous for the health and/or that
+  could break computers on the GNU Boot website.
+
+  More details are in the following commits:
+
+  - b9a32e655e6 website: warning banner: warn against breaking
+    computers.
+  
+  - 0a511315077 website: warning banner: warn against (potentially)
+    unsafe infos.
+
+  It was easier to add a warning banner on the unreviewed pages of the
+  website than to try to fix everything. Note that so far, everything
+  that is in the GNU Boot manual was reviewed from the start. And we
+  also need volunteers to help us review patches to improve the
+  quality of the information in the manual.
+
+  Also note that information that can break computers is extremely
+  wide spread, in many tutorials of poor quality.
+
+  But it probably also affects in a lesser extent, all or almost all
+  the boot software distributions that target laptops and that advise
+  to use external flash programmers.
+
+  The risks depend a lot on how the computer design, and the damage
+  can also be invisible and reduce the computer lifespan.
+
+  So having instructions that work for a given computer at a given
+  time doesn't mean that bad things can't happen.
+
+- It would not be very useful to warn people about risks and offer no
+  way to limit these risks. So we also started explaining how to limit
+  risks when using external flash programmers.
+
+  The idea is not to be comprehensive and to have information that can
+  make using flash programmers 100% safe, but instead to start
+  addressing the most common cause of breaking computers first, as
+  instructions cannot cover everything and they cannot substitute
+  proper training.
+
+  In addition most people probably just want to get the job done with
+  minimal risks, and probably cannot dedicate years of training to
+  have the smallest risk possible.
+
+GNU Boot manual packages availability
+-------------------------------------
+
+In GNU Boot 0.1 RC6 we didn't have what was necessary to package the
+manual. It was fixed a few months after the last release. Since then
+we started packaging the GNU Boot manual.
+
+It is now available in Parabola[1].
+
+A PureOS / Trisquel package can also be made from the GNU Boot source
+code but this is not integrated in PureOS or Trisquel (we don't know
+if this is possible or not).
+
+As expected the GNU Boot manual can also be built from GNU Boot source
+code, the last version can also be viewed or downloaded in PDF or HTML
+from the GNU Boot website, etc.
+
+Why packaging the manual?
+-------------------------
+
+The GNU Boot images can be downloaded from GNU and people can easily
+verify that they were released by the GNU Boot maintainers.
+
+However, for now, nobody can really verify what's in them, not even
+the maintainers, so if you really care about the security
+implications, the workaround for now, is to build these images
+yourself from the GNU Boot source code, to make the images you built
+are as safe as the computer you built them from.
+
+As explained in the manual, not wanting to build the images yourself
+is also perfectly fine, as security sometimes have costs. Here the
+cost is your time (which is precious), and an increased risk that the
+image won't work.
+
+If you want to build images for security reasons, this brings another
+problem: how can you make sure that the GNU Boot source code that you
+downloaded is really the same than everybody else uses?
+
+The ideal would be to be able to just run 'sudo apt install
+gnuboot-manual', and then follow the instruction to authenticate the
+source code from the manual. Since these instructions also depend on
+Guix you would also need to run 'sudo 'apt install guix' as well.
+
+Not having that option would require users to rely on HTTPS for
+security instead, and in general this isn't as secure or as easy as
+software provided directly by GNU/Linux distributions.
+
+See below for the status on this goal.
+
+GNU Boot binaries status
+------------------------
+
+We also started working on having the same kind of security or better
+for the images GNU Boot releases (through reproducible builds and
+bootstrapable builds, see the manual for more details) but unlike the
+ability to verify the GNU Boot source code this isn't usable yet.
+
+This requires to package the software that GNU Boot reuses in Guix,
+and here too having Guix packaged in many GNU/Linux distributions
+makes things more secure and way easier.
+
+But getting there is getting more complex than when we started GNU
+Boot as the landscape changed.
+
+Guix status
+-----------
+
+Around September 2025, Debian removed the Guix package due to a
+mismatch between expectations of distributions like Debian (who keeps
+the same packages versions in a release, and add security fixes on
+top) and Guix which is rolling release (it expect users to use the
+latest Guix revision which changes every day).
+
+This removal creates more issues for keeping the PureOS and Trisquel
+Guix packages. For instance, once installed, they have security
+issues, so users need upgrade Guix by following instructions in recent
+versions of the Guix manual to fix that.
+
+Guix is also packaged in Parabola and while keeping it working is a
+challenge, it requires less effort than PureOS / Trisquel / Debian, as
+Parabola is also rolling release, so we can use the latest Guix
+release and apply security fixes on top instead of having to do that
+on top of a very old Guix release. But that still requires a lot of
+time and effort for a single person.
+
+So we are looking for other Guix contributors interested in this issue
+to, together, find a way to have a realistic plan to lower maintenance
+cots for distributions like Parabola and enable more rolling releases
+distributions to keep up with security fixes.
+
+And this also brings very real benefits: We have work in progress
+patches for using the grub-coreboot Guix package in GNU Boot and
+preliminary tests did shows that it is possible to get the exact same
+GRUB image across different distributions, so in the future we might
+take advantage of that to independently verify part of the images and
+document how to do that. If done right, this in turn would also
+benefit Guix.
+
+We are supposed to do a talk in the Guix@Paris weekly event[2] in
+September 2026 to explain the situation as people from Guix are
+interested in the topic.
+
+Our focus would also be to involve the audience (that contains Guix
+contributors) to find ways to enable people to collaborate to improve
+the situation, in a realistic way.
+
+An idea could be to enable people to backport patches, and share the
+work, but also, at the same time, making it clear for everybody that
+this is done by volunteers and that no one is forced to do that
+work.
+
+Other manual and website improvements
+-------------------------------------
+
+The documentation (both the website and the manual) contains very
+important changes.
+
+- The URL of all the website pages changed in 2025. Before we
+  redirected everything to a web/ directory. So
+  https://gnu.org/software/gnuboot/web/index.html became
+  https://gnu.org/software/gnuboot/index.html . The commit 
+
+  See the commit 89b14d92423 ("website: get rid of web/ prefix.") for
+  more details.
+
+- Thanks to collaboration with Leah Rowe, the description of Canoeboot
+  was improved a lot.
+
+- Work was done to document which flash programmers work with which
+  laptops. We have very few programmers documented but we at least
+  have the infrastructure to be able to easily tests with
+  programmers. Also note that how to use these programmers isn't
+  documented yet in the GNU Boot manual, but as explained before, we
+  started documenting safety procedures.
+
+- Some mainboards like the KGPE-D16 should have been marked as
+  experimental from the start, due to incomplete Coreboot support. So
+  this is now done. See the commit 3759c00384a ("manual: mark fam15h
+  mainboards as experimental.") or the manual for more details.
+
+- We also started documenting how to use GNU Boot once installed: what
+  partition types it support, how to override the GRUB configuration
+  without touching GNU Boot, etc. However this work is not complete
+  yet and many patches about it still need to be sent. We for instance
+  with GRUB images, we don't have any documentation on the filesystems
+  being supported, or on which one are safer to use.
+
+- Work was done to explain how to test GNU Boot with QEMU.
+
+- A section on security was created in the manual. We took time to
+  explain what is a threat model because nowadays many people miss
+  that and security is often useless, counter-productive and a threat
+  to freedom and autonomy without that.
+
+  Beside that we try to explain the consequences for security of some
+  common situation with GNU Boot (installing GNU Boot, building it
+  yourself or not, etc).
+
+Other changes
+-------------
+
+GRUB is now back to using a release (2.14). Previously we had to
+update it to fix security issues at a time where no releases were
+available with the fixes.
+
+Many less visible changes
+-------------------------
+
+In addition to the more visible changes above, we also had many fixes,
+code cleanups, or similar improvements to make it easier to maintain
+GNU Boot in the long run.
+
+There is also a slow ongoing work to fix copyright notices we
+inherited from Libreboot: the information is recorded in various git
+repositories anyway, but once a given file is validated, it can easily
+be reused by other projects or people without risk of missing
+contributors.
+
+A lot of the work also went directly to other projects like Guix,
+Trisquel, Parabola, which are not directly visible in GNU Boot.
+
+Events
+------
+
+Several events took place since 0.1 RC6:
+
+- GNU Boot participated in the FSF40 hackathon. The FSF news around
+  that event have more details.
+
+- Several install parties and/or conferences were made. See the event
+  section on the GNU Boot website for more details on these.
+
+Process changes
+---------------
+
+- Jordán 'iShareFreedom' / isf is now the responsible for the Spanish
+  translations, but since that happened, we didn't really had to deal
+  with translations.
+
+Big release
+-----------
+
+This release has more than 200 change / commits since the 0.1 RC6
+release which was made in March 2025.
+
+References
+----------
+
+[1]It is in the gnuboot-manual package, in the pcr repository. Once
+   installed, the manual can be viewed with the info command, and also
+   in Emacs which is also supposed to be able to display the
+   picture(s) available in manuals (the info command can't do that).
+
+   However, in Parabola, with Emacs, pictures aren't displayed in the
+   GNU Boot and GNU Guix manual because the pictures are automatically
+   compressed during the package compilation. If someone knows how fix
+   that, please contact us on the gnuboot-patches mailing list.
+
+[2] The event is not annouced yet, but here's is a link to the last one:
+    https://www.agendadulibre.org/events/34902
