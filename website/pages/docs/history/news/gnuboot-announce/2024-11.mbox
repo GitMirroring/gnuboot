@@ -1,0 +1,530 @@
+From MAILER-DAEMON Sat Nov 23 14:07:51 2024
+Received: from list by lists.gnu.org with archive (Exim 4.90_1)
+	id 1tEvTz-0000C5-Ff
+	for mharc-gnuboot-announce@gnu.org; Sat, 23 Nov 2024 14:07:51 -0500
+Received: from eggs.gnu.org ([2001:470:142:3::10])
+ by lists.gnu.org with esmtps (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.90_1) (envelope-from <www-data@savannah.gnu.org>)
+ id 1tEvTx-0000Bm-ML
+ for gnuboot-announce@gnu.org; Sat, 23 Nov 2024 14:07:49 -0500
+Received: from frontend2.savannah.gnu.org ([209.51.188.113])
+ by eggs.gnu.org with esmtps (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.90_1) (envelope-from <www-data@savannah.gnu.org>)
+ id 1tEvTx-00037b-Ek
+ for gnuboot-announce@gnu.org; Sat, 23 Nov 2024 14:07:49 -0500
+Received: by frontend2.savannah.gnu.org (Postfix, from userid 33)
+ id 597B4121450; Sat, 23 Nov 2024 14:07:49 -0500 (EST)
+To: gnuboot-announce@gnu.org
+Subject: GNU Boot November 2024 News
+From: GNUtoo <INVALID.NOREPLY@gnu.org>
+X-Apparently-From: Savane authenticated user neox
+X-Savane-Server: savannah.gnu.org:443 2001:470:142:5::113
+X-Savane-Project: gnuboot
+X-Savane-Tracker: news
+Message-Id: <20241123-200749.sv342932.194556@savannah.gnu.org>
+MIME-Version: 1.0
+Content-Type: MULTIPART/signed; micalg=pgp-sha256;
+ protocol="application/pgp-signature";
+ BOUNDARY="8323329-274331667-1732388869=:402362"
+Content-Disposition: inline
+Date: Sat, 23 Nov 2024 14:07:49 -0500 (EST)
+X-BeenThere: gnuboot-announce@gnu.org
+X-Mailman-Version: 2.1.29
+Precedence: list
+List-Id: "GNU Boot low volume project official communication \(announcements
+ of new versions and other official communication\)."
+ <gnuboot-announce.gnu.org>
+List-Unsubscribe: <https://lists.gnu.org/mailman/options/gnuboot-announce>,
+ <mailto:gnuboot-announce-request@gnu.org?subject=unsubscribe>
+List-Archive: <https://lists.gnu.org/archive/html/gnuboot-announce>
+List-Post: <mailto:gnuboot-announce@gnu.org>
+List-Help: <mailto:gnuboot-announce-request@gnu.org?subject=help>
+List-Subscribe: <https://lists.gnu.org/mailman/listinfo/gnuboot-announce>,
+ <mailto:gnuboot-announce-request@gnu.org?subject=subscribe>
+X-List-Received-Date: Sat, 23 Nov 2024 19:07:49 -0000
+
+--8323329-274331667-1732388869=:402362
+Content-Type: TEXT/plain; CHARSET=utf-8
+Content-Transfer-Encoding: QUOTED-PRINTABLE
+Content-Disposition: inline
+
+A lot has changed since the two last news from the GNU Boot project.=0A=0A=
+=3D=3D=3D GNU Boot install party in Paris the 7 and 8 December 2024 =3D=3D=
+=3D=0A=0APeople involved in the GNU Boot project will be organizing a 100% =
+free=0Asoftware install party within a bigger event that also has a regular=
+=0Ainstall party. There will also be a presentation about 100% free=0Asoftw=
+are in there. The event will be mainly in French.=0A=0AMore details are ava=
+ilable in French and in English in the following=0Alink:=0Ahttps://lists.gn=
+u.org/archive/html/help-guix/2024-11/msg00112.html=0A=0A=3D=3D=3D GNU Boot =
+0.1 RC4 =3D=3D=3D=0A=0AMany changes were made since the RC3 and since then =
+we fixed an=0Aimportant bug that prevented Trisquel from booting (If during=
+ the=0ATrisquel installation you chose "LVM2" and didn't encrypt the=0Astor=
+age, GNU Boot images with GRUB would not find the Trisquel=0Ainstallation).=
+=0A=0ABecause of that we decided to do a new RC4 (release candidate 4)=0Aan=
+d to publish new GNU Boot images.=0A=0AThere are still some work needed bef=
+ore doing a 0.1 release as we want=0Ato make it easier for less technical u=
+sers to install and use GNU=0ABoot, but more and more of the project struct=
+ure are getting in place=0A(website, manual, automatic tests, guix, good de=
+velopment procedures,=0Aenabling build on all distributions, etc) which the=
+n makes it easier=0Ato contribute.=0A=0AWe also decided to use Guix for mor=
+e of the software components=0Awe build, and since this is a big change, we=
+ will need people to=0Ahelp more with testing.=0A=0A=3D=3D=3D Nonfree softw=
+are found again, no supported device affected. =3D=3D=3D=0A=0AThe last anno=
+uncement we made was "Nonfree software found in GNU Boot=0Areleases again, =
+many distros affected"[1].=0A=0ASome people misunderstood it (maybe we coul=
+d have been more clear):=0Athe nonfree software that we found was code that=
+ GNU Boot didn't use,=0Aso it was easy to remove and it didn't affect the s=
+upported devices in=0Aany way.=0A=0AFinding nonfree software in 100% free d=
+istribution is also common:=0Athis is part of the work to ensure these dist=
+ribution remains 100%=0Afree.=0A=0AThe first time it happened in GNU Boot w=
+e publicized it to explain why=0Awe were re-releasing some of the GNU Boot =
+files as it could be very=0Ascary if this happens without any public commun=
+ication.=0A=0AThe second time we published a news about it mainly to help p=
+ropagate=0Athe information to the affected distributions and this is probab=
+ly why=0Ait was misunderstood: it was mainly targeted at GNU Boot users and=
+=0Amaintainers of the affected packages. We also contacted upstream and=0As=
+ome affected distributions directly as well but contacting everybody=0Atake=
+s a lot of time so having a news about it helps. At least Debian=0Aand Tris=
+quel fixed the issue but we still need to contact some=0Adistributions.=0A=
+=0AAfter that, and probably thanks to the previous news, Leah Rowe=0Acontac=
+ted us on one of the GNU Boot mailing lists[2] to notify us that=0Ashe also=
+ found additional similar nonfree software in GNU Boot.=0A=0ASo we confirme=
+d that and promptly removed them and re-made again the=0Asource release. An=
+d here again even if the work was delayed a bit,=0Athis was fast to do and =
+it doesn't affect the supported devices in any=0Away.=0A=0ABut we also need=
+ help contacting distributions again because one of=0Athe issue she found i=
+s very serious because it affects many=0Adistributions and also important d=
+evices that GNU Boot doesn't=0Asupport.=0A=0AThe ARM trusted firmware ships=
+ a nonfree hdcp.bin binary in its source=0Acode. ARM trusted firmware is a =
+dependency of u-boot that is used to=0Asupport many ARM computers in other =
+distributions (like Guix, Debian,=0Aetc).=0A=0AAs contacting affected distr=
+ibutions is a tedious task, we also need=0Ahelp to propagate the informatio=
+n and contact them especially because=0Awe don't know if Leah intend or not=
+ to do that work (so far she didn't=0Areply when asked twice about it), so =
+it's probably up to the GNU Boot=0Acommunity as a whole (which also include=
+s its maintainers and readers=0Aof this news) to help here.=0A=0AThe detail=
+s are in the commit 343515aee7ef34695ac45830fad419d9562f9c15=0A("coreboot: =
+blobs.list: arm-trusted-firmware: Remove RK3399 hdcp.bin=0Afirmware.") in t=
+he GNU Boot source code[3].=0A=0A[1]https://savannah.gnu.org/news/?id=3D106=
+84=0A[2]https://lists.gnu.org/archive/html/gnuboot-patches/2024-10/msg00028=
+.html=0A[3]https://git.savannah.gnu.org/cgit/gnuboot.git/commit/?id=3D34351=
+5aee7ef34695ac45830fad419d9562f9c15=0A=0A=3D=3D=3D Website and documentatio=
+n =3D=3D=3D=0A=0AJord=C3=A1n (isf) has been contributing some Spanish trans=
+lations of the=0Amost important website pages (the landing, status and how =
+to=0Acontribute pages). This is important as it could help get more=0Acontr=
+ibutors. These contributions also helped us improve the process=0Afor accep=
+ting pseudonymous contributions and enabled us to fix issues.=0A=0AThe work=
+ on improving the website in general also continued. Many of=0Athe website =
+pages were reviewed and improved (there is a lot of work=0Athere and mentio=
+ning it all would make the news way too long).=0A=0AThe website also now sh=
+ows the git revision from which it is build and=0Awe also helped the FSF fi=
+x some server configuration that created=0Aissue with the deployment of the=
+ GNU Boot website (more details are in=0Athe commit message[1]) by reportin=
+g the issue to them and testing the=0Afix.=0A=0APatches for making a manual=
+ are also being reviewed. While there isn't=0Amuch in the manual yet, it al=
+so enables to better organize the=0Adocumentation and it has the potential =
+to make GNU Boot more=0Aaccessible to less technical people.=0A=0AThe next =
+goals is to look how to merge part of the website inside the=0Amanual and c=
+ontinue improving both the website and the manual.=0A=0A[1]https://git.sava=
+nnah.gnu.org/cgit/gnuboot.git/commit/?id=3Dd1df672383f6eb8d4218fdef7fbe9ec5=
+e41803e4=0A=0A=3D=3D=3D Authenticating GNU Boot source code =3D=3D=3D=0A=0A=
+We now have the ability to verify the source code when downloading it=0Afro=
+m git. This is important to avoid certain type of attacks and it=0Aalso ena=
+bles to write code to automatically download, verify and build=0Athe GNU Bo=
+ot source code.=0A=0AThe source can be verified with the following command =
+(it requires to=0Ahave Guix installed):=0A $ guix git authenticate $(git re=
+v-parse HEAD) \=0A  "E23C 26A5 DEEE C5FA 9CDD  D57A 57BC 26A3 6871 16F6" \=
+=0A  -k origin/keyring=0A=0AIf the authentication works it will print a mes=
+sage like that:=0A=0A    guix git: successfully=0A    authenticated commit =
+05c09293d9660ea1f26b5b705a089b466a0aa718=0A=0AThe 05c09293d9660ea1f26b5b705=
+a089b466a0aa718 might be different in=0Ayour case.=0A=0AThe "E23C 26A5 DEEE=
+ C5FA 9CDD D57A 57BC 26A3 6871 16F6" part in the=0Acommand above is Adrien =
+Bourmault (neox)'s GPG key.=0A=0AHow to use that will be documented more in=
+ depth in the upcoming GNU=0ABoot manual that is currently being reviewed. =
+Its importance will also=0Abe explained in more details for people not fami=
+liar with the security=0Aissues it's meant to solve. Also note that we also=
+ welcome help for=0Areviewing patches.=0A=0A=3D=3D=3D Licensing =3D=3D=3D=
+=0A=0AThe GNU Boot source code has a complex history. It is based on the=0A=
+last fully free software releases of Libreboot. And the Libreboot=0Asource =
+code history is very complex.=0A=0AWe found some missing authorship informa=
+tion in some of the files that=0Acome from Libreboot and so we started such=
+ information from the=0Avarious git repositories that were used at some poi=
+nt by Libreboot or=0Asome of the projects it was based on.=0A=0ATo help wit=
+h this task we also added a page on the GNU Boot website=0A(https://www.gnu=
+.org/software/gnuboot/web/docs/history/) to track the=0Astatus of the recon=
+struction of the missing authorship and to document=0Athe GNU Boot source c=
+ode history.=0A=0A=3D=3D=3D Upstream contributions and easier building of G=
+NU Boot =3D=3D=3D=0A=0AGNU Boot is just a distribution and like most distri=
+butions, it tries=0Ato collaborate with various upstream projects whenever =
+possible.=0A=0ASince GNU Boot relies on Guix, we improved the Guix document=
+ation=0Adirectly to help people install Guix on Trisquel and Parabola. We a=
+lso=0Ahelped Trisquel fix security issues in the Guix package by bug=0Arepo=
+rting and testing fixes (some bugs still need to be fixed in=0AParabola and=
+ Debian, and reporting issues upstream takes time).=0A=0ASince we also advi=
+se to use PureOS or Trisquel to build GNU Boot we=0Aalso enabled people wit=
+h Guix to produce PureOS or Trisquel chroots=0Awith Debootstrap. This was d=
+one through contributions to Debootstrap,=0Aand to the Guix Debootstrap pac=
+kage. We could then mention that in the=0AGNU Boot build documentation=0A(h=
+ttps://www.gnu.org/software/gnuboot/web/docs/build/) and added a=0Ascript (=
+in contrib/start-guix-daemon.py) to support building GNU Boot=0Ain chroots.=
+ However there are still issue with the build in chroots=0Athat need to be =
+fixed to producing all released files. Instructions on=0Ahow to do build in=
+ chroots is also lacking.=0A=0AIn addition we also added the ability to bui=
+ld GNU Boot with Trisquel=0A11 (aramo).=0A=0AAn apt-cacher-ng package was a=
+lso contributed in Guix upstream as it=0Acan then be used to speed-up one o=
+f the automatic tests used in GNU=0ABoot but the support for apt-cacher-ng =
+was not integrated yet in GNU=0ABoot. Last year we also contributed a GRUB =
+package in Guix but we=0Adidn't have the occasion to use it yet. It will pr=
+obably happen soon=0Athough.=0A=0A=3D=3D=3D Building GNU Boot =3D=3D=3D=0A=
+=0AHow to build GNU Boot has changed a lot since GNU Boot 0.1 RC3.=0A=0ABef=
+ore Guix could only be optionally used to build the website.=0A=0AIn additi=
+on to that, Guix is now integrated in the build system so we=0Acan now rely=
+ on Guix packages to build GNU Boot images. This also=0Ameans that you need=
+ to install Guix to build GNU Boot images.=0A=0AWe currently use Guix packa=
+ges to build some tests. We also build some=0Ainstallation utilities for th=
+e I945 ThinkPads (ThinkPad X60, X60s,=0AX60T and T60) but we don't have doc=
+umentation for less technical=0Apeople yet on how to use them. We also woul=
+d need help for testing=0Athese computers as we have no idea if they still =
+work fine or which=0Afully free distributions still work on them in practic=
+e.=0A=0AWe now also support the './configure' and 'make' commands to build =
+GNU=0ABoot but not yet the 'make install' command as to work we would need=
+=0Ato adapt many of the scripts that are used during the build to be=0Acomp=
+atible with that.=0A=0AThere is also less visible work that was done, like =
+cleaning up a lot=0Aof code, adding tests for code quality, documenting a b=
+it the GNU Boot=0Asource code structure, and so on.=0A=0AWork on making GNU=
+ Boot reproducible also started. See=0Ahttps://reproducible-builds.org/ or=
+=0Ahttps://en.wikipedia.org/wiki/Reproducible_builds for more detail on=0At=
+he issue.=0A=0AWe took an extremely strict approach and put the checksum of=
+ some of=0Athe things we build directly into GNU Boot and verify it the che=
+cksum=0Aduring the compilation. This enables us to automatically detect=0Ai=
+ssues without having to do anything.=0A=0AWe started to enable that for eas=
+y things, and we also added the=0Ainfrastructure to also use that in Guix p=
+ackages as well by validating=0Aone of the packages we use during automatic=
+ testing.=0A=0AHowever at one point this guix package stopped being=0Arepro=
+ducible. Since we wanted to keep that code (especially as it was=0Ashowing =
+a good example of how to do it), we fixed the bug instead of=0Aremoving the=
+ test.=0A=0AThis then helped us detect a very subtle and interesting bug in=
+ one of=0Athe components we use for automatic tests.=0A=0AThe bug could not=
+ be caught during testing because some time=0Ainformation stored inside the=
+ FAT32 file system has a granularity of a=0Aday, and since all the testing =
+happened the same day, it was caught=0Aonly later on.=0A=0AThis bug was the=
+n fixed and the details are in the fix[1]. A bug=0Areport was also opened u=
+pstream because bugs were found in diffoscope=0Aalong the way[2]. We still =
+need to do some testing though to=0Aunderstand if the bug is in diffoscope =
+or one of the underlying=0Alibraries (libguestfs) and then to report the re=
+maining bugs to the=0Adistributions we used during this work.=0A=0AWe also =
+made it easier to update the checksum in the Guix package. If=0Ayou package=
+ software with Guix, this change is also a good example of=0Ahow not to bre=
+ak the '--without-tests' option when you override the=0Atests in the packag=
+e you contribute. The commit message[3] and the=0Achange have more details =
+and references on all that.=0A=0A[1]https://git.savannah.gnu.org/cgit/gnubo=
+ot.git/commit/?id=3D4c3de49fbb3b43940b43f8fdccc8e51ee7df8f46=0A[2]https://s=
+alsa.debian.org/reproducible-builds/diffoscope/-/issues/390=0A[3]https://gi=
+t.savannah.gnu.org/cgit/gnuboot.git/commit/?id=3D40fcb94e2f7ab1df8d320f7831=
+1e623f801d8602=0A=0A=3D=3D=3D LVM2 bug =3D=3D=3D=0A=0AWodeShengli reported =
+a very important bug[1]: GNU Boot images with=0AGRUB can't find LVM2 partit=
+ions if the partition itself is not=0Aencrypted. For instance if you have L=
+VM2 and no encryption at all or=0Aif the disk is encrypted and that on top =
+you have LVM2, GNU Boot will=0Anot find the partition.=0A=0ASince this is a=
+n extremely serious usability issue (because images=0Awith GRUB are suppose=
+d to work out of the box) we spent time to fix=0Ait.=0A=0AThe issue was tha=
+t the GRUB configuration we ship hardcoded the name=0Aof the LVM volumes to=
+ try to boot from. Fixing it required to be able=0Aloop over all the partit=
+ions being found, but we found no command to=0Ado that in GRUB (which is pr=
+obably why the LVM partition names were=0Ahardcoded in the first place).=0A=
+=0ASo we started adding GRUB command options to do that but while the=0Acod=
+e worked fine, it didn't integrate in GRUB well. So we contacted=0AGRUB loo=
+king for help as we would have needed to upstream our command=0Aoption in G=
+RUB anyway.=0A=0AAnd we were told that GRUB already had a way to do what we=
+ were=0Alooking for so we used that to fix the issue.=0A=0AWe also added te=
+sts that automatically download the Trisquel installer=0Aand installs Trisq=
+uel with LVM2 and test if GNU Boot can boot the new=0ATrisquel installation=
+[2].=0A=0AWhile this test is skipped for 32bit computers, it is still good =
+to=0Ahave as some people will run it. The test also paves the way to add=0A=
+more tests that would enable us to improve further the GRUB=0Aconfiguration=
+ without breaking the boot.=0A=0A[1]https://savannah.gnu.org/bugs/index.php=
+?65663=0A[2]https://git.savannah.gnu.org/cgit/gnuboot.git/commit/?id=3D860b=
+00bf1e798d86c8bb2a70d77633599dfa1da2=0A[3]https://git.savannah.gnu.org/cgit=
+/gnuboot.git/commit/?id=3D9cc02ddde1e164fabfbddc8bbd3832ef9468d92d=0A=0A=0A=
+_______________________________________________=0AMessage post=C3=A9 via Sa=
+vannah=0Ahttps://savannah.gnu.org/=0A
+--8323329-274331667-1732388869=:402362
+Content-Type: APPLICATION/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQQk97aszIMMAvLLwm6qLAuaBUf3TgUCZ0IoBQAKCRCqLAuaBUf3
+TlglAP9j6aUHw2DUn6ZgEJnZWxj6Ur1t9uC1DjdA7Op0xw8m6wD/W4fzp0eMyQsQ
+37RDQBiaQQkf+X4u1ntJZN5v3v02WwQ=
+=G0E8
+-----END PGP SIGNATURE-----
+
+--8323329-274331667-1732388869=:402362--
+
+
+
+From MAILER-DAEMON Sat Nov 23 14:07:57 2024
+Received: from list by lists.gnu.org with archive (Exim 4.90_1)
+	id 1tEvU5-0000E6-KR
+	for mharc-gnuboot-announce@gnu.org; Sat, 23 Nov 2024 14:07:57 -0500
+Received: from eggs.gnu.org ([2001:470:142:3::10])
+ by lists.gnu.org with esmtps (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.90_1) (envelope-from <www-data@savannah.gnu.org>)
+ id 1tEvU4-0000Do-Cy
+ for gnuboot-announce@gnu.org; Sat, 23 Nov 2024 14:07:56 -0500
+Received: from frontend2.savannah.gnu.org ([209.51.188.113])
+ by eggs.gnu.org with esmtps (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.90_1) (envelope-from <www-data@savannah.gnu.org>)
+ id 1tEvU4-00037u-5F
+ for gnuboot-announce@gnu.org; Sat, 23 Nov 2024 14:07:56 -0500
+Received: by frontend2.savannah.gnu.org (Postfix, from userid 33)
+ id 8434C121450; Sat, 23 Nov 2024 14:07:55 -0500 (EST)
+To: gnuboot-announce@gnu.org
+Subject: GNU Boot November 2024 News
+From: GNUtoo <INVALID.NOREPLY@gnu.org>
+X-Apparently-From: Savane authenticated user gnutoo
+X-Savane-Server: savannah.gnu.org:443 2001:470:142:5::113
+X-Savane-Project: gnuboot
+X-Savane-Tracker: news
+Message-Id: <20241123-190755.sv57142.16110@savannah.gnu.org>
+MIME-Version: 1.0
+Content-Type: MULTIPART/signed; micalg=pgp-sha256;
+ protocol="application/pgp-signature";
+ BOUNDARY="8323329-1353254842-1732388875=:402287"
+Content-Disposition: inline
+Date: Sat, 23 Nov 2024 14:07:55 -0500 (EST)
+X-BeenThere: gnuboot-announce@gnu.org
+X-Mailman-Version: 2.1.29
+Precedence: list
+List-Id: "GNU Boot low volume project official communication \(announcements
+ of new versions and other official communication\)."
+ <gnuboot-announce.gnu.org>
+List-Unsubscribe: <https://lists.gnu.org/mailman/options/gnuboot-announce>,
+ <mailto:gnuboot-announce-request@gnu.org?subject=unsubscribe>
+List-Archive: <https://lists.gnu.org/archive/html/gnuboot-announce>
+List-Post: <mailto:gnuboot-announce@gnu.org>
+List-Help: <mailto:gnuboot-announce-request@gnu.org?subject=help>
+List-Subscribe: <https://lists.gnu.org/mailman/listinfo/gnuboot-announce>,
+ <mailto:gnuboot-announce-request@gnu.org?subject=subscribe>
+X-List-Received-Date: Sat, 23 Nov 2024 19:07:56 -0000
+
+--8323329-1353254842-1732388875=:402287
+Content-Type: TEXT/plain; CHARSET=utf-8
+Content-Transfer-Encoding: QUOTED-PRINTABLE
+Content-Disposition: inline
+
+A lot has changed since the two last news from the GNU Boot project.=0A=0A=
+=3D=3D=3D GNU Boot install party in Paris the 7 and 8 December 2024 =3D=3D=
+=3D=0A=0APeople involved in the GNU Boot project will be organizing a 100% =
+free=0Asoftware install party within a bigger event that also has a regular=
+=0Ainstall party. There will also be a presentation about 100% free=0Asoftw=
+are in there. The event will be mainly in French.=0A=0AMore details are ava=
+ilable in French and in English in the following=0Alink:=0Ahttps://lists.gn=
+u.org/archive/html/help-guix/2024-11/msg00112.html=0A=0A=3D=3D=3D GNU Boot =
+0.1 RC4 =3D=3D=3D=0A=0AMany changes were made since the RC3 and since then =
+we fixed an=0Aimportant bug that prevented Trisquel from booting (If during=
+ the=0ATrisquel installation you chose "LVM2" and didn't encrypt the=0Astor=
+age, GNU Boot images with GRUB would not find the Trisquel=0Ainstallation).=
+=0A=0ABecause of that we decided to do a new RC4 (release candidate 4)=0Aan=
+d to publish new GNU Boot images.=0A=0AThere are still some work needed bef=
+ore doing a 0.1 release as we want=0Ato make it easier for less technical u=
+sers to install and use GNU=0ABoot, but more and more of the project struct=
+ure are getting in place=0A(website, manual, automatic tests, guix, good de=
+velopment procedures,=0Aenabling build on all distributions, etc) which the=
+n makes it easier=0Ato contribute.=0A=0AWe also decided to use Guix for mor=
+e of the software components=0Awe build, and since this is a big change, we=
+ will need people to=0Ahelp more with testing.=0A=0A=3D=3D=3D Nonfree softw=
+are found again, no supported device affected. =3D=3D=3D=0A=0AThe last anno=
+uncement we made was "Nonfree software found in GNU Boot=0Areleases again, =
+many distros affected"[1].=0A=0ASome people misunderstood it (maybe we coul=
+d have been more clear):=0Athe nonfree software that we found was code that=
+ GNU Boot didn't use,=0Aso it was easy to remove and it didn't affect the s=
+upported devices in=0Aany way.=0A=0AFinding nonfree software in 100% free d=
+istribution is also common:=0Athis is part of the work to ensure these dist=
+ribution remains 100%=0Afree.=0A=0AThe first time it happened in GNU Boot w=
+e publicized it to explain why=0Awe were re-releasing some of the GNU Boot =
+files as it could be very=0Ascary if this happens without any public commun=
+ication.=0A=0AThe second time we published a news about it mainly to help p=
+ropagate=0Athe information to the affected distributions and this is probab=
+ly why=0Ait was misunderstood: it was mainly targeted at GNU Boot users and=
+=0Amaintainers of the affected packages. We also contacted upstream and=0As=
+ome affected distributions directly as well but contacting everybody=0Atake=
+s a lot of time so having a news about it helps. At least Debian=0Aand Tris=
+quel fixed the issue but we still need to contact some=0Adistributions.=0A=
+=0AAfter that, and probably thanks to the previous news, Leah Rowe=0Acontac=
+ted us on one of the GNU Boot mailing lists[2] to notify us that=0Ashe also=
+ found additional similar nonfree software in GNU Boot.=0A=0ASo we confirme=
+d that and promptly removed them and re-made again the=0Asource release. An=
+d here again even if the work was delayed a bit,=0Athis was fast to do and =
+it doesn't affect the supported devices in any=0Away.=0A=0ABut we also need=
+ help contacting distributions again because one of=0Athe issue she found i=
+s very serious because it affects many=0Adistributions and also important d=
+evices that GNU Boot doesn't=0Asupport.=0A=0AThe ARM trusted firmware ships=
+ a nonfree hdcp.bin binary in its source=0Acode. ARM trusted firmware is a =
+dependency of u-boot that is used to=0Asupport many ARM computers in other =
+distributions (like Guix, Debian,=0Aetc).=0A=0AAs contacting affected distr=
+ibutions is a tedious task, we also need=0Ahelp to propagate the informatio=
+n and contact them especially because=0Awe don't know if Leah intend or not=
+ to do that work (so far she didn't=0Areply when asked twice about it), so =
+it's probably up to the GNU Boot=0Acommunity as a whole (which also include=
+s its maintainers and readers=0Aof this news) to help here.=0A=0AThe detail=
+s are in the commit 343515aee7ef34695ac45830fad419d9562f9c15=0A("coreboot: =
+blobs.list: arm-trusted-firmware: Remove RK3399 hdcp.bin=0Afirmware.") in t=
+he GNU Boot source code[3].=0A=0A[1]https://savannah.gnu.org/news/?id=3D106=
+84=0A[2]https://lists.gnu.org/archive/html/gnuboot-patches/2024-10/msg00028=
+.html=0A[3]https://git.savannah.gnu.org/cgit/gnuboot.git/commit/?id=3D34351=
+5aee7ef34695ac45830fad419d9562f9c15=0A=0A=3D=3D=3D Website and documentatio=
+n =3D=3D=3D=0A=0AJord=C3=A1n (isf) has been contributing some Spanish trans=
+lations of the=0Amost important website pages (the landing, status and how =
+to=0Acontribute pages). This is important as it could help get more=0Acontr=
+ibutors. These contributions also helped us improve the process=0Afor accep=
+ting pseudonymous contributions and enabled us to fix issues.=0A=0AThe work=
+ on improving the website in general also continued. Many of=0Athe website =
+pages were reviewed and improved (there is a lot of work=0Athere and mentio=
+ning it all would make the news way too long).=0A=0AThe website also now sh=
+ows the git revision from which it is build and=0Awe also helped the FSF fi=
+x some server configuration that created=0Aissue with the deployment of the=
+ GNU Boot website (more details are in=0Athe commit message[1]) by reportin=
+g the issue to them and testing the=0Afix.=0A=0APatches for making a manual=
+ are also being reviewed. While there isn't=0Amuch in the manual yet, it al=
+so enables to better organize the=0Adocumentation and it has the potential =
+to make GNU Boot more=0Aaccessible to less technical people.=0A=0AThe next =
+goals is to look how to merge part of the website inside the=0Amanual and c=
+ontinue improving both the website and the manual.=0A=0A[1]https://git.sava=
+nnah.gnu.org/cgit/gnuboot.git/commit/?id=3Dd1df672383f6eb8d4218fdef7fbe9ec5=
+e41803e4=0A=0A=3D=3D=3D Authenticating GNU Boot source code =3D=3D=3D=0A=0A=
+We now have the ability to verify the source code when downloading it=0Afro=
+m git. This is important to avoid certain type of attacks and it=0Aalso ena=
+bles to write code to automatically download, verify and build=0Athe GNU Bo=
+ot source code.=0A=0AThe source can be verified with the following command =
+(it requires to=0Ahave Guix installed):=0A $ guix git authenticate $(git re=
+v-parse HEAD) \=0A  "E23C 26A5 DEEE C5FA 9CDD  D57A 57BC 26A3 6871 16F6" \=
+=0A  -k origin/keyring=0A=0AIf the authentication works it will print a mes=
+sage like that:=0A=0A    guix git: successfully=0A    authenticated commit =
+05c09293d9660ea1f26b5b705a089b466a0aa718=0A=0AThe 05c09293d9660ea1f26b5b705=
+a089b466a0aa718 might be different in=0Ayour case.=0A=0AThe "E23C 26A5 DEEE=
+ C5FA 9CDD D57A 57BC 26A3 6871 16F6" part in the=0Acommand above is Adrien =
+Bourmault (neox)'s GPG key.=0A=0AHow to use that will be documented more in=
+ depth in the upcoming GNU=0ABoot manual that is currently being reviewed. =
+Its importance will also=0Abe explained in more details for people not fami=
+liar with the security=0Aissues it's meant to solve. Also note that we also=
+ welcome help for=0Areviewing patches.=0A=0A=3D=3D=3D Licensing =3D=3D=3D=
+=0A=0AThe GNU Boot source code has a complex history. It is based on the=0A=
+last fully free software releases of Libreboot. And the Libreboot=0Asource =
+code history is very complex.=0A=0AWe found some missing authorship informa=
+tion in some of the files that=0Acome from Libreboot and so we started such=
+ information from the=0Avarious git repositories that were used at some poi=
+nt by Libreboot or=0Asome of the projects it was based on.=0A=0ATo help wit=
+h this task we also added a page on the GNU Boot website=0A(https://www.gnu=
+.org/software/gnuboot/web/docs/history/) to track the=0Astatus of the recon=
+struction of the missing authorship and to document=0Athe GNU Boot source c=
+ode history.=0A=0A=3D=3D=3D Upstream contributions and easier building of G=
+NU Boot =3D=3D=3D=0A=0AGNU Boot is just a distribution and like most distri=
+butions, it tries=0Ato collaborate with various upstream projects whenever =
+possible.=0A=0ASince GNU Boot relies on Guix, we improved the Guix document=
+ation=0Adirectly to help people install Guix on Trisquel and Parabola. We a=
+lso=0Ahelped Trisquel fix security issues in the Guix package by bug=0Arepo=
+rting and testing fixes (some bugs still need to be fixed in=0AParabola and=
+ Debian, and reporting issues upstream takes time).=0A=0ASince we also advi=
+se to use PureOS or Trisquel to build GNU Boot we=0Aalso enabled people wit=
+h Guix to produce PureOS or Trisquel chroots=0Awith Debootstrap. This was d=
+one through contributions to Debootstrap,=0Aand to the Guix Debootstrap pac=
+kage. We could then mention that in the=0AGNU Boot build documentation=0A(h=
+ttps://www.gnu.org/software/gnuboot/web/docs/build/) and added a=0Ascript (=
+in contrib/start-guix-daemon.py) to support building GNU Boot=0Ain chroots.=
+ However there are still issue with the build in chroots=0Athat need to be =
+fixed to producing all released files. Instructions on=0Ahow to do build in=
+ chroots is also lacking.=0A=0AIn addition we also added the ability to bui=
+ld GNU Boot with Trisquel=0A11 (aramo).=0A=0AAn apt-cacher-ng package was a=
+lso contributed in Guix upstream as it=0Acan then be used to speed-up one o=
+f the automatic tests used in GNU=0ABoot but the support for apt-cacher-ng =
+was not integrated yet in GNU=0ABoot. Last year we also contributed a GRUB =
+package in Guix but we=0Adidn't have the occasion to use it yet. It will pr=
+obably happen soon=0Athough.=0A=0A=3D=3D=3D Building GNU Boot =3D=3D=3D=0A=
+=0AHow to build GNU Boot has changed a lot since GNU Boot 0.1 RC3.=0A=0ABef=
+ore Guix could only be optionally used to build the website.=0A=0AIn additi=
+on to that, Guix is now integrated in the build system so we=0Acan now rely=
+ on Guix packages to build GNU Boot images. This also=0Ameans that you need=
+ to install Guix to build GNU Boot images.=0A=0AWe currently use Guix packa=
+ges to build some tests. We also build some=0Ainstallation utilities for th=
+e I945 ThinkPads (ThinkPad X60, X60s,=0AX60T and T60) but we don't have doc=
+umentation for less technical=0Apeople yet on how to use them. We also woul=
+d need help for testing=0Athese computers as we have no idea if they still =
+work fine or which=0Afully free distributions still work on them in practic=
+e.=0A=0AWe now also support the './configure' and 'make' commands to build =
+GNU=0ABoot but not yet the 'make install' command as to work we would need=
+=0Ato adapt many of the scripts that are used during the build to be=0Acomp=
+atible with that.=0A=0AThere is also less visible work that was done, like =
+cleaning up a lot=0Aof code, adding tests for code quality, documenting a b=
+it the GNU Boot=0Asource code structure, and so on.=0A=0AWork on making GNU=
+ Boot reproducible also started. See=0Ahttps://reproducible-builds.org/ or=
+=0Ahttps://en.wikipedia.org/wiki/Reproducible_builds for more detail on=0At=
+he issue.=0A=0AWe took an extremely strict approach and put the checksum of=
+ some of=0Athe things we build directly into GNU Boot and verify it the che=
+cksum=0Aduring the compilation. This enables us to automatically detect=0Ai=
+ssues without having to do anything.=0A=0AWe started to enable that for eas=
+y things, and we also added the=0Ainfrastructure to also use that in Guix p=
+ackages as well by validating=0Aone of the packages we use during automatic=
+ testing.=0A=0AHowever at one point this guix package stopped being=0Arepro=
+ducible. Since we wanted to keep that code (especially as it was=0Ashowing =
+a good example of how to do it), we fixed the bug instead of=0Aremoving the=
+ test.=0A=0AThis then helped us detect a very subtle and interesting bug in=
+ one of=0Athe components we use for automatic tests.=0A=0AThe bug could not=
+ be caught during testing because some time=0Ainformation stored inside the=
+ FAT32 file system has a granularity of a=0Aday, and since all the testing =
+happened the same day, it was caught=0Aonly later on.=0A=0AThis bug was the=
+n fixed and the details are in the fix[1]. A bug=0Areport was also opened u=
+pstream because bugs were found in diffoscope=0Aalong the way[2]. We still =
+need to do some testing though to=0Aunderstand if the bug is in diffoscope =
+or one of the underlying=0Alibraries (libguestfs) and then to report the re=
+maining bugs to the=0Adistributions we used during this work.=0A=0AWe also =
+made it easier to update the checksum in the Guix package. If=0Ayou package=
+ software with Guix, this change is also a good example of=0Ahow not to bre=
+ak the '--without-tests' option when you override the=0Atests in the packag=
+e you contribute. The commit message[3] and the=0Achange have more details =
+and references on all that.=0A=0A[1]https://git.savannah.gnu.org/cgit/gnubo=
+ot.git/commit/?id=3D4c3de49fbb3b43940b43f8fdccc8e51ee7df8f46=0A[2]https://s=
+alsa.debian.org/reproducible-builds/diffoscope/-/issues/390=0A[3]https://gi=
+t.savannah.gnu.org/cgit/gnuboot.git/commit/?id=3D40fcb94e2f7ab1df8d320f7831=
+1e623f801d8602=0A=0A=3D=3D=3D LVM2 bug =3D=3D=3D=0A=0AWodeShengli reported =
+a very important bug[1]: GNU Boot images with=0AGRUB can't find LVM2 partit=
+ions if the partition itself is not=0Aencrypted. For instance if you have L=
+VM2 and no encryption at all or=0Aif the disk is encrypted and that on top =
+you have LVM2, GNU Boot will=0Anot find the partition.=0A=0ASince this is a=
+n extremely serious usability issue (because images=0Awith GRUB are suppose=
+d to work out of the box) we spent time to fix=0Ait.=0A=0AThe issue was tha=
+t the GRUB configuration we ship hardcoded the name=0Aof the LVM volumes to=
+ try to boot from. Fixing it required to be able=0Aloop over all the partit=
+ions being found, but we found no command to=0Ado that in GRUB (which is pr=
+obably why the LVM partition names were=0Ahardcoded in the first place).=0A=
+=0ASo we started adding GRUB command options to do that but while the=0Acod=
+e worked fine, it didn't integrate in GRUB well. So we contacted=0AGRUB loo=
+king for help as we would have needed to upstream our command=0Aoption in G=
+RUB anyway.=0A=0AAnd we were told that GRUB already had a way to do what we=
+ were=0Alooking for so we used that to fix the issue.=0A=0AWe also added te=
+sts that automatically download the Trisquel installer=0Aand installs Trisq=
+uel with LVM2 and test if GNU Boot can boot the new=0ATrisquel installation=
+[2].=0A=0AWhile this test is skipped for 32bit computers, it is still good =
+to=0Ahave as some people will run it. The test also paves the way to add=0A=
+more tests that would enable us to improve further the GRUB=0Aconfiguration=
+ without breaking the boot.=0A=0A[1]https://savannah.gnu.org/bugs/index.php=
+?65663=0A[2]https://git.savannah.gnu.org/cgit/gnuboot.git/commit/?id=3D860b=
+00bf1e798d86c8bb2a70d77633599dfa1da2=0A[3]https://git.savannah.gnu.org/cgit=
+/gnuboot.git/commit/?id=3D9cc02ddde1e164fabfbddc8bbd3832ef9468d92d=0A=0A=0A=
+_______________________________________________=0AMessage sent via Savannah=
+=0Ahttps://savannah.gnu.org/=0A
+--8323329-1353254842-1732388875=:402287
+Content-Type: APPLICATION/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQQk97aszIMMAvLLwm6qLAuaBUf3TgUCZ0IoCwAKCRCqLAuaBUf3
+ThXIAP4miAm1PfNVS8flB7VUKlHEevWgbvwTKBrWDcEltJJddAEAvEQjTnwGpmB6
+D6GLeRohOxanwM6i53TvsJu9+SCfdgc=
+=r6Uj
+-----END PGP SIGNATURE-----
+
+--8323329-1353254842-1732388875=:402287--
+
+
+

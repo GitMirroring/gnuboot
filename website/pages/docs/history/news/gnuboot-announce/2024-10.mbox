@@ -1,0 +1,99 @@
+From MAILER-DAEMON Sat Oct 19 10:00:01 2024
+Received: from list by lists.gnu.org with archive (Exim 4.90_1)
+	id 1t29zt-0001EF-Lb
+	for mharc-gnuboot-announce@gnu.org; Sat, 19 Oct 2024 10:00:01 -0400
+Received: from eggs.gnu.org ([2001:470:142:3::10])
+ by lists.gnu.org with esmtps (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.90_1) (envelope-from <www-data@savannah.gnu.org>)
+ id 1t29Us-0004aB-R4
+ for gnuboot-announce@gnu.org; Sat, 19 Oct 2024 09:27:58 -0400
+Received: from frontend2.savannah.gnu.org ([209.51.188.113])
+ by eggs.gnu.org with esmtps (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.90_1) (envelope-from <www-data@savannah.gnu.org>)
+ id 1t29Ur-0006Kz-Se
+ for gnuboot-announce@gnu.org; Sat, 19 Oct 2024 09:27:58 -0400
+Received: by frontend2.savannah.gnu.org (Postfix, from userid 33)
+ id 0A96612123A; Sat, 19 Oct 2024 09:27:56 -0400 (EDT)
+To: gnuboot-announce@gnu.org
+Subject: Nonfree software found in GNU Boot releases again,
+ many distros affected.
+From: GNUtoo <INVALID.NOREPLY@gnu.org>
+X-Apparently-From: Savane authenticated user gnutoo
+X-Savane-Server: savannah.gnu.org:443 209.51.188.113
+X-Savane-Project: gnuboot
+X-Savane-Tracker: news
+Message-Id: <20241019-132755.sv57142.362328@savannah.gnu.org>
+MIME-Version: 1.0
+Content-Type: MULTIPART/signed; micalg=pgp-sha256;
+ protocol="application/pgp-signature";
+ BOUNDARY="8323329-804217447-1729344475=:2414419"
+Content-Disposition: inline
+Date: Sat, 19 Oct 2024 09:27:56 -0400 (EDT)
+X-Mailman-Approved-At: Sat, 19 Oct 2024 10:00:01 -0400
+X-BeenThere: gnuboot-announce@gnu.org
+X-Mailman-Version: 2.1.29
+Precedence: list
+List-Id: "GNU Boot low volume project official communication \(announcements
+ of new versions and other official communication\)."
+ <gnuboot-announce.gnu.org>
+List-Unsubscribe: <https://lists.gnu.org/mailman/options/gnuboot-announce>,
+ <mailto:gnuboot-announce-request@gnu.org?subject=unsubscribe>
+List-Archive: <https://lists.gnu.org/archive/html/gnuboot-announce>
+List-Post: <mailto:gnuboot-announce@gnu.org>
+List-Help: <mailto:gnuboot-announce-request@gnu.org?subject=help>
+List-Subscribe: <https://lists.gnu.org/mailman/listinfo/gnuboot-announce>,
+ <mailto:gnuboot-announce-request@gnu.org?subject=subscribe>
+X-List-Received-Date: Sat, 19 Oct 2024 13:27:59 -0000
+
+--8323329-804217447-1729344475=:2414419
+Content-Type: TEXT/plain; CHARSET=utf-8
+Content-Transfer-Encoding: QUOTED-PRINTABLE
+Content-Disposition: inline
+
+The GNU Boot project previously found nonfree microcode in the first=0ARC1 =
+release (in gnuboot-0.1-rc1_src.tar.xz to be exact).=0A=0AThis was announce=
+d in the "GNU Boot December 2023 News"=0A(https://lists.gnu.org/archive/htm=
+l/gnuboot-announce/2023-12/msg00000.html).=0AIt=0Awas fixed by re-making th=
+e affected tarball by hand with the nonfree=0Asoftware removed and by conta=
+cting Canoeboot that had the same issue,=0Aand by bug reporting and proposi=
+ng patches to fix the issue in Guix as=0Awell (they are still pending as we=
+ need to find a reviewer familiar=0Awith Coreboot).=0A=0ABut recently we fo=
+und a more problematic issue that also affects many=0Amore distributions an=
+d all the previous GNU Boot release candidates.=0A=0AThe vboot source code =
+used in Coreboot and in the vboot-utils package=0Aavailable in many GNU/Lin=
+ux distributions contains nonfree code in=0Atheir test data in tests/futili=
+ty/data (nonfree microcode, nonfree=0ABIOS, nonfree Management Engine firmw=
+ares, etc).=0A=0ASo we had to re-release all the affected tarballs (like=0A=
+gnuboot-0.1-rc1_src.tar.xz, gnuboot-0.1-rc2_src.tar.xz, etc).=0A=0AWe made =
+and we improved the process along the way (we now store the=0Achanges in ta=
+g inside our git repository and simply regenerate the=0Atarballs with the b=
+uild system that is available for a given tag).=0A=0AWe are also in the pro=
+cess of contacting distributions and/or=0Acoordinating with them and we als=
+o need help as there are many=0Adistributions to contact.=0A=0ATo do that w=
+e started contacting the free GNU/Linux distros=0A(https://www.gnu.org/dist=
+ros/free-distros.html) that ship the vboot=0Asource code. We also contacted=
+ Replicant that is a free Android distro=0Athat also ships vboot source cod=
+e.=0A=0AWe also started to contact common distros that require certain=0Are=
+positories to only have free software (so far we only contacted=0ADebian as=
+ that will help Trisquel fix the issue, but we also need to=0Acontact Fedor=
+a for instance). Finding which distro to contact is made=0Amuch easier than=
+ks to GNU's review of common distros policies=0A(https://www.gnu.org/distro=
+s/common-distros.html).=0A=0AWe coordinate that work on our bug report syst=
+em at Savannah,=0Aespecially in the bug #66246=0A(https://savannah.gnu.org/=
+bugs/index.php?66246).=0A=0A=0A____________________________________________=
+___=0AMessage sent via Savannah=0Ahttps://savannah.gnu.org/=0A
+--8323329-804217447-1729344475=:2414419
+Content-Type: APPLICATION/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQQk97aszIMMAvLLwm6qLAuaBUf3TgUCZxOz2wAKCRCqLAuaBUf3
+TsfBAQCCOTT2o/sxGwyRNDZMdXIDped6/3stNvmBZRLYuWjy8gEAw6Ko1lmmbh0m
+nnaTMw6G57MwHy/CIvR3QLC4WiwGRgQ=
+=nE3M
+-----END PGP SIGNATURE-----
+
+--8323329-804217447-1729344475=:2414419--
+
+
+

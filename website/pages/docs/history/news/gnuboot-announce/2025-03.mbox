@@ -1,0 +1,140 @@
+From MAILER-DAEMON Mon Mar 24 17:14:10 2025
+Received: from list by lists.gnu.org with archive (Exim 4.90_1)
+	id 1twp7a-0006m4-Jz
+	for mharc-gnuboot-announce@gnu.org; Mon, 24 Mar 2025 17:14:10 -0400
+Received: from eggs.gnu.org ([2001:470:142:3::10])
+ by lists.gnu.org with esmtps (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.90_1) (envelope-from <www-data@savannah.gnu.org>)
+ id 1twp7Y-0006lu-Od
+ for gnuboot-announce@gnu.org; Mon, 24 Mar 2025 17:14:08 -0400
+Received: from frontend2.savannah.gnu.org ([209.51.188.113])
+ by eggs.gnu.org with esmtps (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.90_1) (envelope-from <www-data@savannah.gnu.org>)
+ id 1twp7Y-0003ox-Fn
+ for gnuboot-announce@gnu.org; Mon, 24 Mar 2025 17:14:08 -0400
+Received: by frontend2.savannah.gnu.org (Postfix, from userid 33)
+ id 429E112172C; Mon, 24 Mar 2025 17:14:06 -0400 (EDT)
+To: gnuboot-announce@gnu.org
+Subject: New GNU Boot 0.1 RC6 release.
+From: GNUtoo <INVALID.NOREPLY@gnu.org>
+X-Apparently-From: Savane authenticated user gnutoo
+X-Savane-Server: savannah.gnu.org:443 2001:470:142:5::113
+X-Savane-Project: gnuboot
+X-Savane-Tracker: news
+Message-Id: <20250324-211406.sv57142.385104@savannah.gnu.org>
+MIME-Version: 1.0
+Content-Type: MULTIPART/signed; micalg=pgp-sha256;
+ protocol="application/pgp-signature";
+ BOUNDARY="8323329-919539558-1742850846=:1406161"
+Content-Disposition: inline
+Date: Mon, 24 Mar 2025 17:14:06 -0400 (EDT)
+X-BeenThere: gnuboot-announce@gnu.org
+X-Mailman-Version: 2.1.29
+Precedence: list
+List-Id: "GNU Boot low volume project official communication \(announcements
+ of new versions and other official communication\)."
+ <gnuboot-announce.gnu.org>
+List-Unsubscribe: <https://lists.gnu.org/mailman/options/gnuboot-announce>,
+ <mailto:gnuboot-announce-request@gnu.org?subject=unsubscribe>
+List-Archive: <https://lists.gnu.org/archive/html/gnuboot-announce>
+List-Post: <mailto:gnuboot-announce@gnu.org>
+List-Help: <mailto:gnuboot-announce-request@gnu.org?subject=help>
+List-Subscribe: <https://lists.gnu.org/mailman/listinfo/gnuboot-announce>,
+ <mailto:gnuboot-announce-request@gnu.org?subject=subscribe>
+X-List-Received-Date: Mon, 24 Mar 2025 21:14:09 -0000
+
+--8323329-919539558-1742850846=:1406161
+Content-Type: TEXT/plain; CHARSET=utf-8
+Content-Transfer-Encoding: QUOTED-PRINTABLE
+Content-Disposition: inline
+
+This release is meant to fix multiple security issues that are present=0Ain=
+ the GRUB version we use (2.06+).=0A=0AUsers having replaced the GNU Boot p=
+icture / logo with untrusted=0Apictures could have been affected if the pic=
+tures they used were=0Aspecially crafted to exploit a vulnerability in GRUB=
+ and take full=0Acontrol of the computer. In general it's a good idea to av=
+oid using=0Auntrusted pictures in GRUB or other boot software to limit such=
+ risks=0Abecause software can have bugs (a similar issue also happened in a=
+=0Afree software UEFI implementation).=0A=0AUsers having implemented variou=
+s user-respecting flavor(s) of=0Asecure-boot, either by using GPG signature=
+s and/or by using a GRUB=0Apassword combined with full disk encryption are =
+also affected as these=0Asecurity vulnerabilities could enable people to by=
+pass secure-boot=0Aschemes.=0A=0AIn addition there are also security vulner=
+abilities in file systems,=0Awhich also enable execution of code. When boot=
+ing, GRUB has to load=0Afiles (like the Linux or linux-libre kernel) that a=
+re executed=0Aanyway. But in some cases, it could still affect users.=0A=0A=
+This could happen when trying to boot from an USB key, and also having=0Aan=
+other USB key that has a file system that was crafted to take=0Acontrol of =
+the computer.=0A=0AAt the time, no known exploits are known by the GNU Boot=
+ maintainers.=0A=0AWhy it took so long.=0A--------------------=0A=0AThe 18 =
+February, the GRUB maintainer posted some patches on the=0Agrub-devel maili=
+ng list in order to notify people that there were some=0Asecurity vulnerabi=
+lities in GRUB that were fixed, and which commit=0Afixed them.=0A=0AOne of =
+the GNU Boot maintainers saw these patches but didn't read the=0Amails and =
+assumed that a new GRUB release was near and decided to wait=0Afor it as th=
+is would make things easier as GRUB releases are tested in=0Amany different=
+ situations.=0A=0AHowever the thread posting these patches also mentioned t=
+hat a new=0Arelease would take too much time and that the GRUB contributors=
+ and/or=0Amaintainers already had a lot to deal with.=0A=0AIt took a while =
+to realize the issue: a second GNU Boot maintainer saw=0Athe GRUB security =
+vulnerabilities later on, and at this point they=0Arealized that nothing ha=
+d happened yet on GRUB side yet and they=0Alooked into the issue.=0A=0AIn a=
+ddition the computer of one of the GNU Boot maintainer broke,=0Awhich also =
+delayed the review of the GNU Boot patches meant to fix=0Athis security iss=
+ues.=0A=0AThese patches also contain fixes for the GNU Boot build system as=
+ well=0Ato ensure users building GNU Boot themselves really do get an updat=
+ed=0AGRUB version.=0A=0AAs this is a new release candidate, we also need he=
+lp for reporting on=0Awhich computers and/or configuration it works or does=
+n't work,=0Aespecially because we had to update to an unreleased GRUB versi=
+on to=0Aget the fixes (see below for more details).=0A=0AOther affected dis=
+tributions?=0A-----------------------------=0A=0AWe started telling the Can=
+oeboot and Libreboot maintainer about the=0Aissue to later find out that th=
+e issue was fixed since the 18=0AFebruary, and their users were also notifi=
+ed via a news, so everything=0Ais good on that side.=0A=0AFor most 100% fre=
+e distributions, using GRUB from git would be=0Aa significant effort in tes=
+ting and/or in packaging.=0A=0AWe notified Trisquel, Parabola and Guix and =
+the ones who responded are=0Anot comfortable with updating GRUB to a not-ye=
+t released git=0Arevision. Though in the case of Parabola nothing prevent a=
+dding a new=0Agrub-git package that has no known vulnerabilities in additio=
+n to the=0Aexisting grub package, so patches for that are welcome.=0A=0AAs =
+for the other distributions, most of them do support secure boot=0A(by supp=
+orting UEFI secure boot), but they are probably aware of the=0Aissue as (ma=
+intainers of) distributions like Debian or Arch Linux=0Aeither responded to=
+ the thread on the GRUB mailing list, or were=0Amentioned as having fixed t=
+he issue in that thread.=0A=0AAt the time of writing, the affected GRUBs ve=
+rsions seems not to be=0Ablacklisted yet by UEFIs, so it also leaves some t=
+ime to fix the=0Aissue, and things like GRUB password can usually be bypass=
+ed easily=0Aunless people use distributions like GNU Boot or Canoeboot and=
+=0Aconfigure both the hardware and the software to support a secure boot=0A=
+scheme that respect users freedoms.=0A=0AAs for PureOS we just notified the=
+m in a bug report as they have UEFI=0Asecure boot, but in another hand we d=
+on't know if they are aware of=0Athat (they are based on Debian so it could=
+ be inherited from Debian=0Aand not something supported/advertised), and be=
+cause Purism (the=0Acompany behind PureOS) ships computers with their own s=
+ecure boot=0Ascheme (PureBoot), since it works in a very different way we a=
+re not=0Asure if people could be affected or not.=0A=0AReferences and detai=
+ls=0A----------------------=0A=0AThis release should fix the following CVEs=
+ affecting previous GRUB=0A2.06: CVE-2025-0690, CVE-2025-0622, CVE-2024-457=
+75, CVE-2024-45777,=0ACVE-2024-45778, CVE-2024-45779, CVE-2024-45781, CVE-2=
+024-45782,=0ACVE-2024-45783, CVE-2025-0624, CVE-2025-0677, CVE-2025-0684,=
+=0ACVE-2025-0685, CVE-2025-0686, CVE-2025-0689, CVE-2025-1125.=0A=0AMore de=
+tails are available in the "[SECURITY PATCH 00/73] GRUB2=0Avulnerabilities =
+- 2025/02/18" thread From Daniel Kiper (Tuesday, 18=0AFebruary 2025, archiv=
+ed online at=0Ahttps://lists.gnu.org/archive/html/grub-devel/2025-02/msg000=
+24.html).=0A=0A=0A_______________________________________________=0AMessage=
+ sent via Savannah=0Ahttps://savannah.gnu.org/=0A
+--8323329-919539558-1742850846=:1406161
+Content-Type: APPLICATION/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQQk97aszIMMAvLLwm6qLAuaBUf3TgUCZ+HLHgAKCRCqLAuaBUf3
+TvD3AQCV8vzsyRWVOr6fsyeVpy4OFLsN6391wB0rD3/morsFeQEAx3zTM5KAATlQ
+Fy1AoSKj4jVRYAgXd5lcN2XegUyMhQo=
+=ZeAa
+-----END PGP SIGNATURE-----
+
+--8323329-919539558-1742850846=:1406161--
+
+
+
