@@ -4453,6 +4453,34 @@ is reliably free software.
 You can also help our project by informing people about GNU boot or
 other 100% free boot software.
 
+@node    Legal topics
+@section Legal topics
+
+By adding a @emph{Signed-off-by:} line in a git commit like that:
+@example
+A name <a valid email>
+@end example
+you accept the @emph{Developer's Certificate of Origin 1.1}.
+
+Since not everything that goes into the GNU Boot source code is sent
+as git commits or patches, you can also ask the person who makes a
+patch out of your work to add your Signed-off-by for you.
+
+From now on, GNU Boot patches that are accepted in GNU Boot need to
+have a line like that:
+
+@example
+Signed-off-by: some name <valid email>
+@end example
+
+As according to the @emph{Developer's Certificate of Origin 1.1}:
+
+@verbatim
+The sign-off is a simple line at the end of the explanation for the
+patch, which certifies that you wrote it or otherwise have the right to
+pass it on as a [free software] patch.
+@end verbatim
+
 @node    Documentation
 @section Documentation
 
