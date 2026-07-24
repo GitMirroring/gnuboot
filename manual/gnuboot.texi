@@ -4435,6 +4435,24 @@ instructions above in this manual.
 @node    Contributing to GNU Boot
 @chapter Contributing to GNU Boot
 
+@node    Information
+@section Information
+
+The Libreboot name has a long history in the free software
+community. Most occurrences of the uses were intended to refer to boot
+software that was libre, and there is no way to edit those occurrences
+to refer to libre boot software by a different name. Therefore, we
+need help from the wider community to inform people about the
+inclusion of nonfree software in the Libreboot releases.
+
+Another way to help GNU Boot and take a stand for fully free software
+is to change URLs across the web from <libreboot.org> to
+<gnu.org/software/gnuboot>, to make sure that the mentioned software
+is reliably free software.
+
+You can also help our project by informing people about GNU boot or
+other 100% free boot software.
+
 @node    Documentation
 @section Documentation
 
