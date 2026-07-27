@@ -65,6 +65,57 @@ connected on the purple PS/2 connector.
 
 @end macro @c computerWithSlowUSBKeyboard
 
+@c don't forget to use '@cindex @acronym{BMC, Baseboard management controller}'
+@c in the section that uses this macro.
+@c TODO: add the computer name as parameter
+@macro computerWithNotAlwaysRemovableBMCFlash{COMPUTER}
+
+@node          \COMPUTER\ BMC
+@subsubsection \COMPUTER\ BMC
+
+The \COMPUTER\ has a parts of a @acronym{BMC, Baseboard management
+controller} built into it.
+
+A @acronym{BMC, Baseboard management controller} is a separate
+computer within the \COMPUTER\, which enables to remotely control many
+things.
+
+Here it can at least power the computers on and off and replace the
+BIOS/UEFI. So in practice the @acronym{BMC, Baseboard management
+controller} has full control of the computer and by default, it also
+run nonfree software.
+
+But the @acronym{BMC, Baseboard management controller} cannot operate
+without storage, and the storage is provided on a separate card which
+is not always shipped with the \COMPUTER\.
+
+There are several situations :
+
+@itemize
+@item The separate BMC storage card is not provided.
+@item The separate BMC storage card is soldered.
+@item The separate BMC storage card is removable.
+@end itemize
+
+If there is no storage card you shount't have any issue.
+
+But if there is one it is a good idea to check if it is removable
+before installing GNU Boot to make sure that the mainboard cannot be
+compromised by the @acronym{BMC, Baseboard management controller}
+anymore. Try not to break the mainboard if you remove that card.
+
+Note that there is also free software that can run in the
+@acronym{BMC, Baseboard management controller}, and it is even with
+Linux but also with nonfree software.
+
+There are some community distributions for the BMC but we don't know
+if they contain only free software or not because none of them are in
+the @uref{https://www.gnu.org/distros/free-distros.html,list of free
+GNU/Linux distributions} that is maintained by the
+@uref{https://www.fsf.org/,Free Software Foundation}.
+
+@end macro @c computerWithNotAlwaysRemovableBMCFlash
+
 @macro experimentalComputer
 
 The support for this computer is experimental. @xref{Experimental
@@ -926,6 +977,8 @@ Here are some details on this computer:
 @experimentalComputer
 
 @computerWithSlowUSBKeyboard
+
+@computerWithNotAlwaysRemovableBMCFlash{Asus KGPE-D16}
 
 @node       Lenovo ThinkPad X60
 @subsection Lenovo ThinkPad X60
