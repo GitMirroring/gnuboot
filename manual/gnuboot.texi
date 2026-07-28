@@ -1022,6 +1022,13 @@ Here are some details on this computer:
 
 @computerWithNotAlwaysRemovableBMCFlash{Asus KGPE-D16}
 
+@node       Lenovo ThinkPad T400
+@subsection Lenovo ThinkPad T400
+
+@itemize
+@item Winbond W25X32 (4MiB)
+@end itemize
+
 @node       Lenovo ThinkPad X60
 @subsection Lenovo ThinkPad X60
 
