@@ -70,16 +70,16 @@ There are three portable ways of doing so:
 
 1.  Using the new iproute2 package:
 
-    ip link set <interface> down
+    ip link set INTERFACE down
 
-    ip link set dev <interface> address 00:4c:69:62:72:65
+    ip link set dev INTERFACE address 00:4c:69:62:72:65
 
-    ip link set <interface> up
+    ip link set INTERFACE up
 
 
 2.  Using the old `ifconfig` command:
 
-    ifconfig <interface> hw ether 00:4c:69:62:72:65
+    ifconfig INTERFACE hw ether 00:4c:69:62:72:65
 
 
 3. Using the macchanger package.

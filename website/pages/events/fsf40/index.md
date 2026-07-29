@@ -127,10 +127,10 @@ You will most likely be mentioned in one way or another in the patch
 if you reviewed it:
 
 * You can just test patches thoroughly, in that case we usually add
-  "Tested-by: <author> <email>" to the patch.
+  "Tested-by: AUTHOR EMAIL" to the patch.
 
 * If you also review the patch thoroughly, we can add "Reviewed-by:
-  <author> <email>".
+  AUTHOR EMAIL".
 
 * If you reviewed partially a patch and just found an error, you'll
   most likely be thanked for reporting the issue in the patch in one
