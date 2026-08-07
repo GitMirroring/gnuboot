@@ -17,3 +17,6 @@ it started from the latest fully free Libreboot release.
 
 * The Libreboot project also maintained [a page](authors.html) that
   credit various Libreboot contributors. We also inherited this page.
+
+* The Libreboot project [old main page](libreboot-index.md) was also
+  preserved.

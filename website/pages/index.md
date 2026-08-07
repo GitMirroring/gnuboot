@@ -1,4 +1,4 @@
-title: Free your BIOS today!
+title: 'GNU Boot: 100% free boot software distribution.'
 ---
 
 ### What is this? ####
