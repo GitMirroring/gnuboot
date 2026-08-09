@@ -212,8 +212,8 @@ explained below.
 @cindex flash chip
 @cindex flash memory
 
-When you boot a computer, you can sometimes can see a screen that
-looks like that:
+When you boot a computer, you sometimes can see a screen that looks
+like that:
 
 @verbatim
 +--------------------------------------------------------------------+
