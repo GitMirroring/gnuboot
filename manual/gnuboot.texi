@@ -529,7 +529,7 @@ The difficulty to keep these changes increase with the amount of such
 changes, their size and complexity, or the speed of the evolution of the
 projects being reused.
 
-Weather or not this will turn out to be an issue is hard to tell in
+Whether or not this will turn out to be an issue is hard to tell in
 advance because there are a lot of unknowns.
 
 Note that GNU Boot also has similar issues but instead of adding more
@@ -837,7 +837,7 @@ because of several issues:
 
       In addition sometimes rebooting don't work, and powering the
       mainboard does not always work (sometimes we need to try several times
-      for that to work). Weather that works or not can also be dependent on
+      for that to work). Whether that works or not can also be dependent on
       the room temperature. In addition once running the computer for very
       long period of time can result in a crash at some point, which
       requires rebooting it.
