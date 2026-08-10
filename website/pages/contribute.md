@@ -211,7 +211,7 @@ indicated with text like that:
 
 	Acked-by: <maintainer name> <maintainer email>.
 
-in an (email) reply form the given maintainer.
+in an (email) reply from the given maintainer.
 
 The maintainers agreement on a patch doesn't necessary mean that there
 is an agreement on the order in which the patch will be added. So the
