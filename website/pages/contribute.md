@@ -200,7 +200,7 @@ You'll have to specify the mailing list address:
 
 Please also sign-off your patches, which you can configure with:
 
-	git config format.signOff yes
+	git config --local format.signOff yes
 
 Once you have submitted your patch, the GNU Boot maintainers will be
 notified via the mailing list and will start reviewing it.
