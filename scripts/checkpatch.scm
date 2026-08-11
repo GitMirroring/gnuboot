@@ -808,7 +808,7 @@
       ;; So we store the @node regardless of if it was changed or
       ;; not, and then we also look at @chapter/@*section regardless
       ;; of the change of both node or @chapter/@*section.
-      ;; To avoid trigering when none changed, we store the full line
+      ;; To avoid triggering when none changed, we store the full line
       ;; with @node, including the begining "+" or " ", to then be
       ;; able to know that node didn't change in the @chapter/@*section.
 
