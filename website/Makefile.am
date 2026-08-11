@@ -229,7 +229,7 @@ GNUBOOT_MANUAL_FILES = \
 	../manual/fdl-1.3.texi \
 	../manual/gnuboot.texi \
 	../manual/guix-revision.texi \
-	../manual/images/SOIC-16.png \
+	../manual/images/ThinkPad-X200-MX25L6405D-SOIC16.png \
 	../manual/version.texi \
 	Makefile \
 	$(SENTINEL)
@@ -252,27 +252,28 @@ else
 GM_CMD = gm
 endif
 
-pages/manual/images/SOIC-16.png: ../manual/images/SOIC-16.jpeg
+pages/manual/images/%.png: ../manual/images/%.jpeg
 	mkdir -p `dirname $@`
 	$(GM_CMD) convert $< $@
 
-# In the manual we include SOIC-16.png as @image{images/SOIC-16,
-# [...]}. This was done to make it easier to later on package the
-# manual in FHS distributions like Trisquel as the info manual ends up
+# In the manual we include ThinkPad-X200-MX25L6405D-SOIC16.png as
+# @image{images/ThinkPad-X200-MX25L6405D-SOIC16, [...]}. This was done
+# to make it easier to later on package the manual in FHS distributions
+# like Trisquel as the info manual ends up
 # in /usr/share/info/ while its images are expected to go in
 # /usr/share/info/images instead. But then the manual also
 # needs to be able to find its images during the compilation.
-../manual/images/SOIC-16.png: pages/manual/images/SOIC-16.png
+../manual/images/%.png: pages/manual/images/%.png
 	mkdir -p `dirname $@`
 	install -m 644 $< $@
 
-pages/manual/images/SOIC-16.jpeg: ../manual/images/SOIC-16.jpeg
+pages/manual/images/%.jpeg: ../manual/images/%.jpeg
 	mkdir -p `dirname $@`
 	install -m 644 $< $@
 
 GNUBOOT_MANUAL = \
-	pages/manual/images/SOIC-16.jpeg \
-	pages/manual/images/SOIC-16.png \
+	pages/manual/images/ThinkPad-X200-MX25L6405D-SOIC16.jpeg \
+	pages/manual/images/ThinkPad-X200-MX25L6405D-SOIC16.png \
 	pages/manual/gnuboot.html \
 	pages/manual/gnuboot.pdf \
 	$(SENTINEL)

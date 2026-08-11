@@ -261,8 +261,8 @@ on flash memory} for more details on the technology).
 Here is a picture of this boot flash on the mainboard of a ThinkPad
 X200:
 
-@image{images/SOIC-16,6in,, Picture of the boot flash of the ThinkPad X200
-mainboard.}
+@image{images/ThinkPad-X200-MX25L6405D-SOIC16,6in,, Picture of the boot flash
+(MX25L6405D) of the ThinkPad X200 mainboard.}
 
 @sp 1
 
