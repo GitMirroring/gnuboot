@@ -805,8 +805,8 @@
       ;; - a @chapter/@*section was changed and node was not
       ;; - a @chapter/@*section was not changed and node was
       ;; - both were changed
-      ;; So we store the @node reguardless of if it was changed or
-      ;; not, and then we also look at @chapter/@*section reguardless
+      ;; So we store the @node regardless of if it was changed or
+      ;; not, and then we also look at @chapter/@*section regardless
       ;; of the change of both node or @chapter/@*section.
       ;; To avoid trigering when none changed, we store the full line
       ;; with @node, including the begining "+" or " ", to then be
