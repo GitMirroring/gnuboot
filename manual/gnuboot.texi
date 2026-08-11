@@ -539,14 +539,14 @@ modifications it tries to reduces their amount.
 @subsubsection Fixes
 
 Another significant difference between both projects is that Canoeboot
-seems to have fixed a lot of issue since Libreboot 20220710 (the
+seems to have fixed a lot of issues since Libreboot 20220710 (the
 latest fully Libreboot version), while GNU Boot took a completely
 different approach: its goal is to re architecture many things, step
 by step, while taking great care of not breaking what worked in
 Libreboot 20220710. For instance GNU Boot is switching to GNU Guix to
 build its software and it is also making a proper manual.
 
-In the long run this enables GNU boot to solve more complex problem
+In the long run this enables GNU boot to solve more complex problems
 that would be really hard or impossible to solve with the current
 design of Canoeboot (like the ability to blindly trust the images
 built by someone else, or the ability to build and modify your own
@@ -569,10 +569,10 @@ manual, to be more consistent and easier to understand, but this is
 also done at the expense of the website which has fewer contributions.
 
 In Canoeboot the website is being improved instead. And here too, GNU
-Boot also has tracks the documentation through a scary banner on the
+Boot also tracks the documentation through a scary banner on the
 website pages that weren't reviewed.
 
-In both cases this can enables GNU Boot to find issues and revisit
+In both cases this enables GNU Boot to find issues and revisit
 many things to improve a lot the quality in the longer run, at the
 expense of quicker fixes and improvements. Canoeboot also does and/or
 did that in one way or another but there is no clear separation of
