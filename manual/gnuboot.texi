@@ -494,7 +494,7 @@ focus.
 This has some wide reaching consequences that affect many
 areas. Because of that, the next subsubsection will give a few
 practical examples to show this in practice rather than trying to be
-exaustive.
+exhaustive.
 
 Also note that the GNU Boot maintainers don't know Canoeboot well
 enough as this would require them to spend a lot of time studying its
