@@ -24,7 +24,7 @@ Like with other type of software, the fact that it is nonfree has real impacts.
 For instance this software often continues to run once the operating system
 is loaded and as it loads the operating system it can also modify it.
 
-So having a nonfree boot software make it impossible for users to really
+So having a nonfree boot software makes it impossible for users to really
 trust their computers. Another common issue is that some BIOS/UEFI add
 restrictions to prevent users from replacing the WiFi card for instance.
 There are many more issues but listing them all here would make this
