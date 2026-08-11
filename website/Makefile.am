@@ -608,7 +608,7 @@ else
 CHECK_SH_CMD = build/check.sh
 endif
 
-check: build website.tar history/git-history.jpg
+check: build website.tar
 	rm -rf site/
 	mkdir -p site/$(WEBSITE_PREFIX)
 	tar xf website.tar -C site/$(WEBSITE_PREFIX)
