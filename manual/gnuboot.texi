@@ -32,9 +32,24 @@ entitled ``GNU Free Documentation License''.
 
 @sp 1
 
-The picture that is included in the GNU Boot manual is under the same
-license than the GNU Boot manual and it has the following copyrights:
-Copyright @copyright{} 2025 Denis 'GNUtoo' Carikli.
+All the pictures that are included in the GNU Boot manual are under the
+same license than the GNU Boot manual.
+
+@sp 1
+
+As for the individual pictures:
+
+@itemize
+
+@item The first picture (The ThinkPad X200 with the SOIC-16 boot flash) that
+is included has the following copyrights: Copyright @copyright{} 2025
+Denis 'GNUtoo' Carikli.
+
+@item The second picture (The ThinkPad X200 with the SOIC-8 boot flash) that
+is included has the following copyrights: Copyright @copyright{} 2026
+Kai Mertens.
+
+@end itemize
 
 @end copying
 
@@ -218,6 +233,7 @@ explained below.
 @cindex @acronym{UEFI, Unified Extensible Firmware Interface}
 @cindex boot flash
 @cindex boot software
+@cindex chip package
 @cindex flash chip
 @cindex flash memory
 
@@ -252,29 +268,6 @@ The goal of this software is to initialize the hardware of the
 computer and to load an operating system (like GNU/Linux, Windows, or
 macOS). GNU Boot replaces this software on some computers.
 
-Like all software, this boot software has to be stored somewhere.
-
-Unlike the operating system which is typically stored on data storage
-devices people are familiar with (like @acronym{SSD, Solid State Drive},
-hard disk, USB key, etc.), the boot software is stored on a very
-different kind of data storage device: It is stored inside a chip that
-is located on the computer mainboard.
-
-People and technical documentation often call this chip the @dfn{boot
-flash} because it stores the boot software, and also because it is
-a @dfn{flash chip} which is a chip that stores data and that is built
-with a semiconductor technology called flash (see
-@uref{https://en.wikipedia.org/wiki/Flash memory,the Wikipedia article
-on flash memory} for more details on the technology).
-
-Here is a picture of this boot flash on the mainboard of a ThinkPad
-X200:
-
-@image{images/ThinkPad-X200-MX25L6405D-SOIC-16,6in,, Picture of the
-boot flash (MX25L6405D) of the ThinkPad X200 mainboard.}
-
-@sp 1
-
 Boot software (like @acronym{BIOS, Basic Input/Output System},
 @acronym{UEFI, Unified Extensible Firmware Interface} or GNU Boot)
 exist for a variety of technical reasons:
@@ -301,6 +294,48 @@ GNU Boot provides such software. It enables to replace nonfree boot
 software (typically nonfree @acronym{BIOS, Basic Input/Output System}
 or @acronym{UEFI, Unified Extensible Firmware Interface}) on some
 computers.
+
+@node       Boot flash
+@subsection Boot flash
+
+Like all software, the boot software has to be stored somewhere.
+
+Unlike the operating system which is typically stored on data storage
+devices people are familiar with (like @acronym{SSD, Solid State Drive},
+hard disk, USB key, etc.), the boot software is stored on a very
+different kind of data storage device: It is stored inside a chip that
+is located on the computer mainboard.
+
+People and technical documentation often call this chip the @dfn{boot
+flash} because it stores the boot software, and also because it is
+a @dfn{flash chip} which is a chip that stores data and that is built
+with a semiconductor technology called flash (see
+@uref{https://en.wikipedia.org/wiki/Flash memory,the Wikipedia article
+on flash memory} for more details on the technology).
+
+Here is a picture of this boot flash on the mainboard of a ThinkPad
+X200:
+
+@image{images/ThinkPad-X200-MX25L6405D-SOIC-16,6in,, Picture of the
+boot flash (MX25L6405D) of the ThinkPad X200 mainboard.}
+
+@sp 1
+
+To avoid common misconceptions, we also need to mention that not all
+chips that look like the one above are boot flash, as it is common for
+many chips to use the same @emph{chip package}. See the Wikipedia
+@uref{https://en.wikipedia.org/wiki/List_of_electronic_component_packaging_types,List
+of electronic component packaging types} article for more details.
+
+And the boot flash also does not even always look like that, even for
+the same computer model. For instance there are also ThinkPad X200
+computers with another boot flash model as shown in the picture below:
+
+@image{images/ThinkPad-X200-AT26DF321-SOIC-8,6in,, Picture of the boot flash
+(AT26DF321) of the ThinkPad X200 mainboard.}
+
+And on some computers where the boot flash is removable, it looks
+different again, and here too, not all removable chips are boot flash.
 
 @node       Distribution
 @subsection Distribution
@@ -1397,7 +1432,7 @@ In computers people are most familiar with, like laptops, the boot
 software (like the @acronym{BIOS, Basic Input/Output System},
 @acronym{UEFI, Unified Extensible Firmware Interface} or even GNU
 Boot) resides in the boot flash which is a data storage chip inside
-the mainboard (@pxref{Boot software} for more details).
+the mainboard (@pxref{Boot flash} for more details).
 
 So to install GNU Boot or to update it, you will need to replace all
 the content of this boot flash with GNU Boot or with a newer GNU Boot
@@ -1437,7 +1472,7 @@ specific computer (here the ThinkPad X200 with 8MiB boot flash).
 identify which archive file correspond to which computer.
 
 Inside each archive files, there are many smaller files that are flash
-images. @xref{Boot software} to understand what a flash image is.
+images. @xref{Boot flash} to understand what a flash image is.
 
 The flash image files correspond to the configurations described in
 the @ref{GNU Boot images types}.
@@ -2884,7 +2919,7 @@ To install GNU Boot on a given computer, you will simply run some
 software that does the installation for you.
 
 This software will replace the nonfree BIOS that is on the boot flash
-(@xref{Boot software} for more information on what is a boot flash).
+(@xref{Boot flash} for more information on what is a boot flash).
 
 The main issue with this approach is that the existing BIOS could be
 malicious and because of that there is no way to know if your computer

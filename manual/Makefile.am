@@ -25,6 +25,8 @@ gnuboot_TEXINFOS = \
 	guix-i686-linux.scm \
 	guix-revision.texi \
 	guix-x86_64-linux.scm \
+	images/ThinkPad-X200-AT26DF321-SOIC-8.eps \
+	images/ThinkPad-X200-AT26DF321-SOIC-8.png \
 	images/ThinkPad-X200-MX25L6405D-SOIC-16.eps \
 	images/ThinkPad-X200-MX25L6405D-SOIC-16.png \
 	$(SENTINEL)
@@ -35,12 +37,16 @@ CLEANFILES = \
 	guix-i686-linux.scm \
 	guix-revision.texi \
 	guix-x86_64-linux.scm \
+	images/ThinkPad-X200-AT26DF321-SOIC-8.eps \
+	images/ThinkPad-X200-AT26DF321-SOIC-8.png \
 	images/ThinkPad-X200-MX25L6405D-SOIC-16.eps \
 	images/ThinkPad-X200-MX25L6405D-SOIC-16.png \
 	$(SENTINEL)
 
 infoimagedir = $(infodir)/images
 dist_infoimage_DATA = \
+	images/ThinkPad-X200-AT26DF321-SOIC-8.eps \
+	images/ThinkPad-X200-AT26DF321-SOIC-8.png \
 	images/ThinkPad-X200-MX25L6405D-SOIC-16.eps \
 	images/ThinkPad-X200-MX25L6405D-SOIC-16.png \
 	$(SENTINEL)
