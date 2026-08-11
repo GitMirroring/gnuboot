@@ -18,8 +18,8 @@
 /texinfo.tex
 
 # Generated pictures for various targets
-/images/SOIC-16.png
-/images/SOIC-16.eps
+/images/ThinkPad-X200-MX25L6405D-SOIC-16.eps
+/images/ThinkPad-X200-MX25L6405D-SOIC-16.png
 
 # dvi, html, info, pdf, ps targets
 /build-guix-i686-linux.sh
