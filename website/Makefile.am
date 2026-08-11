@@ -272,6 +272,8 @@ pages/manual/images/%.jpeg: ../manual/images/%.jpeg
 	install -m 644 $< $@
 
 GNUBOOT_MANUAL = \
+	pages/manual/images/ThinkPad-X200-AT26DF321-SOIC8.jpeg \
+	pages/manual/images/ThinkPad-X200-AT26DF321-SOIC8.png \
 	pages/manual/images/ThinkPad-X200-MX25L6405D-SOIC16.jpeg \
 	pages/manual/images/ThinkPad-X200-MX25L6405D-SOIC16.png \
 	pages/manual/gnuboot.html \
