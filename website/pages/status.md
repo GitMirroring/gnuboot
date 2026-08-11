@@ -81,7 +81,7 @@ GNU Boot 0.1 RC6 status
 | Lenovo,          | Untested     | Untested     | Untested     | Untested     |
 | ThinkPad T400    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Lenovo,          | Untested     | Untested     | Untested     | Untested     |
+| Lenovo,          | Tested       | Untested     | Tested       | Untested     |
 | ThinkPad T400s   |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Lenovo,          | Untested     | Untested     | Untested     | Untested     |
