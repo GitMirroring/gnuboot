@@ -25,8 +25,9 @@ gnuboot_TEXINFOS = \
 	guix-i686-linux.scm \
 	guix-revision.texi \
 	guix-x86_64-linux.scm \
-	images/SOIC-16.eps \
-	images/SOIC-16.png
+	images/ThinkPad-X200-MX25L6405D-SOIC16.eps \
+	images/ThinkPad-X200-MX25L6405D-SOIC16.png \
+	$(SENTINEL)
 
 CLEANFILES = \
 	build-guix-i686-linux.sh \
@@ -34,13 +35,15 @@ CLEANFILES = \
 	guix-i686-linux.scm \
 	guix-revision.texi \
 	guix-x86_64-linux.scm \
-	images/SOIC-16.eps \
-	images/SOIC-16.png
+	images/ThinkPad-X200-MX25L6405D-SOIC16.eps \
+	images/ThinkPad-X200-MX25L6405D-SOIC16.png \
+	$(SENTINEL)
 
 infoimagedir = $(infodir)/images
 dist_infoimage_DATA = \
-	images/SOIC-16.eps \
-	images/SOIC-16.png
+	images/ThinkPad-X200-MX25L6405D-SOIC16.eps \
+	images/ThinkPad-X200-MX25L6405D-SOIC16.png \
+	$(SENTINEL)
 
 # Inspired from guix 1.3.0 docs/local.mk
 .jpeg.png:
