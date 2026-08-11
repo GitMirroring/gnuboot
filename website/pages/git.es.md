@@ -190,7 +190,7 @@ Tendrás que especificar la dirección de la lista de correo:
 
 Cierra también tus parches, que puedes configurar con:
 
-	git config format.signOff yes
+	git config --local format.signOff yes
 
 Una vez que haya enviado su parche, los mantenedores de GNU Boot serán
 notificados a través de la lista de correo y comenzarán a revisarlo.
