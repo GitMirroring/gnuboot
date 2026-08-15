@@ -111,7 +111,7 @@ TNAXG/1k2DzsqFPFjw==
                #$0xD24DDAC9226D5BA5E9F3BED3F5DAAAF74AD4C938))))))
     (synopsis "Trisquel installer signing key")
     (description #f)
-    (license #f))) ;; Public keys are not copyrightable.
+    (license #f))) ;; Cryptographic keys or signatures are not copyrightable.
 
 (define trisquel-netinst_11.0_amd64.iso.asc
   (package
@@ -149,7 +149,7 @@ TNAXG/1k2DzsqFPFjw==
                 "trisquel-netinst_11.0_amd64.iso.asc")))))))
     (synopsis "Trisquel installer signing key")
     (description #f)
-    (license #f))) ;; Signatures are not copyrightable.
+    (license #f))) ;; Cryptographic keys or signatures are not copyrightable.
 
 ;; TODO: move gpg in check
 (define-public trisquel-netinst_11.0_amd64.iso
