@@ -425,7 +425,7 @@ added later on in this manual.
 In the case of laptops, there is however something more problematic
 for which we have no solution yet. The computers have a builtin
 nonfree firmware which handle the keyboard (which is extremely
-problematic), and various tasks related to power management (seting up
+problematic), and various tasks related to power management (setting up
 the right voltages at boot, managing the battery, cutting power to the
 WiFi, the power management beeps, etc).
 
