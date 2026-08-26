@@ -240,19 +240,19 @@ Extensible Firmware Interface}. We refer to this type of software as
 boot software.
 
 The goal of this software is to initialize the hardware of the
-computer and load an operating system (like GNU/Linux, Windows, or
-macOS). GNU Boot can replaces this software on some computers.
+computer and to load an operating system (like GNU/Linux, Windows, or
+macOS). GNU Boot replaces this software on some computers.
 
 Like all software, this boot software has to be stored somewhere.
 
 Unlike the operating system which is typically stored on data storage
-devices people are familiar with (like @acronym{SSD, Solid State
-Drive} or a hard disks, USB keys, etc), the boot software is stored on
-a very different kind of data storage device.
+devices people are familiar with (like @acronym{SSD, Solid State Drive},
+hard disk, USB key, etc.), the boot software is stored on a very
+different kind of data storage device: It is stored inside a chip that
+is located on the computer mainboard.
 
-It is stored inside a chip that is inside the computer mainboard.
 People and technical documentation often call this chip the @dfn{boot
-flash} because it is stores the boot software, and also because it is
+flash} because it stores the boot software, and also because it is
 a @dfn{flash chip} which is a chip that stores data and that is built
 with a semiconductor technology called flash (see
 @uref{https://en.wikipedia.org/wiki/Flash memory,the Wikipedia article
