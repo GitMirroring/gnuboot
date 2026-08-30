@@ -145,15 +145,15 @@ echo "[ OK ] detected nodes with comma in the manual."
     "${tmpdir}"/checkpatch-test-nodes-without-comma.log \
     2>/dev/null || \
     fail "checkpatch.scm failed " \
-         "when checking for node without colon (':') in the manual."
+         "when checking for node without comma (',') in the manual."
 
 while IFS= read -r line; do
     grep -q -L "${line}" \
-         "${tmpdir}"/checkpatch-test-nodes-without-colon.log
-done < tests/checkpatch-test-nodes-without-comma.ref && \
-    fail "warned against nodes names without colon (':') the manual."
+         "${tmpdir}"/checkpatch-test-nodes-without-comma.log
+done < tests/checkpatch-test-nodes-without-coma.ref && \
+    fail "warned against nodes names without comma (',') the manual."
 
-echo "[ OK ] didn't warn against nodes names without colon (':') in the manual."
+echo "[ OK ] didn't warn against nodes names without comma (',') in the manual."
 
 ################################################################################
 # Test if checkpatch.scm correctly finds missing Spanish translation.          #
