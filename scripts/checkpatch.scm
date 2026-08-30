@@ -61,6 +61,19 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
+;;                        ;;;;;;;;;;;;;;;;;;;;;;;;;;;                         ;;
+;;                        ;; Texinfo parsing logic ;;                         ;;
+;;                        ;;;;;;;;;;;;;;;;;;;;;;;;;;;                         ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define* (texinfo-node-name line #:optional (prefix "+") (type "node"))
+  (regexp-substitute
+   #f
+   (string-match (string-append "\\" prefix "@" type " +") line) 'post))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
 ;;                         ;;;;;;;;;;;;;;;;;;;;;;;;;                          ;;
 ;;                         ;; Patch parsing logic ;;                          ;;
 ;;                         ;;;;;;;;;;;;;;;;;;;;;;;;;                          ;;
@@ -710,19 +723,19 @@
     (lambda (line parse-results check-results)
       (define warnings (assq-ref check-results 'warnings))
 
-      (define (node-name line)
-        (regexp-substitute
-         #f
-         (string-match "\\+@node +" line) 'post))
-
       (define (node-has-colon line)
-        (not (string=? (string-filter (lambda (c) (eq? c #\:)) (node-name line)) "")))
+        (not (string=?
+              (string-filter (lambda (c) (eq? c #\:))
+                             (texinfo-node-name line))
+              "")))
 
       (if (node-has-colon line)
           (let ((warnings (assq-ref check-results 'warnings)))
             (display
              (string-append
-              "WARNING: node \"" (node-name line) "\" has a colun (':').\n\n"))
+              "WARNING: node \""
+              (texinfo-node-name line)
+              "\" has a colun (':').\n\n"))
             (acons 'warnings (+ warnings 1) check-results))
           check-results))
     (lambda (path parse-results check-results) check-results))
@@ -735,21 +748,21 @@
     (lambda (line parse-results check-results)
       (define warnings (assq-ref check-results 'warnings))
 
-      (define (node-name line)
-        (regexp-substitute
-         #f
-         (string-match "\\+@node +" line) 'post))
-
       (define (node-has-comma line)
         (or
-         (not (string=? (string-filter (lambda (c) (eq? c #\,)) (node-name line)) ""))
-         (string-match "@comma\\{\\}" (node-name line))))
+         (not (string=?
+               (string-filter (lambda (c) (eq? c #\,))
+                              (texinfo-node-name line))
+               ""))
+         (string-match "@comma\\{\\}" (texinfo-node-name line))))
 
       (if (node-has-comma line)
           (let ((warnings (assq-ref check-results 'warnings)))
             (display
              (string-append
-              "WARNING: node \"" (node-name line) "\" has a comma (',').\n\n"))
+              "WARNING: node \""
+              (texinfo-node-name line)
+              "\" has a comma (',').\n\n"))
             (acons 'warnings (+ warnings 1) check-results))
           check-results))
     (lambda (path parse-results check-results) check-results))
@@ -767,11 +780,6 @@
     (lambda (line parse-results check-results)
       (define warnings (assq-ref check-results 'warnings))
 
-      (define* (node-name line prefix type)
-        (regexp-substitute
-         #f
-         (string-match (string-append "\\" prefix "@" type " +") line) 'post))
-
       (define (handle-node-type prefix type warnings)
         (define current-node-name
           (substring
@@ -783,8 +791,8 @@
           (if
            (and
             (string=?
-             (node-name line prefix type)
-             (node-name
+             (texinfo-node-name line prefix type)
+             (texinfo-node-name
               (string-append prefix current-node-name)
               prefix
               "node"))
@@ -796,7 +804,7 @@
            ((lambda _
               (display
                (string-append
-                "WARNING: " (node-name line prefix type)
+                "WARNING: " (texinfo-node-name line prefix type)
                 " " type " and node are not aligned.\n\n"))
               (+ 1 warnings)))
            warnings)))
