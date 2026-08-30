@@ -203,8 +203,8 @@ somewhat similar projects.
 GNU Boot is a boot software distribution. What this means will be
 explained below.
 
-@node       boot software
-@subsection boot software
+@node       Boot software
+@subsection Boot software
 @cindex @acronym{BIOS, Basic Input/Output System}
 @cindex @acronym{UEFI, Unified Extensible Firmware Interface}
 @cindex boot flash
@@ -293,8 +293,8 @@ software (typically nonfree @acronym{BIOS, Basic Input/Output System}
 or @acronym{UEFI, Unified Extensible Firmware Interface}) on some
 computers.
 
-@node       distribution
-@subsection distribution
+@node       Distribution
+@subsection Distribution
 
 GNU Boot is a distribution of boot software: like GNU/Linux distributions
 (like Trisquel), it reuses various software to produce something that
@@ -1803,8 +1803,8 @@ don't support these RAID cards yet ( @xref{Unsupported hardware
 supported by projects reused by GNU Boot}). Help is welcome for
 identifying if we can add support for these.
 
-@node          other partition types
-@subsubsection other partition types
+@node          Other partition types
+@subsubsection Other partition types
 
 Right now, GNU Boot probably supports more partition types. We are
 considering removing them in GNU Boot.
