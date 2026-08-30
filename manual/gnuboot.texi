@@ -212,8 +212,8 @@ somewhat similar projects.
 GNU Boot is a boot software distribution. What this means will be
 explained below.
 
-@node       boot software
-@subsection boot software
+@node       Boot software
+@subsection Boot software
 @cindex @acronym{BIOS, Basic Input/Output System}
 @cindex @acronym{UEFI, Unified Extensible Firmware Interface}
 @cindex boot flash
@@ -302,8 +302,8 @@ software (typically nonfree @acronym{BIOS, Basic Input/Output System}
 or @acronym{UEFI, Unified Extensible Firmware Interface}) on some
 computers.
 
-@node       distribution
-@subsection distribution
+@node       Distribution
+@subsection Distribution
 
 GNU Boot is a distribution of boot software: like GNU/Linux distributions
 (like Trisquel), it reuses various software to produce something that
@@ -1397,7 +1397,7 @@ In computers people are most familiar with, like laptops, the boot
 software (like the @acronym{BIOS, Basic Input/Output System},
 @acronym{UEFI, Unified Extensible Firmware Interface} or even GNU
 Boot) resides in the boot flash which is a data storage chip inside
-the mainboard (@pxref{boot software} for more details).
+the mainboard (@pxref{Boot software} for more details).
 
 So to install GNU Boot or to update it, you will need to replace all
 the content of this boot flash with GNU Boot or with a newer GNU Boot
@@ -1437,7 +1437,7 @@ specific computer (here the ThinkPad X200 with 8MiB boot flash).
 identify which archive file correspond to which computer.
 
 Inside each archive files, there are many smaller files that are flash
-images. @xref{boot software} to understand what a flash image is.
+images. @xref{Boot software} to understand what a flash image is.
 
 The flash image files correspond to the configurations described in
 the @ref{GNU Boot images types}.
@@ -1812,8 +1812,8 @@ don't support these RAID cards yet ( @xref{Unsupported hardware
 supported by projects reused by GNU Boot}). Help is welcome for
 identifying if we can add support for these.
 
-@node          other partition types
-@subsubsection other partition types
+@node          Other partition types
+@subsubsection Other partition types
 
 Right now, GNU Boot probably supports more partition types. We are
 considering removing them in GNU Boot.
@@ -2884,7 +2884,7 @@ To install GNU Boot on a given computer, you will simply run some
 software that does the installation for you.
 
 This software will replace the nonfree BIOS that is on the boot flash
-(@xref{boot software} for more information on what is a boot flash).
+(@xref{Boot software} for more information on what is a boot flash).
 
 The main issue with this approach is that the existing BIOS could be
 malicious and because of that there is no way to know if your computer

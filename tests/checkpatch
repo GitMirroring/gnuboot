@@ -159,6 +159,49 @@ done < tests/checkpatch-test-nodes-without-coma.ref && \
 echo "[ OK ] didn't warn against nodes names without comma (',') in the manual."
 
 ################################################################################
+# Test if checkpatch.scm correctly finds non-capitalized node names            #
+################################################################################
+
+# This checks the "manual: GRUB images: warn about potential removal
+# of less common partitions." commit which adds a node name which
+# isn't capitalized.
+
+./scripts/checkpatch.scm \
+    "$(git format-patch -1 -o "${tmpdir}" \
+           afbeed1c01a18b2d911b771341067ce7c72659b1)" > \
+    "${tmpdir}"/checkpatch-test-non-capitalized-node-name.log 2>/dev/null || \
+    fail "checkpatch.scm failed " \
+         "when trying to detect non-capitalized node name in the manual."
+
+while IFS= read -r line; do
+    grep -q "${line}" \
+	 "${tmpdir}"/checkpatch-test-non-capitalized-node-name.log || \
+    fail "failed to detect non-capitalized node name in the manual."
+done < tests/checkpatch-test-non-capitalized-node-name.ref
+
+echo "[ OK ] detected node with non-capitalized node name in the manual."
+
+# This checks the "manual: flash programmers: Explain basic risks of
+# disassembling a computer." commit which add nodes names that are
+# properly capitalized.
+
+./scripts/checkpatch.scm \
+    "$(git format-patch -1 -o "${tmpdir}" \
+           55696dbd865517477b53bb1ca5420dc7b5ec7efa)" > \
+    "${tmpdir}"/checkpatch-test-capitalized-nodes-names.log \
+    2>/dev/null || \
+    fail "checkpatch.scm failed " \
+         "when checking for capitalized nodes names in the manual."
+
+while IFS= read -r line; do
+    grep -q -L "${line}" \
+         "${tmpdir}"/checkpatch-test-capitalized-nodes-names.log
+done < tests/checkpatch-test-capitalized-nodes-names.ref && \
+    fail "warned against capitalized nodes names in the manual."
+
+echo "[ OK ] didn't warn against capitalized node names in the manual."
+
+################################################################################
 # Test if checkpatch.scm correctly finds missing Spanish translation.          #
 ################################################################################
 

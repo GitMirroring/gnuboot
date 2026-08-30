@@ -910,6 +910,35 @@
       check-results))
 
    (make-rule
+    "Check if the @node is capitalized"
+    (lambda (path parse-results check-results) check-results)
+    (lambda (line parse-results check-results)
+      (startswith line "+@node "))
+    (lambda (line parse-results check-results)
+      ;; It is not entirely impossible to have the first word in the
+      ;; node name be a word that cannot be capitalized, so we use
+      ;; warnings and not errors.
+      (define warnings (assq-ref check-results 'warnings))
+
+      (define (node-is-not-capitalized line)
+        ;; char-lower-case? only returns true for [a-z] like
+        ;; characters. For \#1, \#! etc, char-lower-case? and
+        ;; char-upper-case? both return #f.
+        (char-lower-case?
+         (string-ref (string-trim (texinfo-node-name line)) 0)))
+
+      (if (node-is-not-capitalized line)
+          (let ((warnings (assq-ref check-results 'warnings)))
+            (display
+             (string-append
+              "WARNING: node \""
+              (texinfo-node-name line)
+              "\" is not capitalized.\n\n"))
+            (acons 'warnings (+ warnings 1) check-results))
+          check-results))
+    (lambda (path parse-results check-results) check-results))
+
+   (make-rule
     "Don't forget to review resources/wrapper/guix when bumping Guix revision"
     (lambda (path parse-results check-results)
       (acons 'guix-revision-modified #f check-results))
