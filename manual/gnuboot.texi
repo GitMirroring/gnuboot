@@ -2622,12 +2622,12 @@ quality", or "I can trust the people doing this software because I
 know them well" or "I don't want to use this software because the
 people that do it know me personally and I feel comfortable because of
 that even if I trust them" are not things that a given software
-project can easily advertize.
+project can easily advertise.
 
 Not everything is technical and sometimes it can boil down to things
 like "this project is well known, looks serious and Wikipedia also
 agrees on that", so it looks safer to use than "another project that
-advertize 100% security" because "according to my friends, 100%
+advertise 100% security" because "according to my friends, 100%
 security doesn't exist" or that "the security features of this
 software create other security issues that affect you more than what
 it's supposed to fix".
@@ -2685,7 +2685,7 @@ design, so people runing 100% free software distributions try to avoid
 such places anyway.
 
 The consequences of installing malware is quite bad as the computer
-cannot be trusted anymore and the advertized solution is usually to
+cannot be trusted anymore and the advertised solution is usually to
 reinstall completely the GNU/Linux distribution, which is relatively
 easy to do.
 
