@@ -2929,7 +2929,7 @@ In practice it means that you will need another computer and a flash
 chip programmer to either check that the GNU Boot image you installed
 was not modified and/or to simply reinstall GNU Boot.
 
-Once done, you will also need to not boot anymmore your previous
+Once done, you will also need to not boot anymore your previous
 GNU/Linux installation and reinstall GNU/Linux as well. @xref{Impact
 of malware} for more details on the difficulties of doing that
 properly.
