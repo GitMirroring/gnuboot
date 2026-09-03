@@ -81,11 +81,13 @@ serial number, vendor name, etc).
 
 @macro computerWithSlowUSBKeyboard
 
-At the moment, USB keyboards are extremely slow in the GRUB provided by
-GNU Boot in its GRUB images. PS/2 Keyboard seems to work fine, so it is
-strongly recommended to get a PS/2 keyboard or try to see if some USB to
-PS2 adapters can work. A PS/2 keyboard was tested and worked fine when
-connected on the purple PS/2 connector.
+At the moment, @acronym{USB, Universal Serial Bus} keyboards are
+extremely slow in the GRUB provided by GNU Boot in its GRUB
+images. PS/2 Keyboard seems to work fine, so it is strongly
+recommended to get a PS/2 keyboard or try to see if some
+@acronym{USB, Universal Serial Bus} to PS2 adapters can work. A PS/2
+keyboard was tested and worked fine when connected on the purple PS/2
+connector.
 
 @end macro @c computerWithSlowUSBKeyboard
 
@@ -301,10 +303,11 @@ computers.
 Like all software, the boot software has to be stored somewhere.
 
 Unlike the operating system which is typically stored on data storage
-devices people are familiar with (like @acronym{SSD, Solid State Drive},
-hard disk, USB key, etc.), the boot software is stored on a very
-different kind of data storage device: It is stored inside a chip that
-is located on the computer mainboard.
+devices people are familiar with (like @acronym{SSD, Solid State
+Drive}, hard disk, @acronym{USB, Universal Serial Bus} key, etc.), the
+boot software is stored on a very different kind of data storage
+device: It is stored inside a chip that is located on the computer
+mainboard.
 
 People and technical documentation often call this chip the @dfn{boot
 flash} because it stores the boot software, and also because it is
@@ -461,10 +464,10 @@ Respect Your Freedom hardware certification makes exception for these
 until we get free software replacements.
 
 All the (mass) storage devices (Hard disks, @acronym{SSD, Solid State
-Drive}, USB keys, SD cards, etc) have a builtin nonfree firmware. It
-is possible to avoid trusting these nonfree firmware by encrypting
-everything that is on these devices. How to do that will need to be
-added later on in this manual.
+Drive}, @acronym{USB, Universal Serial Bus} keys, SD cards, etc) have a
+builtin nonfree firmware. It is possible to avoid trusting these
+nonfree firmware by encrypting everything that is on these
+devices. How to do that will need to be added later on in this manual.
 
 In the case of laptops, there is however something more problematic
 for which we have no solution yet. The computers have a builtin
@@ -1299,9 +1302,10 @@ drivers, and the GNU Boot project also welcome help in this area).
 @node       Supported external card readers
 @subsection Supported external card readers
 
-GNU Boot supports some USB card readers that are viewed as
-mass-storage. With all that you can boot on an SD card a microSD card
-and it will be viewed like a mass storage USB key.
+GNU Boot supports some @acronym{USB, Universal Serial Bus} card readers
+that are viewed as mass-storage. With all that you can boot on an SD
+card a microSD card and it will be viewed like a mass storage
+@acronym{USB, Universal Serial Bus} key.
 
 @pxref{Supported computers}, inside each computer subsection to see
 which computers's internal card readers are supported.
@@ -1332,17 +1336,19 @@ details), you can ask the GNU Boot maintainers to add a debug image
 for your computer, and once you tested it we could update the list
 above.
 
-To get the logs you can for instance get an USB<->serial adapter and a
-Null modem cable or adapter and after installing the picocom package,
-you can most of the time use the following command to get the logs:
+To get the logs you can for instance get an @acronym{USB, Universal
+Serial Bus}<->serial adapter and a Null modem cable or adapter and
+after installing the picocom package, you can most of the time use the
+following command to get the logs:
 
 @example
 picocom -b 115200 /dev/ttyUSB0
 @end example
 
-For USB<->Serial adapters, the serial port will most of the time be on
-/dev/ttyUSB0, but it can change in some configuration (when there are
-multiple serial ports, or with some adapters).
+For @acronym{USB, Universal Serial Bus}<->Serial adapters, the serial
+port will most of the time be on /dev/ttyUSB0, but it can change in
+some configuration (when there are multiple serial ports, or with some
+adapters).
 
 @node       Unsupported hardware supported by projects reused by GNU Boot
 @subsection Unsupported hardware supported by projects reused by GNU Boot
@@ -2031,11 +2037,12 @@ ThinkPad X200), you will need several thing:
 @item A clip or test probe to connect to the boot flash.
 @item Some wires (usually female<->female jump wires) to connect
       the flash chip programmer to the clip.
-@item An extra computer running GNU/Linux with an USB port that works.
-      Any computers should work, however if you care about security, since
-      this extra computer will have the ability to modify the GNU Boot image
-      that it is reading or writing, you need to be able to trust this extra
-      computer, so choose this extra computer accordingly.
+@item An extra computer running GNU/Linux with an @acronym{USB, Universal
+      Serial Bus} port that works.  Any computers should work, however
+      if you care about security, since this extra computer will have the
+      ability to modify the GNU Boot image that it is reading or writing,
+      you need to be able to trust this extra computer, so choose this extra
+      computer accordingly.
 @end itemize
 
 To reprogram the boot flash of a desktop, server or workstation
@@ -2138,11 +2145,11 @@ get Female/Female Jumper Wires, some PIN headers and a breadboard.
 @item        Lenovo ThinkPad X200 with MX25L6405D  @tab No
 @end multitable
 
-@node       Vikings CH341a USB Programmer
-@subsection Vikings CH341a USB Programmer
+@node       Vikings CH341a @acronym{USB, Universal Serial Bus} Programmer
+@subsection Vikings CH341a @acronym{USB, Universal Serial Bus} Programmer
 
-The CH341a USB Programmer from Vikings can be used without having to
-solder anything.
+The CH341a @acronym{USB, Universal Serial Bus} Programmer from Vikings
+can be used without having to solder anything.
 
 If you want to use this programmer to reprogram a laptop boot flash,
 you will need to get Female/Female Jumper Wires (like the "Jumper Wire
@@ -2205,9 +2212,10 @@ an adapter for DIP-8 flash chips and various cables.
 
 Since the Zerocat Chipflasher v2 has a builtin (free) firmware, using
 that makes things much more easy (for instance it is compatible with a
-wide variety of USB serial port adapters), but in some situations that
-can have security implications (as the firmware can for instance be
-modified while shipping the flasher).
+wide variety of @acronym{USB, Universal Serial Bus} serial port
+adapters), but in some situations that can have security implications
+(as the firmware can for instance be modified while shipping the
+flasher).
 
 For the security implications, @pxref{Security} for more background on
 security first, and then for the security related to using flash chip
@@ -2732,10 +2740,10 @@ If the attacker has access to significant resources, with the same
 attack vectors (through untrusted software or by booting GNU/Linux and
 using flashrom), it can also replace the firmware of various
 peripherals like keyboards, storage devices (@acronym{SSDs, Solid
-State Drives}, USB keys, etc) with malicious versions that can take
-control of the computer, but to do that it needs to dedicate or have
-dedicated resources to the specific families of chip present in these
-peripherals.
+State Drives}, @acronym{USB, Universal Serial Bus} keys, etc) with
+malicious versions that can take control of the computer, but to do
+that it needs to dedicate or have dedicated resources to the specific
+families of chip present in these peripherals.
 
 Untrusted software can also come from cards that can be plugged in the
 computer, like GPUs or express-cards for laptops, so the same
