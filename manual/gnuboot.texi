@@ -2204,7 +2204,7 @@ official Chipflasher v2 documentation from Zerocat explains how to do
 that. Ideally you will also need to find a way to verify the
 signatures of the source code of this firmware. And finally loading
 the firmware may not work with all serial port adapters, though
-compatbility has already been improved over time.
+compatibility has already been improved over time.
 
 For the security implications, @pxref{Security} for more background on
 security first, and then for the security related to using flash chip
