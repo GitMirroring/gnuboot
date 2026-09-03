@@ -2939,7 +2939,7 @@ properly.
 
 The security consideration here will depend a lot on the exact image
 you used. If it is fully free and that the computer was never
-compromised, the same condsideration than @ref{Security considerations
+compromised, the same consideration than @ref{Security considerations
 when updating GNU Boot} do apply.
 
 Else it is mostly similar to @ref{Installing from a computer with a
