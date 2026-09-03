@@ -2087,8 +2087,8 @@ If that happens, the best fix is to use shorter wires. It is also
 sometimes possible to workaround by lowering the speed at which the
 programmer talks to the boot flash.
 
-@node       Programmer SPI speed
-@subsection Programmer SPI speed
+@node       Programmer @acronym{SPI,Serial Peripheral Interface} speed
+@subsection Programmer @acronym{SPI,Serial Peripheral Interface} speed
 
 On some flash chip programmers, the speed at which it access the flash
 chip can be configured. In this case using the lowest speed possible
@@ -2110,9 +2110,10 @@ For some reasons the signal integrity is bad with the MX25L6405D
 advised to have the shortest cables possibles (@pxref{Wire length} for
 more details) but also to check the compatibility of various flash
 programmers with this boot flash on this laptop. On programmers that
-are known to work, you might still need to lower the SPI speed
-(@pxref{Programmer SPI speed} for more details) to be able to detect,
-read or write the boot flash.
+are known to work, you might still need to lower the
+@acronym{SPI,Serial Peripheral Interface} speed (@pxref{Programmer
+@acronym{SPI,Serial Peripheral Interface} speed} for more details) to
+be able to detect, read or write the boot flash.
 
 @node    Supported flash programmers
 @section Supported flash programmers
@@ -3193,8 +3194,9 @@ be replaced.
 
 To do that you need to use a boot flash of the same chip package
 (@pxref{Flash chip package} to understand what is a chip package) and
-storage size and that uses the SPI protocol (currently all supported
-computers use SPI boot flash).
+storage size and that uses the @acronym{SPI,Serial Peripheral
+Interface} protocol (currently all supported computers use
+@acronym{SPI,Serial Peripheral Interface} boot flash).
 
 To check the compatibility of the chip with Flashrom you can use the
 following command:
