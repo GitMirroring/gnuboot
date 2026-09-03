@@ -2547,7 +2547,7 @@ This section gives some basic and generic introduction to computer
 security and risk management with free software in mind. It is a
 pre-requisite to understand the next sections in the Security chapter.
 
-If you are already familiar with threat modelling, that you know how
+If you are already familiar with threat modeling, that you know how
 to choose software with security criteria in mind, but also with other
 criteria in mind as well, then you can skip this section and jump
 directly to the sections after this one that are directly related to
@@ -2573,14 +2573,14 @@ and risk management would be meaningless, missleading, or would be
 restricted to some very narrow topic that isn't necessarily relevant
 to most people.
 
-@node       Threat modelling or what security really is about
-@subsection Threat modelling or what security really is about
+@node       Threat modeling or what security really is about
+@subsection Threat modeling or what security really is about
 
-@cindex threat modelling
+@cindex threat modeling
 
 Security is a process. To really make it work you need to understand
 various threats and if or how to respond to them (this is called
-@dfn{threat modelling}). This depends on your life, your use cases,
+@dfn{threat modeling}). This depends on your life, your use cases,
 etc. It boils down to what is important to you and what is not.
 
 For instance if a Company that makes nonfree software lose money,
@@ -2648,7 +2648,7 @@ given software has features that you want, or if it fits you better,
 or has better long term availability guarantees or better support than
 a more secure one, etc.
 
-A big part of threat modelling is also, when you have things to
+A big part of threat modeling is also, when you have things to
 protect, to also understand who or what to protect these things from.
 
 For instance a state doesn't have the same capabilities, goals, or
@@ -3528,7 +3528,7 @@ This way if for some reasons the source code was modified, it will be
 detected. This can also protect other people as checking also improves
 the probability of catching active attacks. If you're unsure if it's
 worth the effort, @xref{Security} for an introduction to security and
-threat modelling.
+threat modeling.
 
 If you want to do that, once you downloaded the GNU Boot source code
 (@pxref{Downloading the GNU Boot source code with git} if you missed
