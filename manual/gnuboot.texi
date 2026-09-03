@@ -3816,6 +3816,7 @@ where to send bug reports, etc).
 
 @include fdl-1.3.texi
 
+@sp 1
 
 @node       Concept index
 @unnumbered Concept index
