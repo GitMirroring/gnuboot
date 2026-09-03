@@ -1193,7 +1193,7 @@ chip) that is meant to run by the boot software (typically a
 Extensible Firmware Interface}).
 
 When using GNU Boot SeaBIOS images, GNU Boot will run that software
-reguardless of if it's free or not. Most of the time this software is
+regardless of if it's free or not. Most of the time this software is
 nonfree. The GNU Boot GRUB images won't run this software at all, so
 this is also one of the reasons why SeaBIOS images are reserved for
 more advanced users. @xref{GNU Boot images types} on the various
@@ -2978,7 +2978,7 @@ The previous subsections already explain how to deal with the computer
 that you are about to install GNU Boot on. For instance they explain
 the risk with the firmware that controls the keyboard on laptops.
 
-They also explain the risk of running untrusted code reguardless of if
+They also explain the risk of running untrusted code regardless of if
 it comes from the Boot flash or the operating system that is installed
 on the laptop.
 
