@@ -2175,7 +2175,7 @@ impacts on both the compatibility with laptops boot flash and the way
 of using the Chipflasher.
 
 All these differences can be useful, otherwise the Chipflasher v2
-official documentation on the Zerocat website or the chipflasher git
+official documentation on the Zerocat website or the Chipflasher git
 repository would not document all these in depth.
 
 In order to support well the Zerocat Chipflasher v2 and potentially
