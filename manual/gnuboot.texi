@@ -2247,7 +2247,7 @@ anymore, you will need to build and load this firmware yourself. The
 official Chipflasher v2 documentation from Zerocat explains how to do
 that. Ideally you will also need to find a way to verify the
 signatures of the source code of this firmware. And finally loading
-the fimrware may not work with all serial port adapters, though
+the firmware may not work with all serial port adapters, though
 compatbility has already been improved over time.
 
 For the security implications, @pxref{Security} for more background on
