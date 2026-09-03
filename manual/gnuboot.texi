@@ -3131,8 +3131,9 @@ that you should be able to disassemble a computer while also limiting
 and/or understanding the risks.
 
 If you think we missed some topics below or that you have specific
-suggestions for improvements, please contact us on the gnuboot-patches
-mailing list.
+suggestions for improvements, please contact us on the
+@uref{https://lists.gnu.org/mailman/listinfo/gnuboot-patches,gnuboot-patches
+mailing list} mailing list.
 
 @node       Instructions for disassembling specific computers
 @subsection Instructions for disassembling specific computers
@@ -3153,7 +3154,8 @@ reused and if something is wrong they can be fixed.
 
 If you know other instructions under free licenses that can apply to
 computers supported by GNU Boot, please contact GNU Boot in the
-gnuboot-patches mailing list.
+@uref{https://lists.gnu.org/mailman/listinfo/gnuboot-patches,gnuboot-patches
+mailing list} mailing list.
 
 Note that some well known instructions like the ones provided by
 iFixit or Lenovo are under nonfree licenses.
