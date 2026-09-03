@@ -116,6 +116,8 @@ chmod +x conf.sh
 # We also need to generate a definition file for the manual.
 `dirname $0`/guix-revision.sh print-texinfo > "$srcdir/manual/guix-revision.texi"
 
+AM_EXTRA_RECURSIVE_TARGETS([index.docbook])
+
 AC_OUTPUT
 
 AS_ECHO(["Configuration options:"])

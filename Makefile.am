@@ -107,7 +107,20 @@ check: $(LOG)
 	set -o pipefail ; ./tests/checkpatch 2>&1 | tee -a $(LOG)
 	@echo "[ OK ] Makefile: $@ target. See $(LOG) for the log."
 
-manuals: dvi html info pdf ps
+# Automake doesn't have support yet for generating DocBooks for Gnome
+# Help.
+docbook: index.docbook-recursive
+manual/index.docbook: index.docbook-recursive
+
+helpdir = $(datadir)/help/C/${PACKAGE}
+help_DATA = manual/index.docbook
+helpimagesdir = $(datadir)/help/C/${PACKAGE}/images/
+helpimages_DATA = \
+	manual/images/ThinkPad-X200-AT26DF321-SOIC-8.jpeg \
+	manual/images/ThinkPad-X200-MX25L6405D-SOIC-16.jpeg \
+	$(SENTINEL)
+
+manuals: docbook dvi html info pdf ps
 
 include resources/debian/Makefile.am
 include resources/packages/i945-thinkpads-install-utilities/Makefile.am

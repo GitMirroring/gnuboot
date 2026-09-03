@@ -23,6 +23,10 @@
 /images/ThinkPad-X200-MX25L6405D-SOIC-16.eps
 /images/ThinkPad-X200-MX25L6405D-SOIC-16.png
 
+# docbook target
+/index
+/index.docbook
+
 # dvi, html, info, pdf, ps targets
 /build-guix-i686-linux.sh
 /build-guix-x86_64-linux.sh

@@ -65,3 +65,32 @@ build-guix-%-linux.sh: build-guix-%-linux.sh.in
 
 guix-revision.texi:
 	../$(srcdir)/guix-revision.sh print-texinfo > $@
+
+# Workaround limitations in GNU Texinfo: by default 'makeinfo
+# --docbook manual/gnuboot.texi' creates a file with '<book
+# id="gnuboot.xml" lang="en">', but for some reasons Yelp / Gnome Help
+# doesn't like the id. Changing the id to 'index' makes it accept the
+# file. This is due to the following code in Texinfo:
+#
+#     sub conversion_output_begin($;$$) {
+#       my ($self, $output_file, $output_filename) = @_;
+#
+#      [...]
+#
+#       my $id;
+#       if ($output_file ne '') {
+#         # FIXME DocBook 5 id -> xml:id
+#         $id = " id=\"".$self->xml_protect_text($output_filename)."\"";
+#       } else {
+#         $id = '';
+#       }
+#
+#     [...]
+#     }
+#
+# And the id is generated form the filename, hence the use of '-o index'.
+index: $(gnuboot_TEXINFOS) version.texi
+	makeinfo --docbook gnuboot.texi  -o index
+
+index.docbook: index
+	install -m 644 index index.docbook
