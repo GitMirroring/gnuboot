@@ -2682,7 +2682,7 @@ User Repository} or Pip typically communicate on such incidents and
 the specialized press talks about it.
 
 Places like @acronym{AUR, Arch User Repository} or Pip also provide
-nonfree software, and this is by design, so people runing 100% free
+nonfree software, and this is by design, so people running 100% free
 software distributions try to avoid such places anyway.
 
 The consequences of installing malware is quite bad as the computer
