@@ -3055,9 +3055,9 @@ Devices International Limited} chip to program the Arduino processor
 directly without needing to run the bootloader code. This is for
 instance described in the
 @uref{https://arduino.stackexchange.com/questions/30564/ftdi-breakout-with-additional-isp-connector,FTDI
-Breakout with additional ISP connector} thread on stackoverflow. On an
-Arduino duemillanove this requires to solder 1 connector and to use 4
-female<->female jump wire cables and to use the avrdude software.
+Breakout with additional ISP connector} thread on Stack Overflow. On
+an Arduino duemillanove this requires to solder 1 connector and to use
+4 female<->female jump wire cables and to use the avrdude software.
 
 It is also possible to use another Arduino and software to do these,
 but then it only shift the issue to the other Arduino that also has a
