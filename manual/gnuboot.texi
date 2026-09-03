@@ -1181,7 +1181,7 @@ software:
 
 @item You can simply use GNU Boot GRUB images and not use GNU
       Boot SeaBIOS images. This will avoid running such software
-      completely. This is the simpliest solution and it also gives the
+      completely. This is the simplest solution and it also gives the
       strongest guarantees as users can't accidentally run such software.
 
 @item You can get computers without PCI /PCIe cards that have builtin nonfree
