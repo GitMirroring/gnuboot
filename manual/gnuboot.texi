@@ -3051,7 +3051,7 @@ rid of the bootloader or build and install one yourself.
 
 Both solutions do require to use an @acronym{USB, Universal Serial
 Bus}<->Serial adapters with an @acronym{FTDI, Future Technology
-Devices International Limited} chip to program the arduino processor
+Devices International Limited} chip to program the Arduino processor
 directly without needing to run the bootloader code. This is for
 instance described in the
 @uref{https://arduino.stackexchange.com/questions/30564/ftdi-breakout-with-additional-isp-connector,FTDI
