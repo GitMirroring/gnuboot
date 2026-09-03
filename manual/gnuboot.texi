@@ -3028,7 +3028,7 @@ that some Arduinos do require level shifters to be able to safely
 program the boot flash found on the computers supported by GNU Boot.
 
 However if you build a flash chip programmer with an Arduino, you also
-implicitely trust the bootloader of the Arduino you use. If you don't
+implicitly trust the bootloader of the Arduino you use. If you don't
 want to trust this bootloader, you will either need to completely get
 rid of the bootloader or build and install one yourself.
 
