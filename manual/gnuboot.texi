@@ -1482,7 +1482,7 @@ Otherwise here are the advantages/disadvantages of each combinaison:
 @item GRUB with high resolution graphics: Images with GRUB
 usually don't require the user to do any configuration of the
 distribution. More technical users can also use that to customize the
-way the system boots for more security or to support unsual boot
+way the system boots for more security or to support unusual boot
 configurations (that are not typically supported by graphical
 installers of GNU/Linux distributions), however these more advanced
 configurations also come with their set of limitations.
