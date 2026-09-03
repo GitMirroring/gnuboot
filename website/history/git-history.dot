@@ -59,7 +59,7 @@ digraph {
       label="https://codeberg.org/libreboot/lbwww git repository";
       # I don't know if the first commit was made from scratch or if
       # its content comes from somewhere else as the provenance of the
-      # work is not mentionned in the initial commit message and that
+      # work is not mentioned in the initial commit message and that
       # often Leah reuses previous code to create the first commit.
       "lbwww: before first commit" [label="?"];
       "lbwww: first commit" [label="first commit: 501e77d libreboot site"];
