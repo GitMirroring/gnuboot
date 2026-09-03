@@ -3049,9 +3049,11 @@ implicitly trust the bootloader of the Arduino you use. If you don't
 want to trust this bootloader, you will either need to completely get
 rid of the bootloader or build and install one yourself.
 
-Both solutions do require to use an FTDI chip to program the arduino
-processor directly without needing to run the bootloader code. This is
-for instance described in the
+Both solutions do require to use an @acronym{USB, Universal Serial
+Bus}<->Serial adapters with an @acronym{FTDI, Future Technology
+Devices International Limited} chip to program the arduino processor
+directly without needing to run the bootloader code. This is for
+instance described in the
 @uref{https://arduino.stackexchange.com/questions/30564/ftdi-breakout-with-additional-isp-connector,FTDI
 Breakout with additional ISP connector} thread on stackoverflow. On an
 Arduino duemillanove this requires to solder 1 connector and to use 4
