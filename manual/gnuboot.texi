@@ -2596,7 +2596,7 @@ access to any important data at all, or if you can actually be in a
 situation where you can relatively easy get computer.
 
 All these are security threats but they don't threaten the same people
-or organisations in the same ways.
+or organizations in the same ways.
 
 In addition, sometimes there are security features like "encryption
 with LUKS", or "hard disk encryption" that can be promoted, that
