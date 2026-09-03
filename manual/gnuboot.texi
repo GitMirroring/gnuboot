@@ -2452,7 +2452,7 @@ slower.
 
 Here you will need to provide the @emph{rootfs-x86_64.img} file.
 
-If you don't know how to do that, like mentionneed in the previous
+If you don't know how to do that, like mentioned in the previous
 section (@ref{Booting a distribution with QEMU}), you can install Guix
 and update it if necessary.
 
