@@ -64,7 +64,7 @@ works with Linux. This means that you cannot boot a distribution from
 an SD card or a microSD card with the internal SD card reader. However
 once booted, Linux has full access to the SD card and it can read very
 low level technical information about the cards (like their serial
-number, vendor, etc) or support SD peripherals (like TV tunners, etc).
+number, vendor, etc) or support SD peripherals (like TV tuners, etc).
 
 @end macro @c cardreaderPCIe
 
@@ -73,7 +73,7 @@ number, vendor, etc) or support SD peripherals (like TV tunners, etc).
 The internal SD card reader is known to work with GNU Boot and
 Linux. This means that you can boot a distribution from an SD card or
 a microSD card with a microSD to SD adapter. However it only supports
-cards that store data (and not TV Tunners, etc) and it cannot read
+cards that store data (and not TV tuners, etc) and it cannot read
 very low level technical information about the cards (like their
 serial number, vendor name, etc).
 
