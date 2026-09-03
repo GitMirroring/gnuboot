@@ -2234,7 +2234,7 @@ extractor).
 
 While doing that, you might also need to protect the Chipflasher v2
 from static electricity, as this tend reduce the lifespan of
-electronics. You could for instance by using an antistatic wrist
+electronics. You could for instance by using an anti-static wrist
 strap. Alternatives like touching some electrical ground also exist
 but you need to know what you are doing.
 
