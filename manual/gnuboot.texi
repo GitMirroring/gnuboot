@@ -1970,10 +1970,10 @@ are still available.
 
 At the time of writing, we are not sure of the exact way to order a
 Chipflasher as the Chipflasher website is out of date: most of the
-work on this project is focused toward getting the RYF
-certification. So the easiest way to do that would be to use the
-contact information on the Zerocat website to understand how to get a
-Chipflasher.
+work on this project is focused toward getting the @acronym{RYF,
+Respect Your Freedom} certification. So the easiest way to do that
+would be to use the contact information on the Zerocat website to
+understand how to get a Chipflasher.
 
 It is also a good idea to do that now to support the Chipflasher
 project, to make sure the person behind continues to produce it as
