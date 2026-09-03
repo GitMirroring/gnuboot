@@ -1589,11 +1589,11 @@ SeaBIOS images don't need to support any filesystems because SeaBIOS
 is a BIOS interface implementation and BIOSes don't need to support
 any filesystem to load an operating system.
 
-It supports the MBR (Master boot record) partition table.
+It supports @acronym{MBR, Master boot record} partition tables.
 
-If you use GPT (GUID Partition Table) instead, it may be possible to
-boot from a BIOS Boot partition instead, but it is untested. Please do
-report if this works for you.
+If you use @acronym{GPT, GUID Partition Table} instead, it may be
+possible to boot from a BIOS Boot partition instead, but it is
+untested. Please do report if this works for you.
 
 Wikipedia has more information on why in its
 @uref{https://en.wikipedia.org/wiki/Master_boot_record,Master boot
@@ -1605,11 +1605,11 @@ partition} articles.
 @subsection Bootloaders supported by SeaBIOS
 
 @menu
-* GRUB on MBR or BIOS boot partition::
+* GRUB on @acronym{MBR, Master boot record} or BIOS boot partition::
 @end menu
 
-@node          GRUB on MBR or BIOS boot partition
-@subsubsection GRUB on MBR or BIOS boot partition
+@node          GRUB on @acronym{MBR, Master boot record} or BIOS boot partition
+@subsubsection GRUB on @acronym{MBR, Master boot record} or BIOS boot partition
 
 GRUB, when shipped from a GNU/Linux distribution, typically uses a
 graphic driver that is incompatible with GNU Boot. Because of that you
@@ -1817,10 +1817,11 @@ it loads the wrong distribution from.
 @node       Partitions supported by GRUB images
 @subsection Partitions supported by GRUB images
 
-@node          GPT (GUID Partition Table) and MBR (Master boot record)
-@subsubsection GPT (GUID Partition Table) and MBR (Master boot record)
+@node          @acronym{GPT, GUID Partition Table} and @acronym{MBR, Master boot record}
+@subsubsection @acronym{GPT, GUID Partition Table} and @acronym{MBR, Master boot record}
 
-The GRUB images support GPT and MBR partitions.
+The GRUB images support @acronym{GPT, GUID Partition Table} and
+@acronym{MBR, Master boot record} partitions.
 
 @node          LVM2
 @subsubsection LVM2
