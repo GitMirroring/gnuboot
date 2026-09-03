@@ -2605,11 +2605,12 @@ All these are security threats but they don't threaten the same people
 or organizations in the same ways.
 
 In addition, sometimes there are security features like "encryption
-with LUKS", or "hard disk encryption" that can be promoted, that
-protects against some known attack (like someone or some entity
-stealing your laptop to access your data), but not everything in
-security can be classified as features and even features are part of
-bigger processes that respond to specific threats.
+with @acronym{LUKS, Linux Unified Key Setup}", or "hard disk
+encryption" that can be promoted, that protects against some known
+attack (like someone or some entity stealing your laptop to access
+your data), but not everything in security can be classified as
+features and even features are part of bigger processes that respond
+to specific threats.
 
 For instance if you have "hard disk encryption" but that all your data
 are backed up in some other computers you don't trust and that you
