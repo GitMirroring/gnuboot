@@ -782,7 +782,7 @@ following computers:
 @item Lenovo ThinkPad T400
 @item Lenovo ThinkPad T400S
 @item Lenovo ThinkPad T500
-@item Lenovo ThinkPad T60 with intel GPU
+@item Lenovo ThinkPad T60 with Intel GPU
 @item Lenovo ThinkPad W500
 @item Lenovo ThinkPad X200
 @item Lenovo ThinkPad X200S
