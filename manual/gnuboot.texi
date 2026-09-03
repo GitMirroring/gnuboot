@@ -1672,7 +1672,7 @@ GRUB_CMDLINE_LINUX=""
 
 @end verbatim
 
-You can see it with the @emph{sudo cat /etc/default/grub} command.
+You can see it with the @command{sudo cat /etc/default/grub} command.
 
 Here you will need to change @emph{#GRUB_TERMINAL=console} to
 @emph{GRUB_TERMINAL=console}.
@@ -1766,14 +1766,14 @@ SeaBIOS (version rel-1.14.0-27-g64f37cc5)
 Press ESC for boot menu.
 @end verbatim
 
-At this point, do not press @emph{ESC} and wait a bit until it
+At this point, do not press @key{ESC} and wait a bit until it
 starts. You should see something like that:
 
 @verbatim
 Booting from Hard Disk...
 @end verbatim
 
-You can then press the @emph{Escape} or @emph{ESC} key multiple times
+You can then press the @key{Escape} or @key{ESC} key multiple times
 until it interrupts GRUB, right after SeaBIOS. At this point you should
 see something more or less like that (instead of a completely black
 screen):
@@ -2004,11 +2004,12 @@ extensively.
 
 The Chipflasher also has a dedicated manual that is very detailed, and
 it also now ships with a firmware that is compatible with flashrom,
-which also has its own manual (which is available with the @emph{man
-flashrom} command in Trisquel 11 (aramo) once the flashrom package has
-been installed (this can be done with the @emph{sudo apt install
-flashrom} command)). So it should be relatively easy to use even in
-the absence of specific instructions for GNU Boot.
+which also has its own manual (which is available with the
+@command{man flashrom} command in Trisquel 11 (aramo) once the
+flashrom package has been installed (this can be done with the
+@command{sudo apt install flashrom} command)). So it should be
+relatively easy to use even in the absence of specific instructions
+for GNU Boot.
 
 If something doesn't work, the Chipflasher manual has information on
 the @acronym{LEDs,light-emitting diodes} used for diagnostics, and
@@ -2103,8 +2104,8 @@ can sometimes make a given flash programmer work when there are signal
 integrity issues (for instance when the wires connecting the
 programmer to the boot flash are too long). How to do that is
 documented in the flashrom and flashprog manuals, inside the
-programmer sections. Such options have names like spispeed, or
-divisor, depending on the programmer being used.
+programmer sections. Such options have names like @option{spispeed},
+or @option{divisor}, depending on the programmer being used.
 
 Note that some programmers don't have the ability to lower their
 speed.
@@ -2331,12 +2332,12 @@ Here you need to replace
 @emph{grub_qemu-pc_2mb_corebootfb_usqwerty.rom} by the
 path to the image you want to try.
 
-If you don't have @emph{qemu-system-i386} you can either ask users of
-your distribution for help, to understand which package you need to
-install, or use @emph{qemu-system-x86_64} instead.
+If you don't have @command{qemu-system-i386} you can either ask users
+of your distribution for help, to understand which package you need to
+install, or use @command{qemu-system-x86_64} instead.
 
 Alternatively, the @emph{qemu} package from Guix also provides both
-(@emph{qemu-system-i386} and @emph{qemu-system-x86_64}).
+(@command{qemu-system-i386} and @command{qemu-system-x86_64}).
 
 @c We don't want the qemu-system-i386 command to be split between 2 pages as
 @c users are expected to copy-paste it in a terminal, and we don't want
@@ -2387,7 +2388,7 @@ distribution for help. Also, this will only work if your processor
 supports KVM (most computer do).
 
 In addition, for the command to work you will also need to provide the
-@emph{rootfs-i686.img} file (otherwise it will fail with @emph{Could
+@file{rootfs-i686.img} file (otherwise it will fail with @emph{Could
 not open 'rootfs-i686.img': No such file or directory}).
 
 If you don't know how to do that, you can install Guix first (it can
@@ -2431,12 +2432,12 @@ Then you can copy the following inside the guix-i686-linux.scm file:
 
 @verbatiminclude guix-i686-linux.scm
 
-And finally you can generate the @emph{rootfs-i686.img} file with the
+And finally you can generate the @file{rootfs-i686.img} file with the
 following command:
 
 @verbatiminclude build-guix-i686-linux.sh
 
-This will create the @emph{rootfs-i686.img} that you need in the
+This will create the @file{rootfs-i686.img} that you need in the
 current directory.
 
 You can then boot it with the QEMU command we gave before. You should
@@ -2448,8 +2449,8 @@ guix-i686-linux login: _
 @end example
 
 You then can login as the @emph{root} user with no password (by typing
-@emph{root} and then pressing the @emph{ENTER} key), and once done you
-can shut it down with the @emph{shutdown} command.
+@emph{root} and then pressing the @key{ENTER} key), and once done you
+can shut it down with the @command{shutdown} command.
 
 To use this with another distribution or image, you will have to find
 a way to download or generate the rootfs-i686.img file that contains
@@ -2473,7 +2474,7 @@ booted a 32bit distribution as it works fast on both 32bit and 64bit
 x86 computers and it uses less RAM.
 
 In this example we need 256 MiB of RAM (It is set in the command below
-with @emph{-m 256M}).
+with @option{-m 256M}).
 
 So to boot an x86 64bit distribution, you can use the following
 command:
@@ -2508,7 +2509,7 @@ machine slower. @pxref{Booting a distribution with QEMU} for pointers
 on how to make -enable-kvm work to not make the virtual machine boot
 slower.
 
-Here you will need to provide the @emph{rootfs-x86_64.img} file.
+Here you will need to provide the @file{rootfs-x86_64.img} file.
 
 If you don't know how to do that, like mentioned in the previous
 section (@ref{Booting a distribution with QEMU}), you can install Guix
@@ -2532,7 +2533,7 @@ You can then copy the following inside the guix-x86_64-linux.scm file:
 
 @verbatiminclude guix-x86_64-linux.scm
 
-And finally you can generate the @emph{rootfs-x86_64.img} file with the
+And finally you can generate the @file{rootfs-x86_64.img} file with the
 following command:
 
 @verbatiminclude build-guix-x86_64-linux.sh
@@ -2545,7 +2546,7 @@ guix-x86_64-linux login: _
 
 Here too, you can login as the @emph{root} user with no password
 (@pxref{Booting a distribution with QEMU} for more details), and you
-can also shut it down with the @emph{shutdown} command.
+can also shut it down with the @command{shutdown} command.
 
 @node       Booting more distributions with QEMU
 @subsection Booting more distributions with QEMU
@@ -2855,7 +2856,7 @@ manual} for how to install Guix.
 @subsection Checking the signatures of GNU Boot images
 
 To verify the signatures of an image, you first need to copy the
-following inside the @emph{neox.asc} file:
+following inside the @file{neox.asc} file:
 
 @verbatim
 -----BEGIN PGP PUBLIC KEY BLOCK-----
@@ -3017,8 +3018,8 @@ And if the operating system of that computer is also compromised, you
 will need to first (re)install GNU Boot, and then make sure reinstall
 the operating system without ever running the code from the previous
 installation. A way to do that could be to erase the disk on another
-computer, for instance with the @emph{wipe} command which comes
-from the @emph{wipe} package in Guix.
+computer, for instance with the @command{wipe} command which comes
+from the @command{wipe} package in Guix.
 
 @node       Installing with a flash chip programmer that has a firmware
 @subsection Installing with a flash chip programmer that has a firmware
@@ -3445,7 +3446,7 @@ sudo grep -q \
      /etc/guix/acl && echo "bordeaux.guix.gnu.org enabled"
 @end example
 
-If it prints @emph{bordeaux.guix.gnu.org enabled} then you have
+If it prints @file{bordeaux.guix.gnu.org enabled} then you have
 bordeaux.guix.gnu.org enabled. If not you need to enable it.
 
 To do that you first need to create a file with the
@@ -3508,9 +3509,9 @@ to speed up things, but if you use Guix extensively, at some point it
 might use too much storage space.
 
 Guix users are able to to decide when to free up space by running the
-'guix gc' command manually, but they can also control what to remove
-with various criteria. The @ref{Invoking guix gc,,,guix,GNU Guix
-manual} has more details on how to do that.
+@command{guix gc} command manually, but they can also control what to
+remove with various criteria. The @ref{Invoking guix gc,,,guix,GNU
+Guix manual} has more details on how to do that.
 
 @node    Building from tarballs and/or offline
 @section Building from tarballs and/or offline
@@ -3622,9 +3623,9 @@ sudo apt install autoconf libtool make
 @end example
 
 It requires you to generate some files. To do that you first need to
-make sure you are in the gnuboot directory. If you did @emph{cd
+make sure you are in the gnuboot directory. If you did @command{cd
 gnuboot} before in the same terminal, then everything is fine, if not,
-you need to run the @emph{cd gnuboot} commands.
+you need to run the @command{cd gnuboot} commands.
 
 Then you can then need to run the following command to generate the
 required files:
@@ -3698,7 +3699,7 @@ find the options above in the command output:
 ./configure --help
 @end example
 
-In the case of the @emph{--disable-kvm} option, there is also some
+In the case of the @option{--disable-kvm} option, there is also some
 documentation on the underlying problem in @ref{Booting a distribution
 with QEMU}. Note that the options is named almost in the same way but
 it affects two different programs (GNU Boot and QEMU).
@@ -3707,7 +3708,7 @@ Though we end up with exactly the same issue in QEMU and GNU Boot
 because GNU Boot uses QEMU during some tests if you use a 64bit
 distribution to build GNU Boot.
 
-In the case of @emph{--with-guix-build-max-cores=N}, there is also
+In the case of @option{--with-guix-build-max-cores=N}, there is also
 some documentation in the @ref{Installing Guix}.
 
 @node    Installing dependencies for building GNU Boot
@@ -3755,33 +3756,34 @@ computers, and it also build the website, the manual, etc, exactly
 like for a GNU Boot release.
 
 If for any reasons, the build is interrupted, you will need to delete
-both the bin/ and bin-dbg/ directories if they exist, otherwise the
-build system will assume that the build went fine and this might
-create issues later on, especially if you want to build a release.
+both the @file{bin/} and @file{bin-dbg/} directories if they exist,
+otherwise the build system will assume that the build went fine and
+this might create issues later on, especially if you want to build a
+release.
 
 Once done it will create many files which are described below:
 
 @itemize
-@item release/roms/: Inside this directory, each archive contains
+@item @file{release/roms/}: Inside this directory, each archive contains
       the images for a supported computer. @xref{Supported computers}
       and @ref{GNU Boot images} for more details.
-@item release/roms-dbg/: Inside this directory, each archive contains
+@item @file{release/roms-dbg/}: Inside this directory, each archive contains
       the images for a supported computer.
       @xref{Supported serial ports} for more details on debug images.
-      The @emph{resources/coreboot/README.debug} file inside the GNU
+      The @file{resources/coreboot/README.debug} file inside the GNU
       Boot source code details the difference between debug images
       and regular images.
-@item release/i945-thinkpads-install/: This directory has tools
+@item @file{release/i945-thinkpads-install/}: This directory has tools
       (and their corresponding source code) required for installing GNU
       Boot on some computers without the need of a flash programmer,
       however we don't have good documentation yet on how to use these.
       Only certain computers are compatible.
-@item release/gnuboot-[...]_src.tar.xz: Source code of projects reused
+@item @file{release/gnuboot-[...]_src.tar.xz}: Source code of projects reused
       by GNU Boot (Coreboot, GRUB, etc).
-@item release/gnuboot-website-[...].tar.gz: GNU Boot website (HTML files,
+@item @file{release/gnuboot-website-[...].tar.gz}: GNU Boot website (HTML files,
       GNU Boot manual).
-@item release/gnuboot-source-[...].bundle: Complete GNU Boot source code.
-@item release/lbssg-[...].bundle: Source code for the static website
+@item @file{release/gnuboot-source-[...].bundle}: Complete GNU Boot source code.
+@item @file{release/lbssg-[...].bundle}: Source code for the static website
       generator used to build the GNU Boot website.
 @end itemize
 
