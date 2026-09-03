@@ -2731,10 +2731,11 @@ How to prevent such attacks needs to be added later on in this manual.
 If the attacker has access to significant resources, with the same
 attack vectors (through untrusted software or by booting GNU/Linux and
 using flashrom), it can also replace the firmware of various
-peripherals like keyboards, storage devices (SSDs, USB keys, etc) with
-malicious versions that can take control of the computer, but to do
-that it needs to dedicate or have dedicated resources to the specific
-families of chip present in these peripherals.
+peripherals like keyboards, storage devices (@acronym{SSDs, Solid
+State Drives}, USB keys, etc) with malicious versions that can take
+control of the computer, but to do that it needs to dedicate or have
+dedicated resources to the specific families of chip present in these
+peripherals.
 
 Untrusted software can also come from cards that can be plugged in the
 computer, like GPUs or express-cards for laptops, so the same
