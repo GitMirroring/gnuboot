@@ -3343,7 +3343,7 @@ and pureos-archive-keyring (on PureOS).
 
 Without the proper packages, the signatures will not be checked, and
 this is dangerous, and it is even more dangerous when following
-instructions that use http instead of https.
+instructions that use HTTP instead of HTTPS.
 
 PureOS doesn't have trisquel-keyring and Trisquel doesn't have
 pureos-archive-keyring. All the other distributions probably don't
