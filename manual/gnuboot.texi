@@ -1538,7 +1538,7 @@ require users to modify some settings inside the distribution they
 use, otherwise the distribution still boots but usually has a black
 screen during the boot (which can be problematic to diagnose a
 non-booting distribution). The low resolution increase compatibility
-with various software that are typically run at boot like memtest86+
+with various software that are typically run at boot like Memtest86+
 (a software that detects broken RAM chips).
 
 @item GRUB with text-only low resolution: Since these images
