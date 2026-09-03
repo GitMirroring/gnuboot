@@ -2675,14 +2675,15 @@ But this can happen to other people that run other GNU/Linux
 distributions with (very) bad luck and bad practices.
 
 If someone that runs GNU/Linux installs random software from places
-like Aur or Pip that don't do any checks on the software being
-provided through them, that software is sometimes malware, though this
-is quite rare and Aur or Pip typically communicate on such incidents
-and the specialized press talks about it.
+like @acronym{AUR, Arch User Repository} or Pip that don't do any
+checks on the software being provided through them, that software is
+sometimes malware, though this is quite rare and @acronym{AUR, Arch
+User Repository} or Pip typically communicate on such incidents and
+the specialized press talks about it.
 
-Places like Aur or Pip also provide nonfree software, and this is by
-design, so people runing 100% free software distributions try to avoid
-such places anyway.
+Places like @acronym{AUR, Arch User Repository} or Pip also provide
+nonfree software, and this is by design, so people runing 100% free
+software distributions try to avoid such places anyway.
 
 The consequences of installing malware is quite bad as the computer
 cannot be trusted anymore and the advertised solution is usually to
