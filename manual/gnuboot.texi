@@ -1899,7 +1899,7 @@ details, proper validation, and that are easy to follow will need to
 be be added later on in this manual.
 
 So if you find compatible computers in very good conditions and/or
-with the stock nonfree BIOS, if you're not confortable with such
+with the stock nonfree BIOS, if you're not comfortable with such
 generic instructions and you need something more detailed and that has
 been validated, it might be a good idea to refrain from using a flash
 chip programmer for now, until there are better instructions to do it.
@@ -2569,8 +2569,8 @@ catastrophic.
 In addition some things are hard to fit into features. "Good code
 quality", or "I can trust the people doing this software because I
 know them well" or "I don't want to use this software because the
-people that do it know me personally and I feel unconfortable because
-of that even if I trust them" are not things that a given software
+people that do it know me personally and I feel comfortable because of
+that even if I trust them" are not things that a given software
 project can easily advertize.
 
 Not everything is technical and sometimes it can boil down to things
