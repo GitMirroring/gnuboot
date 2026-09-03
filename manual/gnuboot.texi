@@ -1350,7 +1350,7 @@ instance Guix has experimental support for GNU Hurd, an experimental
 kernel from the GNU project, and Trisquel supports the Xen kernel,
 which is a virtualization solution that not supported by all GNU/Linux
 distributions. These configurations are not supported in the official
-installers of these distribution and so users are usually aware thaty
+installers of these distribution and so users are usually aware that
 they use Xen or GNU Hurd. Using GNU Boot with these configurations
 might require some configuration from the user. Also we would need
 help from users to report what works and doesn't work or what
