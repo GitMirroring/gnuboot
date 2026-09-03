@@ -1352,7 +1352,7 @@ GNU Boot, but support for them hasn't been enabled yet in GNU Boot:
 @item Software RAID cards: Some Silicon Image SIL3114 software RAID
       cards are supported by Coreboot but not enabled in GNU Boot.
 @item Network interfaces. Projects like iPXE has drivers for many network cards
-      and even some Wifi cards typically used with the computers supported by GNU
+      and even some WiFi cards typically used with the computers supported by GNU
       Boot and free distributions.
 @end itemize
 
