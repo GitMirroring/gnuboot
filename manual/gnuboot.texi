@@ -1475,7 +1475,7 @@ important, but using high resolution looks nicer) as the image with
 GRUB doesn't require to do any configuration in the distributions you
 want to boot.
 
-Otherwise here are the advantages/disadvantages of each combinaison:
+Otherwise here are the advantages/disadvantages of each combination:
 
 @itemize
 
