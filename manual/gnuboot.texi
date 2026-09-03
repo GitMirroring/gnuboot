@@ -1803,7 +1803,8 @@ screen):
 When booting, the GNU Boot GRUB image selects the first entry, which
 is @emph{Load Operating System (incl. fully encrypted disks)}.
 
-It has limited heuristics to find LVM, raid and encrypted partitions.
+It has limited heuristics to find @acronym{LVM, Logical Volume
+Manager}, raid and encrypted partitions.
 
 Once it finds a filesystem, it tries to find the gnuboot_grub.cfg,
 osboot_grub.cfg, autoboot_grub.cfg, coreboot_grub.cfg, grub.cfg, in
@@ -1823,12 +1824,13 @@ it loads the wrong distribution from.
 The GRUB images support @acronym{GPT, GUID Partition Table} and
 @acronym{MBR, Master boot record} partitions.
 
-@node          LVM2
-@subsubsection LVM2
+@node          @acronym{LVM2, Logical Volume Manager 2}
+@subsubsection @acronym{LVM2, Logical Volume Manager 2}
 
-While basic usage of LVM2 is supported and well tested, it also has
-various backends like for RAID0, RAID5, etc, and these are not well
-tested and might not all be supported.
+While basic usage of @acronym{LVM2, Logical Volume Manager 2} is
+supported and well tested, it also has various backends like for
+RAID0, RAID5, etc, and these are not well tested and might not all be
+supported.
 
 @node          GNU/Linux RAID
 @subsubsection GNU/Linux RAID
