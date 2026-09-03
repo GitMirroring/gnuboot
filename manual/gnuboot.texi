@@ -1169,8 +1169,9 @@ with GNU Boot because:
 @itemize
 
 @item they either use some standard that is most often already
-implemented in the software GNU Boot reuses (storage devices like SATA
-drives, USB keyboards, etc),
+implemented in the software GNU Boot reuses (storage devices like
+@acronym{SATA, Serial @acronym{ATA, AT Attachment}} drives, USB
+keyboards, etc),
 
 @item they are not relevant or supported for booting (for instance 3D printers,
 cellular network cards, etc, unless people add support for them in GNU
@@ -1208,11 +1209,12 @@ Sometimes this software is not useful. For instance if you don't
 intend to boot from the network, you don't need to run that code.
 
 And sometimes the functionality provided by this code can even be very
-dangerous to use. For instance some SATA controllers contain code that
-can format disks with some vendor-specific format, but if you use
-that, since code is nonfree, if the card breaks, you end up not being
-able to read the data on your disks anymore unless the disk format is
-reimplemented with free software somehow.
+dangerous to use. For instance some @acronym{SATA, Serial
+@acronym{ATA, AT Attachment}} controllers contain code that can format
+disks with some vendor-specific format, but if you use that, since
+code is nonfree, if the card breaks, you end up not being able to read
+the data on your disks anymore unless the disk format is reimplemented
+with free software somehow.
 
 Things are not always bad though, as this software can sometimes be
 replaced with free software like with @uref{https://ipxe.org,iPXE} or
