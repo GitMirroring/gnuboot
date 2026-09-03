@@ -792,7 +792,7 @@ following computers:
 @item Lenovo ThinkPad X60T
 @item Lenovo ThinkPad X60s
 @item Libiquity Taurinus X200
-@item Qemu PC (i440FX)
+@item QEMU PC (i440FX)
 @item Technoethical D16 (experimental)
 @item Technoethical T400
 @item Technoethical T400s
@@ -1317,7 +1317,7 @@ port enabled:
 @item Asus KGPE-D16
 @item Lenovo ThinkPad T400
 @item Lenovo ThinkPad T400S
-@item Qemu PC (i440FX)
+@item QEMU PC (i440FX)
 @item Technoethical T400
 @item Technoethical T400s
 @item Vikings ASUS KGPE D16 mainboard
