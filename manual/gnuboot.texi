@@ -3690,8 +3690,8 @@ Boot:
 @item --with-xz-extra-args="ARG ARG [...]"
 @end itemize
 
-They are sometimes mentionned in the rest of this manual. To learn
-what they do you can also use the command mentionned above and try to
+They are sometimes mentioned in the rest of this manual. To learn
+what they do you can also use the command mentioned above and try to
 find the options above in the command output:
 
 @example
