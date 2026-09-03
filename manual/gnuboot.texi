@@ -3347,8 +3347,9 @@ pureos-archive-keyring. All the other distributions probably don't
 have either keyrings.
 
 Once you have a chroot, you can either configure it and chroot inside
-or convert it to run inside container engines like LXC, LXD, Docker
-(with debuerreotype if your distribution has a package for it), etc.
+or convert it to run inside container engines like @acronym{LXC, Linux
+Containers}, LXD, Docker (with debuerreotype if your distribution has
+a package for it), etc.
 
 It is also possible to install Trisquel 10 (nabia) or PureOS in a
 virtual machine. Note that PureOS doesn't sign its releases so we
