@@ -3415,7 +3415,7 @@ Then, packages that built in the past might not build anymore (see the
 on the quest for long-term reproducible deployment} blog post for more
 details and how to workaround the issue.
 
-Finally, if you don't have enourh RAM, or not enough RAM per CPU
+Finally, if you don't have enough RAM, or not enough RAM per CPU
 cores, building with Guix can also fail (@pxref{GNU Boot configuration
 for Guix} for how to workaround this issue).
 
