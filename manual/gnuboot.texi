@@ -3024,7 +3024,7 @@ Arduino, things are more complex.
 The @uref{https://github.com/urjaman/frser-duino,frser-duino} firmware
 is free and it can easily be (re)built and installed into an Arduino
 to make it become a flashrom compatible flash chip programmer. Note
-that some Arduinos do require level shifter to be able to safely
+that some Arduinos do require level shifters to be able to safely
 program the boot flash found on the computers supported by GNU Boot.
 
 However if you build a flash chip programmer with an Arduino, you also
