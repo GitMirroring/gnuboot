@@ -3611,7 +3611,7 @@ especially in the part about "Key validation".
 @section Initializing the GNU Build system
 
 GNU Boot uses the GNU Build system (also known as autotools). Compared
-to other build syste, this build system is very flexible, and it is
+to other build system, this build system is very flexible, and it is
 way more familiar and easier to use for end users.
 
 It requires the installation of some dependencies. You can install
