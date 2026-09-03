@@ -118,7 +118,7 @@ GNU Boot 0.1 RC6 status
 | Libiquity,       | Untested     | Untested     | Untested     | Untested     |
 | Taurinus X200    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Qemu,            | Untested     | Untested     | Untested     | Untested     |
+| QEMU,            | Untested     | Untested     | Untested     | Untested     |
 | PC (i440FX)      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | Missing      | Untested     | Missing      | Untested     |
@@ -302,7 +302,7 @@ GNU Boot 0.1 RC5 status
 | Libiquity,       | Untested     | Untested     | Untested     | Untested     |
 | Taurinus X200    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Qemu,            | Untested     | Untested     | Untested     | Untested     |
+| QEMU,            | Untested     | Untested     | Untested     | Untested     |
 | PC (i440FX)      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | Missing      | Untested     | Missing      | Untested     |
@@ -458,7 +458,7 @@ GNU Boot 0.1 RC4 status
 | Libiquity,       | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
 | Taurinus X200    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Qemu,            | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
+| QEMU,            | Untested     | Untested     | Fail: #66487 | Fail: #66487 |
 | PC (i440FX)      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | Missing      | Untested     | Missing      | Fail: #66487 |
@@ -577,7 +577,7 @@ GNU Boot 0.1 RC3 status
 +---------------+--------------------+--------------+
 | Libiquity     | Taurinus X200      | Untested     |
 +---------------+--------------------+--------------+
-| Qemu          | PC (i440FX)        | Untested     |
+| QEMU          | PC (i440FX)        | Untested     |
 +---------------+--------------------+--------------+
 | Technoethical | D16                | Tested       |
 +---------------+--------------------+--------------+
@@ -672,7 +672,7 @@ the RC2 to reduce the risk of testers.
 +---------------+--------------------+--------------+
 | Libiquity     | Taurinus X200      | Tested       |
 +---------------+--------------------+--------------+
-| Qemu          | PC (i440FX)        | Tested       |
+| QEMU          | PC (i440FX)        | Tested       |
 +---------------+--------------------+--------------+
 | Technoethical | D16                | Untested     |
 +---------------+--------------------+--------------+

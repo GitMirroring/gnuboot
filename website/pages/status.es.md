@@ -117,7 +117,7 @@ Estado de GNU Boot 0.1 RC6
 | Libiquity,       | No probado   | No probado   | No probado   | No probado   |
 | Taurinus X200    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Qemu,            | No probado   | No probado   | No probado   | No probado   |
+| QEMU,            | No probado   | No probado   | No probado   | No probado   |
 | PC (i440FX)      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | Faltan       | No probado   | Faltan       | No probado   |
@@ -303,7 +303,7 @@ Estado de GNU Boot 0.1 RC5
 | Libiquity,       | No probado   | No probado   | No probado   | No probado   |
 | Taurinus X200    |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
-| Qemu,            | No probado   | No probado   | No probado   | No probado   |
+| QEMU,            | No probado   | No probado   | No probado   | No probado   |
 | PC (i440FX)      |              |              |              |              |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | Faltan       | No probado   | Faltan       | No probado   |
@@ -462,7 +462,7 @@ Estado de GNU Boot 0.1 RC4
 | Libiquity,       | No probado   | No probado   | Fallado:     | Fallado:     |
 | Taurinus X200    |              |              | #66487       | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
-| Qemu,            | No probado   | No probado   | Fallado:     | Fallado:     |
+| QEMU,            | No probado   | No probado   | Fallado:     | Fallado:     |
 | PC (i440FX)      |              |              | #66487       | #66487       |
 +------------------+--------------+--------------+--------------+--------------+
 | Technoethical,   | Faltan       | No probado   | Faltan       | Fallado:     |
@@ -581,7 +581,7 @@ Estado de GNU Boot 0.1 RC3
 +---------------+----------------+-----------------+
 | Libiquity     | Taurinus X200  | No probado      |
 +---------------+----------------+-----------------+
-| Qemu          | PC (i440FX)    | No probado      |
+| QEMU          | PC (i440FX)    | No probado      |
 +---------------+----------------+-----------------+
 | Technoethical | D16            | Probado         |
 +---------------+----------------+-----------------+
@@ -677,7 +677,7 @@ algunas computadoras en el RC2 para reducir el riesgo de los probadores.
 +---------------+----------------+-----------------+
 | Libiquity     | Taurinus X200  | Probado         |
 +---------------+----------------+-----------------+
-| Qemu          | PC (i440FX)    | Probado         |
+| QEMU          | PC (i440FX)    | Probado         |
 +---------------+----------------+-----------------+
 | Technoethical | D16            | No probado      |
 +---------------+----------------+-----------------+
