@@ -2569,7 +2569,7 @@ Unfortunately most people don't know these things, and this most
 likely includes many members of the free software community as well.
 
 And without the basics here, seriously talking about computer security
-and risk management would be meaningless, missleading, or would be
+and risk management would be meaningless, misleading, or would be
 restricted to some very narrow topic that isn't necessarily relevant
 to most people.
 
