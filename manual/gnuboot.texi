@@ -1745,7 +1745,7 @@ sudo guix system reconfigure /etc/config.scm
 @c How to use GRUB.
 
 Since most distribution hides the GRUB menu by default unless they
-detects some issue, if one day you need to interract with GRUB (for
+detects some issue, if one day you need to interact with GRUB (for
 instance to boot with an older kernel), at boot, you will need to
 first wait for SeaBIOS to load.
 
