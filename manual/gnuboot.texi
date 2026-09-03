@@ -3280,7 +3280,7 @@ following URL:
 @url{https://www.gnu.org/software/gnuboot/docs/build/}.
 
 @xref{Authenticating the GNU Boot source code} as GNU Boot has ways to
-prevent network attacks from tempering with the souce code you are
+prevent network attacks from tempering with the source code you are
 downloading.
 
 @node    Supported distributions for building GNU Boot binaries
