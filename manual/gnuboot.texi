@@ -2881,8 +2881,8 @@ y35gwjcaigD/fjDVjNnxjpqGFOLvEkSMZgjNpejar69Msf1sRH8tGAg=
 -----END PGP PUBLIC KEY BLOCK-----
 @end verbatim
 
-You will then need to import the key into the GPG keyring. This can be
-done with the following command:
+You will then need to import the key into the @acronym{GPG, GNU
+Privacy Guard} keyring. This can be done with the following command:
 
 @example
 gpg --import neox.asc
